@@ -1,0 +1,5 @@
+ 
+ "RETAILSTOPCHEQUESUMMARY" : {
+ "servicePath": ["display-shell","accounts", "retail-stopcheque-display-grid"],
+ "queryParams": {}
+ }

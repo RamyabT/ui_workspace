@@ -1,0 +1,73 @@
+"cobAdditionalInformation": {
+   "title": "Additional Information",
+   "comaddressdetail": "Home Address",
+   "empaddressDetail": "Employment Address",
+   "purposeOfAccount": {
+      "label": "Purpose of Account",
+      "placeholder": "Select your purpose of account"
+   },
+  "mainSourceOfIncome": {
+      "label": "Main Source of Income / Wealth",
+      "placeholder": "Main Source of Income / Wealth"
+   },
+  "branch": {
+      "label": "Branch",
+      "placeholder": "Select your branch"
+   },
+   "mailingAddress": {
+      "label": "Preferred Mailing Address",
+      "placeholder": "Preferred Mailing Address"
+   },
+   "dualNationalityHolderFlag": {
+      "label": "Dual Nationality holder",
+      "placeholder": "Dual Nationality holder"
+   },
+   "dualNationalityHolder": {
+      "label": "Dual Nationality holder",
+      "placeholder": "Dual Nationality holder"
+   },
+   "maritalStatus": {
+      "label": "Marital Status",
+      "placeholder": "Marital Status"
+   },
+   "occupation": {
+      "label": "Occupation",
+      "placeholder": "Select your occupation"
+   },
+   "otherIncome": {
+      "label": "Other income",
+      "placeholder": "Other income"
+   },
+   "cashDeposit": {
+      "label": "Cash Deposit",
+      "placeholder": "Cash Deposit"
+   },
+   "localForeignInward": {
+      "label": "Local & foreign inward remittances excluding salary",
+      "placeholder": "Local & foreign inward remittances excluding salary"
+   },
+   "outwardClearing": {
+      "label": "Outward clearing (cheques  issued in favor of other parties)",
+      "placeholder": "Outward clearing (cheques  issued in favor of other parties)"
+   },
+   "grossCreditTurnover": {
+      "label": "Gross Credit Turnover",
+      "placeholder": "Gross Credit Turnover"
+   },
+   "avgCashWithdraw": {
+      "label": "Average Cash withdrawal",
+      "placeholder": "Average Cash withdrawal"
+   },
+   "localForeignOutward": {
+      "label": "Local & foreign outward remittances excluding salary",
+      "placeholder": "Local & foreign outward remittances excluding salary"
+   },
+   "InwardClearing": {
+      "label": "Inward Clearing",
+      "placeholder": "Inward Clearing"
+   },
+   "grossDebitTurnover": {
+      "label": "Gross Debit Turnover",
+      "placeholder": "Gross Debit Turnover"
+   }
+},

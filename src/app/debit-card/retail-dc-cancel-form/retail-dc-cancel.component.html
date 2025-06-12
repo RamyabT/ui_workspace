@@ -1,0 +1,31 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="retaildccancel" >
+	   
+	 <box class="entry-form">
+		<box class="grid entry-form-field-group">
+	      
+			  <app-active-dc-list-control class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('cardRefNumber')"     label="{{'retaildccancel.cardRefNumber.label' | translate }}"   formControlName="cardRefNumber" 
+     ></app-active-dc-list-control>
+	     
+	      
+			  <app-dc-cancel-reason-list-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('reason')"     label="{{'retaildccancel.reason.label' | translate }}"   formControlName="reason" 
+     ></app-dc-cancel-reason-list-control>
+	     
+	 <app-payment-amount-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('charges')"     label="{{'retaildccancel.charges.label' | translate }}"   formControlName="charges"  placeholder="{{'retaildccancel.charges.placeholder' | translate }}"
+	 [CurrencyList]="state.charges.CurrencyList" [isCurrEditable]="state.charges.isCurrEditable"  [defaultFetch]="state.charges.defaultFetch" [initCurrency]="state.charges.initCurrency" [amountInWords]="state.charges.amountInWords">  >
+</app-payment-amount-control>
+	      
+			  <app-remarks-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('remarks')"     label="{{'retaildccancel.remarks.label' | translate }}"   formControlName="remarks" 
+   ></app-remarks-control>
+		<box  id="000_4"  class="col-md-12 grid  main-group  ">
+	     
+	      
+			  <app-terms-control  class="col-sm-12 "   [actionPublisher]="actionMap$.get('terms')"     label="{{'retaildccancel.terms.label' | translate }}"   formControlName="terms"  placeholder="{{'retaildccancel.terms.placeholder' | translate }}" 
+   [textPosition]="state.terms.textPosition"  [ckValues]="state.terms.ckValues" ></app-terms-control>
+	     
+	     
+			  <!-- <fpx-display-text id="FieldId_5"   class="col-md-12  FieldId_5"  [innerHTML]="'retaildccancel.FieldId_5.text' | translate"   [literals]="commonFormInput"></fpx-display-text> -->
+		</box>
+	 </box> 
+	 </box>
+	</form>
+	

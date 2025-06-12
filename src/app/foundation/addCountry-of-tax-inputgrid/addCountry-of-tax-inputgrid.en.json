@@ -1,0 +1,11 @@
+"AddCountryOfTaxInputGrid":{
+"title":"addCountryOfTax",
+		 "country": {
+		  "label":"Country" ,
+		  "placeholder": "Country"
+		  } ,
+		 "taxPayerId": {
+		  "label":"taxPayerId" ,
+		  "placeholder": "taxPayerId"
+		  } 
+}

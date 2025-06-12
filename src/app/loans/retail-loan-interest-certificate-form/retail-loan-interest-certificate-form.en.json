@@ -1,0 +1,15 @@
+"RetailLoanInterestCertificateForm":{
+"title":"Loan Interest Certificate",
+		 "loanAccountNumber": {
+		  "label":"Loan Account Number" ,
+		  "placeholder": "Loan Account Number"
+		  } ,
+		 "dateFrom": {
+		  "label":"From Date" ,
+		  "placeholder": "From Date"
+		  } ,
+		 "dateTo": {
+		  "label":"To Date" ,
+		  "placeholder": "To Date"
+		  } 
+}

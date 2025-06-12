@@ -1,0 +1,5 @@
+ 
+ "RETAILCOBTAXDETAILS" : {
+ "servicePath": ["entry-shell","onboarding", "cob-tax-details-form"],
+ "queryParams": {}
+ }

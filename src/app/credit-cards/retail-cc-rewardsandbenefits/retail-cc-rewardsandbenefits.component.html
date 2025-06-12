@@ -1,0 +1,20 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="ccRewardBenefits">
+	<box class="entry-form">
+		<!-- <app-description-control  class="col-md-4  " [actionPublisher]="actionMap$.get('description')" label="{{'ccRewardBenefits.description.label' | translate }}"   formControlName="description" 
+   ></app-description-control> -->
+
+		<!-- <app-product-category-control  class="col-md-4  "   [actionPublisher]="actionMap$.get('prodCode')"     label="{{'ccRewardBenefits.prodCode.label' | translate }}"   formControlName="prodCode" 
+   ></app-product-category-control> -->
+
+		<!-- <app-description-control  class="col-md-4  "   [actionPublisher]="actionMap$.get('prodctLink')"     label="{{'ccRewardBenefits.prodctLink.label' | translate }}"   formControlName="prodctLink" 
+   ></app-description-control> -->
+
+		<app-retail-cc-rewards-ro-grid class="col-md-4" (commonRoGridEvent)="handleControlEvent($event)"
+			[actionPublisher]="actionMap$.get('ccRewardsInfo')" label="ccRewardsInfo"
+			formControlName="ccRewardsInfo"></app-retail-cc-rewards-ro-grid>
+
+		<app-retail-cc-benefits-ro-grid class="col-md-4" (commonRoGridEvent)="handleControlEvent($event)"
+			[actionPublisher]="actionMap$.get('ccBenefitsInfo')" label="ccBenefitsInfo"
+			formControlName="ccBenefitsInfo"></app-retail-cc-benefits-ro-grid>
+	</box>
+</form>

@@ -1,0 +1,5 @@
+ 
+ "RETAILAPPLYDEBITCARD" : {
+ "servicePath": ["entry-shell","debitcard", "retail-apply-debit-card"],
+ "queryParams": {}
+ }

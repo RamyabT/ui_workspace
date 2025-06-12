@@ -1,0 +1,40 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="verifyTfa" class="verify-otp-form">
+    
+    <box class="entry-form login-form-wrapper custom-form">
+        <box  id="header"  class="col-md-12 grid  header  ">
+			
+            <box class="otp-form-content desc col-sm-12 col-md-6 col-lg-6">
+                <ng-container *ngIf="state.deliveryDetails.mobileNumber">
+                    <fpx-display-text *ngIf="_helper._deviceDetectorService.isMobile()" id="title1"  class="title"   [innerHTML]="'Mobile verification'"  [literals]="commonFormInput"></fpx-display-text>
+                    <fpx-display-text class="tfa-message title-desc" [innerHTML]="'Enter the verification code we just sent to your number ' + state.deliveryDetails.mobileNumber"></fpx-display-text>
+                </ng-container>
+                <ng-container *ngIf="state.deliveryDetails.emailId">
+                    <fpx-display-text *ngIf="_helper._deviceDetectorService.isMobile()" id="title1"  class="title"   [innerHTML]="'Email verification'"  [literals]="commonFormInput"></fpx-display-text>
+                    <fpx-display-text class="tfa-message title-desc" [innerHTML]="'Enter the verification code we just sent to your Email ID ' + state.deliveryDetails.emailId"></fpx-display-text>
+                </ng-container>
+                <ng-container *ngIf="state.deliveryDetails.whatsAppNumber">
+                    <fpx-display-text class="tfa-message title-desc" [innerHTML]="'Enter the verification code we just sent to your WhatsApp Number ' + state.deliveryDetails.whatsAppNumber"></fpx-display-text>
+                </ng-container>
+            </box>
+		</box>	
+        
+        <box class="otp-field">
+            <fpx-pin [size]="6" [showPinOption]="false" formControlName="otp"
+            [actionPublisher]="actionMap$.get('createdBy')"></fpx-pin>
+            <fpx-display-text class="error-txt" [innerHTML]="state.formErrorMessage"></fpx-display-text>
+        </box>
+        <ng-container *ngIf="state.expiryInterval != -1">
+        <box class="otp-timer-sec">
+            <fpx-timer [startTimer]="state.doStartTimer"[expireSec]="state.expiryInterval" (timeout)="_helper.onTimeout()"></fpx-timer>
+        </box>
+        </ng-container>
+        <box class="resend-otp-info">
+            <fpx-display-text class="" [innerHTML]="'Didn`t receive code?&nbsp'"></fpx-display-text><span></span>
+            <fpx-button [disable]="state.disableResend" btnClass="resend-otp-link" btnType="button" label="Resend" (onClick)="_helper.resendOTP()"></fpx-button>
+        </box>
+        <!-- <box class="form-action-container">
+            <button type="submit" class="primary" [disabled]="formGroup.invalid">Submit</button>
+        </box> -->
+        
+    </box>
+</form>

@@ -1,0 +1,217 @@
+<form
+  [formGroup]="formGroup"
+  (ngSubmit)="submit()"
+  autocomplete="off"
+  formName="ApplicantsForm"
+>
+  <box class="entry-form">
+    <box class="entry-form-field-group col-12 grid">
+      <box id="header" class="col-md-12 grid header">
+        <fpx-display-text
+          id="title1"
+          class="title"
+          [innerHTML]="'ApplicantsForm.title1.text' | translate"
+          [literals]="commonFormInput"
+        ></fpx-display-text>
+        <!-- <fpx-display-text id="hint"   class="hint"  [innerHTML]="'ApplicantsForm.hint.text' | translate"   [literals]="commonFormInput"></fpx-display-text> -->
+      </box>
+
+      <app-applicant-name-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('firstName')"
+        label="{{ 'ApplicantsForm.firstName.label' | translate }}"
+        formControlName="firstName"
+        placeholder="{{ 'ApplicantsForm.firstName.placeholder' | translate }}"
+      ></app-applicant-name-control>
+
+      <app-applicant-name-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('middleName')"
+        label="{{ 'ApplicantsForm.middleName.label' | translate }}"
+        formControlName="middleName"
+        placeholder="{{ 'ApplicantsForm.middleName.placeholder' | translate }}"
+      ></app-applicant-name-control>
+
+      <app-applicant-name-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('lastName')"
+        label="{{ 'ApplicantsForm.lastName.label' | translate }}"
+        formControlName="lastName"
+        placeholder="{{ 'ApplicantsForm.lastName.placeholder' | translate }}"
+      ></app-applicant-name-control>
+
+      <app-applicant-name-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('fullName')"
+        label="{{ 'ApplicantsForm.fullName.label' | translate }}"
+        formControlName="fullName"
+        placeholder="{{ 'ApplicantsForm.fullName.placeholder' | translate }}"
+      ></app-applicant-name-control>
+<box class="mobile-num">
+      <!-- <div class="mobile-control"> -->
+        <!-- <app-applicant-mobile-control
+          class="col-sm-12 col-md-6 col-lg-6"
+          [actionPublisher]="actionMap$.get('mobileNum')"
+          label="{{ 'ApplicantsForm.mobileNum.label' | translate }}"
+          formControlName="mobileNum"
+          placeholder="{{ 'ApplicantsForm.mobileNum.placeholder' | translate }}"
+        ></app-applicant-mobile-control> -->
+		<!-- <app-ISOCode-control
+        class="col-sm-12 col-md-6 col-lg-2"
+        [actionPublisher]="actionMap$.get('isoCode')"
+        label="{{ 'ApplicantsForm.isoCode.label' | translate }}"
+        formControlName="isoCode"
+        placeholder="{{ 'ApplicantsForm.isoCode.placeholder' | translate }}"
+      ></app-ISOCode-control> -->
+      <app-isocode-list-control
+      class="col-sm-12 col-md-6 col-lg-2"
+      [actionPublisher]="actionMap$.get('isoCode')"
+      label="{{ 'ApplicantsForm.isoCode.label' | translate }}"
+      formControlName="isoCode"
+      ></app-isocode-list-control>
+
+        <app-applicant-mobile-number-control
+          class="col-sm-12 col-md-6 col-lg-10"
+          [actionPublisher]="actionMap$.get('mobileNum')"
+          label="{{ 'ApplicantsForm.mobileNum.label' | translate }}"
+          formControlName="mobileNum"
+          placeholder="{{ 'ApplicantsForm.mobileNum.placeholder' | translate }}"
+        ></app-applicant-mobile-number-control>
+
+        <!-- <span class="countrycode-action">+971</span> -->
+      <!-- </div> -->
+	</box>
+      <app-applicant-email-component
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('emailAddress')"
+        label="{{ 'ApplicantsForm.emailAddress.label' | translate }}"
+        placeholder="{{
+          'ApplicantsForm.emailAddress.placeholder' | translate
+        }}"
+        formControlName="emailAddress"
+      ></app-applicant-email-component>
+
+      <!-- <app-applicant-otp-control class="col-md-4 col-lg-12" [actionPublisher]="actionMap$.get('otpVerificationMode')"
+			label="{{'ApplicantsForm.otpVerificationMode.label' | translate }}"
+			formControlName="otpVerificationMode"></app-applicant-otp-control> -->
+
+
+      <app-applicant-dob-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('dob')"
+        label="{{ 'ApplicantsForm.dob.label' | translate }}"
+        formControlName="dob"
+        [minDate]="state.dob.minDate"
+        [maxDate]="state.dob.maxDate"
+        placeholder="{{ 'ApplicantsForm.dob.placeholder' | translate }}"
+      ></app-applicant-dob-control>
+
+      <app-preferred-marital-status-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('maritalStatus')"
+        label="{{ 'ApplicantsForm.maritalStatus.label' | translate }}"
+        formControlName="maritalStatus"
+      ></app-preferred-marital-status-control>
+
+      <app-nationality-list-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('nationality')"
+        label="{{ 'ApplicantsForm.nationality.label' | translate }}"
+        formControlName="nationality"
+      ></app-nationality-list-control>
+
+      <app-suffix-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('suffix')"
+        label="{{ 'ApplicantsForm.suffix.label' | translate }}"
+        formControlName="suffix"
+      ></app-suffix-control>
+
+      <app-org-channel-list-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('channel')"
+        label="{{ 'ApplicantsForm.channel.label' | translate }}"
+        formControlName="channel"
+      ></app-org-channel-list-control>
+
+      <app-title-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('title')"
+        label="{{ 'ApplicantsForm.titleControl.label' | translate }}"
+        formControlName="title"
+		placeholder="{{ 'ApplicantsForm.titleControl.placeholder' | translate }}"
+      ></app-title-control>
+
+      <app-resident-status-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('residentstatus')"
+        label="{{ 'ApplicantsForm.residentstatus.label' | translate }}"
+        formControlName="residentstatus"
+      ></app-resident-status-control>
+
+      <app-applicant-gender-dropdown-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('gender')"
+        label="{{ 'ApplicantsForm.gender.label' | translate }}"
+        formControlName="gender"
+      ></app-applicant-gender-dropdown-control>
+      <!-- udf1 -->
+		<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('udf1')"
+    placeholder="{{'ApplicantsForm.udf1.placeholder' | translate }}"
+    label="{{'ApplicantsForm.udf1.label' | translate }}" formControlName="udf1">
+  </app-user-defined-control>
+  <!-- udf2 -->
+  <app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('udf2')"
+    placeholder="{{'ApplicantsForm.udf2.placeholder' | translate }}"
+    label="{{'ApplicantsForm.udf2.label' | translate }}" formControlName="udf2">
+  </app-user-defined-control>
+  <!-- udf3 -->
+  <app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('udf3')"
+    placeholder="{{'ApplicantsForm.udf3.placeholder' | translate }}"
+    label="{{'ApplicantsForm.udf3.label' | translate }}" formControlName="udf3">
+  </app-user-defined-control>
+  <!-- udf4 -->
+  <app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('udf3')"
+    placeholder="{{'ApplicantsForm.udf4.placeholder' | translate }}"
+    label="{{'ApplicantsForm.udf3.label' | translate }}" formControlName="udf3">
+  </app-user-defined-control>
+  <!-- udf5 -->
+  <app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('udf3')"
+    placeholder="{{'ApplicantsForm.udf5.placeholder' | translate }}"
+    label="{{'ApplicantsForm.udf3.label' | translate }}" formControlName="udf3">
+  </app-user-defined-control>
+      <box>
+        <app-captcha-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('captcha')"
+        label="{{ 'ApplicantsForm.captcha.label' | translate }}"
+        formControlName="captcha"
+        placeholder="{{ 'ApplicantsForm.captcha.placeholder' | translate }}"
+      >
+      </app-captcha-control>
+      </box>
+    </box>
+
+    
+    <div class="terms-and-condition">
+      <app-terms-condition-control
+        class="col-sm-12 col-lg-12 col-md-12"
+        formControlName="terms"
+      >
+        <span>{{ "ApplicantsForm.termsandconditions" | translate }}</span>
+      </app-terms-condition-control>
+      <app-terms-condition-control
+        class="col-sm-12 col-lg-12 col-md-12"
+        formControlName="terms1"
+      >
+        <span>{{ "ApplicantsForm.terms2" | translate }}</span>
+      </app-terms-condition-control>
+      <app-terms-condition-control
+        class="col-sm-12 col-lg-12 col-md-12"
+        formControlName="terms2"
+      >
+        <span>{{ "ApplicantsForm.terms3" | translate }}</span>
+      </app-terms-condition-control>
+    </div>
+  </box>
+</form>

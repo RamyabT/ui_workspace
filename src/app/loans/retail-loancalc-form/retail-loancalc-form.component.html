@@ -1,0 +1,34 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailLoanCalcForm" >
+	  
+	<box class="entry-form">
+	     
+	      
+			  <app-existing-facility-list-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('loanType')"     label="{{'RetailLoanCalcForm.loanType.label' | translate }}"   formControlName="loanType" 
+     ></app-existing-facility-list-control>
+	     
+<!-- 	      
+			  <app-tenure-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('tenure')"     label="{{'RetailLoanCalcForm.tenure.label' | translate }}"   formControlName="tenure" 
+   ></app-tenure-control> -->
+	     
+	      
+			  <app-request-date-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('requestDate')"     label="{{'RetailLoanCalcForm.requestDate.label' | translate }}"   formControlName="requestDate" 
+   [minDate]="state.requestDate.minDate"   [maxDate]="state.requestDate.maxDate"  ></app-request-date-control>
+	     
+	      
+			  <app-amount-currency-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('loanAmount')"     label="{{'RetailLoanCalcForm.loanAmount.label' | translate }}"   formControlName="loanAmount" 
+   [CurrencyList]="state.loanAmount.CurrencyList" [isCurrEditable]="state.loanAmount.isCurrEditable"  [defaultFetch]="state.loanAmount.defaultFetch" [initCurrency]="state.loanAmount.initCurrency" [amountInWords]="state.loanAmount.amountInWords">  ></app-amount-currency-control>
+	     
+	      
+			  <app-amount-currency-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('downPaymentAmount')"     label="{{'RetailLoanCalcForm.downPaymentAmount.label' | translate }}"   formControlName="downPaymentAmount" 
+   [CurrencyList]="state.downPaymentAmount.CurrencyList" [isCurrEditable]="state.downPaymentAmount.isCurrEditable"  [defaultFetch]="state.downPaymentAmount.defaultFetch" [initCurrency]="state.downPaymentAmount.initCurrency" [amountInWords]="state.downPaymentAmount.amountInWords">  ></app-amount-currency-control>
+	     
+	      
+			  <app-amount-currency-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('vehicleCost')"     label="{{'RetailLoanCalcForm.vehicleCost.label' | translate }}"   formControlName="vehicleCost" 
+   [CurrencyList]="state.vehicleCost.CurrencyList" [isCurrEditable]="state.vehicleCost.isCurrEditable"  [defaultFetch]="state.vehicleCost.defaultFetch" [initCurrency]="state.vehicleCost.initCurrency" [amountInWords]="state.vehicleCost.amountInWords">  ></app-amount-currency-control>
+	     
+	      
+			  <app-amount-currency-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('propertyValue')"     label="{{'RetailLoanCalcForm.propertyValue.label' | translate }}"   formControlName="propertyValue" 
+   [CurrencyList]="state.propertyValue.CurrencyList" [isCurrEditable]="state.propertyValue.isCurrEditable"  [defaultFetch]="state.propertyValue.defaultFetch" [initCurrency]="state.propertyValue.initCurrency" [amountInWords]="state.propertyValue.amountInWords">  ></app-amount-currency-control>
+	</box> 
+</form>
+	

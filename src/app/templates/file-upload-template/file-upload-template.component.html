@@ -1,0 +1,42 @@
+<ng-template let-formControl let-fileInput="fileInput" let-label="label" 
+    let-placeHolder="placeholder" let-files="files"
+    #fileUploadTmplt [fpxControlTemplate]="'fileUploadTmplt'">
+    <div class="fpx-form-control">
+        <box class="label">
+            <fpx-label [label]="label" [control]="formControl"></fpx-label>
+        </box>
+        <box class="attachments">
+            <box class="file-upload" (click)="fileInput.click()">
+                <button type="button" class="system-ico-button button-upload">
+                </button>
+                <span class="upload-name">Choose file to upload</span>
+            </box>
+            <box class="document-wrapper" *ngIf="files.size">
+                <box class="document-item" *ngFor="let file of files  | keyvalue">
+                    <box class="doc-primary">
+                        <img src="./assets/images/icons/doc-paperclip.svg" alt="document" class="paperclip"> 	
+                        <span class="doc-name" (click)="downloadFile(file,$event)"> {{ $any(file.value)?.fileName || $any(file.value)?.docInvNumber }}</span>
+                    </box>
+                    <box class="doc-secondary" (click)="this.deleteFile('fileUploadTmplt',file.value)">
+                    <button type="button" class="system-ico-button button-delete" clickable>
+                    </button>
+                    </box>
+                </box>
+            </box>
+        </box>
+    </div>
+</ng-template>
+<ng-template let-formControl let-fileInput="fileInput" let-label="label" 
+    let-placeHolder="placeholder" let-files="files"
+    #fileUploadTmplt [fpxControlTemplate]="'iconFileUploadTmplt'">
+    <div class="fpx-form-control">
+        <box class="file-attachments">
+            <box class="file-attach" (click)="fileInput.click()">
+                <button type="button" class="system-ico-button button-fileAttach">
+                </button>
+            </box>
+
+        </box>
+    </div>
+</ng-template>
+

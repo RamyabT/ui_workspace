@@ -1,0 +1,25 @@
+<form (ngSubmit)="submit()" autocomplete="off" formName="RetailManageBiometricForm">
+    <box class="entry-form">
+
+        <box class="entry-form-field-group grid manage-biometric-form col-12">
+            <fpx-display-text *ngIf="!state.deviceAuthEnabled" [innerHTML]="'RetailManageBiometricForm.enableBiometricMsg' | translate"></fpx-display-text>
+            <fpx-display-text *ngIf="state.deviceAuthEnabled" [innerHTML]="'RetailManageBiometricForm.disableBiometricMsg' | translate"></fpx-display-text>
+            <box class="enable-biometric-illustration">
+                <img src="./assets/illustrations/manage-biometric.svg" alt="manage biometric" />
+            </box>
+            <fpx-display-text *ngIf="!state.deviceAuthEnabled" [innerHTML]="'RetailManageBiometricForm.manageBiometricTerms' | translate"></fpx-display-text>
+        </box>
+        <box class="form-footer-actions">
+            <button type="button" class="btn-tertiary" (click)="_helper.cancelEvent()">{{
+                'RetailManageBiometricForm.backBtnLbl' | translate }}</button>
+            <ng-container *ngIf="state.deviceAuthEnabled; else enableBiometric">
+                <button type="submit" class="primary" >{{
+                    'RetailManageBiometricForm.disableBtnLbl' | translate }}</button>
+            </ng-container>
+            <ng-template #enableBiometric>
+                <button type="submit" class="primary" >{{
+                    'RetailManageBiometricForm.enableBtnLbl' | translate }}</button>
+            </ng-template>
+        </box>
+    </box>
+</form>

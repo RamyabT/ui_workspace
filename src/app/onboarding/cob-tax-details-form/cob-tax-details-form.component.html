@@ -1,0 +1,84 @@
+<form
+  [formGroup]="formGroup"
+  (ngSubmit)="submit()"
+  autocomplete="off"
+  formName="COBTaxDetailsForm"
+>
+  <box class="entry-form">
+    <box class="entry-form-field-group col-12 grid">
+      <box id="header" class="col-md-12 grid header">
+        <fpx-display-text
+          id="title1"
+          class="title"
+          [innerHTML]="'COBTaxDetailsForm.title1' | translate"
+          [literals]="commonFormInput"
+        ></fpx-display-text>
+      </box>
+      <app-country-list-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('countryOfBirth')"
+        label="{{'COBTaxDetailsForm.countryOfBirth.label' | translate }}"
+        formControlName="countryOfBirth"
+        placeholder="{{'COBTaxDetailsForm.countryOfBirth.placeholder' | translate }}"
+      ></app-country-list-control>
+      <app-city-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('cityOfBirth')"
+        [dependencyField]="['countryOfBirth']"
+        label="{{'COBTaxDetailsForm.cityOfBirth.label' | translate }}"
+        [changePublisher]="formChangePublisher$"
+        formControlName="cityOfBirth"
+        placeholder="{{'COBTaxDetailsForm.cityOfBirth.placeholder' | translate }}"
+      ></app-city-control>
+
+      <app-country-list-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('countryOfTax')"
+        label="{{'COBTaxDetailsForm.countryOfTax.label' | translate }}"
+        formControlName="countryOfTax"
+        placeholder="{{'COBTaxDetailsForm.countryOfTax.placeholder' | translate }}"
+      ></app-country-list-control>
+
+      <app-casa-enabled-flag
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('taxPayerIdAvailable')"
+        label="{{'COBTaxDetailsForm.taxPayerIdAvailable.label' | translate }}"
+        formControlName="taxPayerIdAvailable"
+      ></app-casa-enabled-flag>
+
+      <app-tax-payer-id-control
+	  class="col-sm-12 col-md-6 col-lg-6"
+        formControlName="taxPayerId"
+        [actionPublisher]="actionMap$.get('taxPayerId')"
+        label="{{'COBTaxDetailsForm.taxPayerId.label' | translate }}"
+        placeholder="{{'COBTaxDetailsForm.taxPayerId.placeholder' | translate }}"
+      ></app-tax-payer-id-control>
+
+      <app-reason-for-no-tin-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('reasonForNoTin')"
+        label="{{'COBTaxDetailsForm.reasonForNoTin.label' | translate }}"
+        formControlName="reasonForNoTin"
+      ></app-reason-for-no-tin-control>
+
+      <app-remarks-control class="col-sm-12 col-md-6 col-lg-6 " [actionPublisher]="actionMap$.get('remarks')"
+      label="{{'COBFatcaInfoForm.remarks.label' | translate }}"
+      placeholder="{{'COBTaxDetailsForm.remarks.placeholder' | translate }}"
+      formControlName="remarks"></app-remarks-control>
+
+      <app-addCountry-of-tax-inputgrid
+        class="col-sm-12 col-md-12 col-lg-12"
+        [actionPublisher]="actionMap$.get('addCountryOfTax')"
+        label="addCountryOfTax"
+        formControlName="addCountryOfTax"
+      ></app-addCountry-of-tax-inputgrid>
+      <box>
+        <span class="tax-info-desc"
+          >You can add {{_helper.maxCountryCount -
+          appConfig.getData("countryAddedCount")}} more countries of your tax
+          residency</span
+        >
+      </box>
+    </box>
+  </box>
+</form>

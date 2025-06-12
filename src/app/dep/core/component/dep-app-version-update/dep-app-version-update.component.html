@@ -1,0 +1,14 @@
+<box class="dep-version-update">
+    <box *ngIf="description" class="alert-description">{{description | translate}}</box>
+    <div class="btn-container">
+        <span *ngIf="forceUpdate; else updateLate">
+            <button type="button" class="btn-primary" (click)="updateNow()">{{'VERSION_UPDATE.updateNow' | translate}}</button>
+        </span>
+        <ng-template #updateLate>
+            <ng-container *ngIf=updateLaterOn>
+                <button type="button" class="btn-secondary" (click)="updateLater()">{{'VERSION_UPDATE.updateLater' | translate}}</button>
+                <button type="button" class="btn-primary" (click)="updateNow()">{{'VERSION_UPDATE.updateNow' | translate}}</button>
+            </ng-container>
+        </ng-template>
+    </div>
+</box>

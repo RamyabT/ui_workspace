@@ -1,0 +1,135 @@
+<form
+  [formGroup]="formGroup"
+  (ngSubmit)="submit()"
+  autocomplete="off"
+  formName="RetailFamilyPaymentForm"
+>
+  <box class="entry-form">
+    <box class="entry-form-field-group grid">
+      
+		<app-account-list-template-control class="col-sm-12 col-md-6 col-lg-12"
+    [actionPublisher]="actionMap$.get('sourceAccount')" formControlName="sourceAccount"
+    label="{{'RetailFamilyPaymentForm.sourceAccount.label' | translate }}"
+    placeholder="{{'RetailFamilyPaymentForm.sourceAccount.placeholder' | translate }}"
+    (commonControlEvent)="handleControlEvent($event)"></app-account-list-template-control>
+
+  <app-account-list-template-control class="col-sm-12 col-md-6 col-lg-12"
+    [actionPublisher]="actionMap$.get('childAccount')" formControlName="childAccount"
+    label="{{'RetailFamilyPaymentForm.childAccount.label' | translate }}"
+    placeholder="{{'RetailFamilyPaymentForm.childAccount.placeholder' | translate }}"
+    (commonControlEvent)="handleControlEvent($event)" [setDefault]="false"
+    [changePublisher]="formChangePublisher$" [dependencyField]="['sourceAccount']">
+  </app-account-list-template-control>
+     
+      <app-payment-purpose-list-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('purpose')"
+        label="{{ 'RetailFamilyPaymentForm.purpose' | translate }}"
+        formControlName="purpose"
+      ></app-payment-purpose-list-control>
+
+      <app-payment-amount-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('paymentAmount')"
+        label="{{ 'RetailFamilyPaymentForm.paymentAmount' | translate }}"
+        formControlName="paymentAmount"
+        (commonControlEvent)="handleControlEvent($event)"
+        [CurrencyList]="state.paymentAmount.CurrencyList"
+        [isCurrEditable]="state.paymentAmount.isCurrEditable"
+        [defaultFetch]="state.paymentAmount.defaultFetch"
+        [initCurrency]="state.paymentAmount.initCurrency"
+        [amountInWords]="state.paymentAmount.amountInWords"
+        [changePublisher]="formChangePublisher$"
+        [dependencyField]="[
+          'fromCurrencyVariable',
+          'toCurrencyVariable',
+          'accountBalanceVariable',
+          'scheduleTypeVariable'        ]"
+      ></app-payment-amount-control>
+
+      <box
+        class="field-item col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('paymentSummary')"
+      >
+        <fpx-label label="{{ 'FX_RATES.title' | translate }}"></fpx-label>
+        <box class="info-box">
+          <box class="info-field">
+            <fpx-display-text
+              class="info-field-label"
+              [innerHTML]="'FX_RATES.dAmount' | translate"
+              [literals]="commonFormInput"
+            ></fpx-display-text>
+            <fpx-display-text
+              class="info-field-value"
+              [innerHTML]="state.paymentSummary.debitAmount"
+              [literals]="commonFormInput"
+            ></fpx-display-text>
+          </box>
+          <box class="info-field">
+            <fpx-display-text
+              class="info-field-label"
+              [innerHTML]="'FX_RATES.cAmount' | translate"
+              [literals]="commonFormInput"
+            ></fpx-display-text>
+            <fpx-display-text
+              class="info-field-value"
+              [innerHTML]="state.paymentSummary.creditAmount"
+              [literals]="commonFormInput"
+            ></fpx-display-text>
+          </box>
+          <box class="info-field">
+            <fpx-display-text
+              class="info-field-label"
+              [innerHTML]="'FX_RATES.exRate' | translate"
+              [literals]="commonFormInput"
+            ></fpx-display-text>
+            <fpx-display-text
+              class="info-field-value"
+              [innerHTML]="state.paymentSummary.exchangeRate"
+              [literals]="commonFormInput"
+            ></fpx-display-text>
+          </box>
+        </box>
+      </box>
+
+      <app-schedule-type-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('scheduleType')"
+        label="{{ 'RetailFamilyPaymentForm.scheduleType' | translate }}"
+        formControlName="scheduleType"
+      ></app-schedule-type-control>
+
+      <app-payment-date-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('paymentDate')"
+        label="{{ 'RetailFamilyPaymentForm.paymentDate' | translate }}"
+        formControlName="paymentDate"
+        [minDate]="state.paymentDate.minDate"
+        [maxDate]="state.paymentDate.maxDate"
+      ></app-payment-date-control>
+
+      <app-retail-fb-schedule-handler-form
+        class="col-sm-12 col-md-6 col-lg-12"
+        (commonFormEvent)="handleControlEvent($event)"
+        [actionPublisher]="actionMap$.get('scheduleHandler')"
+        label="RetailScheduleTransferHandler"
+        formControlName="scheduleHandler"
+        [changePublisher]="formChangePublisher$"
+      >
+      </app-retail-fb-schedule-handler-form>
+
+      <app-remarks-control
+        class="col-sm-12 col-md-6 col-lg-12"
+        [actionPublisher]="actionMap$.get('remarks')"
+        label="{{ 'RetailFamilyPaymentForm.remarks' | translate }}"
+        formControlName="remarks"
+      ></app-remarks-control>
+    </box>
+    <box id="disclaimer-box" class="col-sm-12 col-md-12 col-lg-12 grid  disclaimer-box  "
+    [actionPublisher]="actionMap$.get('disclaimer-box')">
+    <app-terms-control class="col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+      label="{{'RetailFamilyPaymentForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+      [textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+  </box>
+  </box>
+</form>

@@ -1,0 +1,47 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "resolveJsonModule": true,
+    "target": "es2020",
+    "module": "es2020",
+    "lib": [
+      "es5", "es6", 
+      "es2017", "es2022",
+      "dom"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@dep/core": ["src/app/dep/core/index.ts"],
+      "@dep/services": ["src/app/dep/services/index.ts"],
+      "@dep/constants": ["src/app/dep/constants/index.ts"],
+      "@smart-device": ["src/app/dep/smart-device/index.ts"],
+      "@dep/native": ["src/app/dep/native/index.ts"],
+      "@dep/component": ["src/app/dep/core/component/index.ts"],
+      "@dep/ui": ["src/app/dep/ui/index.ts"],
+      "@fpx/charts":["src/app/dep/charts/index.ts"],
+      "@app/utility":["src/app/utility/index.ts"]
+    },
+    "skipLibCheck": true
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

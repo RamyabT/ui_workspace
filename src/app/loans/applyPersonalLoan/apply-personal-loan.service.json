@@ -1,0 +1,5 @@
+ 
+ "RETAILAPPLYHOMELOAN" : {
+ "servicePath": ["entry-shell","loans", "applyHomeLoan"],
+ "queryParams": {}
+ }

@@ -1,0 +1,19 @@
+"RetailProfileDetailsForm":{
+"title":"Retail Profile Details Form",
+		 "mobileNumber": {
+		  "label":"Mobile Number" ,
+		  "placeholder": "Mobile Number"
+		  } ,
+		 "email": {
+		  "label":" Email" ,
+		  "placeholder": " Email"
+		  } ,
+		 "residentialAddress": {
+		  "label":"Address" ,
+		  "placeholder": "Address"
+		  } ,
+		 "correspondenceAddress": {
+		  "label":"Address" ,
+		  "placeholder": "Address"
+		  } 
+}

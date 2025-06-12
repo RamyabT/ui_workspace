@@ -1,0 +1,35 @@
+"debitcard":{
+"title":"debitcardsummary",
+		 "cardNumber": {
+		  "label":"Debit Card Number" ,
+		  "placeholder": "Debit Card Number"
+		  } ,
+		 "cardType": {
+		  "label":"Debit Card Type" ,
+		  "placeholder": "Debit Card Type"
+		  } ,
+		 "status": {
+		  "label":"Debit Card Status" ,
+		  "placeholder": "Debit Card Status"
+		  } ,
+		 "productDesc": {
+		  "label":"Description" ,
+		  "placeholder": "Description"
+		  } ,
+		 "branchDesc": {
+		  "label":"Debit Card Issue Branch" ,
+		  "placeholder": "Debit Card Issue Branch"
+		  } ,
+		 "validThru": {
+		  "label":"Valid Till" ,
+		  "placeholder": "Valid Till"
+		  } ,
+		  "cardReference": {
+			"label":"Debit Card Reference Number" ,
+			"placeholder": "Debit Card Reference Number"
+			} ,
+		   "issueDate": {
+			"label":"Issue Date" ,
+			"placeholder": "Issue Date"
+			} 
+}

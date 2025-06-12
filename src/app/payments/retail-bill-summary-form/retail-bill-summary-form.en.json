@@ -1,0 +1,7 @@
+"RetailBillSummaryForm":{
+"title":"billsummaryfrom",
+		 "billerName": {
+		  "label":"Customer Name" ,
+		  "placeholder": "Customer Name"
+		  } 
+}

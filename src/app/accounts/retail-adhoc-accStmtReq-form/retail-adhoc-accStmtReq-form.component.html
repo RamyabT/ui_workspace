@@ -1,0 +1,111 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailAdhocAccStmtReqForm" >
+	   
+  <box class="entry-form">
+       
+   <box class="entry-form-field-group grid">
+       <!-- <app-account-number-list-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('accountNumber')"     label="{{'RetailAdhocAccStmtReqForm.accountNumber.label' | translate }}"   formControlName="accountNumber" 
+    ></app-account-number-list-control> -->
+
+    <app-account-list-template-control class="col-sm-12 col-md-6 col-lg-12"
+       [actionPublisher]="actionMap$.get('accountNumber')"
+       label="{{'RetailAdhocAccStmtReqForm.accountNumber.label' | translate }}" formControlName="accountNumber"
+       (commonControlEvent)="handleControlEvent($event)"></app-account-list-template-control>
+      
+       
+       <app-requestFor-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('requestFor')"     label="{{'RetailAdhocAccStmtReqForm.requestFor.label' | translate }}"   formControlName="requestFor" 
+    ></app-requestFor-control>
+       
+       
+       <app-request-date-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('fromDate')"     label="{{'RetailAdhocAccStmtReqForm.fromDate.label' | translate }}"   formControlName="fromDate" 
+  [minDate]="state.fromDate.minDate"   [maxDate]="state.fromDate.maxDate"  ></app-request-date-control>
+       
+       
+       <app-request-date-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('toDate')"     label="{{'RetailAdhocAccStmtReqForm.toDate.label' | translate }}"   formControlName="toDate" 
+  [minDate]="state.toDate.minDate"   [maxDate]="state.toDate.maxDate"  ></app-request-date-control>
+       
+       
+  <app-adhoc-reason-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('reason')"     label="{{'RetailAdhocAccStmtReqForm.reason.label' | translate }}"   formControlName="reason" 
+  >
+</app-adhoc-reason-control>
+       
+       
+       <app-otherReason-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('otherReason')"     label="{{'RetailAdhocAccStmtReqForm.otherReason.label' | translate }}"   formControlName="otherReason" 
+  ></app-otherReason-control>
+      
+       
+       <app-stmt-deliveryOption-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('deliveryOption')"  label="{{'RetailAdhocAccStmtReqForm.deliveryOption.label' | translate }}"   formControlName="deliveryOption" 
+       (commonControlEvent)="handleControlEvent($event)"
+    ></app-stmt-deliveryOption-control>
+
+    <app-email-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('emailId')" label="{{ 'RetailAdhocAccStmtReqForm.emailId.label' | translate }}" formControlName="emailId"
+  ></app-email-control>
+  <app-branches-list-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('branch')"     label="{{'RetailAdhocAccStmtReqForm.branch.label' | translate }}"   formControlName="branch" 
+  ></app-branches-list-control>
+  <!-- <box class="field-item col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('address')">
+   <fpx-label label="Delivery Address"></fpx-label>
+   <box class="info-box">
+     <box class="info-field">
+       <fpx-display-text class="info-field-label" [innerHTML]="state.address.buildingDetails"
+         [literals]="commonFormInput"></fpx-display-text>
+     </box>
+     <box class="info-field">
+       <fpx-display-text class="info-field-label" [innerHTML]="state.address.cityDetails"
+         [literals]="commonFormInput"></fpx-display-text>
+     </box>
+     <box class="info-field">
+       <fpx-display-text class="info-field-label" [innerHTML]="state.address.stateDetails"
+         [literals]="commonFormInput"></fpx-display-text>
+     </box>
+     <box class="info-field">
+       <fpx-display-text class="info-field-label" [innerHTML]="state.address.countryDetails"
+         [literals]="commonFormInput"></fpx-display-text>
+     </box>
+     <box class="info-field">
+       <fpx-display-text class="info-field-label" [innerHTML]="state.address.pinCode"
+         [literals]="commonFormInput"></fpx-display-text>
+     </box>
+   </box>
+ </box> -->
+
+ <box class="field-item col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('address')">    <box class="info-box">
+     <fpx-label label="{{'RetailDDRequestForm.addressDetails.label' | translate}}"></fpx-label>
+     <box class="info-field">
+       <fpx-display-text class="info-field-label" [innerHTML]="state.address.buildingDetails"
+         [literals]="commonFormInput"></fpx-display-text>
+     </box>
+     <box class="info-field">
+       <fpx-display-text class="info-field-label" [innerHTML]="state.address.cityDetails"
+         [literals]="commonFormInput"></fpx-display-text>
+     </box>
+     <box class="info-field">
+       <fpx-display-text class="info-field-label" [innerHTML]="state.address.stateDetails"
+         [literals]="commonFormInput"></fpx-display-text>
+     </box>
+     <box class="info-field">
+       <fpx-display-text class="info-field-label" [innerHTML]="state.address.countryDetails"
+         [literals]="commonFormInput"></fpx-display-text>
+     </box>
+     <box class="info-field">
+       <fpx-display-text class="info-field-label" [innerHTML]="state.address.pinCode"
+         [literals]="commonFormInput"></fpx-display-text>
+     </box>
+     <box class="info-field">
+       <fpx-display-text class="info-field-label" [innerHTML]="state.address.mobile"
+         [literals]="commonFormInput"></fpx-display-text>
+     </box>
+   </box>
+ </box>
+     
+       
+       <app-charges-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('chargesAmount')"     label="{{'RetailAdhocAccStmtReqForm.chargesAmount.label' | translate }}"   formControlName="chargesAmount"  placeholder="{{'RetailAdhocAccStmtReqForm.chargesAmount.placeholder' | translate }}" 
+  [CurrencyList]="state.chargesAmount.CurrencyList" [isCurrEditable]="state.chargesAmount.isCurrEditable"  [defaultFetch]="state.chargesAmount.defaultFetch" [initCurrency]="state.chargesAmount.initCurrency" [amountInWords]="state.chargesAmount.amountInWords">  ></app-charges-control>
+   
+ </box> 
+     <app-terms-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+       label="{{ 'RetailAdhocAccStmtReqForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+       [textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+     
+  </box> 
+ 
+ </form>
+ 

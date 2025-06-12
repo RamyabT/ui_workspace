@@ -1,0 +1,5 @@
+ 
+ "RETAILBILLERACCOUNT" : {
+ "servicePath": ["entry-shell","payments", "retail-add-biller-form"],
+ "queryParams": {}
+ }

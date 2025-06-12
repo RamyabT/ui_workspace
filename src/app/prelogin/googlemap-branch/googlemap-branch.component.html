@@ -1,0 +1,141 @@
+<div class="map-wrapper">
+  <div class="res-search map-container">
+    <ng-container *ngIf="device.isMobile()">
+      <div class="search-container" *ngIf="showSearch==false">
+        <div class="search-bar">
+          <input type="text" class="input-search" id="searchinput" name="search-input"
+            placeholder="{{ 'googleMapBranch.SEARCH.placeholder' | translate }}" autocomplete="off" autocorrect="off"
+            autocapitalize="off" spellcheck="false" onkeypress="return event.keyCode != 13;"
+            (focus)="showSearchFilterList()" (focusout)="hideSearchFilterList()" [(ngModel)]="searchText"
+            (click)="filterSearchMenu($event)" (keyup)="filterSearchMenu($event)" />
+          <button type="button" class="close btn-close-flash" [hidden]="!this.searchText">
+          </button>
+        </div>
+        <div *ngIf="searchText?.length" [ngClass]="{
+                'search-result-container': true,
+                'show-search-list': showSearchList
+              }">
+          <ng-container *ngFor="let item of searchFilterList">
+            <a class="search-menu-item" (click)="navigateTo(item)">
+              <ng-container>
+                <span innerHTML="{{ item.branchDesc+', '+item.addressDetails}}"></span>
+              </ng-container>
+            </a>
+          </ng-container>
+          <div class="no-data-txt" [hidden]="searchFilterList.length">
+            <span>{{
+              "googleMapBranch.SEARCH.noSearchresultfound" | translate
+              }}</span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <div class="g-map">
+      <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapClick)="close_window()" (mapReady)="mapReady($event)">
+        <agm-marker *ngFor="let branch of branchfinder" [latitude]="branch.latitude" [longitude]="branch.longitude"
+          [markerDraggable]="false" (markerClick)="selectMarker($event, infoWindow)"
+          (markerClick)="getDirection(branch)">
+          <agm-info-window #infoWindow>
+            <ng-container>
+              <strong>{{ "googleMapBranch.branch" | translate }}:<br />
+                {{ branch.branchDesc }}</strong><br />
+              <strong>{{ "googleMapBranch.address" | translate }}:
+                {{ branch.street }} {{ branch.addressDetails }}</strong><br />
+              <!-- <strong>{{ "googleMapBranch.distance" | translate }}:</strong>
+                {{ branch.distance }}{{"Km"}}<br /> -->
+              <strong>{{ "googleMapBranch.duration" | translate }}:</strong>
+              {{ branch.duration }}<br />
+            </ng-container>
+          </agm-info-window>
+        </agm-marker>
+        <agm-direction *ngIf="doShowDirection" [origin]="origin" [destination]="destination">
+        </agm-direction>
+      </agm-map>
+    </div>
+
+    <box class="address-container">
+      <ng-container *ngIf="showSearch==false">
+        <ng-container *ngIf="!device.isMobile()">
+          <div class="search-container" *ngIf="showSearch==false">
+            <div class="search-bar">
+              <input type="text" class="input-search" id="searchinput" name="search-input"
+                placeholder="{{ 'googleMapBranch.SEARCH.placeholder' | translate }}" autocomplete="off" autocorrect="off"
+                autocapitalize="off" spellcheck="false" onkeypress="return event.keyCode != 13;"
+                (focus)="showSearchFilterList()" (focusout)="hideSearchFilterList()" [(ngModel)]="searchText"
+                (click)="filterSearchMenu($event)" (keyup)="filterSearchMenu($event)" />
+              <button type="button" class="close btn-close-flash" [hidden]="!this.searchText">
+              </button>
+            </div>
+            <div *ngIf="searchText?.length" [ngClass]="{
+                    'search-result-container': true,
+                    'show-search-list': showSearchList
+                  }">
+              <ng-container *ngFor="let item of searchFilterList">
+                <a class="search-menu-item" (click)="navigateTo(item)">
+                  <ng-container>
+                    <span innerHTML="{{ item.addressDetails | translate }}"></span>
+                  </ng-container>
+                </a>
+              </ng-container>
+              <div class="no-data-txt" [hidden]="searchFilterList.length">
+                <span>{{
+                  "googleMapBranch.SEARCH.noSearchresultfound" | translate
+                  }}</span>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <div class="history-page">
+          <div class="resultpage">
+            <ng-container *ngFor="let branch of branchfinder">
+              <div class="resultpage-divider" clickable (click)="getDirection(branch)">
+                <ng-container>
+                  <div class="result-bank">
+                    <div class="bank-logo">
+                      <img src="./assets/images/bank-location.svg" />
+                    </div>
+                    <div class="result-sub-header-navigation">
+                      <div class="result-atmname">
+                        {{ branch.branchDesc }}
+                      </div>
+                      <div class="result-sub-header">
+                        {{ branch.street }} {{ branch.addressDetails }}
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="showSearch">
+        <div class="selected-address-panel close-pannel-page">
+          <div class="resultpage">
+            <ng-container>
+              <div class="distance-details">
+                <div class="close-details">
+                  <img class="close" clickable (click)="closePanel()" src="./assets/images/icons/close.svg" />
+                  <div class="dist-details">
+                    <div class="address-details">
+                      <span class="">{{ this.selectedAddress?.branchDesc }}</span>
+                    </div>
+                    <div>
+                      <button type="button" class="showmap" (click)="showMap()"><span> Get Directions</span>
+                        <img class="navigation" clickable src="./assets/images/navigation.svg" /></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+
+    </box>
+
+  </div>
+</div>

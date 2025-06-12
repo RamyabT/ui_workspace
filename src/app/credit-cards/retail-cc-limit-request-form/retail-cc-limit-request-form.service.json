@@ -1,0 +1,5 @@
+ 
+ "RETAILCCLIMITS" : {
+ "servicePath": ["entry-shell","creditcard", "retail-cc-limit-request-form"],
+ "queryParams": {}
+ }

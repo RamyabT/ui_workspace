@@ -1,0 +1,27 @@
+"RetailPdcChequeForm":{
+"title":"View PDC Cheque",
+		 "accountNumber": {
+		  "label":"Select Account" ,
+		  "placeholder": ""
+		  } ,
+		 "pdcInquiryType": {
+		  "label":"Inquiry Type" ,
+		  "placeholder": ""
+		  } ,
+		 "chequeNumber": {
+		  "label":"Cheque Number" ,
+		  "placeholder": ""
+		  } ,
+		 "fromDate": {
+		  "label":"From Date" ,
+		  "placeholder": ""
+		  } ,
+		 "toDate": {
+		  "label":"To Date" ,
+		  "placeholder": ""
+		  } ,
+		 "search": {
+		  "label":"Search" ,
+		  "placeholder": ""
+		  } 
+}

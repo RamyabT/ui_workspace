@@ -1,0 +1,74 @@
+@import '../../../scss/theme/variables.scss';
+
+.ad-item {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 233px;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+
+    .ad-banner {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 100%;
+            cursor: pointer;
+        }
+    }
+
+    .ad-body {
+        position: relative;
+        padding: 12px;
+        // background-color: #{var(--primary500)}40;
+        flex-basis: 100%;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+
+        .ad-message {
+            color: var(--neutral50);
+            flex-grow: 1;
+        }
+
+        .btn-arrow {
+            width: 24px;
+            height: 24px;
+            background: url(../../../assets/images/components/ads-arrow.svg) no-repeat 0 0;
+            flex-grow: 0;
+            flex-shrink: 0;
+
+            span {
+                display: none;
+            }
+        }
+    }
+}
+
+::ng-deep html:not(.small-screen) #depAppBody {
+
+    banner-ads{
+        .slick-slide {
+            padding: 0;
+        }
+    
+        .ad-item {
+    
+            .ad-banner {
+                img {
+                    // height: 233px;
+                    min-width: unset;
+                }
+            }
+        }
+    }
+    
+}

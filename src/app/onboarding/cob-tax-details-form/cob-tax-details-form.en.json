@@ -1,0 +1,31 @@
+"CobTaxDetailsForm":{
+"title":"CobTaxDetails",
+		 "countryOfBirth": {
+		  "label":"Country Of Birth" ,
+		  "placeholder": "Country Of Birth"
+		  } ,
+		 "cityOfBirth": {
+		  "label":"City Of Birth" ,
+		  "placeholder": "City Of Birth"
+		  } ,
+		 "countryOfTax": {
+		  "label":"Country Of Tax Residency" ,
+		  "placeholder": "Country Of Tax Residency"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "taxpayerIdAvailable": {
+		  "label":"Do You Have A Taxpayer Identification Number (TIN)" ,
+		  "placeholder": "Do You Have A Taxpayer Identification Number (TIN)"
+		  } ,
+		 "taxPayerId": {
+		  "label":"taxPayerId" ,
+		  "placeholder": "taxPayerId"
+		  } ,
+		 "reasonForNoTin": {
+		  "label":"Reason For No Tin" ,
+		  "placeholder": "Reason For No Tin"
+		  } ,
+}

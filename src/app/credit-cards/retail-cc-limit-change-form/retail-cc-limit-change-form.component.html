@@ -1,0 +1,27 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailCcLimitChangeForm">
+
+	<box class="entry-form">
+
+
+		
+		<ng-container *ngIf="state.cardData && device.isMobile()">
+			<creditcard class="col-12" [cardData]="state.cardData" [formView]="true"></creditcard>
+		</ng-container>
+		<box class="entry-form entry-form-field-group col-sm-12">
+			<box class="slider-field no-flag">
+				<!-- <app-dc-service-flag class="col-md-4" [actionPublisher]="actionMap$.get('limitChangeFlag')"
+					label="{{'RetailCcLimitChangeForm.limitChangeFlag.label' | translate }}" formControlName="limitChangeFlag"
+					[ckValues]="state.serviceFlag.ckValues"></app-dc-service-flag> -->
+				<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-4"
+					label="{{'RetailCcLimitChangeForm.limitChange.label' | translate }}" [actionPublisher]="actionMap$.get('limitChange')" formControlName="limitChange"
+					[min]="state.limitChange.min" [max]="state.limitChange.max" [step]="state.limitChange.step"
+					[currencyCode]="state.limitChange.currencyCode"></app-dc-amount-slider>
+			</box>
+		</box>
+		<box id="group_disclaimer-box" class="col-sm-12 col-md-12 col-lg-12 grid main-group term-box">
+		<app-terms-control class="col-md-12" [actionPublisher]="actionMap$.get('tcFlag')"
+			label="{{'RetailCcLimitChangeForm.tcFlag.label' | translate }}" formControlName="tcFlag"
+			[textPosition]="state.tcFlag.textPosition" [ckValues]="state.tcFlag.ckValues"></app-terms-control>
+		</box>
+</box>
+</form>

@@ -1,0 +1,35 @@
+"RetailUserrestrictionreqForm":{
+"title":"RetailUserrestrictionreqForm",
+		 "firstName": {
+		  "label":"First Name" ,
+		  "placeholder": "First Name"
+		  } ,
+		 "middleName": {
+		  "label":"Middle Name" ,
+		  "placeholder": "Middle Name"
+		  } ,
+		 "lastName": {
+		  "label":"Last Name" ,
+		  "placeholder": "Last Name"
+		  } ,
+		 "mobileNumber": {
+		  "label":"Mobile Number" ,
+		  "placeholder": "Mobile Number"
+		  } ,
+		 "emailAddress": {
+		  "label":"Email Id" ,
+		  "placeholder": "Email Id"
+		  } ,
+		 "userName": {
+		  "label":"User Name" ,
+		  "placeholder": "User Name"
+		  } ,
+		 "nationality": {
+		  "label":"National ID Number" ,
+		  "placeholder": "National ID Number"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } 
+}

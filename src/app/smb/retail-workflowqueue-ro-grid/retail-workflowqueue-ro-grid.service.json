@@ -1,0 +1,5 @@
+ 
+ "workflowq" : {
+ "servicePath": ["display-shell","common", "retail-workflowqueue-ro-grid"],
+ "queryParams": {}
+ }

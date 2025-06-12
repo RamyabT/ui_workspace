@@ -1,0 +1,67 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="loadmoney">
+
+	<box class="entry-form">
+		<box id="000_1" class="col-md-6 grid  main-group  ">
+
+
+			<app-LoadMoneyType class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('loadMoneyType')"
+				label="{{'loadmoney.loadMoneyType.label' | translate }}"
+				formControlName="loadMoneyType"></app-LoadMoneyType>
+
+
+			<app-applicant-name-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('nameOnCard')" label="{{'loadmoney.nameOnCard.label' | translate }}"
+				formControlName="nameOnCard"></app-applicant-name-control>
+
+
+			<app-cardNumber class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('cardNumber')"
+				label="{{'loadmoney.cardNumber.label' | translate }}" formControlName="cardNumber"></app-cardNumber>
+
+
+			<app-cob-cvv-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('cvv')"
+				label="{{'loadmoney.cvv.label' | translate }}" formControlName="cvv"></app-cob-cvv-control>
+
+
+			<app-expiry-month-list-control class="col-sm-6 col-md-3 col-lg-3  "
+				[actionPublisher]="actionMap$.get('cardexpirymonth')"
+				label="{{'loadmoney.cardexpirymonth.label' | translate }}"
+				formControlName="cardexpirymonth"></app-expiry-month-list-control>
+
+
+			<app-cc-expiry-year-list-control class="col-sm-6 col-md-3 col-lg-3  "
+				[actionPublisher]="actionMap$.get('cardexpiryyear')"
+				label="{{'loadmoney.cardexpiryyear.label' | translate }}"
+				formControlName="cardexpiryyear"></app-cc-expiry-year-list-control>
+
+
+			<app-LoadMoneyMethod class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('loadMoneyMethod')"
+				label="{{'loadmoney.loadMoneyMethod.label' | translate }}"
+				formControlName="loadMoneyMethod"></app-LoadMoneyMethod>
+
+
+			<app-virtualPaymentAddress class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('virtualPaymentAddress')"
+				label="{{'loadmoney.virtualPaymentAddress.label' | translate }}" formControlName="virtualPaymentAddress"
+				placeholder="{{'loadmoney.virtualPaymentAddress.placeholder' | translate }}"></app-virtualPaymentAddress>
+			<box id="mobileNumberGroup" [actionPublisher]="actionMap$.get('mobileNumberGroup')"
+				class="col-sm-12 col-md-6 col-lg-6 grid  main-group  ">
+				<app-isocode-list-control class="col-sm-3 col-md-3 col-lg-3"
+					[actionPublisher]="actionMap$.get('iSOCodeList')"
+					label="{{'loadmoney.iSOCodeList.label' | translate }}" formControlName="iSOCodeList"
+					placeholder="{{'loadmoney.iSOCodeList.placeholder' | translate }}"></app-isocode-list-control>
+				<app-applicant-mobile-number-control class="col-sm-9 col-md-9 col-lg-9  "
+					[actionPublisher]="actionMap$.get('mobileNumber')"
+					label="{{'loadmoney.mobileNumber.label' | translate }}" formControlName="mobileNumber"
+					placeholder="{{'loadmoney.mobileNumber.placeholder' | translate }}"></app-applicant-mobile-number-control>
+			</box>
+
+			<app-amount-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('amount')"
+				label="{{'loadmoney.amount.label' | translate }}" formControlName="amount"
+				placeholder="{{'loadmoney.amount.placeholder' | translate }}"
+				[CurrencyList]="state.charges.CurrencyList" [isCurrEditable]="state.charges.isCurrEditable"
+				[defaultFetch]="state.charges.defaultFetch" [initCurrency]="state.charges.initCurrency"
+				[amountInWords]="state.charges.amountInWords"></app-amount-control>
+		</box>
+	</box>
+</form>

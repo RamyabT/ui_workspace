@@ -1,0 +1,22 @@
+<!-- <ng-container *ngIf="cardSummary; else noData"> -->
+    <box class="summary-wrapper">
+        <box class="card-info">
+            <box class="title">Credit Cards ({{this.cardsCount}})</box>
+            <box class="primary-info">
+                <span class="used-credit">{{this.usedCredit | currency: appConfig.getBaseCurrency() : ''}} {{appConfig.getBaseCurrency()}}</span>
+                <span class="total-credit"> of {{this.totalCreditLimit | currency : appConfig.getBaseCurrency() : ''}} {{appConfig.getBaseCurrency()}}</span>
+            </box>
+            <box class="card-progress">
+                <span class="track">
+                    <span class="fill" [style.width.%]="usedPercentage"></span>
+                </span>
+            </box>
+            <box class="secondary-info">
+                <span class="remaining-credit">{{this.remainingCredit | currency : appConfig.getBaseCurrency() : ''}} {{appConfig.getBaseCurrency()}} available</span>
+            </box>
+        </box>
+    </box>
+<!-- </ng-container> -->
+<ng-template #noData>
+  
+</ng-template>

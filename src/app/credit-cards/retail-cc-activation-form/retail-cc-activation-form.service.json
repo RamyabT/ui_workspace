@@ -1,0 +1,5 @@
+ 
+ "RETAILCCACTIVATION" : {
+ "servicePath": ["entry-shell","creditcard", "retail-cc-activation-form"],
+ "queryParams": {}
+ }

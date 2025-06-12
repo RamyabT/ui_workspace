@@ -1,0 +1,25 @@
+<box class="dep-confirmation">
+
+    <box *ngIf="!_device.isMobile()" class="accounts-list-popup-header">
+        <span class="pay-from-header">{{title}}</span>
+        <button type="button" class="system-ico-button btn-close no-text" name="back"
+            (click)="close()"><span>Close</span></button>
+    </box>
+
+
+    <box class="transfer-type-list-body">
+        <box class="details-container">
+            <ng-container *ngFor="let transferType of transferTypeList; let i = index">
+                <box class="transfer-type-list-item" (click)="goToTransferForm(transferType)">
+                    <span class="transfer-type-list-item-icon" [ngClass]="transferType.icon"></span>
+                    <span class="transfer-type-list-item-title">{{transferType.title}}</span>
+                </box>
+            </ng-container>
+
+            <box class="footer-container">
+                <fpx-button label="Close" btnClass="btn-primary" [buttonMode]="'button'"
+                    (onClick)="close()"></fpx-button>
+            </box>
+        </box>
+    </box>
+</box>

@@ -1,0 +1,5 @@
+ 
+ "DCCURRENTPINVALIDATION" : {
+ "servicePath": ["entry-shell","debitcard", "dc-verify-pin-validation-form"],
+ "queryParams": {}
+ }

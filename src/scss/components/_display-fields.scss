@@ -1,0 +1,135 @@
+app-retail-account-details-form, app-retail-loan-details-form {
+    .display-fields-container{
+        .display-field:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+    }
+}
+.display-fields-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include not-large-screen{
+        border-radius: 20px;
+        background: var(--neutral50);
+        box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.09);
+        padding: 16px;
+        height: fit-content;
+    }
+
+    @include large-screen{
+        flex-flow: row wrap;
+    }
+
+    .display-field {
+        border-bottom: 1px solid #E0E0E0;
+        padding-bottom: 8px;
+        --item-col-count: 12;
+
+        @include not-small-screen {
+            --item-col-count: 6;
+        }
+
+        >span {
+            display: block;
+            @include s4-medium;
+
+            &.lbl {
+                color: var(--bodyTxtClr);
+            }
+
+            &.val {
+                color: var(--baseTxtClr);
+            }
+        }
+
+        // &:last-child {
+        //     border-bottom: none;
+        // }
+    }
+    .loc-title{
+        font-size: 18px;
+        font-weight: var(--fontWeightMedium);
+        line-height: 20px;
+        flex-basis: 100%;
+    }
+}
+
+.display-details-container-footer {
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.casa-transaction-info-wrapper {
+    .h-seperator {
+        height: 1px;
+        width: 100%;
+        border: none;
+        background: linear-gradient(90deg, rgba(1, 107, 131, 0) 5.42%, #016B83 48.94%, rgba(1, 107, 131, 0) 100%);
+        ;
+    }
+
+    .cheque-view {
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .cheque-action {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .cheque-image-wrapper {
+        border-radius: 12px;
+        overflow: hidden;
+        text-align: center;
+
+        img {
+            height: 172px;
+        }
+    }
+}
+
+#depAppBody {
+    .info-popup {
+        .display-details-container-footer {
+            padding: 24px 16px 36px;
+        }
+    }
+}
+
+.display-controls-container {
+    pointer-events: none;
+
+    &.review-form{  
+        .fpx-form-control {
+            padding-bottom: inherit !important;
+            border-bottom: inherit !important;
+            fpx-label{
+                margin-bottom: 12px !important
+            }
+        }
+    }
+
+    fpx-label {
+        margin-bottom: 0;
+    }
+
+    .fpx-field-content {
+        border: 0px solid transparent !important;
+        padding: 0 0 8px;
+        min-height: unset;
+        border-bottom: 1px solid #E0E0E0 !important;
+        border-radius: unset;
+        background-color: unset !important;
+    }
+
+    .mat-datepicker-toggle {
+        display: none;
+    }
+}

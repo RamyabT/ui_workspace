@@ -1,0 +1,100 @@
+<box class="product-type-panel membership-panel">
+    <!-- <box *ngIf="!device.isMobile()" class="panel-header">
+        <box>
+            <span class="panel-title membership">{{ 'membershipPanel.title' | translate }}</span>
+        </box> -->
+        <!-- <box class="panel-actions">
+            <span class="action new-account"><span class="lbl">{{ 'membershipPanel.applyNewCard' | translate }}</span></span>
+        </box> -->
+    <!-- </box> -->
+    <ng-container *ngIf="membership; else loader">
+      <ng-container *ngIf="!membershipApiFailed else apiErrorTemplate">
+        <ng-container *ngIf="membership.length > 0; else noAccount">
+            <box class="panel-body">
+                <ul class="card-wrapper">
+                    <li *ngFor="let card of membership" class="card no-hover-actions"
+                        (click)="gotoAccounts(card.accountNumber)">
+                        <ng-container *ngIf="device.isMobile(); else desktopContainer">
+                            <box class="container">
+                                <box class="account-details card-details">
+                                    <box class="account-type productDesc">{{card.productDesc}}</box>
+                                    <box class="account-type">{{'membershipPanel.accountDesc' | translate}}</box>
+                                </box>
+                                <box class="account-info">
+                                    <box class="account-number card-number">{{card.accountNumber | accountNumberTrim}} </box>
+                                    <box class="balace-details">
+                                        <box class="amount main-balance"> {{ getAbsoluteValue(card.availableBalance) | currency : card.accountCurrency : '' }} <em>{{ card.accountCurrency | currencyCode }}</em>
+                                            {{ checkNegativeValue(card.availableBalance)}}</box>
+                                    </box>
+                                </box>
+                            </box>
+                        </ng-container>
+                        <ng-template #desktopContainer>
+                            <box class="container">
+                                <box class="left-section">
+                                    <box class="account-details">
+                                        <box class="product-desc">{{card.productDesc}}</box>
+                                        <box class="product-details">
+                                            <box class="account-type accountTypeDesc">{{'membershipPanel.accountDesc' | translate}}</box>
+                                            <box class="seperator"></box>
+                                            <box class="account-number">{{ card.accountNumber | accountNumberTrim }}</box>
+                                        </box>
+                                    </box>
+                                </box>
+                                <box class="right-section">
+                                    <box class="balace-details">
+                                        <box class="amount main-balance"> {{ card.availableBalance | currency : card.accountCurrency : '' }} <em>{{ card.accountCurrency | currencyCode }}</em></box>
+                                    </box>
+                                    <!-- <box class="options">
+                                        <span class="more-options membership">
+                                            <span class="icon-wrapper more-vertical" (click)="$event.preventDefault();$event.stopPropagation();"></span>
+                                        </span>
+                                    </box> -->
+                                </box>
+                                
+                            </box>
+                        </ng-template>
+                        
+                       
+                        <!-- <box *ngIf="!device.isMobile()" class="hover-actions">
+                            <button class="hov-button" (click)="sendMoney()">
+                                <span class="hov-action send-money" [innerHTML]="'membershipPanel.makePayment' | translate"></span>
+                            </button>
+                            <button class="hov-button" (click)="payBill()">
+                                <span class="hov-action pay-bill" [innerHTML]="'membershipPanel.lockCard' | translate"></span>
+                            </button>
+                            <span class="more-options">
+                                <img src="./assets/images/icons/more-vertical.svg" alt="more options" (click)="$event.preventDefault();$event.stopPropagation();displayContextMenu($event, card)"/>
+                            </span>
+                        </box> -->
+                    </li>
+                </ul>
+                <box class="panel-footer">
+                    <box class="total" *ngIf="device.isMobile()">
+                        <span class="total-lbl">{{'accountsPanel.membership.total' | translate }}</span>
+                        <span class="total-balance amount"> {{ getAbsoluteValue(total?.totalCAD) | currency : _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode }}</em>
+                            {{ checkNegativeValue(total?.totalCAD)}}</span>
+                    </box>
+                </box>
+            </box>
+        </ng-container>
+      </ng-container>   
+    </ng-container>
+    
+</box>
+<ng-template #noAccount>
+    <box class="no-data-panel no-panel-footer">
+        <span class="no-data-desc">{{ 'membershipPanel.noCards' | translate }}</span>
+        <!-- <img class="no-data-image" src="./assets/illustrations/no-membership.gif" alt="create an account" /> -->
+    </box>
+</ng-template>
+
+<ng-template #apiErrorTemplate>
+    <box class="service-unavailable-template">
+        <box class="description">{{'accountsPanel.apiErrorData' | translate}}</box>
+    </box>
+</ng-template>
+<!-- Content loader -->
+<ng-template #loader>
+    <box class="skeleton-loader portfolio-summary-loader no-panel-footer"></box>
+</ng-template>

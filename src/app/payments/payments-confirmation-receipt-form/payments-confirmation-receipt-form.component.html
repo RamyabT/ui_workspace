@@ -1,0 +1,217 @@
+<box *ngIf="operationMode !== 'D' && _requestStatus !== 'ErrorEnd'"
+    class="edit-biller-form-header payments-confirmation">
+    <box class="form-header">
+        {{'billpaymentLabels.confirmation' | translate}}
+    </box>
+
+    <span class="back-btn-wrapper" (click)="gotoModule('PAYMENTSSPACE')">
+        <span class="back-btn-icon"></span>
+    </span>
+</box>
+
+<ng-container>
+    <box
+        class="transfer-confirmation-receipt-inner confirmation-receipt-inner success {{ result?.statusCode?.toLowerCase() }} {{ _requestStatus }}">
+        <box [ngClass]="{'delete-mode-confirmation-body': operationMode === 'D', 'failure-mode-confirmation-body': _requestStatus === 'ErrorEnd'}"
+            class="confirmation-body">
+
+            <ng-container *ngIf="result?.resultPayload?.errorMessage; else success">
+                <box class="status-container">
+                    <box class="status-ico-wrapper">
+                        <span class="status-ico failure-ico"></span>
+                    </box>
+                    <span class="confirmation-message">
+                        {{ 'paymentsConfirmationReceipt.defaultErrorMessage' | translate }}</span>
+                </box>
+
+                <box class="message-container">
+                    <span class="confirmation-description">
+                        <box class="confirmation-description-container">
+                            <span class="confirmation-description-text">
+                                <span class="confirmation-description-text-item">
+                                    {{result?.resultPayload?.errorMessage}}
+                                </span>
+                            </span>
+                        </box>
+                    </span>
+                </box>
+            </ng-container>
+
+            <ng-template #success>
+                <box class="status-container">
+                    <box class="status-ico-wrapper">
+                        <span class="status-ico"></span>
+                    </box>
+
+                    <span *ngIf="operationMode === 'M'" class="confirmation-message">{{ _requestServiceCode + '.' +
+                        _requestStatus + ".editMsg" |
+                        translate }}</span>
+                    <span *ngIf="operationMode === 'A'" class="confirmation-message">{{ _requestServiceCode + '.' +
+                        _requestStatus + ".message" |
+                        translate }}</span>
+                    <span *ngIf="operationMode === 'D'" class="confirmation-message">{{ description }}</span>
+
+                    <span *ngIf="operationMode === 'BILLPAYMENT'" class="confirmation-message">{{ description }}</span>
+
+                </box>
+
+                <box class="message-container">
+                    <span class="confirmation-description">
+                        <ng-container *ngIf="result?.resultPayload?.errorMessage; else noError">
+                            {{ result?.resultPayload?.errorMessage }}
+                        </ng-container>
+                        <ng-template #noError>
+                            <box *ngIf="operationMode === 'M' || operationMode === 'A'"
+                                class="confirmation-description-container">
+                                <span class="confirmation-description-text">
+                                    <span class="confirmation-description-text-item">
+                                        {{result?.resultPayload?.billerNickname || result?.resultPayload?.billerName}}
+                                    </span>
+
+                                    <span class="confirmation-description-text-item">
+                                        {{selectedBillerDataForModify.billerCreditAccount}}
+                                    </span>
+                                </span>
+
+                                <span class="confirmation-description-sub-text">
+                                    <span class="sub-text-item">
+                                        {{'billpaymentLabels.reference' | translate}}
+                                        #{{result?.resultPayload?.requestReference}} </span>
+
+                                    <span class="sub-text-item">
+                                        {{result?.resultPayload?.initiatedOn | date:'HH:mm, dd MMM yyyy'}} </span>
+                                </span>
+                            </box>
+
+                            <!-- <span>{{result?.resultPayload | json}}</span>
+                            paid bill details
+                            <span>{{paidBillDetails?.billResponse[0] | json}}</span>
+                            <span>{{operationMode}}</span>
+                            <span>{{paidBillDetails | json}}</span> -->
+
+                            <box *ngIf="operationMode === 'BILLPAYMENT' && paidBillDetails?.billResponse.length === 1"
+                                class="confirmation-description-container">
+                                <span class="confirmation-description-text">
+                                    <span class="confirmation-description-text-item"> <em>{{
+                                            result.resultPayload?.currency | currencyCode
+                                            }}</em>{{result.resultPayload?.amount |
+                                        currency : result.resultPayload?.currency :
+                                        '' }} paid from account
+                                        {{paidBillDetails?.debitAccount | accountNumberTrim}} to
+                                        {{paidBillDetails?.billResponse[0].beneficiaryName}} </span>
+                                </span>
+
+                                <span class="confirmation-description-sub-text">
+                                    <span class="sub-text-item">
+                                        {{'billpaymentLabels.reference' | translate}}
+                                        #{{paidBillDetails?.billResponse[0].requestReference}} </span>
+
+                                    <span class="sub-text-item">
+                                        {{result?.resultPayload?.initiatedOn | date:'HH:mm, dd MMM yyyy'}} </span>
+                                </span>
+                            </box>
+
+                            <box *ngIf="operationMode === 'BILLPAYMENT' && paidBillDetails?.billResponse.length > 1"
+                                class="confirmation-description-container confirmation-description-container-multi-bill">
+                                <box class="confirmation-description-container-multi-bill-item"
+                                    *ngFor="let bill of paidBillDetails?.billResponse">
+
+                                    <span class="status-tag {{bill?.status}}">{{bill?.status}}</span>
+
+                                    <span class="confirmation-description-text">
+                                        <span class="confirmation-description-text-item"> <em>{{
+                                                bill.currency | currencyCode }}</em>{{bill.paymentAmount | currency
+                                            : bill.currency : '' }}
+                                            {{'billpaymentLabels.paidFromAccount' | translate}}
+                                            {{paidBillDetails?.debitAccount}} to
+                                            {{bill.beneficiaryName}} </span>
+                                    </span>
+
+                                    <span class="confirmation-description-sub-text">
+                                        <span class="sub-text-item">
+                                            {{'billpaymentLabels.reference' | translate}}
+                                            #{{bill?.requestReference}} </span>
+
+                                        <span class="sub-text-item">
+                                            {{result?.resultPayload?.initiatedOn | date:'HH:mm, dd MMM yyyy'}} </span>
+                                    </span>
+                                </box>
+                            </box>
+
+                            <box *ngIf="operationMode === 'D'" class="confirmation-description-container">
+                                <span class="confirmation-description-sub-text">
+                                    <span class="sub-text-item">
+                                        {{'billpaymentLabels.reference' |
+                                        translate}} #{{result?.resultPayload?.requestReference}} </span>
+                                    <span class="sub-text-item">
+                                        {{result?.resultPayload?.initiatedOn | date:'HH:mm, dd MMM
+                                        yyyy'}} </span>
+                                </span>
+                            </box>
+
+                        </ng-template>
+                    </span>
+                </box>
+            </ng-template>
+
+            <ng-container
+                *ngIf="_requestServiceCode === 'RETAILMULTIBILLPAYMENT' && result?.additionalInfo && result?.additionalInfo.length">
+                <hr />
+                <box class="additional-details-container">
+                    <ng-container *ngFor="let bill of this.multiBillInfo">
+                        <ng-container *ngFor="let detail of bill">
+                            <ng-container *ngIf="detail.value">
+                                <ng-container *ngIf="detail.value != 'spacer'; else spacer">
+                                    <box class="details">
+                                        <span [ngClass]="{'header': detail?.format == 'header'}" class="detail-lbl">{{
+                                            detail?.label | translate }}</span>
+                                        <span class="detail-val">
+                                            <ng-container [ngSwitch]="detail?.format">
+                                                <ng-container *ngSwitchCase="'header'">
+                                                    <span class=""></span>
+                                                </ng-container>
+                                                <ng-container *ngSwitchCase="'date'">
+                                                    <ng-container *ngIf="detail?.value"> {{ detail?.value
+                                                        }}</ng-container>
+                                                </ng-container>
+                                                <ng-container *ngSwitchCase="'amount'">
+                                                    <!-- <span class="amount">{{ detail?.value?.currencyCode}} <em>{{ detail?.value?.amount | currency : detail?.value?.currencyCode : '' }} </em></span> -->
+                                                    <span class="amount">{{ detail?.value?.amount | currency :
+                                                        detail?.value?.currencyCode : '' }} <em>{{
+                                                            detail?.value?.currencyCode | currencyCode }}</em></span>
+                                                </ng-container>
+                                                <ng-container *ngSwitchCase="'innerhtml'">
+                                                    <span class="" [innerHTML]="detail?.value"></span>
+                                                </ng-container>
+                                                <ng-container *ngSwitchDefault>
+                                                    {{ detail?.value }}
+                                                </ng-container>
+                                            </ng-container>
+                                        </span>
+                                    </box>
+                                </ng-container>
+                                <ng-template #spacer>
+                                    <div class="space-bar"></div>
+                                </ng-template>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+
+
+                </box>
+            </ng-container>
+        </box>
+
+        <box class="confirmation-footer" [ngClass]="{'edit-add-confirmation': operationMode !== 'D'}">
+            <button *ngIf="operationMode !== 'D'" type="button" class="secondary" (click)=gotoHome()>
+                <span>{{closeBtnText}}</span>
+            </button>
+            <button type="button" class="primary" (click)="gotoModule('PAYMENTSSPACE')">
+                <span>{{primaryBtnText}}</span>
+            </button>
+            <!-- <button type="button" class="primary" (click)="gotoModule('')"><span>{{
+                    'confirmationReceiptForm.home' | translate }}</span></button> -->
+        </box>
+    </box>
+
+</ng-container>

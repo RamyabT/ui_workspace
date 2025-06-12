@@ -1,0 +1,32 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailManageEtransferReceiveMoneyForm">
+	<box class="entry-form-header">
+		<box class="profile-container">
+			<!-- <span class="main-header"> Vancity</span> -->
+			<img class="main-header" src="./assets/interac/vancity-logo.svg" alt=" vancity logo">
+
+		</box>
+	</box>
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-sm-12 col-md-12 col-lg-12 ">
+			<h5 class="main-title">{{'RetailManageEtransferReceiveMoneyForm.title' | translate}}</h5>	
+			<!-- <box> -->
+				<!-- <box class="btn-alignment"> -->
+					<button type="button" class="btn-primary">
+						<span class="label">Open on mobile app</span></button>
+						<button type="button" class="btn-primary">
+							<span class="label">Continue in browser</span></button>
+				<!-- </box> -->
+				<!-- <box class="close-btn">
+				</box> -->
+			<!-- </box> -->
+		</box>
+	</box>
+	<div class="shell-footer">
+		<box class="terms-condition">
+		 <span class="first-span">Use of this website is subject to our <span class='privacy'>privacy & </span></span>
+		 <span class="legal">legal terms</span>
+		 <span class='online'>Online Banking French</span> 
+		 <span class="third-span">© Copyright 2025 Vancouver City Savings Credit Union</span>
+        </box>			
+	</div>
+</form>

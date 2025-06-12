@@ -1,0 +1,32 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailFlashPrepaidCardRequestForm" >
+	   
+	 <box class="entry-form">
+		<box class="grid entry-form-field-group">
+	      
+	      
+			  <app-prepaid-card-list-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('cardReference')"     label="{{'RetailFlashPrepaidCardRequestForm.cardReference.label' | translate }}"   formControlName="cardReference" 
+     ></app-prepaid-card-list-control>
+	     
+	      
+			  <app-debit-card-number-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('cardNumber')"     label="{{'RetailFlashPrepaidCardRequestForm.cardNumber.label' | translate }}"   formControlName="cardNumber" 
+   ></app-debit-card-number-control>
+	     
+	      
+			  <app-name-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('cardHolderName')"     label="{{'RetailFlashPrepaidCardRequestForm.cardHolderName.label' | translate }}"   formControlName="cardHolderName" 
+   ></app-name-control>
+	     
+	      
+			  <app-dcvv-pin-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('cvv')"     label="{{'RetailFlashPrepaidCardRequestForm.cvv.label' | translate }}"   formControlName="cvv" 
+   ></app-dcvv-pin-control>
+	     
+	      
+			  <app-valid-till-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('validThru')"     label="{{'RetailFlashPrepaidCardRequestForm.validThru.label' | translate }}"   formControlName="validThru" 
+       ></app-valid-till-control>
+	     
+	      
+			  <!-- <app-status-control class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('status')"     label="{{'RetailFlashPrepaidCardRequestForm.status.label' | translate }}"   formControlName="status" 
+   ></app-status-control> -->
+	 </box> 
+	 </box>
+	</form>
+	

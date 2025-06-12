@@ -1,0 +1,23 @@
+"RetailEstmtRequestForm":{
+"title":"E-Statement Enrollment",
+		 "accountNumber": {
+		  "label":"Select Account" ,
+		  "placeholder": ""
+		  } ,
+		 "action": {
+		  "label":"E-Statement Enrollment" ,
+		  "placeholder": ""
+		  } ,
+		 "email": {
+		  "label":" Email Id" ,
+		  "placeholder": ""
+		  } ,
+		 "termsFlag": {
+		  "label":"By continuing you confirm and acknowledge the applicable terms and conditions and the Key Fact Statements" ,
+		  "placeholder": ""
+		  } ,
+		 "status": {
+		  "label":"Current Status" ,
+		  "placeholder": ""
+		  } 
+}

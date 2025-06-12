@@ -1,0 +1,5 @@
+ 
+ "RETAILCCFLASH" : {
+ "servicePath": ["entry-shell","creditcard", "retail-cc-flash-request-form"],
+ "queryParams": {}
+ }

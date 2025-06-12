@@ -1,0 +1,29 @@
+"RetailRPSuccessorinfo":{
+"title":"RetailRPSuccessorinfo",
+		 "successorElectConsent": {
+		  "label":"I elect that my surviving spouse or common-law partner below become the Successor Holder in the event of my death before termination of the Account, and confirm that my spouse or common-law partner has the unconditional right to revoke any Beneficiary designation made under the Plan" ,
+		  "placeholder": "I elect that my surviving spouse or common-law partner below become the Successor Holder in the event of my death before termination of the Account, and confirm that my spouse or common-law partner has the unconditional right to revoke any Beneficiary designation made under the Plan"
+		  } ,
+		 "firstName": {
+		  "label":"First Name" ,
+		  "placeholder": "First Name"
+		  } ,
+		 "initial": {
+		  "label":"Initial" ,
+		  "placeholder": "Initial"
+		  } ,
+		 "lastName": {
+		  "label":"Last Name" ,
+		  "placeholder": "Last Name"
+		  } ,
+		 "relationship": {
+		  "label":"Relationship to holder" ,
+		  "placeholder": "Relationship to holder"
+		  } ,
+		 "beneElectConsent": {
+		  "label":"I designate the person(s) below as Beneficiary(ies) to receive, in the event of my death and in the absence of a Successor Holder, any property under the Account." ,
+		  "placeholder": "I designate the person(s) below as Beneficiary(ies) to receive, in the event of my death and in the absence of a Successor Holder, any property under the Account."
+		  } ,
+		  "header": "Contact Information",
+		  "description": "I elect that the election of a Successor Holder and designation of a Beneficiary in respect of my Account is subject to the laws of the applicable jurisdiction (province or territory) where I reside and the applicable laws that from time permit such an election or designation in this regard."
+}

@@ -1,0 +1,5 @@
+ 
+ "RETAILPFMTRANHISTORY" : {
+ "servicePath": ["display-shell","pfm", "pfm-transaction-history-ro-grid"],
+ "queryParams": {}
+ }

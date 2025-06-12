@@ -1,0 +1,68 @@
+<box class="view-scheduled-bills-form" [ngClass]="{'form-space': _helper.isFormScreenLoaded}">
+
+    <box *ngIf="!_helper._device.isMobile() && _helper.isFormScreenLoaded" class="view-scheduled-bills-form">
+        <box class="back-wrapper">
+            <box class="back-btn" (click)="_helper.backToTransfers()">
+                <span class="ico ico-back"></span>
+                <span class="back-text font-14-20">{{'RetailTransferScheduleForm.header.backToTransfers' |
+                    translate}}</span>
+            </box>
+        </box>
+
+        <box class="schedule-bill-form">
+            <box class="schedule-bill-form-header">
+                {{'RetailTransferScheduleForm.scheduledTransfers' | translate}}
+            </box>
+            <box class="one-time-contact" (click)="_helper.openTransferTypeModal()">
+                <span>{{'RetailTransferScheduleForm.scheduleATransfer' | translate}}</span>
+            </box>
+        </box>
+    </box>
+
+    <box *ngIf="!_helper.isFormScreenLoaded" class="view-schedule-header">
+        <box class="header-title">Scheduled transfers</box>
+        <box class="header-btn" [hidden]="_scheduleFormComponentHelper.totalRowCount == 0">
+            <fpx-button label="See all" btnClass="header-btn btn-secondary" [buttonMode]="'button'"
+                (onClick)="_helper.seeAll()"></fpx-button>
+        </box>
+    </box>
+
+
+    <box *ngIf="state.isDataReceived && _scheduleFormComponentHelper.totalRowCount > 0"
+        class="transfer-form-disclaimer-wrapper"
+        [ngClass]="{'hide-disclaimer': _helper.isFormScreenLoaded && _helper._device.isMobile()}">
+        <span class="disclaimer-icon"></span>
+        <span class="disclaimer-text">
+            {{ _helper.disclaimerText | translate }}
+        </span>
+    </box>
+
+    <box *ngIf="_helper._device.isMobile() && _helper.isFormScreenLoaded" class="schedule-bill-form">
+        <box class="one-time-contact" (click)="_helper.openTransferTypeModal()">
+            <span>{{'RetailTransferScheduleForm.scheduleATransfer' | translate}}</span>
+        </box>
+    </box>
+    <ng-container *ngIf="!_helper.apiFailed else apiErrorTemplate">
+        <app-retail-schedule-payments-ro-grid (commonRoGridEvent)="_helper.handleSchedulePaymentsGridEvent($event)"
+            [ngClass]="{'no-results': state.isDataReceived && (_scheduleFormComponentHelper.totalRowCount == 0 || _scheduleFormComponentHelper.totalRowCount == null)}"></app-retail-schedule-payments-ro-grid>
+    </ng-container>
+</box>
+
+
+<ng-container
+    *ngIf="state.isDataReceived && (_scheduleFormComponentHelper.totalRowCount == 0 || _scheduleFormComponentHelper.totalRowCount == null)">
+    <box class="no-result-view">
+        <box class="no-result-image-wrapper">
+            <img class="no-result-image"
+                src="./assets/tenant-config/10001/skins/images/illustration/no-schedule-transfer.svg" alt="">
+        </box>
+        <box class="no-result-title">{{ 'RetailTransferScheduleForm.headerLabel' | translate }}</box>
+        <box class="no-result-desc">{{ 'RetailTransferScheduleForm.noTransfers' | translate }}</box>
+    </box>
+</ng-container>
+
+<ng-template #apiErrorTemplate>
+    <box class="service-unavailable-template">
+        <box class="description">{{'accountsPanel.apiErrorData' | translate}}</box>
+    </box>
+</ng-template>

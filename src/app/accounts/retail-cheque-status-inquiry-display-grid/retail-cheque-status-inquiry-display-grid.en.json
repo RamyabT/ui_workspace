@@ -1,0 +1,27 @@
+"RetailChequeStatusInquiryDisplayGrid":{
+"title":"Retail Cheque Status Inquiry",
+		 "chequeNumber": {
+		  "label":"ChequeNumber" ,
+		  "placeholder": "ChequeNumber"
+		  } ,
+		 "chequeAmount": {
+		  "label":"Cheque Amount" ,
+		  "placeholder": "Cheque Amount"
+		  } ,
+		 "chequeStatus": {
+		  "label":"ChequeStatus" ,
+		  "placeholder": "ChequeStatus"
+		  } ,
+		 "payeeName": {
+		  "label":"Payee Name" ,
+		  "placeholder": "Payee Name"
+		  } ,
+		 "accountCurrency": {
+		  "label":"Currency" ,
+		  "placeholder": "Currency"
+		  } ,
+		 "paidDate": {
+		  "label":"Paid Date" ,
+		  "placeholder": "Paid Date"
+		  } 
+}

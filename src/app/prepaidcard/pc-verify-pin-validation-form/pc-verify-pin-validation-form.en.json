@@ -1,0 +1,7 @@
+"DCVerifyPinValidationForm":{
+"title":"Verify Pin ",
+		 "confirmPin": {
+		  "label":"Enter Pin" ,
+		  "placeholder": "Enter Pin"
+		  } 
+}

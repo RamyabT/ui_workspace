@@ -1,0 +1,211 @@
+<form class="input-grid-form" [formGroup]="formGroup" formName="RetailMultiBillRequestInputGrid">
+  <box [hidden]="hideBills" class="input-grid" [style.width]="gridWidth + '%'">
+    <box class="portfolio-summary multi-bill-list-selection col-lg-12 col-sm-12 col-md-12">
+      <ul class="portfolio-summary-list acc-list" [ngClass]="{'multi-bill-selection-list': multiBillSelection}">
+
+        <box *ngIf="!_helper._deviceDetectorService.isMobile()" class="review-title">
+          <span class="review-title-text">{{'reviewForm.title' | translate}}</span>
+          <span *ngIf="!_helper._deviceDetectorService.isMobile()"
+            class="review-text">{{'billpaymentLabels.billPayReviewLabel' | translate}}</span>
+        </box>
+
+        <span *ngIf="_helper._deviceDetectorService.isMobile()"
+          class="review-title-text-mobile font-20-24">{{'reviewForm.title' | translate}}</span>
+
+
+        <ng-container formArrayName="formArray">
+          <ng-container *ngFor="
+              let control of formArray.controls;
+              let i = index;
+              let last = last
+            " formGroupName="{{ i }}">
+
+            <li [ngClass]="'accordion accordion-item-' + i">
+              <span class="pay-now-later-review-heading">{{control.value.payNow ? 'Pay now' : 'Pay later'}}</span>
+              <box *ngIf="multiBillSelection" class="multiple-bills-header">
+                <span class="bills-count">Bill {{i+1}} of {{formArray.controls.length}}</span>
+
+                <span *ngIf="!_helper.hideDeleteBillIcon" class="delete-bill-icon-container"
+                  (click)="_helper.deleteBill(i)">
+                  <span class="delete-bill-icon"><span class="delete-bill-icon-text"
+                      *ngIf="!_helper._deviceDetectorService.isMobile()">Remove
+                      bill</span></span>
+                </span>
+              </box>
+
+              <!-- <span>{{formArray.controls[i].value | json}}</span> -->
+
+              <box class="review-form-container" [ngClass]="{'multibill-form-review': multiBillSelection}">
+                <box class="review-info">
+                  <box class="payee-name">
+                    <span class="label">{{'billpaymentLabels.payee' | translate}}</span>
+                    <span class="value">{{control.value?.nickName || control.value?.billerId?.name}}</span>
+                  </box>
+                  <box class="payee-name">
+                    <span class="label">{{'billpaymentLabels.accountNumber' | translate}}</span>
+                    <span class="value">{{control.value?.billerCreditAccount}}</span>
+                  </box>
+                  <box class="payee-name">
+                    <span class="label">{{'billpaymentLabels.payFrom' | translate}}</span>
+                    <span class="value"> {{formData?.accountNickname}}
+                    </span>
+                  </box>
+                  <box class="payee-name">
+                    <span class="label">{{'billpaymentLabels.amount' | translate}}</span>
+                    <span class="value">
+                      <em>{{
+                        formArray.controls[i].value?.totalBillAmount.currencyCode | currencyCode
+                        }}</em>{{formArray.controls[i].value?.totalBillAmount.amount | currency :
+                      formArray.controls[i].value?.totalBillAmount.currencyCode : '' }}
+                    </span>
+                  </box>
+                  <box class="payee-name">
+                    <span class="label">{{'billpaymentLabels.paymentDate' | translate}}</span>
+                    <span class="value amount">{{control.value?.paymentDate | date:'dd MMM yyyy'}}</span>
+                  </box>
+                </box>
+              </box>
+
+              <box class="product-type-panel input-grid-row">
+                <box *ngIf="!multiBillSelection" class="list-item-header panel-header"
+                  (click)="selectBill(control.value, i)">
+                  <box class="checkbox-container">
+                    <box formControlName="selectedAccount">
+                      <mat-checkbox [checked]="control.get('selectedAccount')?.value">
+                      </mat-checkbox>
+                    </box>
+                    <box class="header-title">
+                      <span class="biller-name">
+                        {{ control?.value?.nickName || control?.value?.billerId?.name}}
+                      </span>
+
+                      <span *ngIf="control?.value?.nickName" class="biller-id"> {{
+                        control?.value?.billerId?.name
+                        }}</span>
+
+                    </box>
+                  </box>
+                </box>
+
+
+                <box *ngIf="multiBillSelection" class="payee-information">
+                  <box class="payee-name-wrapper">
+                    <span class="payee-name">
+                      {{control.value?.nickName || control.value?.billerId?.name}}
+                    </span>
+                    <span *ngIf="control.value?.nickName" class="payee-type">
+                      {{control.value?.billerId?.name}}
+                    </span>
+                  </box>
+                  <span class="payee-information-divider"></span>
+                  <box class="payee-act-number">
+                    <span class="payee-act-number-label">
+                      {{'billpaymentLabels.accountNumber' | translate}}
+                    </span>
+                    <span class="payee-act-number-value">
+                      {{control.value?.billerCreditAccount}}
+                    </span>
+                  </box>
+                </box>
+
+
+
+                <div class="entry-form" [ngClass]="{'multi-bill-selection': !multiBillSelection}">
+
+                  <box *ngIf="multiBillSelection" class="entry-form-row">
+                    <box class="input-grid-row-item col-lg-12 col-sm-12" [actionPublisher]="
+                      actionMap$[i].get('totalBillAmount_column')
+                    ">
+
+                      <app-amount-control class="col-sm-12 col-md-12 col-lg-12"
+                        [actionPublisher]="actionMap$[i].get('totalBillAmount')"
+                        label="{{ 'RetailMultiBillRequestInputGrid.totalBillAmount.label' | translate }}"
+                        formControlName="totalBillAmount" [isCurrEditable]="state.totalBillAmount.isCurrEditable"
+                        [defaultFetch]="state.totalBillAmount.defaultFetch"
+                        [initCurrency]="state.totalBillAmount.initCurrency"
+                        [amountInWords]="state.totalBillAmount.amountInWords"></app-amount-control>
+                    </box>
+
+                    <box class="input-grid-row-item col-lg-12 col-sm-12"
+                      [actionPublisher]="actionMap$[i].get('paymentDate_column')">
+                      <app-payment-date-control [actionPublisher]="actionMap$[i].get('paymentDate')"
+                        formControlName="paymentDate" label="{{
+                        'RetailMultiBillRequestInputGrid.paymentDate.label'
+                          | translate
+                      }}" [minDate]="state.paymentDate.minDate"
+                        [maxDate]="state.paymentDate.maxDate"></app-payment-date-control>
+                    </box>
+                    <!-- <box class="input-grid-row-item col-lg-4 col-sm-12"
+                    [actionPublisher]="actionMap$[i].get('paymentDate_column')">
+                    <app-statement-mode-control class="col-sm-12 col-md-12 col-lg-12"
+                      [actionPublisher]="actionMap$[i].get('scheduleType')" label="{{
+                        'RetailMultiBillRequestInputGrid.scheduleType.label'
+                          | translate
+                      }}" formControlName="scheduleType"></app-statement-mode-control>
+                  </box> -->
+
+                    <box *ngIf="control.get('scheduleType')?.value" class="input-grid-row-item col-lg-4 col-sm-12"
+                      [actionPublisher]="actionMap$[i].get('paymentFrequency_column')">
+                      <app-frequency-control class="col-sm-12 col-md-6 col-lg-6"
+                        [actionPublisher]="actionMap$[i].get('paymentFrequency')"
+                        label="{{'RetailMultiBillRequestInputGrid.paymentFrequency.label' | translate }}"
+                        formControlName="paymentFrequency"></app-frequency-control>
+                    </box>
+                    <box *ngIf="control.get('scheduleType')?.value" class="input-grid-row-item col-lg-4 col-sm-12"
+                      [actionPublisher]="actionMap$[i].get('numberOfPayments_column')">
+                      <app-installment-number-control class="col-sm-12 col-md-6 col-lg-6"
+                        [actionPublisher]="actionMap$[i].get('numberOfPayments')"
+                        label="{{'RetailMultiBillRequestInputGrid.numberOfPayments.label' | translate }}"
+                        formControlName="numberOfPayments"></app-installment-number-control>
+                    </box>
+
+                    <box
+                      *ngIf="control.get('paymentDate')?.value && control.get('scheduleType')?.value && control.get('paymentFrequency')?.value && control.get('numberOfPayments')?.value"
+                      class="input-grid-row-item col-lg-4 col-sm-12"
+                      [actionPublisher]="actionMap$[i].get('paymentEndDate_column')">
+                      <app-end-date-control class="col-sm-12 col-md-6 col-lg-6"
+                        [actionPublisher]="actionMap$[i].get('paymentEndDate')"
+                        label="{{'RetailMultiBillRequestInputGrid.paymentEndDate.label' | translate }}"
+                        formControlName="paymentEndDate" [minDate]="state.paymentEndDate.minDate"
+                        [maxDate]="state.paymentEndDate.maxDate"></app-end-date-control>
+                    </box>
+                  </box>
+                </div>
+              </box>
+
+
+            </li>
+          </ng-container>
+        </ng-container>
+      </ul>
+    </box>
+
+    <!-- <span>{{_helper.payNowBillsAmount}}</span>
+    <span>{{_helper.payLaterBillsAmount}}</span>
+    <span>{{_helper.showPayNowPayLater}}</span> -->
+
+
+  </box>
+  <box [hidden]="!hideBills">
+    <box class="loading casa-summary-loader"></box>
+    <box class="loading casa-summary-loader"></box>
+  </box>
+</form>
+
+<box class="pay-bills-count">
+  Pay {{selectedAccountsList.length}} bills
+</box>
+
+
+<box class="select-multiple-bills-footer-container">
+  <box class="btn-footer-container">
+    <button type="button" class="btn-secondary" aria-label="Close" (click)="_helper.closeMultiBills()">
+      <span>{{'billpaymentLabels.cancel' | translate}}</span>
+    </button>
+
+    <button type="button" class="btn-primary" aria-label="Continue" (click)="_helper.continueMultiBills()"
+      [disabled]="selectedAccountsList.length < 2">
+      <span>{{'billpaymentLabels.continue' | translate}}</span>
+    </button>
+  </box>
+</box>

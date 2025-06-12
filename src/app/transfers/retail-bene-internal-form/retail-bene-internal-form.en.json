@@ -1,0 +1,42 @@
+"RetailBeneInternalForm":{
+"title":"Within Bank Beneficiary",
+		 "nickName": {
+		  "label":"Beneficiary Nickname" ,
+		  "placeholder": "Beneficiary Nickname"
+		  } ,
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "confirmAccountNumber": {
+		  "label":"Confirm Account Number" ,
+		  "placeholder": "Confirm Account Number"
+		  } ,
+		 "beneficiaryName": {
+		  "label":"Beneficiary Name" ,
+		  "placeholder": "Beneficiary Name"
+		  } ,
+		 "accountCurrency": {
+		  "label":"Beneficiary Account Currency " ,
+		  "placeholder": "Beneficiary Account Currency "
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		  "termsFlag": {
+			"label":"I hereby agree with the terms and conditions and key facts statements." ,
+			"placeholder": "I hereby agree with the terms and conditions and key facts statements."
+			} ,
+			"isFavourite": {
+				"label":"Mark as Favourite" ,
+				"placeholder": "Mark as Favourite"
+				} ,
+		   "inventoryNumber": {
+			"label":"Inventory Number" ,
+			"placeholder": "Inventory Number"
+			} ,
+		   "disclaimerText": {
+			 "text":"Sample Text"
+		   } 
+}

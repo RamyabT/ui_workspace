@@ -1,0 +1,24 @@
+{
+"retailcreditcardblock":{
+"title":"Block Credit Card",
+		"cardReference": {
+		"label":"Credit card" ,
+		"placeholder": "Credit card"
+		} ,
+		"charges": {
+		"label":"Charges" ,
+		"placeholder": "Charges"
+		} ,
+		"reason": {
+		"label":"Block Reason" ,
+		"placeholder": "Block Reason"
+		} ,
+		"remarks": {
+		"label":"Remarks" ,
+		"placeholder": "Remarks"
+		} ,
+		"termsFlag": {
+		"label":"Terms & Conditions" ,
+		"placeholder": "Terms & Conditions"
+		} 
+}}

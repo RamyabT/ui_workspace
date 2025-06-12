@@ -1,0 +1,160 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailDomesticTransferForm">
+
+	<box class="entry-form">
+		<box class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('transferSummary')">
+			<box class="grid entry-form-field-group">
+
+				<box class="field-item col-sm-12 col-md-6 col-lg-12">
+					<box class="info-box">
+						<fpx-label label="{{'TransferSummaryForm.tranDet' | translate}}"></fpx-label>
+						<box class="info-field">
+							<fpx-display-text class="info-field-label" [innerHTML]="'TransferSummaryForm.refnumber' | translate"
+								[literals]="commonFormInput"></fpx-display-text>
+							<fpx-display-text class="info-field-value" [innerHTML]="state.transferSummary.paymentId"
+								[literals]="commonFormInput"></fpx-display-text>
+						</box>
+						<box class="info-field">
+							<fpx-display-text class="info-field-label" [innerHTML]="'TransferSummaryForm.status' | translate"
+								[literals]="commonFormInput"></fpx-display-text>
+							<fpx-display-text class="info-field-value" [innerHTML]="state.transferSummary.paymentStatus"
+								[literals]="commonFormInput"></fpx-display-text>
+						</box>
+					</box>
+				</box>
+			</box>
+		</box>
+
+
+		<app-account-list-template-control class="col-sm-12 col-md-6 col-lg-12"
+			[actionPublisher]="actionMap$.get('sourceAccount')" formControlName="sourceAccount"
+			(commonControlEvent)="handleControlEvent($event)"
+			label="{{'RetailDomesticTransferForm.sourceAccount.label' | translate }}"
+			placeholder="{{'RetailDomesticTransferForm.sourceAccount.placeholder' | translate }}"
+			></app-account-list-template-control>
+		<box class="grid entry-form-field-group">
+			<box class="col-sm-12 col-md-6 col-lg-12">
+				<app-domestic-bene-list class="col-sm-12 col-md-6 col-lg-12"
+					[actionPublisher]="actionMap$.get('beneficiaryId')"
+					label="{{'RetailDomesticTransferForm.beneficiaryId.label' | translate }}"
+					placeholder="{{'RetailDomesticTransferForm.beneficiaryId.placeholder' | translate }}"
+					formControlName="beneficiaryId"
+					(commonControlEvent)="handleControlEvent($event)"></app-domestic-bene-list>
+				<ng-container>
+					<fpx-button btnType="button" btnClass="beneLink" [label]="'addBeneficiaryLink.label' | translate"
+						(onClick)="_helper.addNewBene()"></fpx-button>
+				</ng-container>
+			</box>
+
+
+
+			<app-schedule-type-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('scheduleType')"
+				label="{{'RetailDomesticTransferForm.scheduleType.label' | translate }}"
+				formControlName="scheduleType"></app-schedule-type-control>
+
+			<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('paymentAmount')"
+				label="{{'RetailDomesticTransferForm.paymentAmount.label' | translate }}"
+				formControlName="paymentAmount" (commonControlEvent)="handleControlEvent($event)"
+				[CurrencyList]="state.paymentAmount.CurrencyList" [isCurrEditable]="state.paymentAmount.isCurrEditable"
+				[defaultFetch]="state.paymentAmount.defaultFetch" [initCurrency]="state.paymentAmount.initCurrency"
+				[amountInWords]="state.paymentAmount.amountInWords" [changePublisher]="formChangePublisher$"
+				[dependencyField]="['fromCurrencyVariable','toCurrencyVariable','accountBalanceVariable','scheduleTypeVariable','beneficiaryIdVariable']"></app-payment-amount-control>
+
+
+			<box class="field-item col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('paymentSummary')">
+				<box class="info-box">
+					<fpx-label label="{{'FX_RATES.title' | translate}}"></fpx-label>
+
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.dAmount' | translate"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.paymentSummary.debitAmount"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.cAmount' | translate"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.paymentSummary.creditAmount"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.exRate' | translate"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.paymentSummary.exchangeRate"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+				</box>
+			</box>
+
+			<app-domestic-purpose-list class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('purpose')"
+				label="{{'RetailDomesticTransferForm.purpose.label' | translate }}" formControlName="purpose"
+				[changePublisher]="formChangePublisher$"
+				[dependencyField]="['fromCurrencyVariable','paymentAmountVariable']"
+				(commonControlEvent)="handleControlEvent($event)"
+			></app-domestic-purpose-list>
+
+			<app-transfer-type-list-control class="col-sm-12 col-md-6 col-lg-12"
+			[actionPublisher]="actionMap$.get('transferType')"  [changePublisher]="formChangePublisher$"
+			label="{{'RetailDomesticTransferForm.transferType.label' | translate }}"
+			formControlName="transferType"
+			></app-transfer-type-list-control>
+
+
+			<app-payment-date-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('paymentDate')" [changePublisher]="formChangePublisher$"
+				label="{{'RetailDomesticTransferForm.paymentDate.label' | translate }}" formControlName="paymentDate"
+				[minDate]="state.paymentDate.minDate" [maxDate]="state.paymentDate.maxDate"></app-payment-date-control>
+
+
+			<app-retail-schedule-handler-form class="col-sm-12 col-md-6 col-lg-12"
+				(commonFormEvent)="handleControlEvent($event)" [actionPublisher]="actionMap$.get('scheduleHandler')"
+				label="RetailScheduleTransferHandler" formControlName="scheduleHandler"
+				[changePublisher]="formChangePublisher$">
+			</app-retail-schedule-handler-form>
+
+			<!-- <app-charges-control class="col-sm-12 col-md-6 col-lg-6" label="{{'RetailDomesticTransferForm.chargesAmount.label' | translate }}" formControlName="chargesAmount" #fpxControl
+				[isCurrEditable]="state.chargesAmount.isCurrEditable" [defaultFetch]="state.chargesAmount.defaultFetch"
+				   [initCurrency]="state.chargesAmount.initCurrency" [amountInWords]="state.chargesAmount.amountInWords"></app-charges-control> -->
+
+
+			<app-charges-borne-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('chargesBorneBy')"
+				label="{{'RetailDomesticTransferForm.chargesBorneBy.label' | translate }}"
+				formControlName="chargesBorneBy" [changePublisher]="formChangePublisher$"
+				(commonControlEvent)="handleControlEvent($event)"
+				[dependencyField]="['paymentAmountVariable',
+					'fromCurrencyVariable',
+					'serviceCodeVariable',
+					'fromAccountVariable',
+					'toAccountVariable',
+					'accountBalanceVariable',
+					'debitAmountVariable','scheduleTypeVariable']"></app-charges-borne-control>
+
+
+			<app-charges-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('chargesAmount')"
+				label="{{'RetailDomesticTransferForm.chargesAmount.label' | translate }}"
+				formControlName="chargesAmount" (commonControlEvent)="handleControlEvent($event)"
+				[CurrencyList]="state.chargesAmount.CurrencyList" [isCurrEditable]="state.chargesAmount.isCurrEditable"
+				[defaultFetch]="state.chargesAmount.defaultFetch" [initCurrency]="state.chargesAmount.initCurrency"
+				[amountInWords]="state.chargesAmount.amountInWords" [changePublisher]="formChangePublisher$"></app-charges-control>
+
+
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('remarks')"
+				label="{{'RetailDomesticTransferForm.remarks.label' | translate }}"
+				formControlName="remarks"></app-remarks-control>
+		</box>
+		<box id="disclaimer-box" class="col-sm-12 col-md-12 col-lg-12 grid  disclaimer-box  " [actionPublisher]="actionMap$.get('disclaimer-box')">
+
+
+			<app-terms-control class="col-md-4" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'RetailDomesticTransferForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+				placeholder="{{'RetailDomesticTransferForm.termsFlag.placeholder' | translate }}"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+
+
+		</box>
+
+	</box>
+</form>

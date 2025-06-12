@@ -1,0 +1,56 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="NPSSSendMoney">
+  <box class="entry-form">
+    <box class="grid entry-form-field-group col-12">
+
+      <box class="bene-details">
+
+        <box class="bene-initial">
+          <span>{{ state.customerDetails.initial }}</span>
+        </box>
+        <box class="bene-primary-info">
+          <box class="name">{{ 'NPSSSendMoney.sendToTxt' | translate :
+            {customerName: state.customerDetails.customerName} }}</box>
+          <ng-container *ngIf="state.customerDetails?.mobileNumber">
+            <box class="phone-number">{{ state.customerDetails?.mobileNumber }}</box>
+          </ng-container>
+        </box>
+
+        <box class="amount-details grid">
+          <app-payment-amount-control class="col-sm-12 col-md-12 col-lg-12 npss-money-transfers-amount-control"
+            [actionPublisher]="actionMap$.get('transactionAmount')"
+            placeholder="{{ 'NPSSSendMoney.paymentAmount.placeholder' | translate }}" formControlName="transactionAmount"
+            (commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.transactionAmount.CurrencyList"
+            [isCurrEditable]="state.transactionAmount.isCurrEditable"
+            [defaultFetch]="state.transactionAmount.defaultFetch" [initCurrency]="state.transactionAmount.initCurrency"
+            [amountInWords]="state.transactionAmount.amountInWords" [changePublisher]="formChangePublisher$">
+          </app-payment-amount-control>
+
+          <app-npss-remarks-control class="col-sm-12 col-md-12 col-lg-12 npss-money-transfers-remarks-control"
+            placeholder="{{ 'NPSSSendMoney.remarks.placeholder' | translate }}" [actionPublisher]="actionMap$.get('remarks')"
+            formControlName="remarks">
+          </app-npss-remarks-control>
+        </box>
+
+      </box>
+
+      <box class="debit-account-details">
+        <fpx-label [label]="'NPSSSendMoney.debitAccount.label' | translate"></fpx-label>
+        <box class="debit-account">
+          <img class="account-icon" src="./assets/images/transfers/send-money-acc-logo.svg" alt="savings account" />
+          <box class="account-info">
+            <span class="primary-info">{{ this.state.debitAccountDetails?.iban }}</span>
+            <span class="secondary-info">
+              <span class="header">{{ 'NPSSSendMoney.availableBalanceTxt' | translate }}</span>
+              <span class="amount">
+                {{ this.state.debitAccountDetails?.availableBalance | currency: this.state.debitAccountDetails?.currency:'' }}
+                <em>{{ this.state.debitAccountDetails?.currency }}</em>
+              </span>
+            </span>
+          </box>
+        </box>
+      </box>
+
+    </box>
+  </box>
+
+</form>

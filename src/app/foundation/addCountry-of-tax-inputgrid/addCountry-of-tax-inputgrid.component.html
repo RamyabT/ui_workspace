@@ -1,0 +1,35 @@
+<form [formGroup]="formGroup" formName="AddCountryOfTaxInputGrid">
+  <box class="input-grid country-of-tax-input-grid" [style.width]="gridWidth+'%'">
+
+    <ng-container formArrayName="formArray">
+      <ng-container *ngFor="let control of formArray.controls; let i = index; let last = last" formGroupName="{{ i }}">
+        <box class="input-grid-row">
+          <box class="input-grid-row-item" [style.width]="columnWidth[0]+'%'">
+            <span class="index">{{ 'AddCountryOfTaxInputGrid.countryLbl' | translate : { index: (i+1)} }}</span>
+          </box>
+
+          <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-6" >
+            <span>{{'AddCountryOfTaxInputGrid.countryOfTax.label' | translate }}</span>
+            <app-country-list-control formControlName="countryOfTax"
+              placeholder="{{'AddCountryOfTaxInputGrid.countryOfTax.placeholder' | translate }}"
+              [actionPublisher]="actionMap$[i].get('countryOfTax')"></app-country-list-control>
+          </box>
+
+          <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-6" >
+            <span>{{'AddCountryOfTaxInputGrid.taxPayerId.label' | translate }}</span>
+            <app-tax-payer-id-control [actionPublisher]="actionMap$[i].get('taxPayerId')" formControlName="taxPayerId"
+              placeholder="{{'AddCountryOfTaxInputGrid.taxPayerId.placeholder' | translate }}"></app-tax-payer-id-control>
+          </box>
+          <box class="input-grid-row-item" [style.width]="columnWidth[3]+'%'">
+            <mat-icon (click)="deleteAddedCountry(i)"></mat-icon>
+          </box>
+        </box>
+      </ng-container>
+    </ng-container>
+  </box>
+
+  <box [style.width]="gridWidth+'%'" class="input-grid-title grid-actions center-align" (click)="addMoreCountry()">
+    <button type="button" class="btn-link add-new">{{ 'AddCountryOfTaxInputGrid.addNewTaxResidencyBtnLbl' | translate }}</button>
+  </box>
+  
+</form>

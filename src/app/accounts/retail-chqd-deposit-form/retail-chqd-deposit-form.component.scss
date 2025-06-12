@@ -1,0 +1,42 @@
+ 
+#chequeAmount {        text-align: left !important;       }
+#chequeImageFrontSide {        text-align: left !important;       }
+#chequeImageBackSide {        text-align: left !important;       }
+#cbxrTerms {        text-align: left !important;       }
+
+.account-detail-wrapper {
+	width: 100%;
+}
+.cheque-deposit-account-detail {
+	.cheque-deposit-account-header {
+		width: 100%;
+		h2 {
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 24px;
+			font-family: var(--baseFontFamily);
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			margin: 0;
+		}
+		p {
+			color: var(--smallGreyTextClr);
+			font-size: 12px;
+			line-height: 16px;
+			font-weight: 500;
+			font-family: var(--secondaryFontFamily);
+			display: flex;
+			gap: 8px;
+			align-items: center;
+			margin: 0;
+		}
+		.line-separator {
+			height: 16px;
+			width: 1.5px;
+			display: block;
+			background: var(--primaryBorderClr);
+		}
+	}
+}	  
+

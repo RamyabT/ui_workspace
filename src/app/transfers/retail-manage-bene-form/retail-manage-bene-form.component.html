@@ -1,0 +1,54 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailManageBeneForm">
+	<box class="entry-form" [ngClass]="{'no-records' : _helper.totalRecordCount == 0}">
+		<box class="grid entry-form-field-group col-12">
+			<!-- <box class="fpx-form-control search-group col-sm-12 col-lg-12">
+				<input mat-input type="text" 
+					formControlName="searchText"
+					placeholder="Search Beneficiary" class="fpx-field-content search-bar col-sm-12 col-12" />
+				
+			</box>
+			<div class="bene-segment">
+				<box class="segments">
+					<div *ngFor="let segment of _helper.segments; let i=index">
+						<div class="segment" [ngClass]="{'active':i == _helper.activeSegmentIndex}" (click)="_helper.onClickSegment(i)">{{segment.type}} ({{segment.count}})</div>
+					</div>
+				</box>
+				<img class="filter-icon" src="./assets/images/icons/transfer-filter.svg" alt="">
+			</div> -->
+			<fpx-button *ngIf="_helper.manageContactsApiReceived && (_helper.totalRecordCount != 0)"
+				class="col-xs-2 add-contact" label="Add Contact" btnClass=" btn-primary" [buttonMode]="'button'"
+				(onClick)="retailManageBeneFormHelper.initiateAddContact()"></fpx-button>
+
+			<app-retail-manage-bene-ro-grid class="col-md-13 col-sm-12 col-lg-12"
+				(commonRoGridEvent)="_helper.beneListRoGridEvent($event)" [actionPublisher]="actionMap$.get('beneList')"
+				label="RetailManageBeneficiaryRoGrid"></app-retail-manage-bene-ro-grid>
+		</box>
+	</box>
+	<ng-container
+		*ngIf="_helper.manageContactsApiReceived && (_helper.totalRecordCount == 0 || _helper.totalRecordCount == null)">
+		<box class="no-bill-result-view" [actionPublisher]="actionMap$.get('noSavedContactsGrid')">
+			<box class="no-bill-image"><img class="no-result-image" src="./assets/images/billers/no-saved-billers.svg" alt=""></box>
+			<box class="message-wrapper">
+				<box class="primary-info">
+					<ng-container>
+						{{ 'RetailManageBeneForm.primaryInfo.label' | translate }}
+					</ng-container>
+				</box>
+				<box class="secondary-info">
+					<ng-container>
+						{{ 'RetailManageBeneForm.secondaryInfo.label' | translate }}
+					</ng-container>
+				</box>
+			</box>
+			<box class="form-action-container">
+				<fpx-button class="initiate-contact col-xs-2" label="Add Contact" btnClass=" btn-primary"
+					[buttonMode]="'button'" (onClick)="_helper.initiateAddContact()"></fpx-button>
+			</box>
+
+			<!-- <fpx-display-text class="no-result-desc"
+			[innerHTML]="'Add a payee to get started'"></fpx-display-text>
+		<fpx-button btnType="button" btnClass="btn-primary" label="Add Biller"
+			(onClick)="_helper.initiateNewTransaction()"></fpx-button> -->
+		</box>
+	</ng-container>
+</form>

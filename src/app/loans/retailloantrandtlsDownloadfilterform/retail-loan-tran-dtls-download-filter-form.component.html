@@ -1,0 +1,53 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailLoanTranDtlsDownloadFilterForm">
+
+	<box *ngIf="!retailLoanTranDtlsDownloadFilterFormHelper.deviceDetectorService.isMobile()" class="header">
+		<box class="title">
+			Download
+		</box>
+		<box class="close-btn-container">
+			<button type="button" class="btn-container" (click)="retailLoanTranDtlsDownloadFilterFormHelper.close()">
+				<span class="icon close-btn-icon"></span>
+			</button>
+		</box>
+	</box>
+
+	<box class="entry-form col-lg-12">
+		<box class="grid entry-form-field-group col-lg-12">
+
+			<app-range-type-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('rangeType')"
+				label="{{'RetailLoanTranDtlsDownloadFilterForm.rangeType.label' | translate }}"
+				formControlName="rangeType"
+				placeholder="{{'RetailLoanTranDtlsDownloadFilterForm.rangeType.placeholder' | translate }}"></app-range-type-control>
+
+
+			<box *ngIf="!retailLoanTranDtlsDownloadFilterFormHelper.deviceDetectorService.isMobile()"
+				class="col-sm-12 col-md-6 col-lg-6"></box>
+
+			<app-request-date-control class="col-sm-6 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('fromDate')"
+				label="{{'RetailLoanTranDtlsDownloadFilterForm.fromDate.label' | translate }}"
+				formControlName="fromDate"
+				placeholder="{{'RetailLoanTranDtlsDownloadFilterForm.fromDate.placeholder' | translate }}"
+				[minDate]="state.fromDate.minDate" [maxDate]="state.fromDate.maxDate"></app-request-date-control>
+
+
+			<app-request-date-control class="col-sm-6 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('toDate')"
+				label="{{'RetailLoanTranDtlsDownloadFilterForm.toDate.label' | translate }}" formControlName="toDate"
+				placeholder="{{'RetailLoanTranDtlsDownloadFilterForm.toDate.placeholder' | translate }}"
+				[minDate]="state.toDate.minDate" [maxDate]="state.toDate.maxDate"></app-request-date-control>
+
+
+			<app-download-file-format-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('downloadFileFormat')"
+				label="{{'RetailLoanTranDtlsDownloadFilterForm.downloadFileFormat.label' | translate }}"
+				formControlName="downloadFileFormat"
+				placeholder="{{'RetailLoanTranDtlsDownloadFilterForm.downloadFileFormat.placeholder' | translate }}"></app-download-file-format-list-control>
+
+				<box class="form-action-container">
+					<fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('download')"
+						label="{{'retailcasatrandtlsDownloadfilterform.download.label' | translate }}"
+						btnClass=" btn-primary" [buttonMode]="'button'" [disable]="formGroup.invalid"
+						(onClick)="retailLoanTranDtlsDownloadFilterFormHelper.onDownloadClick(null)"></fpx-button>
+				</box>
+		</box>
+	</box>
+</form>

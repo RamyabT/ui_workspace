@@ -1,0 +1,18 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="ReadTermsAndConditions">
+
+	<box class="entry-form">
+		<box class="entry-form-field-group grid col-12">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.termsAndConditions"></fpx-display-text>
+			<fpx-display-text class="info-field-label" [innerHTML]="'ReadTermsAndConditions.notes' | translate"></fpx-display-text>
+			
+			<box class="accept-actions">
+				<fpx-checkbox class="col-12" [actionPublisher]="actionMap$.get('termscondition')"
+					label="{{'ReadTermsAndConditions.termscondition.label' | translate }}" formControlName="termscondition"
+					placeholder="{{'ReadTermsAndConditions.termscondition.placeholder' | translate }}"
+					[textPosition]="state.termscondition.textPosition" [ckValues]="state.termscondition.ckValues">
+				</fpx-checkbox>
+			</box>
+		</box>
+	</box>
+
+</form>

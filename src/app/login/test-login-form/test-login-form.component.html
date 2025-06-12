@@ -1,0 +1,42 @@
+<form [autocomplete]="'off'" (ngSubmit)="submit()" formName="RetailTestLoginForm" [formGroup]="formGroup">
+  <div class="login-form-wrapper">
+    <span class="login-form-img"></span>
+    <box class="login-logo">
+      <img width="120px" src="./assets/images/brand/bank-logo-login.png" alt="bank logo" />
+    </box>
+    <h1 class="login-form-heading">
+      <ng-container *ngIf="state.forgotMpin; else defaultLogin">
+        {{'LOGIN.forgotMpin.title' | translate}}
+      </ng-container>
+      <ng-template #defaultLogin>
+        {{'LOGIN.title' | translate}}
+      </ng-template>
+    </h1>
+
+    <box class="login-form">
+      <div class="field-item">
+        <app-user-name label="{{'LOGIN.username.label' | translate}}" [actionPublisher]="actionMap$.get('username')"
+          placeholder="{{'LOGIN.username.placeholder' | translate}}" formControlName="username"></app-user-name>
+      </div>
+      <div errorAnchor class="field-item">
+        <app-password label="{{'LOGIN.password.label' | translate}}" [actionPublisher]="actionMap$.get('password')"
+          placeholder="{{'LOGIN.password.placeholder' | translate}}" formControlName="password"></app-password>
+      </div>
+
+      <mat-error *ngIf="state.errorMessage">
+        {{state.errorMessage}}
+      </mat-error>
+
+    </box>
+    <div class="form-footer-actions">
+      <button [disabled]="formGroup.invalid" type="submit" class="btn-primary">
+        <span>{{'LOGIN.submit' | translate}}</span>
+      </button>
+    </div>
+    <div class="form-footer-actions">
+      <button type="button" (click)="oktaLogin()" class="btn-secondary">
+        <span>{{'LOGIN.okta' | translate}}</span>
+      </button>
+    </div>
+  </div>
+</form>

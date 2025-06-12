@@ -1,0 +1,19 @@
+
+ <ng-container  >
+    <box class="account-info">
+        <box class="info-item">
+            <span class="lbl status" [ngClass]="selectedData?.status">{{ selectedData?.walletName }}</span>
+            <span class="val">{{ selectedData?.walletAccountNumber }} </span>
+        </box>
+        <span class="v-seperator">&nbsp;</span>
+        <box class="info-item">
+            <span class="lbl">{{ 'CASA_ACC_DTLS_LIST_TMPLT.availableBalance' | translate }}</span>
+            <span class="amount">{{ selectedData?.availableBalance | currency : selectedData?.currency : ''
+                }} <em>{{ selectedData?.currency }}</em></span>
+        </box>
+        <span class="v-seperator">&nbsp;</span>
+        <box class="info-item">
+          
+        </box>
+    </box>
+</ng-container>

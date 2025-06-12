@@ -1,0 +1,19 @@
+"RetailRPAccountInfo":{
+"title":"RetailRPAccountInfo",
+		 "depositAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "productId": {
+		  "label":"Which FHSA do you wish to invest in?" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "fromAccount": {
+		  "label":"Transfer From" ,
+		  "placeholder": "Transfer From"
+		  } ,
+		 "intendedUse": {
+		  "label":"What is the intended use of this account?" ,
+		  "placeholder": "What is the intended use of this account?"
+		  } 
+}

@@ -1,0 +1,44 @@
+<ng-container *ngIf="quickLinks && quickLinks.length; else quickActionsLoader">
+    <box class="widget quick-actions-inner contextual-actions">
+        <header>
+            <!-- <span class="title">Quick Actions</span> -->
+            <span class="widget-title">{{ 'WIDGIT_TITLES.casaQuickActionsLbl' | translate }}</span>
+            <!-- <button class="system-ico-button no-text edit" type="button"><span>Edit</span></button> -->
+        </header>
+        <box class="actions-body">
+            <ul class="actions-list grid">
+                <ng-container *ngFor="let item of quickLinks">
+                    <li (click)="openLink(item)" >
+                        <span class="icon-wrapper {{ item.serviceCode }}"></span>
+                        <span class="text" [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span>
+                    </li>
+                </ng-container>
+                <ng-container *ngIf="showMore">
+                    <li (click)="showMoreActions()" >
+                        <span class="icon-wrapper more"></span>
+                        <span class="text" [innerHTML]="'quickActions.more' | translate"></span>
+                    </li>
+                </ng-container>
+            </ul>
+        </box>
+    </box>
+</ng-container>
+
+<ng-template #quickActionsLoader>
+    <box class="quick-actions-loader">
+        <ul>
+            <li>
+                <span class="icon">&nbsp;</span>
+                <span class="text">&nbsp;</span>
+            </li>
+            <li>
+                <span class="icon">&nbsp;</span>
+                <span class="text">&nbsp;</span>
+            </li>
+            <li>
+                <span class="icon">&nbsp;</span>
+                <span class="text">&nbsp;</span>
+            </li>
+        </ul>
+    </box>
+</ng-template>

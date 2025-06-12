@@ -1,0 +1,39 @@
+"raisedisputePrepaidCard":{
+"title":"retailRaiseDisputePrepaidCard",
+		 "cardHolderName": {
+		  "label":"Carḍ Holder Name" ,
+		  "placeholder": "Carḍ Holder Name"
+		  } ,
+		 "cardNumber": {
+		  "label":"Card Number" ,
+		  "placeholder": "Card Number"
+		  } ,
+		 "cardType": {
+		  "label":"Card Type" ,
+		  "placeholder": "Card Type"
+		  } ,
+		 "transactionDate": {
+		  "label":"Transaction Date" ,
+		  "placeholder": "Transaction Date"
+		  } ,
+		 "transactionAmount": {
+		  "label":"Transaction Amount" ,
+		  "placeholder": "Transaction Amount"
+		  } ,
+		 "reason": {
+		  "label":"Reason" ,
+		  "placeholder": "Reason"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "terms": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } ,
+		  "otherReason": {
+			"label":"Other Reason" ,
+			"placeholder": "Other Reason"
+			} 
+}

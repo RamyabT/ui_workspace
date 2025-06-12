@@ -1,0 +1,20 @@
+<form formName="mobileNumberSearchForm" [autocomplete]="'off'" (ngSubmit)="submit()" [formGroup]="formGroup">
+    <box class="entry-form col-12">
+        <box class="entry-form-field-group grid">
+
+            <box class="branch-search-result grid">
+                    <box class="fpx-form-control search-group col-sm-12 col-lg-12">
+                        <input mat-input type="text" formControlName="searchMobileNumber"
+                            [placeholder]="'mobileNumberSearchForm.searchMobileNumber.placeholder' | translate"
+                            class="fpx-field-content search-bar col-sm-12 col-12" />
+                    </box>
+                    <box class="select-contact-ro-grid">
+                        <app-wallet-select-contact-ro-grid class="col-md-13 col-sm-12 col-lg-12" 
+                        [actionPublisher]="actionMap$.get('contactList')"></app-wallet-select-contact-ro-grid>
+                      </box>
+
+            </box>
+        </box>
+
+    </box>
+</form>

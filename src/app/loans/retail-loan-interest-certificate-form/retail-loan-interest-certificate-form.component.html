@@ -1,0 +1,19 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailLoanInterestCertificateForm">
+
+	<box class="entry-form">
+		<box class="grid entry-form-field-group ">
+
+			<app-request-date-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('dateFrom')"
+				label="{{'RetailLoanInterestCertificateForm.dateFrom.label' | translate }}" formControlName="dateFrom"
+				[minDate]="state.dateFrom.minDate" [maxDate]="state.dateFrom.maxDate"></app-request-date-control>
+
+
+			<app-request-date-control class="col-sm-12 col-md-6 col-lg-6 " [actionPublisher]="actionMap$.get('dateTo')"
+				label="{{'RetailLoanInterestCertificateForm.dateTo.label' | translate }}" formControlName="dateTo"
+				[minDate]="state.dateTo.minDate" [maxDate]="state.dateTo.maxDate"></app-request-date-control>
+
+		</box>
+	</box>
+
+</form>

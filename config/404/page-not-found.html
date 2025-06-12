@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @media (min-width: 769px) {
+  .header-wrapper {
+    padding-left: 0;
+  }
+
+  .header-wrapper .main-header-inner {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    min-width: 100%;
+    min-height: 72px;
+    padding: 0;
+    background: #F04E39;
+  }
+
+  .header-wrapper .main-header-inner .header-inner-wrapper {
+    display: flex;
+    width: 83.5%;
+    padding: 24px;
+    .brand{
+        background: transparent;
+        border: none;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .header-wrapper {
+    padding-left: 0;
+  }
+
+  .header-wrapper .main-header-inner {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    min-width: 100%;
+    min-height: 64px;
+    padding: 0;
+    background: #F04E39;
+  }
+
+  .header-wrapper .main-header-inner .header-inner-wrapper {
+    display: flex;
+    width: 83.5%;
+    padding: 24px;
+    .brand{
+        background: transparent;
+        border: none;
+    }
+  }
+}
+
+         .header-wrapper{
+            background-color: red;
+            min-height: 72px;
+            min-width: 100%;
+            .header-text{
+                min-height: 26px;
+                min-width: 83px;
+            }
+        }
+       
+        .page-not-found-box {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+
+            .page-not-found-wrapper {
+                position: unset;
+                min-height: 432px;
+                max-width: 432px;
+                display: flex;
+                margin: 99px 84px 144px;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                .page-not-found-image {
+                    width: 360px;
+                    height: 360px;
+                    background: #F8F4E7;
+                    border-radius: 360px;
+                }
+            }
+
+            .content {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                min-height: 432px;
+                max-width: 672px;
+                gap: 32px;
+                margin-top: 20vh;
+
+                .label-tag {
+                    align-items: center;
+                    display: flex;
+                    font-size: 48px;
+                }
+
+                .label {
+                    align-items: center;
+                    text-align: left;
+                    font-size: 14px;
+                }
+
+                .button {
+                    background-color: #000000;
+                    border-radius: 999px;
+                    min-width: 120px;
+                    height: 48px;
+                    color: #FFFFFF;
+                    width: 160px;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <box class="header-wrapper">
+        <box class="main-header-inner">
+            <box class="header-inner-wrapper">
+                <ng-container >
+                    <button type="button" class="brand">
+                        <img src="../../src/assets/images/brand/header-logo.svg" alt="bank" />
+                    </button>
+                </ng-container> 
+            </box>
+        </box>
+    </box>
+    <box class="page-not-found-box">
+        <box class="page-not-found-wrapper">
+            <box class="page-not-found-image"></box>
+        </box>
+        <box class="content">
+            <span class="label-tag">Oops! Page not found</span>
+            <div class="label">The page you’re looking for doesn’t exist or may have been moved.
+                <div>Please check the URL or return to the homepage.</div>
+            </div>
+        </box>
+    </box>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="ScanQRCode">
+  <box class="entry-form">
+    <box class="grid entry-form-field-group col-12">
+
+      <box class="bene-details">
+        <box class="bene-primary-info">
+          <box class="name">
+            Splited Amount for each participant</box>
+        </box>
+
+        <box class="amount-details grid">
+          <app-payment-amount-control class="col-sm-12 col-md-12 col-lg-12 npss-money-transfers-amount-control"
+            [actionPublisher]="actionMap$.get('transactionAmount')"
+            placeholder="{{ 'NPSSSendMoney.paymentAmount.placeholder' | translate }}" formControlName="transactionAmount"
+            (commonControlEvent)="handleControlEvent($event)"
+            [isCurrEditable]="state.transactionAmount.isCurrEditable"
+            [defaultFetch]="state.transactionAmount.defaultFetch" [initCurrency]="state.transactionAmount.initCurrency"
+            [amountInWords]="state.transactionAmount.amountInWords" [changePublisher]="formChangePublisher$">
+          </app-payment-amount-control>
+
+        </box>
+
+        <box>
+          <app-qrcode-generate></app-qrcode-generate>
+      </box> 
+
+        <box class="otp-timer-sec">
+          <fpx-timer [startTimer]="state.doStartTimer" [expireSec]="state.expireTime" (timeout)="_helper.onTimeout()"></fpx-timer>
+      </box>
+
+      </box>
+    </box>
+  </box>
+
+</form>

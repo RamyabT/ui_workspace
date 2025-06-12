@@ -1,0 +1,5 @@
+ 
+ "RETAILINVESTMENTTRANSUMMARY" : {
+ "servicePath": ["entry-shell","deposits", "investment-transaction-summary-filter"],
+ "queryParams": {}
+ }

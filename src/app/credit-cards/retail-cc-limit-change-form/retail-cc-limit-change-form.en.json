@@ -1,0 +1,50 @@
+"RetailCcLimitChangeForm":{
+"title":"Credit Card Limit Change",
+		 "cardRefNumber": {
+		  "label":"Credit Card " ,
+		  "placeholder": "Credit Card "
+		  } ,
+		 "cardLimit": {
+		  "label":"Total Credit Limit" ,
+		  "placeholder": "Total Credit Limit"
+		  } ,
+		 "limitChange": {
+		  "label":"Limit Change" ,
+		  "placeholder": "Limit Change"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "tcFlag": {
+		  "label":"I acknowledge and agreed the Terms and conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } ,
+		 "cardHolderName": {
+		  "label":"CardName" ,
+		  "placeholder": "CardName"
+		  } ,
+		 "cardType": {
+		  "label":"Card Type" ,
+		  "placeholder": "Card Type"
+		  } ,
+		 "creditCardNumber": {
+		  "label":"Credit Card Number" ,
+		  "placeholder": "Credit Card Number"
+		  } ,
+		 "maxLimit": {
+		  "label":"Max Limit" ,
+		  "placeholder": "Max Limit"
+		  } ,
+		 "minLimit": {
+		  "label":"Min Limit" ,
+		  "placeholder": "Min Limit"
+		  } ,
+		 "inventoryNumber": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } ,
+		 "FieldId_2": {
+		   "text":"<span style='color: rgb(58, 58, 60); font-family: &quot;Helvetica Neue&quot;; font-size: 14px; letter-spacing: 0.28px; background-color: rgb(255, 255, 255);'>Disclaimer: Lorem Ipsum content needs to be shared by the team</span>"
+		 } 
+}

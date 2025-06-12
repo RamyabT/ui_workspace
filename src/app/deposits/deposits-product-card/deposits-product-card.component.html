@@ -1,0 +1,103 @@
+<box class="summary-card">
+    <box class="summary-card-inner">
+        <box class="primary-details">
+            <box class="account-details">
+                <box class="product-name">{{ cardData?.productDescription }}</box>
+                <box class="product-details">
+                    <box class="account-number">{{ cardData?.accountNumber | accountNumberTrim }}</box>
+                </box>
+            </box>
+
+           
+            <!-- <button (click)="onunlinkAccount()" >
+                   Unlink account
+            </button>
+            <button (click)="onlinkAccount()" >
+                   Link account
+            </button> -->
+            <box>
+                <img src="./assets/images/Aviso-color-logo.svg" alt="Aviso">
+            </box>
+        </box>
+        <box class="additional-details">
+            <box class="additional-detail available">
+                <span class="lbl">{{ 'CASASUMMARYCARD.cashBalance' | translate }}</span>
+
+                <ng-container *ngIf="cardData.accountCurrency != _appConfig.baseCurrency else avlBaseCurrency">
+                    <box class="amount usd-amount">
+                        <em class="usd">{{ 'SUFFIXCURRENCY' |
+                            currencyCode }}</em>
+                        {{ getAbsoluteValue(cardData.availableBalance) | currency :
+                        cardData.accountCurrency : '' }}
+                        <em>{{ cardData.accountCurrency == 'USD' ? '$' :
+                            cardData.accountCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(cardData.availableBalance)}}
+                    </box>
+                </ng-container>
+                <ng-template #avlBaseCurrency>
+                    <box class="amount cad-amount">{{ getAbsoluteValue(cardData.availableBalance) | currency :
+                        cardData.accountCurrency : '' }} <em>{{ cardData.accountCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(cardData.availableBalance)}}
+                    </box>
+                </ng-template>
+
+
+            </box>
+            <box class="additional-detail actual">
+                <span class="lbl">{{ 'CASASUMMARYCARD.securitiesValue' | translate }}</span>
+
+                <ng-container *ngIf="cardData.accountCurrency != _appConfig.baseCurrency else curBaseCurrency">
+                    <box class="amount usd-amount">
+                        <em class="usd">{{ 'SUFFIXCURRENCY' |
+                            currencyCode }}</em>
+                        {{ getAbsoluteValue(cardData.securitiesValue) | currency :
+                        cardData.accountCurrency : '' }}
+                        <em>{{ cardData.accountCurrency == 'USD' ? '$' :
+                            cardData.accountCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(cardData.securitiesValue)}}
+                    </box>
+                </ng-container>
+                <ng-template #curBaseCurrency>
+                    <box class="amount cad-amount">{{ getAbsoluteValue(cardData.securitiesValue) | currency :
+                        cardData.accountCurrency : '' }} <em>{{ cardData.accountCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(cardData.securitiesValue)}}
+                    </box>
+                </ng-template>
+
+
+            </box>
+            <box class="additional-detail hold">
+                <span class="lbl">{{ 'CASASUMMARYCARD.marketValue' | translate }}</span>
+
+                <ng-container *ngIf="cardData.accountCurrency != _appConfig.baseCurrency else baseCurrencyHold">
+                    <box class="amount usd-amount">
+                        <em>{{ 'SUFFIXCURRENCY' |
+                            currencyCode }}</em>
+                        {{ getAbsoluteValue(cardData.marketValue) | currency :
+                        cardData.accountCurrency : '' }}
+                        <em>{{ cardData.accountCurrency == 'USD' ? '$' :
+                            cardData.accountCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(cardData.marketValue)}}
+                    </box>
+                </ng-container>
+                <ng-template #baseCurrencyHold>
+                    <box class="amount cad-amount">{{ getAbsoluteValue(cardData.marketValue || 0.00) | currency :
+                        cardData.accountCurrency : '' }} <em>{{ cardData.accountCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(cardData.marketValue)}}
+                    </box>
+                </ng-template>
+
+
+            </box>
+        </box>
+    </box>
+
+    <button *ngIf="contextmenuBtn" type="button" class="contextual-menu-trigger"
+        (click)="notifyContextMenuClick()"><span>contextual menu</span></button>
+</box>

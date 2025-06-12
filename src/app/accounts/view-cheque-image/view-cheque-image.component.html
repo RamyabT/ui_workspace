@@ -1,0 +1,25 @@
+<box class="cheque-popup-container">
+    <box class="cheque-title-close-wrapper">
+        <box class="cheque-popup-close">
+            <box class="close-btn-container">
+                <button type="button" class="btn-container" (click)="close()">
+                    <span class="icon close-btn-icon"></span>
+                </button>
+            </box>
+        </box>
+    </box>
+
+    <box class="cheque-image-wrapper">
+        <ng-container>
+            <img [src]="chequeImage" alt="cheque" />
+        </ng-container>
+    </box>
+
+    <box class="footer-btn-container">
+        <button type="button" class="btn-tertiary1" (click)="close()"><span>{{'ChequeImage.cancel' |
+                translate}}</span></button>
+
+        <button type="button" class="btn-tertiary2" (click)="downloadImage()"><span>{{'ChequeImage.download' |
+                translate}}</span></button>
+    </box>
+</box>

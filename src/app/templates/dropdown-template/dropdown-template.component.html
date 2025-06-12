@@ -1,0 +1,357 @@
+<!-- Casa account list -->
+<ng-template let-selectedData #accountListTmplt [fpxControlTemplate]="'accountListTmplt'">
+    <ng-container *ngIf="selectedData && selectedData?.accountNumber">
+        <box class="account-list-item">
+            <box class="primary-info">
+                <span class="icon-wrapper">
+                    <img [src]="skinManager.getAssetFolderPath() + 'skins/images/brand/brand-icon.svg'" alt="casa" />
+                </span>
+                <span class="account-info">{{selectedData?.accountTypeDesc}} - {{selectedData?.accountNumber}}</span>
+                <span class="account-status" [ngClass]="selectedData?.accountStatus?.toLowerCase()"></span>
+            </box>
+            <box class="secondary-info">
+                <span class="lbl">Available Balance - </span>
+                <span class="val">{{selectedData?.availableBalance | currency : selectedData?.accountCurrency: ''}}
+                    <em>{{selectedData?.accountCurrency}}</em>
+                </span>
+            </box>
+        </box>
+    </ng-container>
+</ng-template>
+
+<ng-template let-selectedData #walletListTmplt [fpxControlTemplate]="'walletListTmplt'">
+    <ng-container *ngIf="selectedData && selectedData?.walletAccountNumber">
+        <box class="wallet-list-item">
+            <box class="primary-info">
+                <span class="icon-wrapper">
+                    <img [src]="skinManager.getAssetFolderPath() + 'skins/images/brand/brand-icon.svg'" alt="casa" />
+                </span>
+            </box>
+            <box class="secondary-info">
+                <span class="primary-wallet-info">
+                    <span class="wallet-info">Wallet A/C -{{selectedData?.walletAccountNumber}}</span>
+                </span>
+                <span class="secondary-wallet-info">
+                    <span class="lbl">Available Balance - </span>
+                    <span class="val">{{selectedData?.availableBalance | currency : selectedData?.currency: ''}}
+                        <em>{{selectedData?.currency}}</em>
+                    </span>
+                </span>
+            </box>
+        </box>
+    </ng-container>
+</ng-template>
+
+<!--Child Account List-->
+
+<ng-template let-selectedData #childAccountListTmplt [fpxControlTemplate]="'childAccountListTmplt'">
+    <ng-container *ngIf="selectedData && selectedData?.accountNo">
+        <box class="account-list-item">
+            <box class="primary-info">
+                <span class="icon-wrapper">
+                    <img [src]="skinManager.getAssetFolderPath() + 'skins/images/brand/brand-icon.svg'" alt="casa" />
+                </span>
+                <span class="account-info">{{selectedData?.accounNickName}} - {{selectedData?.accountNo}}</span>
+                <span class="account-status" [ngClass]="selectedData?.accountStatus?.toLowerCase()"></span>
+            </box>
+            <box class="secondary-info">
+                <span class="lbl">Available Balance - </span>
+                <span class="val">{{selectedData?.availableBal | currency : selectedData?.accountCurrency: ''}}
+                    <em>{{selectedData?.accountCurrency}}</em>
+                </span>
+            </box>
+        </box>
+    </ng-container>
+</ng-template>
+
+
+<!-- Bene list -->
+<ng-template let-selectedData #beneListTmplt [fpxControlTemplate]="'beneListTmplt'">
+    <box class="bene-list-item">
+        <box class="icon-wrapper">
+            <img *ngIf="selectedData?.icon; else nameLogo"
+                [src]="skinManager.getAssetFolderPath() + 'skins/images/brand/brand-icon.svg'" alt="bene photo" />
+            <ng-template #nameLogo>
+                <span class="name">{{selectedData?.nickName?.charAt(0)}}</span>
+            </ng-template>
+        </box>
+        <box class="primary-info">
+            <span class="bene-name">{{selectedData?.nickName}}</span>
+            <span class="account-number">A/c: {{selectedData?.accountNumber || selectedData?.ccNumber || selectedData?.beneAccount}}</span>
+            <span class="bank-name">{{selectedData?.bankDescription || selectedData?.bankDesc }}</span>
+        </box>
+    </box>
+</ng-template>
+
+<!-- Large & Medium screen Casa account list -->
+<ng-template let-selectedData #casaAccountDtlListTmplt [fpxControlTemplate]="'casaAccountDtlListTmplt'">
+    <app-casa-acc-dtl-list-tmplt [selectedData]="selectedData"></app-casa-acc-dtl-list-tmplt>
+</ng-template>
+
+<!-- Large & Medium screen deposits account list -->
+<ng-template let-selectedData #depositAccountDtlListTmplt [fpxControlTemplate]="'depositAccountDtlListTmplt'">
+    <ng-container *ngIf="selectedData && selectedData?.accountNumber">
+        <box class="account-info">
+            <box class="info-item">
+                <span class="lbl status" [ngClass]="selectedData?.status">{{ selectedData?.productDescription}}</span>
+                <span class="val">{{ selectedData?.accountNumber }}</span>
+            </box>
+            <span class="v-seperator"> </span>
+
+            <ng-container [ngSwitch]="selectedData?.accountType">
+                <ng-container *ngSwitchCase="'aviso'">
+                    <box class="info-item">
+                        <span class="lbl">{{ 'DEPOSIT_ACC_DTLS_LIST_TMPLT.marketValueLbl' | translate }}</span>
+                        <span class="amount">{{ selectedData?.totalMarketValue | currency : selectedData?.currency : ''
+                            }}
+                            <em>{{ selectedData?.currency }}</em>
+                        </span>
+                    </box>
+
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'registeredproducts'">
+                    <box class="info-item">
+                        <ng-container *ngIf="selectedData?.interestRate">
+                            <span class="lbl">{{ 'DEPOSIT_ACC_DTLS_LIST_TMPLT.interestRateLbl' | translate }}</span>
+                            <span class="amount">{{ selectedData?.interestRate }}%</span>
+                        </ng-container>
+                        <ng-container *ngIf="!selectedData?.interestRate && selectedData?.contractNumber">
+                            <span class="lbl">{{ 'DEPOSIT_ACC_DTLS_LIST_TMPLT.contractNumberLbl' | translate }}</span>
+                            <span class="amount">{{ selectedData?.contractNumber }}</span>
+                        </ng-container>
+                    </box>
+
+                    <span class="v-seperator"></span>
+
+                    <box class="info-item">
+                        <span class="lbl">{{ 'DEPOSIT_ACC_DTLS_LIST_TMPLT.investedAmountLbl' | translate }}</span>
+                        <span class="amount">{{ selectedData?.principalAmount | currency : selectedData?.accountCurrency : '' }}
+                            <em>{{selectedData?.accountCurrency}}</em>
+                        </span>
+                    </box>
+                </ng-container>
+
+                <ng-container *ngSwitchDefault>
+                    <box class="info-item">
+                        <span class="lbl">{{ 'DEPOSIT_ACC_DTLS_LIST_TMPLT.investedAmountLbl' | translate }}</span>
+                        <span class="amount">{{ selectedData?.depositAmount | currency : selectedData?.accountCurrency : '' }}
+                            <em>{{ selectedData?.accountCurrency }}</em>
+                        </span>
+                    </box>
+
+                    <span class="v-seperator"></span>
+
+                    <box class="info-item">
+                        <span class="lbl">{{ 'DEPOSIT_ACC_DTLS_LIST_TMPLT.maturityAmountLbl' | translate }}</span>
+                        <span class="amount">{{ selectedData?.maturityAmount | currency : selectedData?.accountCurrency : '' }}
+                            <em>{{selectedData?.accountCurrency}}</em>
+                        </span>
+                    </box>
+                </ng-container>
+            </ng-container>
+        </box>
+    </ng-container>
+</ng-template>
+
+<!-- Large & Medium screen loan account list -->
+<ng-template let-selectedData #loanAccountDtlListTmplt [fpxControlTemplate]="'loanAccountDtlListTmplt'">
+    <app-loan-dtl-list-tmplt [selectedData]="selectedData"></app-loan-dtl-list-tmplt>
+</ng-template>
+
+<!-- Large & Medium screen debitcard details list -->
+<ng-template let-selectedData #debitcardDtlListTmplt [fpxControlTemplate]="'debitcardDtlListTmplt'">
+    <ng-container *ngIf="selectedData && selectedData?.cardNumber">
+        <box class="account-info">
+            <box class="info-item">
+                <span class="lbl status" [ngClass]="selectedData?.status?.toLowerCase()?.replace(' ','-')">{{
+                    'DEBITCARD_DTLS_LIST_TMPLT.cardNo' | translate }}</span>
+                <span class="val">{{ selectedData?.cardNumber }}</span>
+            </box>
+            <span class="v-seperator">&nbsp;</span>
+            <box class="info-item">
+                <span class="lbl">{{ 'DEBITCARD_DTLS_LIST_TMPLT.validthru' | translate }}</span>
+                <span class="amount">{{ selectedData?.validThru }}</span>
+            </box>
+            <span class="v-seperator">&nbsp;</span>
+            <box class="info-item">
+                <span class="lbl">{{ 'DEBITCARD_DTLS_LIST_TMPLT.status' | translate }}</span>
+                <span class="amount">{{ selectedData?.status }}</span>
+                <!-- <span class="amount">{{ selectedData?.actualBalance | currency : selectedData?.currency : '' }}
+                    <em>{{selectedData?.currency}}</em>
+                </span> -->
+            </box>
+        </box>
+    </ng-container>
+
+</ng-template>
+
+<!-- Large & Medium screen creditcard details list -->
+<ng-template let-selectedData #creditcardDtlListTmplt [fpxControlTemplate]="'creditcardDtlListTmplt'">
+    <ng-container *ngIf="selectedData && selectedData?.primaryCardAccNumber">
+        <box class="account-info">
+            <box class="info-item">
+                <span class="lbl status" [ngClass]="selectedData?.status?.toLowerCase()?.replace(' ','-')">{{
+                    'CREDITCARD_DTLS_LIST_TMPLT.cardNo' | translate }}</span>
+                <span class="val">{{ selectedData?.creditCardNumber }}</span>
+            </box>
+            <span class="v-seperator">&nbsp;</span>
+            <box class="info-item">
+                <span class="lbl">{{ 'CREDITCARD_DTLS_LIST_TMPLT.validthru' | translate }}</span>
+                <span class="amount">{{ selectedData?.validThru }}</span>
+            </box>
+            <span class="v-seperator">&nbsp;</span>
+            <box class="info-item">
+                <span class="lbl">{{ 'CREDITCARD_DTLS_LIST_TMPLT.status' | translate }}</span>
+                <span class="amount">{{ selectedData?.status }}</span>
+                <!-- <span class="amount">{{ selectedData?.creditLimit | currency : selectedData?.currency : '' }}
+                    <em>{{selectedData?.currency}}</em></span> -->
+            </box>
+        </box>
+    </ng-container>
+
+</ng-template>
+
+<!-- Large & Medium screen prepaidcard details list -->
+<ng-template let-selectedData #prepaidcardDtlListTmplt [fpxControlTemplate]="'prepaidcardDtlListTmplt'">
+    <ng-container *ngIf="selectedData && selectedData?.cardRefNumber">
+        <box class="account-info">
+            <box class="info-item">
+                <span class="lbl status" [ngClass]="selectedData?.status?.toLowerCase()?.replace(' ','-')">{{
+                    'PREPAIDCARD_DTLS_LIST_TMPLT.cardNo' | translate }}</span>
+                <span class="val">{{ selectedData?.cardNumber }}</span>
+            </box>
+            <span class="v-seperator">&nbsp;</span>
+            <box class="info-item">
+                <span class="lbl">{{ 'PREPAIDCARD_DTLS_LIST_TMPLT.validthru' | translate }}</span>
+                <span class="amount">{{ selectedData?.validThru }}</span>
+            </box>
+            <span class="v-seperator">&nbsp;</span>
+            <box class="info-item">
+                <span class="lbl">{{ 'PREPAIDCARD_DTLS_LIST_TMPLT.status' | translate }}</span>
+                <span class="amount">{{ selectedData?.status }}</span>
+                <!-- <span class="amount">{{ selectedData?.avlBalance | currency : selectedData?.currency : '' }}
+                    <em>{{selectedData?.currency}}</em></span> -->
+            </box>
+        </box>
+    </ng-container>
+
+</ng-template>
+
+<!-- Loan account list -->
+<ng-template let-selectedData #loanAccountListTmplt [fpxControlTemplate]="'loanAccountListTmplt'">
+    <ng-container *ngIf="selectedData && selectedData?.loanAccountNumber">
+        <box class="account-list-item">
+            <box class="primary-info">
+                <span class="icon-wrapper">
+                    <img [src]="skinManager.getAssetFolderPath() + 'skins/images/brand/brand-icon.svg'" alt="casa" />
+                </span>
+                <span class="account-info">Loan A/c - {{selectedData?.loanAccountNumber}}</span>
+                <span class="account-status" [ngClass]="selectedData?.accountStatus?.toLowerCase()"></span>
+            </box>
+            <box class="secondary-info">
+                <span class="lbl">Total Loan Amount: </span>
+                <span class="val">{{selectedData?.loanAmount | currency : selectedData?.accountCurrency: ''}}
+                    <em>{{selectedData?.accountCurrency}}</em>
+                </span>
+            </box>
+        </box>
+    </ng-container>
+</ng-template>
+
+<ng-template let-selectedData #billerListTmplt [fpxControlTemplate]="'billerListTmplt'">
+    <box class="biller-main-container">
+        <box class="biller-left-container">
+            <box class="icon-wrapper">
+                <ng-container *ngIf="selectedData?.billerIcon; else noPhoto">
+                    <img [src]="'./assets/images/billers/'+selectedData?.billerIcon" alt="biller" />
+                </ng-container>
+                <ng-template #noPhoto>
+                    <span *ngIf="selectedData?.shortName"> {{(selectedData?.shortName.split('
+                        ')[0]?.charAt(0))+''+((selectedData?.shortName?.split('
+                        ')[1])?(selectedData?.shortName?.split(' ')[1]?.charAt(0)):'')}}</span>
+                    <!-- <img [src]="'./assets/images/billers/'+selectedData?.billerId?.category?.billercatIcon" /> -->
+                </ng-template>
+            </box>
+            <box class="biller-detail">
+                <box class="biller-name">{{selectedData?.shortName}}</box>
+                <box class="biller-name">{{selectedData?.category?.description}}</box>
+            </box>
+        </box>
+    </box>
+
+</ng-template>
+
+
+<ng-template let-selectedData #billerAccountListTmplt [fpxControlTemplate]="'billerAccountListTmplt'">
+
+    <box class="saved-biller-main-container">
+        <box class="saved-biller-left-container">
+            <box class="icon-wrapper">
+                <ng-container *ngIf="selectedData?.billerId?.billerIcon; else noPhoto">
+                    <img [src]="'./assets/images/billers/'+selectedData?.billerId?.billerIcon" alt="biller" />
+                </ng-container>
+                <ng-template #noPhoto>
+                    <span *ngIf="selectedData?.billerId?.shortName">{{(selectedData.billerId?.shortName.split('
+                        ')[0]?.charAt(0))+''+((selectedData?.billerId?.shortName.split('
+                        ')[1])?(selectedData?.billerId?.shortName?.split(' ')[1]?.charAt(0)):'')}}</span>
+                </ng-template>
+            </box>
+            <box class="saved-biller-detail">
+                <box class="due-date" *ngIf="selectedData?.date" [innerHTML]="selectedData?.date"></box>
+                <box class="saved-biller-name">{{selectedData?.nickName}}</box>
+                <box class="saved-biller-account">{{selectedData?.billerId?.shortName}}</box>
+                <box class="saved-biller-account">{{selectedData?.billerCreditAccount}}</box>
+            </box>
+        </box>
+
+
+    </box>
+
+</ng-template>
+
+
+<!-- Casa account list -->
+<ng-template let-selectedData #activeCreditCardListTmplt [fpxControlTemplate]="'activeCreditCardListTmplt'">
+    <ng-container>
+        <box class="account-list-item">
+            <box class="primary-info">
+                <span class="icon-wrapper">
+                    <img [src]="skinManager.getAssetFolderPath() + 'skins/images/brand/brand-icon.svg'" alt="casa" />
+                </span>
+                <span class="account-info">{{selectedData?.text?.cardCategory}} -
+                    {{selectedData?.text?.cardNumber}}</span>
+                <!-- <span class="account-status" [ngClass]="selectedData?.accountStatus?.toLowerCase()"></span> -->
+            </box>
+            <box class="secondary-info">
+                <span class="lbl">Available Limit - </span>
+                <span class="val">{{selectedData?.text?.availableCreditLimit | currency : selectedData?.text?.currency:
+                    ''}}
+                    <em>{{selectedData?.text?.currency}}</em>
+                </span>
+            </box>
+        </box>
+    </ng-container>
+</ng-template>
+<!-- etransfer contact list -->
+<ng-template let-selectedData #etransferContactListTmplt [fpxControlTemplate]="'etransferContactListTmplt'">
+    <ng-container *ngIf="selectedData && selectedData?.contactId">
+        <box class="account-list-item">
+            <box class="primary-info">
+                <span class="account-info">{{selectedData?.beneficiaryName}}</span>
+            </box>
+            <box class="secondary-info">
+                <span class="val">{{selectedData?.phoneNumber}}</span>
+            </box>
+            <box class="secondary-info">
+                <span class="val">{{selectedData?.emailId}}</span>
+            </box>
+        </box>
+    </ng-container>
+</ng-template>
+
+   
+   <!-- Large & Medium screen Wallet account list -->
+   <ng-template let-selectedData #walletAccountDtlListTmplt [fpxControlTemplate]="'walletAccountDtlListTmplt'">
+    <app-wallet-acc-dtl-list-tmplt [selectedData]="selectedData"></app-wallet-acc-dtl-list-tmplt>
+</ng-template>

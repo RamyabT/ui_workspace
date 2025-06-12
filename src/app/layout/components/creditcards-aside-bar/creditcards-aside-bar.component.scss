@@ -1,0 +1,100 @@
+.display-fields-container {
+  padding: 12px;
+
+  .display-field {
+      padding-bottom: unset;
+  }
+}
+
+.account-details {
+  &.header {
+      font-family: var(--baseFontFamily);
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+      color: var(--primaryBaseTxtClr);
+  }
+}
+
+#ccDetails-rewards-info {
+  display: flex;
+  column-gap: 10px;
+
+  #ccDetails-rewards-info-icon {
+    color: #DE3924;
+  }
+
+  #ccDetails-rewards-info-link {
+    padding-top: 5px;
+
+    button {
+      color: #DE3924;
+      text-decoration: none;
+      font-family: 'inter';
+      font-weight: 600;
+    }
+  }
+}
+
+#creditcard-details-rewardsandpoints {
+display: flex;
+flex-direction: column;
+background-color: transparent !important;
+
+box:first-child {
+  background-color: #F04E39;
+  color: var(--primaryBaseTxtClr);
+  border-radius: 15px;
+  padding: 15px;
+
+  #rewardsandbenefits-heading {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    vertical-align: middle;
+
+    span {
+      color: #FFFFFF;
+    }
+  }
+
+  span {
+    color: var(--primaryBaseTxtClr);
+    font-weight: 300;
+    font-size: 14px;
+  }
+
+  img {
+    background-color: #DE3924;
+    border-radius: 20px;
+    padding: 5px;
+    height: 25px;
+    width: 25px;
+  }
+
+  hr {
+    margin-top: 10px;
+    background-color: var(--primaryBorderClr);
+  }
+
+  #creditcard-reward-points-box {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      color: #FFFFFF;
+    }
+
+    .val {
+      font-weight: 500;
+      font-size: 18px;
+    }
+  }
+}
+
+box:nth-child(1),
+box:nth-child(2)
+ {
+  margin-bottom: 10px;
+}
+}

@@ -1,0 +1,51 @@
+"RetailWorkflowqueueRoGrid":{
+"title":"Transaction Management",
+		 "taskInstanceId": {
+		  "label":"TaskInstanceId" ,
+		  "placeholder": "TaskInstanceId"
+		  } ,
+		 "action": {
+		  "label":"Action" ,
+		  "placeholder": "Action"
+		  } ,
+		 "owner": {
+		  "label":"Owner" ,
+		  "placeholder": "Owner"
+		  } ,
+		 "potOwner": {
+		  "label":"Owner" ,
+		  "placeholder": "Owner"
+		  } ,
+		 "pendingSince": {
+		  "label":"Pending Since" ,
+		  "placeholder": "Pending Since"
+		  } ,
+		 "serviceCode": {
+		  "label":"Service Code" ,
+		  "placeholder": "Service Code"
+		  } ,
+		 "serviceName": {
+		  "label":"ServiceName" ,
+		  "placeholder": "ServiceName"
+		  } ,
+		 "flowInstanceId": {
+		  "label":"TaskInstanceId" ,
+		  "placeholder": "TaskInstanceId"
+		  } ,
+		 "initBy": {
+		  "label":"Created By" ,
+		  "placeholder": "Created By"
+		  } ,
+		 "customerCode": {
+		  "label":"Created By" ,
+		  "placeholder": "Created By"
+		  } ,
+		 "workflowType": {
+		  "label":"Transaction Type" ,
+		  "placeholder": "Transaction Type"
+		  } ,
+		 "actionOn": {
+		  "label":"Initiated On" ,
+		  "placeholder": "Initiated On"
+		  } 
+}

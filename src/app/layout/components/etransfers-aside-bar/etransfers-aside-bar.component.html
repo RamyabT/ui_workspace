@@ -1,0 +1,336 @@
+<box class="aside-bar-inner"
+    [ngClass]="{'aside-bar-expand' : expandAsideBar, 'show-widget': showWidget, 'hide-widget': !showWidget}">
+    <box class="widget-list">
+        <ul>
+            <!-- <li [ngStyle]="{'display':adBanner?'none':'block'}">
+                <box class="widget-nav collapse-state-widget-icon" (click)="toggleAsideBar()">
+                    <span class="widget-nav-ico-wrapper widget-nav-offers"></span>
+                </box>
+                <ng-container *ngIf="expandAsideBar else loader">
+                    <ng-container>
+                        <box class="widget-nav" (click)="toggleAsideBar()">
+                            <span class="widget-nav-ico-wrapper widget-nav-offers"></span>
+                            <span class="widget-nav-name">{{ 'ASIDE_BAR.WIDGET_TITLES.offers' | translate }}</span>
+                        </box>
+                        <box >
+                            <banner-ads [serviceCode]="serviceCode"></banner-ads>
+                        </box>
+                    </ng-container>
+                </ng-container>
+
+            </li>         -->
+
+            <!-- <li>
+                <box class="widget-nav collapse-state-widget-icon" (click)="toggleAsideBar()">
+                    <span class="widget-nav-ico-wrapper widget-nav-offers"></span>
+                </box>
+                <ng-container *ngIf="expandAsideBar else loader">
+                    <ng-container>
+                        <box class="widget-nav" (click)="toggleAsideBar()">
+                            <span class="widget-nav-ico-wrapper widget-nav-offers"></span>
+                            <span class="widget-nav-name">{{ 'ASIDE_BAR.WIDGET_TITLES.offers' | translate }}</span>
+                        </box>
+                        <box class="">
+                            <banner-ads [serviceCode]="serviceCode"></banner-ads>
+                        </box>
+                    </ng-container>
+                </ng-container>
+
+            </li> -->
+            <li *ngIf="!showContactForm && !showSendMoneyDetails && !showReceiveMoneyDetails && !showRequestMoneyDetails">
+                <box class="widget-nav collapse-state-widget-icon" (click)="toggleAsideBar()">
+                    <span class="widget-nav-ico-wrapper widget-nav-offers"></span>
+                </box>
+                <ng-container *ngIf="expandAsideBar; else loader">
+                    <ng-container>
+                        <box class="widget-nav offers-title" (click)="toggleAsideBar()">
+                            <span class="widget-nav-ico-wrapper widget-nav-offers"></span>
+                            <span class="widget-nav-name">{{ 'ASIDE_BAR.WIDGET_TITLES.offers' | translate }}</span>
+                        </box>
+                        <box class="">
+                            <banner-ads [serviceCode]="serviceCode"></banner-ads>
+                        </box>
+                    </ng-container>
+                </ng-container>
+
+            </li>
+            <li *ngIf="showContactForm">
+                <app-retail-etransfercontactlog-form></app-retail-etransfercontactlog-form>
+            </li>
+            <li *ngIf="showSendMoneyDetails">
+                <box class="widget-nav collapse-state-widget-icon" (click)="closeSendMoneyDetails()">
+                    <span class="widget-nav-ico-wrapper widget-nav-schedule-bills"></span>
+                </box>
+                <box class="widget-content-footer-container schedule-container">
+                    <box class="widget-content">
+                        <box class="seleted-bill-primary-details-container">
+                            <box class="primary-details-container">
+                                <span class="bill-text">{{ 'ETRANSFER_ASIDE_BAR.sendMoneyDetails.title' | translate }}</span>
+                                <span class="close-btn" (click)="closeBillDetails()"></span>
+                            </box>
+                            <box class="secondary-details-container">
+                                <box class="icon-details-wrapper">
+                                    <box class="schedule-icon-container">
+                                        <span class="schedule-icon" [ngClass]="{
+                                            'pending': sendMoneyDetailsObj.status == 'P', 
+                                            'completed': sendMoneyDetailsObj.status == 'S', 
+                                            'cancelled': sendMoneyDetailsObj.status == 'C', 
+                                            'declined': sendMoneyDetailsObj.status == 'D',  
+                                            'expired': sendMoneyDetailsObj.status == 'E',
+                                            'failed': sendMoneyDetailsObj.status == 'F',
+                                            'accepted': sendMoneyDetailsObj.status == 'A',
+                                            'initiated': sendMoneyDetailsObj.status == 'I' }"></span>
+                                    </box>
+
+                                    <box class="schedule-details-container gap-4">
+                                        <span class="contact-name">{{sendMoneyDetailsObj.beneficiaryName}}</span>
+                                        <!-- <span class="date-status">{{decodeTransferMode(sendMoneyDetailsObj.transferMode)}} | {{sendMoneyDetailsObj.paymentDate | date:'dd MMM yyyy'}}</span> -->
+                                        <span class="payment-amount amount">
+                                            {{sendMoneyDetailsObj.paymentAmount | currency : sendMoneyDetailsObj.paymentCurrency : '' }}
+                                            <em>{{sendMoneyDetailsObj.paymentCurrency | currencyCode }}</em>
+                                            <span *ngIf="sendMoneyDetailsObj.serviceCode == 'ETRANSFERSENDMONEY'">-</span>
+                                        </span>
+                                    </box>
+                                </box>
+                                <box class="amout-wrapper">
+                                    <span class="payment-amount-text">{{decodePaymentStatus(sendMoneyDetailsObj.status)}}</span>
+                                </box>
+
+                            </box>
+                        </box>
+
+                        <box class="seleted-bill-secondary-details-container">
+                            <ng-container *ngFor="let detail of sendMoneyDetails; let i = index">
+                                <box *ngIf="detail.value" class="scheduled-bill-details-content-item" [ngClass]="{'message-text': detail.title == 'Message'}">
+                                    <span class="item-title font-14-20">{{detail.title}}</span>
+                                    <span *ngIf="detail.format == 'currency' else default" class="item-value font-14-20">
+                                        {{  sendMoneyDetailsObj.paymentCurrency | currencyCode }}
+                                        {{ detail.value | currency : sendMoneyDetailsObj.paymentCurrency : '' }}
+                                        </span>
+                                    <ng-template #default>
+                                        <span *ngIf="i != 1; else phoneNumber">
+                                            <span class="item-value font-14-20">{{detail.value}}</span>
+                                        </span>
+                                    </ng-template>
+                                    <ng-template #phoneNumber>
+                                        <span *ngIf="sendMoneyDetailsObj.notificationPreference != 'E'; else emailId">  
+                                            <span class="item-value font-14-20">{{detail?.value | mask : '000-000-0000'}}</span>
+                                        </span>
+                                    </ng-template>
+                                    <ng-template #emailId>
+                                        <span class="item-value font-14-20">{{detail?.value}}</span>
+                                    </ng-template>
+                                </box>
+                            </ng-container>
+                            <div class="shell-footer custom-footer width-100 min-width-100" style="margin-top: 8px;">
+                                <ng-container *ngIf="sendMoneyDetailsObj.status == 'P'; else otherThanPending">
+                                    <div class="btn-container">
+                                        <button class="btn-secondary secondary-2" type="button" id="CANCEL" (click)="onCancelETransfer()">{{'RetailEtransfer.cancelETransfer' | translate}}</button>
+                                    </div>
+                                    <div class="btn-container">
+                                            <button type="button" class="btn-primary" (click)="sendReminder()">{{'RetailEtransfer.sendReminder' | translate}}
+                                        </button>
+                                    </div>
+                                </ng-container>
+                                <ng-template #otherThanPending>
+                                    <div class="btn-container">
+                                        <button type="button" class="btn-primary" (click)="sendAnotherETransfer()">{{'RetailEtransfer.sendETransfer' | translate}}
+                                        </button>
+                                    </div>
+                                </ng-template>
+                                    
+                            </div>
+                        </box>
+
+
+                    </box>
+                </box>
+            </li>
+            <li *ngIf="showReceiveMoneyDetails">
+                <box class="widget-nav collapse-state-widget-icon" (click)="closeReceiveMoneyDetails()">
+                    <span class="widget-nav-ico-wrapper widget-nav-schedule-bills"></span>
+                </box>
+                <box class="widget-content-footer-container schedule-container">
+                    <box class="widget-content">
+                        <box class="seleted-bill-primary-details-container">
+                            <box class="primary-details-container">
+                                <span class="bill-text">{{ 'ETRANSFER_ASIDE_BAR.receiveMoneyDetails.title' | translate }}</span>
+                                <span class="close-btn" (click)="closeBillDetails()"></span>
+                            </box>
+                            <box class="secondary-details-container">
+                                <box class="icon-details-wrapper">
+                                    <box class="schedule-icon-container">
+                                        <span class="schedule-icon" [ngClass]="{
+                                            'pending': receiveMoneyDetailsObj.status == 'P', 
+                                            'completed': receiveMoneyDetailsObj.status == 'S', 
+                                            'cancelled': receiveMoneyDetailsObj.status == 'C', 
+                                            'declined': receiveMoneyDetailsObj.status == 'D',  
+                                            'expired': receiveMoneyDetailsObj.status == 'E',
+                                            'failed': receiveMoneyDetailsObj.status == 'F',
+                                            'accepted': receiveMoneyDetailsObj.status == 'A',
+                                            'initiated': receiveMoneyDetailsObj.status == 'I' }"
+                                        ></span>
+                                    </box>
+
+                                    <box class="schedule-details-container gap-4">
+                                        <span class="contact-name">{{receiveMoneyDetailsObj.beneficiaryName}}</span>
+                                        <!-- <span class="date-status">{{decodeTransferMode(receiveMoneyDetailsObj.transferMode)}} | {{receiveMoneyDetailsObj.paymentDate | date:'dd MMM yyyy'}}</span> -->
+                                        <span class="payment-amount amount">{{receiveMoneyDetailsObj.paymentAmount | currency : receiveMoneyDetailsObj.paymentCurrency : '' }}
+                                            <em>{{receiveMoneyDetailsObj.paymentCurrency | currencyCode }}</em></span>
+                                    </box>
+                                </box>
+                                <box class="amout-wrapper">
+                                    <span class="payment-amount-text">{{decodePaymentStatus(receiveMoneyDetailsObj.status)}}</span>
+                                </box>
+
+                            </box>
+                        </box>
+
+                        <box class="seleted-bill-secondary-details-container">
+                            <ng-container *ngFor="let detail of receiveMoneyDetails">
+                                <box *ngIf="detail.value" class="scheduled-bill-details-content-item" [ngClass]="{'message-text': detail.title == 'Message'}">
+                                    <span class="item-title font-14-20">{{detail.title}}</span>
+                                    <span *ngIf="detail.format == 'currency' else default" class="item-value font-14-20">
+                                        {{  receiveMoneyDetailsObj.paymentCurrency | currencyCode }}
+                                        {{ detail.value | currency : receiveMoneyDetailsObj.paymentCurrency : '' }}
+                                        </span>
+                                    
+                                    <ng-template #default>
+                                        <span class="item-value font-14-20">{{detail.value}}</span>
+                                    </ng-template>
+                                </box>
+                            </ng-container>
+                            <div class="shell-footer custom-footer min-width-100 width-100" style="margin-top: 8px;">
+                                <div class="btn-container">
+                                    <button type="button" class="btn-primary" (click)="backToETransfer()">{{'RetailEtransferReceiveMoneyForm.backtoetransfer' | translate}}
+                                    </button>
+                                </div>
+                            </div>
+                        </box>
+
+
+                    </box>
+                </box>
+            </li>
+            <li *ngIf="showRequestMoneyDetails">
+                <box class="widget-nav collapse-state-widget-icon" (click)="closeRequestMoneyDetails()">
+                    <span class="widget-nav-ico-wrapper widget-nav-schedule-bills"></span>
+                </box>
+                <box class="widget-content-footer-container schedule-container">
+                    <box class="widget-content">
+                        <box class="seleted-bill-primary-details-container">
+                            <box class="primary-details-container">
+                                <span class="bill-text">{{ 'ETRANSFER_ASIDE_BAR.sendMoneyDetails.title' | translate }}</span>
+                                <span class="close-btn" (click)="closeBillDetails()"></span>
+                            </box>
+                            <box class="secondary-details-container">
+                                <box class="icon-details-wrapper">
+                                    <box class="schedule-icon-container">
+                                        <span class="schedule-icon" [ngClass]="{
+                                            'pending': requestMoneyDetailsObj.status == 'P', 
+                                            'completed': requestMoneyDetailsObj.status == 'S', 
+                                            'cancelled': requestMoneyDetailsObj.status == 'C', 
+                                            'declined': requestMoneyDetailsObj.status == 'D',  
+                                            'expired': requestMoneyDetailsObj.status == 'E',
+                                            'failed': requestMoneyDetailsObj.status == 'F',
+                                            'accepted': requestMoneyDetailsObj.status == 'A',
+                                            'initiated': requestMoneyDetailsObj.status == 'I' }">
+                                        </span>
+                                    </box>
+
+                                    <box class="schedule-details-container gap-4">
+                                        <span class="contact-name">{{requestMoneyDetailsObj.beneficiaryName}}</span>
+                                        <!-- <span class="date-status">{{decodeTransferMode(requestMoneyDetailsObj.transferMode)}} | {{requestMoneyDetailsObj.paymentDate | date:'dd MMM yyyy'}}</span> -->
+                                        <span class="payment-amount amount">{{requestMoneyDetailsObj.paymentAmount | currency : requestMoneyDetailsObj.paymentCurrency : '' }}
+                                            <em>{{requestMoneyDetailsObj.paymentCurrency | currencyCode }}</em></span>
+                                    </box>
+                                </box>
+                                <box class="amout-wrapper">
+                                    <span class="payment-amount-text">{{decodePaymentStatus(requestMoneyDetailsObj.status)}}</span>
+                                </box>
+
+                            </box>
+                        </box>
+
+                        <box class="seleted-bill-secondary-details-container">
+                            <ng-container *ngFor="let detail of requestMoneyDetails; let i = index">
+                                <box *ngIf="detail.value" class="scheduled-bill-details-content-item" [ngClass]="{'message-text': detail.title == 'Message'}">
+                                    <span class="item-title font-14-20">{{detail.title}}</span>
+                                    <span *ngIf="detail.format == 'currency' else default" class="item-value font-14-20">
+                                        {{  requestMoneyDetailsObj.paymentCurrency | currencyCode }}
+                                        {{ detail.value | currency : requestMoneyDetailsObj.paymentCurrency : '' }}
+                                        </span>
+                                    <ng-template #default>
+                                        <span *ngIf="i != 1; else phoneNumber">
+                                            <span class="item-value font-14-20">{{detail.value}}</span>
+                                        </span>
+                                    </ng-template>
+                                    <ng-template #phoneNumber>
+                                        <span *ngIf="requestMoneyDetailsObj.notificationPreference != 'E'; else emailId">  
+                                            <span class="item-value font-14-20">{{detail?.value | mask : '000-000-0000'}}</span>
+                                        </span>
+                                    </ng-template> 
+                                    <ng-template #emailId>
+                                        <span class="item-value font-14-20">{{detail?.value}}</span>
+                                    </ng-template>
+                                </box>
+                            </ng-container>
+                            <div class="shell-footer custom-footer width-100" style="margin-top: 8px;">
+                                <ng-container *ngIf="requestMoneyDetailsObj.status == 'P'; else otherThanPending">
+                                    <div class="btn-container">
+                                        <button class="btn-secondary secondary-2" type="button" id="CANCEL" (click)="RonCancelETransfer()">{{'RetailEtransferRequestMoneyForm.cancelETransfer' | translate}}</button>
+                                    </div>
+                                    <div class="btn-container">
+                                            <button type="button" class="btn-primary" (click)="RsendReminder()">{{'RetailEtransferRequestMoneyForm.sendReminder' | translate}}
+                                        </button>
+                                    </div>
+                                </ng-container>
+                                <ng-template #otherThanPending>
+                                    <div class="btn-container">
+                                        <button type="button" class="btn-primary" (click)="RsendAnotherETransfer()">{{'RetailEtransferRequestMoneyForm.sendETransfer' | translate}}
+                                        </button>
+                                    </div>
+                                </ng-template>
+                                    
+                            </div>
+                        </box>
+
+
+                    </box>
+                </box>
+            </li>
+            
+
+
+
+
+            <!-- <li>
+                <box class="widget-nav collapse-state-widget-icon" (click)="toggleAsideBar()">
+                    <span class="widget-nav-ico-wrapper widget-nav-schedule-transfers"></span>
+                </box>
+                <box class="widget-content-footer-container">
+                    <box class="widget-content">
+                        <app-retail-schedule-transfer-form class="schedule-form"></app-retail-schedule-transfer-form>
+                    </box>
+                </box>
+            </li> -->
+
+        </ul>
+
+    </box>
+
+    <!-- <hr class="seperator" /> -->
+
+    <box class="widget-additionals">
+        <fpx-button buttonType="button" class="add-widget" label="Add Widgets"></fpx-button>
+    </box>
+
+</box>
+
+<fpx-button buttoType="button" class="btn-expand-aside-bar" label="expand aside bar"
+    (onClick)="toggleAsideBar()"></fpx-button>
+
+<div class="aside-bar-overlay" *ngIf="expandAsideBar" (click)="toggleAsideBar()"></div>
+<ng-template #loader>
+    <box *ngIf="expandAsideBar" class="table-spinner"></box>
+</ng-template>

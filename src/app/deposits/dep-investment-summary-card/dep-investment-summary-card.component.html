@@ -1,0 +1,101 @@
+<ng-container *ngIf="this.device.isMobile(); else desktop">
+    <box class="summary-card" [ngClass]="{'has-context-menu': contextmenuBtn}">
+        <box class="summary-card-inner investmentSummary">
+            <box class="primary-details">
+                <box class="account-info">
+                    <span class="type">{{ cardData.accountType }}</span>
+                    <span class="type">{{ cardData.accountNumber }}</span>
+                </box>
+            </box>
+            <box class="additional-details">
+                <box class="additional-detail">
+                    <ng-container *ngIf="cardData.accountType =='Aviso'">
+                        <span class="lbl">{{ 'DEPOSITSUMMARYCARD.depositAmount' | translate }}</span>
+                        <span class="amount"><em>{{cardData.currency}}</em> {{cardData.totalMarketValue | currency :
+                            cardData.currency : ''}} </span>
+                    </ng-container>
+
+                    <ng-container *ngIf="cardData.accountType =='Registered Products'">
+                        <span class="lbl">{{ 'DEPOSITSUMMARYCARD.depositAmount' | translate }}</span>
+                        <span class="amount"><em>{{cardData.currency}}</em> {{cardData.principalAmount | currency :
+                            cardData.currency : ''}} </span>
+                    </ng-container>
+                    <ng-container *ngIf="cardData.accountType =='Term Deposit'">
+                        <span class="lbl">{{ 'DEPOSITSUMMARYCARD.depositAmount' | translate }}</span>
+                        <span class="amount"><em>{{cardData.accountCurrency}}</em> {{cardData.depositAmount | currency :
+                            cardData.currency : ''}} </span>
+                    </ng-container>
+                </box>
+            </box>
+        </box>
+
+        <button *ngIf="contextmenuBtn" type="button" class="contextual-menu-trigger"
+            (click)="notifyContextMenuClick()"><span>contextual menu</span></button>
+    </box>
+</ng-container>
+
+<ng-template #desktop>
+    <box class="investment-security-wraper">
+        <box class="investment-security-primary">
+            <box class="investment-security-primary-inner">
+                <span class="securityName">{{security.securityName}}</span>
+                <img src="./assets/images/Aviso-color-logo.svg" alt="Aviso">
+            </box>
+            <box>
+                <span class="securityNum">{{security.securityNum}}</span>
+            </box>
+        </box>
+        <box class="investment-security-secondary">
+            <box class="investment-amount">
+                <span class="investment-amount-title">Quantity filled</span>
+                <span class="investment-amount-value">{{security.qtyPending | number:'1.3-3'}}</span>
+            </box>
+            <box class="investment-amount">
+                <span class="investment-amount-title">Quantity</span>
+                <span class="investment-amount-value">{{security.quantity | number:'1.3-3'}}</span>
+            </box>
+            <box class="investment-amount">
+                <span class="investment-amount-title">Price</span>
+                <ng-container *ngIf="security.accountCurrency != _appconfig.baseCurrency else baseCurrency">
+                    <span class="amount">
+                        <em class="usd">{{'SUFFIXCURRENCY' | currencyCode }}</em>
+                        {{getAbsoluteValue(security.marketPrice) | currency :
+                        _appconfig.baseCurrency : '' }}
+                        <em> {{security.accountCurrency == 'USD' ? '$' : security.accountCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(security.marketPrice)}}
+                    </span>
+                </ng-container>
+                <ng-template #baseCurrency>
+                    <span class="amount">
+                        {{getAbsoluteValue(security.marketPrice) | currency : security.accountCurrency:
+                        ''}}
+                        <em>{{security.accountCurrency | currencyCode}}</em>
+                        {{checkNegativeValue(security.marketPrice)}}
+                    </span>
+                </ng-template>
+            </box>
+            <box class="investment-amount">
+                <span class="investment-amount-title">Market value</span>
+                <ng-container *ngIf="security.accountCurrency != _appconfig.baseCurrency else baseCurrency">
+                    <span class="amount">
+                        <em class="usd">{{'SUFFIXCURRENCY' | currencyCode }}</em>
+                        {{getAbsoluteValue(security.marketValue) | currency :
+                        _appconfig.baseCurrency : '' }}
+                        <em> {{security.accountCurrency == 'USD' ? '$' : security.accountCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(security.marketValue)}}
+                    </span>
+                </ng-container>
+                <ng-template #baseCurrency>
+                    <span class="amount">
+                        {{getAbsoluteValue(security.marketValue) | currency : security.accountCurrency:
+                        ''}}
+                        <em>{{security.accountCurrency | currencyCode}}</em>
+                        {{checkNegativeValue(security.marketValue)}}
+                    </span>
+                </ng-template>
+            </box>
+        </box>
+    </box>
+</ng-template>

@@ -1,0 +1,17 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailTermsAndConditionsForm" >
+	   
+	 <box class="termsAndConditions-wrapper" #termsAndConditions>
+		<fpx-display-text  class="info-field-label" [innerHTML]="state.termsAndConditions"></fpx-display-text>
+	</box> 
+	<!-- <box class="footer">
+		<box class="scroll-bottom">
+			<fpx-button [btnClass]="'btn-primary'" label="Scroll to Bottom"
+				(onClick)="_helper.scrollToBottom()"></fpx-button>
+		</box>
+		<box class="scroll-top">
+			<fpx-button [btnClass]="'btn-primary'" label="Scroll to Top"
+				(onClick)="_helper.scrollToTop()"></fpx-button>
+		</box>
+	</box> -->
+	</form>
+	

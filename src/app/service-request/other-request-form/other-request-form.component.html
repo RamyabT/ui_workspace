@@ -1,0 +1,69 @@
+<ng-container *ngIf="_helper.device.isMobile(); else desktopMenu">
+    <form name="otherRequestForm">
+        <box class="entry-form">
+            <box class="entry-form-field-group col-12">
+                <ul class="dep-list other-request-list">
+                    <ng-container *ngIf="state.otherRequestList">
+                        <ng-container *ngFor="let request of state.otherRequestList">
+                            <li class="dep-list-item request-list-item" (click)="_helper.openLink(request)">
+                                <box class="list-body request-type-info">
+                                    <span class="request-type">{{ 'otherRequestTypeServiceDesc.' + request.serviceCode + '.name' | translate }}</span>
+                                    <span class="request-type-desc">{{ 'otherRequestTypeServiceDesc.' + request.serviceCode + '.desc' | translate }}</span>
+                                </box>
+                            </li>
+                        </ng-container>
+                    </ng-container>
+                </ul>
+            </box>
+        </box>
+    </form>
+</ng-container>
+<ng-template #desktopMenu>
+    <ng-container *ngIf="_helper.isPopup">
+        <button type="button" class="btn-popup-close" (click)="_helper.closeContextMenu()">close</button>
+    </ng-container>
+    
+    <box class="widget context-menu-wrapper">
+        <ng-container *ngIf="(_helper.cardData && this._helper.device.isMobile()) ; else defaultHeader">
+            <header>
+                <box class="account-info">
+                    <span class="type">{{ _helper.cardData.productDesc }}</span>
+                    <span class="acc-number">{{ _helper.cardData.cardNumber }}</span>
+                </box>
+            </header>
+        </ng-container>
+    
+        <ng-template #defaultHeader>
+            <header>
+                <span class="widget-title">{{ 'WIDGIT_TITLES.casaQuickActionsLbl' | translate }}</span>
+            </header>
+        </ng-template>
+        
+        <box class="context-menu-body">
+            <ng-container *ngIf="state.otherRequestList">
+                <ul class="actions-list grid" [ngClass]="{ 'show-more' : _helper.doShowMoreQuickActions }">
+                    <ng-container *ngFor="let request of state.otherRequestList">
+                        <li (click)="_helper.openLink(request)" [ngClass]="{'active': _helper.activeMenu == request.serviceCode}">
+                            <span class="icon-wrapper {{ request.serviceCode }}"></span>
+                            <span class="text">{{ 'otherRequestTypeServiceDesc.' + request.serviceCode + '.name' | translate }}</span>
+                        </li>
+                    </ng-container>
+                </ul>
+            </ng-container>
+    
+            <ng-container *ngIf="!_helper.isPopup && state.otherRequestList && state.otherRequestList.length > 5">
+                <button type="button" class="expander" (click)="_helper.showMoreQuickActions()">
+                    <svg width="98" height="18" viewBox="0 0 98 18" fill="white" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Drawer">
+                            <path id="Vector 84"
+                                d="M49.7241 18C36.0114 18 39.1635 10.3442 -7.83324e-07 0.0796452C27.9065 0.0796439 104.115 -0.418143 97.6077 1.07522C62.3692 9.16225 62.2015 18 49.7241 18Z"
+                                />
+                        </g>
+                    </svg>
+                    <span>show more</span>
+                </button>
+            </ng-container>
+    
+        </box>
+    </box>
+</ng-template>

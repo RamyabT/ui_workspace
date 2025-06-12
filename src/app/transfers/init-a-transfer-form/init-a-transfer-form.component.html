@@ -1,0 +1,17 @@
+<form name="initTransfer">
+<box class="entry-form">
+    <box class="entry-form-field-group col-12">
+        <ul class="payments-list">
+            <ng-container *ngFor="let payment of paymentsList">
+                <li class="payments-list-item {{ 'ql-' + payment.serviceCode }}" (click)="_helper.openLink(payment)">
+                    <span class="icon-wrapper"></span>
+                    <box class="payment-type-info">
+                        <span class="payment-type">{{ 'paymentsTypeServiceDesc.' + payment.serviceCode + '.name' | translate }}</span>
+                        <span class="payment-type-desc">{{ 'paymentsTypeServiceDesc.' + payment.serviceCode + '.desc' | translate }}</span>
+                    </box>
+                </li>
+            </ng-container>
+        </ul>
+    </box>
+</box>
+</form>

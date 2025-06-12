@@ -1,0 +1,52 @@
+<box class="widget context-menu-wrapper" >
+    <box class="dep-alert">
+        <box *ngIf="title" class="alert-title">{{title | translate}}</box>
+        <box *ngIf="message" class="alert-description">{{message | translate}}
+            <a *ngIf="serviceCode=='RETAILSTOPCHEQUE'" [href]='link' target="_blank">
+                {{"RetailStopChequeRequestForm.chargesAmountTooltip.linkText" | translate}}
+            </a>
+        </box>   
+        <ng-container *ngIf="additionalInfo && (!(serviceCode=='RETAILTRANOAT') && !(serviceCode== 'RETAILTRANINTBT'))">
+            <box  class="alert-additionalInfo">
+                <box class="per-day">
+                    <box class="per-day-lbl">
+                        Maximum per day
+                    </box>
+                    <box class="per-day-value">
+                        <span class="amount">
+                            {{baseCurrency}}{{ additionalInfo?.dailyLimit | currency : baseCurrency: ''}}
+                        </span>
+                        <!-- <span class="avail-amount">Available: {{baseCurrency}}{{additionalInfo?.dailyLimitAvailable | currency : baseCurrency: ''}}</span> -->
+                    </box>
+                </box>
+                <box class="per-day">
+                    <box class="per-day-lbl">
+                        Maximum per 7 days
+                    </box>
+                    <box class="per-day-value">
+                        <span class="amount">{{baseCurrency}}{{additionalInfo?.weeklyLimit  | currency : baseCurrency: ''}}</span>
+                        <!-- <span class="avail-amount">Available: {{baseCurrency}}{{additionalInfo?.weeklyLimitAvailable | currency : baseCurrency: ''}}</span> -->
+                    </box>
+                </box>
+                <box class="per-day">
+                    <box class="per-day-lbl">
+                        Maximum per 30 days
+                    </box>
+                    <box class="per-day-value">
+                        <span class="amount">{{baseCurrency}}{{additionalInfo?.monthlyLimit | currency : baseCurrency: ''}}</span>
+                        <!-- <span class="avail-amount">Available: {{baseCurrency}}{{additionalInfo?.monthlyLimitAvailable | currency : baseCurrency: ''}}</span> -->
+                    </box>
+                </box>
+               
+        </box>
+        </ng-container>
+        <ng-container *ngIf="(serviceCode=='RETAILTRANOAT') || (serviceCode== 'RETAILTRANINTBT')">
+            <box *ngIf="additionalInfo" class="alert-description">{{additionalInfo | translate}}</box>
+        </ng-container>         
+    </box>
+    <ng-container *ngIf="_device.isMobile()">
+        <button type="button" class="btn-popup-close" (click)="closeContextMenu()">
+          close
+        </button>
+    </ng-container>
+</box> 

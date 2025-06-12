@@ -1,0 +1,35 @@
+ <box class="module-home rewards-home" #spaceHome>
+    <ng-container *ngIf="_device.isMobile(); else spaceContainer">
+        <box class="module-home-bg" [style.top.px]="moduleHeaderTop"></box>
+        <box class="module-home-inner rewards-home-inner">
+            <fpx-display-text class="module-title" innerHTML="{{'REWARDSCONTAINER.title' | translate}}"></fpx-display-text>
+            
+            <box class="reward-point-container">
+                <span><img src="./assets/rewards/golden-award.png" alt=""></span>
+                <span class="points-label">{{'REWARDSCONTAINER.pointslbl' | translate}}</span>
+                <span class="points-value">{{rewardbalance}}</span>
+                <span class="podium-img"><img src="./assets/rewards/podium.png" alt=""></span>
+                <span class="expire-month">{{'REWARDSCONTAINER.expirylbl' | translate : {amount: amountvalue} }}</span>
+            </box>
+            <box class="reward-button-container">
+                <button class="gift-btn">Gift Points</button>
+                 <button class="redeem-btn">Redeem Points</button>
+            </box>
+            <box>
+                <app-rewards-transaction-summary>
+                    
+                </app-rewards-transaction-summary>
+            </box>
+        </box>
+    </ng-container>
+    <ng-template #spaceContainer>
+        
+    </ng-template>
+
+    	   
+	   <!-- Content loader -->
+<ng-template #loader>
+     <!-- <box class="loading"></box> -->
+ </ng-template>
+
+</box>

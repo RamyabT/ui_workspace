@@ -1,0 +1,14 @@
+<fpx-ro-grid
+  [tilesConfig]="gridTitles"
+  [columnsArray]="columnsArray"
+  [tableDatafn]="gridService"
+  [title]="title"
+  [toolGroupConfig]="toolGroup"
+  (handleActions)="handleActions($event)"
+  [gridWidth]="_gridWidth"
+  [gridConfig]="gridConfig"
+  [refreshGrid$]="_helper.refresh$" #fpxRoGrid
+  [interceptors]="interceptors"
+  >
+</fpx-ro-grid>
+<!-- <div #loadMore></div> -->

@@ -1,0 +1,51 @@
+"RetailCCBillPaymentForm":{
+"title":"RetailCreditCardBillPaymentForm",
+		 "cardRefNumber": {
+		  "label":" Credit Card " ,
+		  "placeholder": " Credit Card "
+		  } ,
+		 "debitAccount": {
+		  "label":"Debit Account" ,
+		  "placeholder": "Debit Account"
+		  } ,
+		 "paymentOption": {
+		  "label":"Payment Option" ,
+		  "placeholder": "Payment Option"
+		  } ,
+		 "amount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "autoPay": {
+		  "label":" Auto Pay" ,
+		  "placeholder": " Auto Pay"
+		  } ,
+		 "charges": {
+		  "label":"Charges" ,
+		  "placeholder": "Charges"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "baseRate": {
+		  "label":"Rate of Interest" ,
+		  "placeholder": "Rate of Interest"
+		  } ,
+		 "exchangeRate": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "debitAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "creditAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } 
+}

@@ -1,0 +1,5 @@
+ 
+ "RETAILREPAYMENTSCH" : {
+ "servicePath": ["entry-shell","loans", "retail-loanrepayment-schedule-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,5 @@
+ 
+ "RETAILDCREPLACE" : {
+ "servicePath": ["entry-shell","debitcard", "retail-dc-replacement-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,5 @@
+{
+    "title": "ThriveUnion - BrightLedger",
+    "landingPath": "login-space/entry-shell/login/login-form",
+    "redirectOnAuthFailure": ["login-space","entry-shell","login", "login-form"]
+}

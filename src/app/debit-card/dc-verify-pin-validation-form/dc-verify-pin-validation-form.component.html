@@ -1,0 +1,9 @@
+<form [formGroup]="formGroup" (ngSubmit)="this.formGroup.valid && submit()" autocomplete="off" formName="DCVerifyPinValidationForm">
+
+	<box class="entry-form">
+		<fpx-label class="title" label="{{'DCVerifyPinValidationForm.confirmPin.label' | translate }}"></fpx-label>
+	<img src="./assets/illustrations/enter-pin.svg" alt="">
+    <app-dc-pin-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('confirmPin')"
+			 formControlName="confirmPin"></app-dc-pin-control>
+	</box>
+</form>

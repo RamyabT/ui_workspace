@@ -1,0 +1,162 @@
+portfolio-summary{
+    .portfolio-summary-inner{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+    
+            .summary-heading{
+                @include s3-medium;
+                color: var(--neutral50);
+                text-transform: capitalize;
+            }
+            .card-view-toggle{
+                @include s4-medium;
+                color: var(--neutral50);
+            }
+        }
+    
+        .summary-cards-container{
+            @include small-screen{
+                overflow: hidden;
+            }
+
+            .summary-cards-carousel{
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .account-summary-card{
+                padding: 12px;
+                border-radius: 12px;
+                background: var(--widgetBgClr);
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                gap: 8px 16px;
+                cursor: pointer;
+
+                @include small-screen{
+                    border: 1px solid var(--primary500);
+                    box-shadow: unset;
+                    background:var(--widgetBgClrMbl);
+                }
+
+                @include not-small-screen{
+                    box-shadow: 0px 0px 24px 0px #0000001A;
+                }
+
+                .card-heading {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+            
+                    .account-type {
+                        width: 24px;
+                        height: 24px;
+                        overflow: hidden;
+                        flex: 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: var(--systemIconClr);
+                        mask-repeat: no-repeat;
+                        -webkit-mask-repeat: no-repeat;
+                        mask-size: 24px;
+                        -webkit-mask-size: 24px;
+            
+                        img {
+                            height: inherit;
+                            width: inherit;
+                        }
+
+                        &.accounts{ 
+                                mask-image: url("../../assets/images/products/casa.svg");
+                                -webkit-mask-image: url("../../assets/images/products/casa.svg");
+                        }
+                        &.deposits{ 
+                            mask-image: url("../../assets/images/products/deposits.svg");
+                            -webkit-mask-image: url("../../assets/images/products/deposits.svg");
+                        }
+                        &.loans{ 
+                            mask-image: url("../../assets/images/products/loans.svg");
+                            -webkit-mask-image: url("../../assets/images/products/loans.svg");
+                        }
+                        &.cards{ 
+                            mask-image: url("../../assets/images/products/cards.svg");
+                            -webkit-mask-image: url("../../assets/images/products/cards.svg");
+                        }
+                    
+                    }
+                }
+            
+                .card-info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0;
+                    flex-grow: 1;
+            
+                    .amount {
+                        @include s2-bold;
+                        color: var(--bodyTxtClr);
+                        line-height: 20px;
+            
+                        em {
+                            @include b4-regular;
+                            color: inherit;
+                        }
+                    }
+            
+                    .info-lbl {
+                        @include b4-medium;
+                        color: var(--bodyTxtClr);
+                    }
+                }
+
+                .btn-holder{
+                    width: 24px;
+                    height: 24px;
+                    flex-grow: 0;
+
+                    .tool-bar{
+                        padding: 0;
+                    }
+                }
+
+                .add-new{
+                    background-color: var(--secondary500);
+                    &:before{
+                        background-color: var(--accountSummaryBgClr) !important;
+                    }
+                }
+            }
+
+            &.card-view{
+                margin-right: -16px;
+                .summary-cards-carousel{
+                    display: block;
+                }
+                
+                .account-summary-card{
+                    min-width: 216px;
+                    min-height: 94px;
+                    max-height: 94px;
+
+                    .card-info{
+                        order: 3;
+                        flex-basis: 100%;
+                    }
+                }
+            }
+        }
+    }
+    
+}

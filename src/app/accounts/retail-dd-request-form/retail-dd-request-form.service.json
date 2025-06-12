@@ -1,0 +1,5 @@
+ 
+ "RETAILDDREQUEST" : {
+ "servicePath": ["entry-shell","accounts", "retail-dd-request-form"],
+ "queryParams": {}
+ }

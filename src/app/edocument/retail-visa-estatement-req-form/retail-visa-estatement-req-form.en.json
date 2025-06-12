@@ -1,0 +1,11 @@
+"RetailVisaEStatementReqForm":{
+"title":"Download Visa eStatement",
+		 "cardRefNumber": {
+		  "label":"Select Credit Card" ,
+		  "placeholder": "Select Credit Card"
+		  } ,
+		 "year": {
+		  "label":"Select Year" ,
+		  "placeholder": "Select Year"
+		  } 
+}

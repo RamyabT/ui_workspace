@@ -1,0 +1,5 @@
+ 
+ "RETAILSAVINGSSUMMARY" : {
+ "servicePath": ["entry-shell","transfers", "RetailNPSSEnroll"],
+ "queryParams": {}
+ }

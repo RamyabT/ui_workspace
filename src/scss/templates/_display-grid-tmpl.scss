@@ -1,0 +1,2660 @@
+/* Deposit account list */
+.deposits-account-list-tmpl {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+  gap: 12px;
+
+  .deposit-account {
+
+    .deposit-account-inner {
+      border-radius: 12px;
+      border: 1px solid var(--neutral50);
+      background: var(--neutral50);
+      padding: 16px;
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.09);
+      border-radius: 8px;
+      position: relative;
+      z-index: 2;
+
+      .deposit-type {
+        width: 32px;
+        height: 32px;
+        border-radius: 10px;
+        background-color: var(--tertiary300);
+        flex-shrink: 0;
+        flex-grow: 0;
+
+        .icon-wrapper {
+          width: inherit;
+          height: inherit;
+          display: block;
+          background-color: var(--secondary500);
+          mask: url("../../assets/images/products/deposits.svg") no-repeat center;
+          -webkit-mask: url("../../assets/images/products/deposits.svg") no-repeat center;
+          mask-size: 20px;
+          -webkit-mask-size: 20px;
+        }
+      }
+
+      .deposit-details {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-grow: 1;
+        flex-shrink: 1;
+        @include b2-regular;
+        color: var(--neutral900);
+
+        .deposit-primary-info {
+          display: flex;
+          flex-direction: row;
+          background-color: #ffffff;
+          gap: 12px;
+
+          .account {
+            font-weight: bold;
+          }
+
+          .account-details {
+            display: flex;
+            flex-direction: column;
+            top: 16px;
+            left: 60px;
+
+            .val {
+              font-weight: var(--fontWeightMedium);
+            }
+          }
+        }
+
+        .deposit-additional-info {
+          display: flex;
+          flex-direction: column;
+
+          .val {
+            font: bold !important;
+            // @include s4-medium;
+          }
+        }
+      }
+    }
+  }
+  .arrow {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &::before {
+      content: " ";
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      background-color: var(--secondary500);
+    }
+
+    &.rotate-down {
+      width: 24px;
+      height: 24px;
+      margin: 0;
+      mask: url("../../assets/images/overview/expander-arrow.svg") no-repeat center;
+      -webkit-mask: url("../../assets/images/overview/expander-arrow.svg") no-repeat center;
+      mask-size: 16px;
+      -webkit-mask-size: 16px;
+    }
+
+    &.rotate-up {
+      width: 24px;
+      height: 24px;
+      margin: 0;
+      mask: url("../../assets/images/overview/expander-arrow.svg") no-repeat center;
+      -webkit-mask: url("../../assets/images/overview/expander-arrow.svg") no-repeat center;
+      mask-size: 16px;
+      -webkit-mask-size: 16px;
+      transform: rotate(180deg) !important;
+    }
+  }
+
+  .deposit-actions {
+    .actions-body {
+      .actions-list{
+        flex-wrap: nowrap;
+        overflow: auto;
+        gap: 2px;
+
+        .list-group-item{
+          flex-basis: 25%;
+          flex-grow: 0;
+          flex-shrink: 0;
+        }
+        .list-separator{
+          flex-grow: 0;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+
+}
+app-deposits-transactions-dtls-tmplt{
+  .transaction-list-item {
+      .transaction-info {
+        align-items: flex-start !important;
+  
+        .transaction-primary-info {
+          flex: 2 !important;
+          gap: 4px;
+  
+          .transaction-additional-info {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            color: var(--neutral700);
+  
+            .additional-info-lbl {
+              display: flex;
+              flex-direction: column;
+              gap: 2px;
+            }
+  
+            .additional-info-val {
+              display: flex;
+              flex-direction: column;
+              gap: 2px;
+            }
+          }
+        }
+  
+        .transaction-secondary-info {
+          justify-content: flex-end;
+          color: var(--neutral700);
+  
+        }
+      }
+    }
+  
+  
+  }
+/* Rransaction list item */
+.casa-transactions-dtls-list-tmpl {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  .transaction-primary-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tran-cheque {
+    border: 1px solid var(--warningClr);
+    color: var(--neutral900);
+    padding: 8px;
+    border-radius: 20px;
+    background-color: #FFF9E6;
+    width: fit-content;
+  }
+
+  .grid-row:has(.rowGroupTitle) {
+    pointer-events: none !important;
+  }
+  .transaction-list-item {
+    cursor: pointer;
+
+    .row-group-title {
+      @include b3-medium;
+      color: var(--neutral600);
+      padding: 20px 0 0px;
+    }
+
+    .transaction-list-item-inner {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      padding: 12px 0 0;
+
+      .transaction-icon-wrapper {
+        height: 49px;
+        display: flex;
+        align-items: center;
+
+        .transaction-icon {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          overflow: hidden;
+          flex-grow: 0;
+          flex-shrink: 0;
+          border: 1px solid var(--primary500);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: var(--systemIconWrapperBg);
+
+          .name-first-letter {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 14px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            color: var(--tertiary500);
+          }
+        }
+      }
+
+      .transaction-info {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        flex: 1;
+        border-bottom: 1px solid var(--neutral200);
+        padding-bottom: 8px;
+        align-items: center;
+
+        .transaction-primary-info {
+          display: flex;
+          flex-direction: column !important;
+          gap: 8px;
+          flex-direction: unset;
+
+          .ref-num {
+            @include b4-regular;
+            line-height: 14.32px;
+          }
+
+          .name {
+            @include s4-medium;
+            color: var(--neutral900);
+            line-height: 17.09px;
+          }
+
+          .date {
+            @include b4-regular;
+            color: var(--neutral700);
+            line-height: 14.32px;
+          }
+
+          .accountNumber {
+            @include b4-regular;
+            color: var(--neutral700);
+            line-height: 14.32px;
+          }
+        }
+
+        .transaction-secondary-info {
+          display: flex;
+          flex-direction: column;
+          text-align: end;
+          gap: 2px;
+          flex: 1;
+
+          .amount {
+            @include b4-regular;
+            color: var(--neutral700);
+
+            &.credit {
+              @include s2-bold;
+              color: var(--successClr);
+              line-height: 24px;
+
+              &::before {
+                content: "+";
+              }
+            }
+
+            &.debit {
+              @include s2-bold;
+              color: var(--neutral900);
+              line-height: 24px;
+
+              &::before {
+                content: "-";
+              }
+            }
+          }
+
+          .type {
+            @include b4-regular;
+            color: var(--neutral700);
+            line-height: 14.32px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* transfer list item */
+.schedule-transactions-dtls-list-tmpl,
+.transfer-history-list-tmpl,
+.manage-bene-list-tmpl,
+.manage-smb-list-tmpl,
+.transactions-Mgmt-List-Tmplt
+.dc-transactions-dtls-list-tmpl,
+.view-all-favourite-transfer-list-tmpl,
+.transactions-Mgmt-List-Tmplt {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .transaction-list-item {
+    >* {
+      cursor: pointer;
+    }
+
+    .row-group-title {
+      @include b3-medium;
+      color: var(--neutral600);
+      padding: 20px 22PX 0px;
+      pointer-events: none;
+    }
+
+    .transaction-list-item-inner {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      // padding: 8px 22px 0;
+
+      .transaction-icon-wrapper {
+        height: 49px;
+        display: flex;
+        align-items: center;
+
+        .transaction-icon {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          overflow: hidden;
+          flex-grow: 0;
+          flex-shrink: 0;
+          border: 1px solid var(--primary500);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: var(--systemIconWrapperBg);
+
+          img.default-icon {
+            width: 40px;
+            height: 40px;
+          }
+
+          .name-first-letter {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 14px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            color: var(--tertiary500);
+          }
+        }
+      }
+
+      .transaction-info {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        flex: 1;
+        border-bottom: 1px solid var(--neutral200);
+        padding-bottom: 21px;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 0;
+
+        .transaction-primary-info {
+          display: flex;
+          flex-direction: column;
+          flex: 0.6;
+          gap: 2px;
+          overflow: hidden;
+
+          .ref-num {
+            @include b4-regular;
+            line-height: 14.32px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+
+          .name {
+            @include s4-medium;
+            color: var(--neutral900);
+            line-height: 17.09px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+
+          .date {
+            @include b4-regular;
+            color: var(--neutral700);
+            line-height: 14.32px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+
+          .accountNumber {
+            @include b4-regular;
+            color: var(--neutral700);
+            line-height: 14.32px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+          .status {
+            @include b4-regular;
+            color: var(--neutral700);
+            line-height: 14.32px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            &.initiated {
+              color:#E02020;
+            }
+            &.accepted {
+              color: #23A26D;
+              
+            }
+            &.pending {
+              color: #FFC404;
+            }
+          }
+        }
+
+        .transaction-secondary-info {
+          display: flex;
+          flex-direction: column;
+          text-align: end;
+          gap: 2px;
+          flex: 0.4;
+          // overflow: hidden;
+          align-self: flex-end;
+
+          .amount {
+            @include s2-bold;
+            color: var(--neutral700);
+            padding: 9px 0 2px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            // overflow: hidden;
+
+            &.credit {
+              @include s2-bold;
+              color: var(--successClr);
+              line-height: 24px;
+
+              &::before {
+                content: "+";
+              }
+            }
+
+            &.debit {
+              @include s2-bold;
+              color: var(--neutral900);
+              line-height: 24px;
+
+              &::before {
+                content: "-";
+              }
+            }
+          }
+
+          .type {
+            @include b4-regular;
+            color: var(--neutral700);
+            line-height: 14.32px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+}
+.manage-smb-list-tmpl {
+  gap: 12px;
+
+  .task-item .task-detail-item {
+    padding: 10px 16px 10px;
+    @include not-small-screen {
+      padding: 10px 0px;
+    }
+  }
+  .transaction-list-item .transaction-list-item-inner {
+    .transaction-info { 
+      .transaction-secondary-info {
+        .active, .inactive {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 8px;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 14px;
+          &::after{
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: #1D875A;
+            border-radius: 50%;
+          }
+        }
+        .inactive::after{
+          background-color: #6A6A6A;  
+        }
+      }
+    }
+    .transaction-icon-wrapper .transaction-icon .name-first-letter {
+      color: #2D2D2D;
+      font-weight: 500;
+      line-height: 18px;
+      font-size: 14px;
+    }
+  }
+}
+
+.schedule-transactions-dtls-list-tmpl,
+.transfer-history-list-tmpl,
+.manage-bene-list-tmpl,
+.transactions-Mgmt-List-Tmplt,
+.dc-transactions-dtls-list-tmpl,
+.view-all-favourite-transfer-list-tmpl,
+.manage-smb-list-tmpl {
+  &.panning-template {
+    .grid-row:last-child{
+      .task-item .seperator-line{
+        background-color: unset;
+      }
+    }
+    .transaction-list-item {
+      .row-group-title {
+        padding: 20px 16px 0px;
+
+        @include not-small-screen {
+          padding: 20px 24px 0px;
+        }
+      }
+
+      .transaction-list-item-inner {
+        .transaction-info {
+          border-bottom: 0px solid var(--neutral200);
+          padding-bottom: 0px;
+        }
+      }
+    }
+  }
+}
+
+app-retail-transfer-history-template,app-etransfer-history-template,
+app-retail-view-all-fav-etransfer-template,
+app-retail-etransfer-auto-deposit-template,app-etransfercontacttmplt,app-retail-delegateuser-grid {
+  @include not-small-screen {
+    padding: 0 24px;
+    display: block;
+
+    .task-item:hover .task-action.task-action-right {
+      width: 280px !important;
+    }
+  }
+}
+app-etransfer-history-template,
+app-retail-view-all-fav-etransfer-template,
+app-retail-etransfer-auto-deposit-template,
+app-etransfercontacttmplt{
+  .task-detail-item{
+    height: 79px !important;
+  }
+  .transaction-list-item-inner {
+    height: 64px !important;
+    padding: 8px 0px 0 !important;
+  }
+  .task-item .seperator-line {
+    transform: translate(54px, 0px) !important;
+  }
+  .task-item .task-action.task-action-right{
+    @include not-small-screen{
+      gap: unset !important;
+    }
+  }
+}
+
+.upcoming-hisotry app-retail-bill-history-template {
+  @include not-small-screen {
+    .task-item:hover .task-action.task-action-right {
+      width: 0px !important;
+    }
+  }
+}
+
+.bill-history app-retail-bill-history-template {
+  @include not-small-screen {
+    .task-item:hover .task-action.task-action-right {
+      width: 110px !important;
+    }
+  }
+}
+
+app-retail-schedule-payment-template {
+  @include not-small-screen {
+    padding: 0 24px;
+    display: block;
+  }
+}
+
+app-retail-manage-beneficiary-template {
+  @include not-small-screen {
+
+    .task-item:hover .task-action.task-action-right {
+      width: 280px !important;
+    }
+  }
+}
+
+app-retail-manage-delegate-template {
+  @include not-small-screen {
+
+    .task-item:hover .task-action.task-action-right {
+      width: 280px !important;
+    }
+  }
+}
+
+/* Cheque list item */
+.cheque-list-tmpl {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .cheque-list-item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    border: 1px solid var(--primary500);
+    overflow: hidden;
+
+    header {
+      display: flex;
+      padding: 8px 20px;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--tertiary300);
+
+      .cheque-number {
+        @include s3-medium;
+        color: var(--primary500);
+      }
+
+      .cheque-status {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+        align-items: center;
+        @include b4-regular;
+
+        .cheque-status-txt {
+          color: var(--neutral900);
+        }
+
+        &::before {
+          content: " ";
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: var(--neutral200);
+          display: block;
+        }
+
+        &.status-1::before,
+        &.status-2::before {
+          background: var(--successClr);
+        }
+
+        &.status-3::before,
+        &.status-4::before {
+          background: var(--errorClr);
+        }
+      }
+    }
+
+    .cheque-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .cheque-info {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .detail {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          .lbl {
+            @include b2-regular;
+            color: var(--neutral700);
+          }
+
+          .val {
+            @include s4-medium;
+            color: var(--neutral900);
+          }
+        }
+      }
+
+      .h-seperator {
+        height: 1px;
+        width: 100%;
+        border: none;
+        background: linear-gradient(90deg,
+            rgba(1, 107, 131, 0) 5.42%,
+            #016b83 48.94%,
+            rgba(1, 107, 131, 0) 100%);
+      }
+
+      .cheque-image-wrapper {
+        img {
+          width: 100%;
+        }
+      }
+
+      .cheque-action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.favourite-transactions-dtls-list-tmpl {
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  width: 100%;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .fav-transaction-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .fav-transaction-icon {
+      width: 48px;
+      height: 48px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background-color: var(--elementPrimaryBgClr);
+      border: 2px solid #004a63;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+      color: var(--primaryBaseTxtClr);
+
+      @include not-small-screen {
+        @include s2-bold;
+        line-height: 20px;
+        color: var(--primary500);
+        color: #252A2E;
+      }
+    }
+
+    .fav-transaction-name {
+      @include b4-regular;
+      line-height: 14.32px;
+      color: var(--neutral50);
+
+      @include not-small-screen {
+        color: var(--quicklinksIcoClr);
+      }
+    }
+
+    .fav-transaction-amount {
+      @include b3-medium;
+      color: var(--neutral50);
+
+      @include not-small-screen {
+        color: var(--primaryClr);
+      }
+    }
+  }
+}
+
+.bene-type-list-tmplt {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 12px;
+
+  .bene-type-list-item {
+    padding: 12px;
+    display: flex;
+    border-radius: 12px;
+    gap: 16px;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0px 0px 18px 0px #00000017;
+    cursor: pointer;
+
+    .bene-type-list-icon-wrapper {
+      width: 24px;
+      height: 24px;
+      padding: 2px;
+      color: var(--tertiary500);
+      border: 1px solid #fff;
+
+      @include not-small-screen {
+        padding: 0 2px;
+      }
+    }
+
+    .bene-type-list-info {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      .transferType {
+        @include s4-medium;
+        line-height: 17.09px;
+
+        @include not-small-screen {
+          line-height: 18px;
+        }
+      }
+
+      .transferContent {
+        @include b2-regular;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        @include not-small-screen {
+          line-height: 18px;
+        }
+      }
+    }
+  }
+}
+
+/* Accounts CASA Home: Upcoming payments */
+.upcomingPaymentsTmplt {
+  .upcoming-payments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .upcoming-payments-list-item {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      align-items: flex-start;
+
+      .icon-wrapper {
+        width: 40px;
+        height: 45px;
+        padding-top: 5px;
+
+        .payment-icon {
+          display: flex;
+          width: 40px;
+          height: 40px;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          flex-grow: 0;
+          flex-shrink: 0;
+          border: 1px solid var(--primary500);
+        }
+
+      }
+
+      .payment-details {
+        flex-grow: 1;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        @include b4-regular;
+        color: var(--neutral700);
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--baseBdrClr);
+
+        .primary-info {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+
+          .name {
+            @include s4-medium;
+            color: var(--neutral900);
+          }
+        }
+
+        .secondary-info {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+          align-self: flex-end;
+        }
+
+        .amount {
+          @include s2-bold;
+
+          &.debit {
+            &::before {
+              content: "-";
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        .payment-details {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
+
+/* Overview Upcoming payments */
+.overviewUpcomingPaymentsTmplt {
+  .upcoming-payments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .upcoming-payments-list-item {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      align-items: center;
+      border-bottom: 1px solid var(--baseBdrClr);
+      padding-bottom: 16px;
+
+      .icon-wrapper {
+        width: 32px;
+        height: 32px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: unset;
+
+        .icon {
+          display: flex;
+          width: 32px;
+          height: 32px;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          flex-grow: 0;
+          flex-shrink: 0;
+          background-color: var(--secondary200);
+          font-weight: var(--fontWeightBold);
+          font-size: 12px;
+        }
+
+      }
+
+      .desc {
+        flex: 1;
+        flex-basis: 100%;
+      }
+
+      .date {
+        flex-basis: 25%;
+        min-width: 100px;
+      }
+
+      .amount {
+        text-align: end;
+        flex: 1;
+        flex-basis: 100%;
+      }
+
+      .due {
+        flex-basis: 25%;
+        text-align: end;
+        min-width: 100px;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+/* Savings Accounts for NPSS */
+.savings-account-ro-tmplt {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .account {
+    padding: 8px 12px;
+    border: 1px solid var(--neutral200);
+    border-radius: 16px;
+    background-color: var(--neutral50);
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    .account-selector {
+      width: 20px;
+      height: 20px;
+    }
+
+    .account-info {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      @include s4-medium;
+      color: var(--neutral900);
+    }
+
+    .additional-info {
+      // align-self: flex-end;
+      position: absolute;
+      top: 8px;
+      right: 16px;
+
+      button {
+        text-decoration: underline;
+      }
+    }
+
+    .is-primary-acc {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 4px 22px;
+      border-radius: 0 0 0 16px;
+      background-color: var(--primary500);
+      @include b4-regular;
+      color: var(--neutral50);
+    }
+  }
+}
+
+/*Disbursement Schedule */
+.disbursement-schedule-tmplt {
+  .disburse-schedule-item {
+    .disburse-schedule-info {
+      display: flex;
+      flex-direction: column;
+      padding: 8px 0 12px 0;
+      gap: 12px;
+      // align-items: center;
+
+      .disburse-schedule-primary-info {
+        display: flex;
+        flex-direction: column;
+        // border-radius: 6px;
+        // align-items: center;
+        // justify-content: center;
+        // border: 1px solid var(--neutral200);
+        // padding: 6px 7px;
+        // width: 40px;
+        // height: 40px;
+
+        .month {
+          line-height: 14px;
+          align-items: center;
+          color: var(--primary500);
+        }
+
+        .date {
+          @include s4-medium;
+          line-height: 18px;
+          color: var(--secondaryClr);
+        }
+      }
+
+      .disbursal-schedule-detail {
+        display: flex;
+        justify-content: space-between;
+        flex: 1;
+        border-bottom: 1px solid var(--neutral200);
+        padding: 0 0 10px 0;
+
+        .disburse-schedule-secondary-info {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+
+          .name {
+            @include s4-medium;
+            line-height: 18px;
+          }
+
+          .account {
+            @include b4-regular;
+            line-height: 14px;
+          }
+
+          .description {
+            @include b4-regular;
+            line-height: 14px;
+          }
+        }
+
+        .disburse-schedule-tertiary-info {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          gap: 2px;
+          justify-content: flex-end;
+
+          .amount {
+            @include b4-regular;
+            line-height: 14px;
+          }
+
+          .transfer {
+            @include b4-regular;
+            line-height: 14px;
+          }
+
+          .disbursal-detail {
+            @include b4-regular;
+            line-height: 14px;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+/*Repayment Schedule */
+.repayment-schedule-tmplt {
+  .repayment-schedule-item {
+    .repayment-schedule-info {
+      display: flex;
+      flex-direction: row;
+      padding: 8px 0 12px 0;
+      gap: 12px;
+      align-items: center;
+
+      .repayment-schedule-primary-info {
+        display: flex;
+        flex-direction: column;
+        border-radius: 6px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--neutral200);
+        padding: 6px 7px;
+        width: 40px;
+        height: 40px;
+
+        .month {
+          line-height: 14px;
+          align-items: center;
+          color: var(--primary500);
+        }
+
+        .date {
+          @include s4-medium;
+          line-height: 18px;
+        }
+      }
+
+      .repayment-schedule-detail {
+        display: flex;
+        justify-content: space-between;
+        flex: 1;
+        border-bottom: 1px solid var(--neutral200);
+        padding: 10px 0;
+
+        .repayment-schedule-secondary-info {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+
+          .emi {
+            @include b4-regular;
+            line-height: 14px;
+          }
+
+          .interest {
+            @include b4-regular;
+            line-height: 14px;
+          }
+        }
+
+        .repayment-schedule-tertiary-info {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          gap: 2px;
+          justify-content: flex-end;
+
+          .principal {
+            @include b4-regular;
+            line-height: 14px;
+          }
+
+          .outStanding {
+            @include b4-regular;
+            line-height: 14px;
+          }
+        }
+      }
+    }
+
+  }
+
+}
+
+.contact-list-tmplt,
+.select-contact-list-tmplt {
+  gap: 30px;
+
+  .contact-summary {
+    display: flex;
+    flex-direction: row;
+    padding: 8px 0px;
+
+    .contact-details {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+      width: 303px;
+      height: 42px;
+
+      @include not-small-screen {
+        width: 100%;
+      }
+
+      .logo-container {
+        width: 46px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid var(--primary500);
+        background-color: #016b83;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .logo-content {
+          font-size: 12px;
+          color: #ffffff;
+        }
+      }
+
+      .logo-content {
+
+        color: #fff;
+        /* Color of the logo content */
+        font-size: 24px;
+        /* Adjust font size as needed */
+      }
+    }
+
+    .contact-primary-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      width: 303px;
+      border-bottom: 1px solid var(--neutral200);
+      padding-bottom: 5px;
+
+      @include not-small-screen {
+        width: 100%;
+      }
+
+      .bene-name {
+        color: #2D2D2D;
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      .phone-number {
+        color: #575757;
+        font-size: 12px;
+        font-weight: 400;
+
+      }
+
+      // .separator{
+      //   border-bottom: 1px solid #E0E0E0;
+      // }
+
+    }
+
+
+  }
+}
+
+.saved-biller-mini-list-tmpl {
+  display: flex;
+  justify-content: flex-start;
+  gap: 24px;
+  width: 100%;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .grid-row {
+    flex-basis: 25%;
+    cursor: pointer;
+  }
+
+  .saved-biller-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+
+    .saved-biller-icon {
+      width: 40px;
+      height: 40px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background-color: #ffffff;
+      // border: 2px solid #004a63;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+      margin-bottom: 10px;
+
+      @include not-small-screen {
+        @include s2-bold;
+        line-height: 20px;
+        color: var(--primary500);
+        color: #252A2E;
+      }
+    }
+
+    .saved-biller-name {
+      text-transform: capitalize;
+      @include b3-medium;
+      line-height: 14.32px;
+      color: var(--neutral50);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 89px;
+
+      @include not-small-screen {
+        color: var(--primary500);
+      }
+    }
+
+    .saved-biller-credit-account {
+      @include b4-regular;
+      color: var(--neutral50);
+      text-overflow: ellipsis;
+      max-width: 84px;
+      overflow: hidden;
+      text-align: center;
+
+      @include not-small-screen {
+        color: var(--primary500);
+      }
+    }
+  }
+}
+
+.biller-category-mini-list-tmpl {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: unset;
+  box-shadow: unset;
+  border-radius: unset;
+  padding: 0 16px;
+
+  @include not-small-screen {
+    padding: 0;
+  }
+
+  .grid-row {
+    --item-col-count: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: flex-start;
+
+    .icon-wrapper {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: #FFFFFF;
+      border: 1px solid #12486B;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    .text {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 18px;
+      color: #575757;
+      text-align: center;
+      width: 90%;
+    }
+
+  }
+}
+
+.upcoming-bill-tmpl {
+  padding: 12px 20px 0 20px;
+
+  @include not-small-screen {
+    padding: 20px 24px;
+  }
+
+  .grid-row {
+    margin-bottom: 22px;
+
+    .upcoming-main-container {
+      display: flex;
+      justify-content: space-between;
+
+      .upcoming-left-container {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+
+        .icon-wrapper {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: #FFFFFF;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .upcoming-detail {
+          display: flex;
+          flex-direction: column;
+
+          .due-date {
+            @include b4-regular;
+            text-overflow: ellipsis;
+            max-width: 152px;
+            overflow: hidden;
+            text-wrap: nowrap;
+
+            .danger {
+              color: red;
+            }
+          }
+
+          .biller-name {
+            @include s4-medium;
+            text-overflow: ellipsis;
+            max-width: 190px;
+            overflow: hidden;
+            text-wrap: nowrap;
+          }
+
+          .biller-credit-account {
+            @include b4-regular;
+            text-overflow: ellipsis;
+            max-width: 152px;
+            overflow: hidden;
+            text-wrap: nowrap;
+          }
+        }
+      }
+
+      .upcoming-right-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .upcoming-amount {
+          @include s2-bold;
+        }
+
+        .pay-button-container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          justify-content: flex-end;
+
+          .bill-pay-btn {
+            @include b4-regular;
+            display: flex;
+
+            &::after {
+              content: '';
+              width: 16px;
+              height: 18px;
+              margin: 0;
+              background-color: var(--secondary500);
+              mask: url(../../assets/images/layouts/controls/dropdown-arrow.svg) no-repeat center;
+              -webkit-mask: url(../../assets/images/layouts/controls/dropdown-arrow.svg) no-repeat center;
+              mask-size: 20px;
+              -webkit-mask-size: 16px;
+              display: block;
+              transform: rotate(270deg);
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+}
+
+.biller-history-tmpl {
+  padding: 0 20px;
+
+  @include not-small-screen {
+    padding: 20px 24px;
+  }
+
+  .grid-row {
+    cursor: pointer;
+    margin-bottom: 12px;
+
+    .row-group-title {
+      @include b3-medium;
+      color: var(--neutral600);
+    }
+
+    .bill-history-main-container {
+      display: flex;
+      justify-content: space-between;
+
+      .bill-history-left-container {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+
+        .icon-wrapper {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: #FFFFFF;
+          display: flex;
+          @include s2-bold;
+          align-items: center;
+          justify-content: center;
+          // border: 1px solid #12486B;
+        }
+
+        .bill-history-detail {
+          display: flex;
+          flex-direction: column;
+
+          .due-date {
+            @include b4-regular;
+            color: var(--neutral700);
+            display: flex;
+            gap: 4px;
+
+            .seperator {
+              height: 15px;
+              overflow: hidden;
+            }
+          }
+
+          .biller-name {
+            @include s4-medium;
+            text-overflow: ellipsis;
+            max-width: 152px;
+            overflow: hidden;
+            text-wrap: nowrap;
+          }
+
+          .biller-credit-account {
+            @include b4-regular;
+            color: var(--neutral700);
+            text-overflow: ellipsis;
+            max-width: 152px;
+            overflow: hidden;
+            text-wrap: nowrap;
+          }
+        }
+      }
+
+      .bill-history-right-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        gap: 2px;
+
+        .bill-history-amount {
+          @include s2-bold;
+          color: var(--neutral700);
+        }
+
+        .status {
+          @include b4-regular;
+          color: #575757;
+
+          &.SUCCESS {
+            color: green;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+.biller-list-tmpl {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background: #FFFFFF;
+
+  .biller-main-container {
+    cursor: pointer;
+
+    .biller-left-container {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+
+      .icon-wrapper {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .biller-detail {
+        display: flex;
+        flex-direction: column;
+
+        .biller-name {
+          @include s4-medium;
+        }
+      }
+    }
+  }
+
+}
+
+
+.saved-biller-list-tmpl {
+  .grid-row {
+    cursor: pointer;
+    margin-bottom: 10px;
+
+    .task-item {
+      margin: 0 20px;
+      border-radius: 16px;
+
+      &.open {
+        .saved-biller-left-container {
+          margin-left: 10px;
+        }
+
+        .saved-biller-right-container {
+          margin-right: 10px;
+        }
+      }
+
+      .task-detail-item {
+        padding: 10px 0 10px 0px !important;
+        background-color: #fff !important;
+      }
+    }
+
+    .saved-biller-main-container {
+      display: flex;
+      justify-content: space-between;
+
+      .saved-biller-left-container {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+
+        .icon-wrapper {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: #FFFFFF;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .saved-biller-detail {
+          display: flex;
+          flex-direction: column;
+
+          .due-date {
+            @include b4-regular;
+
+            .danger {
+              color: red;
+            }
+          }
+
+          .saved-biller-name {
+            text-transform: capitalize;
+            @include s4-medium;
+            text-overflow: ellipsis;
+            max-width: 152px;
+            overflow: hidden;
+            text-wrap: nowrap;
+          }
+
+          .saved-biller-account {
+            @include b4-regular;
+            text-overflow: ellipsis;
+            max-width: 152px;
+            overflow: hidden;
+            text-wrap: nowrap;
+          }
+        }
+      }
+
+      .saved-biller-right-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        .saved-biller-amount {
+          @include s2-bold;
+          color: var(--neutral700);
+        }
+
+        .pay-button-container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          justify-content: flex-end;
+
+          .bill-pay-btn {
+            @include b4-regular;
+            display: flex;
+
+            &::after {
+              content: '';
+              width: 16px;
+              height: 18px;
+              margin: 0;
+              background-color: var(--secondary500);
+              mask: url(../../assets/images/layouts/controls/dropdown-arrow.svg) no-repeat center;
+              -webkit-mask: url(../../assets/images/layouts/controls/dropdown-arrow.svg) no-repeat center;
+              mask-size: 20px;
+              -webkit-mask-size: 16px;
+              display: block;
+              transform: rotate(270deg);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.category-group-biller-list-tmpl {
+  .row-group-title {
+    @include s3-medium;
+    color: var(--neutral700);
+    margin-bottom: 24px;
+  }
+
+  .biller-category-container {
+    display: flex;
+
+    .biller-category-item {
+      cursor: pointer;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      flex-basis: 25%;
+
+      // .biller-category-icon {
+      //   width: 44px;
+      //   height: 44px;
+      //   flex-grow: 0;
+      //   flex-shrink: 0;
+      //   border-radius: 50%;
+      //   background-color: var(--primary500);
+      //   // border: 2px solid #004a63;
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: center;
+      //   align-self: center;
+      // }
+
+      .biller-category-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background-color: #12486B;
+
+        .BILLERCAT01::after {
+          content: '';
+          width: 22px;
+          height: 22px;
+          margin: 0;
+          background-color: #fff;
+          mask: url(../../assets/images/billers/utility.svg) no-repeat center;
+          -webkit-mask: url(../../assets/images/billers/utility.svg) no-repeat center;
+          mask-size: 22px;
+          -webkit-mask-size: 22px;
+          display: block;
+        }
+
+        .BILLERCAT02::after {
+          content: '';
+          width: 22px;
+          height: 22px;
+          margin: 0;
+          background-color: #fff;
+          mask: url(../../assets/images/billers/telecom.svg) no-repeat center;
+          -webkit-mask: url(../../assets/images/billers/telecom.svg) no-repeat center;
+          mask-size: 22px;
+          -webkit-mask-size: 22px;
+          display: block;
+        }
+
+        .BILLERCAT03::after {
+          content: '';
+          width: 22px;
+          height: 22px;
+          margin: 0;
+          background-color: #fff;
+          mask: url(../../assets/images/billers/travel.svg) no-repeat center;
+          -webkit-mask: url(../../assets/images/billers/travel.svg) no-repeat center;
+          mask-size: 22px;
+          -webkit-mask-size: 22px;
+          display: block;
+        }
+      }
+
+      .biller-category-name {
+        @include b4-regular;
+        line-height: 14.32px;
+        color: var(--neutral50);
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 78px;
+        color: var(--primary500);
+
+        @include not-small-screen {
+          color: var(--primary500);
+        }
+      }
+    }
+  }
+}
+
+
+/*VIEW SERVICE REQUESTS*/
+.view-service-request-tmplt {
+  .service-request-item {
+    padding-bottom: 20px;
+
+    .service-request-info {
+      display: flex;
+      flex-direction: row;
+      padding: 8px 0 16px 0;
+      align-items: center;
+      border-bottom: 1px solid var(--neutral200);
+
+      .service-request-primary-info {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        .date {
+          @include b4-regular;
+          color: var(--neutral700);
+        }
+
+        .desc {
+          @include s4-medium;
+          color: var(--neutral900);
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          // width: 320px;          
+        }
+
+        .request-details {
+          @include b4-regular;
+          color: var(--neutral700);
+          padding-bottom: 8px;
+          display: flex;
+          gap: 8px;
+
+          .category {
+            padding-right: 8px;
+            border-right: 1px solid var(--neutral200);
+          }
+        }
+
+        .status {
+          border: 1px solid;
+          border-radius: 20px;
+          width: fit-content;
+          padding: 2px 8px;
+
+          &.in.progress {
+            border-color: #1F7ACC;
+            color: #1F7ACC;
+          }
+
+          &.completed {
+            border-color: #23A26D;
+            color: #23A26D;
+          }
+
+          &.rejected {
+            border-color: var(--errorClr);
+            color: var(--errorClr);
+          }
+        }
+      }
+
+      .service-request-secondary-info {
+        width: 24px;
+      }
+    }
+  }
+
+  > :last-child {
+    .service-request-info {
+      border-bottom: none;
+    }
+
+    .service-request-item {
+      padding-bottom: 0px;
+    }
+  }
+}
+
+.manage-alert-tmpl {
+
+  // .task-item .task-detail-item{
+  //   background-color: #ffff;
+  // }
+  .grid-row {
+
+    .disable-cfg-alert {
+
+      .user-alert-channels,
+      .show-more-container {
+        pointer-events: none;
+        opacity: 0.5;
+      }
+    }
+
+    .manage-alert-container {
+      box-shadow: 0px 0px 30px 0px #00000017;
+      border-radius: 16px;
+      overflow: auto;
+      background: #fff;
+      margin-bottom: 20px;
+
+      @include not-small-screen {
+        border: 1px solid #016B83;
+      }
+
+      .alerts-header {
+        border-radius: 16px 16px 0px 0px;
+        background: #D5F7F4;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+
+        .alerts-header-title {
+          @include s3-medium;
+          color: var(--primary500);
+        }
+      }
+
+      .alert-sub {
+        display: flex;
+        flex-direction: column;
+        padding: 0 20px;
+        margin-top: 20px;
+
+        .alert-disc {
+          @include b2-regular
+        }
+
+        .user-alert-channels {
+          padding: 10px 0 16px 0;
+          display: flex;
+          justify-content: space-between;
+
+          @include not-small-screen {
+            justify-content: flex-start;
+            gap: 20px;
+          }
+
+          .mat-checkbox {
+            text-align: center;
+
+            &.mat-checkbox-checked {
+              .mat-checkbox-label {
+                background: var(--primary500);
+                @include b4-regular;
+                color: #fff;
+              }
+
+            }
+
+            .mat-checkbox-inner-container {
+              display: none;
+            }
+
+            .mat-checkbox-label {
+              border: 1px solid #016B83;
+              border-radius: 8px;
+              padding: 3px 12px;
+              min-width: 74px;
+              @include b4-regular;
+              color: var(--primary500);
+            }
+          }
+
+
+
+
+          //   button.btn {
+          //     border: 1px solid var(--primary500);
+          //     border-radius: 8px;
+          //     padding: 6px 12px;
+          //     min-width: 74px;
+          //     span{
+          //       @include b4-regular;
+          //       color:var(--primary500);
+          //     }
+          //     &.enable{
+          //       background: var(--primary500);
+          //       span{
+          //         @include b4-regular;
+          //         color: #fff;
+          //       }
+          //     }
+          // }
+        }
+
+        .show-more-container {
+          display: flex;
+          justify-content: flex-end;
+          padding-bottom: 20px;
+
+          span {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+.manage-user-alert-tmpl {
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.0901960784);
+  border-radius: 16px;
+  overflow: auto;
+
+  @include not-small-screen {
+    box-shadow: none;
+  }
+
+  .seperator-line {
+    left: 23px;
+  }
+
+  .grid-row {
+    .manage-alert-container {
+      overflow: auto;
+      background: #fff;
+
+      .alerts-header {
+        background: #fff;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 20px;
+
+        @include not-small-screen {
+          padding: 20px 0;
+        }
+
+        .alerts-header-title {
+          @include s3-medium;
+          color: var(--neutral900);
+        }
+      }
+    }
+
+    &:last-child {
+      .seperator-line {
+        display: none;
+      }
+    }
+  }
+}
+
+.fx-rates-tmpl {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .grid-row:first-child {
+    .fx-rates-container {
+      color: var(--primary500) !important;
+      @include b3-medium
+    }
+  }
+
+  .fx-rates-container {
+    display: flex;
+    color: var(--neutral700);
+    @include b4-regular;
+
+    .rates-country-flag {
+      flex-basis: 14%;
+
+      .fi {
+        width: 32px;
+        line-height: 2em;
+      }
+    }
+
+    .rates-currency-container {
+      flex-basis: 36%;
+    }
+
+    box.buy-rate {
+      flex-basis: 25%;
+    }
+
+    .sell-rateg {
+      flex-basis: 25%;
+    }
+  }
+}
+
+.manage-authenticated-device-tmpl {
+  .task-item {
+    // padding: 20px;
+    border-radius: 24px;
+    background: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 30px 0px #00000017;
+
+    @include not-small-screen {
+      border: 1px solid var(--primary500);
+      box-shadow: unset;
+
+      &:hover .task-action.task-action-right {
+        width: 68px !important;
+      }
+    }
+
+    .task-action {
+      @include not-small-screen {
+        box-shadow: unset !important;
+      }
+    }
+
+    .task-detail-item {
+      // padding: 0;
+      background-color: #fff !important;
+
+      @include not-small-screen {
+        padding: 0 16px 20px;
+      }
+
+      .manage-auth-device-container {
+        position: relative;
+        background: #FFF;
+
+        .manage-auth-details {
+          padding: 20px 4px 0px 4px;
+          display: flex;
+          justify-content: space-between;
+
+          .device-detail {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+
+            .device-info {
+              display: flex;
+              flex-direction: column;
+              gap: 4px;
+
+              .device-name {
+                font-size: 14px;
+                line-height: 18px;
+                font-weight: 500;
+              }
+
+              span:is(.device-model, .device-version, .device-last-login) {
+                @include b4-medium
+              }
+            }
+          }
+        }
+
+        .manage-device-seperator-line {
+          background-color: var(--baseBdrClr);
+          border-radius: 50%;
+          height: 1px;
+        }
+
+        .device-active-status {
+          .active-device-btn {
+            position: absolute;
+            color: #FFF;
+            background-color: var(--primary500);
+            line-height: 24px;
+            padding: 2px 20px;
+            top: 20px;
+            right: 0;
+            border-radius: 19px;
+            border: 1px solid #006F8794;
+            font-weight: 400;
+            font-size: 10px;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.selected-contact-tmplt {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  padding-top: 12px;
+
+  .display-contact {
+    .display-contact-info {
+      display: flex;
+      flex-direction: column;
+
+      .display-contact-logo {
+        color: #fff;
+        font-size: 12px;
+        border-radius: 50%;
+        border: 1px solid var(--primary500);
+        background-color: #016b83;
+        width: 40px;
+        height: 40px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 0px;
+
+        .close-btn {
+          position: absolute;
+          top: -10px;
+          right: -7px;
+          width: 20px;
+          height: 20px;
+          background-color: #D1D1D1;
+          color: #000000;
+          border-radius: 40px;
+          padding: 0px;
+        }
+      }
+
+      .display-contact-name {
+        @include b4-regular;
+        line-height: 18px;
+      }
+
+    }
+  }
+}
+
+.contacts-bene-list-tmplt {
+  gap: 30px;
+
+  .contacts-bene-list-summary {
+    display: flex;
+    flex-direction: row;
+    padding: 8px 0px;
+
+    .contacts-bene-list-details {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+      width: 303px;
+      height: 42px;
+    }
+
+    .contacts-bene-list-container {
+      width: 46px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--primary500);
+      background-color: #016b83;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+
+      .logo-content {
+        font-size: 12px;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .contacts-bene-list-info {
+    display: flex;
+
+    .contacts-bene-list-primary-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      width: 303px;
+      border-bottom: 1px solid var(--neutral200);
+      padding-bottom: 5px;
+      flex-basis: 50%;
+
+      .contacts-bene-name {
+        color: #2D2D2D;
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      .contacts-bene-phone-number {
+        color: #575757;
+        font-size: 12px;
+        font-weight: 400;
+
+      }
+
+
+    }
+
+    .contacts-bene-list-secondary-info {}
+
+  }
+}
+
+app-retail-bill-split-type-ro-grid {
+  .equally {
+    .split-amount {
+      .fpx-field-content {
+        border: none !important;
+        width: 84px;
+      }
+    }
+  }
+
+  .manually {
+    .split-amount {
+      .fpx-field-content {
+        display: block;
+        width: 84px;
+      }
+    }
+  }
+}
+
+/**
+    * Profile document style START 
+    **/
+.profile-doc-tmpl {
+  .grid-row {
+    cursor: pointer;
+
+    .task-item {
+      .task-detail-item {
+        background-color: #ffffff !important;
+
+        .profile-doc-container {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          min-height: 28px;
+          padding-top: 20px;
+
+          .doc-icon {
+            flex-basis: 8%;
+          }
+
+          .doc-name {
+            @include b4-regular;
+            font-size: 14px;
+          }
+        }
+      }
+
+      .seperator-line {
+        transform: translate(0, 0) !important;
+      }
+    }
+  }
+}
+
+/* Profile document style END */
+
+.bic-dtls-list-tmpl {
+  display: flex;
+  flex-direction: column;
+
+  .bic-data-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--baseBdrClr);
+
+    .bank-name, .branch-address{
+      @include b4-regular;
+      color: var(--neutral700);
+    }
+    .bic-code{
+      @include s4-medium;
+      color: var(--neutral900);
+    }
+  }
+
+  .row-selected{
+    .bic-data-item{
+      background-color: var(--primary200);
+      border-radius: 12px;
+    }
+  }
+}
+app-retail-view-portfolio-holdings-template{
+  .name-first-letter{
+    color: var(--neutral900) !important;
+  }
+  .transaction-secondary-info{
+    color: var(--neutral700);
+  }
+  .task-detail-item {
+    padding-left: 0px !important;
+  }
+  .seperator-line{
+    transform: translate(50px, 0px) !important;
+  }
+}
+.casa-transactions-dtls-list-tmpl {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  .transaction-list-item {
+    cursor: pointer;
+
+    .row-group-title {
+      @include b3-medium;
+      color: var(--neutral600);
+      padding: 20px 0 0px;
+    }
+
+    .transaction-list-item-inner {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      padding: 12px 0 0;
+
+      .transaction-icon-wrapper {
+        height: 49px;
+        display: flex;
+        align-items: center;
+
+        .transaction-icon {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          overflow: hidden;
+          flex-grow: 0;
+          flex-shrink: 0;
+          border: 1px solid var(--primary500);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: var(--systemIconWrapperBg);
+
+          .name-first-letter {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 14px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            color: var(--tertiary500);
+          }
+        }
+      }
+
+      .transaction-info {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        flex: 1;
+        border-bottom: 1px solid var(--neutral200);
+        padding-bottom: 8px;
+        align-items: center;
+
+        .transaction-primary-info {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          gap: 2px;
+
+          .ref-num {
+            @include b4-regular;
+            line-height: 14.32px;
+          }
+
+          .name {
+            @include s4-medium;
+            color: var(--neutral900);
+            line-height: 17.09px;
+          }
+
+          .date {
+            @include b4-regular;
+            color: var(--neutral700);
+            line-height: 14.32px;
+          }
+
+          .accountNumber {
+            @include b4-regular;
+            color: var(--neutral700);
+            line-height: 14.32px;
+          }
+        }
+
+        .transaction-secondary-info {
+          display: flex;
+          flex-direction: column;
+          text-align: end;
+          gap: 2px;
+          flex: 1;
+
+          .amount {
+            @include b4-regular;
+            color: var(--neutral700);
+
+            &.credit {
+              @include s2-bold;
+              color: var(--successClr);
+              line-height: 24px;
+
+              &::before {
+                content: "+";
+              }
+            }
+
+            &.debit {
+              @include s2-bold;
+              color: var(--neutral900);
+              line-height: 24px;
+
+              &::before {
+                content: "-";
+              }
+            }
+          }
+
+          .type {
+            @include b4-regular;
+            color: var(--neutral700);
+            line-height: 14.32px;
+          }
+        }
+      }
+    }
+  }
+}
+

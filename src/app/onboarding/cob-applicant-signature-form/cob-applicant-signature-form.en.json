@@ -1,0 +1,11 @@
+"CobApplicantSignatureForm":{
+"title":"obapplicantsignature",
+		 "applicantId": {
+		  "label":"ApplicantId" ,
+		  "placeholder": "ApplicantId"
+		  } ,
+		 "signatureImage": {
+		  "label":"Upload Signature" ,
+		  "placeholder": "Upload Signature"
+		  } 
+}

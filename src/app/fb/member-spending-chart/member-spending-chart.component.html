@@ -1,0 +1,15 @@
+<box class="chart-container">
+    <fpx-multi-line-chart [xValue]="'week'" [yValue]="['inflow', 'outflow' , 'midflow']" chart [actionPublisher]="actionMap"
+    [chartConfigurations]="getChartData()" [chartsPublisher]="chartsAction$">
+    </fpx-multi-line-chart>
+
+    <!-- <ng-container *ngIf="memberspendingChartHelper.legends && memberspendingChartHelper.legends.length">
+        <ul class="legends">
+            <ng-container *ngFor="let legend of memberspendingChartHelper.legends">
+                <li class="legend {{legend.id}}"><span class="bullet" [style.backgroundColor]="legend.color" [attr.aria-label]="legend.id"></span> </li>
+            </ng-container>
+        </ul>
+        
+    </ng-container> -->
+    
+</box>

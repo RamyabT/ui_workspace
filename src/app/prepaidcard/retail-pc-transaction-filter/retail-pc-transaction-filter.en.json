@@ -1,0 +1,26 @@
+"RetailDcTransactionExFilter": {
+	"title": "RetailDCTransactionExFilter",
+	"transactionRangeType": {
+		"label": "Transaction Range",
+		"placeholder": "Transaction Range"
+	},
+	"fromDate": {
+		"label": "From Date",
+		"placeholder": "From Date"
+	},
+	"toDate": {
+		"label": "To Date",
+		"placeholder": "To Date"
+	},
+	"FieldId_5": {
+		"text": "Transaction Amount"
+	},
+	"minAmount": {
+		"label": "Minimum Amount",
+		"placeholder": "Minimum Amount"
+	},
+	"maximumAmount": {
+		"label": "Maximum Amount",
+		"placeholder": "Maximum Amount"
+	}
+}

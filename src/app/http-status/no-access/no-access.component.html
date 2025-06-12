@@ -1,0 +1,24 @@
+<form formName="NoAccessForm" [autocomplete]="'off'" [formGroup]="formGroup" class="noaccess">
+    <box class="header-wrapper">
+        <box class="main-header-inner">
+            <box class="header-inner-wrapper">
+                <ng-container >
+                    <button type="button" class="brand">
+                        <img src="./assets/images/brand/header-logo.svg" alt="bank" />
+                    </button>
+                </ng-container> 
+            </box>
+        </box>
+    </box>
+    <box class="no-access-box">
+        <box class="no-access-wrapper">
+        <box class="no-access-image"></box> 
+        </box>    
+        <box class="content">
+            <span class="label-tag">{{'NoAccessForm.label' | translate}}</span>
+            <span class="label">{{'NoAccessForm.message' | translate}}</span>
+            <button class="button" (click)="_helper.goToHome()">{{'NoAccessForm.button' | translate}}</button>
+        </box>
+</box>
+</form>
+

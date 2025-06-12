@@ -1,0 +1,56 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="childDetails">
+	<box class="entry-form">
+		<box class="entry-form-field-group grid col-12">
+
+			<app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('fullName')"
+				label="{{'addChildAccount.fullName.label' | translate }}" formControlName="fullName"></app-name-control>
+
+
+			<app-nick-name-control-ch class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('nickName')"
+				label="{{'addChildAccount.nickName.label' | translate }}"
+				formControlName="nickName"></app-nick-name-control-ch>
+
+
+			<app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('dob')"
+				label="{{'addChildAccount.dob.label' | translate }}" formControlName="dob" [minDate]="_helper.minDate"
+				[maxDate]="_helper.maxDate"></app-request-date-control>
+
+
+			<app-gender-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('gender')"
+				label="{{'addChildAccount.gender.label' | translate }}" formControlName="gender"></app-gender-control>
+
+
+			<app-relationship-list class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('relationship')"
+				label="{{'addChildAccount.relationship.label' | translate }}"
+				formControlName="relationship"></app-relationship-list>
+
+
+			<app-email-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('email')"
+				label="{{'addChildAccount.email.label' | translate }}" formControlName="email"></app-email-control>
+
+
+			<app-mobile-number-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('mobileNumber')"
+				label="{{'addChildAccount.mobileNumber.label' | translate }}"
+				formControlName="mobileNumber"></app-mobile-number-control>
+
+			<box class="alerts-header-title"> {{'addChildAccount.upload.label' | translate }}</box>
+			<app-Image-upload-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('profileImage')"
+				label="{{'addChildAccount.profileImage.label' | translate }}" formControlName="profileImage"
+				[minSize]="state.profileImage.minSize" [maxSize]="state.profileImage.maxSize"
+				[extensions]="state.profileImage.extensions"></app-Image-upload-control>
+
+			<!-- <app-Image-upload-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('childreqdocdtl')"
+				label="{{'addChildAccount.childreqdocdtl.label' | translate }}" formControlName="childreqdocdtl"
+				[minSize]="state.childreqdocdtl.minSize" [maxSize]="state.childreqdocdtl.maxSize"
+				[extensions]="state.childreqdocdtl.extensions"></app-Image-upload-control> -->
+				<app-childreqdocdtl class="col-sm-12 col-md-6 col-lg-6" 
+					[actionPublisher]="actionMap$.get('childreqdocdtl')" label="childsOfficialId" formControlName="childreqdocdtl">
+				</app-childreqdocdtl>
+
+		</box>
+	</box>
+</form>

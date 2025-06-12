@@ -1,0 +1,5 @@
+ 
+ "RETAILOPENNEWCASA" : {
+ "servicePath": ["entry-shell","accounts", "retail-open-new-casa-form"],
+ "queryParams": {}
+ }

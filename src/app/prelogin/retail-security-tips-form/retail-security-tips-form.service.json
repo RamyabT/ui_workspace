@@ -1,0 +1,5 @@
+ 
+ "RETAILSECURITYPUBLISH" : {
+ "servicePath": ["entry-shell","prelogin", "retail-security-tips-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,317 @@
+app-login {
+  .login-layout {
+    background-color: var(--loginScreenBgClr);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .container-bg {
+      background: url(../../assets/images/login/login-container-bg.svg) no-repeat 0 0 transparent;
+      background-size: cover;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 400px;
+      pointer-events: none;
+
+      &::after {
+        content: " ";
+        position: absolute;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        background: url(../../assets/images/welcome/app-nav-menu-bg.svg) no-repeat center;
+        background-size: 100%;
+        left: 35px;
+        top: 135px;
+      }
+
+      @include not-small-screen {
+        display: none;
+      }
+    }
+
+    header {
+      padding: 18px 24px 0;
+      line-height: 10px;
+
+      @include not-small-screen {
+        padding-bottom: 18px;
+        background-color: var(--neutral50);
+      }
+    }
+
+    .welcome-banner-wrapper {
+      width: 100%;
+      position: fixed;
+      top: 82px;
+      bottom: 0;
+      left: 0;
+      background-size: auto 100%;
+      pointer-events: none;
+    }
+
+    .login-main {
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .shell-content>*>form {
+        min-height: unset;
+
+        .form-footer-actions {
+          position: static;
+        }
+      }
+
+    }
+
+    .login-container {
+      position: relative;
+
+      .shell-container {
+        background-color: var(--neutral50);
+        width: 570px;
+        height: 570px;
+        border-radius: 50%;
+        overflow: hidden;
+        min-height: unset;
+        padding: 70px 130px 60px 48px;
+        padding-inline-end: 130px;
+        padding-inline-start: 48px;
+        position: relative;
+        z-index: 1;
+
+        .shell-header {
+          display: none;
+        }
+
+        .shell-content {
+          padding: 0 44px;
+          overflow-y: auto;
+
+          .login-form-wrapper {
+            &.custom-form {
+              gap: 12px;
+            }
+
+            .login-form-heading {
+              @include h4-bold;
+              color: var(--baseTxtClr);
+              text-align: center;
+              margin-bottom: 12px;
+            }
+
+            .title {
+              @include h4-bold;
+              font-weight: 500;
+              text-align: center;
+              width: 100%;
+            }
+
+            .desc {
+              @include s4-medium;
+
+              &.otp-form-content:after {
+                content: " ";
+                width: 120px;
+                height: 120px;
+                background: url(../../assets/illustrations/verify-otp-sm.svg) no-repeat center transparent;
+                margin: 10px auto 0;
+              }
+
+            }
+
+            .field-item {
+              display: flex;
+              flex-direction: column;
+              gap: 4px;
+
+              .form-field {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+              }
+
+              .recover-link {
+                text-align: end;
+
+                button {
+                  @include s4-medium;
+                  color: var(--secondary500);
+                }
+              }
+            }
+          }
+
+        }
+      }
+
+      &::before {
+        content: " ";
+        position: absolute;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        background: url(../../assets/images/welcome/app-nav-menu-bg.svg) no-repeat center;
+        background-size: 100%;
+        left: 54px;
+        bottom: -90px;
+        z-index: 0;
+      }
+
+      &::after {
+        content: " ";
+        position: absolute;
+        width: 240px;
+        height: 240px;
+        border-radius: 50%;
+        background: url(../../assets/images/welcome/app-nav-menu-bg.svg) no-repeat center;
+        background-size: 100%;
+        right: -84px;
+        bottom: -90px;
+        z-index: 0;
+      }
+
+      @include not-small-screen {
+        position: fixed;
+        right: -90px;
+        bottom: -100px;
+
+        .shell-container {
+          // background: linear-gradient(139.11deg, rgba(255, 255, 255, 0.4) -4.45%, rgba(255, 255, 255, 0.1) 76.07%);
+          // border: 1px solid;
+          // border-image-source: linear-gradient(120.2deg, #F4F4F4 14.07%, rgba(192, 192, 192, 0.528125) 37.92%, rgba(97, 97, 97, 0.395836) 61.29%, #232323 92.23%);
+          padding: 70px 100px 70px 70px;
+          width: 630px;
+          height: 630px;
+        }
+
+        &::after,
+        &::before {
+          display: none;
+        }
+      }
+
+    }
+
+    .form-footer-actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    @include not-small-screen {
+      height: 100%;
+    }
+  }
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .register-now {
+    text-align: center;
+  }
+}
+
+.login-form-heading {
+  @include h4-bold;
+  color: var(--baseTxtClr);
+  text-align: center;
+}
+
+.mpin-login-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+
+  .mpin-input-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+
+    .mpin-field {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  .biometric-login {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .recover-link {
+    text-align: end;
+  }
+}
+app-retail-change-password-form{
+  box.profile-rule {
+      .rule {
+        color: #818181;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+
+        &:before {
+          content: " ";
+          opacity: 0;
+          width: 20px;
+          min-width: 20px;
+          height: 20px;
+          display: block;
+          background: url(../../assets/images/icons/tick.svg) no-repeat center transparent;
+        }
+
+        &.valid:before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+@include small-screen {
+  .login-layout {
+    height: 100vh;
+    width: 100vw;
+
+    .login-container {
+      .shell-container {
+        margin-inline-start: -48px;
+        // margin-left: -48px;
+        margin-top: 120px;
+
+        .shell-content {
+          width: 100vw;
+        }
+      }
+    }
+  }
+}
+app-retail-forgot-password-form{
+  span.indicator {
+    color: red;
+}
+
+}
+
+
+app-retail-customer-verification-form{
+  display: block;
+  fpx-display-text{
+    .indicator {
+      color: red !important;
+    }
+  }
+}

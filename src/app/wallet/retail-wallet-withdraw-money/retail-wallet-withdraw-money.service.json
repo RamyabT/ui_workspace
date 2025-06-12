@@ -1,0 +1,5 @@
+ 
+ "RETAILWALLETWITHDRAWMONEY" : {
+ "servicePath": ["entry-shell","wallet", "retail-wallet-withdraw-money"],
+ "queryParams": {}
+ }

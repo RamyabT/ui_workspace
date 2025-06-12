@@ -1,0 +1,331 @@
+#depAppBody {
+  app-deposit-breakup {
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .chart-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .deposit-breakup-chart {
+      .wrap {
+        border: none;
+      }
+      .title {
+        display: none;
+      }
+    }
+    .deposit-breakup-chart-details {
+      display: flex;
+      gap: 30px;
+      .deposit-breakup-details-lbl.primary-lbl {
+        &::before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          border-radius: 50%;
+          background-color: var(--tertiary500);
+        }
+      }
+      .deposit-breakup-details-lbl.secondary-lbl {
+        &::before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          border-radius: 50%;
+          background-color: #ffd7b6;
+        }
+      }
+    }
+    .deposit-breakup-details-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .deposit-breakup-details-item {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        border-bottom: 1px solid var(--neutral200);
+      }
+    }
+    .deposit-breakup-details-lbl {
+      @include b2-regular();
+      color: var(--bodyTxtClr);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .deposit-breakup-details-value {
+      @include s3-medium();
+    }
+  }
+  app-loans-breakup {
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .chart-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .loans-breakup-chart {
+      .wrap {
+        border: none;
+      }
+      .title {
+        display: none;
+      }
+    }
+    .loans-breakup-chart-details {
+      display: flex;
+      gap: 30px;
+      .loans-breakup-details-lbl.primary-lbl {
+        &::before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          border-radius: 50%;
+          background-color: var(--tertiary500);
+        }
+      }
+      .loans-breakup-details-lbl.secondary-lbl {
+        &::before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          border-radius: 50%;
+          background-color: #ffd7b6;
+        }
+      }
+    }
+    .loans-breakup-details-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .loans-breakup-details-item {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        border-bottom: 1px solid var(--neutral200);
+      }
+    }
+    .loans-breakup-details-lbl {
+      @include b2-regular();
+      color: var(--bodyTxtClr);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .loans-breakup-details-value {
+      @include s3-medium();
+    }
+  }
+
+  app-retail-loancalc-form .tenure-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .tenure-label {
+      display: flex;
+      justify-content: space-between;
+  
+      .fpx-label {
+        color: var(--bodyTxtClr);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+        display: block;
+        white-space: pre-wrap;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+      .tenure-group {
+        height: 32px;
+        right: 27px;
+        z-index: 1;
+        top: 55.5%;
+        display: flex;
+        width: 173px;
+        border: solid 1px #cdd2d7;
+        border-radius: 4px;
+        .tenure .fpx-form-control .fpx-field-content {
+          height: 30px !important;
+          border: none !important;
+          min-height: unset;
+        }
+      }
+    }
+    .label-flex {
+      display: none !important;
+    }
+  }
+  
+  .btn-group {
+    display: flex;
+  }
+
+  button.btn.yearbtn.active {
+    background-color: #487f82;
+    color: #fff;
+  }
+
+  button.btn {
+    width: 33px;
+    height: 30px;
+  }
+
+  button.btn.monthbtn {
+    border-radius: 0px 3px 3px 0px;
+  }
+
+  .btn.active {
+    background-color: #487F82;
+    color: #FFF;
+}
+}
+html:not(.small-screen) #depAppBody {
+  .loans-breakup-details-lbl {
+    @include b2-regular();
+    color: var(--bodyTxtClr);
+  }
+  .loans-breakup-details-value {
+    @include s3-medium();
+  }
+  app-loans-breakup {
+    form {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+    }
+    .chart-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .loans-breakup-chart {
+      .wrap {
+        border: none;
+      }
+      .title {
+        display: none;
+      }
+    }
+    .loans-breakup-chart-details {
+      display: flex;
+      gap: 30px;
+    }
+    .loans-breakup-details-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .loans-breakup-details-item {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        border-bottom: 1px solid var(--neutral200);
+      }
+    }
+  }
+
+  app-deposit-breakup {
+    form {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+    }
+    .chart-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .deposit-breakup-chart {
+      .wrap {
+        border: none;
+      }
+      .title {
+        display: none;
+      }
+    }
+    .deposit-breakup-chart-details {
+      display: flex;
+      gap: 30px;
+      .deposit-breakup-details-lbl.primary-lbl {
+        &::before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          border-radius: 50%;
+          background-color: var(--tertiary500);
+        }
+      }
+      .deposit-breakup-details-lbl.secondary-lbl {
+        &::before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          border-radius: 50%;
+          background-color: #ffd7b6;
+        }
+      }
+    }
+    .deposit-breakup-details-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .deposit-breakup-details-item {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        border-bottom: 1px solid var(--neutral200);
+      }
+    }
+    .deposit-breakup-details-lbl {
+      @include b2-regular();
+      color: var(--bodyTxtClr);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .deposit-breakup-details-value {
+      @include s3-medium();
+    }
+    fpx-circular-progress {
+      font-size: 14px;
+    }
+    .loans-breakup-chart-details {
+      display: flex;
+      gap: 30px;
+      .deposit-breakup-details-lbl.primary-lbl {
+        &::before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          border-radius: 50%;
+          background-color: var(--tertiary500);
+        }
+      }
+      .loans-breakup-details-lbl.secondary-lbl {
+        &::before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          border-radius: 50%;
+          background-color: #ffd7b6;
+        }
+      }
+    }
+  }
+}

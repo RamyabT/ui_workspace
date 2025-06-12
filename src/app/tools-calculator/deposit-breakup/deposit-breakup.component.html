@@ -1,0 +1,30 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailDepositBreakupForm" >
+
+<box class="chart-wrapper entry-form-field-group">
+    <box class="deposit-breakup-chart">
+	       <app-deposit-breakup-chart></app-deposit-breakup-chart>
+    </box>
+    <box class="deposit-breakup-chart-details">
+        <box class="deposit-amount">
+            <box class="deposit-breakup-details-lbl primary-lbl">Deposit Amount</box>
+            <box class="deposit-breakup-details-value">{{ appConfig.baseCurrency}} {{this.state.breakupDetails.depositAmount.amount | currency :
+                appConfig.baseCurrency : '' }}</box>
+        </box>
+        <box class="total-interest">
+            <box class="deposit-breakup-details-lbl secondary-lbl">Total Interest</box>
+            <box class="deposit-breakup-details-value">{{ appConfig.baseCurrency}} {{this.state.breakupDetails.totalInterest.amount | currency :
+                appConfig.baseCurrency : '' }}</box>
+        </box>
+    </box>
+</box>
+<box class="deposit-breakup-details-wrapper entry-form-field-group">
+    <ng-container *ngFor="let item of this.state.breakupDetails | keyvalue">
+        <box class="deposit-breakup-details-item">
+            <box class="deposit-breakup-details-lbl">{{item?.value?.lbl}}</box>
+            <box class="deposit-breakup-details-value" *ngIf="item.value?.amount">{{ appConfig.baseCurrency}} {{item?.value?.amount | currency :
+                appConfig.baseCurrency : '' }}</box>
+            <box class="deposit-breakup-details-value" *ngIf="item.value?.date"> {{item?.value?.date | date :"dd MM yyyy"}}</box>                
+        </box>
+    </ng-container>
+</box>
+</form>

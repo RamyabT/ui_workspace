@@ -1,0 +1,31 @@
+"RetailCCTransferForm":{
+"title":"Credit Card Transfer",
+		 "sourceAccount": {
+		  "label":"From Account" ,
+		  "placeholder": "From Account"
+		  } ,
+		 "beneficiaryId": {
+		  "label":"Beneficiary Id" ,
+		  "placeholder": "Beneficiary Id"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "scheduleType": {
+		  "label":"Schedule Type" ,
+		  "placeholder": "Schedule Type"
+		  } ,
+		 "paymentDate": {
+		  "label":"Payment Date" ,
+		  "placeholder": "Payment Date"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } ,
+}

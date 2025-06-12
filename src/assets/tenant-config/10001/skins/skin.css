@@ -1,0 +1,749 @@
+:root {
+    --skin: "10001";
+    /* Base */
+    --headerBgClr: #F04E39;
+    --baseFontFamily: "sharpgrotesk";
+    --secondaryFontFamily: "inter";
+    --primary500: var(--headerBgClr);
+    --secondary500: #000000;
+    --tertiary500: #000000;
+    --tertiary300: #000000;
+    --neutral600: #818181;
+    --neutral900: #000000;
+    --tertiaryAqua500: #FBDBB3;
+
+    --baseBdrClr: #DADADA;
+    --bodyTxtClr: #000000;
+
+    --systemIconClr: var(--headerBgClr);
+    --domainIconClr: var(--headerBgClr);
+    --controlIconClr: #000000;
+
+    /* Welcome screen header bar */
+    --welcomeScreenBgClr: var(--headerBgClr);
+    --loginScreenBgClr: var(--headerBgClr);
+
+    /* Header bar*/
+    --headerCtrlBdrClr: var(--neutral900);
+    --headerBtnBdrClr: #B3B3B3;
+    --headerSearchTxtPlaceholderClr: var(--neutral600);
+    --headerIconClr: #FFFFFF;
+    --headerIconClrMob: #FFFFFF;
+    --headerTextClr: #FFFFFF;
+    --bodyBgClr: #FFFFFF;
+
+
+    /* Menu bar */
+    --menuBarBgClr: #FFFFFF;
+    --mainMenuHoverBgClr: var(--elementSecondaryBgClr);
+    --mainMenuActiveBgClr: transparent;
+    --mainMenuIcoClr: #FFFFFF;
+    --mainMenuIcoActiveClr: #000000;
+    --mainMenuIcoClrMob: #818181;
+    --mainMenuIcoActiveClrMob: var(--headerBgClr);
+
+    /* Buttons */
+    --btnPrimaryBg: #000000;
+    --btnPrimaryDisabledBg: #F1F0F5;
+    --btnSecondaryClr: #000000;
+    --btnTertiaryClr: #000000;
+
+    /* Template dropdown style vars */
+    --dropDownTmpltCtrlBg: #FAD9AE;
+    --dropDownVSeperatorCrl: #414141;
+    --dropdownOptionSelectBg: #FBDBB3;
+    --tmpltDropdownOptionSelectBg: #FBDBB3;
+
+    /* Tab bar style */
+    --spaceSummaryWidth: 304px;
+
+    /* Footer */
+    --footerBgClr: #FFFFFF;
+
+    /* Widget */
+    --wgtTtlClr: #000000;
+
+    /* MenuIcons */
+    --iconClr: #000000;
+
+    /* Menubar */
+    --menuHoverBgClr: #F8F7FA;
+    --menuPrimaryTextClr: #000000;
+
+    /* Footer */
+    --footerIconBgClr: #F8F7FA;
+    --footerLinkTextPrimaryClr: #000000;
+    --footerLinkTextSecondaryClr: #6A696B;
+
+
+    /* Form */
+    --inputTxtClr: #000000;
+    --inputTxtSize: 14px;
+    --inputTxtWeight: var(--fontWeightMedium);
+    --inputBdrRadius: 16px;
+    --inputBdrClr: #B3B3B3;
+    --inputBdr: 1px solid var(--inputBdrClr);
+    --radioBdrClr: #B3B3B3;
+    --radioBdr: 1px solid var(--inputBdrClr);
+    --radioOnBg: #000000;
+    --radioOnBdrClr: #000000;
+    --checkboxBdr: 1px solid var(--inputBdrClr);
+    --checkboxOnBg: #000000;
+    --checkboxOnBdr: 1px solid #000000;
+    --checkboxTikClr: #FFFFFF;
+    --checkboxBg: transparent;
+    --checkBoxBorderClr: #A09FA3;
+
+
+    /* Checkbox control */
+    --checkboxBdr: 1px solid #E7E6EB;
+    --checkboxBdrRadius: 999px;
+    --checkboxWidth: 24px;
+    --checkboxHeight: 24px;
+
+    --scheduleBgClr: var(--elementSecondaryBgClr);
+    --scheduleIconBgClr: #FFFFFF;
+    --scheduleIconBgClrMob: #F8F7FA;
+    --scheduleIconTextClr: var(--headerBgClr);
+    --schedulePrimaryTextClr: #000000;
+    --scheduleSecondaryTextClr: #6A696B;
+    --scheduleActionBgClr: #FFFFFF;
+    --scheduleActionIconClr: #78787A;
+    --scheduleActionActiveIconClr: #000000;
+    --scheduleViewAllBgClr: #FFFFFF;
+    --scheduleViewAllBgClrMob: #F8F7FA;
+    --scheduleViewAllBorderClr: var(--primaryBorderClr);
+    --scheduleViewAllTextClr: #000000;
+    --scheduleViewAllIconUrl: url(./assets/images/layouts/aside-bar/schedule-view-all.svg);
+    --scheduleSeparatorClr: #E7E6EB;
+    --asideBarExpandIconUrl: url(./assets/images/layouts/aside-bar/show-aside-more.svg);
+    --scheduleNoResultBgClr: #F8F7FA;
+    --scheduleNoResultBgClrMob: var(--asidePrimaryBgClr);
+    --defaultAccountIconUrl: url(./assets/images/icons/default-account.svg);
+
+    --smallGreyTextClr: #6A696B;
+    --largePrimaryTextClr: var(--primaryBaseTxtClr);
+
+    --primaryIconBgClr: #000000;
+    --primaryIconContainerClr: #FFFFFF;
+    --primaryIconContainerClrMob: #F8F7FA;
+    --accordionArrowIconBgClr: #78787A;
+
+    --portfolioCardBgClr: #F8F7FA;
+    --portfolioActionIconContainerClr: #F8F7FA;
+    --portfolioActionIconBgClr: #78787A;
+
+
+    --adCloseIconBgClr: #FDC37F;
+    --adCloseIconClr: #990B20;
+
+    --skeletonLoaderBgClr: var(--elementPrimaryBgClr);
+    --offersCarouselDotClr: #CAC9CD;
+    --jointAccountBgClr: #000000;
+
+    --searchBarBgClr: #FFFFFF;
+    --separatorClr: #F8F7FA;
+    --profileBgClr: #F8F7FA;
+
+    --dialogBackgroundClr: #FFFFFF;
+    --dialogIconContainerClr: #F8F7FA;
+    --dialogCancelBtnBgClr: #FFFFFF;
+    --dialogPrimaryBtnBgClr: #000000;
+    --toolTipBgClr:#78787A;
+
+    /* Mobile module background color */
+    --moduleBgClr: var(--asidePrimaryBgClr);
+    --accordianBgClr: #F1F0F5;
+
+    /* Bills */
+    --modulePrimaryBgClr: #F8F7FA;
+    --moduleSecondaryBgClr: #FFFFFF;
+    --moduleTertiaryBgClr: #FFFFFF;
+
+    --modulePrimaryTextClr: var(--primaryBaseTxtClr);
+    --moduleSecondaryTextClr: var(--secondaryBaseTxtClr);
+
+    --moduleBtnPrimaryBgClr: #000000;
+    --moduleBtnPrimaryTextClr: #FFFFFF;
+    --moduleBtnSecondaryBgClr: #F8F7FA;
+    --moduleBtnSecondaryTextClr: #000000;
+
+    --modulePrimaryIconClr: #78787A;
+    --moduleSecondaryIconClr: #000000;
+    --modulePrimaryWrapperClr: var(--asidePrimaryBgClr);
+
+    --modulePrimaryBorderClr: var(--primaryBorderClr);
+    --moduleActionsPrimaryBgClr: #FFFFFF;
+
+    /* Forms */
+    --inputBgClr: #F8F7FA;
+    --inputBdr: none;
+    --inputTxtLineHeight: 20px;
+    --inputMinHeight: 48px;
+    --inputPadding: 14px 16px;
+
+    --fldLblGap: 4px;
+
+    --placeholderClr: var(--secondaryBaseTxtClr);
+    --placeholderSize: 14px;
+    --placeholderHeight: 20px;
+    --placeholderWeight: var(--fontWeightMedium, 500);
+
+    --shellContainerBgClr: #FFFFFF;
+
+    /* Tab bar style */
+    --tabBarBg: #F8F7FA;
+    --tabBarTabTxtClr: #000000;
+    --tabBarTabActiveBg: var(--tertiaryBtnBgClr);
+    --tabBarTabActiveTxtClr: #FFFFFF;
+
+    --btnFontSize: 14px;
+    --btnLineHeight: 20px;
+    --btnLineHeightMob: 20px;
+    --btnFontWeight: 600;
+
+    --quickMenuIconBgClr: #000000;
+
+    --noScheduleTransferBgClr: #F8F7FA;
+    --noFavBgClr: #FFFFFF;
+    --noFavTxtClr: #000000;
+
+    --emptyViewHeaderClr: #000000;
+    --emptyViewDescClr: #6A696B;
+
+    --profileHeaderClr: #000000;
+
+    --entryFormBgClr: #FFFFFF;
+    --fpxLabelClr: #000000;
+    --matSelectValueClr: #000000;
+    --notifyRadioBgClr: #F8F7FA;
+    --notifyRadioTxtClr: #000000;
+    --notifyRadioCheckedBgClr: #FFFFFF;
+
+    --reviewHeaderClr: #000000;
+    --reviewLabelClr: #6A696B;
+    --reviewInputClr: #000000;
+
+    --confirmBgClr: #FFFFFF;
+    --confirmSuccessBgClr: #F8F7FA;
+    --confirmSuccessTxtClr: #2d2d2d;
+    --confirmDescriptionClr: #575757;
+    --confirmFooterBdrClr: #E7E6EB;
+    --whatsNextTitleClr: #000000;
+    --whatsNextMenuBgClr: #F8F7FA;
+    --whatsNextMenuIconBgClr: #FFFFFF;
+    --whatsNextMenuTxtClr: #2D2D2D;
+    --btnTxtClr:#FFFFFF;
+
+    /*Manage Contacts*/
+    --serchContactBgClr: #F8F7FA;
+    --serchTextClr: #6A696B;
+    --serchIcnBgClr: #78787A;
+    --nameInitialBgClr: #F8F7FA;
+    /*Add contact*/
+    --fetchContactBgClr: #F8F7FA;
+    --contactIcnBgClr: #FFFFFF;
+    --contactDetailClr: #000000;
+    /* Edit contact */
+    --profileBorderClr: var(--tertiaryBtnBgClr);
+
+    /* desktop module Bills */
+    --moduleDesktopBgClr: #FFFFFF;
+    --moduleDesktopClr: #000000;
+
+
+    --toggleEnabledBtnClr: #FFFFFF;
+    --toggleEnabledBgClr: #77D4B5;
+    --toggleDisabledBgClr: #CAC9CD;
+    --listBgClr: var(--elementTertiaryBgClr);
+
+
+
+    /* Vancity Theme Template Variables - Light Mode */
+
+    --themeBgClr: #FFFFFF;
+    --themeBgClrMob: var(--headerBgClr);
+
+    --elementPrimaryBgClr: #FFFFFF;
+    --elementSecondaryBgClr: #F8F7FA;
+    --elementTertiaryBgClr: #F1F0F5;
+    --elementQuaternaryBgClr: #EEFBF6;
+
+    --primaryBaseTxtClr: #000000;
+    --secondaryBaseTxtClr: #6A696B;
+    --tertiaryBaseTxtClr: #198268;
+
+    --primaryBtnBgClr: #000000;
+    --primaryBtnTxtClr: #FFFFFF;
+
+    --secondaryBtnBgClr: #F8F7FA;
+    --secondaryBtnTxtClr: #000000;
+
+    --tertiaryBtnBgClr: #DE3924;
+    --tertiaryBtnTxtClr: #FFFFFF;
+
+    --headerTxtClr: #FFFFFF;
+
+    --activeSearchBarBgClr: #FFFFFF;
+    --activeSearchBarTxtClr: #000000;
+
+    --asidePrimaryBgClr: #F8F7FA;
+    --asideSecondaryBgClr: #FFFFFF;
+    --asideTertiaryBgClr: transparent;
+    --asideViewAllIConUrl: url(./assets/images/layouts/aside-bar/aside-view-all-icon.svg);
+    --themeModeIconUrl: url(./assets/images/icons/light-mode.svg);
+
+
+    --controlPrimaryBgClr: #FFFFFF;
+    --controlSecondaryBgClr: #F8F7FA;
+
+    --tooltipBgClr: #000000;
+    --tooltipTxtClr: #FFFFFF;
+    --tooltipSecondaryBgClr:#27A281;
+
+    --tilesBgClr: #FFFFFF;
+
+    --primaryBorderClr: #E7E6EB;
+    --mobLinearGradient: linear-gradient(0deg, rgb(242, 242, 243) 0%, rgb(242, 242, 243) 58%, rgb(238, 225, 224) 72%, rgb(237, 180, 174) 84%, rgb(236, 132, 120) 97%, rgb(237, 128, 115) 100%);
+
+    --primaryIconClr: #78787A;
+    --color-outline-grey-light: #e7e6eb;
+    --color-text-black: #000000;
+    --color-background-grey-light: #F8F7FA;
+    --color-white-primary: #ffffff;
+    --color-white-hover: #F8F7FA;
+    --color-background-white: #ffffff;
+    
+    --slickCircleClr: #F8F4E7;
+    --circleClr:#F8F4E7;
+    --whiteClr: #FFFFFF;
+
+    /* hint and arrow icon clr*/
+    --hintIconClr: #146855;
+    --copyIconClr:#27A281;
+    --copyBgClr:#B1E9D3;
+    --subHeaderClr: #F8F7FA;
+    --loanBoxBgClr: #EEFBF6;
+    --loanBoxTxtClr: #146855;
+    --loaderBgClr : #F8F7FA;
+
+    /*revoke Confirm button*/
+    --revokebtnPrimaryBg: #000000;
+}
+
+#depAppBody.dark-mode {
+    /* Forms */
+    --inputBgClr: #131214;
+    --inputBdr: none;
+
+    --placeholderClr: var(--secondaryBaseTxtClr);
+
+    --shellContainerBgClr: #1E1D1F;
+    --loaderBgClr: #1E1D1F;
+    --menuBarBgClr: #1E1D1F;
+    --bodyTxtClr: #ffffff;
+    --secondary500: #ffffff;
+    --tertiary500: #ffffff;
+    --tertiary300: #ffffff;
+    --iconClr: #ffffff;
+    --menuHoverBgClr: #282729;
+
+
+    /* Tab bar style */
+    --tabBarBg: #282729;
+    --tabBarTabTxtClr: #F1F0F5;
+    --tabBarTabActiveTxtClr: #FFFFFF;
+
+    --quicklinksIcoBg: none;
+    --quickMenuIconBgClr: #F1F0F5;
+    --noScheduleTransferBgClr: #131214;
+    --noFavBgClr: #000000;
+    --noFavTxtClr: #F1F0F5;
+
+    --emptyViewHeaderClr: #F1F0F5;
+    --emptyViewDescClr: #A09FA3;
+
+    --profileHeaderClr: #F1F0F5;
+    --entryFormBgClr: #1E1D1F;
+    --fpxLabelClr: #F1F0F5;
+    --matSelectValueClr: #F1F0F5;
+    --notifyRadioBgClr: #282729;
+    --notifyRadioTxtClr: #F1F0F5;
+    --notifyRadioCheckedBgClr: #1E1D1F;
+
+    --reviewHeaderClr: #F1F0F5;
+    --reviewLabelClr: #A09FA3;
+    --reviewInputClr: #F1F0F5;
+    --reviewFrmFldBdrClr: #323133;
+    --btnTxtClr:#000000;
+
+    --confirmBgClr: #1E1D1F;
+    --confirmSuccessBgClr: #131214;
+    --confirmSuccessTxtClr: #F1F0F5;
+    --confirmDescriptionClr: #A09FA3;
+    --confirmFooterBdrClr: #323133;
+    --whatsNextTitleClr: #F1F0F5;
+    --whatsNextMenuBgClr: #282729;
+    --whatsNextMenuIconBgClr: #F1F0F5;
+    --whatsNextMenuTxtClr: #F1F0F5;
+
+    --baseFontFamily: "sharpgrotesk";
+    --secondaryFontFamily: "inter";
+    --primary500: var(--headerBgClr);
+    --secondary500: #fff;
+    --tertiary500: #fff;
+    --tertiary300: #fff;
+    --neutral600: #818181;
+    --neutral900: #fff;
+    --tertiaryAqua500: #FBDBB3;
+    --bodyBgClr:#000000;
+
+    --baseBdrClr: #000;
+    --bodyTxtClr: #fff;
+
+    --systemIconClr: var(--headerBgClr);
+    --domainIconClr: var(--headerBgClr);
+    --controlIconClr: #000000;
+
+    --welcomeScreenBgClr: var(--headerBgClr);
+    --loginScreenBgClr: var(--headerBgClr);
+
+    --headerCtrlBdrClr: var(--neutral900);
+    --headerBtnBdrClr: #000;
+    --headerSearchTxtPlaceholderClr: var(--neutral600);
+    --headerIconClr: #000;
+    --headerIconClrMob: #FFFFFF;
+    --headerTextClr: #FFFFFF;
+
+    --menuBarBgClr: #1E1D1F;
+    --mainMenuHoverBgClr: var(--elementSecondaryBgClr);
+    --mainMenuActiveBgClr: transparent;
+    --mainMenuIcoClr: #000;
+    --mainMenuIcoActiveClr: #FFFFFF;
+    --mainMenuIcoClrMob: #818181;
+    --mainMenuIcoActiveClrMob: var(--headerBgClr);
+
+    --btnPrimaryBg: #FFFFFF;
+    --btnPrimaryDisabledBg: #323133;
+    --btnSecondaryClr: #FFFFFF;
+    --btnTertiaryClr: #FFFFFF;
+
+    --btnPrimaryBg: #323133;
+
+    --dropDownTmpltCtrlBg: #FAD9AE;
+    --dropDownVSeperatorCrl: #414141;
+    --dropdownOptionSelectClr: #F1F0F5;
+    --dropdownOptionSelectBg: #323133;
+    --tmpltDropdownOptionSelectBg: #FBDBB3;
+
+    --spaceSummaryWidth: 304px;
+
+    --footerBgClr: #1E1D1F;
+
+
+    --wgtTtlClr: #FFFFFF;
+
+
+    --iconClr: #FFFFFF;
+
+
+    --menuHoverBgClr: #282729;
+    --menuPrimaryTextClr: #F1F0F5;
+    --accordianBgClr: #282729;
+
+
+
+    --inputTxtClr: #FFFFFF;
+    --inputTxtSize: 14px;
+    --inputTxtWeight: var(--fontWeightMedium);
+    --inputBdrRadius: 16px;
+    --inputBdrClr: #000;
+    --inputBdr: 1px solid var(--inputBdrClr);
+    --radioBdrClr: #000;
+    --radioBdr: 1px solid var(--inputBdrClr);
+    --radioOnBg: #FFFFFF;
+    --radioOnBdrClr: #FFFFFF;
+    --checkboxBdr: 1px solid var(--primaryBorderClr);
+    --checkboxOnBg: #323133;
+    --checkboxOnBdr: 1px solid #FFFFFF;
+    --checkboxTikClr: #FFFFFF;
+    --checkboxBg: transparent;
+    --checkBoxBorderClr : #6A696B;
+
+
+    --footerIconBgClr: #282729;
+    --footerLinkTextPrimaryClr: #F1F0F5;
+    --footerLinkTextSecondaryClr: #A09FA3;
+
+    --scheduleBgClr: var(--elementSecondaryBgClr);
+    --scheduleIconBgClr: #1E1D1F;
+    --scheduleIconBgClrMob: #131214;
+    --scheduleIconTextClr: var(--headerBgClr);
+    --schedulePrimaryTextClr: #F1F0F5;
+    --scheduleSecondaryTextClr: #A09FA3;
+    --scheduleActionBgClr: #323133;
+    --scheduleActionIconClr: #CAC9CD;
+    --scheduleActionActiveIconClr: #F1F0F5;
+    --scheduleViewAllBgClr: #1E1D1F;
+    --scheduleViewAllBgClrMob: #282729;
+    --scheduleViewAllBorderClr: var(--primaryBorderClr);
+    --scheduleViewAllTextClr: #F1F0F5;
+    --scheduleViewAllIconUrl: url(./assets/images/layouts/aside-bar/schedule-view-all-dark.svg);
+    --scheduleSeparatorClr: #323133;
+    --asideBarExpandIconUrl: url(./assets/images/layouts/aside-bar/show-aside-more-dark.svg);
+    --scheduleNoResultBgClr: #282729;
+    --scheduleNoResultBgClrMob: var(--asidePrimaryBgClr);
+    --defaultAccountIconUrl: url(./assets/images/icons/default-account-dark.svg);
+
+
+    --smallGreyTextClr: #A09FA3;
+    --largePrimaryTextClr: var(--primaryBaseTxtClr);
+
+    --primaryIconBgClr: #F1F0F5;
+    --primaryIconContainerClr: #323133;
+    --primaryIconContainerClrMob: #282729;
+
+    --accordionArrowIconBgClr: #CAC9CD;
+
+    --portfolioCardBgClr: #282729;
+    --portfolioActionIconContainerClr: #323133;
+    --portfolioActionIconBgClr: #CAC9CD;
+    --circleClr:#F8F4E7;
+
+
+    --adCloseIconBgClr: #FDC37F;
+    --adCloseIconClr: #990B20;
+
+    --skeletonLoaderBgClr: var(--elementPrimaryBgClr);
+    --offersCarouselDotClr: #78787A;
+    --jointAccountBgClr: #323133;
+
+    --searchBarBgClr: #282729;
+    --separatorClr: #282729;
+    --profileBgClr: #282729;
+
+    --dialogBackgroundClr: #1E1D1F;
+    --dialogIconContainerClr: #131214;
+    --dialogCancelBtnBgClr: #323133;
+    --dialogPrimaryBtnBgClr: #323133;
+
+
+    /* Mobile module background color */
+    --moduleBgClr: var(--asidePrimaryBgClr);
+
+
+    /* Bills */
+    --modulePrimaryBgClr: #131214;
+    --moduleSecondaryBgClr: #323133;
+    --moduleTertiaryBgClr: #1E1D1F;
+
+    --modulePrimaryTextClr: var(--primaryBaseTxtClr);
+    --moduleSecondaryTextClr: var(--secondaryBaseTxtClr);
+
+    --moduleBtnPrimaryBgClr: #323133;
+    --moduleBtnPrimaryTextClr: #FFFFFF;
+    --moduleBtnSecondaryBgClr: #282729;
+    --moduleBtnSecondaryTextClr: #F1F0F5;
+
+    --modulePrimaryIconClr: #CAC9CD;
+    --moduleSecondaryIconClr: #F1F0F5;
+    --modulePrimaryWrapperClr: var(--asidePrimaryBgClr);
+
+    --modulePrimaryBorderClr: var(--primaryBorderClr);
+    --moduleActionsPrimaryBgClr: #1E1D1F;
+
+    /*Manage Contacts*/
+    --serchContactBgClr: #131214;
+    --serchTextClr: #A09FA3;
+    --serchIcnBgClr: #CAC9CD;
+    --nameInitialBgClr: #131214;
+    /*Add contact*/
+    --fetchContactBgClr: #282729;
+    --contactIcnBgClr: #323133;
+    --contactDetailClr: #F1F0F5;
+
+    /* desktop module Bills */
+    --moduleDesktopBgClr: #1E1D1F;
+    --moduleDesktopClr: #F1F0F5;
+
+    --toggleEnabledBtnClr: #FFFFFF;
+    --toggleEnabledBgClr: #77D4B5;
+    --toggleDisabledBgClr: #CAC9CD;
+    --listBgClr: var(--elementTertiaryBgClr);
+
+
+
+    /* Vancity Theme Template Variables - Dark Mode */
+
+    --themeBgClr: #1E1D1F;
+    --themeBgClrMob: var(--headerBgClr);
+
+    --elementPrimaryBgClr: #1E1D1F;
+    --elementSecondaryBgClr: #282729;
+    --elementTertiaryBgClr: #323133;
+    --elementQuaternaryBgClr: #125345;
+
+    --primaryBaseTxtClr: #F1F0F5;
+    --secondaryBaseTxtClr: #A09FA3;
+    --tertiaryBaseTxtClr: #77D4B5;
+
+    --primaryBtnBgClr: #323133;
+    --primaryBtnTxtClr: #FFFFFF;
+
+    --secondaryBtnBgClr: #282729;
+    --secondaryBtnTxtClr: #FFFFFF;
+
+    --tertiaryBtnBgClr: #DE3924;
+    --tertiaryBtnTxtClr: #FFFFFF;
+
+    --headerBgClr: #F04E39;
+    --headerTxtClr: #FFFFFF;
+    --toolTipBgClr:#D9D9D9;
+
+    --activeSearchBarBgClr: #FFFFFF;
+    --activeSearchBarTxtClr: #F1F0F5;
+
+    --asidePrimaryBgClr: #131214;
+    --asideSecondaryBgClr: #323133;
+    --asideTertiaryBgClr: transparent;
+    --asideViewAllIConUrl: url(./assets/images/layouts/aside-bar/aside-view-all-icon-dark.svg);
+
+    --themeModeIconUrl: url(./assets/images/icons/dark-mode.svg);
+
+    --controlPrimaryBgClr: #323133;
+    --controlSecondaryBgClr: #131214;
+
+    --tooltipBgClr: #323133;
+    --tooltipTxtClr: #FFFFFF;
+    --tooltipSecondaryBgClr:#27A281;
+
+    --tilesBgClr: #1E1D1F;
+    --primaryBorderClr: #323133;
+    --mobLinearGradient: linear-gradient(0deg, rgb(0 0 0) 0%, rgb(12 11 11) 47%, rgb(26 25 25) 60%, rgb(90 70 68) 73%, rgb(218 99 85) 87%, rgb(255 95 76) 100%);
+
+    --primaryIconClr: #CAC9CD;
+    --color-outline-grey-light: #323133;
+    --color-text-black: #f1f0f5;
+    --color-background-grey-light: #131214;
+    --color-white-primary: #323133;
+    --color-white-hover: #282729;
+    --color-background-white: #1E1D1F;
+    --slickCircleClr: #990B20;
+    --whiteClr: #FFFFFF;
+
+    /* hint and arrow icon clr*/
+    --hintIconClr: #77D4B5;
+    --copyIconClr:#27A281;
+    --copyBgClr:#104439;
+
+    --subHeaderClr: #131214;
+    --loanBoxBgClr: #125345;
+    --loanBoxTxtClr: #77D4B5;
+    
+     /*revoke Confirm button*/
+    --revokebtnPrimaryBg: #323133;
+}
+
+
+
+/* Fonts includer */
+
+@font-face {
+    font-family: 'sharpgrotesk';
+    src:
+        /* url('./fonts/sharpgrotesk/SharpGroteskBook20Regular.eot?#iefix') format("embedded-opentype"), */
+        url('./fonts/sharpgrotesk/SharpGroteskBook20Regular.woff2') format("woff2"),
+        /* url('./fonts/sharpgrotesk/SharpGroteskBook20Regular.woff') format("truetype"),
+        url('./fonts/sharpgrotesk/SharpGroteskBook20Regular.eot'),
+        url('./fonts/sharpgrotesk/SharpGroteskBook20Regular.svg') format(".svg#santander")*/
+    ;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sharpgrotesk';
+    src:
+        /* url('./fonts/sharpgrotesk/SharpGroteskMedium20.eot?#iefix') format("embedded-opentype"), */
+        url('./fonts/sharpgrotesk/SharpGroteskMedium20.woff2') format("woff2"),
+        /* url('./fonts/sharpgrotesk/SharpGroteskMedium20.woff') format("truetype"),
+        url('./fonts/sharpgrotesk/SharpGroteskMedium20.eot'),
+        url('./fonts/sharpgrotesk/SharpGroteskMedium20.svg') format(".svg#santander") */
+    ;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sharpgrotesk';
+    src:
+        /* url('./fonts/sharpgrotesk/SharpGroteskSmBold20Regular.eot?#iefix') format("embedded-opentype"), */
+        url('./fonts/sharpgrotesk/SharpGroteskSmBold20Regular.woff2') format("woff2"),
+        /* url('./fonts/sharpgrotesk/SharpGroteskSmBold20Regular.woff') format("truetype"),
+        url('./fonts/sharpgrotesk/SharpGroteskSmBold20Regular.eot'),
+        url('./fonts/sharpgrotesk/SharpGroteskSmBold20Regular.svg') format(".svg#santander") */
+    ;
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'inter';
+    src:
+        /* url('./fonts/sharpgrotesk/SharpGroteskBook20Regular.eot?#iefix') format("embedded-opentype"), */
+        url('./fonts/inter/Inter-Regular.woff2') format("woff2"),
+        /* url('./fonts/sharpgrotesk/SharpGroteskBook20Regular.woff') format("truetype"),
+        url('./fonts/sharpgrotesk/SharpGroteskBook20Regular.eot'),
+        url('./fonts/sharpgrotesk/SharpGroteskBook20Regular.svg') format(".svg#santander")*/
+    ;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'inter';
+    src:
+        /* url('./fonts/sharpgrotesk/SharpGroteskMedium20.eot?#iefix') format("embedded-opentype"), */
+        url('./fonts/inter/Inter-Medium.woff2') format("woff2"),
+        /* url('./fonts/sharpgrotesk/SharpGroteskMedium20.woff') format("truetype"),
+        url('./fonts/sharpgrotesk/SharpGroteskMedium20.eot'),
+        url('./fonts/sharpgrotesk/SharpGroteskMedium20.svg') format(".svg#santander") */
+    ;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'inter';
+    src:
+        /* url('./fonts/sharpgrotesk/SharpGroteskSmBold20Regular.eot?#iefix') format("embedded-opentype"), */
+        url('./fonts/inter/Inter-SemiBold.woff2') format("woff2"),
+        /* url('./fonts/sharpgrotesk/SharpGroteskSmBold20Regular.woff') format("truetype"),
+        url('./fonts/sharpgrotesk/SharpGroteskSmBold20Regular.eot'),
+        url('./fonts/sharpgrotesk/SharpGroteskSmBold20Regular.svg') format(".svg#santander") */
+    ;
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* @font-face {
+    font-family: 'sharpgrotesk';
+    src: 
+        url('./fonts/sharpgrotesk/SpaceGrotesk-Bold.eot?#iefix') format("embedded-opentype"),
+        url('./fonts/sharpgrotesk/SpaceGrotesk-Bold.woff2') format("woff2"),
+        url('./fonts/sharpgrotesk/SpaceGrotesk-Bold.woff') format("truetype"),
+        url('./fonts/sharpgrotesk/SpaceGrotesk-Bold.eot'),
+        url('./fonts/sharpgrotesk/SpaceGrotesk-Bold.svg') format(".svg#santander")
+        ;
+    font-weight: 700;
+    font-style: normal;
+} */
+
+@font-face {
+    font-family: "password";
+    src: url(".fonts/password/password.eot");
+    src: url(".fonts/password/password.eot?#iefix") format("embedded-opentype"),
+        url(".fonts/password/password.woff2") format("woff2"),
+        url(".fonts/password/password.woff") format("woff"),
+        url(".fonts/password/password.ttf") format("truetype");
+}

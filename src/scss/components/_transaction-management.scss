@@ -1,0 +1,210 @@
+#depAppBody {
+    app-layout:has(app-transaction-management-space-container) {
+        main-header {
+            .main-header-inner {
+                padding: 41px 16px 26px;
+            }
+            .user-profile {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+    app-layout:has(.decision-shell) {
+        .shell-container {
+            .shell-decision-content {
+                margin: 0 20px;
+            }
+            .shell-footer {
+                margin: 30px 0 20px;
+            }
+            .shell-decision-content > * {
+                --item-col-count: 12;
+            }
+            .audit-log-detail {
+                display: none;
+            }
+        } 
+        .review-form {
+            .fpx-form-control .fpx-field-content {
+                .mat-radio-label-content {
+                    font-size: 14px;
+                    line-height: 18px;
+                    color: var(--baseTxtClr);
+                }
+                .mat-input-element {
+                    font-size: 14px;
+                    line-height: 18px;
+                    color: var(--baseTxtClr);
+                }
+            }
+            fpx-curr-amount .fpx-form-control .fpx-field-content .amount-field-wrapper {
+                .currency-code-wrapper {
+                    line-height: 16px;
+                    .mat-select .mat-select-value .mat-select-value-text { 
+                        font-size: 14px;
+                        line-height: 18px;
+                        color: var(--baseTxtClr);
+                    }
+                }
+                .amount-input input {
+                    font-size: 14px;
+                    line-height: 24px;
+                    color: var(--baseTxtClr);
+                }
+            }
+        }
+        button:is(.primary, .secondary, .tertiary, .btn-primary, .btn-secondary, .btn-tertiary) {
+            min-width: 163px;
+        }
+    }
+    .smb-transaction-management-home{
+
+        .module-home-bg {
+            border-radius: 0 0 32px 32px;
+            height: 212px;
+            top: -95.5px !important;
+        }
+
+        .module-home-inner {
+            gap: 16px;
+            .module-title {
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 24px;
+            }
+
+            .mat-tab-body-content{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                
+                @include not-large-screen{
+                    padding-top: 20px;
+                }
+            }
+        }
+
+        app-retail-transaction-management-form {
+            .module-tab-container {
+                mat-tab-header {
+                    .mat-tab-label-container {
+                        padding: 0 16px;
+                        .mat-tab-list {
+                            background-color: transparent;
+                            border: unset;
+                            .mat-tab-labels {
+                                display: flex;
+                                gap: 16px;
+                                .mat-tab-label {
+                                    white-space: pre-wrap;
+                                    border: 1px solid #FFFFFF;
+                                    border-radius: 10px;
+                                    background-color: #016B83;
+                                    padding: 14px 8px;
+                                    height: 55px;
+                                    flex: 1;
+                                    color: #FFFFFF;
+                                    &:first-child {
+                                        // padding: 14px 17px;
+                                    }
+                                    &.mat-tab-label-active {
+                                        background-color: #FFFFFF;
+                                        color: var(--baseTxtClr);
+                                    }
+                                    .mat-tab-label-content {
+                                        white-space: pre-wrap;
+                                        font-size: 12px;
+                                        line-height: 14px;
+                                        font-weight: 400;
+                                        
+                                    }
+                                }
+                            }
+                            .mat-ink-bar {
+                                display: none;
+                            }
+                        }
+                    }
+                    
+                }
+                .custom-tabs {
+                    display: flex;
+                    gap: 12px;
+                    padding: 0 16px;
+                    
+                    .tab-item {
+                        font-size: 14px;
+                        line-height: 18px;
+                        font-weight: 500;
+                        color: #12486B;
+                        border: 1px solid #12486B;
+                        border-radius: 24px;
+                        padding: 4px 20px;
+                        &.active {
+                            background-color: #12486B;
+                            border: 1px solid #12486B;
+                            color: #FFFFFF;
+                        }
+                    }
+                }
+                .casa-transactions-grid-header {
+                    padding: 20px 16px 16px;
+                    .tool-bar {
+                        padding: 2px 0;
+                    }
+                }
+            }
+        }
+    }
+    .transactions-Mgmt-List-Tmplt {
+        gap: 12px;
+        .transaction-list-item {
+            .transaction-list-item-inner {
+                align-items: center;
+                padding: 0 16px;
+                
+                .transaction-info {
+                    .transaction-primary-info {
+                        width: 60%;
+                    }
+                    .transaction-secondary-info {
+                        width: 40%;
+                        .pending-since {
+                            font-size: 12px;
+                            font-weight: 500;
+                            line-height: 16px;
+                            color: #E02020;
+                            display: flex;
+                            align-items: center;
+                            gap: 4px;
+                            justify-content: flex-end;
+                            span {
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                            }
+                            &::after {
+                                content: '';
+                                display: inline-block;
+                                width: 12px;
+                                height: 12px;
+                                background: url('../../assets/images/icons/pending-since.svg') no-repeat center center;
+                                margin-top: 1px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .seperator-line{
+            left: 68px;
+
+            @include rtl-direction{
+                left:0;
+                right: 68px;
+            }
+        }
+    }
+}

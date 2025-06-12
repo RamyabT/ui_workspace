@@ -1,0 +1,47 @@
+<form [formGroup]="formGroup" autocomplete="off" formName="coApplicantsDetails">
+	<box class="co-applic">
+		<box class="input-grid country-of-tax-input-grid" [style.width]="gridWidth+'%'">
+
+			<ng-container formArrayName="formArray">
+				<ng-container *ngFor="let control of formArray.controls; let i = index; let last = last"
+					formGroupName="{{ i }}">
+
+					<box class="input-grid-row">
+						<box class="co-applicant-title col-sm-12 col-md-6 col-lg-12">
+							<box class="input-grid-row-item" [style.width]="columnWidth[0]+'%'">
+								<span class="emp-title">{{'coApplicantsDetails.coApplicantTitle.label' | translate }} {{i+1}}</span>
+							</box>
+
+							<box class="input-grid-row-item button-delete" [style.width]="columnWidth[3]+'%'">
+								<box [style.width]="gridWidth+'%'" class="grid-actions" (click)="deleteAddedCountry(i)">
+									<button type="button" class="delete-icon">{{'coApplicantsDetails.delete.label' | translate }}</button>
+								</box>
+							</box>
+						</box>
+
+						<app-relationship-lists-control [actionPublisher]="actionMap$[i].get('relationCode')"
+							label="{{'coApplicantsDetails.relationCode.label' | translate }}"
+							formControlName="relationCode"></app-relationship-lists-control>
+
+						<app-name-control [actionPublisher]="actionMap$[i].get('name')"
+							label="{{'coApplicantsDetails.name.label' | translate }}"
+							formControlName="name"></app-name-control>
+
+
+						<app-id-number-control [actionPublisher]="actionMap$[i].get('idNumber')"
+							label="{{'coApplicantsDetails.idNumber.label' | translate }}"
+							formControlName="idNumber"></app-id-number-control>
+
+					</box>
+				</ng-container>
+			</ng-container>
+		</box>
+
+		<box [style.width]="gridWidth+'%'" class="input-grid-title grid-actions"
+			[ngClass]="{'add-co-app': addCoApplicantRadio}" (click)="addMoreCountry()">
+			<button type="button" formControlName="addCoApplicant" class="btn-link">{{'coApplicantsDetails.addCoApplicant.label' | translate }}</button>
+		</box>
+		<box class="input-grid-title text-info">{{'coApplicantsDetails.addMoreCoApplicant.label' | translate }}
+		</box>
+	</box>
+</form>

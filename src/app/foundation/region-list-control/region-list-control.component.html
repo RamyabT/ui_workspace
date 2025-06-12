@@ -1,0 +1,10 @@
+<!-- <fpx-selectable-dropdown class="fpx-form-control" [controlName]="formControlName" #fpxControl
+        [selectableList$]="selectableDataList$" [label]="label" [placeholder]="placeholder"
+        [lookupTrigger$]="lookupResponse$" [dependencyField]="dependencyField"  [controlValue]="domainControlValue" >
+</fpx-selectable-dropdown> -->
+
+<fpx-searchable-dropdown class="fpx-form-control" [selectableList$]="selectableDataList$" [label]="label"
+   [placeholder]="placeholder" [controlName]="formControlName" #fpxControl [lookupTrigger$]="lookupResponse$"
+   (searchableDropdowninputChange)="searchableDropdownChange($event)" [dependencyField]="dependencyField"
+   [controlValue]="domainControlValue" [controlDisable]="domainControlDisable">
+</fpx-searchable-dropdown>

@@ -1,0 +1,184 @@
+<box class="product-type-panel loans-panel">
+    <!-- <box *ngIf="!device.isMobile()" class="panel-header">
+        <box>
+            <span class="panel-title loans">{{ 'loansPanel.title' | translate }}</span>
+        </box>
+        <box class="panel-actions">
+            <button class="action new-account">
+                <span class="lbl" [innerHTML]="'loansPanel.newLoan' | translate"></span>
+            </button>
+        </box>
+    </box> -->
+    <ng-container *ngIf="loanAccounts; else loader">
+     <ng-container *ngIf="!loanAccountsApiFailed else apiErrorTemplate">
+        <ng-container *ngIf="loanAccounts.length > 0; else noAccount">
+            <box class="panel-body">
+                <ul class="card-wrapper">
+                    <li *ngFor="let loan of loanAccounts; let i = index" class="card"
+                        (click)="gotoLoans(loan.loanAccountNumber)">
+                        <ng-container *ngIf="device.isMobile(); else desktopContainer">
+                            <box class="container">
+                                <box class="account-details card-details">
+                                    <box class="account-type productDesc">{{loan.productDesc}}</box>
+                                    <box class="account-type">{{loan.accountTypeDesc}}</box>
+                                </box>
+                                <box class="account-info">
+                                    <box class="account-number card-number">{{loan.loanAccountNumber | accountNumberTrim}}</box>
+                                    <box class="balace-details">
+                                        <box class="amount main-balance">{{ getAbsoluteValue(loan.totalOutstanding) | currency :
+                                            loan.accountCurrency : '' }} <em>{{ loan.accountCurrency | currencyCode
+                                                }}</em>
+                                                 {{checkNegativeValue(loan.totalOutstanding)}}</box>
+                                    </box>
+                                </box>
+                            </box>
+                        </ng-container>
+                        <ng-template #desktopContainer>
+                            <box class="container">
+                                <box class="left-section">
+                                    <box class="account-details">
+                                        <box class="product-desc">{{loan.productDesc}}</box>
+                                        <box class="product-details">
+                                            <box class="account-type accountTypeDesc">{{loan.accountTypeDesc}}</box>
+                                            <box class="seperator"></box>
+                                            <box class="account-number">{{ loan.loanAccountNumber | accountNumberTrim }}</box>
+                                        </box>
+                                    </box>
+                                </box>
+                                <box class="right-section">
+                                    <box class="balace-details">
+                                        <box class="amount main-balance">{{ getAbsoluteValue(loan.totalOutstanding) | currency :
+                                            loan.accountCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                                                }}</em>
+                                                {{checkNegativeValue(loan.totalOutstanding)}}</box>
+                                    </box>
+                                    <!-- <box class="options" [ngClass]="{ 'open-menu-view' : loan.displayContextMenu }">
+                                        <span class="more-options">
+                                            <span class="icon-wrapper more-vertical"
+                                                [ngClass]="{ 'open-menu-view' : loan.displayContextMenu }"
+                                                (click)="displayContextMenu($event, loan, i)"></span> -->
+                                            <!-- <img src="./assets/images/icons/edit.svg" alt="more options" (click)="displayContextMenu($event, loan, i)"/> -->
+                                        <!-- </span>
+                                    </box> -->
+                                </box>
+                            </box>
+                        </ng-template>
+                        <box *ngIf="device.isMobile()" class="options"
+                            [ngClass]="{ 'open-menu-view' : loan.displayContextMenu }">
+                            <!-- <ng-container *ngFor="let item of quickMenu">
+                                <button matTooltip={{item.serviceDescription}} matTooltipClass="custom-tooltip" class="quick-menu-btn" (click)="openLink(item)">
+                                    <span class="icon-wrapper {{item.serviceCode}}"></span>
+                                </button>
+                            </ng-container> -->
+                            <!-- <span class="more-options">
+                                <span class="icon-wrapper more-vertical"
+                                    (click)="displayContextMenu($event, loan, i)"></span>
+                            </span> -->
+                        </box>
+                        <!-- <box *ngIf="!device.isMobile()" class="hover-actions">
+                            <button class="hov-button" (click)="makePayment($event)">
+                                <span class="hov-action make-payment" [innerHTML]="'loansPanel.makePayment' | translate"></span>
+                            </button>
+                            <button class="hov-button" (click)="srRequest($event)">
+                                <span class="hov-action request single-line-menu">
+                                    <span [innerHTML]="'loansPanel.srRequest' | translate"></span>
+                                </span>
+                            </button>
+                            <span class="more-options">
+                                <img src="./assets/images/icons/more-vertical{{device.isMobile()?'-sm':''}}.svg" alt="more options" (click)="displayContextMenu($event, loan)"/>
+                            </span>
+                        </box> -->
+                    </li>
+                </ul>
+                <box class="panel-footer">
+                     <box class="total"  *ngIf="device.isMobile()">
+                        <span class="total-lbl">{{ 'accountsPanel.loans.total' | translate }}</span>
+                       
+                        <box class="balace-details">
+                            <!-- <span *ngIf="this.accountCurrency" class="total-balance amount"> {{ total?.totalUSD.amount |
+                                currency : accountCurrency : '' }} <em>{{ accountCurrency | currencyCode }}</em></span> -->
+                            <span class="total-balance amount"> {{ getAbsoluteValue(total?.totalCAD )| currency : _appConfig.baseCurrency : ''
+                                }} <em>{{ _appConfig.baseCurrency | currencyCode }}</em>
+                                {{checkNegativeValue(total?.totalCAD)}}</span>
+    
+                        </box>
+                    </box> 
+                </box>
+
+                <box *ngIf="'RETAILAPPLYLOAN' | AccessScope"
+                    class="panel-button-container">
+                    <button class="new-account-footer" (click)="newLoan($event)">{{'loansPanel.newLoan' | translate}}</button></box>
+            </box>
+          
+            <box *ngIf="device.isMobile()" class="panel-actions">
+                <button *ngIf="'RETAILAPPLYLOAN' | AccessScope" class="action new-account" (click)="newLoan($event)">
+                    <span class="icon-wrapper new-account"></span>
+                    <!-- <img src="./assets/images/icons/new-account.svg" alt="" srcset=""> -->
+                    <span class="lbl" [innerHTML]="'loansPanel.newLoan' | translate"></span>
+                </button>
+            </box>
+        </ng-container>
+     </ng-container>   
+    </ng-container>
+</box>
+
+<ng-template #noAccount>
+    <box class="no-data-panel no-panel-footer">
+        <box class="no-loan no-footer-panel">
+            <!-- <span class="noCredit">{{'cardsPanel.noCreditCard' | translate}}</span> -->
+            <span class="no-data-desc">{{ 'loansPanel.noLoan' | translate }}</span>
+            <span class="no-data-description">{{'loansPanel.noCards' | translate}}</span>
+            <box class="panel-button-container">
+                <button *ngIf="'RETAILAPPLYLOAN' | AccessScope" 
+                class="new-account-footer" 
+                (click)="newLoan($event)" >{{'loansPanel.applyNewLoan' | translate}}</button>
+            </box>
+         </box>
+        <!-- <box class="img-description">
+            <box class="message">
+                <box class="list-item-header panel-header">
+                    <box class="header-title">
+                        <span [ngClass]="'panel-title loans'">{{ 'loansPanel.title' | translate }}</span>
+                    </box>
+                </box>
+                <box>
+                    <span class="no-data-desc">{{ 'loansPanel.noCards' | translate }}</span>
+                    <button class="action" (click)="applyLoan()">
+                        <span class="lbl" [innerHTML]="'loansPanel.applyNewLoan' | translate"></span>
+                    </button>
+                </box>
+            </box> -->
+            <!-- <img class="no-data-image" src="./assets/illustrations/no-loans.gif" alt="create an account" /> -->
+        <!-- </box> -->
+        <box *ngIf="device.isMobile()"  class="actions flex-end">
+            <button class="action-btn btn-secondary">
+                <span class="action-lbl" [innerHTML]="'loansPanel.applyNewLoan' | translate"></span>
+            </button>
+        </box>
+    </box>
+</ng-template>
+
+<ng-template #apiErrorTemplate>
+    <box class="service-unavailable-template">
+        <box class="description">{{'accountsPanel.apiErrorData' | translate}}</box>
+    </box>
+</ng-template>
+
+<ng-container *ngIf="isDisplayContextMenu">
+    <ng-container *ngIf="quickLinks">
+        <box class="quick-menu" [ngStyle]="getContextMenuStyle()">
+            <li *ngFor="let item of quickLinks" (click)="openLink(item)">
+                <!-- <span class="icon-wrapper {{ item.serviceCode }}"></span> -->
+                <box class="menu"
+                    [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription">
+                </box>
+            </li>
+        </box>
+    </ng-container>
+</ng-container>
+<!-- Content loader -->
+<ng-template #loader>
+    <box class="skeleton-loader portfolio-summary-loader no-panel-footer"></box>
+</ng-template>
+
+<!-- <box class="user-account-overlay" *ngIf="this.isDisplayContextMenu" (click)="toggleProfile($event)"></box> -->

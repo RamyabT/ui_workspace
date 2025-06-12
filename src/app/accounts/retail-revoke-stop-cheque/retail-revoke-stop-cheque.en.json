@@ -1,0 +1,27 @@
+"RetailRevokeStopCheque":{
+"title":"RetailRevokeStopCheque",
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "reason": {
+		  "label":"Reason" ,
+		  "placeholder": "Reason"
+		  } ,
+		 "payeeName": {
+		  "label":"Payee Name" ,
+		  "placeholder": "Payee Name"
+		  } ,
+		 "chequeNumber": {
+		  "label":"Cheque No./ Cheque Range" ,
+		  "placeholder": "Cheque No./ Cheque Range"
+		  } ,
+		 "chequeAmount": {
+		  "label":"Cheque Amount" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "stopDate": {
+		  "label":"Requested Date" ,
+		  "placeholder": "Requested Date"
+		  } 
+}

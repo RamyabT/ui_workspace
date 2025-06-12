@@ -1,0 +1,93 @@
+#depAppBody{
+    .accordion-group{
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    fpx-accordion-group {
+        .group {
+            padding: unset;
+            margin: unset;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border-bottom: 1px solid var(--baseBdrClr);
+
+            fpx-accordion {
+                padding: 0;
+                border-radius:0;
+
+                fpx-panel {
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap:0;
+
+                    .fpx-panel-header {
+                        border-radius: 0;
+                        border: 0;
+                        padding: 0;
+                        height: unset;
+    
+                        .fpx-panel-toolbars{
+                            margin: 0;
+                        }
+                        .fpx-title {
+                            @include s4-medium;
+                            color: var(--bodyTxtClr);
+                        }
+                    }
+
+                    .fpx-accordion-content {
+                        margin: 0px;
+                        
+                        .fpx-accordion-body {
+                            padding: unset;
+                            margin: 20px 0 0;
+                            border: none;
+                        }
+                    }
+
+                    .fpx-accordion-toggle-btn{
+                        width: 24px;
+                        height: 24px;
+
+                        .fpx-accordion-arrow {
+                            width: 9px;
+                            height: 9px;
+                        }
+                    }
+
+                    &.open {
+                        .fpx-accordion-content {
+                            border: unset;
+                        }
+                        .fpx-accordion-toggle-btn{
+                            .fpx-accordion-arrow {
+                                transform: rotate(224deg);
+                            }
+                        }
+                    }
+                    &.close {
+                        .fpx-accordion-body {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            @include small-screen{
+                border: none;
+                box-shadow: 0px 0px 30px 0px #00000017;
+                border-radius: 20px;
+                background-color: #FFFFFF;
+                padding: 20px;
+                
+                .seperator{
+                    display: none;
+                }
+            }
+        }
+    }
+}

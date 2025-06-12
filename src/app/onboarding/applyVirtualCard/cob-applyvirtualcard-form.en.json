@@ -1,0 +1,27 @@
+"applyVirtualCard":{
+"title":"applyvirtualcard",
+		 "cardholdername": {
+		  "label":"Card Holder Name" ,
+		  "placeholder": "Card Holder Name"
+		  } ,
+		 "cardspendlimit": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "creditcardexpirymonth": {
+		  "label":"Expiry Month" ,
+		  "placeholder": "Expiry Month"
+		  } ,
+		 "creditcardexpiryyear": {
+		  "label":"Expiry Year" ,
+		  "placeholder": "Expiry Year"
+		  } ,
+		 "charges": {
+		  "label":"Charges" ,
+		  "placeholder": "Charges"
+		  } ,
+		 "addtowallet": {
+		  "label":"Add to Wallet" ,
+		  "placeholder": "Add to Wallet"
+		  } 
+}

@@ -1,0 +1,19 @@
+"RetailWalletTransferForm":{
+"title":"RetailWalletTransfer",
+		 "sourceWalletAccount": {
+		  "label":"Wallet Account Number" ,
+		  "placeholder": "Wallet Account Number"
+		  } ,
+		 "creditWalletAccount": {
+		  "label":"Wallet Account Number" ,
+		  "placeholder": "Wallet Account Number"
+		  } ,
+		 "exchangeRate": {
+		  "label":"Rate of Interest" ,
+		  "placeholder": "Rate of Interest"
+		  } ,
+		 "remarks": {
+		  "label":"Closure Reason" ,
+		  "placeholder": "Closure Reason"
+		  } 
+}

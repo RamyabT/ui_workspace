@@ -1,0 +1,22 @@
+app-retail-cc-limit-change-form {
+    fpx-amount-slider.fpx-form-control div>.fpx-form-control {
+        border-bottom: none !important;
+    }
+    
+ .review-form .fpx-form-control{
+border-bottom: none !important;
+}
+}
+
+app-retail-debit-card-limit-request, app-retail-cc-limit-request-form{
+    fpx-amount-slider.fpx-form-control div.fpx-form-control{
+        border-bottom: none !important;
+    }
+    app-dc-service-flag{
+      .fpx-form-control{
+            border-bottom: none !important;
+            }
+    }
+    
+    }
+

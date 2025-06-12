@@ -1,0 +1,5 @@
+ 
+ "RETAILPFMBUDGETREQ" : {
+ "servicePath": ["entry-shell","pfm", "retail-pfm-budgetreq-form"],
+ "queryParams": {}
+ }

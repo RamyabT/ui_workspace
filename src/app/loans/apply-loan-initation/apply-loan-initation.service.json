@@ -1,0 +1,5 @@
+ 
+ "RETAILAPPLYLOANINITIATION" : {
+ "servicePath": ["entry-shell","loans", "apply-loan-initation"],
+ "queryParams": {}
+ }

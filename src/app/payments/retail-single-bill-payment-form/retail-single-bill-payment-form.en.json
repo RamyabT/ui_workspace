@@ -1,0 +1,39 @@
+"RetailSingleBillPaymentForm":{
+"title":"RetailSingleBillPaymentForm",
+		 "billerBeneficiaryId": {
+		  "label":"Pay To" ,
+		  "placeholder": "Pay To"
+		  } ,
+		 "billReference": {
+		  "label":"Invoice No" ,
+		  "placeholder": "Invoice No"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Payment Amount" ,
+		  "placeholder": "Payment Amount"
+		  } ,
+		 "paymentDate": {
+		  "label":"Payment Date" ,
+		  "placeholder": "Payment Date"
+		  } ,
+		 "accountType": {
+		  "label":"Account Type" ,
+		  "placeholder": "Account Type"
+		  } ,
+		 "debitAccount": {
+		  "label":"Pay From" ,
+		  "placeholder": "Pay From"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"I hereby agree with the terms and conditions and key fact statements" ,
+		  "placeholder": "I hereby agree with the terms and conditions and key fact statements"
+		  } ,
+		 "tranRef": {
+		  "label":"TranRef" ,
+		  "placeholder": "TranRef"
+		  } 
+}

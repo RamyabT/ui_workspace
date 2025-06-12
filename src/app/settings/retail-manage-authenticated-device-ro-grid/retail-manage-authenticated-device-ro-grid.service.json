@@ -1,0 +1,5 @@
+ 
+ "MANAGEAUTH" : {
+ "servicePath": ["display-shell","settings", "retail-manage-authenticated-device-ro-grid"],
+ "queryParams": {}
+ }

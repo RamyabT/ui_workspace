@@ -1,0 +1,40 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailRPBeneficiaryInfo">
+
+	<box class="entry-form">
+
+
+		<app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('firstname')"
+			label="{{'RetailRPBeneficiaryInfo.firstname.label' | translate }}"
+			formControlName="firstname"></app-name-control>
+
+
+		<!-- <app-delegateinitial-control  class="col-md-6  "   [actionPublisher]="actionMap$.get('initial')"     label="{{'RetailRPBeneficiaryInfo.initial.label' | translate }}"   formControlName="initial" 
+   ></app-delegateinitial-control> -->
+
+
+		<app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('lastname')"
+			label="{{'RetailRPBeneficiaryInfo.lastname.label' | translate }}"
+			formControlName="lastname"></app-name-control>
+
+
+		<!-- <app-relationship-list-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('relationship')"     label="{{'RetailRPBeneficiaryInfo.relationship.label' | translate }}"   formControlName="relationship" 
+     ></app-relationship-list-control> -->
+		<app-relationship-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('relationship')"
+			label="{{'RetailRPSuccessorinfo.relationship.label' | translate }}"
+			formControlName="relationship"></app-relationship-control>
+
+
+		<app-percentage-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('proportion')"
+			label="{{'RetailRPBeneficiaryInfo.proportion.label' | translate }}"
+			formControlName="proportion"></app-percentage-control>
+			
+			<!-- <div class="link label-with-plus">
+				<span class="plus-icon"></span>
+				<span class="link-text">{{ 'RetailRPBeneficiaryInfo.declarationLink.label' | translate }}</span>
+			</div> -->
+			
+			<!-- <app-add-another-beneficiary-form class="col-sm-12 col-md-12 col-lg-12" (commonGridEvent)="handleControlEvent($event)"
+			[actionPublisher]="actionMap$.get('addAnotherBeneficiary')" label="addAnotherBeneficiary"
+			formControlName="addAnotherBeneficiary"></app-add-another-beneficiary-form> -->
+		</box>
+</form>

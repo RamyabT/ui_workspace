@@ -1,0 +1,27 @@
+"COBFatcaInfoForm":{
+"title":"fatcaInfo",
+		 "usResident": {
+		  "label":"Are you US resident?" ,
+		  "placeholder": "Are you US resident?"
+		  } ,
+		 "countryOfBirth": {
+		  "label":"Country of birth" ,
+		  "placeholder": "Country of birth"
+		  } ,
+		 "cityOfBirth": {
+		  "label":"City of birth" ,
+		  "placeholder": "City of birth"
+		  } ,
+		 "countryOfTax": {
+		  "label":"Country of tax residency" ,
+		  "placeholder": "Country of tax residency"
+		  } ,
+		 "taxPayerIdAvailable": {
+		  "label":" Do you have a tax payer identification number" ,
+		  "placeholder": " Do you have a tax payer identification number"
+		  } ,
+		 "taxPayerId": {
+		  "label":"Taxpayer Identification Number" ,
+		  "placeholder": "Taxpayer Identification Number"
+		  } ,
+}

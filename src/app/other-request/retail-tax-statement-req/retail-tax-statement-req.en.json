@@ -1,0 +1,27 @@
+"RetailTaxStatementReq":{
+"title":"retailTaxStatementReq",
+		 "taxRegistrationNumber": {
+		  "label":"Tax Registration Number" ,
+		  "placeholder": "Tax Registration Number"
+		  } ,
+		 "supportingDocuments": {
+		  "label":"Attach VAT Certificate" ,
+		  "placeholder": "Attach VAT Certificate"
+		  } ,
+		 "Month": {
+		  "label":"Month" ,
+		  "placeholder": "Month"
+		  } ,
+		 "year": {
+		  "label":"Year" ,
+		  "placeholder": "Year"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks (This is Optional)" ,
+		  "placeholder": "Remarks (This is Optional)"
+		  } ,
+		 "terms": {
+		  "label":"Consent Box" ,
+		  "placeholder": "Placeholder"
+		  } 
+}

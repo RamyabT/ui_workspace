@@ -1,0 +1,297 @@
+<box class="product-type-panel deposits-panel">
+    <!-- <box *ngIf="!device.isMobile()" class="panel-header">
+        <box>
+            <span class="panel-title deposits">{{ 'depositsPanel.title' | translate }}</span>
+        </box>
+        <box class="panel-actions">
+            <button class="action link-account">
+                <span class="lbl" [innerHTML]="'depositsPanel.linkAccount' | translate"></span>
+            </button>
+            <button class="action new-account">
+                <span class="lbl" [innerHTML]="'depositsPanel.newAccount' | translate"></span>
+            </button>
+        </box>
+    </box> -->
+    <ng-container *ngIf="depositsAccounts; else loader">
+      <ng-container *ngIf="!depositApiFailed; else apiErrorTemplate"> 
+        <ng-container *ngIf="depositsAccounts.length > 0; else noAccount">
+            <box class="panel-body">
+                <ul class="card-wrapper">
+                    <ng-container *ngFor="let item of depositsProducts; let i = index">
+                        <li *ngIf="item.showPanel != false" [ngClass]="{'accordian-open-start': item.accordianOpened}"
+                            [class]="'accordion deposit-accordion-item-' + i + ' ' + item.id">
+                            <box class="list-item-header panel-header sub-header" (click)="toggleAccordion(i)">
+                                <ng-container *ngIf="device.isMobile(); else desktopContainer">
+                                    <box class="container">
+                                        <box class="account-details card-details">
+                                            <box class="account-type productDesc">{{item.accountType}}</box>
+                                            <box class="product-details">
+                                                <box class="account-type accountTypeDesc">{{item.accountTypeDesc}}</box>
+                                            </box>
+                                            <box class="total-balace-details">
+                                                <span class="total-balance amount"> 
+                                                    <!-- <ng-container *ngIf="item.total?.totalCAD"> -->
+                                                        {{ getAbsoluteValue(item.total?.totalCAD) | currency : _appConfig.baseCurrency : '' }} 
+                                                        <em>{{ _appConfig.baseCurrency | currencyCode }}</em>
+                                                        {{ checkNegativeValue(item.total?.totalCAD)}}
+                                                    <!-- </ng-container> -->
+                                                </span>
+                                            </box>
+                                        </box>
+                                        <box class="accordion-btn-toggle">
+                                            <button type="button" class="btn-icon btn-toggle"
+                                                aria-label="Toggle panel"></button>
+                                        </box>
+                                    </box>
+                                </ng-container>
+                                <ng-template #desktopContainer>
+                                        <box class="container">
+                                            <box class="left-section">
+                                                <box class="account-details">
+                                                    <box class="product-desc">{{item.accountType}}</box>
+                                                    <box class="product-details">
+                                                        <box class="account-type accountTypeDesc">{{item.accountTypeDesc}}</box>
+                                                    </box>
+                                                </box>
+                                            </box>
+                                            <box class="right-section">
+                                                <box class="total-balace-details">
+                                                    <span class="total-balance amount"> 
+                                                        <!-- <ng-container *ngIf="item.total?.totalCAD">  -->
+                                                            {{ getAbsoluteValue(item.total?.totalCAD) | currency : _appConfig.baseCurrency : '' }} 
+                                                            <em>{{ _appConfig.baseCurrency | currencyCode }}</em>
+                                                            {{ checkNegativeValue(item.total?.totalCAD)}}
+                                                        <!-- </ng-container> -->
+                                                    </span>
+                                                </box>
+                                                <box class="accordion-btn-toggle">
+                                                    <button type="button" class="btn-icon btn-toggle"
+                                                        aria-label="Toggle panel"></button>
+                                                </box>
+                                            </box>
+                                        </box>
+                                </ng-template>
+                            </box>
+                            <div class="item-content">
+                                <ng-container *ngIf="item.products.length > 0 else noProducts">
+                                    <li *ngFor="let product of item.products; let i = index" class="card no-hover-actions"
+                                    (click)="gotoDeposits(product)">
+                                        <ng-container *ngIf="device.isMobile(); else desktopContainer">
+                                            <box class="container">
+                                                <box class="account-details card-details" [ngClass]="{ 'usd-account' : product.accountCurrency != this._appConfig.baseCurrency, 'aviso': product.accountType == 'Aviso' }">
+                                                    <box class="account-type productDesc">{{product.productDescription}}</box>
+                                                    <box class="account-type accountTypeDesc">Investing</box>
+                                                </box>
+                                                <box class="account-info">
+                                                    <box class="account-number card-number">{{product.accountNumber | accountNumberTrim}}</box>
+                                                    <box class="balace-details" [ngClass]="{ 'usd-account' : product.accountCurrency != this._appConfig.baseCurrency }">
+                                                        <ng-container *ngIf="product.accountCurrency != this._appConfig.baseCurrency else baseCurrency">
+                                                            <box class="amount main-balance usd-balance"> 
+                                                                <em class="usd">{{ 'SUFFIXCURRENCY' | currencyCode }}</em>
+                                                                {{ getAbsoluteValue(product.accountType != 'Aviso'?product.availableBalance:product.availableBalance) | currency : product.accountCurrency : '' }} 
+                                                                <em>{{ product.accountCurrency == 'USD' ? '$' : product.accountCurrency
+                                                                    | currencyCode }}</em>
+                                                                {{ checkNegativeValue(product.accountType != 'Aviso'?product.availableBalance:product.availableBalance)}}
+                                                            </box>
+                                                            <box class="amount balance ">{{ getAbsoluteValue(product.baseCurrencyAvlBal) | currency : _appConfig.baseCurrency : '' }} 
+                                                                <em>{{ _appConfig.baseCurrency | currencyCode }}</em>{{ checkNegativeValue(product.baseCurrencyAvlBal)}}</box>
+                                                        </ng-container>
+                                                        <ng-template #baseCurrency>
+                                                            <box class="amount main-balance">{{ getAbsoluteValue(product.accountType != 'Aviso'?product.availableBalance:product.availableBalance) | currency : product.accountCurrency : '' }} 
+                                                                <em>{{ product.accountCurrency | currencyCode }}</em>{{ checkNegativeValue(product.accountType != 'Aviso'?product.availableBalance:product.availableBalance)}}</box>
+                                                        </ng-template>
+                                                    </box>
+                                                </box>
+                                            </box>
+                                        </ng-container>
+                                        <ng-template #desktopContainer>
+                                                <box class="container">
+                                                    <box class="left-section">
+                                                        <box class="account-details" [ngClass]="{ 'usd-account' : product.accountCurrency != this._appConfig.baseCurrency, 'aviso': product.accountType == 'Aviso' }">
+                                                            <box class="product-desc">{{product.productDescription}}</box>
+                                                            <box class="product-details">
+                                                                <box class="account-type accountTypeDesc">Investing</box>
+                                                                <box class="seperator"></box>
+                                                                <box class="account-number">{{ product.accountNumber | accountNumberTrim }}</box>
+                                                            </box>
+                                                        </box>
+                                                    </box>
+                                                    <box class="right-section">
+                                                        
+                                                        <box class="balace-details" [ngClass]="{ 'usd-account' : product.accountCurrency != this._appConfig.baseCurrency }">
+                                                            <ng-container *ngIf="product.accountCurrency != this._appConfig.baseCurrency else baseCurrency">
+                                                                <box class="amount main-balance usd-balance">
+                                                                    <em class="usd">{{ 'SUFFIXCURRENCY' | currencyCode }}</em> 
+                                                                    {{ getAbsoluteValue(product.accountType != 'Aviso'?product.availableBalance:product.availableBalance) | currency : product.accountCurrency : '' }} 
+                                                                    <em>{{ product.accountCurrency == 'USD' ? '$' : product.accountCurrency
+                                                                        | currencyCode }}</em>
+                                                                    {{ checkNegativeValue(product.accountType != 'Aviso'?product.availableBalance:product.availableBalance)}}
+                                                                </box>
+                                                                <box class="amount balance">{{ getAbsoluteValue(product.baseCurrencyAvlBal) | currency : _appConfig.baseCurrency : '' }} 
+                                                                    <em>{{ _appConfig.baseCurrency | currencyCode }}</em>{{ checkNegativeValue(product.baseCurrencyAvlBal)}}</box>
+                                                            </ng-container>
+                                                            <ng-template #baseCurrency>
+                                                                <box class="amount main-balance">{{ getAbsoluteValue(product.accountType != 'Aviso'?product.availableBalance:product.availableBalance) | currency : product.accountCurrency : '' }}
+                                                                    <em>{{ product.accountCurrency | currencyCode }}</em>{{ checkNegativeValue(product.accountType != 'Aviso'?product.availableBalance:product.availableBalance)}}</box>
+                                                            </ng-template>
+                                                        </box>
+                                                        <box class="options" [ngClass]="{ 'open-menu-view' : product.displayContextMenu }">
+                                                            <!-- <ng-container *ngFor="let item of quickMenu">
+                                                                <button class="quick-menu-btn" (click)="openLink(item)">
+                                                                    <span class="icon-wrapper {{item.serviceCode}}"></span>
+                                                                </button>
+                                                            </ng-container> -->
+                                                            <!-- <span class="more-options">
+                                                                <span class="icon-wrapper more-vertical" [ngClass]="{ 'open-menu-view' : product.displayContextMenu }" (click)="displayContextMenu($event, product, i)"></span>
+                                                            </span> -->
+                                                        </box>
+                                                    </box>
+                                                </box>
+                                        </ng-template>
+                                <!-- <box *ngIf="device.isMobile()" class="options" [ngClass]="{ 'open-menu-view' : product.displayContextMenu }">
+                                    <ng-container *ngFor="let item of quickMenu">
+                                        <button matTooltip={{item.serviceDescription}} matTooltipClass="custom-tooltip" class="quick-menu-btn" (click)="openLink(item)">
+                                            <span class="icon-wrapper {{item.serviceCode}}"></span>
+                                        </button>
+                                    </ng-container>
+                                    <span class="more-options">
+                                        <span class="icon-wrapper more-vertical" (click)="displayContextMenu($event, product, i)"></span>
+                                    </span>
+                                </box> -->
+                                    
+                                    <!-- <box *ngIf="!device.isMobile()" class="hover-actions">
+                                        <button class="hov-button" (click)="sendMoney($event)">
+                                            <span class="hov-action send-money" [innerHTML]="'depositsPanel.sendMoney' | translate"></span>
+                                        </button>
+                                        <button class="hov-button" (click)="payBill($event)">
+                                            <span class="hov-action pay-bill" [innerHTML]="'depositsPanel.payBill' | translate"></span>
+                                        </button>
+                                        <span class="more-options">
+                                            <img src="./assets/images/icons/more-vertical.svg" alt="more options" (click)="displayContextMenu($event, account)"/>
+                                        </span>
+                                    </box> -->
+                                    </li>
+                                    <box class="new-account-footer-container" *ngIf="item.id=='marketInvestments'">
+                                        <box  ><button class="new-account-footer-left" (click)="openLink($event)" >{{'depositsPanel.linkAccount' | translate}}</button></box>
+                                    </box>
+                                </ng-container>
+                            </div>
+                        </li>
+                    </ng-container>
+                    
+                </ul>
+
+                <box class="panel-footer">
+                    <box class="total" *ngIf="device.isMobile()">
+                        <span class="total-lbl">{{ 'accountsPanel.deposits.total' | translate }}</span>
+                        <box class="balace-details">
+                            <span class="total-balance amount"> {{ getAbsoluteValue(total?.totalCAD) | currency : _appConfig.baseCurrency : '' }} 
+                                <em>{{ _appConfig.baseCurrency | currencyCode }}</em>
+                                {{ checkNegativeValue(total?.totalCAD)}}</span>
+                        </box> 
+                     </box> 
+                </box>
+
+            <box class="panel-button-container">
+                <button *ngIf="'RETAILLINKINVESTMENT' | AccessScope" class="link-account-footer" (click)="openLink($event)" >{{'depositsPanel.linkAccount' | translate}}</button>
+                <button *ngIf="'RETAILOPENNEWDEPOSIT' | AccessScope" class="new-account-footer" (click)="newDeposit($event)">{{'depositsPanel.newAccount' | translate}}</button>
+            </box>
+                
+            </box>
+          
+            <box *ngIf="device.isMobile()" class="panel-actions">
+                <button class="action link-account">
+                    <span class="icon-wrapper link-account"></span>
+                    <!-- <img src="./assets/images/icons/link-product.svg" alt="" srcset=""> -->
+                    <span class="lbl" [innerHTML]="'depositsPanel.linkAccount' | translate"></span>
+                </button>
+                <button *ngIf="'RETAILOPENNEWDEPOSIT' | AccessScope" class="action new-account" (click)="newDeposit($event)">
+                    <span class="icon-wrapper new-account"></span>
+                    <!-- <img src="./assets/images/icons/new-product.svg" alt="" srcset=""> -->
+                    <span class="lbl" [innerHTML]="'depositsPanel.newAccount' | translate"></span>
+                </button>
+            </box>
+        </ng-container>
+    </ng-container> 
+    </ng-container>
+</box>
+<ng-template #noAccount>
+    <box class="no-data-panel no-panel-footer">
+        <box class="no-deposits no-footer-panel">
+            <!-- <span class="noCredit">{{'cardsPanel.noCreditCard' | translate}}</span> -->
+            <span class="no-data-desc">{{ 'depositsPanel.noAccount' | translate }}</span>
+            <box class="panel-button-container">
+                <button *ngIf="'RETAILLINKINVESTMENT' | AccessScope" class="link-account-footer" (click)="openLink($event)">{{'depositsPanel.linkAccount' | translate}}</button>
+                <button *ngIf="'RETAILOPENNEWDEPOSIT' | AccessScope" class="new-account-footer"  (click)="newDeposit($event)" >{{'depositsPanel.newAccount' | translate}}</button>
+            </box>
+         </box>
+        <!-- <box class="img-description">
+            <box class="message">
+                <box class="list-item-header panel-header">
+                    <box class="header-title">
+                        <span [ngClass]="'panel-title deposits'">{{ 'depositsPanel.title' | translate }}</span>
+                    </box>
+                </box>
+                <box>
+                    <span class="no-data-desc">{{ 'depositsPanel.noCards' | translate }}</span>
+                    <button class="action">
+                        <span class="lbl" [innerHTML]="'depositsPanel.createAccount' | translate"></span>
+                    </button>
+                </box>
+            </box>
+            <img class="no-data-image" src="./assets/illustrations/no-deposits.gif" alt="create an account" />
+        </box> -->
+        <box *ngIf="device.isMobile()"  class="actions space-between">
+            <button  *ngIf="'RETAILLINKINVESTMENT' | AccessScope" class="action-btn btn-secondary">
+                <span class="action-lbl" [innerHTML]="'depositsPanel.linkAccount' | translate"></span>
+            </button>
+            <button *ngIf="'RETAILOPENNEWDEPOSIT' | AccessScope" class="action-btn btn-secondary">
+                <span class="action-lbl" [innerHTML]="'depositsPanel.newAccount' | translate"></span>
+            </button>
+        </box>
+    </box>
+</ng-template>
+
+<ng-template #noProducts>
+    <box class="no-data-panel no-panel-footer">
+        <box class="no-deposits no-footer-panel">
+            <span class="no-data-desc">{{ 'depositsPanel.noProductsTitle' | translate }}</span>
+            <span class="no-data-description">{{ 'depositsPanel.noProductsDescription' | translate }}</span>
+            <box class="panel-button-container">
+                <button  *ngIf="'RETAILLINKINVESTMENT' | AccessScope" class="link-account-footer" (click)="openLink($event)">{{'depositsPanel.linkAccount' | translate}}</button>
+                <button *ngIf="'RETAILOPENNEWDEPOSIT' | AccessScope" class="new-account-footer"  (click)="newDeposit($event)" >{{'depositsPanel.newAccount' | translate}}</button>
+            </box>
+         </box>
+        <box *ngIf="device.isMobile()"  class="actions space-between">
+            <button class="action-btn btn-secondary left-btn">
+                <span class="action-lbl" [innerHTML]="'depositsPanel.linkAccount' | translate"></span>
+            </button>
+            <button class="action-btn btn-secondary right-btn">
+                <span class="action-lbl" [innerHTML]="'depositsPanel.newAccount' | translate"></span>
+            </button>
+        </box>
+    </box>
+</ng-template>
+
+<ng-template #apiErrorTemplate>
+    <box class="service-unavailable-template">
+        <box class="description">{{'accountsPanel.apiErrorData' | translate}}</box>
+    </box>
+</ng-template>
+
+<ng-container *ngIf="isDisplayContextMenu">
+    <ng-container *ngIf="quickLinks">
+        <box class="quick-menu" [ngStyle]="getContextMenuStyle()">
+                <li *ngFor="let item of quickLinks" (click)="openLink(item)">
+                    <!-- <span class="icon-wrapper {{ item.serviceCode }}"></span> -->
+                    <box class="menu" [innerHTML]="item?.name"></box>
+                </li>
+        </box>
+    </ng-container>
+</ng-container>
+<!-- Content loader -->
+<ng-template #loader>
+    <box class="skeleton-loader portfolio-summary-loader no-panel-footer"></box>
+</ng-template>
+
+<!-- <box class="user-account-overlay" *ngIf="this.isDisplayContextMenu" (click)="toggleProfile($event)"></box> -->

@@ -1,0 +1,37 @@
+
+
+<box #contextMenuWrapper>
+  <ng-container *ngIf="quickLinks; else quickActionsLoader">
+    <box class="context-menu-tab" #contextMenuWrapper>
+      <box class="context-menu-body" [style.width.px]="sliderWidth" *ngIf="quickLinks?.length > 0; else quickActionsLoader">
+        <box class="actions-list">
+            <box class="tab" [ngClass]="{ active: activeMenu == item.serviceCode }"
+              *ngFor="let item of quickLinks">
+              <box class="item" (click)="openLink(item)">
+                <!-- <span class="icon-wrapper {{ item.serviceCode }}"></span> -->
+                <span class="text"
+                  [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span>
+              </box>
+            </box>
+        </box>
+      </box>
+    </box>
+  </ng-container>
+</box>
+
+
+<ng-template #quickActionsLoader>
+  <box class="quick-actions-loader">
+    <ul>
+      <li>
+        <span class="text">&nbsp;</span>
+      </li>
+      <li>
+        <span class="text">&nbsp;</span>
+      </li>
+      <li>
+        <span class="text">&nbsp;</span>
+      </li>
+    </ul>
+  </box>
+</ng-template>

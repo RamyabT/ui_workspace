@@ -1,0 +1,1623 @@
+{
+
+  "RETAILLOGIN": {
+    "VerifyTFA": {
+      "path": [
+        "prelogin-space",
+        "entry-shell",
+        "login",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "KillPreviousSession": {
+      "path": [
+        "killPreviousSession"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "s"
+    },
+    "OverrideMpin": {
+      "path": [
+        "overrideMpin"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "prelogin-space",
+        "entry-shell",
+        "staging"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "LoginEnd": {
+      "path": [
+        "login-space",
+        "entry-shell",
+        "login"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "PasswordExpiry": {
+      "path": [
+        "prelogin-space",
+        "entry-shell",
+        "login",
+        "retail-change-password-form"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "UserLocked":{
+      "path": [
+        "login-space",
+        "entry-shell",
+        "login",
+        "retail-unlockuser-form"
+      ]
+    },
+    "UserVersionCheck":{
+      "path":[
+        "prelogin-space",
+        "entry-shell",
+        "login",
+        "login-read-terms-and-conditions"
+    ]
+    }
+  },
+  "RETAILLOGINAUTH": {
+    "VerifyTFA": {
+      "path": [
+        "prelogin-space",
+        "entry-shell",
+        "login",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "KillPreviousSession": {
+      "path": [
+        "killPreviousSession"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "prelogin-space",
+        "entry-shell",
+        "staging"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "LoginEnd": {
+      "path": [
+        "login-space",
+        "entry-shell",
+        "login"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "PasswordExpiry": {
+      "path": [
+        "prelogin-space",
+        "entry-shell",
+        "login",
+        "retail-change-password-form"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "UserLocked":{
+      "path": [
+        "login-space",
+        "entry-shell",
+        "login",
+        "retail-unlockuser-form"
+      ]
+    },
+    "UserVersionCheck":{
+      "path":[
+        "prelogin-space",
+        "entry-shell",
+        "login",
+        "login-read-terms-and-conditions"
+    ]
+    }
+  },
+  "PRELOGINTFA": {
+    "SuccessEnd": {
+      "path": [
+        "prelogin-space",
+        "entry-shell",
+        "staging"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "ErrorEnd": {
+      "path": [
+        "home"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "OverrideMpin": {
+      "path": [
+        "overrideMpin"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "s"
+    },
+    "MpinRegistration": {
+      "path": [
+        "prelogin-space",
+        "entry-shell",
+        "onboarding",
+        "register-device"
+      ]
+    },
+    "ForgotMpin": {
+      "path": [
+        "prelogin-space",
+        "entry-shell",
+        "onboarding",
+        "register-device"
+      ]
+    }
+  },
+  "RETAILCHQBKREQ": {
+    "VerifyTFA": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "accounts",
+        "confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "accounts",
+        "confirmation-receipt"
+      ]
+    },
+    "ServiceRequestQueue": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "accounts",
+        "confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILACCNICKNAME": {
+    "VerifyTFA": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "accountsConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "accountsConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "confirmation-receipt"
+    }
+  },
+  "RETAILDELNICKNAME": {
+    "VerifyTFA": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "accountsConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "accountsConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "confirmation-receipt"
+    }
+  },
+  "RETAILADDNICKNAME": {
+    "VerifyTFA": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "accountsConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "accountsConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "confirmation-receipt"
+    }
+  },
+  "RETAILESTMTREQ": {
+    "VerifyTFA": {
+      "path": [
+        "edocument-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "edocument-space",
+        "entry-shell",
+        "edocuments",
+        "confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "edocument-space",
+        "entry-shell",
+        "edocuments",
+        "confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILSTOPCHEQUEREV": {
+    "VerifyTFA": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "accountsConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "accounts",
+        "confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILSTOPCHEQUE": {
+    "VerifyTFA": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "accountsConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "accountsConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "confirmation-receipt"
+    }
+  },
+   "RETAILCHANGEPRODUCT": {
+      "VerifyTFA": {
+        "path": [
+          "accounts-space",
+          "entry-shell",
+          "foundation",
+          "verify-tfa"
+        ],
+        "openAsPopup": 0,
+        "popupSize": "s"
+      },
+      "SuccessEnd": {
+        "path": [
+          "accounts-space",
+          "entry-shell",
+          "accounts",
+          "confirmation-receipt"
+        ]
+      },
+      "ErrorEnd": {
+        "path": [
+          "accounts-space",
+          "entry-shell",
+          "accounts",
+          "confirmation-receipt"
+        ]
+      },
+      "ServiceRequestQueue": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "accounts",
+        "confirmation-receipt"
+      ]
+    }
+    },
+    "RETAILLOANINTERESTCERTIFICATE": {
+    "SuccessEnd": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "accounts",
+        "confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "accounts",
+        "confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILESTATEMENTREQ": {
+    "VerifyTFA": {
+      "path": [
+        "edocument-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "edocument-space",
+        "entry-shell",
+        "edocuments",
+        "confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "edocument-space",
+        "entry-shell",
+        "edocuments",
+        "confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILVISACARDSTMTREQ": {
+    "VerifyTFA": {
+      "path": [
+        "edocument-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "edocument-space",
+        "entry-shell",
+        "edocuments",
+        "confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "edocument-space",
+        "entry-shell",
+        "accounts",
+        "confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILBILLERACCOUNT": {
+    "VerifyTFA": {
+      "path": [
+        "payments-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "path": [
+      "payments-space",
+      "entry-shell",
+      "payments",
+      "retail-add-biller-form"
+    ],
+    "SuccessEnd": {
+      "path": [
+        "paymentsConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "payments-confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "paymentsConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "payments-confirmation-receipt"
+    }
+  },
+  "RETAILEDITBILLER": {
+    "VerifyTFA": {
+      "path": [
+        "payments-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "path": [
+      "payments-space",
+      "entry-shell",
+      "payments",
+      "retail-add-biller-form"
+    ],
+    "SuccessEnd": {
+      "path": [
+        "payments-space",
+        "entry-shell",
+        "payments",
+        "payments-confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "payments-space",
+        "entry-shell",
+        "payments",
+        "payments-confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILSAVEDBILLERROGRIDFORM":{
+"VerifyTFA": {
+      "path": [
+        "payments-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "path": [
+      "payments-space",
+      "display-shell",
+      "payments",
+      "retail-saved-biller-list-ro-grid"
+    ],
+    "SuccessEnd": {
+      "path": [
+        "payments-space",
+        "entry-shell",
+        "payments",
+        "payments-confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "payments-space",
+        "entry-shell",
+        "payments",
+        "payments-confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILDELETEBILLER": {
+    "VerifyTFA": {
+       "path": [
+      "payments-space",
+      "entry-shell",
+      "foundation",
+      "verify-tfa"
+    ],
+    "openAsPopup": 0,
+    "popupSize": "s"
+  },
+    "SuccessEnd": {
+        "path": [
+          "payments-space", 
+          "entry-shell",
+          "payments",
+          "payments-confirmation-receipt"
+        ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "payments-space",
+        "entry-shell",
+        "payments",
+        "payments-confirmation-receipt"
+      ]
+    }
+
+},
+ "RETAILSERVICEADHOCREQ": {
+    "VerifyTFA": {
+      "path": [
+        "service-request-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "service-request-space",
+        "entry-shell",
+        "service-request",
+        "confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "service-request-space",
+        "entry-shell",
+        "service-request",
+        "confirmation-receipt"
+      ]
+    },
+    "ServiceRequestQueue": {
+      "path": [
+        "service-request-space",
+        "entry-shell",
+        "service-request",
+        "confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILMULTIBILLPAYMENT": {
+    "VerifyTFA": {
+      "path": [
+        "edocument-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "paymentsConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "payments-confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "paymentsConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "payments-confirmation-receipt"
+    }
+  },
+  "RETAILSCHBILLPAYMENTS": {
+    "VerifyTFA": {
+      "path": [
+        "edocument-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "paymentsConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "payments-confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "paymentsConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "payments-confirmation-receipt"
+    }
+  },
+  "RETAILTRANOAT": {
+    "VerifyTFA": {
+      "path": [
+        "transfers-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "newTransfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "transfer-confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "newTransfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "transfer-confirmation-receipt"
+    }
+  },
+  "RETAILSCHOAT": {
+    "VerifyTFA": {
+      "path": [
+        "transfers-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "newTransfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "transfer-confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "newTransfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "transfer-confirmation-receipt"
+    }
+  },
+  "RETAILBENEINTERNAL": {
+    "SuccessEnd": {
+      "path": [
+        "transfers-space",
+        "entry-shell",
+        "transfers",
+        "bene-confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "transfers-space",
+        "entry-shell",
+        "transfers",
+        "bene-confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILTRANINTBT": {
+    "VerifyTFA": {
+      "path": [
+        "transfers-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "newTransfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "transfer-confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "newTransfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "transfer-confirmation-receipt"
+    }
+  },
+  "RETAILSCHINTBT": {
+    "VerifyTFA": {
+      "path": [
+        "transfers-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "newTransfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "transfer-confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "newTransfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "transfer-confirmation-receipt"
+    }
+  },
+  "RETAILCCACTIVATION": {
+    "VerifyTFA": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILCCLIMITCHANGE": {
+    "VerifyTFA": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    },
+    "ServiceRequestQueue": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    }
+  },
+    "RETAILCCBLOCK": {
+    "VerifyTFA": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILCCUNBLOCK": {
+    "VerifyTFA": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    }
+  },
+   "RETAILCCREPLACE": {
+    "VerifyTFA": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    },
+    "ServiceRequestQueue": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILCCLIMITS": {
+    "VerifyTFA": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    }
+  },
+ "RETAILCCPINREQ": {
+    "VerifyTFA": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    }
+  },
+   "RETAILAPPLYCREDITCARD": {
+    "VerifyTFA": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    },
+    "ServiceRequestQueue": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILCCBILLPAYMENT": {
+    "VerifyTFA": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILLOANCLOSURE": {
+    "VerifyTFA": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "loans",
+        "loans-confirmation-receipt-form"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "loans",
+        "loans-confirmation-receipt-form"
+      ]
+    },
+    "ServiceRequestQueue": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "loans",
+        "loans-confirmation-receipt-form"
+      ]
+    }
+  },
+   "RETAILDCLIMITS": {
+    "VerifyTFA": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "debit-card",
+        "debit-card-confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "debit-card",
+        "debit-card-confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILCCRAISEDISPUTE": {
+    "VerifyTFA": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    },
+    "ServiceRequestQueue": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "credit-cards",
+        "creditcard-confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILDCBLOCK": {
+    "VerifyTFA": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "debit-card",
+        "debit-card-confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "debit-card",
+        "debit-card-confirmation-receipt"
+      ]
+    }
+  },
+   "RETAILDCACTIVATECARD": {
+    "VerifyTFA": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "debit-card",
+        "debit-card-confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "debit-card",
+        "debit-card-confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILDCUNBLOCK": {
+    "VerifyTFA": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "debit-card",
+        "debit-card-confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "debit-card",
+        "debit-card-confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILFLASHDEBITCARD": {
+    "VerifyTFA": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "cards-space",
+        "entry-shell",
+        "debit-card",
+        "retail-debitcard-flash-details-form"
+      ]
+    }
+  },
+  "RETAILCHNGMATURITYINSTR": {
+    "VerifyTFA": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "deposits",
+        "confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "deposits",
+        "confirmation-receipt"
+      ]
+    },
+    "ServiceRequestQueue": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "accounts",
+        "confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILOPENNEWDEPOSIT": {
+    "VerifyTFA": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "deposits",
+        "confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "deposits",
+        "confirmation-receipt"
+      ]
+    }
+  },
+  "RETAILETRANSFERREGISTRATION": {
+    "VerifyTFA": {
+      "path": [
+        "transfers-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    }
+  },
+  "RETAILETRANSFERMANAGECONTACT": {
+    "VerifyTFA": {
+      "path": [
+        "transfers-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    }
+  },
+  "RETAILETRANSFERAUTODEPOSIT": {
+    "VerifyTFA": {
+      "path": [
+        "etransfers-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    }
+  },
+  "ETRANSFERSENDMONEY": {
+    "VerifyTFA": {
+      "path": [
+        "transfers-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    }
+  },
+  "ETRANSFERRECEIVEMONEY": {
+    "SuccessEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    }
+  },
+  "ETRANSFERREQUESTMONEY": {
+    "VerifyTFA": {
+      "path": [
+        "etransfers-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    }
+  },
+  "ETRANSFERRECLAIMMONEY": {
+    "SuccessEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    }
+  },
+  "ETRANSFERFULFILLREQUESTMONEY": {
+    "SuccessEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    }
+    },
+     "RETAILSCHETRANSFER": {
+    "VerifyTFA": {
+      "path": [
+        "transfers-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "etransfers-space",
+        "entry-shell",
+        "etransfers",
+        "etransfer-confirmation-receipt"
+      ]
+    }
+  },
+  "ETRFDCLFULFILLREQUESTMONEY": {
+    "SuccessEnd": {
+      "path": [
+        "transfersConfirmationReceiptForm"
+      ],
+      "openAsPopup": 1,
+      "popupSize": "etransfer-confirmation-receipt"
+    },
+    "ErrorEnd": {
+      "path": [
+        "etransfers-space",
+        "entry-shell",
+        "etransfers",
+        "etransfer-confirmation-receipt"
+      ]
+    }
+  },
+   "RETAILLINKINVESTMENT": {
+    "VerifyTFA": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "foundation",
+        "verify-tfa"
+      ],
+      "openAsPopup": 0,
+      "popupSize": "s"
+    },
+    "SuccessEnd": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "deposits",
+        "confirmation-receipt"
+      ]
+    },
+    "ErrorEnd": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "deposits",
+        "confirmation-receipt"
+      ]
+    },
+    "ServiceRequestQueue": {
+      "path": [
+        "accounts-space",
+        "entry-shell",
+        "accounts",
+        "confirmation-receipt"
+      ]
+    }
+  }
+}

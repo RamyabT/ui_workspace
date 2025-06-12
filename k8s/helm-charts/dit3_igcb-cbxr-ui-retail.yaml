@@ -1,0 +1,83 @@
+# for ibd data service.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+#
+# Overwrite chart name
+# nameOverride:
+# replicas: 1
+image:
+  repository: sapphire.intellectdesign.com/k02_cbx-r_k1_ui-retail_dcr_bug_sit/deploy
+  tag: dev-1
+  pullPolicy: Always
+restartPolicy: Always
+
+# Set docker registy to pull private images
+dockerRegSecret: regcret
+
+# We usually recommend not to specify default resources and to leave this as a conscious
+# choice for the user. This also increases chances charts run on environments with little
+# resources, such as Minikube. If you do want to specify resources, uncomment the following
+# lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+
+resources:
+  requests:
+    cpu: "150m"
+    memory: "0.3Gi"
+  limits:
+    cpu: "250m"
+    memory: "0.6Gi"
+service:
+  port: 80
+  targetPort: 80
+#  name: lms-inquiry
+
+ingress:
+  enabled: true
+  path: "/dit-dep-retail"
+  ingressClassName: nginx  
+  hosts:
+  - "igcbextmfg.ifincloud.io"
+  tls:
+  - secretName: tls-certificate-key-secret
+    hosts:
+    - "igcbextmfg.ifincloud.io"
+
+hpa:
+  minCount: 1
+  maxCount: 1
+  metrics:
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+
+config:
+  baseURL: "https://igcbextmfg.ifincloud.io"
+  contextPath: "dit-dep-retail"
+  svcName: "igcb-cbxr-ui-retail"
+  svcTag: "cbxr-retail"
+  envName: "dev"
+  commonPublisher: "/dit3-cbx-common/publisher"
+  accountsPublisher: "/dit3-cbx-accounts/publisher"
+  billpaymentsPublisher: "/dit3-cbx-bill-payments/publisher"
+  transfersPublisher: "/dit3-cbx-transfers/publisher"
+  customersPublisher: "/dit3-cbx-customers/publisher"
+  cardsPublisher: "/dit3-cbx-cards/publisher"
+  depositsPublisher: '/dit3-cbx-deposits/publisher'
+  defaultPublisher: "/dit3-cbx-common/publisher"
+  loansPublisher: '/dit3-cbx-loans/publisher'
+  workflowPublisher: '/dit3-cbx-workflow/publisher'
+  iamPublisher: '/dit3-cbx-iam/publisher'
+  Loans: 'dit3-cbx-loans/publisher'
+  billPaymentsPublisher: '/dit3-cbx-bill-payments/publisher'
+  languageId: "en"
+  idleTimeoutInMin: "55"
+  idleTimeoutPromptB4Sec: "60"
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

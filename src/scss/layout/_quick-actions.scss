@@ -1,0 +1,637 @@
+.icon-wrapper {
+    overflow: hidden;
+
+    .icon {
+        flex: 1;
+        height: 100%;
+    }
+}
+
+.actions-list {
+    .icon-wrapper {
+        width: 48px;
+        height: 48px;
+        // border-radius: 50%;
+	border-radius: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:is(.casa, .RETAILOPENNEWCASA, .RETAILACCOUNT, .RETAILLOANDETAILS, .RETAILADDTLACCOUNTREQ, .RETAILCHANGEPRODUCT)::before {
+            mask-image: url("../../assets/images/quick-links/casa.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/casa.svg");
+        }
+
+        &:is(.view-transaction, .RETAILVIEWCASATRANSACTION, .RETAILESTMTREQ)::before {
+            mask-image: url("../../assets/images/quick-links/view-transaction.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/view-transaction.svg");
+        }
+
+        &:is(.replace-card)::before {
+            mask-image: url("../../assets/images/quick-links/replace-card.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/replace-card.svg");
+        }
+
+        &:is(.RETAILLOANREPAYMENTSCHEDULE)::before {
+            mask-image: url("../../assets/images/quick-links/repayment-schedule.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/repayment-schedule.svg");
+        }
+
+        &.debit-card::before {
+            mask-image: url("../../assets/images/quick-links/debit-card.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/debit-card.svg");
+        }
+
+        &:is(.cheque-book, .RETAILCHQBKREQ, .RETAILDDREQ, .RETAILVOIDCHEQUE, .RETAILSTOPCHEQUE, .RETAILSTOPCHEQUEREV)::before {
+            mask-image: url("../../assets/images/quick-links/cheque-book.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/cheque-book.svg");
+        }
+
+        &:is(.manage-limits, .RETAILACCNICKNAME)::before {
+            mask-image: url("../../assets/images/quick-links/manage-limits.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/manage-limits.svg");
+        }
+
+        &:is(.RETAILLOANMODIFICATION)::before {
+            mask-image: url("../../assets/images/quick-links/disbursement-schedule.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/disbursement-schedule.svg");
+        }
+
+        &:is(.RETAILLOANMODIFICATION)::before {
+            mask-image: url("../../assets/images/quick-links/emi-deferment.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/emi-deferment.svg");
+        }
+
+        &:is(.RETAILLOANDISBURSALSCHEDULE)::before {
+            mask-image: url("../../assets/images/quick-links/disbursement-schedule.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/disbursement-schedule.svg");
+        }
+
+        &.RETAILOPENNEWDEPOSIT::before {
+            mask-image: url("../../assets/images/quick-links/RETAILOPENNEWDEPOSIT.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/RETAILOPENNEWDEPOSIT.svg");
+        }
+
+        &.redeem-deposit::before {
+            mask-image: url("../../assets/images/quick-links/cheque-book.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/cheque-book.svg");
+        }
+
+        &.change-maturity-instruction::before {
+            mask-image: url("../../assets/images/quick-links/cheque-book.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/cheque-book.svg");
+        }
+
+        &.RETAILRPCONTRACTINFO::before {
+            mask-image: url("../../assets/images/quick-links/RETAILRPCONTRACTINFO.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/RETAILRPCONTRACTINFO.svg");
+        }
+
+        &.RETAILRPEXISTINGCONTRACTINFO::before {
+            mask-image: url("../../assets/images/quick-links/RETAILRPEXISTINGCONTRACTINFO.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/RETAILRPEXISTINGCONTRACTINFO.svg");
+        }
+
+        &.RETAILRPOPENTERMDEPOSIT::before {
+            mask-image: url("../../assets/images/quick-links/RETAILRPOPENTERMDEPOSIT.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/RETAILRPOPENTERMDEPOSIT.svg");
+        }
+
+        &:is(.cheque-status-inquiry, .RETAILINQPDCCHQSTATUS, .RETAILINQCHQSTATUS)::before {
+            mask-image: url("../../assets/images/quick-links/cheque-status-inquiry.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/cheque-status-inquiry.svg");
+        }
+
+        &:is(.RETAILDCSUMMARY, .RETAILDCTRANSACTIONSUMMARY, .RETAILCCTRANSACTION, .RETAILPCTRANSACTIONHISTORY)::before {
+            mask-image: url("../../assets/images/quick-links/transaction-history.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/transaction-history.svg");
+        }
+
+        &:is(.RETAILDCLIMITS, .RETAILCCLIMITS, .RETAILPCLIMITS)::before {
+            mask-image: url("../../assets/images/quick-links/manage-card.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/manage-card.svg");
+        }
+
+        &:is(.RETAILDCREPLACE, .RETAILCCREPLACE)::before {
+            mask-image: url("../../assets/images/quick-links/dc-replace-card.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/dc-replace-card.svg");
+        }
+
+        &:is(.RETAILDCCANCEL, .RETAILCCRAISEDISPUTE)::before {
+            mask-image: url("../../assets/images/quick-links/cancel-card.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/cancel-card.svg");
+        }
+
+        &:is(.RETAILDCBLOCK, .RETAILDCUNBLOCK, .RETAILCCUNBLOCK, .RETAILPCUNBLOCK, .RETAILCCBLOCK, .RETAILCCBILLPAYMENT, .RETAILPREPAIDBLOCK)::before {
+            mask-image: url("../../assets/images/quick-links/block-card.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/block-card.svg");
+        }
+
+        &:is(.RETAILDCDETAILS, .RETAILCCDETAILS)::before {
+            mask-image: url("../../assets/images/quick-links/debit-card-details.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/debit-card-details.svg");
+        }
+
+        &:is(.RETAILCCREWARDS)::before {
+            mask-image: url("../../assets/images/quick-links/rewards.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/rewards.svg");
+        }
+
+        &:is(.RETAILAPPLYDEBITCARD, .RETAILAPPLYCREDITCARD, .RETAILDCACTIVATECARD)::before {
+            mask-image: url("../../assets/images/quick-links/upgrade-card.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/upgrade-card.svg");
+        }
+
+        &:is(.RETAILDCCHANGEPIN, .RETAILCCPINREQ, .RETAILPREPAIDCHANGEPIN)::before {
+            mask-image: url("../../assets/images/quick-links/change-pin.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/change-pin.svg");
+        }
+
+        &:is(.RETAILDCMOREMENU, .RETAILCCMOREMENU)::before {
+            mask-image: url("../../assets/images/quick-links/more-action.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/more-action.svg");
+        }
+
+        &:is(.RETAILLOANCLOSURE)::before {
+            mask-image: url("../../assets/images/quick-links/loan-closuree.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/loan-closuree.svg");
+        }
+
+        &:is(.send-money, .NPSSSENDCONTACT)::before {
+            mask-image: url("../../assets/images/quick-links/pay-money.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/pay-money.svg");
+        }
+
+        &:is(.RETAILTRANDOMESTIC)::before {
+            mask-image: url("../../assets/images/quick-links/domestic-transfer.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/domestic-transfer.svg");
+        }
+
+        &:is(.RETAILTRANSFERSOAT, .RETAILTRANSFERS)::before {
+            mask-image: url("../../assets/images/quick-links/self-transfer.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/self-transfer.svg");
+        }
+
+        &:is(.RETAILTRANSWIFT)::before {
+            mask-image: url("../../assets/images/quick-links/international-transfer.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/international-transfer.svg");
+        }
+
+        &:is(.RETAILTRANINSTA)::before {
+            mask-image: url("../../assets/images/quick-links/insta-pay.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/insta-pay.svg");
+        }
+
+        &:is(.RETAILTRANINTBT)::before {
+            mask-image: url("../../assets/images/quick-links/within-bank-transfer.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/within-bank-transfer.svg");
+        }
+
+        &:is(.add-beneficiary, .RETAILTRANADDBENE, .SELECTBENETYPE)::before {
+            mask-image: url("../../assets/images/quick-links/add-beneficiary.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/add-beneficiary.svg");
+        }
+
+        &:is(.RETAILMANAGEBENE)::before {
+            mask-image: url("../../assets/images/quick-links/view-beneficiary.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/view-beneficiary.svg");
+        }
+
+        &:is(.RETAILCCLIMITCHANGE)::before {
+            mask-image: url("../../assets/images/quick-links/limitchange.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/limitchange.svg");
+        }
+
+        &:is(.RETAILPCMOREMENU)::before {
+            mask-image: url("../../assets/images/quick-links/more-action.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/more-action.svg");
+        }
+
+        &:is(.RETAILPCTOPUP)::before {
+            mask-image: url("../../assets/images/quick-links/topup.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/topup.svg");
+        }
+
+        &:is(.RETAILPREPAIDWALLETTRAN)::before {
+            mask-image: url("../../assets/images/quick-links/wallet-transfer.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/wallet-transfer.svg");
+        }
+
+        &:is(.RETAILPCDETAILS)::before {
+            mask-image: url("../../assets/images/quick-links/prepaidcard-details.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/prepaidcard-details.svg");
+        }
+
+        &:is(.RETAILSERVICEADHOCREQ, .RETAILSERVICETRACKER, .RETAILSERVICEREQUESTLOG)::before {
+            mask-image: url("../../assets/images/quick-links/service-request-icon.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/service-request-icon.svg");
+        }
+
+        &:is(.RETAILADHOCACCSTMT)::before {
+            mask-image: url("../../assets/images/quick-links/adhoc-acc-stmt.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/adhoc-acc-stmt.svg");
+        }
+
+        &:is(.RETAILIBANLETTER)::before {
+            mask-image: url("../../assets/images/quick-links/iban-letter.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/iban-letter.svg");
+        }
+
+        &:is(.RETAILTAXSTMT)::before {
+            mask-image: url("../../assets/images/quick-links/vat-letter.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/vat-letter.svg");
+        }
+
+        &:is(.RETAILLIABILITY)::before {
+            mask-image: url("../../assets/images/quick-links/liability-letter.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/liability-letter.svg");
+        }
+
+        &:is(.RETAILNOLIABILITY)::before {
+            mask-image: url("../../assets/images/quick-links/no-liability-letter.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/no-liability-letter.svg");
+        }
+
+        &:is(.RETAILSRVREQBALCONFIRM)::before {
+            mask-image: url("../../assets/images/quick-links/balance-confirmation-letter.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/balance-confirmation-letter.svg");
+        }
+
+        &:is(.RETAILCATEGORYGROUPBILLER)::before {
+            mask-image: url("../../assets/images/quick-links/add-biller.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/add-biller.svg");
+        }
+
+        &:is(.RETAILSAVEDBILLER)::before {
+            mask-image: url("../../assets/images/quick-links/my-biller.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/my-biller.svg");
+        }
+
+        &:is(.pay-bills, .PAYMENTSSPACE, .RETAILBILLPAYMENTS)::before {
+            mask-image: url("../../assets/images/quick-links/pay-bill.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/pay-bills.svg");
+        }
+
+        &:is(.add-payee, .RETAILCATEGORYGROUPBILLER)::before {
+            mask-image: url("../../assets/images/quick-links/add-payee.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/add-payee.svg");
+        }
+
+        &:is(.add-payee, .RETAILLOANAPPLICATION)::before {
+            mask-image: url("../../assets/images/quick-links/new-loan.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/new-loan.svg");
+        }
+
+        &:is(.add-payee, .RETAILLOANCLOSURESIMULATION)::before {
+            mask-image: url("../../assets/images/quick-links/loan-closure-simulation.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/loan-closure-simulation.svg");
+        }
+
+        &.more::before {
+            mask-image: url("../../assets/images/quick-links/more.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/more.svg");
+        }
+
+        &:is(.RETAILSETTINGS)::before {
+            mask-image: url("../../assets/images/icons/settings.svg");
+            -webkit-mask-image: url("../../assets/images/icons/settings.svg");
+        }
+
+        &:is(.RETAILOTHERREQUEST)::before {
+            mask-image: url("../../assets/images/quick-links/other-request.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/other-request.svg");
+        }
+
+        &:is(.RETAILCHNGMATURITYINSTR)::before {
+            mask-image: url("../../assets/images/quick-links/RETAILCHNGMATURITYINSTR.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/RETAILCHNGMATURITYINSTR.svg");
+        }
+
+        &:is(.RETAILDELEGATESPACE)::before {
+            mask-image: url("../../assets/images/quick-links/delegate-management.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/delegate-management.svg");
+        }
+        &:is(.RETAILTRANMANAGEMENT)::before {
+            mask-image: url("../../assets/images/quick-links/transaction-management.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/transaction-management.svg");
+        }
+        &:is(.WORKFLOWMANAGEMENT)::before {
+            mask-image: url("../../assets/images/quick-links/workflow-management.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/workflow-management.svg");
+        }
+        &:is(.RETAILETRANSFERS){
+            background: url(../../assets/interac/interac-menu-ico.png) no-repeat center;
+            background-size: 40px;
+            background-color: #FFB92A !important;
+            &::before{
+                display: none;
+            }
+        }
+        &:is(.RETAILDEPOSIT)::before {
+            mask-image: url("../../assets/images/quick-links/RETAILACCOUNT.svg");
+            -webkit-mask-image: url("../../assets/images/quick-links/RETAILACCOUNT.svg");
+        }
+        &:is(.RETAILINVESTMENTTRANSUMMARY,.RETAILRPCONTRIBUTION,.RETAILLINKINVESTMENT )::before {
+            mask-image: url("../../assets/images/quick-links/RETAILINVESTMENTTRANSUMMARY.svg");
+        }
+    }
+}
+
+.quick-actions-inner {
+    display: flex;
+    flex-direction: column;
+
+    .actions-body {
+        position: relative;
+
+        ul.actions-list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            flex-wrap: wrap;
+            width: 100%;
+
+            @include not-small-screen {
+                --container-col-count: 5;
+            }
+
+            li {
+                --item-col-count: 3;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                align-items: center;
+                cursor: pointer;
+
+                @include not-small-screen {
+                    --item-col-count: 1;
+                }
+
+                .icon-wrapper {
+                    width: 48px;
+                    height: 48px;
+                    // border-radius: var(--quicklinksIcoBdrRadius);
+                    border-radius: unset;
+                    background-color: var(--quicklinksIcoBg);
+                    border: var(--quicklinksIcoBdr);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    @include not-small-screen {
+                        border: none;
+                    }
+
+                    &::before {
+                        background-color: var(--quicklinksIcoClr);
+                        border-radius: var(--quicklinksIcoBdrRadius);
+                    }
+
+                    img {
+                        width: 24px;
+                    }
+                }
+
+                .text {
+                    @include b3-medium;
+                    color: var(--quicklinksTxtClr);
+                    text-align: center;
+
+                    em {
+                        display: block;
+                    }
+
+                    @include not-small-screen {
+                        em {
+                            display: inline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.context-menu-body {
+    padding: 20px 16px;
+
+    .actions-list {
+        li {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+            --item-col-count: 4;
+
+            .text {
+                width: 90%;
+                @include b4-regular;
+            }
+
+            em {
+                display: block;
+            }
+        }
+
+        .icon-wrapper {
+            background-color: var(--primary500);
+
+            &::before {
+                content: " ";
+                width: 24px;
+                height: 24px;
+                background-color: var(--neutral50);
+                mask-repeat: no-repeat;
+                -webkit-mask-repeat: no-repeat;
+                mask-position: center;
+                -webkit-mask-position: center;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+
+                @include not-small-screen {
+                    background-color: var(--quicklinksIcoClr);
+                }
+            }
+        }
+    }
+
+    &:has(.divider) {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .divider {
+        display: flex;
+        align-items: center;
+
+        &::before,
+        &::after {
+            content: " ";
+            width: 100%;
+            height: 1px;
+            background-color: var(--neutral200);
+        }
+
+        .text {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 20px;
+            color: var(--neutral700);
+            padding: 0 30px;
+        }
+    }
+}
+
+.fpx-pop-up-content {
+    .context-menu-body {
+        padding-top: 0;
+    }
+}
+
+.contextual-actions {
+    .actions-body {
+        ul.actions-list {
+            li {
+                .icon-wrapper {
+                    &::before {
+                        content: " ";
+                        width: 24px;
+                        height: 24px;
+                        background-color: var(--quicklinksIcoClr);
+                        mask-repeat: no-repeat;
+                        -webkit-mask-repeat: no-repeat;
+                        mask-position: center;
+                        -webkit-mask-position: center;
+                        mask-size: 24px;
+                        -webkit-mask-size: 24px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+html:not(.small-screen) {
+    .context-menu-wrapper {
+        position: relative;
+        max-height: 180px;
+        z-index: 3;
+        padding-bottom: 24px;
+
+        header {
+            // margin-bottom: 16px;
+            @include s2-bold;
+            color: var(--neutral700);
+        }
+
+        .context-menu-body {
+            background-color: var(--neutral50);
+            box-shadow: 0px 0px 18px 0px #00000017;
+            border-radius: 8px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+
+            .actions-list {
+                --container-col-count: 5;
+
+                li {
+                    --item-col-count: 1;
+                    display: none;
+                    cursor: pointer;
+                    gap: 8px;
+                    padding: 6px;
+                    border: 1px solid transparent;
+
+                    .icon-wrapper {
+                        background-color: transparent;
+                        height: 28px;
+
+                        // &::before{
+                        //     background-color: var(--systemIconClr);
+                        // }
+                    }
+
+                    .text {
+                        @include b3-medium;
+                        color: var(--quicklinksTxtClr);
+                    }
+
+                    &:nth-child(-n+5) {
+                        display: flex;
+                    }
+
+                    &.active {
+                        border: 1px solid var(--primary500);
+                        border-radius: 8px;
+                        background-color: var(--primary50);
+                    }
+                }
+
+                &.show-more {
+                    li {
+                        display: flex;
+                    }
+
+                    &+button {
+                        &::after {
+                            transform: rotateZ(180deg);
+                        }
+                    }
+                }
+            }
+
+            .expander {
+                cursor: pointer;
+                position: absolute;
+                left: calc(50% - 49px);
+                bottom: -16px;
+                width: 98px;
+                height: 18px;
+                background: url(../../assets/images/quick-links/expander.svg) no-repeat center transparent;
+
+                span {
+                    display: none;
+                }
+
+                &::after {
+                    content: " ";
+                    position: absolute;
+                    width: 24px;
+                    height: 24px;
+                    background-color: var(--secondary500);
+                    mask: url("../../assets/images/quick-links/expander-arrow.svg") no-repeat center;
+                    -webkit-mask: url("../../assets/images/quick-links/expander-arrow.svg") no-repeat center;
+                    mask-size: 16px;
+                    -webkit-mask-size: 16px;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 2px;
+                    margin: auto;
+                    transition: all 0.5s;
+                }
+
+                &.expanted:after {
+                    transform: rotateZ(180deg);
+                }
+            }
+        }
+
+    }
+
+}
+
+.quick-action-menu-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 2;
+}

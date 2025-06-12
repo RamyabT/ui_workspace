@@ -1,0 +1,5 @@
+ 
+ "RETAILWALLETREQMONEY" : {
+ "servicePath": ["entry-shell","wallet", "retail-wallet-req-money"],
+ "queryParams": {}
+ }

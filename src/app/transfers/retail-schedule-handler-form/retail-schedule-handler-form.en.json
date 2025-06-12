@@ -1,0 +1,15 @@
+"RetailScheduleTransferHandler":{
+"title":"RetailScheduleTransferHandler",
+		 "paymentFrequency": {
+		  "label":"Frequency" ,
+		  "placeholder": "Frequency"
+		  } ,
+		 "numberOfPayments": {
+		  "label":"Installment Number" ,
+		  "placeholder": "Installment Number"
+		  } ,
+		 "endDate": {
+		  "label":"End Date" ,
+		  "placeholder": "End Date"
+		  } 
+}

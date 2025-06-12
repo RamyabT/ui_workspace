@@ -1,0 +1,43 @@
+<box class="grid transaction-container">
+    <box class="casa-transactions-grid-wrapper col-12">
+        <box class="casa-transactions-grid-header">
+            <span class="title">{{'viewLoanDisclosureForm.title' | translate }}</span>
+            <box class="tool-bar">
+                <button
+                *ngIf="_viewLoanDisclosureFormHelper.showClearButton && !_viewLoanDisclosureFormHelper.deviceDetectorService.isMobile()"
+                class="clear-filter" (click)="_viewLoanDisclosureFormHelper.clearFilter()">Clear Filter</button>
+                <fpx-button btnType="button" btnClass="system-ico-button no-text filter" label="filter"
+                [ngClass]="{'active-filter' : _viewLoanDisclosureFormHelper.showClearButton}"
+                    (onClick)="_viewLoanDisclosureFormHelper.filter()"></fpx-button>
+            </box>
+        </box>
+        <box class="mobile-clear-filter"
+        *ngIf="_viewLoanDisclosureFormHelper.showClearButton && _viewLoanDisclosureFormHelper.deviceDetectorService.isMobile()">
+        <button class="clear-filter" (click)="_viewLoanDisclosureFormHelper.clearFilter()">Clear Filter</button>
+    </box>
+
+        <box >  
+            <ng-container *ngIf="!(this.state.formValues?.dateFrom && this.state.formValues?.dateTo); else filterDate">
+                <span [hidden]="_helper.totalRecordCount == 0" class="sub-header">{{'viewLoanDisclosureForm.subData' | translate }}</span>
+            </ng-container>
+            <ng-template  #filterDate>
+                <span [hidden]="_helper.totalRecordCount == 0" class="sub-header">{{this.state.formValues?.formatdateFrom}}-{{this.state.formValues?.formatdateTo}}</span>
+            </ng-template>
+        </box>
+
+        <app-retail-loan-disclosure-display-grid [actionPublisher]="state.transactionsListRoGrid"
+            (commonRoGridEvent)="_helper.loanDisclosureGridEvent($event)"></app-retail-loan-disclosure-display-grid>
+    </box>
+
+    <ng-container
+        *ngIf="_helper.loanDisclosureApiReceived && (_helper.totalRecordCount == 0 || _helper.totalRecordCount == null)">
+        <box class="no-data-view">
+            <img class="no-result-image" src="./assets/images/transfers/no-schedule-transfer.svg" alt="no transactions available">
+            <box class="no-data-desc">
+                <ng-container>
+                    {{ 'viewLoanDisclosureForm.noDocument' | translate }}
+                </ng-container>
+            </box>    
+        </box>
+    </ng-container>
+</box>

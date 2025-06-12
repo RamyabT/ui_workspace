@@ -1,0 +1,108 @@
+<box class="tab-container-inner">
+    <ng-container *ngIf="loanAccounts; else loader">
+        <ng-container *ngIf="loanAccounts.length; else noLoan">
+            <ng-container *ngIf="device.isMobile(); else listView">
+                <box class="carousel-view-all-wrapper">
+                    <loan-summary-card-carousel *ngIf="showCard" [summary]="loanAccounts"
+                        (onSelectCard)="onSelectCard($event)"></loan-summary-card-carousel>
+                    <box [ngClass]="{'hide-view-all' : loanAccounts.length == 1}" class="view-all-button-wrapper">
+                        <button type="button" class="view-btn" (click)="viewAll()">
+                            View All
+                        </button>
+                    </box>
+                </box>
+            </ng-container>
+            <ng-template #listView>
+                <ul class="casa-account-list">
+                    <ng-container *ngFor="let loan of loanAccounts">
+                        <li class="casa-account-list-item">
+                            <box class="casa-account loan-account">
+                                <box class="acc-primary-info">
+                                    <span class="acc-type">{{ loan.productDesc }}</span>
+                                    <span class="acc-number">{{ loan.loanAccountNumber }}</span>
+                                </box>
+                                <box class="acc-secondary-info">
+                                    <span class="lbl">{{ 'LOANSUMMARYCARD.loanAmount' | translate }}</span>
+                                    <span class="amount">{{ loan.loanAmount | currency : loan.currency : ''}} <em>{{ loan.currency }}</em></span>
+                                </box>
+                            </box>
+                        </li>
+                        <hr />
+                    </ng-container>
+                </ul>
+            </ng-template>
+        </ng-container>
+    </ng-container>
+
+    <box class="tab-main-content">
+        <ng-container *ngIf="device.isMobile()">
+            <!-- <box class="accounts-insights-container" *ngIf="chartData; else loader">
+                <ng-container *ngIf="chartData.length; else noInsights">
+                    <app-accounts-insights [chartData]="chartData"></app-accounts-insights>
+                </ng-container>
+            </box> -->
+            <!-- <ng-container *ngIf="quickMenus && quickMenus.length"> -->
+                <loan-contextual-actions [cardData]="currentCard" [quickLinks]="quickMenus" [accountNumber]="this.accountNumber"></loan-contextual-actions>
+            <!-- </ng-container> -->
+        </ng-container>
+        <ng-container *ngIf="!appConstants.requiredAccountsSpaceNavigation && cardReady">
+            <app-view-loan-transaction-form></app-view-loan-transaction-form>
+        </ng-container>
+        <ng-container  *ngIf="appConstants.requiredAccountsSpaceNavigation && !device.isMobile() && loanAccounts.length > 0">
+            
+            <box class="upcoming-instalment widget goals">
+                <header>
+                    <span class="widget-title">{{ 'LOANTABCONTAINER.widget.title' | translate }}</span>
+                </header>
+            
+                <box class="widget-body">
+                    <box class="instalment-group">
+                        <box class="instalment-desc">
+                            <box class="instalment-title">{{ 'LOANTABCONTAINER.instalment.title' | translate }}</box>
+                            <box class="instalment-amount">{{ 'LOANTABCONTAINER.instalment.amount' | translate }}</box>
+                        </box>
+                    </box>
+                    <box class="instalment-date">Feb 21</box>
+                </box>
+            </box>
+        </ng-container>
+        <ng-container *ngIf="appConstants.requiredAccountsSpaceNavigation">
+            <box class="offers-widget">
+                <banner-ads [serviceCode]="serviceCode"></banner-ads>
+            </box>
+        </ng-container>
+    </box>
+</box>
+
+<!-- Content loader -->
+<ng-template #loader>
+    <box class="loading casa-summary-loader"></box>
+</ng-template>
+
+<ng-template #noLoan>
+    <ng-container *ngIf="device.isMobile()">
+        <box class="no-account-tmplt no-casa-tmplt">
+            <box class="left-section">
+                <span class="no-result-desc">You have no Active Loans!</span>
+                <!-- <button type="button" class="no-result-btn">Apply</button> -->
+            </box>
+            <box class="right-section">
+                <img src="./assets/illustrations/no-loan.svg" alt="create an account" />
+            </box>
+        </box>
+    </ng-container>
+</ng-template>
+<ng-template #noInsights>
+    <box class="no-insights-tmplt">
+        <box class="header">
+            <span class="name">Savings Account</span>
+        </box>
+        <box class="desc">Get 7.75% pa on your intrest on you savings account balance</box>
+        <box class="benefit-points">
+            <span class="benefit-desc">Safe and risk-free Investment</span>
+            <span class="benefit-desc">No pre-closure penalty for seniors</span>
+            <span class="benefit-desc">Monthly and Quarterly interest payouts</span>
+        </box>
+    </box>
+</ng-template>
+

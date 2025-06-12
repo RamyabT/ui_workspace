@@ -1,0 +1,72 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailBeneInternalForm">
+
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-12">
+
+
+			<!-- <app-confirm-internal-account-number-control appBlockCopyPaste class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('accountNumber')"
+				label="{{'RetailBeneInternalForm.accountNumber.label' | translate }}" formControlName="accountNumber"
+				[visiblityChange]="state.visibilityChange"
+				[autoComplete]="state.autoComplete"
+				[changePublisher]="formChangePublisher$"></app-confirm-internal-account-number-control> -->
+
+
+			<app-internal-account-number-control appNumberOnly class="col-sm-12 col-md-6 col-lg-4"
+				[actionPublisher]="actionMap$.get('confirmAccountNumber')"
+				label="{{'RetailBeneInternalForm.confirmAccountNumber.label' | translate }}"
+				formControlName="confirmAccountNumber" (commonControlEvent)="handleControlEvent($event)"
+				[dependencyField]="['serviceCodeVaribale']"></app-internal-account-number-control>
+
+			<app-bene-nickname-control class="col-sm-12 col-md-6 col-lg-4"
+				[actionPublisher]="actionMap$.get('nickName')"
+				label="{{'RetailBeneInternalForm.nickName.label' | translate }}" formControlName="nickName"
+				[changePublisher]="formChangePublisher$"></app-bene-nickname-control>
+
+		</box>
+
+
+
+		<!-- <box class="grid entry-form-field-group display-controls-container col-sm-12 col-md-12 col-lg-12" #bankDetails
+			[actionPublisher]="actionMap$.get('bankDetails')">
+
+			<app-bene-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('beneficiaryName')"
+				label="{{'RetailBeneInternalForm.beneficiaryName.label' | translate }}"
+				formControlName="beneficiaryName"></app-bene-name-control>
+
+
+			<app-currency-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('accountCurrency')"
+				label="{{'RetailBeneInternalForm.accountCurrency.label' | translate }}"
+				formControlName="accountCurrency"></app-currency-list-control>
+		</box> -->
+
+		<!-- <box class="grid entry-form-field-group col-sm-12 col-md-12 col-lg-12" #beneDetails [actionPublisher]="actionMap$.get('beneDetails')">
+
+
+			<app-is-favourite-control class="col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('isFavourite')"
+			label="{{'RetailBeneInternalForm.isFavourite.label' | translate }}" formControlName="isFavourite"
+			placeholder="{{'RetailBeneInternalForm.isFavourite.placeholder' | translate }}"
+			[textPosition]="state.isFavourite.textPosition" [ckValues]="state.isFavourite.ckValues"></app-is-favourite-control>
+
+
+
+		    <app-remarks-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('remarks')"
+			label="{{'RetailBeneInternalForm.remarks.label' | translate }}"
+			formControlName="remarks"></app-remarks-control>
+	    </box> -->
+
+		<!-- 
+	    <box class="group disclaimer-box col-sm-12 col-md-12 col-lg-12"  #termsDetails [actionPublisher]="actionMap$.get('termsDetails')">
+
+			
+		    <app-terms-control class="col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('terms')"
+			label="{{'RetailBeneInternalForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+			placeholder="{{'RetailBeneInternalForm.terms.placeholder' | translate }}"
+			[textPosition]="state.terms.textPosition" [ckValues]="state.terms.ckValues">
+		</app-terms-control>
+        <fpx-display-text class="disclaimer-txt"
+			[innerHTML]="'Disclaimer: Lorem Ipsum content needs to be shared by the team'"></fpx-display-text>
+        </box> -->
+	</box>
+</form>

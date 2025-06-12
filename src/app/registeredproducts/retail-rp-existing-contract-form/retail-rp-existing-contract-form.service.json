@@ -1,0 +1,5 @@
+ 
+ "RETAILRPEXISTINGCONTRACT" : {
+ "servicePath": ["entry-shell","deposits", "retail-rp-existing-contract-form"],
+ "queryParams": {}
+ }

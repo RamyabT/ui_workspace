@@ -1,0 +1,5 @@
+ 
+ "RETAILCCSTATEMENT" : {
+ "servicePath": ["display-shell","edocuments", "RetailVisaEStatement"],
+ "queryParams": {}
+ }

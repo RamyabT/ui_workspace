@@ -1,0 +1,53 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailCCPinrequestForm">
+
+	<box class="entry-form desktop-entry-form">
+
+		<ng-container *ngIf="state.cardData && device.isMobile()">
+			<creditcard class="col-12" [cardData]="state.cardData" [formView]="true"></creditcard>
+		</ng-container>
+
+		<ng-container *ngIf="state.isCardPendingActivation">
+			<box class="col-sm-12 activate-cc-container">
+				<box class="icon-power-button"></box>
+
+				<box class="main-title">{{ 'RetailCCPinrequestForm.activateCard.title' | translate }}</box>
+				<box class="message">
+					<p>{{ 'RetailCCPinrequestForm.activateCard.message1' | translate }} {{ state.cardData.creditCardNumber.slice(-4) }} {{ 'RetailCCPinrequestForm.activateCard.message2' | translate }} </p>
+					<p>{{ 'RetailCCPinrequestForm.activateCard.instructions' | translate }}</p>
+				</box>
+				<fpx-button btn-type="button" btnClass="btn-primary"
+				label="{{'RetailCCPinrequestForm.activateCard.buttonLabel' | translate}}" (onClick)="_helper.redirectToCardActivation()"></fpx-button>  
+			</box>
+		</ng-container>
+
+		<ng-container *ngIf="!state.isCardPendingActivation">
+			<box class="payee-info-header">
+				<box class="intro-container">
+					<span class="header">{{ 'RetailCCPinrequestForm.createNewPin.label' | translate }} {{ state.cardData.creditCardNumber }}</span>
+				</box>
+			</box>
+			<box class="biller-group col-sm-12">
+				<app-credit-pin-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('pin')"
+					label="{{'RetailCCPinrequestForm.pin.label' | translate }}"
+					formControlName="pin"></app-credit-pin-control>
+
+				<app-cc-reenter-pin-control class="col-sm-12 col-md-6 col-lg-12"
+					[actionPublisher]="actionMap$.get('reEnterNewPin')"
+					label="{{'RetailCCPinrequestForm.reEnterNewPin.label' | translate }}"
+					formControlName="reEnterNewPin"></app-cc-reenter-pin-control>	
+
+				<ul>
+					<li class="list-item">
+						<fpx-label label="{{'RetailCCPinrequestForm.instructions1.label' | translate}}"></fpx-label>
+					</li>
+					<li class="list-item">
+						<fpx-label label="{{'RetailCCPinrequestForm.instructions2.label' | translate}}"></fpx-label>
+					</li>
+					<li class="list-item">
+						<fpx-label label="{{'RetailCCPinrequestForm.instructions3.label' | translate}}"></fpx-label>
+					</li>
+				</ul>
+			</box>
+		</ng-container>
+	</box>
+</form>

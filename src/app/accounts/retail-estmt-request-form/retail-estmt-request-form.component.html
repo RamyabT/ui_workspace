@@ -1,0 +1,112 @@
+<box *ngIf="_helper.showForm; else notRegisterd">
+  <form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailEstmtRequestForm"
+    [ngClass]="{'form-loading' : !_helper.dataLoaded}">
+
+    <box class="entry-form">
+      <box class="grid entry-form-field-group">
+
+        <box class="title-wrapper" *ngIf="_helper.device.isMobile()">
+          <box class="close-btn-container">
+            <button type="button" class="btn-container log-out-btn" (click)="_helper.close()">
+              <span class="icon close-btn-icon"></span>
+            </button>
+          </box>
+
+          <box class="title">
+            Register eStatement
+          </box>
+        </box>
+
+        <box class="grid" [ngClass]="{'mobile-container' : _helper.device.isMobile()}">
+          <box class="relationship-table">
+            <ng-container *ngFor="let relationship of _helper.userRelationshipDetails?.relationship">
+
+              <box class="relationship-wrapper">
+                <box class="relationship-title">
+                  <span>
+                    {{relationship.relationshipCode}}
+                  </span>
+                </box>
+                <box class="relationship-details">
+                  <table>
+                    <tr class="title">
+                      <th class="product-name">
+                        <span> {{'RetailEstmtRequestForm.relationship.productName' | translate}}</span>
+                      </th>
+                      <th><span> {{'RetailEstmtRequestForm.relationship.accountNumber' | translate}}</span>
+                      </th>
+                    </tr>
+                    <tr *ngFor="let detail of relationship.accounts" class="details">
+                      <td class="product-desc">
+                        <span>{{detail.productDesc}}</span>
+                      </td>
+                      <td>
+                        <span> {{detail.accountNumber}}</span>
+                      </td>
+                    </tr>
+                  </table>
+                </box>
+              </box>
+            </ng-container>
+          </box>
+
+
+
+          <box class="email-wrapper col-sm-12 col-md-12 col-lg-12">
+            <app-email-control [actionPublisher]="actionMap$.get('email')"
+              label="{{ 'RetailEstmtRequestForm.email.label' | translate }}"
+              formControlName="email"></app-email-control>
+
+            <box class="edit-btn-container">
+              <button type="button" class="btn-container edit-btn">
+                <span class="icon edit-btn-icon"></span>
+                <span class="btn-text">{{'RetailEstmtRequestForm.email.edit' | translate}}</span>
+              </button>
+            </box>
+
+          </box>
+
+          <box class="line-divider"></box>
+
+            <app-statement-mode-control class="col-sm-12 col-md-12 col-lg-12"
+              [actionPublisher]="actionMap$.get('action')"
+              label="{{ 'RetailEstmtRequestForm.action.' + _helper.lblName | translate }}"
+              formControlName="action"></app-statement-mode-control>
+
+          <box class="note">
+            <span>
+              {{'RetailEstmtRequestForm.noteText' | translate}}
+            </span>
+          </box>
+
+          <box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-4 grid main-group disclaimer-box">
+            <app-terms-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('termsFlag')"
+              label="{{ 'RetailEstmtRequestForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+              [textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+          </box>
+        </box>
+      </box>
+
+    </box>
+
+  </form>
+
+  <box *ngIf="!_helper.dataLoaded">
+    <box class="skeleton-loader register-estmt-loader-primary"></box>
+    <box class="skeleton-loader register-estmt-loader-secondary"></box>
+  </box>
+</box>
+
+<ng-template #notRegisterd>
+  <box class="no-data-container">
+    <box class="no-data">
+      <img src="./assets/images/icons/no-estatements.svg" alt="no-statements">
+      <span class="primary-msg">{{'RetailEstmtRequestForm.noData.primaryMsg' | translate}}</span>
+      <span class="secondary-msg">{{'RetailEstmtRequestForm.noData.secondaryMsg' | translate}}</span>
+    </box>
+
+    <box *ngIf="_helper.userRelationshipDetails" class="footer-btn">
+      <button type="button" class="btn-primary" (click)="_helper.register()">Register eStatement</button>
+    </box>
+  </box>
+</ng-template>

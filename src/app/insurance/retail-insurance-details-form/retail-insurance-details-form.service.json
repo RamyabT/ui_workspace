@@ -1,0 +1,5 @@
+ 
+ "RETAILINSURANCEDTL" : {
+ "servicePath": ["entry-shell","insurance", "retail-insurance-details-form"],
+ "queryParams": {}
+ }

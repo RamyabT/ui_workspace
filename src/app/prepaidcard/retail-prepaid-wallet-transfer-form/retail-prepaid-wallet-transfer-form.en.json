@@ -1,0 +1,35 @@
+"RetailPrepaidWalletTransferForm":{
+"title":"Multi Currency Wallets Transfer",
+		 "cardRefNumber": {
+		  "label":"Prepaid Card" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "fromCurrency": {
+		  "label":"From Currency " ,
+		  "placeholder": "From Currency "
+		  } ,
+		 "toCurrency": {
+		  "label":"To Currency " ,
+		  "placeholder": "To Currency "
+		  } ,
+		 "paymentAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "paymentCurrency": {
+		  "label":"Transaction Currency " ,
+		  "placeholder": "Transaction Currency "
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "charges": {
+		  "label":"Charges" ,
+		  "placeholder": "Charges"
+		  } ,
+		 "cbxrTerms": {
+		  "label":"By continuing you confirm and acknowledge the applicable terms and conditions." ,
+		  "placeholder": "Placeholder"
+		  } 
+}

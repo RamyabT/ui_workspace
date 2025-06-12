@@ -1,0 +1,30 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="WalletRequestMoneyConfirmationForm">
+
+	<box class="entry-form">
+
+		<box class="dep-confirmation" [hidden]="state.isResultMode">
+			<box class="alert-title">Are you sure to decline this request?</box>
+			<ng-container *ngIf="state.isDecline">
+					<app-remarks-control  class="col-sm-12 col-md-12 col-lg-12"   [actionPublisher]="actionMap$.get('feedBackComments')"  placeholder="Remarks" formControlName="feedBackComments" 
+			></app-remarks-control>
+			</ng-container>
+
+			<box class="alert-footer">
+				<!-- <ng-container *ngIf="!state.isDecline"> -->
+				<div class="btn-container">
+					<button type="button" class="btn-secondary" (click)="_helper.onDecline()"> No </button>
+					<button [disabled]="formGroup.invalid" type="button" class="btn-primary"
+						(click)="_helper.onAccept()"> Yes </button>
+				</div>
+			<!-- </ng-container> -->
+			<!-- <ng-container *ngIf="state.isDecline">
+				<div class="btn-container">
+					<button type="button" class="btn-secondary" (click)="_helper.onDecline()"> No </button>
+					<button [disabled]="formGroup.invalid" type="button" class="btn-primary"
+						(click)="_helper.onSubmit()"> Submit </button>
+				</div>
+			</ng-container> -->
+			</box>
+		</box>
+	</box>
+</form>

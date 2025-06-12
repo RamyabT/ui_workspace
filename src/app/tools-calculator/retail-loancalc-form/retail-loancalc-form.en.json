@@ -1,0 +1,35 @@
+"RetailLoanCalcForm":{
+"title":"RetailLoanCalcForm",
+		"loanProductType": {
+		"label":"Loan Type" ,
+		"placeholder": "Loan Type"
+		  } ,
+		 "loanType": {
+		  "label":"Loan Type" ,
+		  "placeholder": "Loan Type"
+		  } ,
+		 "tenure": {
+		  "label":"Loan Duration" ,
+		  "placeholder": "Loan Duration"
+		  } ,
+		 "requestDate": {
+		  "label":"Disbursement Date" ,
+		  "placeholder": "Disbursement Date"
+		  } ,
+		 "loanAmount": {
+		  "label":"Loan Amount" ,
+		  "placeholder": "Loan Amount"
+		  } ,
+		 "downPaymentAmount": {
+		  "label":"Down Payment Amount" ,
+		  "placeholder": "Down Payment Amount"
+		  } ,
+		 "vehicleCost": {
+		  "label":"Vehicle Cost" ,
+		  "placeholder": "Vehicle Cost"
+		  } ,
+		 "propertyValue": {
+		  "label":"Property Value" ,
+		  "placeholder": "Property Value"
+		  } 
+}

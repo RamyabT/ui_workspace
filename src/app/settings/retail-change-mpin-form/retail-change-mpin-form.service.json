@@ -1,0 +1,5 @@
+ 
+ "RETAILCHANGEMPIN" : {
+ "servicePath": ["entry-shell","settings", "retail-change-mpin-form"],
+ "queryParams": {}
+ }

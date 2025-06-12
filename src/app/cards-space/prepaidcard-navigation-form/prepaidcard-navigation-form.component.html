@@ -1,0 +1,6 @@
+<form [formGroup]="formGroup" autocomplete="off" formName="casa-navigation-form" class="casa-navigation-form">
+    <box class="entry-form">
+        <app-prepaidcard-dtl-list-control class="col-12" [selectableDataList]="state.prepaidcards" formControlName="cardRefNumber"></app-prepaidcard-dtl-list-control>
+        <app-prepaidcard-context-menu class="col-12 widget quick-link" [cardData]="state.currentCard" ></app-prepaidcard-context-menu>
+    </box>
+</form>

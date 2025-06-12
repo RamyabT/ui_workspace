@@ -1,0 +1,31 @@
+"dcpinrequest":{
+"title":"Set/Change PIN",
+		 "cardReference": {
+		  "label":"Debit Card Number" ,
+		  "placeholder": "Debit Card Number"
+		  } ,
+		 "confirmPin": {
+		  "label":"Current Pin" ,
+		  "placeholder": "Current Pin"
+		  } ,
+		 "pin": {
+		  "label":"Enter New Pin" ,
+		  "placeholder": "Enter New Pin"
+		  } ,
+		 "reenteredPin": {
+		  "label":"Confirm New PIN" ,
+		  "placeholder": "Confirm New PIN"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"I hereby agree with the terms and conditions and key facts statements." ,
+		  "placeholder": "I hereby agree with the terms and conditions and key facts statements."
+		  } ,
+		 "inventoryNumber": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } 
+}

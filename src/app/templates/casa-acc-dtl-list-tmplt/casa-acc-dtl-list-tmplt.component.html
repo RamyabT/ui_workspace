@@ -1,0 +1,214 @@
+<ng-container *ngIf="selectedData && selectedData?.accountNumber">
+    <box class="account-information">
+        
+         <!-- <box  (click)="viewAllLinks()">
+            <span class="link-accounts-text" >Link account</span>
+          </box>   -->
+            
+
+        <box *ngIf="casaAccounts.length > 1" class="all-accounts-btn" (click)="viewAll()"  [ngClass]="{ 'no-access-scope':!('RETAILOPENNEWCASA' | AccessScope)}">
+            <span class="all-accounts-text font-14-20">{{'EverydayBanking.allAccounts' | translate}}</span>
+        </box>
+
+        <box class="acc-primary-information">
+            <box class="pay-from">{{payFromLabel}}</box>
+            <box class="account-type-number-section">
+                <box class="acc-dtl-balance-section">
+                    <box class="acc-type-number-wrapper">
+                        <span class="acc-type">{{selectedData.accountNickname || selectedData.productDesc }} </span>
+                        <!-- <span class="product-name"> {{ selectedData?.accountNumber }}</span> -->
+
+                        <box class="product-details">
+                            <box class="account-type">{{ selectedData.accountTypeDesc.replace(' Account', '') }}
+                            </box>
+                            <box class="seperator"></box>
+                            <box class="account-number">{{ selectedData?.accountNumber | accountNumberTrim }}</box>
+                        </box>
+
+                        <box class="tag-wrapper">
+                            <span class="joint-tag"
+                                *ngIf="selectedData.ownership?.toLowerCase() == 'joint'">{{selectedData.ownership |
+                                titlecase}}</span>
+
+                            <span class="dormant-tag"
+                                *ngIf="selectedData.accountStatus?.toLowerCase() == 'dormant'">{{selectedData.accountStatus
+                                | titlecase }}
+                                <span class="dormant-info" (mouseenter)="showDormantInfoDesktop($event)"
+                                    (mouseleave)="showDormantInfoDesktop($event)">
+                                    <span *ngIf="showTooltip" class="tooltip-text">{{dormantInfo |
+                                        translate}}</span>
+                                </span>
+                            </span>
+
+                        </box>
+                    </box>
+                    <box class="balance-wrapper">
+                        <box class="balance-details">
+                            <box class="balance-tooltip">
+                                <span class="balance-label">{{'CASASUMMARYCARD.available' | translate}}</span>
+                            <box class="tag-wrapper">
+                                <span class="dormant-tag"> 
+                                    <span class="dormant-info" (mouseenter)="showAvailableBalanceInfoDesktop($event)"
+                                    (mouseleave)="showAvailableBalanceInfoDesktop($event)">
+                                        <span *ngIf="availableTooltip" class="tooltip-text">{{'CASASUMMARYCARD.availableDormant' | translate}}</span>
+                                    </span> 
+                                </span>
+                            </box>
+
+                            </box>
+                            
+
+                            <ng-container
+                                *ngIf="selectedData.accountCurrency != _appConfig.baseCurrency else avlBaseCurrency">
+                                <box class="balance-val">
+                                    <box class="amount balance-amount-usd">
+                                        <em class="usd">{{ 'SUFFIXCURRENCY' |
+                                            currencyCode }}</em>
+                                        {{getAbsoluteValue(selectedData.availableBalance) | currency
+                                        :
+                                        selectedData.accountCurrency : '' }}
+                                        <em>{{ selectedData.accountCurrency == 'USD' ? '$' :
+                                            selectedData.accountCurrency |
+                                            currencyCode }}</em>
+                                        {{checkNegativeValue(selectedData.availableBalance)}}
+                                    </box>
+                                    <!-- <box class="amount balance-amount-cad">{{
+                                        getAbsoluteValue(selectedData.baseCurrencyAvlBal) | currency
+                                        :
+                                        _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                                            }}</em>
+                                        {{checkNegativeValue(selectedData.baseCurrencyAvlBal)}}
+                                    </box> -->
+                                </box>
+                            </ng-container>
+                            <ng-template #avlBaseCurrency>
+                                <box class="amount balance-amount-cad">{{
+                                    getAbsoluteValue(selectedData.availableBalance) | currency :
+                                    selectedData.accountCurrency : '' }} <em>{{ selectedData.accountCurrency |
+                                        currencyCode }}</em>
+                                    {{checkNegativeValue(selectedData.availableBalance)}}
+                                </box>
+                            </ng-template>
+
+                        </box>
+
+                        <box class="balance-details">
+                            <box class="balance-tooltip">
+                            <span class="balance-label">{{'CASASUMMARYCARD.actual' | translate}}</span>
+                            <box class="tag-wrapper">
+                                <span class="dormant-tag"> 
+                                    <span class="dormant-info" (mouseenter)="showCurrentInfoDesktop($event)"
+                                    (mouseleave)="showCurrentInfoDesktop($event)">
+                                        <span *ngIf="currentTooltip" class="tooltip-text">{{'CASASUMMARYCARD.currentDormant' | translate}}</span>
+                                    </span> 
+                                </span>
+                            </box>
+                        </box>
+
+                            <ng-container
+                                *ngIf="selectedData.accountCurrency != _appConfig.baseCurrency else curBaseCurrency">
+                                <box class="balance-val">
+                                    <box class="amount balance-amount-usd">
+                                        <em class="usd">{{ 'SUFFIXCURRENCY' |
+                                            currencyCode }}</em>
+                                        {{ getAbsoluteValue(selectedData.currentBalance) | currency :
+                                        selectedData.accountCurrency : '' }}
+                                        <em>{{ selectedData.accountCurrency == 'USD' ? '$' :
+                                            selectedData.accountCurrency |
+                                            currencyCode }}</em>
+                                        {{checkNegativeValue(selectedData.currentBalance)}}
+                                    </box>
+                                    <!-- <box class="amount balance-amount-cad">{{
+                                        getAbsoluteValue(selectedData.baseCurrencyCurrentBal) |
+                                        currency
+                                        :
+                                        _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                                            }}</em>
+                                        {{checkNegativeValue(selectedData.baseCurrencyCurrentBal)}}
+                                    </box> -->
+                                </box>
+                            </ng-container>
+                            <ng-template #curBaseCurrency>
+                                <box class="amount balance-amount-cad">{{ getAbsoluteValue(selectedData.currentBalance)
+                                    | currency :
+                                    selectedData.accountCurrency : '' }} <em>{{ selectedData.accountCurrency |
+                                        currencyCode }}</em>
+                                    {{checkNegativeValue(selectedData.currentBalance)}}
+                                </box>
+                            </ng-template>
+
+                        </box>
+
+                        <box class="balance-details">
+                            <box class="balance-tooltip">
+                            <span class="balance-label">{{'CASASUMMARYCARD.hold' | translate}}</span>
+                            <box class="tag-wrapper">
+                                <span class="dormant-tag"> 
+                                    <span class="dormant-info" (mouseenter)="showHoldInfoDesktop($event)"
+                                    (mouseleave)="showHoldInfoDesktop($event)">
+                                        <span *ngIf="holdTooltip" class="tooltip-text">{{'CASASUMMARYCARD.holdDormant' | translate}}</span>
+                                    </span> 
+                                </span>
+                            </box>
+                        </box>
+
+                            <ng-container
+                                *ngIf="selectedData.accountCurrency != _appConfig.baseCurrency else baseCurrencyHold">
+                                <box class="balance-val">
+                                    <box class="amount balance-amount-usd">
+                                        <em class="usd">{{ 'SUFFIXCURRENCY' |
+                                            currencyCode }}</em>
+                                        {{ getAbsoluteValue(holdBalance || 0.00) | currency :
+                                        selectedData.accountCurrency : '' }}
+                                        <em>{{ selectedData.accountCurrency == 'USD' ? '$' :
+                                            selectedData.accountCurrency |
+                                            currencyCode }}</em>
+                                        {{checkNegativeValue(holdBalance)}}
+                                    </box>
+                                </box>
+                            </ng-container>
+                            <ng-template #baseCurrencyHold>
+                                <box class="amount balance-amount-cad">{{ getAbsoluteValue(holdBalance || 0.00) |
+                                    currency :
+                                    selectedData.accountCurrency : '' }} <em>{{ selectedData.accountCurrency |
+                                        currencyCode }}</em>
+                                    {{checkNegativeValue(holdBalance)}}
+                                </box>
+                            </ng-template>
+
+                        </box>
+                    </box>
+                </box>
+
+            </box>
+        </box>
+    </box>
+</ng-container>
+<!--
+{
+    "country": "AE",
+    "accountName": "VanjimuthuUthaman",
+    "mobileNumber": "9715076540",
+    "accountType": "SBA",
+    "accountCurrency": "AED",
+    "statementFrequency": "1",
+    "customerCode": "6110104",
+    "holdBalance": 0,
+    "accountNumber": "611010478",
+    "accountTypeDesc": "Savings Account",
+    "branchDesc": "UMM AL QAIWAN",
+    "availableBalance": 49901180.15,
+    "accountStatus": "Active",
+    "branchCode": "10001",
+    "productDesc": "Savings Account",
+    "productCode": "202",
+    "BICCode": "UMMQAEAD001",
+    "actualBalance": 49901180.15,
+    "iban": "AE250420000000902001565",
+    "countryName": "United Arab Emirates",
+    "openDate": "2024-02-10 00:00:00",
+    "routingCode": "AE250420000000902001565",
+    "email": "abdul.nadhir@gmail.com",
+    "accountNickname": ""
+}
+-->

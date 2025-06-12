@@ -1,0 +1,142 @@
+<ng-container *ngIf="device.isMobile()">
+    <box class="portfolio-header" [ngClass]="{'ads-configured': this.showAds}">
+        <box class="portfolio-header-inner">
+            <box *ngIf="showSearchBar" class="searchbar-overlay"></box>
+            <header [ngClass]="{'sticky-start': stikcyStart, 'sticky-end': stikcyEnd}">
+                <button type="button" class="brand">
+                    <img src="./assets/images/brand/menu-logo.svg" alt="bank" />
+                </button>
+                <box class="header-tool-bar">
+                    <box class="header-tool">
+
+                        <!-- <button class="mode-toggle-btn" [ngClass]="{'dark-mode': toggleMode === 'Dark Mode'}" (click)="toggleTheme()">{{toggleMode}}</button> -->
+
+                        <button *ngIf="this.appConstant.mainHeader.showSearchBar" type="button" aria-label="Search"
+                            (click)="openSearchBar()" class="system-ico-button no-text btn-search">
+                        </button>
+                        <button *ngIf="this.appConstant.mainHeader.showNotificationIcon" type="button"
+                            aria-label="Notifications" class="system-ico-button btn-notification">
+                        </button>
+                        <box *ngIf="hasScope('RETAILNOTIFICATION')">
+                             <button *ngIf="this.appConstant.mainHeader.showEmailIcon" type="button" aria-label="Mailbox"
+                            (click)="navToMailbox()" class="system-ico-button no-text btn-mail">
+                        </button>
+                        </box>
+                       
+                    </box>
+                    <box class="line-separator"></box>
+                    <box class="user-profile">
+                        <button class="profile-pic" (click)="toggleProfile()">
+                            <!-- <span *ngIf="!this.appConstant.mainHeader.avatorUserProfileIcon" -->
+                                <!-- class="user-name">{{getUserName()}}</span> -->
+
+                            <!-- <img *ngIf="!this.appConstant.mainHeader.avatorUserProfileIcon" class="default-profile-img"
+                                src="./assets/images/icons/user-profile-img.svg">
+                            <img *ngIf="this.appConstant.mainHeader.avatorUserProfileIcon"
+                                src="{{userAuth.getProfilePicture()}}" alt="Banker" />
+                            <img class="drop-down-icon" src="./assets/images/layouts/controls/dropdown-arrow.svg"
+                                alt="Banker" /> -->
+                                  <span class="user-img" *ngIf="getProfilePicType() == 'avatar'">
+                                      <img src="./assets/images/avatar.svg" alt="Profile Picture" />
+                                  </span>
+                                  <span class="user-name"  [ngClass]="{'show-userName' : _customerService.showUserProfile==true}" *ngIf="getProfilePicType() == 'initial'">{{getUserName()}}</span>
+                                  <!-- <span class="user-img" *ngIf="getProfilePicType() == 'pic'">
+                                      <img src="{{userAuth.getProfilePicture()}}" alt="user" alt="Profile Picture" />
+                                  </span> -->
+
+                        </button>
+                    </box>
+                    <box class="userprofile-panel" *ngIf="_customerService?.showUserProfile">
+                        <app-user-profile></app-user-profile>
+
+                        <box class="close-profile-btn-container">
+                            <span class="close-profile-btn" (click)="closeProfile()"></span>
+                        </box>
+                    </box>
+                    <box class="user-account-overlay" *ngIf="_customerService?.showUserProfile">
+                    </box>
+                </box>
+            </header>
+
+            <box *ngIf="showSearchBar" class="searchbar-wrapper">
+
+                <!-- <box class="close-btn-container">
+                    <button type="button" class="btn-container" (click)="closeSearchWin()">
+                        <span class="icon close-btn-icon"></span>
+                    </button>
+                </box> -->
+
+                <box class="searchbar-list-container">
+                    <box class="input-cancel-container">
+                        <box class="nav-search-control">
+                            <input type="text" 
+                                   name="searchText" 
+                                   placeholder="Search..."
+                                   [(ngModel)]="searchText"
+                                   (input)="doServiceSearch($event)" 
+                                   autocomplete="off"
+                                   id="myInput" />
+                            <span class="ico ico-nav-search">&nbsp;</span>
+                        </box>
+                        <box class="cancel-wrapper" (click)="closeSearchWin()">
+                            <span class="cancel-search">Cancel</span>
+                        </box>
+                    </box>
+    
+                    <ng-container *ngIf="showSearchOptions && searchText.trim().length > 0">
+                        <box class="data-list">
+                            <ul *ngIf="!showNoResultsMessage">
+                                <ng-container *ngFor="let option of dataList">
+                                    <li class="list-item" (click)="gotoService(option)">
+                                        <box class="list-item-primary-info">
+                                            {{option.serviceDescription}}
+                                        </box>
+                                        <box class="list-item-secondary-info" *ngIf="this.device.isMobile()">
+                                            <button type="button" class="system-ico-button button-arrow-left">
+                                            </button>
+                                        </box>
+                                    </li>
+                                    <li class="list-divider"></li>
+                                </ng-container>
+                            </ul>
+                            <ul *ngIf="showNoResultsMessage">
+                                <li class="no-result">
+                                    <box>
+                                        <img src="./assets/illustrations/no-search-results.svg" alt="No Results">
+                                    </box>
+                                    <box class="no-result-title">{{'HOMESEARCH.noResults' | translate}}</box>
+                                    <box class="no-result-desc">{{'HOMESEARCH.desc' | translate}}</box>
+                                </li>
+                            </ul>
+                        </box>
+                    </ng-container>
+                </box>
+            </box>
+    
+            <box>
+                <box class="user-profile-details">
+                    <div #loadMoreStart class="load-more start"></div>
+                    <div #loadMoreEnd class="load-more end"></div>
+                    <box class="welcome-txt">
+                        <span class="hello-txt">{{ helloText | translate }}{{getUserFullName()?', ':''}}</span>
+                        <span *ngIf="this.appConstant.showOrganizationName" class="name"> {{name}}</span>
+                    </box>
+                    <box role="heading" aria-level="1" class="user-name">{{getUserFullName()+'.'}}</box>
+                    <box *ngIf="this.appConstant.mainHeader.showPanNumber" class="individual-number">{{ getPanNumber() }}
+                    </box>
+
+                </box>
+            </box>
+    
+            <box *ngIf="showAds" class="ads-banner">
+                <box *ngIf="showClosebtn" class="close-btn-container">
+                    <button type="button" class="btn-container log-out-btn" (click)="close()" aria-label="Close">
+                        <span class="icon close-btn-icon"></span>
+                    </button>
+                </box>
+                <banner-ads (afterAdsFetch)="receivedData($event)" [serviceCode]="serviceCode"></banner-ads>
+            </box>
+        </box>
+    </box>
+    
+</ng-container>

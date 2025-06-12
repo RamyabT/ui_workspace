@@ -1,0 +1,82 @@
+<div class="task-item" id="row_data_{{ index }}" [ngClass]="{'task-completed':selectedData.status == '3'}">
+    <ng-container *ngIf="_device.isMobile()">
+        <div class="task-action task-action-left">
+            <button  type="button"
+            class="button-task-action system-ico-button button-repeat" clickable
+            (click)="onClickRepeat($event, selectedData)">
+            <span class="date">Repeat</span>
+        </button>
+        </div>
+    </ng-container>
+
+    <div class="task-detail-item" (swipeleft)="_device.isMobile()?swipeLeftHandler($event):null"
+        (swiperight)="_device.isMobile()?swipeRightHandler($event):null"
+        (panstart)="_device.isMobile()?panStartHandler($event):null"
+        (panend)="_device.isMobile()?panEndHandler($event):null"
+        (panleft)="_device.isMobile()?panLeftHandler($event):null"
+        (panright)="_device.isMobile()?panRightHandler($event):null"
+        (touchstart)="_device.isMobile()?touchStartHandler($event):null">
+        <box class="transaction-list-item-inner">
+            <box class="transaction-icon-wrapper">
+                <box class="transaction-icon">
+                    <img src="./assets/wallet/wallet-transaction-icon.svg"
+                    alt="transaction history" />
+                </box>
+            </box>
+            <box class="transaction-info">
+                 <box class="transaction-primary-info">
+                    <span class="date">{{selectedData.requestedDate | date : "MMM dd"}}</span>
+                    <span class="name">{{selectedData.payee}}</span>
+                    <span class="accountNumber"> {{selectedData.transactionReference}}</span>
+
+                </box>
+                <box class="transaction-secondary-info">
+                    <span class="amount"  >
+                        <em>{{_appConfig.getBaseCurrency()}}</em>
+                        {{selectedData.amount | currency : selectedData.currency : '' }}
+                    </span>
+                    <span>{{selectedData.pendingSinceDate != undefined ? selectedData.pendingSinceDate : selectedData.pendingDate}}</span>
+                </box>
+            </box>
+        </box>
+
+    </div>
+
+    <div class="task-action task-action-right">
+        <!-- <button  *ngIf="!_device.isMobile()" type="button" class="button-task-action system-ico-button button-edit" clickable (click)="onClickView(selectedData)">
+            <span>View</span>
+        </button> -->
+        <!-- <ng-container *ngIf="!_device.isMobile()">
+            <button type="button" class="button-task-action system-ico-button button-share" clickable
+                (click)="doAccept($event, selectedData)">
+                <span>Accept</span>
+            </button>
+        </ng-container> -->
+
+        <ng-container>
+            <button  type="button"
+                class="button-task-action system-ico-button btn-tick" clickable
+                (click)="doAccept($event, selectedData)"> 
+                <span class="date">Send Reminder</span>
+            </button>
+            <button type="button" class="button-task-action system-ico-button btn-close-primary" clickable
+                (click)="onDecline($event, selectedData)">
+                <span>Delete</span>
+            </button>
+        </ng-container>
+
+        <!-- <ng-template #paylater>
+            <button type="button" class="button-task-action system-ico-button button-favourite" clickable
+                (click)="onClickFavourite($event, selectedData)">
+                <span>{{selectedData.isFavourite == "1"? "Unfavourite": "Favourite"}}</span>
+            </button>
+        </ng-template> -->
+
+
+
+
+    </div>
+
+    <div class="seperator-line"></div>
+
+</div>

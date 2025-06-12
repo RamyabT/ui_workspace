@@ -1,0 +1,138 @@
+@use '../../layout/grid-system';
+
+/// Vancity styles for the *-panel.component.html on the Home page;
+
+/////// BUTTONS
+////
+/// @example Single "New ___" button:
+///     HTML:
+///         <box class="panel-button-container">
+///             <button class="new-account-footer">
+///                 {{'accountsPanel.newAccount' | translate}}
+///             </button>
+///         </box>
+///     SCSS:
+///         .accounts-panel {
+///             .panel-button-container {
+///                 @include panels.panel-button-container();
+///             }
+///             .new-account-footer {
+///                 @include panels.panel-button-primary('../../assets/images/icons/new-account.svg');
+///             }
+///         }
+/// 
+/// @example Two "Link __" and "New __" buttons:
+///      HTML:
+///         <box class="panel-button-container">
+///             <button class="link-account-footer">
+///                 {{'cardsPanel.linkAccount' | translate}}
+///             </button>
+///             <button class="new-account-footer">
+///                 {{'cardsPanel.addYourCard' | translate}}
+///             </button>
+///         </box>
+///     SCSS:
+///         .cards-panel {
+///             .panel-button-container {
+///                 @include panels.panel-button-container();
+///             }
+///             .new-account-footer {
+///                 @include panels.panel-button-primary('../../assets/images/icons/new-account.svg');
+///             }
+///             .link-account-footer {
+///                 @include panels.panel-button-secondary('../../assets/images/icons/link-account.svg');
+///             }
+///         }
+@mixin panel-button-container() {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+@mixin panel-button-primary(
+    $iconPath, 
+    $borderStyle: dashed,
+) {
+    $relativeIconPath: '../#{$iconPath}';
+    &::before {
+        content: " ";
+        display: inline-block;
+        height: 24px;
+        width: 24px;
+        background-color: var(--primaryIconBgClr);
+        mask-image: url($relativeIconPath);
+        -webkit-mask-image: url($relativeIconPath);
+        -webkit-mask-repeat: no-repeat;
+    }
+
+    @include grid-system.small-screen {
+        min-width: 120px;
+        height: 48px;
+        padding: 12px 24px 12px 16px;
+        border: none;
+        background-color: var(--secondaryBtnBgClr);
+        margin-bottom: 10px;
+    }
+    &:only-child {
+        border: 1px $borderStyle var(--primaryBorderClr);
+        border-radius: 16px;
+        height: 80px;
+        width: 100%;
+    }
+    &:not(:only-child) {
+        &::before {
+            background-color: var(--whiteClr);
+        }
+        background-color: var(--tertiaryBtnBgClr);
+        border-radius: 999px;
+        color: var(--whiteClr);
+        width: auto;
+    }
+    padding: 12px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+    gap: 8px;
+    font-family: var(--secondaryFontFamily);
+    color: var(--primaryBaseTxtClr);
+}
+
+@mixin panel-button-secondary($iconPath) {
+    $relativeIconPath: '../#{$iconPath}';
+    &::before {
+        content: " ";
+        display: inline-block;
+        height: 24px;
+        width: 24px;
+        background-color: var(--primaryIconBgClr);
+        mask-image: url($relativeIconPath);
+        -webkit-mask-image: url($relativeIconPath);
+        -webkit-mask-repeat: no-repeat;
+    }
+
+    @include grid-system.small-screen {
+        min-width: 120px;
+        height: 48px;
+        padding: 12px 24px 12px 16px;
+        margin-bottom: 10px;
+    }
+
+    background-color: var(--secondaryBtnBgClr);
+    padding: 14px 24px;
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    gap: 8px;
+    font-family: var(--secondaryFontFamily);
+    color: var(--primaryBaseTxtClr);
+}

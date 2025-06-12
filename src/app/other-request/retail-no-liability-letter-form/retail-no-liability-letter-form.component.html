@@ -1,0 +1,83 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailNoLiabilityLetter">
+
+	<box class="entry-form">
+		<box class="entry-form-field-group grid">
+
+		<app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('date')"
+			label="{{'RetailNoLiabilityLetter.date.label' | translate }}" formControlName="date"
+			[minDate]="state.date.minDate" [maxDate]="state.date.maxDate"></app-request-date-control>
+
+
+		<app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('addressedTo')"
+			label="{{'RetailNoLiabilityLetter.addressedTo.label' | translate }}"
+			formControlName="addressedTo"></app-name-control>
+
+
+		<app-stmt-deliveryOption-control class="ol-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('deliveryOption')"
+			label="{{'RetailNoLiabilityLetter.deliveryOption.label' | translate }}" formControlName="deliveryOption"
+			(commonControlEvent)="handleControlEvent($event)"></app-stmt-deliveryOption-control>
+
+		<app-email-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('email')"
+			label="{{ 'RetailNoLiabilityLetter.email.label' | translate }}" formControlName="email"></app-email-control>
+
+		<box class="field-item col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('addressDetails')">
+			<fpx-label label="{{ 'RetailNoLiabilityLetter.addressDetails.label' | translate }}"></fpx-label>
+			<box class="info-box">
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="state.addressDetails.buildingDetails"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="state.addressDetails.cityDetails"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="state.addressDetails.stateDetails"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="state.addressDetails.countryDetails"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="state.addressDetails.pinCode"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+			</box>
+		</box>
+
+		<app-branches-list-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('deliveryBranch')"
+			label="{{ 'RetailNoLiabilityLetter.deliveryBranch.label' | translate }}"
+			formControlName="deliveryBranch"></app-branches-list-control>
+
+
+		<app-charges-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('chargesAmount')"
+			label="{{'RetailNoLiabilityLetter.chargesAmount.label' | translate }}" formControlName="chargesAmount"
+			[CurrencyList]="state.chargesAmount.CurrencyList" [isCurrEditable]="state.chargesAmount.isCurrEditable"
+			[defaultFetch]="state.chargesAmount.defaultFetch" [initCurrency]="state.chargesAmount.initCurrency"
+			[amountInWords]="state.chargesAmount.amountInWords"> ></app-charges-control>
+
+
+		<app-liability-reason-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('Reason')"
+			label="{{'RetailNoLiabilityLetter.Reason.label' | translate }}"
+			formControlName="Reason"></app-liability-reason-control>
+
+
+		<app-otherReason-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('otherReason')"
+			label="{{'RetailNoLiabilityLetter.otherReason.label' | translate }}"
+			formControlName="otherReason"></app-otherReason-control>
+
+		<app-remarks-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('remarks')"
+			label="{{'RetailNoLiabilityLetter.remarks.label' | translate }}"
+			formControlName="remarks"></app-remarks-control>
+		</box>
+
+		<box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-12 grid main-group disclaimer-box">
+		<app-acknowledgement-control class="col-md-4 col-lg-6" [actionPublisher]="actionMap$.get('termsFlag')"
+			label="{{'RetailNoLiabilityLetter.termsFlag.label' | translate }}" formControlName="termsFlag"
+			placeholder="{{'RetailNoLiabilityLetter.termsFlag.placeholder' | translate }}"
+			[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-acknowledgement-control>
+	</box>
+</box>
+</form>

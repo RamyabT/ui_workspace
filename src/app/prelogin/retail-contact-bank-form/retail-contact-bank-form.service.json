@@ -1,0 +1,5 @@
+ 
+ "RETAILCONTACTBANK" : {
+ "servicePath": ["entry-shell","prelogin", "retail-contact-bank-form"],
+ "queryParams": {}
+ }

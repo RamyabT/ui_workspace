@@ -1,0 +1,21 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailCustomerUnregistration">
+
+	<box class="entry-form">
+		<box class="activate-npss">
+			<box class="image-wrapper">
+				<img src="./assets/illustrations/npss/unenroll-account.svg" alt="deactivate npss" />
+			</box>
+			<box class="message">
+				<fpx-display-text id="FieldId_2" class="col-sm-12 col-md-6 col-lg-12  FieldId_2"
+				[innerHTML]="'RetailCustomerUnregistration.FieldId_2.text' | translate"
+				[literals]="commonFormInput"></fpx-display-text>
+			</box>
+		</box>
+		
+		<box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-4 grid main-group disclaimer-box">
+
+			<app-terms-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'RetailCustomerUnregistration.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+		</box>
+	</box>

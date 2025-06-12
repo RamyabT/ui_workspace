@@ -1,0 +1,5 @@
+ 
+ "RETAILDCCANCEL" : {
+ "servicePath": ["entry-shell","debitcard", "retail-dc-cancel-form"],
+ "queryParams": {}
+ }

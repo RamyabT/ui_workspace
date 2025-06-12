@@ -1,0 +1,87 @@
+   
+::ng-deep app-othercountry-taxinfo-inputgrid {
+	display: flex;
+    flex-direction: column-reverse;
+	.input-grid-title {
+		width: 100%;
+		padding: 10px 0px 10px 52px;
+		border: 1px solid #e0e0e0;
+		border-left: none;
+		border-right: none;
+		background: url(../../../assets/images/rcob/plus-icon.svg) no-repeat;
+		background-position: 24px 50%;
+    	background-size: 16px;
+		margin-bottom: 20px;
+		.btn-link {
+			font-size: 16px;
+			font-weight: 500;
+			line-height: 24px;
+			color: #12486b;
+		}
+	}
+	.hint {
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 22px;
+	}
+	.input-grid {
+		border: none;
+		.input-grid-row {
+			flex-flow: column;
+			position: relative;
+			&:not(:last-child) {
+				border-bottom: unset !important
+			}
+			.input-grid-row-item {
+				display: flex;
+				flex-flow: column;
+				flex-shrink: 0;
+				flex-grow: 0;
+				padding: unset;
+				word-break: auto-phrase;
+				text-align: unset;
+				align-items: unset;
+				margin-bottom: 20px;
+				>span {
+					margin-bottom: 12px;
+				}
+				&:first-child {
+					span {
+						font-size: 16px;
+						font-weight: 500;
+						line-height: 24px;
+						text-align: left;
+						margin-bottom: unset;
+					}
+				}
+				&:not(:last-child) {
+					border-right: unset !important
+				}
+				&:last-child {
+					position: absolute;
+    				right: 0;
+					width: 25%;
+					mat-icon {
+						font-family: Helvetica Neue;
+						font-size: 16px;
+						font-weight: 500;
+						line-height: 24px;
+						color: #E02020;
+						display: flex;
+						align-items: center;
+						gap: 4px;
+						justify-content: flex-end;
+						&::before {
+							content: '';
+							background: url(../../../assets/images/icons/delete.svg) no-repeat;
+							width: 16px;
+							height: 16px;
+							display: block;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+

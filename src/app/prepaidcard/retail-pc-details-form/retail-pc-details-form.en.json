@@ -1,0 +1,54 @@
+"RetailPCDetailsForm":{
+"title":"Card Details",
+		 "cardReference": {
+		  "label":"PrepaidCardRefNumber" ,
+		  "placeholder": "PrepaidCardRefNumber"
+		  } ,
+		 "cardNumber": {
+		  "label":"Prepaid Card Number" ,
+		  "placeholder": "Prepaid Card Number"
+		  } ,
+		 "cardType": {
+		  "label":"Prepaid Card Type" ,
+		  "placeholder": "Prepaid Card Type"
+		  } ,
+		 "status": {
+		  "label":"Prepaid Card Status" ,
+		  "placeholder": "Prepaid Card Status"
+		  } ,
+		 "productDesc": {
+		  "label":"Description" ,
+		  "placeholder": "Description"
+		  } ,
+		 "branchDesc": {
+		  "label":"Prepaid Card Issue Branch" ,
+		  "placeholder": "Prepaid Card Issue Branch"
+		  } ,
+		 "validThru": {
+		  "label":"Valid Till" ,
+		  "placeholder": "Valid Till"
+		  } ,
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "cardHolderName": {
+		  "label":"Account Holder Name" ,
+		  "placeholder": "Account Holder Name"
+		  } ,
+		 "actualBalance": {
+		  "label":"Actual Balance" ,
+		  "placeholder": "Actual Balance"
+		  } ,
+		 "accountType": {
+		  "label":"Account Type" ,
+		  "placeholder": "Account Type"
+		  } ,
+		 "avlBalance": {
+		  "label":"Available Balance" ,
+		  "placeholder": "Available Balance"
+		  } ,
+		 "FieldId_9": {
+		   "text":"<span>Linked Account&nbsp; Details</span>"
+		 } 
+}

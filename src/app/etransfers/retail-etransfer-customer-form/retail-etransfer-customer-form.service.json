@@ -1,0 +1,5 @@
+ 
+ "RETAILETRANSFERREGISTRATION" : {
+ "servicePath": ["entry-shell","etransfers", "retail-etransfer-customer-form"],
+ "queryParams": {}
+ }

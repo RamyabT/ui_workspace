@@ -1,0 +1,113 @@
+<div class="task-item" id="row_data_{{ index }}" [ngClass]="{'task-completed':selectedData.status == '3'}">
+    <div *ngIf="_device.isMobile()" class="task-action task-action-left">
+        <button type="button" class="button-task-action system-ico-button button-delete" clickable
+            (click)="deleteRowData($event, selectedData)">
+            <span>{{'DelegateSummaryForm.delete' | translate}}</span>
+        </button>
+    </div>
+
+    <div class="task-detail-item" (swipeleft)="_device.isMobile()?swipeLeftHandler($event):null"
+        (swiperight)="_device.isMobile()?swipeRightHandler($event):null"
+        (panstart)="_device.isMobile()?panStartHandler($event):null"
+        (panend)="_device.isMobile()?panEndHandler($event):null"
+        (panleft)="_device.isMobile()?panLeftHandler($event):null"
+        (panright)="_device.isMobile()?panRightHandler($event):null"
+        (touchstart)="_device.isMobile()?touchStartHandler($event):null">
+        <box class="transaction-list-item">
+            <ng-container *ngIf="selectedData.rowGroupTitle; else scheduleTransactionDtlsRowData">
+                <box class="row-group-title">{{ selectedData.rowGroupTitle | date : "dd MMM yyyy" }}</box>
+            </ng-container>
+            <ng-template #scheduleTransactionDtlsRowData>
+                <box class="transaction-list-item-inner">
+                    <box class="transaction-icon-wrapper">
+                        <box class="transaction-icon">
+                            <ng-container *ngIf="selectedData.transactionCategory; else noPhoto">
+                                <img src="./assets/transactions/{{selectedData.transactionCategory}}.svg"
+                                    alt="transactionCategory" />
+                            </ng-container>
+                            <ng-template #noPhoto>
+                                <div class="name-first-letter">
+                                    <span
+                                        *ngIf="selectedData.beneficiaryName?.split(' ').length == 1">{{selectedData.beneficiaryName?.substring(0,
+                                        1)}}
+                                    </span>
+                                    <span
+                                        *ngIf="selectedData.beneficiaryName?.split(' ').length > 1 && selectedData.beneficiaryName?.split(' ').length != 1">
+                                        {{selectedData.beneficiaryName?.split(" ")[0]?.charAt(0)
+                                        +(selectedData.beneficiaryName?.split(" ")[1]?
+                                        selectedData.beneficiaryName?.split(" ")[1]?.charAt(0): "")}}
+                                    </span>
+
+
+                                </div>
+                            </ng-template>
+                        </box>
+                    </box>
+                    <box class="transaction-info">
+                        <box class="transaction-primary-info">
+                            <span class="name">{{selectedData.firstName}} {{selectedData.lastName}}</span>
+                            <ng-container *ngIf="selectedData.accessLevel=='0'">
+                                <span class="date">Viewer</span>
+                            </ng-container>
+                            <ng-container *ngIf="selectedData.accessLevel=='1'">
+                                <span class="date">Initiator</span>
+                            </ng-container>
+                            <!-- <ng-template #default> -->
+                            <span class="date">Added on {{selectedData.createdOn | date : "MMM dd" }}</span>
+                            <!-- </ng-template> -->
+                            <!-- <span class="accountNumber">{{selectedData.bankDescription}}</span> -->
+
+                        </box>
+                        <box class="transaction-secondary-info">
+                            <ng-container *ngIf="selectedData.enabled">
+                                <span class="date active">Active</span>
+                            </ng-container>
+                            <ng-container *ngIf="!selectedData.enabled">
+                                <span class="date inactive">Inactive</span>
+                            </ng-container>
+                        </box>
+                    </box>
+                </box>
+            </ng-template>
+
+        </box>
+
+    </div>
+
+    <div class="task-action task-action-right">
+
+
+        <button type="button" class="button-task-action system-ico-button button-permissions" clickable
+            (click)="setPermissionRowData($event, selectedData)">
+            <!-- <img src="./assets/images/icons/delete.svg" alt="repeat" /> -->
+            <span>{{'DelegateSummaryForm.permission' | translate}}</span>
+        </button>
+        <button type="button" class="button-task-action system-ico-button button-edit" clickable
+            (click)="modifyRowData($event, selectedData)">
+            <!-- <img src="./assets/images/icons/edit.svg" alt="repeat" /> -->
+            <span>{{'DelegateSummaryForm.modify' | translate}}</span>
+        </button>
+
+        <!-- <button type="button" class="button-task-action system-ico-button  button-favourite"
+            clickable >
+            <img src="./assets/images/icons/favourite.svg" alt="repeat" />
+            <span>{{'DelegateSummaryForm.setPermissions' | translate}}</span>
+        </button> -->
+        <!-- <button type="button" class="button-task-action system-ico-button button-favourite" clickable
+            (click)="onClickFavourite($event, selectedData)">
+            <img src="./assets/images/icons/favourite.svg" alt="share" /> -->
+        <!-- <span> -->
+        <!-- <ng-container *ngIf="selectedData.isFavourite == '1'; else unFavBene"> -->
+        <!-- {{'REMOVE_FAV_TRANSFER_CONFIRM_DIALOG.unfavourite' | translate}}
+                </ng-container>
+                <ng-template #unFavBene>
+                    {{'REMOVE_FAV_TRANSFER_CONFIRM_DIALOG.favourite' | translate}}
+                </ng-template> -->
+        <!-- {{selectedData.isFavourite == "1"? "REMOVE_FAV_TRANSFER_CONFIRM_DIALOG.unfavourite" : "REMOVE_FAV_TRANSFER_CONFIRM_DIALOG.favourite" | translate}} -->
+        <!-- </span>
+        </button> -->
+    </div>
+
+    <div class="seperator-line"></div>
+
+</div>

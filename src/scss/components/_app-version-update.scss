@@ -1,0 +1,24 @@
+app-dep-app-version-update{
+    
+    .alert-description {
+      @include s3-medium;
+      color: var(--baseTxtClr);
+      padding: 20px 16px 40px 16px;
+   
+    }
+
+    .btn-container {
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+ 
+  }
+
+  .app-version-update-check + div{
+    .fpx-pop-up__close {
+        display: none;
+    }
+  }

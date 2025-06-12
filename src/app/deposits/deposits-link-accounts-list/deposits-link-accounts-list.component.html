@@ -1,0 +1,48 @@
+<box class="dep-link-account">
+
+    <box *ngIf="!_device.isMobile()" class="accounts-list-popup-header">
+        <span class="pay-from-header">{{title}}</span>
+        <button type="button" class="system-ico-button btn-close no-text" name="back"
+            (click)="close()"><span>Close</span></button>
+    </box>
+    <box class="link-account-content">
+        <box class="disclaimer">
+            <box class="info-icon"></box>
+            <box class="disclaimer-content">Link your accounts from the service partners listed below to your Vancity
+                online banking to view balances, transaction history, and account details. Doing so will provide you
+                with a more complete view of your finances. For added security, the date of birth on record at your
+                credit union has been pre-populated from our banking system and cannot be changed.</box>
+        </box>
+        <box class="action-platforms">
+            <box class="platforms-wrapper">
+                <box class="platform-content" (click)="onClickAviso($event)">
+                   
+                  <box class="aviso-shadow-box">
+                      <img class="aviso-shadow" src="../../../assets/images/icons/aviso-small-color.svg" alt="Aviso">
+                   </box>
+                    <box class="content">
+                        <box class="inner-content">
+                            <box class="header">Aviso Wealth*</box>
+                            <box class="sub-header">Investment platforms</box>
+                        </box>
+                    </box>
+                </box>
+            </box>
+            <box class="platforms-wrapper qtrade-space">
+                <box class="platform-content" (click)="onClickQtrade($event)">
+                    
+                    <box class="qtrade-shadow-box">
+                             <img class="qtrade-shadow" src="../../../assets/images/icons/qtrade-small-color.svg" alt="Qtrade">
+                    </box> 
+                    <box class="content">
+                        <box class="inner-content">
+                            <box class="header">Qtrade Direct Investing®</box>
+                            <box class="sub-header">Self-directed trading platform</box>
+                        </box>
+                    </box>
+                </box>
+            </box>
+        </box>
+    </box>
+
+</box>

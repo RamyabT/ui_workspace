@@ -1,0 +1,49 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="ReadTermsAndConditions">
+
+	<box class="entry-form">
+
+		<box id="product-desc" (scroll)="_helper.enableCheckbox($event)">
+			<box class="product-description">
+				<ng-container *ngIf="_helper.SavingAccounts">
+					<!-- <box class="header-terms-conditions">Key Facts Statement (KFS) Saving Accounts and Alwan Account</box> -->
+					<div class="product-header">{{'ReadTermsAndConditions.products.productheader' | translate }}</div>{{'ReadTermsAndConditions.products.productbody' | translate }}
+					
+
+					<div class="product-body">{{'ReadTermsAndConditions.products.productheader1' | translate }}</div>{{'ReadTermsAndConditions.products.productbody1' | translate }}
+					
+
+
+
+				</ng-container>
+			</box>
+
+		</box>
+
+
+
+
+		<!-- <box [innerHtml]="_helper.data?.readTermsContentBody"></box> -->
+
+		<div class="note-Txt"><span [innerHTML]="'ReadTermsAndConditions.notes' | translate"></span></div>
+		<!-- <box class="Accept-actions">
+			<input type="checkbox" class="checkbox-actions" [disabled]="isDisabled" (click)="click($event)"
+				disabled="true" />Accept Terms and
+			Conditions
+		</box> -->
+		<box class="Accept-actions">
+			<fpx-checkbox class="col-md-4" [actionPublisher]="actionMap$.get('termscondition')"
+				label="{{'ReadTermsAndConditions.termscondition.label' | translate }}" formControlName="termscondition"
+				placeholder="{{'ReadTermsAndConditions.termscondition.placeholder' | translate }}"
+				[textPosition]="state.termscondition.textPosition" [ckValues]="state.termscondition.ckValues">
+			</fpx-checkbox>
+		</box>
+	</box>
+
+
+	<box class="form-action-container-shell">
+		<button type="button" class="btn-tertiary" (click)="onDicline()">{{'OnBoarding.disagreebtn' | translate }}</button>
+		<button type="button" class="btn-primary" [disabled]="_helper.invalid" (click)="onAgree()">{{'OnBoarding.agreebtn' | translate }}</button>
+	</box>
+
+
+</form>

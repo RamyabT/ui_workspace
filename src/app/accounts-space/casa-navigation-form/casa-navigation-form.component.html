@@ -1,0 +1,12 @@
+<form [formGroup]="formGroup" autocomplete="off" formName="casa-navigation-form" class="casa-navigation-form">
+    <box class="entry-form">
+        <app-casa-acc-dtl-list-tmplt class="casaAccountDtlListTmplt" [selectedData]="state.selectedAccount" [showViewAll]="_helper.showViewAll"
+            (onClickingViewAll)="_helper.openCasaAccountsLists()"></app-casa-acc-dtl-list-tmplt>
+
+        <!-- <app-casa-account-dtl-list-control class="col-12" *ngIf="!highlightMenu" [selectableDataList]="state.casaAccounts" formControlName="accountNumber"></app-casa-account-dtl-list-control> -->
+        <!-- <app-casa-context-menu [resetActiveMenu]="state.resetActiveMenu" class="col-12 widget quick-link"
+            [highlightMenu]="highlightMenu" [accountNumber]="state.accountNumber" [resetActions]="_helper.shouldResetAction"></app-casa-context-menu> -->
+        <contextual-actions class="col-lg-12" [cardData]="state.selectedAccount" [accountNumber]="state.accountNumber"
+            [quickLinks]="_helper.quickMenus"></contextual-actions>
+    </box>
+</form>

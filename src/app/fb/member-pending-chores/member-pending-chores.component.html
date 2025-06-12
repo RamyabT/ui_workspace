@@ -1,0 +1,17 @@
+<box class="widget member-pending-chores-carousel">
+    <header>
+        <box class="title-container">
+            <span class="widget-title">{{ 'PENDINGCHORES.title' | translate }}</span>
+            <!-- <fpx-button btnType="button" 
+            btnClass="link " 
+            label="{{'MEMBERNEXTALLOWANCE.viewAll' | translate}}"
+             ></fpx-button> -->
+             <span>View All</span>
+        </box>
+    </header>
+    <box class=" ">
+        <box>
+            <app-pending-chores [cardData]="pendingchorelist"></app-pending-chores>
+         </box>
+    </box>
+</box>

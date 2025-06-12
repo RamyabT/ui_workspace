@@ -1,0 +1,80 @@
+<box class="dep-confirmation">
+    <box *ngIf="!_device.isMobile()" class="accounts-list-popup-header">
+        <span class="pay-from-header">{{title}}</span>
+        <button type="button" class="system-ico-button btn-close no-text" name="back"
+            (click)="close()"><span>{{ 'RetailCreditCardDetails.close' | translate }}</span></button>
+    </box>
+
+    <box class="accounts-list-popup-body">
+        <box class="details-container">
+            <box class="account-wrapper">
+                <ng-container *ngFor="let creditCard of ccAccounts; let i = index">
+                    <box [ngClass]="{'active': creditCard.active}" class="summary-card" (click)="selectAccount(creditCard, i)">
+                        <box class="summary-card-inner">
+                            <box class="primary-details">
+                                <box class="account-details">
+                                    <box class="product-name">{{ creditCard.productDesc }}</box>
+                                    <box class="account-details-wrapper">
+                                        <box class="account-number">{{ creditCard.creditCardNumber | creditCardNumberMask }}</box>
+                                    </box>
+                                </box>
+                            </box>
+                            <box class="account-secondary-details">
+                                <box class="balance-wrapper">
+                                    <!-- Current Balance -->
+                                    <box class="balance-details">
+                                        <span class="balance-label">{{ 'RetailCreditCardDetails.currentBalance' | translate }}</span>
+                                        <box class="balance-val">
+                                            <box class="amount balance-amount-usd">
+                                                {{ getAbsoluteValue(creditCard.outstandingAmount) | currency }}
+                                            </box>
+                                        </box>
+                                    </box>
+                                    <!-- Available Credit -->
+                                    <box class="balance-details">
+                                        <span class="balance-label">{{ 'RetailCreditCardDetails.availableCredit' | translate }}</span>
+                                        <box class="balance-val">
+                                            <box class="amount balance-amount-usd">
+                                                {{ getAbsoluteValue(creditCard.availableCreditLimit) | currency }}
+                                            </box>
+                                        </box>
+                                    </box>
+                                    <!-- Statement Balance -->
+                                     <box class="balance-details">
+                                        <span class="balance-label">{{ 'RetailCreditCardDetails.statementBalance' | translate }}</span>
+                                        <box class="balance-val">
+                                            <box class="amount balance-amount-usd">
+                                                {{ getAbsoluteValue(creditCard.lastStatementBalance) | currency }}
+                                            </box>
+                                        </box>
+                                    </box>
+                                </box>
+                            </box>
+                            <box class="account-secondary-details due-date-rewards">
+                                <box class="balance-wrapper bottom">
+                                    <box class="balance-details">
+                                        <box class="balance-tooltip">
+                                            <span class="balance-label">{{ 'RetailCreditCardDetails.statementDueDate' | translate }}</span>
+                                        </box>
+                                        <box *ngIf="creditCard.dueDate; else noValue" class="amount balance-amount-cad">{{ creditCard.dueDate | date: 'dd MMM yyyy' }}</box>
+                                    </box>
+                                    <box class="balance-details" [ngClass]="{ 'no-rewards': !creditCard.rewardPointsClosingBal }">
+                                        <ng-container *ngIf="creditCard.rewardPointsClosingBal">
+                                            <box class="balance-tooltip">
+                                                <span class="balance-label">{{ 'RetailCreditCardDetails.rewardsPointsBalance' | translate }}</span>
+                                            </box>
+                                            <box class="amount balance-amount-cad">{{ creditCard.rewardPointsClosingBal}}</box>
+                                        </ng-container>
+                                    </box>
+                                    <box class="balance-details" *ngIf="!_device.isMobile()"></box>
+                                </box>
+                            </box>
+                        </box>
+                    </box>
+                </ng-container>
+            </box>
+        </box>
+    </box>
+</box>
+
+<ng-template #noValue>-</ng-template>

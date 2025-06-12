@@ -1,0 +1,12 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" class="entry-form" formName="scanYourId">
+	<div class="dc-pre-request-header">Please scan your id.</div>
+	<div class="dc-image">
+		<img src="./assets/images/rcob/scan-id-image.png" alt="scan document">
+	</div>
+	<!-- <div class="dc-note">
+		The National ID is a government-issued card for citizens and residents.
+	</div> -->
+	<div>
+		<button type="button" class="primary" (click)="_helper.onClickProceed()">Proceed</button>
+	</div>
+</form>

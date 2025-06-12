@@ -1,0 +1,90 @@
+<box class="dep-confirmation share-info-popup">
+    <box class="share-popup-header">
+        <!-- <box class="icon-wrapper">
+            <img src="./assets/images/icons/toast-success.svg">
+        </box>
+        <box class="title-wrapper">
+            <box class="title">
+                {{'AccountsSharingPopup.success' | translate}}
+            </box>
+            <box class="sub-title">
+                {{'AccountsSharingPopup.copyMsg' | translate}}
+            </box>
+        </box> -->
+
+        <box class="share">
+            Share
+        </box>
+        <box class="close-btn-container">
+            <button type="button" class="btn-container log-out-btn" (click)="close()">
+                <span class="icon share-account-close-btn-icon"></span>
+            </button>
+        </box>
+    </box>
+    <box class="share-popup-body">
+        <ng-container *ngFor="let field of accountInfo">
+            <box class="acount-info" [ngClass]="{'account-info-field-desc' : field.format=='description'}">
+                <span class="account-info-field-label">{{field.title | translate}}</span>
+                <span class="account-info-field-val">{{field.description | translate}}</span>
+            </box>
+        </ng-container>
+        <ng-container *ngIf="!this._device.isDesktop()" >
+            <box *ngIf="!isCopied" class="share-popup-footer">
+            <button class="btn-wrapper" (click)="copyClick($event)">
+                <span class="copy-btn-icon"></span>
+                <span class="primary">Copy to clipboard</span>
+            </button>
+        </box>
+
+        <box *ngIf="isCopied" class="share-popup-footer">
+            <button class="btn-wrapper change-background-color">
+                <span class="check-btn-icon"></span>
+                <span class="secondary">Copied to clipboard</span>
+            </button>
+        </box>
+        </ng-container>
+    </box>
+    <box *ngIf="this._device.isDesktop()" class="share-popup-btn">
+        <box *ngIf="!isCopied" class="share-popup-footer">
+            <button class="btn-wrapper" (click)="copyClick($event)">
+                <span class="copy-btn-icon"></span>
+                <span class="primary">Copy to clipboard</span>
+            </button>
+        </box>
+
+        <box *ngIf="isCopied" class="share-popup-footer">
+            <button class="btn-wrapper change-background-color">
+                <span class="check-btn-icon"></span>
+                <span class="secondary">Copied to clipboard</span>
+            </button>
+        </box>
+    </box>
+
+    <!-- <box *ngIf="!isCopied" class="share-popup-footer">
+    <button class="btn-wrapper" (click)="copyClick($event)">
+		<span class="copy-btn-icon"></span>
+		<span class="primary">Copy to clipboard</span>
+	</button>
+    </box>
+
+    <box *ngIf="isCopied" class="share-popup-footer">
+     <button class="btn-wrapper change-background-color">
+            <span class="check-btn-icon"></span>
+            <span class="secondary">Copied to clipboard</span>
+        </button>
+    </box> -->
+</box>
+
+<ng-container *ngIf="this._device.isMobile()" class="share-popup-footer">
+    <box class="form-action-container">
+        <fpx-button *ngIf="!this._device.isHybrid()" class="col-xs-2"
+            label="{{ 'AccountSharingInformationComponent.close' | translate }}" btnClass=" btn-primary"
+            [buttonMode]="'button'" (onClick)="cancel()"></fpx-button>
+        <fpx-button *ngIf="this._device.isHybrid()" class="col-xs-2"
+            label="{{ 'AccountSharingInformationComponent.close' | translate }}" btnClass=" btn-secondary"
+            [buttonMode]="'button'" (onClick)="cancel()"></fpx-button>
+        <fpx-button *ngIf="this._device.isHybrid()" class="col-xs-2"
+            label="{{ 'AccountSharingInformationComponent.share' | translate }}" btnClass=" btn-primary"
+            [buttonMode]="'button'" (onClick)="share()"></fpx-button>
+    </box>
+</ng-container>

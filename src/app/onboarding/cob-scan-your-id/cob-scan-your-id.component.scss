@@ -1,0 +1,40 @@
+::ng-deep app-cob-SCAN-your-id {
+      form {
+          background-color: #F6FFFE;
+          padding: 8px 24px 24px;
+
+          .dc-ref-number {
+            color: var(--bodyTxtClr);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 22px;
+          }
+          .dc-pre-request-header {
+            color: var(--baseTxtClr);
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 24px;
+          }
+          .dc-image {
+            width: 100%;
+            text-align: center;
+            img {
+              width: 315px;
+              height: 315px;
+            }
+          }
+          .dc-note {
+            color: var(--baseTxtClr);
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 22px;
+          }
+          .primary {
+            position: absolute;
+            bottom: 36px;
+            right: 24px;
+            left: 24px;
+          }
+      }
+}

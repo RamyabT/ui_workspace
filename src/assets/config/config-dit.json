@@ -1,0 +1,21 @@
+{
+    "baseURL": "https://igcbextmfg.ifincloud.io",
+    "loginURL": "",
+    "Common": "/dit4-cbx-common/publisher",
+    "Accounts": "/dit4-cbx-accounts/publisher",
+    "Customers": "/dit4-cbx-customers/publisher",
+    "Payments": "/dit4-cbx-transfers/publisher",
+    "CreditCards": "/dit4-cbx-cards/publisher",
+    "Cards": "/dit4-cbx-cards/publisher",
+    "DebitCards": "/dit4-cbx-cards/publisher",
+    "PrepaidCards": "/dit4-cbx-cards/publisher",
+    "Deposits": "/dit4-cbx-deposits/publisher",
+    "defaultContext": "/dit4-cbx-common/publisher",
+    "WorkflowService": "/dit4-cbx-workflow/publisher",
+    "Loans": "/dit4-cbx-loans/publisher",
+    "BillPayments": "/dit4-cbx-bill-payments/publisher",
+    "IAM": "/dit4-cbx-iam/publisher",
+    "languageId": "en-us",
+    "IdleTime": "3600",
+    "Coundown": "60"
+}

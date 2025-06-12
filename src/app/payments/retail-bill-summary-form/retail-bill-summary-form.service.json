@@ -1,0 +1,5 @@
+ 
+ "RETAILBILLSUMMARY" : {
+ "servicePath": ["entry-shell","payments", "retail-bill-summary-form"],
+ "queryParams": {}
+ }

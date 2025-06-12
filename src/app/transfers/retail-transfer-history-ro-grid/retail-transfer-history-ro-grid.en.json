@@ -1,0 +1,47 @@
+"RetailTransferHistoryRoGrid":{
+"title":"RetailTransferHistoryRoGrid",
+		 "uETR": {
+		  "label":"External Reference" ,
+		  "placeholder": "External Reference"
+		  } ,
+		 "valueDate": {
+		  "label":"Value Date" ,
+		  "placeholder": "Value Date"
+		  } ,
+		 "initiationDate": {
+		  "label":"Initiation Date" ,
+		  "placeholder": "Initiation Date"
+		  } ,
+		 "paymentType": {
+		  "label":"Payment Type" ,
+		  "placeholder": "Payment Type"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Payment Amount" ,
+		  "placeholder": "Payment Amount"
+		  } ,
+		 "debitAccountNumber": {
+		  "label":"Debit Account" ,
+		  "placeholder": "Debit Account"
+		  } ,
+		 "beneficiaryAccountNumber": {
+		  "label":"Beneficiary Account" ,
+		  "placeholder": "Beneficiary Account"
+		  } ,
+		 "transactionReference": {
+		  "label":"Transaction Reference" ,
+		  "placeholder": "Transaction Reference"
+		  } ,
+		 "status": {
+		  "label":"Status" ,
+		  "placeholder": "Status"
+		  } ,
+		 "paymentId": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } ,
+		 "beneficiaryName": {
+		  "label":"Beneficiary Name" ,
+		  "placeholder": "Beneficiary Name"
+		  } 
+}

@@ -1,0 +1,5 @@
+ 
+ "RETAILCCREPLACE" : {
+ "servicePath": ["entry-shell","creditcard", "retail-cc-replacment-form"],
+ "queryParams": {}
+ }

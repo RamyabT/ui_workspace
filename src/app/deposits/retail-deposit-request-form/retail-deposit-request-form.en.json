@@ -1,0 +1,91 @@
+"RetailDepositRequestForm":{
+"title":"Open New Deposit",
+		 "productCode": {
+		  "label":"Deposit Product" ,
+		  "placeholder": "Deposit Product"
+		  } ,
+		 "depositCurrency": {
+		  "label":"Deposit Currency" ,
+		  "placeholder": "Deposit Currency"
+		  } ,
+		 "depositDate": {
+		  "label":"Deposit Date" ,
+		  "placeholder": "Deposit Date"
+		  } ,
+		 "debitAccount": {
+		  "label":"Debit Account" ,
+		  "placeholder": "Debit Account"
+		  } ,
+		 "availableBalanceLbl": {
+		  "label":"Available Balance" ,
+		  "placeholder": "Available Balance"
+		  } ,
+		 "availableBalanceVal": {
+		   "text":"${availableBalance}"
+		 } ,
+		 "depositAmount": {
+		  "label":"Deposit Amount" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "fxDetailsLbl": {
+		  "label":"FX Details" ,
+		  "placeholder": "FX Details"
+		  } ,
+		 "tenorInMonths": {
+		  "label":"Deposit Tenure (Months)" ,
+		  "placeholder": "Deposit Tenure (Months)"
+		  } ,
+		 "interestpaymentfrequency": {
+		  "label":"Interest Payment Frequency" ,
+		  "placeholder": "Interest Payment Frequency"
+		  } ,
+		 "maturityDetailsLbl": {
+		  "label":"Maturity Details" ,
+		  "placeholder": "Maturity Details"
+		  } ,
+		 "interestRateDisplay": {
+		   "text":"Interest Rate: ${interestRate}"
+		 } ,
+		 "maturityAmountDisplay": {
+		   "text":"Maturity Amount: ${maturityAmount}"
+		 } ,
+		 "interestAmountDisplay": {
+		   "text":"Interest Amount: ${interestAmount}"
+		 } ,
+		 "maturityInstructions": {
+		  "label":"Maturity Instructions" ,
+		  "placeholder": "Maturity Instructions"
+		  } ,
+		 "creditAccount": {
+		  "label":"Credit Account" ,
+		  "placeholder": "Credit Account"
+		  } ,
+		 "charity": {
+		  "label":"Charity" ,
+		  "placeholder": "Charity"
+		  } ,
+		 "charityPercentage": {
+		  "label":"Bonus Interest (%)" ,
+		  "placeholder": "Bonus Interest (%)"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"I acknowledge and agree to receive important bankcommunications via my mobile number and email id." ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "baseRate": {
+		  "label":"Rate of Interest" ,
+		  "placeholder": "Rate of Interest"
+		  } ,
+		 "exchangeRate": {
+		  "label":"Rate of Interest" ,
+		  "placeholder": "Rate of Interest"
+		  } ,
+		 "chargesAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } 
+}

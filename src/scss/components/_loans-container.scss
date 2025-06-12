@@ -1,0 +1,660 @@
+app-retail-view-loan-repayment-details-form,
+app-retail-view-loan-disbursal-details-form {
+    .year-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .year {
+            @include s3-medium();
+            color: var(--secondaryClr);
+        }
+
+        .next {
+            height: 16px;
+
+            &::before {
+                content: "";
+                width: 16px;
+                height: 16px;
+                display: inline-block;
+                background-color: var(--baseTxtClr);
+                ;
+                mask-image: url("../../assets/images/icons/next.svg");
+                -webkit-mask-image: url("../../assets/images/icons/next.svg");
+            }
+
+            &.disabled {
+                pointer-events: none;
+
+                &::before {
+                    background-color: #C0C0C0;
+                }
+            }
+        }
+
+        .previous {
+            height: 16px;
+
+            &::before {
+                content: "";
+                width: 16px;
+                height: 16px;
+                display: inline-block;
+                background-color: var(--baseTxtClr);
+                ;
+                mask-image: url("../../assets/images/icons/previous.svg");
+                -webkit-mask-image: url("../../assets/images/icons/previous.svg");
+            }
+
+            &.disabled {
+                pointer-events: none;
+
+                &::before {
+                    background-color: #C0C0C0;
+                }
+            }
+        }
+
+    }
+}
+
+loan-tab-container .upcoming-instalment.widget {
+    .widget-title::before {
+        content: "";
+        // background: url(../../assets/images/icons/fav-icon.svg) no-repeat 50% 50% transparent !important;
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        // -webkit-mask: unset !important;
+        background-color: var(--systemIconClr);
+        mask: url("../../assets/images/icons/fav-icon.svg") no-repeat center;
+        -webkit-mask: url("../../assets/images/icons/fav-icon.svg") no-repeat center;
+        mask-size: 16px;
+        -webkit-mask-size: 16px;
+    }
+
+    .widget-body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--bodyTxtClr);
+
+        .instalment-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+
+            &::before {
+                content: "";
+                // background: url(../../assets/images/icons/upcoming-instalment.svg) no-repeat 50% 50% transparent !important;
+                width: 24px;
+                height: 24px;
+                display: inline-block;
+                // -webkit-mask: unset !important;
+                background-color: var(--systemIconClr);
+                mask: url("../../assets/images/icons/upcoming-instalment.svg") no-repeat center;
+                -webkit-mask: url("../../assets/images/icons/upcoming-instalment.svg") no-repeat center;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+            }
+
+            .instalment-desc {
+                .title {
+                    @include s4-medium;
+                }
+
+                .instalment-amount {
+                    @include s2-bold;
+                }
+            }
+        }
+
+        .instalment-date {
+            @include b4-regular;
+            color: var(--bodyTxtClr);
+        }
+    }
+}
+
+app-edit-loan-info-form {
+    .entry-form {
+        display: block;
+    }
+}
+
+#depAppBody app-loan-account-list-template-control,
+app-home-loan-account-list-template-control {
+    .fpx-form-control .fpx-field-content {
+        background-color: var(--tertiaryAqua500) !important;
+    }
+}
+
+app-apply-loan-initation {
+    // .mat-primary {
+    //     width: 122px;
+    //     height: 26px;
+    // }
+
+    .mat-radio-button {
+        width: 115px;
+    }
+
+    @include not-small-screen {
+        .mat-radio-button {
+            width: 122px;
+        }
+    }
+
+    .loan-initiation {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .loan-details {
+        gap: 0px;
+        padding: 0 20px 20px;
+
+        @include not-small-screen {
+            border: 1px solid #ABABAB;
+            width: 639px;
+            padding: 0 20px 10px 20px !important;
+            border-radius: 16px !important;
+        }
+    }
+
+    app-name-field-control {
+        pointer-events: none;
+
+        .fpx-field-content {
+            border: none !important;
+        }
+    }
+
+    .input-grid-row-item:last-child {
+        border-bottom: none;
+    }
+
+    .input-grid-row-item {
+        align-items: center;
+        display: flex;
+        border-bottom: 1px solid var(--reviewFrmFldBdrClr);
+        margin-top: 15px;
+        font-weight: 500;
+        color: #575757;
+
+        .fpx-form-control {
+            border-bottom: none !important;
+        }
+
+        span {
+            width: 60%;
+        }
+    }
+
+}
+
+app-apply-home-loan,
+app-apply-vehicle-loan,
+app-apply-personal-loan {
+    app-loan-document-upload {
+        .entry-form-field-group {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+        }
+
+        .alerts-header-title {
+            color: unset !important;
+        }
+
+        .loan-title {
+            display: none;
+        }
+    }
+
+
+    app-co-applicants-details {
+
+        .input-grid {
+            margin-top: 24px;
+
+            .input-grid-row .input-grid-row-item> :first-child {
+                width: unset !important;
+            }
+        }
+
+        .input-grid-row-item {
+            width: 100% !important;
+
+            .delete-lab {
+                color: var(--errorClr);
+            }
+        }
+
+        .input-grid-title {
+
+            // border-top: 1px solid rgba(204, 204, 204, 0.8);
+        }
+
+        // .input-grid-title:last-child {
+        //     border-bottom: none;
+        // }
+        // .input-grid-row-item {
+        //     display: flex;
+        //     flex-flow: row;
+        //     flex-shrink: 1;
+        //     flex-grow: 0;
+        //     padding: 0;
+        //     word-break: break-word;
+        //     align-items: center;
+        //     justify-content: space-between;
+        // }
+        .input-grid .input-grid-row .input-grid-row-item:not(:last-child) {
+            border-right: none;
+        }
+
+
+        .co-applicant-title {
+            display: flex;
+
+            .input-grid-row-item {
+                flex-shrink: 1 !important;
+                padding: 0 !important;
+            }
+
+            .button-delete {
+                justify-content: end;
+
+            }
+
+            .input-grid-row-item:first-child.button-delete {
+                width: unset !important;
+            }
+        }
+
+        .country-of-tax-input-grid {
+            display: flex;
+            gap: 20px;
+        }
+
+        .co-applic {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    .alerts-header-title {
+        color: #2D2D2D !important;
+        font-weight: 700 !important;
+    }
+
+    .co-applicants-dtls {
+        .grid-actions {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    }
+
+    .add-co-app {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    @include small-screen {
+        .Property-info {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            padding: 0 !important;
+            box-shadow: none !important;
+    
+            .alerts-header-title {
+                color: #2D2D2D !important;
+                font-weight: 700 !important;
+            }
+        }   
+    }
+
+
+    .loan-details {
+
+        // .entry-form{
+        //     display: block;
+        // }
+        app-name-field-control {
+            pointer-events: none;
+        }
+
+        @include not-small-screen {
+            .loan-info {
+                border: 1px solid #ABABAB;
+                width: 639px;
+                padding: 0 20px 8px;
+                border-radius: 16px;
+                margin: 21px 0;
+            }
+        }
+
+        app-name-control {
+            pointer-events: none;
+        }
+
+        .system-ico-button::before {
+            background: #12486B;
+            mask: url("../../assets/images/icons/edit.svg") no-repeat center;
+            -webkit-mask: url("../../assets/images/icons/edit.svg") no-repeat center;
+        }
+
+        .alerts-header-title {
+            color: #2D2D2D !important;
+            font-weight: 700 !important;
+        }
+
+        .input-grid-row-item:last-child {
+            border-bottom: none;
+        }
+
+        .input-grid-row-item {
+            display: flex;
+            border-bottom: 1px solid var(--reviewFrmFldBdrClr);
+
+            // margin-bottom: 12px;
+            margin-top: 15px;
+            font-weight: 500;
+            color: var(--neutral700);
+
+            .fpx-form-control {
+                border-bottom: none !important;
+            }
+
+            span {
+                width: 50%;
+            }
+        }
+
+        
+    }
+
+    app-additional-employmentInfo {
+        .input-grid-row-item {
+            width: unset !important;
+        }
+    }
+
+    .delete-icon {
+        color: var(--errorClr);
+        font-weight: 500;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+    }
+
+
+    .delete-icon::before {
+        content: "";
+        width: 16px;
+        height: 20px;
+        display: inline-block;
+        background-color: var(--errorClr);
+        mask: url("../../assets/images/icons/delete.svg") no-repeat center;
+        -webkit-mask: url("../../assets/images/icons/delete.svg") no-repeat center;
+        width: 45px !important;
+    }
+
+    // .delete-label{
+
+    // }
+
+    .text-info {
+        padding: 12px 0px;
+    }
+
+    .input-grid {
+        border: none;
+        gap: 20px;
+
+        .emp-title {
+            font-weight: 500;
+        }
+    }
+
+    .input-grid-title {
+        justify-content: center;
+        padding: 12px 0px;
+        font-weight: normal;
+        font-family: 'Helvetica Neue';
+
+        // border-bottom: 1px solid rgba(204, 204, 204, 0.8);
+        //     border-top: 1px solid rgba(204, 204, 204, 0.8);
+        .btn-link {
+            color: #12486B;
+            display: flex;
+            gap: 13px;
+            align-items: center;
+        }
+
+        .btn-link::before {
+            content: "";
+            background: #12486B;
+            mask: url("../../assets/images/icons/plus.svg") no-repeat center;
+            -webkit-mask: url("../../assets/images/icons/plus.svg") no-repeat center;
+            mask-size: 24px;
+            -webkit-mask-size: 24px;
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px;
+        }
+    }
+
+    app-loan-details {
+        @include not-small-screen {
+            .entry-form {
+                display: block;
+            }
+        }
+    }
+
+
+
+    app-basic-details-form {
+        .basic-dtl {
+            display: flex;
+            gap: 20px;
+
+            @include small-screen {
+                flex-direction: column;
+                box-shadow: none !important;
+                padding: 0 !important;
+            }
+        }
+
+        @include not-small-screen {
+            .entry-form-field-group {
+                border-bottom: 1px solid var(--reviewFrmFldBdrClr);
+                padding: 0 0 12px 0 !important;
+            }
+    
+            .entry-form-field-group:last-child {
+                border-bottom: none;
+            }
+        }
+
+        .basic-dtl-up {
+            display: flex;
+            gap: 12px;
+
+            @include small-screen {
+                box-shadow: none !important;
+                padding: 0 !important;
+            }
+        }
+
+        .basic-dtl-down {
+            display: flex;
+            gap: 12px;
+            display: none;
+
+            @include small-screen {
+                flex-direction: column;
+                box-shadow: none !important;
+                padding: 0 !important;
+            }
+        }
+
+
+        .basic-dtl-pre-down {
+            display: flex;
+            gap: 12px;
+            display: none;
+
+            @include small-screen {
+                flex-direction: column;
+                box-shadow: none !important;
+                padding: 0 !important;
+            }
+        }
+
+        .basic-dtl-pre-up {
+            display: flex;
+            gap: 12px;
+
+            @include small-screen {
+                flex-direction: column;
+                box-shadow: none !important;
+                padding: 0 !important;
+            }
+        }
+
+
+        .expense-title {
+            font-weight: 700;
+        }
+
+        .wallet-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+
+            .accordion-title {
+                font-weight: 700;
+            }
+        }
+
+        .add-emp-title {
+            display: flex;
+            justify-content: space-between;
+
+            .input-grid .input-grid-row .input-grid-row-item:not(:last-child) {
+                border-right: none;
+            }
+
+            .input-grid-row-item {
+                flex-shrink: 1 !important;
+                padding: 0 !important;
+            }
+
+            .button-delete {
+                justify-content: end;
+
+            }
+
+            .input-grid-row-item:first-child.button-delete {
+                width: unset !important;
+            }
+        }
+
+        .toggle-accordion {
+            .arrow {
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                &::before {
+                    content: " ";
+                    width: 24px;
+                    height: 24px;
+                    display: inline-block;
+                    background-color: var(--secondary500);
+                }
+
+                &.rotate-down {
+                    width: 24px;
+                    height: 24px;
+                    margin: 0;
+                    mask: url("../../assets/images/overview/expander-arrow.svg") no-repeat center;
+                    -webkit-mask: url("../../assets/images/overview/expander-arrow.svg") no-repeat center;
+                    mask-size: 16px;
+                    -webkit-mask-size: 16px;
+                    transform: rotate(180deg) !important;
+                }
+
+                &.rotate-up {
+                    width: 24px;
+                    height: 24px;
+                    margin: 0;
+                    mask: url("../../assets/images/overview/expander-arrow.svg") no-repeat center;
+                    -webkit-mask: url("../../assets/images/overview/expander-arrow.svg") no-repeat center;
+                    mask-size: 16px;
+                    -webkit-mask-size: 16px;
+
+                }
+            }
+        }
+    }
+
+    app-supporting-docs {
+        .input-grid-row-item {
+            width: unset !important;
+        }
+    }
+}
+
+.loan-seg-app {
+    display: none !important;
+}
+
+.form-loan {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include small-screen {
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+}
+
+#depAppBody .loan-details .fpx-form-control .fpx-field-content .mat-input-element {
+    text-align: end !important;
+}
+
+#depAppBody app-apply-loan-initation .fpx-form-control .fpx-field-content .mat-input-element {
+    text-align: end !important;
+}
+
+.input-grid .input-grid-row:not(:last-child) {
+    border-bottom: none !important;
+}
+
+.refinance-cls {
+
+    .fpx-field-content,
+    .mat-input-element {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
+
+.input-grid .input-grid-row .input-grid-row-item:not(:last-child) {
+    border-right: none !important;
+}

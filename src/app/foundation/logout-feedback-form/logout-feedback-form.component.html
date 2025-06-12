@@ -1,0 +1,47 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="LogoutFeedBackForm">
+
+	<box class="entry-form">
+
+		<box class="dep-confirmation" [hidden]="state.isResultMode">
+			<!-- <box class="alert-icon"></box> -->
+			<box class="alert-title">Rate your experience</box>
+			<!-- <box class="alert-description">How was your experience?</box> -->
+			<box class="reaction-container">
+				<img [ngClass]="{'active':state.clickedRatingIndex == '1'}" (click)="_helper.reactionClick('1')"
+					src="./assets/illustrations/logout-feedback/grinning-face-with-star-eyes.svg" />
+				<img [ngClass]="{'active':state.clickedRatingIndex == '2'}" (click)="_helper.reactionClick('2')"
+					src="./assets/illustrations/logout-feedback/smiling-face-with-smiling-eyes.svg" />
+				<img [ngClass]="{'active':state.clickedRatingIndex == '3'}" (click)="_helper.reactionClick('3')"
+					src="./assets/illustrations/logout-feedback/slightly-smiling-face.svg" />
+				<img [ngClass]="{'active':state.clickedRatingIndex == '4'}" (click)="_helper.reactionClick('4')"
+					src="./assets/illustrations/logout-feedback/slightly-frowning-face.svg" />
+				<img [ngClass]="{'active':state.clickedRatingIndex == '5'}" (click)="_helper.reactionClick('5')"
+					src="./assets/illustrations/logout-feedback/persevering-face.svg" />
+
+			</box>
+			<!-- <app-remarks-control  class="col-md-12"   [actionPublisher]="actionMap$.get('feedBackComments')"  placeholder="Remarks" formControlName="feedBackComments" 
+			></app-remarks-control> -->
+
+			<fpx-text-box class="fpx-form-control" [actionPublisher]="actionMap$.get('feedBackComments')"
+				controlName="feedBackComments" #fpxControl placeholder="Remarks">
+			</fpx-text-box>
+
+			<box class="alert-footer">
+				<div class="btn-container">
+					<button type="button" class="btn-tertiary" (click)="_helper.onDecline()"> Skip </button>
+					<button [disabled]="formGroup.invalid" type="button" class="btn-primary"
+						(click)="_helper.onAccept()"> Submit </button>
+				</div>
+			</box>
+		</box>
+		<box class="logout-result" [hidden]="!state.isResultMode">
+			<box class="result-msg">Thank you for Rating Us!</box>
+			<box *ngIf="state.clickedRatingIndex && _helper.ratingImg[state.clickedRatingIndex]">
+				<img class="reaction"
+					[src]="'./assets/illustrations/logout-feedback/'+_helper.ratingImg[state.clickedRatingIndex]" />
+			</box>
+		</box>
+
+
+	</box>
+</form>

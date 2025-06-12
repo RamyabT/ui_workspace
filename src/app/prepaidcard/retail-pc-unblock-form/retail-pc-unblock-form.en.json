@@ -1,0 +1,23 @@
+"retailpcunblock":{
+"title":"Retail Prepaid Card Unblock ",
+		 "cardReference": {
+		  "label":"Prepaid card" ,
+		  "placeholder": "Prepaid card"
+		  } ,
+		 "reason": {
+		  "label":"Unblock Reason" ,
+		  "placeholder": "Unblock Reason"
+		  } ,
+		 "charges": {
+		  "label":"Charges" ,
+		  "placeholder": "Charges"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Placeholder"
+		  } 
+}

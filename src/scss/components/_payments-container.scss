@@ -1,0 +1,450 @@
+#depAppBody {
+  .payments-home {
+    &.saved-biller-available {
+      .module-home-bg {
+        height: 328px;
+      }
+      .saved-biller-group{
+        padding: 20px 16px 36px 16px !important;
+        @include not-small-screen {
+          padding: 20px 0px 36px !important;
+        }
+      }
+    }
+    .module-home-bg {
+      border-radius: 0px 0px 18px 32px;
+      height: 300px;
+    }
+
+    .module-home-inner {
+      gap: unset;
+    }
+
+    .saved-biller-widget {
+      .saved-biller-group {
+        padding: 20px 16px 20px 16px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        .saved-biller-sec {
+          height: 105px;
+        }
+
+        @include not-small-screen {
+          padding: 10px 0px 30px;
+          height: unset;
+        }
+        .loading {
+          padding: 78px 0;
+        }
+
+        .no-saved-biller-image {
+          position: absolute;
+          right: 16px;
+          top: 21px;
+        }
+
+        .saved-biller-header {
+          display: flex;
+          justify-content: space-between;
+          color: #ffffff;
+          margin-bottom: 20px;
+          align-items: center;
+
+          @include not-small-screen {
+            color: var(--neutral900);
+          }
+
+          .title {
+            @include s3-medium;
+
+            @include not-small-screen {
+              display: flex;
+              align-items: center;
+              gap: 12px;
+
+              &::before {
+                content: "";
+                background: url(../../assets/images/icons/fav-icon.svg)
+                  no-repeat 50% 50% transparent !important;
+                width: 20px;
+                height: 20px;
+                display: inline-block;
+              }
+            }
+          }
+
+          .view-all {
+            cursor: pointer;
+            @include b2-regular;
+            text-decoration: underline;
+          }
+        }
+
+        .no-saved-biller-group {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          margin-bottom: 32px;
+
+          .no-saved-biller {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            color: #ffffff;
+            width: 50%;
+            // margin-top: 14px;
+
+            .no-saved-biller-title {
+              @include s3-medium;
+              margin-bottom: 6px;
+              @include not-small-screen {
+                color: var(--neutral900)
+              }
+            }
+
+            .no-saved-biller-desc {
+              @include b2-regular;
+              line-height: 0;
+              @include not-small-screen {
+                color: var(--neutral700)
+              }
+            }
+
+            .no-saved-biller-sub-desc {
+              @include b4-regular;
+              color: var(--neutral200);
+              @include not-small-screen {
+                color: var(--neutral700)
+              }
+            }
+          }
+
+          .no-saved-biller-add-btn {
+            border-radius: 24px;
+            width: 72px;
+            height: 32px;
+            background-color: #ffffff;
+            color: var(--secondary500);
+            font-size: 12px;
+            line-height: 14px;
+            font-weight: 500;
+            border: 1px solid #12486b;
+            @include not-small-screen {
+              color: var(--secondary500);
+              border: 1px solid var(--secondary500);
+            }
+          }
+        }
+      }
+    }
+
+    .payments-quick-action-widget {
+      margin-bottom: 20px;
+
+      .ql-PAYBILL {
+        .icon-wrapper {
+          &::after {
+            mask-image: url(../../assets/images/quick-links/pay-bill.svg);
+            -webkit-mask-image: url(../../assets/images/quick-links/pay-bill.svg);
+          }
+        }
+      }
+
+      .ql-ADDBILLER {
+        .icon-wrapper {
+          &::after {
+            mask-image: url(../../assets/images/quick-links/add-biller.svg);
+            -webkit-mask-image: url(../../assets/images/quick-links/add-biller.svg);
+          }
+        }
+      }
+
+      .ql-MYBILLER {
+        .icon-wrapper {
+          &::after {
+            mask-image: url(../../assets/images/quick-links/my-biller.svg);
+            -webkit-mask-image: url(../../assets/images/quick-links/my-biller.svg);
+          }
+        }
+      }
+
+      .ql-TAPANDPAY {
+        .icon-wrapper {
+          &::after {
+            mask-image: url(../../assets/images/quick-links/tap-and-pay.svg);
+            -webkit-mask-image: url(../../assets/images/quick-links/tap-and-pay.svg);
+          }
+        }
+      }
+    }
+
+    .payments-biller-category-widget {
+      margin-bottom: 22px;
+       @include not-small-screen {
+        margin-bottom: 34px;
+       }
+      .biller-category-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 16px 24px 16px;
+        @include not-small-screen {
+          padding: 0 0 24px;
+         }
+        .biller-category-title {
+          @include s2-bold;
+          color: var(--wgtTtlClr);
+        }
+
+        .view-all {
+          @include b2-regular;
+          text-decoration: underline;
+          color: var(--secondary500);
+        }
+      }
+    }
+
+    mat-tab-group {
+      gap: 16px;
+      mat-tab-header {
+        .mat-tab-label-container .mat-tab-list {
+          flex-grow: 1;
+          margin: 0 19px;
+          @include not-small-screen {
+            width: unset !important;
+            flex-grow: 0;
+          }
+          .mat-tab-labels {
+            .mat-tab-label {
+              flex: 1;
+              height: 33px;
+              @include not-small-screen {
+                width: 168px;
+              }
+            }
+          }
+        }
+      }
+      mat-tab-body {
+        .casa-transactions-grid-header {
+          padding: 0px 16px;
+        }
+        .mat-tab-body-content {
+          overflow: unset;
+        }
+      }
+    }
+
+
+  }
+
+  app-retail-biller-list-ro-grid-form {
+    .entry-form {
+      .entry-form-field-group {
+        width: 100%;
+        padding: 12px 16px 20px 16px;
+        --gap-size: 22px;
+        @include not-small-screen {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  app-retail-saved-biller-ro-grid-form {
+    .entry-form {
+      .entry-form-field-group {
+        width: 100%;
+        padding: 12px 0px 0px 0px;
+
+        .task-item:hover {
+          .task-action.task-action-right{
+            @include not-small-screen {
+              width: 150px !important;
+            }
+          }
+        }
+        .task-action {
+        
+          .button-view {
+            background-color: #1f7acc;
+            color: #ffffff;
+
+            &::before {
+              background-color: var(--neutral50);
+              mask-image: url("../../assets/images/icons/eye-icon.svg");
+              -webkit-mask-image: url("../../assets/images/icons/eye-icon.svg");
+            }
+          }
+
+          .button-pay {
+            background-color: #ffb800;
+            color: #ffffff;
+            @include not-small-screen {
+              // border: 1px solid #12486B;
+              // border-radius: 24px;
+              // height: 28px;
+              // color: #12486B;
+              background-color: unset;
+              color: #ffb800;
+              // position: absolute;
+              width: 100%;
+              // top: 16px;
+              // &::before {
+              //   content: unset;
+              // }
+            }
+
+            &::before {
+              @include not-small-screen {
+                background-color: #ffb800;
+              }
+              background-color: var(--neutral50);
+              mask-image: url("../../assets/images/quick-links/pay-bill.svg");
+              -webkit-mask-image: url("../../assets/images/quick-links/pay-bill.svg");
+            }
+          }
+        }
+      }
+
+
+    }
+  }
+
+  app-retail-add-biller-form {
+    app-biller-list-control{
+      pointer-events: none;
+      padding: 12px 20px;
+      border-radius: 16px;
+      background: #FFF;
+      box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.09);
+      display: block;
+      @include not-small-screen {
+        padding: 10px 0;
+        box-shadow: none;
+      }
+      .fpx-form-control{
+        fpx-label{
+          display: none;
+        }
+        .fpx-disabled .fpx-field-content {
+          background-color: transparent !important;
+          border: none !important;
+      }
+        .fpx-field-content{
+          padding: 0;
+          background-color: transparent !important;
+          border: none !important;
+          .mat-select-disabled .mat-select-value{
+            color: inherit !important;
+          }
+        }
+      }
+      .mat-select-arrow-wrapper{
+        display: none;
+      }
+    }
+    .entry-form .grid {
+      
+      &.group {
+        &.disclaimer-box {
+          display: block;
+        }
+      }
+    }
+  }
+
+  app-retail-single-bill-payment-form {
+    app-balance-control{
+       .mat-input-element{
+        text-align: end;
+      }
+    }
+    .biller-disclaimer{
+      fpx-display-text{
+        div{
+          line-height: 20px;
+        }
+      }
+    }
+
+
+    app-billeraccount-list-control{
+      pointer-events: none;
+      padding: 12px 20px;
+      border-radius: 16px;
+      background: #FFF;
+      box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.09);
+      display: block;
+      @include not-small-screen {
+        box-shadow: none;
+        padding: 12px 0;
+      }
+      .fpx-form-control{
+        fpx-label{
+          display: none;
+        }
+        .fpx-field-content{
+          border: none !important;
+          padding: 0;
+          background-color: #fff !important;
+        }
+      }
+      .mat-select-arrow-wrapper{
+        display: none;
+      }
+    }
+
+    .invoice-number-group {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      app-invoice-control {
+        flex-basis: 50%;
+      }
+      fpx-button {
+        margin-top: 30px;
+      }
+    }
+    .billerbeneficiaryid-group {
+      position: relative;
+      // display: flex;
+      // align-items: center;
+      // gap: 20px;
+
+    .button-refresh-icon-group{
+        position: absolute;
+        right: 15px;
+        top: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .button-refresh-label{
+          cursor: pointer;
+          color: var(--primary500);
+          @include b4-regular;
+        }
+        .button-refresh-icon {
+          .icons {
+            background: url(../../assets/images/icons/refresh.svg) no-repeat center #fff;
+            height: 16px;
+            width: 16px;
+          }
+        }
+    }
+    }
+  }
+
+  app-retail-biller-category-ro-grid-form{
+    .entry-form{
+      .entry-form-field-group{
+        background: transparent;
+        box-shadow: none !important;
+        width: 100%;
+        padding: 0;
+      }
+    }
+  }
+}

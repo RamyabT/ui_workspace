@@ -1,0 +1,5 @@
+ 
+ "RETAILPCLIMITS" : {
+ "servicePath": ["entry-shell","prepaidcard", "retail-pc-change-limit-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,31 @@
+"RetailCCFlashRequestForm":{
+"title":"Credit Card Flash",
+		 "cardRefNumber": {
+		  "label":"Credit Card ref Number" ,
+		  "placeholder": "Credit Card ref Number"
+		  } ,
+		 "creditCardNumber": {
+		  "label":"Credit Card Number" ,
+		  "placeholder": "Credit Card Number"
+		  } ,
+		 "cvv": {
+		  "label":"CVV" ,
+		  "placeholder": "CVV"
+		  } ,
+		 "validThru": {
+		  "label":"Valid Thru" ,
+		  "placeholder": "Valid Thru"
+		  } ,
+		 "validFrom": {
+		  "label":"Valid From" ,
+		  "placeholder": "Valid From"
+		  } ,
+		 "cardHolderName": {
+		  "label":"Card Holder Name" ,
+		  "placeholder": "Card Holder Name"
+		  } ,
+		 "tap": {
+		  "label":"Tap to See" ,
+		  "placeholder": "Tap to See"
+		  } 
+}

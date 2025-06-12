@@ -1,0 +1,14 @@
+<box class="budget-product-card-carousel">
+    <ngx-slick-carousel class="budget-product-carousel" #slickModal="slick-carousel" [config]="slideConfig"
+        (afterChange)="onCardChanged($event)">
+            <box ngxSlickItem class="slide" [style.width.px]="slideWidth">
+                <app-credit-card-summary-board></app-credit-card-summary-board>
+            </box>
+            <box ngxSlickItem class="slide" [style.width.px]="slideWidth">
+                <app-finance-summary-board [cardData]="budgetSummary" [title]="'Budget'" (click)="navigateTo('RETAILPFM')"></app-finance-summary-board>
+            </box>
+            <box ngxSlickItem class="slide" [style.width.px]="slideWidth">
+                <app-finance-summary-board [cardData]="goalSummary" [title]="'Goal'" (click)="navigateTo('RETAILPFM')"></app-finance-summary-board>
+            </box>
+    </ngx-slick-carousel>
+</box>

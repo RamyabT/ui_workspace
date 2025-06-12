@@ -1,0 +1,5 @@
+ 
+ "RETAILCBAED" : {
+ "servicePath": ["entry-shell","transfers", "retail-beneaedreq-form"],
+ "queryParams": {}
+ }

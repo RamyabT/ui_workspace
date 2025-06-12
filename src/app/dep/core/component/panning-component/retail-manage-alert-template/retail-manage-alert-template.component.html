@@ -1,0 +1,30 @@
+<box class="manage-alert-container" [ngClass]="{'disable-cfg-alert':(selectedData?.enabled=='0')}">
+    <box class="alerts-header">
+        <box class="alerts-header-title"> {{selectedData?.alertCategory?.title}}</box>
+        <box class="alerts-header-toggle">
+            <mat-slide-toggle [checked]="selectedData?.enabled=='1'?true:false"
+                (change)="alertCategoryChange($event,selectedData)"></mat-slide-toggle>
+        </box>
+    </box>
+    <box class="alert-sub">
+        <box class="alert-disc">
+            {{selectedData?.alertCategory?.description}}
+        </box>
+        <box class="user-alert-channels">
+
+            <mat-checkbox class="chennal-check-box" [checked]="isChannelEnabled(selectedData,'EMAIL')"
+                (change)="channelChange($event,'EMAIL',selectedData)">{{'RETAILMANAGEALERTS.email' | translate}}</mat-checkbox>
+            <mat-checkbox class="chennal-check-box" [checked]="isChannelEnabled(selectedData,'PUSHNTFN')"
+                (change)="channelChange($event,'PUSHNTFN',selectedData)">
+                {{'RETAILMANAGEALERTS.pushNotification' | translate}}</mat-checkbox>
+
+            <mat-checkbox class="chennal-check-box" [checked]="isChannelEnabled(selectedData,'SMS')"
+                (change)="channelChange($event,'SMS',selectedData)">{{'RETAILMANAGEALERTS.sms' | translate}}</mat-checkbox>
+        </box>
+        <box class="show-more-container">
+            <button class="link" (click)="showMoreClick(selectedData)">
+                <span>{{'RETAILMANAGEALERTS.showMore' | translate}}</span>
+            </button>
+        </box>
+    </box>
+</box>

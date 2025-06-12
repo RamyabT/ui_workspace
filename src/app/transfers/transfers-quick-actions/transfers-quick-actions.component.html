@@ -1,0 +1,35 @@
+<box class="widget quick-actions-inner context-menu-wrapper">
+    <header>
+        <!-- <span class="widget-title">Quick Actions</span> -->
+        <span class="widget-title">{{ 'WIDGIT_TITLES.casaQuickActionsLbl' | translate }}</span>
+    </header>
+    <box class="widget-body actions-body context-menu-body">
+        <ng-container *ngIf="quickLinks">
+            <ul class="actions-list grid transfers-quick-links" [ngClass]="{ 'show-more' : doShowMoreQuickActions }">
+                <ng-container *ngFor="let menu of quickLinks">
+                    <li [class]="'ql-' + menu.serviceCode" [ngClass]="{'active': _activeMenu == menu.serviceCode}" (click)="openContextMenu(menu)">
+                        <span class="icon-wrapper"></span>
+                        <span class="text" [innerHTML]="menu.name"></span>
+                    </li>
+                </ng-container>
+            </ul>
+        </ng-container>
+
+        <ng-container *ngIf="!_device.isMobile() && quickLinks && quickLinks.length > 5">
+            <button type="button" class="expander" (click)="toggleMoreQuickActions()">
+                <svg width="98" height="18" viewBox="0 0 98 18" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <g id="Drawer">
+                        <path id="Vector 84"
+                            d="M49.7241 18C36.0114 18 39.1635 10.3442 -7.83324e-07 0.0796452C27.9065 0.0796439 104.115 -0.418143 97.6077 1.07522C62.3692 9.16225 62.2015 18 49.7241 18Z"
+                            />
+                    </g>
+                </svg>
+                <span>show more</span>
+            </button>
+        </ng-container>
+        
+        
+    </box>
+</box>
+
+<box class="quick-action-menu-overlay" *ngIf="doShowMoreQuickActions" (click)="hideMoreQuickActions($event)"></box>

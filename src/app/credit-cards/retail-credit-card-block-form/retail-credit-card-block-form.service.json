@@ -1,0 +1,5 @@
+{
+"RETAILCCBLOCK" : {
+"servicePath": ["entry-shell","creditcard", "retail-credit-card-block-form"],
+"queryParams": {}
+}}

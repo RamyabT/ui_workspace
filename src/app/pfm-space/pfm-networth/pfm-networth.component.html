@@ -1,0 +1,10 @@
+<ng-container *ngIf="!seekingResponse; else loader">
+    <fpx-display-text class="lbl" innerHTML="{{ 'networth.title' | translate }}"></fpx-display-text>
+    <box class="networth-data">
+        <span class="amount">{{ networthData.networth || networthData.totalAsset | currency : networthData.currency : '' }} <em>{{ networthData.currency }}</em></span>
+    </box>
+</ng-container>
+
+<ng-template #loader>
+    <box class="loading"></box>
+</ng-template>

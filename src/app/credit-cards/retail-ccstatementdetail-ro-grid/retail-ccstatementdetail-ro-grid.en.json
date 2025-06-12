@@ -1,0 +1,35 @@
+"RetailCcstatementdetailRoGrid":{
+"title":"Credit Card Statement Details",
+		 "transactionReference": {
+		  "label":"Transaction Reference" ,
+		  "placeholder": "Transaction Reference"
+		  } ,
+		 "transactionDate": {
+		  "label":"Transaction Date" ,
+		  "placeholder": "Transaction Date"
+		  } ,
+		 "valueDate": {
+		  "label":"Value Date" ,
+		  "placeholder": "Value Date"
+		  } ,
+		 "transactionAmount": {
+		  "label":"Transaction Amount" ,
+		  "placeholder": "Transaction Amount"
+		  } ,
+		 "merchantId": {
+		  "label":"Merchant Id" ,
+		  "placeholder": "Merchant Id"
+		  } ,
+		 "transactionCat": {
+		  "label":"Transaction Category" ,
+		  "placeholder": "Transaction Category"
+		  } ,
+		 "transactionCurrency": {
+		  "label":"Transaction Currency" ,
+		  "placeholder": "Transaction Currency"
+		  } ,
+		 "transactionDescription": {
+		  "label":"Description" ,
+		  "placeholder": "Description"
+		  } 
+}

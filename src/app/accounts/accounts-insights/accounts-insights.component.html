@@ -1,0 +1,14 @@
+<box class="chart-tool-bar">
+    <mat-select value="casein" class="case-flow default-select">
+        <mat-option value="casein">CASA_ACC_DTLS_LIST_TMPLT.cashinflow</mat-option>
+        <mat-option value="caseout">CASA_ACC_DTLS_LIST_TMPLT.cashoutflow</mat-option>
+    </mat-select>
+    <box class="chart-month-options">
+        <mat-radio-group class="chicletsRadio" value="6M">
+            <mat-radio-button value="6M">6M</mat-radio-button>
+            <mat-radio-button value="3M">3M</mat-radio-button>
+            <mat-radio-button value="1W">1W</mat-radio-button>
+       </mat-radio-group>
+    </box>
+</box>
+<div class="chart-contents" #chartContainer></div>

@@ -1,0 +1,31 @@
+"additionalEmploymentInfo":{
+"title":"additionalEmploymentInfo",
+		 "tenantId": {
+		  "label":"TenantId" ,
+		  "placeholder": "TenantId"
+		  } ,
+		 "applicantId": {
+		  "label":"ApplicantId" ,
+		  "placeholder": "ApplicantId"
+		  } ,
+		 "serialNumber": {
+		  "label":"Serial Number" ,
+		  "placeholder": "Serial Number"
+		  } ,
+		 "empstatus": {
+		  "label":"Employment status" ,
+		  "placeholder": "Employment status"
+		  } ,
+		 "companyName": {
+		  "label":"Employer Name" ,
+		  "placeholder": "Employer Name"
+		  } ,
+		 "position": {
+		  "label":"Position" ,
+		  "placeholder": "Position"
+		  } ,
+		 "monthlyIncome": {
+		  "label":"Monthly income" ,
+		  "placeholder": "Monthly income"
+		  } 
+}

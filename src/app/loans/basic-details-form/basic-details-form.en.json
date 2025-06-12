@@ -1,0 +1,127 @@
+"BasicDetailsForm":{
+"title":"BasicDetailsForm",
+		 "tenantId": {
+		  "label":"TenantId" ,
+		  "placeholder": "TenantId"
+		  } ,
+		 "inventoryNumber": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } ,
+		 "customerCode": {
+		  "label":"CIF" ,
+		  "placeholder": "CIF"
+		  } ,
+		 "walletName": {
+		  "label":"Customer Name" ,
+		  "placeholder": "Customer Name"
+		  } ,
+		 "walletType": {
+		  "label":"walletType" ,
+		  "placeholder": "walletType"
+		  } ,
+		 "walletTypeDesc": {
+		  "label":"Description" ,
+		  "placeholder": "Description"
+		  } ,
+		 "currency": {
+		  "label":"Loan Currency " ,
+		  "placeholder": "Loan Currency "
+		  } ,
+		 "country": {
+		  "label":"Country" ,
+		  "placeholder": "Country"
+		  } ,
+		 "firstName": {
+		  "label":"First Name" ,
+		  "placeholder": "First Name"
+		  } ,
+		 "lastName": {
+		  "label":"Last Name" ,
+		  "placeholder": "Last Name"
+		  } ,
+		 "mobileNumber": {
+		  "label":"Mobile Number" ,
+		  "placeholder": "Mobile Number"
+		  } ,
+		 "email": {
+		  "label":" Email" ,
+		  "placeholder": " Email"
+		  } ,
+		 "dob": {
+		  "label":"Date of Birth" ,
+		  "placeholder": "Date of Birth"
+		  } ,
+		 "empstatus": {
+		  "label":"Employment status" ,
+		  "placeholder": "Employment status"
+		  } ,
+		  "empName": {
+		  "label":"Employer Name" ,
+		  "placeholder": "Employer Name"
+		  } ,
+		 "empPosition": {
+		  "label":"Position" ,
+		  "placeholder": "Position"
+		  } ,
+		  "monthlyIncome": {
+		  "label":"Monthly income" ,
+		  "placeholder": "Monthly income"
+		  } ,
+		  "empaddressLine1": {
+		  "label":"Address line 1" ,
+		  "placeholder": "Address line 1"
+		  } ,
+		  "empaddressLine2": {
+		  "label":"Address line 2" ,
+		  "placeholder": "Address line 1"
+		  } ,
+		  "empstate": {
+		  "label":"State" ,
+		  "placeholder": "State"
+		  } ,
+		  "empcity": {
+		  "label":"State" ,
+		  "placeholder": "State"
+		  } ,
+		  "empzipcode": {
+		  "label":"ZIP Code" ,
+		  "placeholder": "ZIP Code"
+		  } ,
+		  "addressLine1": {
+		  "label":"Address line 1" ,
+		  "placeholder": "Address line 1"
+		  } ,
+		  "addressLine2": {
+		  "label":"Address line 2" ,
+		  "placeholder": "Address line 1"
+		  } ,
+		  "state": {
+		  "label":"State" ,
+		  "placeholder": "State"
+		  } ,
+		  "city": {
+		  "label":"State" ,
+		  "placeholder": "State"
+		  } ,
+		  "zipcode": {
+		  "label":"ZIP Code" ,
+		  "placeholder": "ZIP Code"
+		  } ,
+		 "createdBy": {
+		  "label":"Created By" ,
+		  "placeholder": "Created By"
+		  } ,
+		 "createdOn": {
+		  "label":"Cheque Date" ,
+		  "placeholder": "Cheque Date"
+		  } ,
+		 "authOn": {
+		  "label":"Cheque Date" ,
+		  "placeholder": "Cheque Date"
+		  } ,
+		 "modifiedOn": {
+		  "label":"Cheque Date" ,
+		  "placeholder": "Cheque Date"
+		  } 
+}

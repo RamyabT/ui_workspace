@@ -1,0 +1,5 @@
+ 
+ "RETAILESTATEMENTREQ" : {
+ "servicePath": ["entry-shell","accounts", "retail-estmt-request-form"],
+ "queryParams": {}
+ }

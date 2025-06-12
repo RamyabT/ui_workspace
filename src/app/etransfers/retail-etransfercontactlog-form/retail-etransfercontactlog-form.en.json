@@ -1,0 +1,31 @@
+"RetailEtransfercontactlogForm":{
+"title":"Add Contact",
+		 "firstName": {
+		  "label":"Contact Name" ,
+		  "placeholder": "Contact Name"
+		  } ,
+		 "emailId": {
+		  "label":" Contact Email ID" ,
+		  "placeholder": " Contact Email ID"
+		  } ,
+		 "phoneNumber": {
+		  "label":"Contact Mobile Phone Number" ,
+		  "placeholder": "Contact Mobile Phone Number"
+		  } ,
+		 "notificationPreference": {
+		  "label":"Notify Contact  By" ,
+		  "placeholder": "Notify Contact  By"
+		  } ,
+		 "securityQuestion": {
+		  "label":"Security Question" ,
+		  "placeholder": "Security Question"
+		  } ,
+		 "securityAnswer": {
+		  "label":"Security Answer" ,
+		  "placeholder": "Security Answer"
+		  } ,
+		 "confirmSecurityAnswer": {
+		  "label":"Re-Confirm Security Answer" ,
+		  "placeholder": "Placeholder"
+		  } 
+}

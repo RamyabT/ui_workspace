@@ -1,0 +1,51 @@
+"completedpymnts":{
+"title":"Completed Payments",
+		 "valueDate": {
+		  "label":"valueDate" ,
+		  "placeholder": "valueDate"
+		  } ,
+		 "initiationDate": {
+		  "label":"initiationDate" ,
+		  "placeholder": "initiationDate"
+		  } ,
+		 "paymentType": {
+		  "label":"PaymentType" ,
+		  "placeholder": "PaymentType"
+		  } ,
+		 "beneficiaryAccountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "debitAccountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "beneficiaryName": {
+		  "label":"BeneficiaryName" ,
+		  "placeholder": "BeneficiaryName"
+		  } ,
+		 "transactionReference": {
+		  "label":"TranRef" ,
+		  "placeholder": "TranRef"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "paymentCurrency": {
+		  "label":"Currency" ,
+		  "placeholder": "Currency"
+		  } ,
+		 "uETR": {
+		  "label":"Transaction Reference" ,
+		  "placeholder": "Transaction Reference"
+		  } ,
+		 "status": {
+		  "label":"Status" ,
+		  "placeholder": "Status"
+		  } ,
+		 "flowInstanceId": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } 
+}

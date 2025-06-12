@@ -1,0 +1,45 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="ServiceRequestAttachmentForm">
+
+	<box class="entry-form">
+
+		<box class="chatbox-wrapper">
+
+			<box class="attached-files" [ngClass]="{'show-attachments' : state.attachedFiles?.length > 0}">
+				<box class="file-list" *ngFor="let file of state.attachedFiles">
+					<box class="primary-file-info">
+						<box class="file-icon"></box>
+						<box class="file-details">
+							<box class="file-name">{{file.fileName}}</box>
+							<!-- <box class="file-download" (click)="_helper.downloadFile(file)">DOWNLOAD</box> -->
+						</box>
+					</box>
+					<box class="secondary-file-info" (click)="_helper.removeSelectedFile(file)">
+						<box class="unselect-icon"></box>
+					</box>
+				</box>
+			</box>
+
+			<box class="chatbox-content">
+				<app-message-control allowCutCopyPaste [actionPublisher]="actionMap$.get('messageContent')"
+					label="{{'ServiceRequestAttachmentForm.messageContent.label' | translate }}"
+					formControlName="messageContent" placeholder="{{'ServiceRequestAttachmentForm.messageContent.placeholder' | translate }}"></app-message-control>
+				<fpx-multi-file-upload #fpxControl [extensions]="state.fileUpload.extensions"
+					[actionPublisher]="actionMap$.get('servicereqcommentsattachement')"
+					formControlName="servicereqcommentsattachement" [ngTemplateName]="'iconFileUploadTmplt'">
+				</fpx-multi-file-upload>
+				<!-- <fpx-button btnType="button" [btnClass]="'system-ico-button button-submit'"
+					(click)="submit()">Send</fpx-button> -->
+
+				<button *ngIf="!_helper._device.isMobile()" class="send-btn primary button-submit"
+					[disabled]="formGroup.invalid">
+					<span>Send</span>
+				</button>
+
+				<button *ngIf="_helper._device.isMobile()" [ngClass]="{'send-mobile-btn' : _helper._device.isMobile()}" class="primary button-submit"
+					[disabled]="formGroup.invalid">
+					<img src="./assets/images/icons/send-comment.svg" alt="send-btn">
+				</button>
+			</box>
+		</box>
+	</box>
+</form>

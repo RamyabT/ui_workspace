@@ -1,0 +1,71 @@
+"PfmTransactionHistoryRoGrid":{
+"title":"PFMTRANSACTIONHISTORY",
+		 "inventoryNumber": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } ,
+		 "customerCode": {
+		  "label":"CIF" ,
+		  "placeholder": "CIF"
+		  } ,
+		 "categoryCode": {
+		  "label":"pfmcategory" ,
+		  "placeholder": "pfmcategory"
+		  } ,
+		 "paymentDate": {
+		  "label":"Payment Date" ,
+		  "placeholder": "Payment Date"
+		  } ,
+		 "transactionAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "transactionCurrency": {
+		  "label":"Currency" ,
+		  "placeholder": "Currency"
+		  } ,
+		 "transactionDescription": {
+		  "label":"Transaction Type" ,
+		  "placeholder": "Transaction Type"
+		  } ,
+		 "externalReferenceNumber": {
+		  "label":"External Reference" ,
+		  "placeholder": "External Reference"
+		  } ,
+		 "merchantCode": {
+		  "label":"merchant" ,
+		  "placeholder": "merchant"
+		  } ,
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "transactioncategory": {
+		  "label":"transactioncategory" ,
+		  "placeholder": "transactioncategory"
+		  } ,
+		 "authOn": {
+		  "label":"Cheque Date" ,
+		  "placeholder": "Cheque Date"
+		  } ,
+		 "pfmSubCategory": {
+		  "label":"pfmSubCategory" ,
+		  "placeholder": "pfmSubCategory"
+		  } ,
+		 "modifiedOn": {
+		  "label":"Cheque Date" ,
+		  "placeholder": "Cheque Date"
+		  } ,
+		 "createdBy": {
+		  "label":"Created By" ,
+		  "placeholder": "Created By"
+		  } ,
+		 "createdOn": {
+		  "label":"Cheque Date" ,
+		  "placeholder": "Cheque Date"
+		  } ,
+		 "currency": {
+		  "label":"Currency" ,
+		  "placeholder": "Currency"
+		  } 
+}

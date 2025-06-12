@@ -1,0 +1,5 @@
+ 
+ "RETAILLOANTRANSACTIONSUMMARY" : {
+ "servicePath": ["display-shell","loans", "RetailLoanTransactionDtlsRoGrid"],
+ "queryParams": {}
+ }

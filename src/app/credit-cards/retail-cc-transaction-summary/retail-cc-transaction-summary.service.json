@@ -1,0 +1,5 @@
+ 
+ "RETAILCCTRANSACTION" : {
+ "servicePath": ["entry-shell","creditcard", "retail-cc-transaction-summary"],
+ "queryParams": {}
+ }

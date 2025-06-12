@@ -1,0 +1,5 @@
+ 
+ "fatcaConfirmation" : {
+ "servicePath": ["entry-shell","onboarding", "fatca-confirmation-form"],
+ "queryParams": {}
+ }

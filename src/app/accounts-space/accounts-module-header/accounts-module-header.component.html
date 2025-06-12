@@ -1,0 +1,32 @@
+<box class="main-header-inner">
+
+    <box class="back-wrapper">
+        <box class="back-btn" (click)="goToHome()">
+            <span class="ico ico-back"></span>
+            <span class="back-text font-14-20">{{'EverydayBanking.back' | translate}}</span>
+        </box>
+
+        <box *ngIf="!newAccount" class="all-accounts-btn">
+            <span class="all-accounts-text font-14-20">{{'EverydayBanking.allAccounts' | translate}}</span>
+        </box>
+
+
+        <box class="new-act-btn" *ngIf="newAccount">
+            <button *ngIf="'RETAILOPENNEWCASA' | AccessScope" class="btn-tertiary">
+                <span class="add-payee-text">{{'EverydayBanking.newAccount' | translate}}</span>
+            </button>
+        </box>
+        <box *ngIf="!newAccount">
+             <button class="new-account-footer-left" (click)="viewAllLink()">
+                {{'depositsPanel.linkAccount' | translate}}
+            </button>
+        </box>
+        <box *ngIf="!newAccount">
+            <button class="new-account-footer-left aviso-online" (click)="openLink($event)" >
+                Go to Aviso Online
+            </button>
+        </box>
+    </box>
+
+
+</box>

@@ -1,0 +1,76 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailChangeProductReqForm">
+
+	<box class="entry-form">
+
+		<box class="terms-label">
+			<!-- <fpx-display-text class="terms-label"
+				[innerHTML]="'RetailChangeProductReqForm.termsFlag.label' | translate "></fpx-display-text> -->
+			<span [innerHTML]="'RetailChangeProductReqForm.newTerms.label' | translate "></span>
+
+		</box>
+
+		<box class="grid entry-form-field-group col-lg-12 col-sm-12">
+
+
+			<app-account-number-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('accountNumber')"
+				label="{{'RetailChangeProductReqForm.accountNumber.label' | translate }}"
+				formControlName="accountNumber"
+				placeholder="{{'RetailChangeProductReqForm.accountNumber.placeholder' | translate }}"
+				(commonControlEvent)="handleControlEvent($event)"></app-account-number-list-control>
+
+			<!-- <box class="display-fields-container field-lbl-wrapper">
+				<ng-container>
+					<box class="display-field">
+						<box class="lbl-wrapper">
+							<span class="lbl">{{'RetailChangeProductReqForm.newProductCode.label' | translate }}</span>
+							<box class="tooltip-wrapper" *ngIf="state.field== 'newProductCode'">
+								<box class="tooltip-content-wrapper">
+									<span class="tooltip-content">
+										Select product you want to change
+									</span>
+									<span class="tooltip-arrow"></span>
+								</box>
+								<button type="button" class="btn-container">
+									<span class="icon hint-btn-icon"></span>
+								</button>
+							</box>
+						</box>
+					</box>
+				</ng-container> -->
+
+				<app-casa-product-list-control class="col-sm-12 col-md-12 col-lg-12"
+					[actionPublisher]="actionMap$.get('newProductCode')" [changePublisher]="formChangePublisher$"
+					formControlName="newProductCode" (commonControlEvent)="handleControlEvent($event)"
+					label="{{'RetailChangeProductReqForm.newProductCode.label' | translate }}"
+					[dependencyField]="['accountType','productCode']"></app-casa-product-list-control>
+			<!-- </box> -->
+
+
+			<!-- <hr> -->
+		</box>
+		<box id="group_disclaimer-box" class="col-sm-12 col-md-12 col-lg-12 dynamic-terms-ctrol "
+			[actionPublisher]="actionMap$.get('termsBlock')">
+
+			<app-terms-control class="col-sm-12 col-md-12 col-lg-12" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" label="" [ckValues]="state.termsFlag.ckValues">
+
+			</app-terms-control>
+		</box>
+		<box>
+			<fpx-display-text class="terms-label terms"
+				[innerHTML]="'RetailChangeProductReqForm.termsFlag.label' | translate "></fpx-display-text>
+
+		</box>
+
+		<hr class="subline">
+	</box>
+	<!-- <fpx-button [btnClass]="state.enableNext?'next-btn enableNext':'next-btn disableNext'"
+		(onClick)="_helper.next()"></fpx-button> -->
+	<box class="subbtn">
+		<button type="button" class="primary"
+			[ngClass]="{'disabled': !state.newProductDescription, 'enabled': state.newProductDescription}"
+			[disabled]="!state.newProductDescription" (click)="_helper.onSubmit()">Submit</button>
+	</box>
+
+</form>

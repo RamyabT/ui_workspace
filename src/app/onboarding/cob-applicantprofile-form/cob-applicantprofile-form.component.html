@@ -1,0 +1,61 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="CobApplicantProfileForm">
+
+	<box class="entry-form">
+		<box class="entry-form-field-group col-12 grid">
+
+			<box id="header" class="col-md-12 grid  header  ">
+				<fpx-display-text id="title1" class="col-md-12  title"
+					[innerHTML]="'CobApplicantProfileForm.header.text' | translate"
+					[literals]="commonFormInput"></fpx-display-text>
+				<!-- <fpx-display-text id="hint" class="col-md-12  hint"
+				[innerHTML]="'COBEmploymentInfoForm.hint.text' | translate"
+				[literals]="commonFormInput"></fpx-display-text> -->
+			</box>
+			<app-registered-username-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('userName')" (commonControlEvent)="handleControlEvent($event)"
+				label="{{'CobApplicantProfileForm.userName.label' | translate }}" formControlName="userName">
+			</app-registered-username-control>
+
+
+			<app-Applicant-Password-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('password')"
+				label="{{'CobApplicantProfileForm.password.label' | translate }}"
+				formControlName="password"></app-Applicant-Password-control>
+
+
+			<app-Applicant-Password-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('confirmPassword')"
+				label="{{'CobApplicantProfileForm.confirmPassword.label' | translate }}"
+				formControlName="confirmPassword"></app-Applicant-Password-control>
+
+
+			<box class="profile-rule">
+				<!-- <fpx-display-text id="sample1" class="col-md-4  rule"
+				[ngClass]="{ valid: state.lengthValid }"
+					[innerHTML]="'CobApplicantProfileForm.sample1.text' | translate"
+					[literals]="commonFormInput"></fpx-display-text> -->
+
+
+				<fpx-display-text id="sample2" class="col-md-4  rule" [ngClass]="{ valid: state.lengthValid }"
+					[innerHTML]="'CobApplicantProfileForm.sample2.text' | translate"
+					[literals]="commonFormInput"></fpx-display-text>
+
+
+				<fpx-display-text id="sample3" class="col-md-4  rule" [ngClass]="{ valid: state.space }"
+					[innerHTML]="'CobApplicantProfileForm.sample3.text' | translate"
+					[literals]="commonFormInput"></fpx-display-text>
+
+
+				<fpx-display-text id="sample4" class="col-md-4  rule" [ngClass]="{ valid: state.sequenceValid }"
+					[innerHTML]="'CobApplicantProfileForm.sample4.text' | translate"
+					[literals]="commonFormInput"></fpx-display-text>
+
+
+				<fpx-display-text id="sample5" class="col-md-4  rule" [ngClass]="{ valid: state.mustContainLetters }"
+					[innerHTML]="'CobApplicantProfileForm.sample5.text' | translate"
+					[literals]="commonFormInput"></fpx-display-text>
+			</box>
+
+		</box>
+	</box>
+</form>

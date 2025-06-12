@@ -1,0 +1,31 @@
+"RetailOwnAccountTransferForm":{
+"title":"ownaccounttransfer",
+		 "sourceAccount": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "creditAccount": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "scheduleType": {
+		  "label":"Schedule Type" ,
+		  "placeholder": "Schedule Type"
+		  } ,
+		 "paymentDate": {
+		  "label":"Payment Date" ,
+		  "placeholder": "Payment Date"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } ,
+}

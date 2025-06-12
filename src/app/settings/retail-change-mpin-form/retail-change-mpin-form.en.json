@@ -1,0 +1,15 @@
+"RetailChangeMpinForm":{
+"title":"Change MPIN",
+		 "currentMpin": {
+		  "label":"Enter Pin" ,
+		  "placeholder": "Enter Pin"
+		  } ,
+		 "newMpin": {
+		  "label":"Enter New Pin" ,
+		  "placeholder": "Enter New Pin"
+		  } ,
+		 "confirmMpin": {
+		  "label":"Re-Enter New Pin" ,
+		  "placeholder": "Re-Enter New Pin"
+		  } 
+}

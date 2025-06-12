@@ -1,0 +1,76 @@
+
+<form [formGroup]="formGroup" class="review-form" formName="RetailMultiBillRequestReviewGrid">
+  <box class="input-grid" [style.width]="gridWidth + '%'">
+    <box class="portfolio-summary col-lg-12">
+        <ng-container formArrayName="formArray">
+          <ng-container *ngFor="
+              let control of formArray.controls;
+              let i = index;
+              let last = last
+            " formGroupName="{{ i }}">
+              <box class="input-grid-row">
+                <div class="entry-form">
+                  <box class="input-grid-row-item col-lg-4 col-sm-12" [actionPublisher]="
+                      actionMap$[i].get('nickName_column')
+                    ">
+                    <app-account-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$[i].get('nickName')"
+                      label="{{'RetailMultiBillRequestReviewGrid.nickName.label' | translate }}"
+                      formControlName="nickName"></app-account-name-control>
+                  </box>
+                  <box class="input-grid-row-item col-lg-4 col-sm-12" [actionPublisher]="
+                      actionMap$[i].get('totalBillAmount_column')
+                    ">
+                    <box class="custom-control">
+                      <span class="label">{{ 'RetailMultiBillRequestReviewGrid.totalBillAmount.label' | translate}}</span>
+                      <span class="value amount">{{ control?.value?.totalBillAmount.amount | currency : control?.value?.totalBillAmount.currencyCode : '' }} <em>{{ control?.value?.totalBillAmount.currencyCode | currencyCode }}</em></span>
+                    </box>
+                    <!-- <app-amount-control hidden class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$[i].get('totalBillAmount')"
+                    label="{{ 'RetailMultiBillRequestReviewGrid.totalBillAmount.label' | translate }}" formControlName="totalBillAmount" [isCurrEditable]="state.totalBillAmount.isCurrEditable"
+                    [defaultFetch]="state.totalBillAmount.defaultFetch" [initCurrency]="state.totalBillAmount.initCurrency"
+                    [amountInWords]="state.totalBillAmount.amountInWords"></app-amount-control> -->
+                  </box>
+                  <box class="input-grid-row-item col-lg-4 col-sm-12" [actionPublisher]="actionMap$[i].get('paymentDate_column')">
+                    <app-payment-date-control [actionPublisher]="actionMap$[i].get('paymentDate')"
+                      formControlName="paymentDate" label="{{
+                        'RetailMultiBillRequestReviewGrid.paymentDate.label'
+                          | translate
+                      }}" [minDate]="state.paymentDate.minDate"
+                      [maxDate]="state.paymentDate.maxDate"></app-payment-date-control>
+                  </box>
+                  <box *ngIf="control.get('scheduleType')?.value" class="input-grid-row-item col-lg-4 col-sm-12" [actionPublisher]="actionMap$[i].get('paymentDate_column')">
+                    <!-- <app-statement-mode-control class="col-sm-12 col-md-12 col-lg-12"
+                      [actionPublisher]="actionMap$[i].get('scheduleType')" label="{{
+                        'RetailMultiBillRequestReviewGrid.scheduleType.label'
+                          | translate
+                      }}" formControlName="scheduleType"></app-statement-mode-control> -->
+                      <mat-slide-toggle [checked]="control.get('scheduleType')?.value" formControlName="scheduleType">{{
+                        'RetailMultiBillRequestInputGrid.scheduleType.label'
+                          | translate
+                      }}</mat-slide-toggle>
+                  </box>
+
+                  <box *ngIf="control.get('scheduleType')?.value" class="input-grid-row-item col-lg-4 col-sm-12" [actionPublisher]="actionMap$[i].get('paymentFrequency_column')">
+                    <app-frequency-control class="col-sm-12 col-md-6 col-lg-6"
+                      [actionPublisher]="actionMap$[i].get('paymentFrequency')"
+                      label="{{'RetailMultiBillRequestReviewGrid.paymentFrequency.label' | translate }}"
+                      formControlName="paymentFrequency"></app-frequency-control>
+                  </box>
+                  <box *ngIf="control.get('scheduleType')?.value" class="input-grid-row-item col-lg-4 col-sm-12" [actionPublisher]="actionMap$[i].get('numberOfPayments_column')">
+                    <app-installment-number-control class="col-sm-12 col-md-6 col-lg-6"
+                      [actionPublisher]="actionMap$[i].get('numberOfPayments')"
+                      label="{{'RetailMultiBillRequestReviewGrid.numberOfPayments.label' | translate }}"
+                      formControlName="numberOfPayments"></app-installment-number-control>
+                  </box>
+                  
+                  <box *ngIf="control.get('paymentDate')?.value && control.get('scheduleType')?.value && control.get('paymentFrequency')?.value && control.get('numberOfPayments')?.value" class="input-grid-row-item col-lg-4 col-sm-12" [actionPublisher]="actionMap$[i].get('paymentEndDate_column')">
+                    <app-end-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$[i].get('paymentEndDate')"
+                    label="{{'RetailMultiBillRequestReviewGrid.paymentEndDate.label' | translate }}" formControlName="paymentEndDate"
+                    [minDate]="state.paymentEndDate.minDate" [maxDate]="state.paymentEndDate.maxDate"></app-end-date-control>
+                  </box>
+                </div>
+              </box>
+          </ng-container>
+        </ng-container>
+    </box>
+  </box>
+</form>

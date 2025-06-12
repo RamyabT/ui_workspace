@@ -1,0 +1,106 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailIBANLetterReqForm" >
+	   
+	 <box class="entry-form">
+
+		<box class="entry-form-field-group grid">
+	      
+	      
+			  <!-- <app-account-number-list-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('accountNumber')"     label="{{'RetailIBANLetterReqForm.accountNumber.label' | translate }}"   formControlName="accountNumber" (commonControlEvent)="handleControlEvent($event)"
+     ></app-account-number-list-control> -->
+
+	 <app-account-list-template-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('accountNumber')"
+				label="{{'RetailIBANLetterReqForm.accountNumber.label' | translate }}" formControlName="accountNumber"
+				(commonControlEvent)="handleControlEvent($event)"></app-account-list-template-control>
+	      
+	      
+			  <app-iban-letter-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('iBAN')"     label="{{'RetailIBANLetterReqForm.iBAN.label' | translate }}"   formControlName="iBAN" 
+   ></app-iban-letter-control>
+	     
+	      
+			  <app-service-req-delivery-option-control  class="col-md-6"   [actionPublisher]="actionMap$.get('deliveryOption')" (commonControlEvent)="handleControlEvent($event)"    label="{{'RetailIBANLetterReqForm.deliveryOption.label' | translate }}"   formControlName="deliveryOption" 
+     ></app-service-req-delivery-option-control>
+
+	 <app-email-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('emailId')" label="{{ 'RetailIBANLetterReqForm.emailId.label' | translate }}" formControlName="emailId"
+	 ></app-email-control>
+
+
+	 <!-- <box class="field-item col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('addressDetails')">
+		<fpx-label label="Delivery Address"></fpx-label>
+		<box class="info-box">
+		  <box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.address.buildingDetails"
+			  [literals]="commonFormInput"></fpx-display-text>
+		  </box>
+		  <box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.address.cityDetails"
+			  [literals]="commonFormInput"></fpx-display-text>
+		  </box>
+		  <box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.address.stateDetails"
+			  [literals]="commonFormInput"></fpx-display-text>
+		  </box>
+		  <box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.address.countryDetails"
+			  [literals]="commonFormInput"></fpx-display-text>
+		  </box>
+		  <box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.address.pinCode"
+			  [literals]="commonFormInput"></fpx-display-text>
+		  </box>
+		</box>
+	  </box> -->
+
+	  <box class="field-item col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('address')">
+		<fpx-label label="Address Details"></fpx-label>
+		<box class="info-box">
+		  <box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.address.buildingDetails"
+			  [literals]="commonFormInput"></fpx-display-text>
+		  </box>
+		  <box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.address.cityDetails"
+			  [literals]="commonFormInput"></fpx-display-text>
+		  </box>
+		  <box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.address.stateDetails"
+			  [literals]="commonFormInput"></fpx-display-text>
+		  </box>
+		  <box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.address.countryDetails"
+			  [literals]="commonFormInput"></fpx-display-text>
+		  </box>
+		  <box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.address.pinCode"
+			  [literals]="commonFormInput"></fpx-display-text>
+		  </box>
+		  <box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.address.mobile"
+			  [literals]="commonFormInput"></fpx-display-text>
+		  </box>
+		</box>
+	  </box>
+
+	  <app-branches-list-control class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('deliveryBranch')"
+        label="{{ 'RetailIBANLetterReqForm.deliveryBranch.label' | translate }}"
+        formControlName="deliveryBranch"></app-branches-list-control>
+	     
+	    
+		<app-charges-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('chargesAmount')"     label="{{'RetailIBANLetterReqForm.chargesAmount.label' | translate }}"   formControlName="chargesAmount" 
+		[CurrencyList]="state.chargesAmount.CurrencyList" [isCurrEditable]="state.chargesAmount.isCurrEditable"  [defaultFetch]="state.chargesAmount.defaultFetch" [initCurrency]="state.chargesAmount.initCurrency" [amountInWords]="state.chargesAmount.amountInWords">  ></app-charges-control>
+	      
+			  <app-remarks-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('remarks')"     label="{{'RetailIBANLetterReqForm.remarks.label' | translate }}"   formControlName="remarks" 
+   ></app-remarks-control>
+	      
+	      
+			  
+	 </box> 
+
+	 <box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-12 grid main-group disclaimer-box">
+	 <app-terms-control  class="col-md-12 col-lg-12"   [actionPublisher]="actionMap$.get('termsFlag')"     label="{{'RetailIBANLetterReqForm.termsFlag.label' | translate }}"   formControlName="termsFlag"  placeholder="{{'RetailIBANLetterReqForm.termsFlag.placeholder' | translate }}" 
+   [textPosition]="state.termsFlag.textPosition"  [ckValues]="state.termsFlag.ckValues" ></app-terms-control>
+</box>
+	 </box>
+	</form>
+	

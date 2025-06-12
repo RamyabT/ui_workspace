@@ -1,0 +1,40 @@
+<box class="stop-cheque-details-container">
+
+    <box class="stop-cheque-details-wrapper">
+
+        <box class="date-name-btn-container">
+            <box class="date-name-wrapper">
+                <box class="stop-date">{{selectedData?.nextPaymentDate | date : "dd MMM YYYY"}}</box>
+                <box class="payee-name">
+                    <span class="name">{{selectedData?.creditAccNickName
+                        ?selectedData?.creditAccNickName:selectedData?.creditAccProdDesc}}</span>
+                    <span class="account-no">#{{selectedData?.creditAccountNumber}}</span>
+                </box>
+            </box>
+
+            <box class="revoke-btn-container">
+                <button (click)="displayContextMenu($event,selectedData)">
+                    <span class="icon revoke-btn-icon"></span>
+                    
+                </button>
+            </box>
+        </box>
+
+        <box class="reason-cheque-amount-container">
+            <box class="reason-cheque-wrapper">
+                <box class="reason">
+                    <span>{{decodeScheduleType(selectedData?.scheduleType)}}</span>
+                </box>
+            </box>
+
+            <box class="cheque-amount">
+                <span *ngIf="selectedData.paymentAmount" class="amount">{{ selectedData.paymentAmount | currency :
+                    selectedData.paymentCurrency : '' }}
+                    <em>{{selectedData.paymentCurrency | currencyCode}}</em></span>
+                <span *ngIf="!selectedData.paymentAmount" class="amount">-</span>
+            </box>
+
+
+        </box>
+    </box>
+</box>

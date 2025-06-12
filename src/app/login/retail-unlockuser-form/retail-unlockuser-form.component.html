@@ -1,0 +1,19 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailUnlockuserForm" >
+		<div class="login-form-wrapper">
+			<span class="login-form-img"></span>
+			<h1 class="login-form-heading">{{'RetailUnlockuserForm.title' | translate}}</h1></div>
+	 <box class="entry-form">
+	     
+	     
+			  <fpx-display-text id="Message"   class="col-md-6  Message"  [innerHTML]="'RetailUnlockuserForm.Message.text' | translate"   [literals]="commonFormInput"></fpx-display-text>
+	     
+			  <!-- <fpx-button class="col-md-2" (click)="_helper.navToUnlockUser()"  [actionPublisher]="actionMap$.get('Reactivate')"  label ="Reactivate" btnClass=" btn-secondary"  [buttonMode]="'button'"   ></fpx-button> -->
+		    	
+	 </box> 
+	 <div class="form-footer-actions">
+		<button type="button" class="btn-tertiary" (click)="_helper.gotoWelcome()"><span>{{'LOGIN.back' | translate}}</span></button>
+		<button [disabled]="formGroup.invalid" (click)="_helper.navToUnlockUser()"  class="btn-primary"><span>{{'RetailUnlockuserForm.reactivate' | translate}}</span></button>
+		
+	  </div>
+	</form>
+	

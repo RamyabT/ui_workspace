@@ -1,0 +1,169 @@
+<box class="module-home e-document-home" #spaceHome>
+
+    <ng-container *ngIf="_device.isMobile(); else spaceContainer">
+        <ng-container *ngIf="appConstant.requiredAccountsSpaceNavigation; else showDirectMudule">
+            <box class="module-home-bg" [style.top.px]="moduleHeaderTop"></box>
+            <box class="module-home-inner">
+                <fpx-display-text class="module-title"
+                    innerHTML="{{'ACCOUNTSCONTAINER.title' | translate}}"></fpx-display-text>
+                <box class="module-tab-container">
+                    <mat-tab-group [(selectedIndex)]="activeTabIndex">
+                        <mat-tab
+                            label="{{ 'ACCOUNTSCONTAINER.casa' | translate : {count: summary?.casa?.count || 0} }}">
+                            <ng-template matTabContent>
+                                
+                            </ng-template>
+                        </mat-tab>
+                        <mat-tab
+                            label="{{ 'ACCOUNTSCONTAINER.deposits' | translate : {count: summary?.deposits?.count || 0} }}">
+                            <ng-template matTabContent>
+                                
+                            </ng-template>
+                        </mat-tab>
+                        <mat-tab
+                            label="{{ 'ACCOUNTSCONTAINER.loans' | translate : {count: summary?.loans?.count || 0} }}">
+                            <ng-template matTabContent>
+                                
+                            </ng-template>
+                        </mat-tab>
+                    </mat-tab-group>
+                </box>
+            </box>
+
+        </ng-container>
+
+        <ng-template #showDirectMudule>
+
+            <box class="module-home-header">
+                <button type="button" class="system-ico-button btn-back no-text" name="back" (click)="goBack()"><span>Back</span></button>
+                <h2 class="module-title">{{ 'MODULE_HEADER.' + accountNavigator | translate }}</h2>
+            </box>
+
+            <box class="module-home-body">
+                <!-- <ng-container [ngSwitch]="accountNavigator">
+                    <ng-container *ngSwitchCase="'accounts'">
+                        <casa-tab-container></casa-tab-container>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'deposits'">
+                        <deposits-tab-container></deposits-tab-container>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'loans'">
+                        <loan-tab-container></loan-tab-container>
+                    </ng-container>
+                </ng-container> -->
+                <box>
+                    <edocument-navigation-form [highlightMenu]="this.highlightMenu"></edocument-navigation-form>
+                </box>
+                <div>
+                    <router-outlet (activate)="onActivate($event)"></router-outlet>
+                </div>
+            </box>
+
+        </ng-template>
+
+    </ng-container>
+
+    <ng-template #spaceContainer>
+        <box class="space-container">
+            <box class="space-summary" *ngIf="!appConstant.requiredAccountsSpaceNavigation">
+                <edocument-aside-bar></edocument-aside-bar>
+            </box>
+            
+            <ng-container *ngIf="appConstant.requiredAccountsSpaceNavigation">
+                <box class="space-summary">
+                    <box class="module-tab-container">
+                        <mat-tab-group [(selectedIndex)]="activeTabIndex" >
+                            <mat-tab
+                                label="{{ 'ACCOUNTSCONTAINER.casa' | translate : {count: summary?.casa?.count || 0} }}">
+                                <ng-template matTabContent>
+                                    <!-- <casa-tab-container
+                                        (onAccountsReceived)="onCasaAccountReceivedHandler($event)"></casa-tab-container> -->
+                                </ng-template>
+                            </mat-tab>
+                            <mat-tab
+                                label="{{ 'ACCOUNTSCONTAINER.deposits' | translate : {count: summary?.deposits?.count || 0} }}">
+                                <ng-template matTabContent>
+                                    <!-- <deposits-tab-container
+                                        (onAccountsReceived)="onDepositsReceivedHandler($event)"></deposits-tab-container> -->
+                                </ng-template>
+                            </mat-tab>
+                            <mat-tab
+                                label="{{ 'ACCOUNTSCONTAINER.loans' | translate : {count: summary?.loans?.count || 0} }}">
+                                <ng-template matTabContent>
+                                    <!-- <loan-tab-container
+                                        (onLoanAccountReceived)="onLoanAccountReceivedHandler($event)"></loan-tab-container> -->
+                                </ng-template>
+                            </mat-tab>
+                        </mat-tab-group>
+                    </box>
+                </box>
+            </ng-container>
+
+            <box class="space-content accounts-content edocument-content">
+                <box *ngIf="!appConstant.requiredAccountsSpaceNavigation">
+                    <edocument-module-header></edocument-module-header>
+                </box>
+                <box>
+                    <edocument-navigation-form [highlightMenu]="this.highlightMenu"></edocument-navigation-form>
+                </box>
+                <!-- <ng-container *ngIf="isReceivedAccounts; else loader">
+                    <ng-container *ngIf="(isReceivedAccounts.length > 0 || showTemplate); else noRecordDesktop">
+                        <box *ngIf="isReceivedAccounts?.length > 0" class="navigation-form-wrapper">
+                            <ng-container [ngSwitch]="accountNavigator">
+                                <ng-container *ngSwitchCase="'accounts'">
+                                    <casa-navigation-form [highlightMenu]="this.highlightMenu"></casa-navigation-form>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'deposits'">
+                                    <deposit-navigation-form
+                                        [highlightMenu]="this.highlightMenu"></deposit-navigation-form>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'loans'">
+                                    <loans-navigation-form></loans-navigation-form>
+                                </ng-container>
+                            </ng-container>
+                        </box>
+                    </ng-container> -->
+                    <!-- <div [hidden]="(isReceivedAccounts.length == 0 && !showTemplate)"> -->
+                <box [ngClass]="{'no-shell-header': !activeSpaceInfoService.shellHeaderRequired, 
+            'no-shell-footer': !activeSpaceInfoService.shellFooterRequired}">
+                    <router-outlet (activate)="onActivate($event)"></router-outlet>
+                </box>
+                    <!-- </div> -->
+                <!-- </ng-container> -->
+            </box>
+        </box>
+    </ng-template>
+
+</box>
+<ng-template #noRecordDesktop>
+    <!-- <ng-container [ngSwitch]="accountNavigator">
+        <ng-container *ngSwitchCase="'accounts'">
+            <box class="no-data-template">
+                <img src="./assets/illustrations/no-account-lg.svg" alt="No Loan">
+                <box class="desc">{{ 'ACCOUNTSCONTAINER.noAccount.desc' | translate }}</box>
+                <button type="button" class="btn-primary no-result-btn" (click)="addNewAccount()">{{
+                    'ACCOUNTSCONTAINER.noAccount.button' | translate }}</button>
+            </box>
+        </ng-container>
+        <ng-container *ngSwitchCase="'deposits'">
+            <box class="no-data-template">
+                <img src="./assets/illustrations/no-deposit-lg.svg" alt="No Deposit">
+                <box class="desc">{{ 'ACCOUNTSCONTAINER.noDeposit.desc' | translate }}</box>
+                <button type="button" class="btn-primary no-result-btn" (click)="addNewDeposit()">{{
+                    'ACCOUNTSCONTAINER.noDeposit.button' | translate }}</button>
+            </box>
+        </ng-container>
+        <ng-container *ngSwitchCase="'loans'">
+            <box class="no-data-template">
+                <img src="./assets/illustrations/no-loan-lg.svg" alt="No Loan">
+                <box class="desc">{{ 'ACCOUNTSCONTAINER.noLoan.desc' | translate }}</box>
+            </box>
+        </ng-container>
+    </ng-container> -->
+</ng-template>
+<!-- Content loader -->
+<ng-template #loader>
+    <!-- <ng-container *ngIf="!noTemplate; else noLoanDesktop"> -->
+    <box class="loading"></box>
+    <!-- </ng-container> -->
+</ng-template>

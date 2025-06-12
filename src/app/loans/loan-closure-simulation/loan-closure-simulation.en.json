@@ -1,0 +1,11 @@
+"LoanClosureSimulation":{
+"title":"LoanClosureSimulation",
+		 "FieldId_2": {
+		  "label":"LoanAccountNumber" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "FieldId_3": {
+		  "label":"Date" ,
+		  "placeholder": "Placeholder"
+		  } 
+}

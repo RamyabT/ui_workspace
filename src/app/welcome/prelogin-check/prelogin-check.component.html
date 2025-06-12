@@ -1,0 +1,26 @@
+<button type="button" class="btn-popup-close" (click)="onCancel()">close</button>
+
+<form [formGroup]="formGroup" (ngSubmit)="submit();close()" autocomplete="off" formName="CobResumebackForm">
+	<ng-container>
+		<box class="context-menu-wrapper custom-forms">
+			<box class="context-menu-body">
+				<box class="image">
+					<img src="./assets/illustrations/session-check.png" alt="">
+				</box>
+				<box class="session-check-body">
+					<div class="title">Resume Application</div>
+					<div class="body">Your bank application is currently in progress but hasn’t been completed. Your ARN no. is {{_helper._appConfig.getData('processId')}}.
+						Click resume to continue the application</div>
+				</box>
+			</box>
+			<div class="form-footer-actions">
+				<div class="btn-container reset-btn-container">
+					<button type="button" class="btn-tertiary" (click)="onCancel()"> Cancel </button>
+				</div>
+				<div class="btn-container">
+					<button type="submit" class="btn-primary"> Resume </button>
+				</div>
+			</div>
+		</box>
+	</ng-container>
+</form>

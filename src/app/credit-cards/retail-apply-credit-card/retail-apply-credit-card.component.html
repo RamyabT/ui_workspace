@@ -1,0 +1,132 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailApplyCreditCard">
+
+	<box class="entry-form">
+
+		<app-account-list-template-control class="col-sm-12 col-md-6 col-lg-12"
+			[actionPublisher]="actionMap$.get('accountNumber')"
+			label="{{'RetailApplyCreditCard.accountNumber.label' | translate }}" formControlName="accountNumber"
+			(commonControlEvent)="handleControlEvent($event)"></app-account-list-template-control>
+
+		<box class="grid entry-form-field-group col-lg-12">
+
+			<app-creditcard-type-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('creditcardtype')"
+				label="{{'RetailApplyCreditCard.creditcardtype.label' | translate }}"
+				formControlName="creditcardtype"></app-creditcard-type-list-control>
+
+				<app-apply-card-reason-list class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('reason')"
+				label="{{'RetailApplyCreditCard.reason.label' | translate }}"
+				formControlName="reason"></app-apply-card-reason-list>
+
+
+			<app-acc-delivery-options-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('deliveryOption')" (commonControlEvent)="handleControlEvent($event)"
+				label="{{'RetailApplyCreditCard.deliveryOption.label' | translate }}"
+				formControlName="deliveryOption"></app-acc-delivery-options-control>
+
+			<app-branches-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('branches')"
+				label="{{'RetailApplyCreditCard.branches.label' | translate }}"
+				formControlName="branches"></app-branches-list-control>
+
+			<box class="field-item col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('addressInfo')">
+				<box class="info-box">
+                 <fpx-label label="{{'RetailApplyCreditCard.addressDetails.label' | translate}}"></fpx-label>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.buildingDetails"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.cityDetails"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.stateDetails"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.countryDetails"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.pinCode"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.mobile"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.emailId"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+				</box>
+			</box>
+
+			<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('creditCardLimit')"
+				label="{{'RetailApplyCreditCard.creditCardLimit.label' | translate }}" formControlName="creditCardLimit"
+				(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.creditCardLimit.CurrencyList"
+				[isCurrEditable]="state.creditCardLimit.isCurrEditable"
+				[defaultFetch]="state.creditCardLimit.defaultFetch" [initCurrency]="state.creditCardLimit.initCurrency"
+				[amountInWords]="state.creditCardLimit.amountInWords"
+				[changePublisher]="formChangePublisher$"></app-payment-amount-control>
+
+			<app-enabled-flag-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('supplementaryCard')"
+				label="{{'RetailApplyCreditCard.supplementaryCard.label' | translate }}"
+				formControlName="supplementaryCard">
+			</app-enabled-flag-control>
+
+			<app-source-of-income-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('sourceOfIncome')"
+				label="{{'RetailApplyCreditCard.sourceOfIncome.label' | translate }}" formControlName="sourceOfIncome">
+			</app-source-of-income-control>
+
+			<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('income')"
+				label="{{'RetailApplyCreditCard.income.label' | translate }}" formControlName="income"
+				(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.income.CurrencyList"
+				[isCurrEditable]="state.income.isCurrEditable" [defaultFetch]="state.income.defaultFetch"
+				[initCurrency]="state.income.initCurrency" [amountInWords]="state.income.amountInWords"
+				[changePublisher]="formChangePublisher$"></app-payment-amount-control>
+
+			<app-service-length-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('lengthOfService')"
+				label="{{'RetailApplyCreditCard.lengthOfService.label' | translate }}"
+				formControlName="lengthOfService">
+			</app-service-length-control>
+
+			<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('monthlyLiabilityRepayment')"
+				label="{{'RetailApplyCreditCard.monthlyLiabilityRepayment.label' | translate }}"
+				formControlName="monthlyLiabilityRepayment" (commonControlEvent)="handleControlEvent($event)"
+				[CurrencyList]="state.monthlyLiabilityRepayment.CurrencyList"
+				[isCurrEditable]="state.monthlyLiabilityRepayment.isCurrEditable"
+				[defaultFetch]="state.monthlyLiabilityRepayment.defaultFetch"
+				[initCurrency]="state.monthlyLiabilityRepayment.initCurrency"
+				[amountInWords]="state.monthlyLiabilityRepayment.amountInWords"
+				[changePublisher]="formChangePublisher$"></app-payment-amount-control>
+
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('remarks')"
+				label="{{'RetailApplyCreditCard.remarks.label' | translate }}"
+				formControlName="remarks"></app-remarks-control>
+			<!-- <app-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('charges')"
+				label="{{'RetailApplyCreditCard.charges.label' | translate }}" formControlName="charges"
+				(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.charges.CurrencyList"
+				[isCurrEditable]="state.charges.isCurrEditable" [defaultFetch]="state.charges.defaultFetch"
+				[initCurrency]="state.charges.initCurrency" [amountInWords]="state.charges.amountInWords"
+				[changePublisher]="formChangePublisher$"></app-amount-control> -->
+
+		</box>
+
+
+		<box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-12 grid main-group disclaimer-box">
+			<app-terms-control class="col-md-4" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'RetailApplyCreditCard.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+		</box>
+
+	</box>
+</form>

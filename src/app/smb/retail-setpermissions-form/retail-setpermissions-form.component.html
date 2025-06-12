@@ -1,0 +1,235 @@
+<form #entryForm [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off"
+    formName="RetailSetpermissionsFormComponent">
+    <box [ngClass]="{'multi-bill': _helper.userrestrictionreq?.usercasarestriction?.length > 1}">
+        <ng-container *ngIf="_helper.userrestrictionreq?.usercasarestriction else loader">
+            <ng-container *ngIf="_helper.userrestrictionreq?.usercasarestriction.length > 0 else noBiller">
+                <box class="tab-group">
+                    <mat-tab-group [(selectedIndex)]="_helper.activeTabIndex"
+                        (selectedTabChange)="_helper.tabChanged($event)">
+                        <mat-tab
+                            label="{{ 'RetailSetpermissionsFormComponent.casa' | translate : {count: _helper.userrestrictionreq?.usercasarestriction.length || 0} }}">
+                            <!-- <ng-template matTabContent> -->
+                            <box class="entry-form">
+                                <retail-usercasarestrictionreq-input-grid class="col-lg-12 col-md-12"
+                                    (commonGridEvent)="handleControlEvent($event)"
+                                    label="RetailUserccrestrictionreqInputGridComponent"
+                                    [actionPublisher]="actionMap$.get('usercasarestriction')"
+                                    formControlName="usercasarestriction"></retail-usercasarestrictionreq-input-grid>
+                            </box>
+                            <!-- </ng-template> -->
+                        </mat-tab>
+                        <mat-tab
+                            label="{{ 'RetailSetpermissionsFormComponent.deposits' | translate : {count: _helper.userrestrictionreq?.userdeprestriction.length || 0} }}">
+                            <!-- <ng-template matTabContent> -->
+                            <ng-container
+                                *ngIf="_helper.userrestrictionreq?.userdeprestriction?.length > 0 else loader">
+                                <box class="entry-form">
+                                    <retail-usercasarestrictionreq-input-grid class="col-lg-12 col-md-12"
+                                        [billerReceived]="_helper.userrestrictionreq.userdeprestriction"
+                                        (commonGridEvent)="handleControlEvent($event)"
+                                        label="RetailUserccrestrictionreqInputGridComponent"
+                                        [actionPublisher]="actionMap$.get('userdeprestriction')"
+                                        formControlName="userdeprestriction"
+                                        (showFooter)="showFooterSection($event)"></retail-usercasarestrictionreq-input-grid>
+                                </box>
+                            </ng-container>
+                            <!-- </ng-template> -->
+                        </mat-tab>
+                        <mat-tab
+                            label="{{ 'RetailSetpermissionsFormComponent.loans' | translate : {count: _helper.userrestrictionreq?.userloanrestriction.length || 0} }}">
+                            <!-- <ng-template matTabContent> -->
+                            <ng-container
+                                *ngIf="_helper.userrestrictionreq?.userloanrestriction?.length > 0 else loader">
+                                <box class="entry-form">
+                                    <retail-usercasarestrictionreq-input-grid class="col-lg-12 col-md-12"
+                                        [billerReceived]="_helper.userrestrictionreq.userloanrestriction"
+                                        (commonGridEvent)="handleControlEvent($event)"
+                                        label="RetailUserccrestrictionreqInputGridComponent"
+                                        [actionPublisher]="actionMap$.get('userloanrestriction')"
+                                        formControlName="userloanrestriction"
+                                        (showFooter)="showFooterSection($event)"></retail-usercasarestrictionreq-input-grid>
+                                </box>
+                            </ng-container>
+
+                            <!-- </ng-template> -->
+                        </mat-tab>
+                        <mat-tab
+                            label="{{ 'RetailSetpermissionsFormComponent.debitCards' | translate : {count: _helper.userrestrictionreq?.userdcrestriction.length || 0} }}">
+                            <!-- <ng-template matTabContent> -->
+                            <box class="entry-form">
+                                <retail-usercasarestrictionreq-input-grid class="col-lg-12 col-md-12"
+                                    [billerReceived]="_helper.userrestrictionreq.userdcrestriction"
+                                    (commonGridEvent)="handleControlEvent($event)"
+                                    label="RetailUserccrestrictionreqInputGridComponent"
+                                    [actionPublisher]="actionMap$.get('userdcrestriction')"
+                                    formControlName="userdcrestriction"
+                                    (showFooter)="showFooterSection($event)"></retail-usercasarestrictionreq-input-grid>
+                            </box>
+                            <!-- </ng-template> -->
+                        </mat-tab>
+                        <mat-tab
+                            label="{{ 'RetailSetpermissionsFormComponent.creditCards' | translate : {count: _helper.userrestrictionreq?.userccrestriction.length || 0} }}">
+                            <!-- <ng-template matTabContent> -->
+                            <box class="entry-form">
+                                <retail-usercasarestrictionreq-input-grid class="col-lg-12 col-md-12"
+                                    [billerReceived]="_helper.userrestrictionreq.userccrestriction"
+                                    (commonGridEvent)="handleControlEvent($event)"
+                                    label="RetailUserccrestrictionreqInputGridComponent"
+                                    [actionPublisher]="actionMap$.get('userccrestriction')"
+                                    formControlName="userccrestriction"
+                                    (showFooter)="showFooterSection($event)"></retail-usercasarestrictionreq-input-grid>
+                            </box>
+                            <!-- </ng-template> -->
+                        </mat-tab>
+                        <mat-tab
+                            label="{{ 'RetailSetpermissionsFormComponent.prepaidCards' | translate : {count: _helper.userrestrictionreq?.userpcrestriction.length || 0} }}">
+                            <!-- <ng-template matTabContent> -->
+                            <box class="entry-form">
+                                <retail-usercasarestrictionreq-input-grid class="col-lg-12 col-md-12"
+                                    [billerReceived]="_helper.userrestrictionreq.userpcrestriction"
+                                    (commonGridEvent)="handleControlEvent($event)"
+                                    label="RetailUserccrestrictionreqInputGridComponent"
+                                    [actionPublisher]="actionMap$.get('userpcrestriction')"
+                                    formControlName="userpcrestriction"
+                                    (showFooter)="showFooterSection($event)"></retail-usercasarestrictionreq-input-grid>
+                            </box>
+                            <!-- </ng-template> -->
+                        </mat-tab>
+                    </mat-tab-group>
+                    <!-- <fpx-tab-group [selectedIndex]="activeTab" activeColor="var(--primary-500)"
+                        (selectedIndexChange)="tabChanged($event)">
+                            <fpx-tab [label]="tabDetails[0].name">
+                                
+                                <box class="entry-form">
+                                    <app-retail-usercasarestrictionreq-form class="col-sm-6 col-md-6 col-lg-6">
+                                    </app-retail-usercasarestrictionreq-form>
+                                </box>
+                            </fpx-tab>
+                            <fpx-tab [label]="tabDetails[1].name">
+                                <box class="entry-form">
+                                    <app-retail-userdeprestrictionreq-form class="col-sm-6 col-md-6 col-lg-6">
+                                    </app-retail-userdeprestrictionreq-form>
+                                </box>
+                            </fpx-tab>
+                            <fpx-tab [label]="tabDetails[2].name">
+                                <box class="entry-form">
+                                    <app-retail-userloanrestrictionreq-form class="col-sm-6 col-md-6 col-lg-6">
+                                    </app-retail-userloanrestrictionreq-form>
+                                </box>
+                            </fpx-tab>
+                            <fpx-tab [label]="tabDetails[3].name">
+                                <box class="entry-form">
+                                    <app-retail-userccrestrictionreq-form class="col-sm-6 col-md-6 col-lg-6">
+                                    </app-retail-userccrestrictionreq-form>
+                                </box>
+                            </fpx-tab>
+                            <fpx-tab [label]="tabDetails[4].name">
+                                <box class="entry-form">
+                                    <app-retail-userdcrestrictionreq-form class="col-sm-6 col-md-6 col-lg-6">
+                                    </app-retail-userdcrestrictionreq-form>
+                                </box>
+                            </fpx-tab>
+                            <fpx-tab [label]="tabDetails[5].name">
+                                <box class="entry-form">
+                                    <app-retail-userpcrestrictionreq-form class="col-sm-6 col-md-6 col-lg-6">
+                                    </app-retail-userpcrestrictionreq-form>
+                                </box>
+                            </fpx-tab>
+                       
+                    </fpx-tab-group> -->
+                </box>
+                <!-- <div class="shell-footer">
+					<div class="btn-container">
+						<button class="btn-secondary" type="button" id="RESET"> Reset </button>
+					</div>
+					<div class="btn-container stepper-btn-container">
+						<button type="submit" class="btn-primary"> Save
+						</button>
+					</div>
+			</div> -->
+            </ng-container>
+        </ng-container>
+    </box>
+
+</form>
+<ng-template #loader>
+    <box class="no-biller-container">
+        <img src="./assets/images/billers/no-payee.svg" alt="no-payee" srcset="">
+        <box class="description">
+            <box class="title">You haven't added any payees yet</box>
+            <box class="message">Add a payee to get started</box>
+        </box>
+        <div class="btn-container">
+            <button type="button" class="btn-primary"> Add Payee
+            </button>
+        </div>
+    </box>
+
+</ng-template>
+<ng-template #noBiller>
+    <box class="loading casa-summary-loader"></box>
+    <br>
+
+    <box class="loading casa-summary-loader"></box>
+    <br>
+
+    <box class="loading casa-summary-loader"></box>
+</ng-template>
+
+<!-- <box class="retail-setpermissions-form">
+    <section class="summary-panel">
+        <box class="summary-body">
+            <box class="tab-group">
+
+                <fpx-tab-group [selectedIndex]="activeTab" activeColor="var(--primary-500)"
+                    (selectedIndexChange)="tabChanged($event)">
+                   
+                        <fpx-tab [label]="tabDetails[0].name">
+                            <box class="entry-form">
+                                <app-retail-usercasarestrictionreq-form class="col-sm-6 col-md-6 col-lg-6">
+                                </app-retail-usercasarestrictionreq-form>
+                            </box>
+                        </fpx-tab>
+                        <fpx-tab [label]="tabDetails[1].name">
+                            <box class="entry-form">
+                                <app-retail-userdeprestrictionreq-form class="col-sm-6 col-md-6 col-lg-6">
+                                </app-retail-userdeprestrictionreq-form>
+                            </box>
+                        </fpx-tab>
+                        <fpx-tab [label]="tabDetails[2].name">
+                            <box class="entry-form">
+                                <app-retail-userloanrestrictionreq-form class="col-sm-6 col-md-6 col-lg-6">
+                                </app-retail-userloanrestrictionreq-form>
+                            </box>
+                        </fpx-tab>
+                        <fpx-tab [label]="tabDetails[3].name">
+                            <box class="entry-form">
+                                <app-retail-userccrestrictionreq-form class="col-sm-6 col-md-6 col-lg-6">
+                                </app-retail-userccrestrictionreq-form>
+                            </box>
+                        </fpx-tab>
+                        <fpx-tab [label]="tabDetails[4].name">
+                            <box class="entry-form">
+                                <app-retail-userdcrestrictionreq-form class="col-sm-6 col-md-6 col-lg-6">
+                                </app-retail-userdcrestrictionreq-form>
+                            </box>
+                        </fpx-tab>
+                        <fpx-tab [label]="tabDetails[5].name">
+                            <box class="entry-form">
+                                <app-retail-userpcrestrictionreq-form class="col-sm-6 col-md-6 col-lg-6">
+                                </app-retail-userpcrestrictionreq-form>
+                            </box>
+                        </fpx-tab>
+                   
+                </fpx-tab-group>
+
+            </box>
+        </box>
+    </section>
+    <div class="btn-container">
+        <button type="button" class="btn-primary" (click)="submitForm()"> Next </button>
+    </div>
+</box> -->
+
+
+<!-- [disabled]="formGroup.invalid" -->

@@ -1,0 +1,56 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="ExistingLoanDetailsForm">
+    <box class="entry-form">
+        <box class="entry-form-field-group grid col-12">
+            <box class="alerts-header-title">{{'ExistingLoanDetailsForm.existingloan.label' | translate }}</box>
+
+                <app-home-loan-account-list-template-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('sameBankLoanAccountNumber')" formControlName="sameBankLoanAccountNumber"
+				label="{{'ExistingLoanDetailsForm.sameBankLoanAccountNumber.label' | translate }}"
+				placeholder="{{'ExistingLoanDetailsForm.sameBankLoanAccountNumber.placeholder' | translate }}"
+				(commonControlEvent)="handleControlEvent($event)"></app-home-loan-account-list-template-control>
+
+
+            <app-amount-currency-control class="col-sm-12 col-md-6 col-lg-6"
+                [actionPublisher]="actionMap$.get('sameBankOutstandingLoanAmount')"
+                label="{{'ExistingLoanDetailsForm.sameBankOutstandingLoanAmount.label' | translate }}"
+                formControlName="sameBankOutstandingLoanAmount" (commonControlEvent)="handleControlEvent($event)"
+                [CurrencyList]="state.sameBankOutstandingLoanAmount.CurrencyList"
+                [isCurrEditable]="state.sameBankOutstandingLoanAmount.isCurrEditable"
+                [initCurrency]="state.sameBankOutstandingLoanAmount.initCurrency"
+                [changePublisher]="formChangePublisher$"
+                [amountInWords]="state.sameBankOutstandingLoanAmount.amountInWords"></app-amount-currency-control>
+
+            
+        </box>
+
+        <!-- <box class="entry-form-field-group grid col-12">
+            <box class="alerts-header-title">{{'ExistingLoanDetailsForm.existingloanfromOther.label' | translate }}
+            </box>
+            <app-name-control class="col-sm-12 col-md-6 col-lg-6"
+                [actionPublisher]="actionMap$.get('differentBankloanProvider')"
+                label="{{'ExistingLoanDetailsForm.differentBankloanProvider.label' | translate }}"
+                formControlName="differentBankloanProvider"></app-name-control>
+
+            <app-amount-currency-control class="col-sm-12 col-md-6 col-lg-6"
+                [actionPublisher]="actionMap$.get('differentBankOutstandingLoanAmount')"
+                label="{{'ExistingLoanDetailsForm.differentBankOutstandingLoanAmount.label' | translate }}"
+                formControlName="differentBankOutstandingLoanAmount" (commonControlEvent)="handleControlEvent($event)"
+                [CurrencyList]="state.differentBankOutstandingLoanAmount.CurrencyList"
+                [isCurrEditable]="state.differentBankOutstandingLoanAmount.isCurrEditable"
+                [initCurrency]="state.differentBankOutstandingLoanAmount.initCurrency"
+                [changePublisher]="formChangePublisher$"
+                [amountInWords]="state.differentBankOutstandingLoanAmount.amountInWords"></app-amount-currency-control>
+
+            <app-amount-currency-control class="col-sm-12 col-md-6 col-lg-6"
+                [actionPublisher]="actionMap$.get('differentBankLoanAccountNumber')"
+                label="{{'ExistingLoanDetailsForm.differentBankLoanAccountNumber.label' | translate }}"
+                formControlName="differentBankLoanAccountNumber" (commonControlEvent)="handleControlEvent($event)"
+                [CurrencyList]="state.differentBankLoanAccountNumber.CurrencyList"
+                [isCurrEditable]="state.differentBankLoanAccountNumber.isCurrEditable"
+                [initCurrency]="state.differentBankLoanAccountNumber.initCurrency"
+                [changePublisher]="formChangePublisher$"
+                [amountInWords]="state.differentBankLoanAccountNumber.amountInWords"></app-amount-currency-control>
+
+        </box> -->
+    </box>
+</form>

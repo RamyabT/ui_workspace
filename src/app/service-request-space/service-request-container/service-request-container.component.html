@@ -1,0 +1,73 @@
+<box class="module-home mail-box-home" #spaceHome>
+
+    <ng-container *ngIf="_device.isMobile(); else spaceContainer">
+
+        <ng-container *ngIf="_device.isMobile(); else spaceContainer">
+            <ng-container *ngIf="appConstant.requiredAccountsSpaceNavigation; else showDirectMudule">
+                <box class="module-home-bg" [style.top.px]="moduleHeaderTop"></box>
+                <box class="module-home-inner">
+                    <fpx-display-text class="module-title"
+                        innerHTML="{{'ACCOUNTSCONTAINER.title' | translate}}"></fpx-display-text>
+                    <box class="module-tab-container">
+                        <mat-tab-group [(selectedIndex)]="activeTabIndex">
+                            <mat-tab
+                                label="{{ 'ACCOUNTSCONTAINER.casa' | translate : {count: summary?.casa?.count || 0} }}">
+                                <ng-template matTabContent>
+                                    
+                                </ng-template>
+                            </mat-tab>
+                            <mat-tab
+                                label="{{ 'ACCOUNTSCONTAINER.deposits' | translate : {count: summary?.deposits?.count || 0} }}">
+                                <ng-template matTabContent>
+                                    
+                                </ng-template>
+                            </mat-tab>
+                            <mat-tab
+                                label="{{ 'ACCOUNTSCONTAINER.loans' | translate : {count: summary?.loans?.count || 0} }}">
+                                <ng-template matTabContent>
+                                    
+                                </ng-template>
+                            </mat-tab>
+                        </mat-tab-group>
+                    </box>
+                </box>
+    
+            </ng-container>
+    
+            <ng-template #showDirectMudule>
+    
+                <box class="module-home-header">
+                    <button type="button" class="system-ico-button btn-back no-text close-btn-icon" name="back" (click)="goBack()"><span>Back</span></button>
+                    <h2 class="module-title">{{ 'MODULE_HEADER.' + accountNavigator | translate }}</h2>
+                </box>
+    
+                <box class="module-home-body mail-box-module-body">
+                    <div>
+                        <router-outlet (activate)="onActivate($event)"></router-outlet>
+                    </div>
+                </box>
+    
+            </ng-template>
+    
+        </ng-container>
+
+
+    </ng-container>
+
+    <ng-template #spaceContainer>
+        <box class="space-container">
+            <box class="space-summary" *ngIf="!appConstant.requiredAccountsSpaceNavigation">
+                <mail-box-aside-bar></mail-box-aside-bar>
+            </box>
+
+            <box class="space-content service-request-content">
+                <box [ngClass]="{'no-shell-header': !activeSpaceInfoService.shellHeaderRequired, 
+            'no-shell-footer': !activeSpaceInfoService.shellFooterRequired}">
+                    <router-outlet (activate)="onActivate($event)"></router-outlet>
+                </box>
+            </box>
+
+        </box>
+    </ng-template>
+
+</box>

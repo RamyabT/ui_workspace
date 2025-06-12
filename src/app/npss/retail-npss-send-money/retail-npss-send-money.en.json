@@ -1,0 +1,11 @@
+"RetailNPSSSendMoney":{
+"title":"NPSSsendmoney",
+		 "email": {
+		  "label":" Email" ,
+		  "placeholder": " Email"
+		  } ,
+		 "mobileNumber": {
+		  "label":"Mobile Number" ,
+		  "placeholder": "Mobile Number"
+		  } 
+}

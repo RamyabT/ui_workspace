@@ -1,0 +1,21 @@
+{
+    "baseURL": "https://igcbdemos24.intellectfabric.io",
+    "loginURL": "",
+    "Common": "/sandbox24-cbx-common/publisher",
+    "Accounts": "/sandbox24-cbx-accounts/publisher",
+    "Customers": "/sandbox24-cbx-customers/publisher",
+    "Payments": "/sandbox24-cbx-transfers/publisher",
+    "CreditCards": "/sandbox24-cbx-cards/publisher",
+    "Cards": "/sandbox24-cbx-cards/publisher",
+    "DebitCards": "/sandbox24-cbx-cards/publisher",
+    "PrepaidCards": "/sandbox24-cbx-cards/publisher",
+    "Deposits": "/sandbox24-cbx-deposits/publisher",
+    "defaultContext": "/sandbox24-cbx-common/publisher",
+    "WorkflowService": "/sandbox24-cbx-workflow/publisher",
+    "Loans": "/sandbox24-cbx-loans/publisher",
+    "BillPayments": "/sandbox24-cbx-bill-payments/publisher",
+    "IAM": "/sandbox24-cbx-iam/publisher",
+    "languageId": "en-us",
+    "IdleTime": "3600",
+    "Coundown": "60"
+}

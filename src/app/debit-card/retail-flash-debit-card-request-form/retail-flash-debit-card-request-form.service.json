@@ -1,0 +1,5 @@
+ 
+ "RETAILFLASHDEBITCARD" : {
+ "servicePath": ["entry-shell","debitcard", "retail-flash-debit-card-request-form"],
+ "queryParams": {}
+ }

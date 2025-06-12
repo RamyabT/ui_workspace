@@ -1,0 +1,46 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="ManageServiceLimits">
+
+	<box class="entry-form ">
+		<box class="grid entry-form-field-group col-sm-12">
+			<box class="entry-form col-sm-12">
+				<box class="slider-field no-flag col-lg-12">
+					<app-dc-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('instaPay')"
+						label="{{'ManageServiceLimits.instaPay.label' | translate }}" formControlName="instaPay"
+						[min]="state.instaPay.min" [max]="state.instaPay.max" [step]="state.instaPay.step"
+						[currencyCode]="state.instaPay.currencyCode"></app-dc-amount-slider>
+				</box>
+
+				<box class="slider-field no-flag col-lg-12">
+					<app-dc-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('oatTransfer')"
+						label="{{'ManageServiceLimits.oatTransfer.label' | translate }}" formControlName="oatTransfer"
+						[min]="state.oatTransfer.min" [max]="state.oatTransfer.max" [step]="state.oatTransfer.step"
+						[currencyCode]="state.oatTransfer.currencyCode"></app-dc-amount-slider>
+
+				</box>
+				<box class="slider-field no-flag col-lg-12">
+					<app-dc-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('withinBankTransfer')"
+						label="{{'ManageServiceLimits.withinBankTransfer.label' | translate }}"
+						formControlName="withinBankTransfer" [min]="state.withinBankTransfer.min"
+						[max]="state.withinBankTransfer.max" [step]="state.withinBankTransfer.step"
+						[currencyCode]="state.withinBankTransfer.currencyCode"></app-dc-amount-slider>
+				</box>
+				<box class="slider-field no-flag col-lg-12">
+
+					<app-dc-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('domesticTransfer')"
+						label="{{'ManageServiceLimits.domesticTransfer.label' | translate }}"
+						formControlName="domesticTransfer" [min]="state.domesticTransfer.min"
+						[max]="state.domesticTransfer.max" [step]="state.domesticTransfer.step"
+						[currencyCode]="state.domesticTransfer.currencyCode"></app-dc-amount-slider>
+
+				</box>
+				<box class="slider-field no-flag col-lg-12">
+					<app-dc-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('internationalTransfer')"
+						label="{{'ManageServiceLimits.internationalTransfer.label' | translate }}"
+						formControlName="internationalTransfer" [min]="state.internationalTransfer.min"
+						[max]="state.internationalTransfer.max" [step]="state.internationalTransfer.step"
+						[currencyCode]="state.internationalTransfer.currencyCode"></app-dc-amount-slider>
+				</box>
+			</box>
+		</box>
+	</box>
+</form>

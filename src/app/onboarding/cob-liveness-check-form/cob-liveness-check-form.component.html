@@ -1,0 +1,51 @@
+<form formName="cobLivenessCheck" [formGroup]="formGroup" autocomplete="off" class="entry-form"
+    [ngClass]="{'post-liveness': state.livenessCompleted}">
+    <span *ngIf="state.livenessCompleted && _helper._appConfig.getData('processId')" class="arn-number">{{'OnBoarding.arn' | translate }}{{_helper._appConfig.getData('processId')}}</span>
+    <ng-container *ngIf="!state.livenessCompleted">
+        <div class="dc-image">
+            <img *ngIf="_helper._deviceDetectorService.isMobile()" src="./assets/images/rcob/liveness-image.svg" alt="">
+            <img *ngIf="_helper._deviceDetectorService.isDesktop()"
+                src="./assets/images/rcob/liveness-image-desktop.svg" alt="">
+        </div>
+        <div class="title">{{'COBLivenessCheck.header' | translate }}</div>
+        <div class="dc-note">
+            <div>
+                <img class="liveness-note1" src="./assets/images/rcob/liveness-hint1.svg" alt="">
+                <div class="liveness-note">{{'COBLivenessCheck.liveness.notes1' | translate }}</div>
+            </div>
+            <div>
+                <img class="liveness-note2" src="./assets/images/rcob/liveness-hint2.svg" alt="">
+                <div class="liveness-note">{{'COBLivenessCheck.liveness.notes2' | translate }}</div>
+            </div>
+            <div>
+                <img class="liveness-note3" src="./assets/images/rcob/liveness-hint3.svg" alt="">
+                <div class="liveness-note">{{'COBLivenessCheck.liveness.notes3' | translate }}</div>
+            </div>
+
+            <!-- <div class="liveness-note1">Please position your face with the on-screen guide while looking at your camera.</div>
+            <div class="liveness-note2">Please find appropriate lighting conditions which are not too bright.</div>
+            <div class="liveness-note3">Ensure your entire face is visible and not obstructed by any objects.</div> -->
+        </div>
+        <div class="form-footer-actions">
+            <button type="button" class="btn-tertiary"> {{'OnBoarding.backbtn' | translate }}</button>
+            <button type="button" class="btn-primary" (click)="_helper.triggerLivenessCheck()"> {{'OnBoarding.nextbtn' | translate }}</button>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="state.livenessCompleted">
+        <box class="entry-form">
+
+            <box class="entry-form-field-group col-12 grid">
+                <div class="title">{{'COBLivenessCheck.livenessheader' | translate }}</div>
+
+                <div class="dc-selfie-image">
+                    <img [src]="'data:image/png;base64,' + this.state.selfie" alt="profile image">
+                </div>
+            </box>
+        </box>
+        <div class="form-footer-actions">
+            <button type="button" class="btn-tertiary" (click)="_helper.triggerLivenessCheck()">{{'OnBoarding.retrybtn' | translate }}</button>
+            <button type="submit" class="btn-primary" (click)="submit()">{{'OnBoarding.continuebtn' | translate }}</button>
+        </div>
+    </ng-container>
+
+</form>

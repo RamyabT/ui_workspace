@@ -1,0 +1,36 @@
+<div class="task-item" id="row_data_{{ index }}">
+    <div class="task-detail-item">
+        <box class="transaction-list-item-inner">
+            <box class="transaction-icon-wrapper">
+                <box class="transaction-icon">
+                    <ng-template #transCat>
+                        <img class="default-icon" src="./assets/images/icons/default-card-icon.png" alt="transCat" />
+                    </ng-template>
+                    <ng-container *ngIf="selectedData.symbol; else transCat">
+                        <div class="name-first-letter">
+                            <span>{{selectedData.symbol?.substring(0,2)}}</span>
+                        </div>
+                    </ng-container>
+                </box>
+            </box>
+            <box class="transaction-info">
+                <box class="transaction-primary-info">
+                    <span class="name">{{selectedData.symbol }}/<em> {{selectedData.securityName}}</em></span>
+                </box>
+                <box class="transaction-secondary-info">
+                    <box class="name">
+                        <span class="accountNumber">Price </span>
+                        <span class="accountNumber">Market Value</span>
+                        <span class="accountNumber">Qty Filled </span>
+                    </box>
+                    <box class="value">
+                        <span class="accountNumber">USD {{selectedData.price}}</span>
+                        <span class="accountNumber">USD {{selectedData.marketPrice}}</span>
+                        <span class="accountNumber"> {{selectedData.quantity }}</span>
+                    </box>
+                </box>
+            </box>
+        </box>
+    </div>
+    <div class="seperator-line"></div>
+</div>

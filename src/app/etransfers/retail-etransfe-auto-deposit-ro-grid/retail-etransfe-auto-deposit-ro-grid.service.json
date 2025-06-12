@@ -1,0 +1,5 @@
+ 
+ "GETETRFAUTODEPOSIT" : {
+ "servicePath": ["display-shell","etransfers", "retail-etransfe-auto-deposit-ro-grid"],
+ "queryParams": {}
+ }

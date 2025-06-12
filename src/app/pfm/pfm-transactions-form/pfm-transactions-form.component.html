@@ -1,0 +1,32 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="PfmTransactionsForm" >
+	  
+	<box class="entry-form">
+		<box class="grid entry-form-field-group">
+			<box class="display-controls-container review-form col-sm-12">
+			<app-external-ref-number-control  class="col-sm-12 col-md-6 col-lg-6 "   [actionPublisher]="actionMap$.get('externalReferenceNumber')"     label="{{'PfmTransactionsForm.externalReferenceNumber.label' | translate }}"   formControlName="externalReferenceNumber" 
+			></app-external-ref-number-control>
+				  
+				   
+					   <app-payment-date-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('paymentDate')"     label="{{'PfmTransactionsForm.paymentDate.label' | translate }}"   formControlName="paymentDate" 
+			[minDate]="state.paymentDate.minDate"   [maxDate]="state.paymentDate.maxDate"  ></app-payment-date-control>
+				  
+				   
+					   <!-- <app-payment-amount-control  class="col-md-4  "   [actionPublisher]="actionMap$.get('transactionAmount')"     label="{{'PfmTransactionsForm.transactionAmount.label' | translate }}"   formControlName="transactionAmount" 
+			[CurrencyList]="state.transactionAmount.CurrencyList" [isCurrEditable]="state.transactionAmount.isCurrEditable"  [defaultFetch]="state.transactionAmount.defaultFetch" [initCurrency]="state.transactionAmount.initCurrency" [amountInWords]="state.transactionAmount.amountInWords">  ></app-payment-amount-control>
+				   -->
+				   <app-amount-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('transactionAmount')"     label="{{'PfmTransactionsForm.transactionAmount.label' | translate }}"   formControlName="transactionAmount" 
+				   [CurrencyList]="state.transactionAmount.CurrencyList" [isCurrEditable]="state.transactionAmount.isCurrEditable"  [defaultFetch]="state.transactionAmount.defaultFetch" [initCurrency]="state.transactionAmount.initCurrency" [amountInWords]="state.transactionAmount.amountInWords">  ></app-amount-control>
+				   
+					   <!-- <app-transactioncategory  class="col-sm-12 col-md-6 col-lg-6 "   [actionPublisher]="actionMap$.get('transactioncategory')"     label="{{'PfmTransactionsForm.transactioncategory.label' | translate }}"   formControlName="transactioncategory" 
+			></app-transactioncategory> -->
+			<app-merchant  class="col-md-4  "   [actionPublisher]="actionMap$.get('merchant')"     label="{{'PfmTransactionsForm.merchant.label' | translate }}"   formControlName="merchant" 
+			></app-merchant>
+		 </box>
+			 
+	      
+			  <app-pfm-category-list-control class="col-sm-12 col-md-6 col-lg-6 "   [actionPublisher]="actionMap$.get('categoryCode')"     label="{{'PfmTransactionsForm.categoryCode.label' | translate }}"   formControlName="categoryCode" 
+     ></app-pfm-category-list-control>
+</box>
+   </box>
+</form>
+	

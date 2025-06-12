@@ -1,0 +1,5 @@
+ 
+ "RETAILETRANSFERAUTODEPOSIT" : {
+ "servicePath": ["entry-shell","transfers", "retail-etransferautodepositlog-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,53 @@
+<!-- <div class="hint">You can add 2 more countries of your tax residency</div> -->
+<form [formGroup]="formGroup" formName="RetailRPBeneficiaryInfo">
+	<box class="input-grid bene-info-input-grid" [style.width]="gridWidth+'%'">
+
+		<ng-container formArrayName="formArray">
+			<ng-container *ngFor="let control of formArray.controls; let i = index; let last = last"
+				formGroupName="{{ i }}">
+				<box class="input-grid-row grid">
+					<box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+						<span class="index">Beneficiary {{ i + 1 }}</span>
+					</box>
+
+					<box class="input-grid-row-item col-sm-12 col-md-6 col-lg-6">
+						<app-name-control class="col-sm-12 col-md-6 col-lg-6"
+							[actionPublisher]="actionMap$[i].get('firstname')"
+							label="{{'AddAnotherBeneficiaryForm.firstname.label' | translate }}"
+							formControlName="firstname"></app-name-control>
+					</box>
+
+					<box class="input-grid-row-item col-sm-12 col-md-6 col-lg-6">
+						<app-name-control class="col-sm-12 col-md-6 col-lg-6"
+							[actionPublisher]="actionMap$[i].get('lastname')"
+							label="{{'AddAnotherBeneficiaryForm.lastname.label' | translate }}"
+							formControlName="lastname"></app-name-control>
+					</box>
+
+					<box class="input-grid-row-item col-sm-12 col-md-6 col-lg-6">
+						<app-relationship-control class="col-sm-12 col-md-6 col-lg-6"
+							[actionPublisher]="actionMap$[i].get('relationship')"
+							label="{{'AddAnotherBeneficiaryForm.relationship.label' | translate }}"
+							formControlName="relationship"></app-relationship-control>
+					</box>
+
+					<box class="input-grid-row-item col-sm-12 col-md-6 col-lg-6">
+						<app-percentage-control class="col-sm-12 col-md-6 col-lg-6"
+							[actionPublisher]="actionMap$[i].get('proportion')"
+							label="{{'AddAnotherBeneficiaryForm.proportion.label' | translate }}"
+							formControlName="proportion"></app-percentage-control>
+					</box>
+					<box class="input-grid-row-item">
+						<mat-icon (click)="deleteAddedBeneficiary(i)"></mat-icon>
+					</box>
+				</box>
+			</ng-container>
+		</ng-container>
+
+		<mat-error *ngIf="_helper.errorCode">{{ 'RetailRPBeneficiaryInfo.' + _helper.errorCode | translate }}</mat-error>
+	</box>
+	<box [style.width]="gridWidth+'%'" class="input-grid-title grid-actions center-align">
+		<button type="button" class="btn-link add-new" [disabled]="_helper.sumOfProportion >= 100"
+			(click)="addMoreBeneficiary()">Add Another Beneficiary</button>
+	</box>
+</form>

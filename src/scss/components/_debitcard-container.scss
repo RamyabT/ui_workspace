@@ -1,0 +1,473 @@
+#depAppBody {
+    app-retail-pc-change-limit-form,
+    app-retail-debit-card-limit-request,
+    app-retail-cc-limit-request-form,
+    app-retail-manage-service-limits-form,
+    app-retail-cc-limit-change-form,
+    app-retail-loancalc-form {
+        .slider-field {
+            position: relative;
+            margin-bottom: 10px;
+            
+            &.no-flag {
+              .label-flex {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 10px;
+                position: unset;
+                fpx-label {
+                  margin: 0;
+                }
+              }
+
+            }
+            fpx-amount-slider {
+                .label-flex {
+                    position: absolute;
+                    top: calc(22px - 15px);
+                    right: 0;
+                    align-items: flex-end;
+                    .amount-slider-box {
+                        border: 1px solid var(--neutral500) !important;
+                        border-radius: 16px !important;
+                        margin: 0 !important;
+                        width: 108px;
+                        padding: 0 10px;
+                        @include b1-regular;
+                    }
+                }
+                .fpx-field-content {
+                    padding: 0;
+                    border: unset;
+                    overflow: unset;
+                    
+                    .slider-flex {
+                        width: 100%;
+                        position: relative;
+                        height: 40px;
+                        margin: 29px 5px 10px;
+                        .mat-slider {
+                            position: absolute;
+                            top: 0;
+                            height: unset;
+                            .mat-slider-wrapper {
+                                top: 0;
+                            }
+                        }
+                        .min-range, .max-range {
+                            position: absolute;
+                            bottom: 0px;
+                            @include b2-regular;
+                            .currency-code {
+                                font-weight: var(--fontWeightRegular);
+                            }
+                        }
+                        .max-range {
+                            right: 0;
+                        }
+                    }
+                }
+            }
+            fpx-switch {
+                .fpx-field-content {
+                    @include s4-medium;
+                    color: var(--bodyTxtClr);
+                    line-height: 17.09px;
+                    border: unset;
+                    background: unset;
+                }
+            }
+            mat-slide-toggle {
+                .mat-slide-toggle-bar {
+                  // width: 24px;
+                  // height: 14px;
+            
+                  .mat-slide-toggle-thumb-container {
+                    // width: 10px;
+                    // height: 10px;
+                    // top: 1px;
+                    // left: 1.8px;
+    
+                  }
+                }
+            
+                &.mat-checked {
+                  .mat-slide-toggle-bar {
+                    .mat-slide-toggle-thumb-container {
+                      // transform: translate3d(9px, 0, 0);
+                    }
+                  }
+                }
+              }
+            hr {
+                position: absolute;
+                width: 100%;
+                bottom: -15px;
+                margin: 0;
+                border: 1px solid #E0E0E0;
+            }
+        }
+        .search-group {
+          // margin: 20px 0 15px;
+        }
+        .mat-accordion {
+          gap: 15px;
+          display: flex;
+          flex-direction: column;
+          .mat-expansion-panel {
+            box-shadow: none;
+            .mat-expansion-panel-header {
+              height: 48px;
+              padding: 0 20px;
+              .mat-expansion-panel-header-title p {
+                margin: 11px 0;
+              }
+            }
+            .mat-expansion-panel-body {
+              padding: 0 20px 0px;
+              .content {
+                height: 46px;
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid var(--neutral200);
+                mat-checkbox {
+                  label {
+                    align-items: center;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .module-tab-container {
+          @include not-small-screen {
+            .mat-tab-label-container {
+              .mat-tab-list {
+                  width: 70% !important;
+              }
+            }
+          }
+        }
+        
+    }
+    app-debitcard-spending-summary,
+    app-creditcard-spending-summary,
+    app-prepaidcard-spending-summary {
+        @include small-screen{
+            .widget-title {
+                &::before {
+                    content: unset;
+                }
+            }
+        }
+        .chart-nav {
+          .category {
+            @include b3-medium;
+            color: var(--secondaryClr);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+            @include not-small-screen{
+                  @include s4-medium;
+              }
+      
+              .category-name {
+                  width: 147px;
+                  text-align: center;
+              }
+      
+              .prev, .next {
+                width: 17px;  
+                height: 17px; 
+                cursor: pointer;
+                background-size: contain;
+                background-repeat: no-repeat;
+                mask-repeat: no-repeat;
+                -webkit-mask-repeat: no-repeat;
+                mask-size: contain;
+                -webkit-mask-size: contain;
+                mask-image: var(--arrow-icon);
+                -webkit-mask-image: var(--arrow-icon);
+                background-color: var(--expanderBgClr);
+            }
+            
+            .prev {
+                &.disabled {
+                    transform: rotate(180deg);
+                    cursor: not-allowed;
+                    background-color: gray; 
+                }
+                @include not-small-screen{
+                  width: 10px;
+                  height: 12px;
+                }
+            }
+            
+            .next {
+                transform: rotate(180deg);
+                mask-image: var(--arrowDisable-icon);
+                -webkit-mask-image: var(--arrowDisable-icon);
+            
+                &.disabled {
+                    transform: unset;
+                    cursor: not-allowed;
+                    background-color: gray;
+                }
+                @include not-small-screen{
+                  width: 10px;
+                  height: 12px;
+                }
+            }
+            
+          }
+      }
+      
+    }
+    app-retail-dc-transaction-ex-filter {
+        .FieldId_5{
+             font-size: 14px; 
+             color: var(--bodyTxtClr);
+             line-height: 22px;
+             //font-weight: 500  ;
+             font-weight: bold ;
+
+        }
+    }
+    app-retail-debitcard-flash-details-form{
+        .indicator {
+            display: none;
+        }
+    }
+    app-retail-debitcard-details-form{
+        .indicator {
+            display: none;
+        }
+    }
+    app-retail-raise-dispute-debitcard-form,
+    app-retail-ppcard-dispute-form,
+    app-retail-cc-raise-dispute-form{
+        .transaction-list-item-inner {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            padding: 12px 0 0;
+            @include not-small-screen {
+              border: 1px solid #ABABAB;
+              border-radius: 20px;
+              padding: 10px 20px;
+              align-items: center;
+            }
+      
+            .transaction-icon-wrapper {
+              height: 49px;
+              display: flex;
+              align-items: center;
+      
+              .transaction-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                overflow: hidden;
+                flex-grow: 0;
+                flex-shrink: 0;
+                border: 1px solid var(--primary500);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: var(--systemIconWrapperBg);
+      
+                .name-first-letter {
+                  text-transform: uppercase;
+                  font-weight: 700;
+                  font-size: 14px;
+                  background-color: #ffffff;
+                  border-radius: 50%;
+                  color: var(--tertiary500);
+                }
+		 .icon-img {
+            width: 40px;
+            height: 20px;
+          }
+              }
+            }
+      
+            .transaction-info {
+              display: flex;
+              flex-direction: row;
+              gap: 8px;
+              flex: 1;
+              //border-bottom: 1px solid var(--neutral200);
+              padding-bottom: 8px;
+              align-items: center;
+              @include not-small-screen {
+                padding: 0;
+              }
+      
+              .transaction-primary-info {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                gap: 2px;
+                flex-basis: 70%;
+                .ref-num {
+                  @include b4-regular;
+                  line-height: 14.32px;
+                }
+      
+                .name {
+                  @include s4-medium;
+                  color: var(--baseTxtClr);
+                  line-height: 17.09px;
+                }
+      
+                .date {
+                  @include b4-regular;
+                  color: var(--bodyTxtClr);
+                  line-height: 14.32px;
+                }
+      
+                .accountNumber {
+                  @include b4-regular;
+                  color: var(--bodyTxtClr);
+                  line-height: 14.32px;
+                }
+              }
+      
+              .transaction-secondary-info {
+                display: flex;
+                flex-direction: column;
+                text-align: end;
+                gap: 2px;
+                flex: 1;
+      
+                .amount {
+                  @include b4-regular;
+                  color: var(--bodyTxtClr);
+      
+                  &.credit {
+                    @include s2-bold;
+                    color: var(--successClr);
+                    line-height: 24px;
+      
+                    &::before {
+                      content: "+";
+                    }
+                  }
+      
+                  &.debit {
+                    @include s2-bold;
+                    color: var(--baseTxtClr);
+                    line-height: 24px;
+      
+                    &::before {
+                      content: "-";
+                    }
+                  }
+                }
+                .type {
+                  @include b4-regular;
+                  color: var(--bodyTxtClr);
+                  line-height: 14.32px;
+                }
+              }
+            }
+          }
+    }
+    app-retail-debit-card-form,
+    app-retail-credit-card-block-form,
+    app-retail-prepaid-card-block-form {
+      .limitCountries {
+        cursor: pointer;
+        color: var(--linkClr);
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 400;
+        padding-top: 10px;
+        text-decoration: underline;
+      }
+    }
+    app-cards-container {
+      .module-home {
+        &.pin-module-bg {
+          .module-home-bg {
+            position: fixed;
+            top: -195px !important;
+          }
+        }
+        &.pin-card {
+          .summary-card-carousel {
+            position: fixed;
+            top: -100px;
+            z-index: 3;
+            pointer-events: none;
+              &:before {
+                content: ' ';
+                position: absolute;
+                left: 0;
+                right: 0;
+                height: 20px;
+                background: #1D2A3D;
+                top: 0;
+                z-index: 0;
+            }
+          }
+          .tab-main-content {
+            margin-top: 250px;
+          }
+        }
+      }
+    }
+}
+  
+html:not(.small-screen) {
+    debitcard-tab-container,
+    creditcard-tab-container,
+    prepaidcard-tab-container {
+      .debir-card-list>hr:last-child {
+          display: none;
+      }
+      hr {
+          margin: 16px;
+          border: 0.5px solid #E0E0E0;
+      }
+      app-goals {
+        .widget-title {
+            &::before {
+                mask: url("../../assets/images/icons/spend.svg") no-repeat center !important;
+                -webkit-mask: url("../../assets/images/icons/spend.svg") no-repeat center !important;
+            }
+        }
+        .goal-progress-bar {
+            .spend {
+                @include s2-bold;
+            }
+            .progress-track {
+                height: 9px;
+            }
+            .limit {
+                display: flex;
+                justify-content: flex-end;
+                gap: 4px;
+                .lbl {
+                    @include b3-medium;
+                    color: #4D4D4D;
+                }
+                .amount {
+                    @include b3-medium;
+                    font-weight: 700;
+                }
+            }
+        }
+      }
+    }
+  }
+.disclaimer-container {
+    border: 1px solid var(--disclaimerBdrClr);
+    border-radius: 16px;
+    padding: 12px;
+    background-color: var(--disclaimerBgClr);
+}

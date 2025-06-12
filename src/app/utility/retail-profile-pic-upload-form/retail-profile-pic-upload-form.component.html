@@ -1,0 +1,18 @@
+<form [formGroup]="formGroup" autocomplete="off" formName="RetailProfilePicUploadForm">
+
+	<box class="">
+		<box class="title">{{ 'USERPROFILE.shootUpload' | translate }}</box>
+		<box class="btn-container col-lg-6 col-sm-12 col-md-12">
+			<ng-container *ngIf="_helper._device.isHybrid()" >
+				<fpx-button btnType="button" [btnClass]="'system-ico-button button-camera'" label="{{ 'USERPROFILE.takePhoto' | translate }}"
+				(onClick)="_helper.startTakePhoto()"></fpx-button>
+			</ng-container>
+			<app-file-browse-button class="upload-doc-button" destinationType="file" acceptFiles = "image/*" (fileSelect)="_helper.onFileSelect($event)" label="{{ 'USERPROFILE.browsephoto' | translate }}"></app-file-browse-button>
+			<!-- <fpx-button [btnClass]="'system-ico-button button-upload'" label="Browse to Upload"
+			(onClick)="_helper.browsePhoto()"></fpx-button> -->
+		</box>
+	</box>
+
+
+
+</form>

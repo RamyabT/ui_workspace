@@ -1,0 +1,24 @@
+<div #expenseCategoriesCarousel></div>
+<box class="widget expense-categories-carousel">
+    <header>
+        <span class="widget-title">{{ 'ExpenseCategorization.title' | translate }}</span>
+        <form [formGroup]="formGroup" autocomplete="off" formName="expenseCategoriesMonthSelection">
+            <app-pfm-months-list-control [actionPublisher]="actionMap$.get('expenseCategoriesMonth')"
+                formControlName="expenseCategoriesMonth"></app-pfm-months-list-control>
+        </form>
+    </header>
+    <box class="widget-carousel" [style.width.px]="state.carouselWidth">
+        <ng-container *ngIf="state.pfmSpends">
+            <ngx-slick-carousel class="expense-categories-carousel" #slickModal="slick-carousel" [config]="slideConfig"
+                (afterChange)="onCardChanged($event)">
+                <box ngxSlickItem class="slide">
+                    <app-member-expense-categorizationtion [spendsData]="state.pfmSpends"></app-member-expense-categorizationtion>
+                </box>
+                <box ngxSlickItem class="slide">
+                    <app-member-expense-comparison [spendsData]="state.pfmSpends"></app-member-expense-comparison>
+                </box>
+            </ngx-slick-carousel>
+        </ng-container>
+
+    </box>
+</box>

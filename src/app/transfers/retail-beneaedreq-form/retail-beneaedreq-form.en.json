@@ -1,0 +1,79 @@
+"RetailBeneaedreqForm":{
+"title":"Cross Border AED Beneficiary",
+		 "beneAccType": {
+		  "label":"Beneficiary Account Type" ,
+		  "placeholder": "Beneficiary Account Type"
+		  } ,
+		 "iban": {
+		  "label":"IBAN" ,
+		  "placeholder": "IBAN"
+		  } ,
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "conAccNumber": {
+		  "label":"Confirm Account Number" ,
+		  "placeholder": "Confirm Account Number"
+		  } ,
+		 "beneficiaryName": {
+		  "label":"Beneficiary Name" ,
+		  "placeholder": "Beneficiary Name"
+		  } ,
+		 "bic": {
+		  "label":"BIC Code" ,
+		  "placeholder": "BIC Code"
+		  } ,
+		 "bankDescription": {
+		  "label":"Bank Name" ,
+		  "placeholder": "Bank Name"
+		  } ,
+		 "branchDescription": {
+		  "label":"Branch Name" ,
+		  "placeholder": "Branch Name"
+		  } ,
+		 "bankAddress": {
+		  "label":"Bank Address" ,
+		  "placeholder": "Bank Address"
+		  } ,
+		 "nickName": {
+		  "label":"Beneficiary Nickname" ,
+		  "placeholder": "Beneficiary Nickname"
+		  } ,
+		 "beneCountry": {
+		  "label":"Beneficiary Country" ,
+		  "placeholder": "Beneficiary Country"
+		  } ,
+		 "addressLine1": {
+		  "label":"Address Line1" ,
+		  "placeholder": "Address Line1"
+		  } ,
+		 "addressLine2": {
+		  "label":"Address Line1" ,
+		  "placeholder": "Address Line1"
+		  } ,
+		 "city": {
+		  "label":"City" ,
+		  "placeholder": "City"
+		  } ,
+		 "bankCountry": {
+		  "label":"Country" ,
+		  "placeholder": "Country"
+		  } ,
+		 "intermediaryBank": {
+		  "label":"Intermediary Bank BIC" ,
+		  "placeholder": "Intermediary Bank BIC"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		  "isFavourite": {
+			"label":"Mark as Favourite" ,
+			"placeholder": "Mark as Favourite"
+			} ,
+		 "termsFlag": {
+		  "label":"I hereby agree with the terms and conditions and key facts statements." ,
+		  "placeholder": "I hereby agree with the terms and conditions and key facts statements."
+		  } 
+}

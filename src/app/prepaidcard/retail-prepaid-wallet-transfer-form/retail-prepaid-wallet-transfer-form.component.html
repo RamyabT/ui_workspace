@@ -1,0 +1,89 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailPrepaidWalletTransferForm">
+
+	<box class="entry-form">
+
+		<ng-container *ngIf="state.cardData && device.isMobile()">
+			<prepaidcard class="col-12" [cardData]="state.cardData" [formView]="true"></prepaidcard>
+		</ng-container>
+
+		<box class="grid entry-form-field-group col-lg-12">
+		<!-- <app-prepaid-card-list-control class="col-sm-12 col-md-6 col-lg-4"
+			[actionPublisher]="actionMap$.get('cardRefNumber')"
+			label="{{'RetailPrepaidWalletTransferForm.cardRefNumber.label' | translate }}"
+			formControlName="cardRefNumber"
+			(commonControlEvent)="handleControlEvent($event)"
+			placeholder="{{'RetailPrepaidWalletTransferForm.cardRefNumber.placeholder' | translate }}"></app-prepaid-card-list-control> -->
+
+
+		<app-currency-balance-list-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('fromCurrency')"
+			label="{{'RetailPrepaidWalletTransferForm.fromCurrency.label' | translate }}"
+			formControlName="fromCurrency"></app-currency-balance-list-control>
+
+
+		<app-currency-balance-list-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('toCurrency')"
+			label="{{'RetailPrepaidWalletTransferForm.toCurrency.label' | translate }}"
+			formControlName="toCurrency"></app-currency-balance-list-control>
+
+		<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('paymentAmount')"
+			label="{{'RetailPrepaidWalletTransferForm.paymentAmount.label' | translate }}"
+			formControlName="paymentAmount" (commonControlEvent)="handleControlEvent($event)"
+			[CurrencyList]="state.paymentAmount.CurrencyList" [isCurrEditable]="state.paymentAmount.isCurrEditable"
+			[defaultFetch]="state.paymentAmount.defaultFetch" [initCurrency]="state.paymentAmount.initCurrency"
+			[amountInWords]="state.paymentAmount.amountInWords" [changePublisher]="formChangePublisher$"
+			[dependencyField]="['fromCurrencyVariable','toCurrencyVariable','accountBalanceVariable']"></app-payment-amount-control>
+
+
+		<!-- <app-currency-list-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('paymentCurrency')"
+			label="{{'RetailPrepaidWalletTransferForm.paymentCurrency.label' | translate }}"
+			formControlName="paymentCurrency"></app-currency-list-control> -->
+		<box class="field-item col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('exchangeDetails')">
+				<fpx-label label="{{'FX_RATES.title' | translate}}"></fpx-label>
+				<box class="info-box">
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.dAmount' | translate"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.debitAmount"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.cAmount' | translate"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.creditAmount"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.exRate' | translate"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.exchangeRate"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+				</box>
+			</box>
+
+
+		<app-remarks-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('remarks')"
+			label="{{'RetailPrepaidWalletTransferForm.remarks.label' | translate }}"
+			formControlName="remarks"></app-remarks-control>
+
+
+		<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('charges')"
+			label="{{'RetailPrepaidWalletTransferForm.charges.label' | translate }}" formControlName="charges"
+			(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.charges.CurrencyList"
+			[isCurrEditable]="state.charges.isCurrEditable" [defaultFetch]="state.charges.defaultFetch"
+			[initCurrency]="state.charges.initCurrency" [amountInWords]="state.charges.amountInWords"
+			[changePublisher]="formChangePublisher$"></app-payment-amount-control>
+
+		</box>
+		<box box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-12 grid main-group disclaimer-box">
+		<app-terms-control class="col-md-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('cbxrTerms')"
+			label="{{'RetailPrepaidWalletTransferForm.cbxrTerms.label' | translate }}" formControlName="cbxrTerms"
+			placeholder="{{'RetailPrepaidWalletTransferForm.cbxrTerms.placeholder' | translate }}"
+			[textPosition]="state.cbxrTerms.textPosition" [ckValues]="state.cbxrTerms.ckValues"></app-terms-control>
+		</box>
+	</box>
+	
+</form>

@@ -1,0 +1,119 @@
+<box class="module-home fb-home" #spaceHome>
+    <ng-container *ngIf="_device.isMobile(); else spaceContainer">
+        <box class="module-home-bg" [style.top.px]="moduleHeaderTop"></box>
+        <box class="module-home-inner fb-home-inner">
+            <fpx-display-text class="module-title" innerHTML="{{'FBCONTAINER.title' | translate}}"></fpx-display-text>
+            <ng-container *ngIf="memberlist && memberlist.length > 0; else nochildren">
+                <box class="balancesheet-section">
+                    <app-balance-sheet [cardData]="dashBoardSummary"></app-balance-sheet>
+                </box>
+                <box class="member-carousel-section">
+                    <app-member-card-carousel></app-member-card-carousel>
+                </box>
+                <box class="quick-action-widget-container">
+                    <app-fb-quick-actions></app-fb-quick-actions>
+                </box>
+
+                <box class="spending-overview-container">
+                    <app-members-spending-overview></app-members-spending-overview>
+                </box>
+                <box class="pending-chores-section">
+                    <app-pending-chores-carousel></app-pending-chores-carousel>
+                </box>
+                <box class="upcoming-payments-widget-container">
+                    <app-member-next-allowance></app-member-next-allowance>
+                </box>
+
+            </ng-container>
+            <ng-template #nochildren>
+                <box class="no-member-container">
+                    <box class="add-member-container">
+                        <box class="text">{{'NoMemberTxt.label' | translate}}</box>
+                        <box class="btn">
+                            <button type="button" class="add-kid-btn" (click)="addChild()">
+                                <span class="label">{{'NoMemberTxt.addkid' | translate}}</span>
+                            </button>
+                        </box>
+                    </box>
+                    <box class="svg-container">
+                        <img src="./assets/fb/no-kid-bg.svg" alt="add child">
+                    </box>
+                </box>
+                <box class="no-kid-message-container">
+                    <box class="image-container"><img src="./assets/fb/kids-Frame.png" alt="kids frame"></box>
+                    <box class="text-container">{{'NoMemberTxt.message' | translate}}</box>
+                    <box class="btn-container">
+                        <button type="button" class="get-started-btn" (click)="addChild()">
+                            <span class="label">{{'NoMemberTxt.getstarted' | translate}}</span>
+                        </button>
+                    </box>
+                </box>
+            </ng-template>
+
+        </box>
+
+    </ng-container>
+
+    <ng-template #spaceContainer>
+        <ng-container *ngIf="memberlist.length > 0; else nochildren">
+            <box class="space-container">
+                <box class="space-summary">
+                    <box class="balancesheet-section">
+                        <app-balance-sheet [cardData]="dashBoardSummary"></app-balance-sheet>
+                    </box>
+                    <box class="member-widget-selection">
+                        <box class="widget-header">
+                            <span
+                                class="widget-title">{{ 'MEMBERCARD.title' | translate  : {count: memberlist.length}  }}</span>
+                            <fpx-button btnType="button" btnClass="link add-member"
+                                label="{{'MEMBERCARD.addmember' | translate  }}" (onClick)="addChild()"></fpx-button>
+                        </box>
+                        <box *ngFor="let card of memberlist">
+                            <app-member-card [cardData]="card"></app-member-card>
+                        </box>
+                    </box>
+                </box>
+
+                <box class="space-content">
+                    <box>
+                        <router-outlet></router-outlet>
+                    </box>
+
+                </box>
+
+            </box>
+        </ng-container>
+        <ng-template #nochildren>
+            <box class="space-container">
+                <box class="space-summary">
+                    <box class="no-member-container">
+                        <box class="add-member-container">
+                            <box class="text">{{'NoMemberTxt.label' | translate}}</box>
+                            <box class="btn">
+                                <button type="button" class="add-kid-btn" (click)="addChild()">
+                                    <span class="label">{{'NoMemberTxt.addkid' | translate}}</span>
+                                </button>
+
+                            </box>
+                        </box>
+                        <box class="svg-container">
+                            <img src="./assets/fb/no-kid-bg.svg" alt="add child">
+                        </box>
+                    </box>
+                </box>
+                <box class="space-content">
+                    <box class="no-kid-message-container">
+                        <box class="image-container"><img src="./assets/fb/kids-Frame.png" alt="kids frame"></box>
+                        <box class="text-container">{{'NoMemberTxt.message' | translate}}</box>
+                        <box class="btn-container">
+                            <button type="button" class="get-started-btn" (click)="addChild()">
+                                <span class="label">{{'NoMemberTxt.getstarted' | translate}}</span>
+                            </button>
+                        </box>
+                    </box>
+                </box>
+
+            </box>
+        </ng-template>
+    </ng-template>
+</box>

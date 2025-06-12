@@ -1,0 +1,37 @@
+<box class="entry-form">
+	<ng-container *ngIf="state.details; else detailsLoader">
+		<!-- <casa-summary-card class="col-12" [cardData]="state.details" [contextmenuBtn]="true"></casa-summary-card> -->
+
+		<box class="display-fields-container grid col-12">
+			<ng-container *ngFor="let field of state.fields; index as i">
+				<box class="display-field" *ngIf="state.details[field]">
+					<box class="lbl-wrapper">
+						<span class="lbl">{{ 'RetailMembershipAccountDetailsForm.'+field+'.label' | translate }}</span>
+					</box>
+					<span class="val">
+						<ng-container [ngSwitch]="state.fieldsFormat[i]">
+							<ng-container *ngSwitchCase="'date'">
+								{{ state.details[field] | date : "dd MMM yyyy" }}
+							</ng-container>
+							<ng-container *ngSwitchCase="'amount'">
+								<span class="amount">{{ state.details[field] | currency : state.details.accountCurrency
+									: '' }} <em>{{state.details.accountCurrency | currencyCode}}</em></span>
+							</ng-container>
+							<ng-container *ngSwitchCase="'percentage'">
+								{{ state.details[field] + " %" }}
+							</ng-container>
+							<ng-container *ngSwitchDefault>
+								{{ state.details[field] }}
+							</ng-container>
+						</ng-container>
+					</span>
+				</box>
+			</ng-container>
+		</box>
+
+	</ng-container>
+</box>
+
+<ng-template #detailsLoader>
+	<box class="loading"></box>
+</ng-template>

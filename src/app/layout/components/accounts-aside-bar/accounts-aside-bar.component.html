@@ -1,0 +1,393 @@
+<box class="aside-bar-inner"
+    [ngClass]="{'aside-bar-expand' : expandAsideBar, 'show-widget': showWidget, 'hide-widget': !showWidget}">
+    <box class="widget-list">
+        <ul>
+            <li *ngIf="!showTransactionDetails && !viewChequeImg && !showStopChequeDetails">
+                <box class="widget-nav collapse-state-widget-icon" (click)="toggleAsideBar()">
+                    <span class="widget-nav-ico-wrapper widget-nav-schedule-bills"></span>
+                </box>
+                <box class="widget-content-footer-container">
+                    <box class="widget-content">
+                        <app-retail-account-details-form class="schedule-form"></app-retail-account-details-form>
+                    </box>
+                </box>
+            </li>
+
+            <!-- <li *ngIf="!showTransactionDetails && !viewChequeImg">
+                <box class="widget-nav collapse-state-widget-icon" (click)="toggleAsideBar()">
+                    <span class="widget-nav-ico-wrapper widget-nav-offers"></span>
+                </box>
+                <ng-container *ngIf="expandAsideBar else loader">
+                    <ng-container>
+                        <box class="widget-nav" (click)="toggleAsideBar()">
+                            <span class="widget-nav-ico-wrapper widget-nav-offers"></span>
+                            <span class="widget-nav-name">{{ 'ASIDE_BAR.WIDGET_TITLES.offers' | translate }}</span>
+                        </box>
+                        <box class="">
+                            <banner-ads [serviceCode]="serviceCode"></banner-ads>
+                        </box>
+                    </ng-container>
+                </ng-container>
+
+            </li> -->
+            <li *ngIf="showTransactionDetails && !viewChequeImg && !showStopChequeDetails">
+                <box class="widget-nav collapse-state-widget-icon" (click)="closeTranDetails()">
+                    <span class="widget-nav-ico-wrapper widget-nav-schedule-bills"></span>
+                </box>
+                <box class="widget-content-footer-container schedule-container">
+                    <box class="widget-content">
+                        <box class="seleted-bill-primary-details-container">
+                            <box class="primary-details-container">
+                                <span class="bill-text">{{ 'RetailViewCasaTranDtlsForm.title' | translate }}</span>
+                                <span class="close-btn" (click)="closeBillDetails()"></span>
+                            </box>
+                            <box class="secondary-details-container">
+                                <box class="icon-details-wrapper">
+                                    <box class="schedule-icon-container">
+                                        <span class="schedule-icon" [ngClass]="{
+                                            'incoming': casaTransactionDetailsObj.debitCreditFlag == 'C', 
+                                            'outgoing': casaTransactionDetailsObj.debitCreditFlag == 'D'
+                                        }"></span>
+                                    </box>
+
+                                    <box class="schedule-details-container gap-4">
+                                        <span
+                                            class="contact-name">{{casaTransactionDetailsObj.transType}}</span>
+                                        <!-- <span class="date-status" [ngClass]="{
+                                           'Incoming transfer': casaTransactionDetailsObj.debitCreditFlag == 'C', 
+                                            'Outgoing transfer': casaTransactionDetailsObj.debitCreditFlag == 'D'}"></span> -->
+                                        <ng-container
+                                            *ngIf="casaTransactionDetailsObj.transactionCurrency != this._appconfig.baseCurrency else baseCurrency">
+                                            <span class="payment-amount amount">
+                                                <em class='usd'>{{'SUFFIXCURRENCY' | currencyCode
+                                                    }}</em>
+                                                {{getAbsoluteValue(casaTransactionDetailsObj.transactionAmount) |
+                                                currency :
+                                                this._appconfig.baseCurrency : '' }}
+                                                <em> {{ casaTransactionDetailsObj.transactionCurrency== 'USD' ? '$'
+                                                    :casaTransactionDetailsObj.transactionCurrency | currencyCode
+                                                    }}</em>
+                                                {{checkNegativeValue(casaTransactionDetailsObj.transactionAmount)}}
+                                            </span>
+                                        </ng-container>
+                                        <ng-template #baseCurrency>
+                                            <span
+                                                class="payment-amount amount">{{getAbsoluteValue(casaTransactionDetailsObj.transactionAmount)
+                                                | currency : casaTransactionDetailsObj.transactionCurrency : '' }}
+                                                <em>{{casaTransactionDetailsObj.transactionCurrency | currencyCode
+                                                    }}</em>
+                                                {{checkNegativeValue(casaTransactionDetailsObj.transactionAmount)}}
+                                            </span>
+                                        </ng-template>
+                                        <ng-container *ngIf="casaTransactionDetailsObj.exchangeRate">
+                                            <box class="exchange-rate-dtls-wrapper">
+                                                <span class="exchange-rate-dtls">{{
+                                                    'RetailViewCasaTranDtlsForm.exChangeRate' | translate }}</span>
+                                                <span class="exchange-rate-dtls">
+                                                    {{ casaTransactionDetailsObj.exchangeRate | currency :
+                                                    casaTransactionDetailsObj.baseCurrency : ''}}
+                                                    <em>{{casaTransactionDetailsObj.baseCurrency | currencyCode}}</em>
+                                                    CAD
+                                                </span>
+                                            </box>
+                                        </ng-container>
+                                    </box>
+                                </box>
+                                <!-- <box class="amout-wrapper">
+                                    <span *ngIf="casaTransactionDetailsObj.debitCreditFlag == 'C'" class="payment-amount-text">{{'RetailViewCasaTranDtlsForm.incomingTransaction' | translate}}</span>
+                                    <span *ngIf="casaTransactionDetailsObj.debitCreditFlag == 'D'" class="payment-amount-text">{{'RetailViewCasaTranDtlsForm.outgoingTransaction' | translate}}</span>
+                                </box> -->
+
+                            </box>
+                        </box>
+
+                        <box class="seleted-bill-secondary-details-container">
+                            <box class="scheduled-bill-details-content-item">
+                                <span class="item-title font-14-20">{{'RetailViewCasaTranDtlsForm.transactionType'| translate}}</span>
+                                <span *ngIf="casaTransactionDetailsObj.debitCreditFlag == 'C'" class="item-value font-14-20">{{'RetailViewCasaTranDtlsForm.incomingTransaction' | translate}}</span>
+                                <span *ngIf="casaTransactionDetailsObj.debitCreditFlag == 'D'" class="item-value font-14-20">{{'RetailViewCasaTranDtlsForm.outgoingTransaction' | translate}}</span>
+                            </box>
+                            <ng-container *ngIf="casaTransactionDetailsObj.exchangeAmount">
+                                <box class="scheduled-bill-details-content-item">
+
+                                    <ng-container
+                                        *ngIf="casaTransactionDetailsObj.transactionCurrency != this._appconfig.baseCurrency else baseCurrency">
+                                        <span
+                                            class="item-title font-14-20">{{'RetailViewCasaTranDtlsForm.exchangeAmount'
+                                            | translate}}</span>
+                                        <span class="item-value font-14-20">
+                                            {{checkNegativeValue(casaTransactionDetailsObj.exchangeAmount)}}
+                                            <em> {{ casaTransactionDetailsObj.transactionCurrency== 'USD' ? '$'
+                                                :casaTransactionDetailsObj.transactionCurrency | currencyCode
+                                                }}</em>{{getAbsoluteValue(casaTransactionDetailsObj.exchangeAmount) |
+                                            currency :
+                                            this._appconfig.baseCurrency : '' }}
+                                            <!-- <em>{{'SUFFIXCURRENCY' | currencyCode
+                                                }}</em> -->
+                                        </span>
+                                    </ng-container>
+                                    <ng-template #baseCurrency>
+                                        <span
+                                            class="item-title font-14-20">{{'RetailViewCasaTranDtlsForm.exchangeAmount'
+                                            | translate}}</span>
+                                        {{checkNegativeValue(casaTransactionDetailsObj.exchangeAmount)}}
+                                        <em>{{casaTransactionDetailsObj.transactionCurrency | currencyCode }}</em>
+                                        <span
+                                            class="item-value font-14-20">{{getAbsoluteValue(casaTransactionDetailsObj.exchangeAmount)
+                                            | currency : casaTransactionDetailsObj.transactionCurrency : '' }}
+                                        </span>
+                                    </ng-template>
+                                </box>
+                               
+                            </ng-container>
+                            <ng-container *ngFor="let detail of casaTransactionDetails">
+                                <box *ngIf="detail.value" class="scheduled-bill-details-content-item"
+                                    [ngClass]="{'message-text': detail.title == 'Description'}">
+                                    <span class="item-title font-14-20">{{detail.title}}</span>
+                                    <ng-container [ngSwitch]="detail.format">
+                                        <span *ngSwitchCase="'currency'" class="item-value font-14-20">
+                                        <ng-container
+                                            *ngIf="getAccountCurrency() != this._appconfig.baseCurrency else baseAccountCurrency">
+                                            <span class="item-value font-14-20">
+                                                {{checkNegativeValue(detail.value )}}
+                                                <em> {{ getAccountCurrency()== 'USD' ? '$' :getAccountCurrency() |
+                                                    currencyCode }}</em>{{getAbsoluteValue(detail.value) | currency :
+                                                this._appconfig.baseCurrency : '' }}
+                                                <em>{{'SUFFIXCURRENCY' | currencyCode
+                                                    }}</em>
+                                            </span>
+                                        </ng-container>
+                                        <ng-template #baseAccountCurrency>
+                                            {{checkNegativeValue(detail.value )}}
+                                            <em>{{getAccountCurrency() | currencyCode }}</em>
+                                            <span class="item-value font-14-20">{{getAbsoluteValue(detail.value) |
+                                                currency :
+                                                getAccountCurrency() : '' }}
+
+                                        </span>
+                                    </ng-template>
+                                    </span>
+                                    <span *ngSwitchCase="'date'">
+                                        <span class="item-value font-14-20">{{detail.value | customDate:'DD MMM yyyy' : 'America/Los_Angeles'}}</span>
+                                    </span>
+                                     <span *ngSwitchDefault class="item-value font-14-20">{{detail.value}}</span>
+                                    </ng-container>
+                                    
+                                    <!-- <ng-template #default>
+                                        <span class="item-value font-14-20">{{detail.value}}</span>
+                                    </ng-template> -->
+                                </box>
+                            </ng-container>
+
+                        </box>
+                        <div *ngIf="casaTransactionDetailsObj.transactionCategoryId=='4'"
+                            class="shell-footer custom-footer width-100" style="margin-top: 8px;">
+                            <div  *ngIf="'RETAILVIEWCHQIMG' | AccessScope" class="btn-container">
+                                <button type="button" class="btn-primary"
+                                    (click)="getChequeImage(this.casaTransactionDetailsObj)">{{'RetailViewCasaTranDtlsForm.viewCheque'
+                                    | translate}}
+                                </button>
+                            </div>
+                        </div>
+
+                    </box>
+                </box>
+            </li>
+
+            <li *ngIf="viewChequeImg && !showStopChequeDetails">
+                <box class="cheque-img">
+                    <img [src]="this.casaTransactionDetailsObj.chequeImage" alt="cheque image">
+                </box>
+                <div class="shell-footer custom-footer width-100" style="margin-top: 8px;">
+                    <div class="btn-container">
+                        <button type="button" class="btn-primary" (click)="downloadImage()">
+                            <span class="download-btn-icon"></span>
+                            {{'RetailViewCasaTranDtlsForm.download' | translate}}
+                    </button>
+                </div>
+                </div>
+            </li>
+            <li *ngIf="showStopChequeDetails" class="stop-cheque-widget schedule-form">
+                <ng-container *ngIf="showStopChequeDetails && hideStopChequeLoader else loader">
+                </ng-container>
+                <box [hidden]="!hideStopChequeLoader">
+                    <box class="widget-nav collapse-state-widget-icon" (click)="toggleAsideBar()">
+                        <span class="widget-nav-ico-wrapper widget-nav-schedule-transfers"></span>
+                    </box>
+                    <box class="widget-nav">
+                        <span class="widget-nav-name">{{
+                            "RetailStopchequeDisplayGrid.stoppedTitle" | translate
+                            }}</span>
+                        <button matTooltip={{stoppedChequesTooltip}} matTooltipClass="custom-tooltip" class="btn-icon"
+                            [attr.aria-label]="'RetailStopchequeDisplayGrid.title' | translate">
+                            <span class="icon-wrapper"></span>
+                        </button>
+                    </box>
+                    <box *ngIf="stopChequeDetails?.length > 0 else noData" class="widget-content-footer-container">
+                        <box class="widget-content home-layout">
+                            <box class="portfolio-summary">
+                                <ul class="portfolio-summary-list acc-list">
+                                    <ng-container
+                                        *ngFor="let selectedData of stopChequeDetails?.slice(0, 4); let i = index">
+                                        <li [ngClass]="{'accordian-open-start': selectedData.accordianOpened}"
+                                            [class]="'accordion accordion-item-' + i">
+                                            <div class="product-type-panel">
+                                                <box class="list-item-header panel-header">
+                                                    <box class="top-container">
+                                                        <box class="cheque-number-amount-container">
+                                                            <box class="cheque-number">
+                                                                <span class="label">{{
+                                                                    "RetailStopchequeDisplayGrid.chequeNumber.label" |
+                                                                    translate
+                                                                    }}</span>
+                                                                <span class="value">#{{
+                                                                    selectedData.chequeNumber
+                                                                    ? selectedData.chequeNumber
+                                                                    : selectedData.fromChequeNumber +
+                                                                    "-" +
+                                                                    selectedData.toChequeNumber
+                                                                    }}</span>
+                                                            </box>
+                                                            <box class="cheque-amount" *ngIf="selectedData.chequeAmount">
+                                                                <span *ngIf="selectedData.chequeAmount" class="amount">{{
+                                                                    selectedData.chequeAmount
+                                                                    | currency : selectedData.currency : ""
+                                                                    }}
+                                                                    <em>{{ '$' | currencyCode
+                                                                        }}</em></span>
+                                                                <!-- <span *ngIf="!selectedData.chequeAmount"
+                                                                    class="amount">-</span> -->
+                                                            </box>
+                                                        </box>
+                                                        <box class="btn-toggle" (click)="toggleAccordion(i)">
+                                                            <button type="button" class="btn-icon btn-accordion-toggle"
+                                                                aria-label="Toggle panel"></button>
+                                                        </box>
+                                                    </box>
+                                                    <box class="bottom-container">
+                                                        <box class="date">
+                                                            <span class="label">{{
+                                                                "RetailStopchequeDisplayGrid.requestDate.label" | translate
+                                                                }}</span>
+                                                            <span class="value">{{
+                                                                (selectedData.stopDate | customDate:'DD MMM yyyy' : 'America/Los_Angeles') || "-"
+                                                                }}</span>
+                                                        </box>
+                                                        <!-- <box class="date">
+                                                            <span class="label">{{
+                                                                "RetailStopchequeDisplayGrid.stopDate.label" | translate
+                                                                }}</span>
+                                                            <span class="value">{{
+                                                                (selectedData.stopDate | date : "dd MMM YYYY") || "-"
+                                                                }}</span>
+                                                        </box> -->
+                                    <box class="status-container">
+                                            <span class="status-value">Pending</span>
+                                    </box>
+                                    </box>
+                                </box>
+                                <div class="list-item-content panel-body">
+                                    <box class="content-container">
+                                        <box class="display-field-wrapper">
+                                            <span class="label">{{
+                                            "RetailStopchequeDisplayGrid.account.label" | translate
+                                        }}</span>
+                                            <span class="value">{{getAccountDetails()}}</span>
+                                        </box>
+                                        <box class="display-field-wrapper" *ngIf="selectedData.payeeName">
+                                            <span class="label">{{
+                                            "RetailStopchequeDisplayGrid.payee.label" | translate
+                                        }}</span>
+                                            <span class="value">{{selectedData.payeeName}}</span>
+                                        </box>
+                                        <box class="display-field-wrapper reason-wrapper" *ngIf="selectedData.reason">
+                                            <span class="label">{{
+                                            "RetailStopchequeDisplayGrid.reason.label" | translate
+                                        }}</span>
+                                            <span class="value">{{
+                                                getReason(selectedData)
+                                            }}</span>
+                                        </box>
+                                        <!-- <box class="display-field-wrapper">
+                                            <span class="label">{{
+                                            "RetailStopchequeDisplayGrid.charges.label" | translate
+                                        }}</span>
+                                            <span class="value">{{selectedData.charges || "-"}}</span>
+                                        </box> -->
+                                        <box class="btn-container">
+                                            <button
+                                            type="button"
+                                            class="btn-primary"
+                                            (click)="revoke(selectedData)"
+                                            >
+                                                {{
+                                                "RetailStopchequeDisplayGrid.revoke.label" | translate
+                                                }}
+                                            </button>
+                                        </box>
+                                    </box>
+                                </div>
+                            </div>
+                        </li>
+                    </ng-container>
+                </ul>
+            </box>
+            </box>
+                    </box>
+                    <box *ngIf="stopChequeDetails?.length > 4" class="widget-footer-view-all" (click)="pendingCheques()">
+                        <box class="view-all-icon-container" >
+                            <span class="view-all-icon"></span>
+                        </box>
+                        <box class="view-all-text">{{
+                        "RetailStopchequeDisplayGrid.viewAll.label" | translate
+                        }}</box>
+                    </box>
+                </box>
+            </li>
+
+            <!-- <li>
+                <box class="widget-nav collapse-state-widget-icon" (click)="toggleAsideBar()">
+                    <span class="widget-nav-ico-wrapper widget-nav-schedule-bills"></span>
+                </box>
+                <box class="widget-content-footer-container">
+                    <box class="widget-content">
+                        <app-retail-schedule-bills-form class="schedule-form"></app-retail-schedule-bills-form>
+                    </box>
+                </box>
+            </li> -->
+            <!-- <li>
+                <box class="widget-nav collapse-state-widget-icon" (click)="toggleAsideBar()">
+                    <span class="widget-nav-ico-wrapper widget-nav-schedule-transfers"></span>
+                </box>
+                <box class="widget-content-footer-container">
+                    <box class="widget-content">
+                        <app-retail-schedule-transfer-form class="schedule-form"></app-retail-schedule-transfer-form>
+                    </box>
+                </box>
+            </li> -->
+
+        </ul>
+
+    </box>
+
+    <!-- <hr class="seperator" /> -->
+
+    <box class="widget-additionals">
+        <fpx-button buttonType="button" class="add-widget" label="Add Widgets"></fpx-button>
+    </box>
+
+</box>
+
+<fpx-button buttoType="button" class="btn-expand-aside-bar" label="expand aside bar"
+    (onClick)="toggleAsideBar()"></fpx-button>
+
+<div class="aside-bar-overlay" *ngIf="expandAsideBar" (click)="toggleAsideBar()"></div>
+<ng-template #loader>
+    <box *ngIf="expandAsideBar" class="table-spinner"></box>
+</ng-template>
+<ng-template #noData>
+  <box class="no-result-view no-data-view">
+      <box><span class="no-data-image"></span></box>
+      <box class="no-result-desc no-data-desc">{{ 'RetailStopchequeDisplayGrid.noData.label' | translate }}</box>
+  </box>
+</ng-template>

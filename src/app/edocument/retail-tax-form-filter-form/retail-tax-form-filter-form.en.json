@@ -1,0 +1,19 @@
+"RetailTaxFormFilterForm":{
+"title":"Filter",
+		 "dateFrom": {
+		  "label":"From Date" ,
+		  "placeholder": "DD MMM YYYY"
+		  } ,
+		 "dateTo": {
+		  "label":"To Date" ,
+		  "placeholder": "DD MMM YYYY"
+		  } ,
+		 "reset": {
+		  "label":"Reset" ,
+		  "placeholder": "Reset"
+		  } ,
+		 "filter": {
+		  "label":"Filter" ,
+		  "placeholder": "Filter"
+		  } 
+}

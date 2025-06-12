@@ -1,0 +1,53 @@
+<box class="widget spend-summary">
+    <header>
+        <span class="widget-title">{{ 'REPAYMENTOVERVIEW.title' | translate }}</span>
+        <box class="tool-bar">
+            <mat-select value="category" class="default-select">
+                <mat-option value="category">By Category</mat-option>
+                <mat-option value="flow">By Flow</mat-option>
+            </mat-select>
+        </box>
+    </header>
+    <box class="widget-body">
+        <box class="spend-summary-chart-inner">
+            <!-- <box class="spend-summary-chart-header">
+                <box class="primary-info">
+                    <span class="lbl">Total Spending</span>
+                    <span class="amount">{{ 7000 | currency : appConfig.baseCurrency : '' }} <em>{{appConfig.baseCurrency}}</em></span>
+                </box>
+                <box class="secondary-info">
+                    <span class="tip">20% less then last week</span>
+                </box>
+            </box> -->
+            <box class="spend-summary-chart-body">
+                <box class="spend-chart">
+                    <box class="chart-container" #chartContainer></box>
+                    <box *ngIf="chartData?.length" class="total-summary">
+                        <span class="lbl">{{ 'REPAYMENTOVERVIEW.total' | translate }}</span>
+                        <span class="val">{{totalSummary.amount | currency : totalSummary.currency : ''}} {{ totalSummary.currency}}</span>
+                    </box>
+                    <box class="chart-data">
+                        <box class="data" *ngFor="let data of chartData">
+                            <span class="lbl">{{data.category | translate}}</span>
+                            <span class="val">{{data.value | currency : data.currency : ''}} {{ data.currency}}</span>
+                        </box>
+                    </box>
+                    <box class="chart-nav"></box>
+                </box>
+                <!-- <box class="spend-chart-legends">
+                    <ng-container *ngIf="chartData">
+                        <ul>
+                            <ng-container *ngFor="let item of chartData; index as i">
+                                <li>
+                                    <span class="category-color" [style.backgroundColor]="colorsArray[i]"></span>
+                                    <span class="category-name">{{ 'SPENDANALYSIS.' + item.category | translate }}</span>
+                                    <span class="amount">{{ item.value | currency : item.currency : '' }} <em>{{ item.currency }}</em></span>
+                                </li>
+                            </ng-container>
+                        </ul>
+                    </ng-container>
+                </box> -->
+            </box>
+        </box>
+    </box>
+</box>

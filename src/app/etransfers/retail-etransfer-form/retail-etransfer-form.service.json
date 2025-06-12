@@ -1,0 +1,5 @@
+ 
+ "ETRANSFERSENDMONEY" : {
+ "servicePath": ["entry-shell","etransfers", "retail-etransfer-form"],
+ "queryParams": {}
+ }

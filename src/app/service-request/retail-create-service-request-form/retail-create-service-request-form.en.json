@@ -1,0 +1,23 @@
+"RetailCreateServiceRequestForm":{
+"title":"Retail Create Service Request",
+		 "requestType": {
+		  "label":"Request Type Control" ,
+		  "placeholder": "Request Type Control"
+		  } ,
+		 "Category": {
+		  "label":"RequestCategory" ,
+		  "placeholder": "RequestCategory"
+		  } ,
+		 "subject": {
+		  "label":"Subject" ,
+		  "placeholder": "Subject"
+		  } ,
+		 "message": {
+		  "label":"MessageContent" ,
+		  "placeholder": "MessageContent"
+		  } ,
+		 "servicerequestadhocdtls": {
+		  "label":"Multi File Upload Control" ,
+		  "placeholder": "Multi File Upload Control"
+		  } 
+}

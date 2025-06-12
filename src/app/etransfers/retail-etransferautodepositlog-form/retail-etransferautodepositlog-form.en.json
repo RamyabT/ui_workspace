@@ -1,0 +1,15 @@
+"RetailEtransferautodepositlogForm":{
+"title":"Auto Deposit",
+		 "depositAccount": {
+		  "label":"Select Account" ,
+		  "placeholder": "Select Account"
+		  } ,
+		 "emailID": {
+		  "label":" Email" ,
+		  "placeholder": " Email"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } 
+}

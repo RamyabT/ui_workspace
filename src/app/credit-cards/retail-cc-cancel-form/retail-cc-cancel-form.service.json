@@ -1,0 +1,5 @@
+ 
+ "RETAILCCCANCEL" : {
+ "servicePath": ["entry-shell","creditcard", "retail-cc-cancel-form"],
+ "queryParams": {}
+ }

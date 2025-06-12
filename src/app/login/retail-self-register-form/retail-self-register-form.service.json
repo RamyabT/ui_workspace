@@ -1,0 +1,5 @@
+ 
+ "retailselfregister" : {
+ "servicePath": ["entry-shell","prelogin", "retail-self-register-form"],
+ "queryParams": {}
+ }

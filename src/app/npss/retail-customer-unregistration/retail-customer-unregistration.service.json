@@ -1,0 +1,5 @@
+ 
+ "RETAILCUSTOMERUNREGISTER" : {
+ "servicePath": ["entry-shell","transfers", "retail-customer-unregistration"],
+ "queryParams": {}
+ }

@@ -1,0 +1,31 @@
+"RetailLoanRepaymentscheduleCalcRo":{
+"title":"loanrepaymentscheduleCalcRo",
+		 "repaymentDate": {
+		  "label":"Date" ,
+		  "placeholder": "Date"
+		  } ,
+		 "interestRate": {
+		  "label":"Interest Rate" ,
+		  "placeholder": "Interest Rate"
+		  } ,
+		 "serialNo": {
+		  "label":"Detail Serial" ,
+		  "placeholder": "Detail Serial"
+		  } ,
+		 "principalOutstandingAmount": {
+		  "label":"Outstanding Balance" ,
+		  "placeholder": "Outstanding Balance"
+		  } ,
+		 "installmentAmount": {
+		  "label":"EMI" ,
+		  "placeholder": "EMI"
+		  } ,
+		 "loanAmount": {
+		  "label":"Principal Amount" ,
+		  "placeholder": "Principal Amount"
+		  } ,
+		 "interestAmount": {
+		  "label":"Interest" ,
+		  "placeholder": "Interest"
+		  } 
+}

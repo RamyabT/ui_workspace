@@ -1,0 +1,5 @@
+ 
+ "RETAILIBANLETTER" : {
+ "servicePath": ["entry-shell","servicerequest", "retail-iban-letter-req-form"],
+ "queryParams": {}
+ }

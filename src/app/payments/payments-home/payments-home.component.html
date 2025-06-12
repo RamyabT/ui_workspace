@@ -1,0 +1,69 @@
+<box class="payment-home-container">
+    <box *ngIf="appConstant.requiredAccountsSpaceNavigation" class="module-tab-container">
+        <mat-tab-group [(selectedIndex)]="activeTabIndex" (selectedTabChange)="onTabChanged($event)">
+            <mat-tab label="{{ 'PAYMENTSCONTAINER.scheduled' | translate }}">
+                <ng-template matTabContent>
+                    <box class="grid transaction-container upcoming-history">
+                        <box class="transactions-stmt-grid-wrapper col-12">
+                            <box class="casa-transactions-grid-header">
+                                <span class="title">{{ 'paymentsHome.upcoming' | translate }}</span>
+                            </box>
+                            <box
+                                [ngStyle]="{'display': (upcomingloader && upcomingData.length==0) ? 'none' :'' }">
+                                <app-retail-upcoming-bill-ro-grid
+                                    (commonRoGridEvent)="handleUpcomingBillGridEvent($event)"></app-retail-upcoming-bill-ro-grid>
+                            </box>
+                        </box>
+                    </box>
+
+                    <box *ngIf="upcomingloader" class="loading"></box>
+
+                    <ng-container *ngIf=" !upcomingloader && (!upcomingData || upcomingData.length==0)">
+                        <box class="no-result-view">
+                            <img class="no-result-image"
+                                src="./assets/images/transfers/no-schedule-transfer.svg" alt="">
+                            <box class="no-result-desc">{{ 'PAYMENTSCONTAINER.noUpcomingBill' | translate }}</box>
+                            <button type="button" class="no-result-add-btn" clickable
+                                (click)="navToAddBiller()">{{ 'PAYMENTSCONTAINER.addBillerBtn' | translate }}</button>
+                        </box>
+                    </ng-container>
+
+                </ng-template>
+            </mat-tab>
+            <mat-tab label="{{ 'PAYMENTSCONTAINER.history' | translate }}">
+                <ng-template matTabContent>
+                    <!-- <app-schedule-form></app-schedule-form> -->
+
+                    <box class="grid transaction-container bill-history">
+                        <box class="transactions-stmt-grid-wrapper col-12">
+                            <box class="casa-transactions-grid-header">
+                                <span class="title">{{ 'paymentsHome.billHistory' | translate }}</span>
+                            </box>
+                            <box
+                                [ngStyle]="{'display': (billhistoryloader && billHistoryData.length==0) ? 'none' :'' }">
+                                <app-retail-bill-history-ro-grid
+                                    (commonRoGridEvent)="handleBillHistoryGridEvent($event)"></app-retail-bill-history-ro-grid>
+                            </box>
+                        </box>
+                    </box>
+
+                    <box *ngIf="billhistoryloader" class="loading"></box>
+
+                    <ng-container *ngIf=" !billhistoryloader && (!billHistoryData || billHistoryData.length==0)">
+                        <box class="no-result-view">
+                            <img class="no-result-image" src="./assets/images/billers/no-data-bill-history.svg"
+                                alt="">
+                            <box class="no-result-desc">{{ 'PAYMENTSCONTAINER.noTransaction' | translate }}</box>
+                            <button type="button" class="no-result-add-btn"
+                                (click)="navToAddBiller()">{{ 'PAYMENTSCONTAINER.addBillerBtn' | translate }}</button>
+                        </box>
+                    </ng-container>
+
+                </ng-template>
+            </mat-tab>
+        </mat-tab-group>
+    </box>
+    <box *ngIf="!appConstant.requiredAccountsSpaceNavigation">
+        <app-retail-multi-bill-request-form></app-retail-multi-bill-request-form>
+    </box>
+</box>

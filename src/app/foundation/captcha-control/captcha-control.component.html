@@ -1,0 +1,29 @@
+<div class="captcha-container fpx-form-control" [ngClass]="{
+	'fpx-focus' : formControl && isFocused,
+	'fpx-valid' : formControl && formControl.touched && formControl.valid,
+	'fpx-invalid' : formControl && formControl.touched && formControl.invalid,
+	'fpx-disabled' : formControl && formControl.disabled
+	}">
+	
+	<fpx-label *ngIf="label" [control]="formControl" #fpxLabel [label]="label"></fpx-label>
+
+	<box class="captcha-input-wrapper">
+		<box class="captcha-pan">
+			<img class="captcha-image" #captchaImage alt="captcha" />
+			<mat-icon class="refresh-captcha" (click)="refreshCaptcha()">refresh</mat-icon>
+		</box>
+	
+		<box #fpxFieldContent class="fpx-field-content">
+			<input #fpxInput matInput [maxlength]="maxlength" [formControl]="formControl" 
+				[ngClass]="{ 'input-available': formControl && formControl.value }" (focus)="onfocus()" (blur)="onBlur()" />
+			
+			<span *ngIf="placeholder" class="placeholder">{{ placeholder }}</span>
+		</box>
+	</box>
+
+	<canvas class="text-canvas" #textCanvas width="100px" height="30px"></canvas>
+</div>
+
+<mat-error *ngIf="formControl.touched && formControl?.hasError('invalid_captcha')">
+{{'DEFAULT.invalid_captcha' | translate}}
+  </mat-error> 

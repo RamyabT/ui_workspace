@@ -1,0 +1,5 @@
+ 
+ "COBADDITIONALINFO" : {
+ "servicePath": ["entry-shell","pfm", "cobAdditionalInformation"],
+ "queryParams": {}
+ }

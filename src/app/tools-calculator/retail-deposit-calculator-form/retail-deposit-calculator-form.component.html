@@ -1,0 +1,31 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailDepositCalculatorForm" >
+	  
+	<box class="entry-form entry-form-field-group">
+	     
+	      
+			  <app-deposits-products  class="col-sm-12 col-md-6 col-lg-6"  (commonControlEvent)="handleControlEvent($event)" [actionPublisher]="actionMap$.get('depositProducts')"     label="{{'RetailDepositRequestForm.productCode.label' | translate }}"   formControlName="depositProducts" 
+     ></app-deposits-products>
+	     
+	       <app-amount-currency-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('amount')"     label="{{'RetailDepositCalculatorForm.amount.label' | translate }}"   formControlName="amount" 
+   [CurrencyList]="state.amount.CurrencyList" [isCurrEditable]="state.amount.isCurrEditable"  [defaultFetch]="state.amount.defaultFetch" [initCurrency]="state.amount.initCurrency" >  ></app-amount-currency-control>
+	     
+	      
+			  <!-- <app-tenure-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('tenure')"     label="{{'RetailDepositCalculatorForm.tenure.label' | translate }}"   formControlName="tenure" 
+   ></app-tenure-control> -->
+   <app-month-list-control class="col-sm-12 col-md-6 col-lg-6 " [actionPublisher]="actionMap$.get('tenure')"
+   label="{{'RetailDepositRequestForm.tenorInMonths.label' | translate }}" formControlName="tenure">
+</app-month-list-control>
+	 
+<app-interest-payment-frequency-list-control class="col-sm-12 col-md-6 col-lg-6 "
+[actionPublisher]="actionMap$.get('depositInterestPayFrequency')"
+label="{{'RetailDepositRequestForm.interestpaymentfrequency.label' | translate }}"
+formControlName="depositInterestPayFrequency" (commonControlEvent)="handleControlEvent($event)">
+</app-interest-payment-frequency-list-control>
+	     
+	      
+   <!-- <app-deposit-interest-pay-frequency  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('depositInterestPayFrequency')"     label="{{'RetailDepositCalculatorForm.depositInterestPayFrequency.label' | translate }}"   formControlName="depositInterestPayFrequency"
+   >
+</app-deposit-interest-pay-frequency> -->
+	</box> 
+</form>
+	

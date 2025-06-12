@@ -1,0 +1,35 @@
+"RetailLoanDisbursalDetailsForm":{
+"title":"Disbursement Schedule",
+		 "loanAccountNumber": {
+		  "label":"Loan Account Number" ,
+		  "placeholder": "Loan Account Number"
+		  } ,
+		 "productDesc": {
+		  "label":"Product" ,
+		  "placeholder": "Product"
+		  } ,
+		 "loanAmount": {
+		  "label":"Loan Amount" ,
+		  "placeholder": "Loan Amount"
+		  } ,
+		 "interestRate": {
+		  "label":"Net Interest Rate" ,
+		  "placeholder": "Net Interest Rate"
+		  } ,
+		 "noOfInstallments": {
+		  "label":"Number of Installments" ,
+		  "placeholder": "Number of Installments"
+		  } ,
+		 "repaymentFrequency": {
+		  "label":"Repayment Frequency" ,
+		  "placeholder": "Repayment Frequency"
+		  } ,
+		 "maturityDate": {
+		  "label":"Maturity Date" ,
+		  "placeholder": "Maturity Date"
+		  } ,
+		 "loanCalculationDate": {
+		  "label":"Loan Calculation Date" ,
+		  "placeholder": "Loan Calculation Date"
+		  } 
+}

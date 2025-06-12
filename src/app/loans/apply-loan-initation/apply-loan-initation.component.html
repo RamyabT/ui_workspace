@@ -1,0 +1,130 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="applyLoanInitiation">
+
+	<box class="entry-form">
+		<box class="entry-form col-sm-12 col-md-12 col-lg-12">
+			<fpx-radio-button class="col-sm-12 col-md-12 col-lg-12 segments"
+				[actionPublisher]="actionMap$.get('loanSegments')" formControlName="loanSegments"
+				[selectableList$]="state.loanSegmentList$" ngTemplateName="chicletsRadio"
+				(commonControlEvent)="handleControlEvent($event)">
+			</fpx-radio-button>
+		</box>
+		<box class="entry-form-field-group grid col-12">
+			<box class="loan-initiation" *ngIf="!_helper.homeLoan">
+				<box class="slider-field no-flag col-lg-12">
+					<app-loan-initiation-type-control class="col-md-12"
+						[actionPublisher]="actionMap$.get('homeloanType')" label="Loan Type"
+						formControlName="homeloanType"></app-loan-initiation-type-control>
+				</box>
+				<box [ngClass]="{'refinance-cls': _helper.refinance}">
+				<box class="slider-field no-flag col-lg-12">
+					<fpx-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('loanAmount')"
+						label="Property value" formControlName="loanAmount" [min]="state.loanAmount.MinLimit"
+						[max]="state.loanAmount.MaxLimit" [step]="state.loanAmount.step"
+						[currencyCode]="state.loanAmount.currencyCode"></fpx-amount-slider>
+				</box>
+				<box class="slider-field no-flag col-lg-12">
+					<fpx-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('downPayment')"
+						label="Down Payment Amount in %" formControlName="downPayment"
+						[min]="state.downPayment.MinLimit" [max]="state.downPayment.MaxLimit"
+						[step]="state.downPayment.step"
+						[currencyCode]="state.downPayment.currencyCode"></fpx-amount-slider>
+				</box>
+				<box class="slider-field no-flag col-lg-12">
+					<fpx-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('loanDuration')"
+						label="Loan Duration in Years" formControlName="loanDuration"
+						[min]="state.loanDuration.MinLimit" [max]="_helper.maxLoanDuration"
+						[step]="state.loanDuration.step"
+						[currencyCode]="state.loanDuration.currencyCode"></fpx-amount-slider>
+				</box>
+			</box>
+			</box>
+
+			<box class="loan-initiation" *ngIf="!_helper.vehicleLoan">
+				<box class="slider-field no-flag col-lg-12">
+					<app-vehicle-type-control class="col-md-12" [actionPublisher]="actionMap$.get('vehicalType')"
+						label="Vehical Type" formControlName="vehicalType"></app-vehicle-type-control>
+				</box>
+
+				<box class="slider-field no-flag col-lg-12">
+					<app-vehicle-status-control class="col-md-12" [actionPublisher]="actionMap$.get('vehicalStatus')"
+						label="Vehical Status" formControlName="vehicalStatus"></app-vehicle-status-control>
+				</box>
+
+				<box class="slider-field no-flag col-lg-12">
+					<fpx-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('vehicleloanAmount')"
+						label="Vehicle Cost" formControlName="vehicleloanAmount"
+						[min]="state.vehicleloanAmount.MinLimit" [max]="state.vehicleloanAmount.MaxLimit"
+						[step]="state.vehicleloanAmount.step"
+						[currencyCode]="state.vehicleloanAmount.currencyCode"></fpx-amount-slider>
+				</box>
+
+				<box class="slider-field no-flag col-lg-12">
+					<fpx-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('vehicledownPayment')"
+						label="Down Payment Amount in %" formControlName="vehicledownPayment"
+						[min]="state.vehicledownPayment.MinLimit" [max]="state.vehicledownPayment.MaxLimit"
+						[step]="state.vehicledownPayment.step"
+						[currencyCode]="state.vehicledownPayment.currencyCode"></fpx-amount-slider>
+				</box>
+
+				<box class="slider-field no-flag col-lg-12">
+					<fpx-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('vehicleloanDuration')"
+						label="Loan Duration in Years" formControlName="vehicleloanDuration"
+						[min]="state.vehicleloanDuration.MinLimit" [max]="_helper.maxLoanDuration"
+						[step]="state.vehicleloanDuration.step"
+						[currencyCode]="state.vehicleloanDuration.currencyCode"></fpx-amount-slider>
+				</box>
+			</box>
+
+			<box class="loan-initiation" *ngIf="!_helper.personalLoan">
+				<box class="slider-field no-flag col-lg-12">
+					<fpx-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('personalloanAmount')"
+						label="Loan Amount" formControlName="personalloanAmount"
+						[min]="state.personalloanAmount.MinLimit" [max]="state.personalloanAmount.MaxLimit"
+						[step]="state.personalloanAmount.step"
+						[currencyCode]="state.personalloanAmount.currencyCode"></fpx-amount-slider>
+				</box>
+
+				<box class="slider-field no-flag col-lg-12">
+					<fpx-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('personalloanDuration')"
+						label="Loan Duration" formControlName="personalloanDuration"
+						[min]="state.personalloanDuration.MinLimit" [max]="_helper.maxLoanDuration"
+						[step]="state.personalloanDuration.step"
+						[currencyCode]="state.personalloanDuration.currencyCode"></fpx-amount-slider>
+				</box>
+			</box>
+
+
+
+
+
+		</box>
+
+		<box class="entry-form-field-group grid col-12 loan-details">
+
+			<box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+				<span>Monthly EMI</span>
+				<app-name-field-control formControlName="emi"
+					[actionPublisher]="actionMap$.get('emi')"></app-name-field-control>
+			</box>
+
+			<box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+				<span>Interest Rate</span>
+				<app-name-field-control formControlName="interestRate"
+					[actionPublisher]="actionMap$.get('interestRate')"></app-name-field-control>
+			</box>
+
+			<box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+				<span>Total Interest</span>
+				<app-name-field-control formControlName="totalInterest"
+					[actionPublisher]="actionMap$.get('totalInterest')"></app-name-field-control>
+			</box>
+
+			<box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+				<span>Total Repayable Amount</span>
+				<app-name-field-control formControlName="totalRepayAmount"
+					[actionPublisher]="actionMap$.get('totalRepayAmount')"></app-name-field-control>
+			</box>
+
+		</box>
+	</box>
+</form>

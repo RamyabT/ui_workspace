@@ -1,0 +1,37 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="retailActivePrepaidCard" >
+	   
+	 <box class="entry-form">
+		<ng-container *ngIf="state.cardData">
+			<prepaidcard class="col-12" [cardData]="state.cardData" [formView]="true"></prepaidcard>
+		</ng-container>
+		<box class="grid entry-form-field-group">
+
+   <!-- <app-name-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('cardName')"     label="{{'retailActivePrepaidCard.cardName.label' | translate }}"   formControlName="cardName" 
+   ></app-name-control> -->
+	    
+	     
+	      
+			  <app-expiry-month-list-control   class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('expiryMonth')"     label="{{'retailActivePrepaidCard.expiryMonth.label' | translate }}"   formControlName="expiryMonth" 
+   ></app-expiry-month-list-control >
+
+   <app-cc-expiry-year-list-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('expiryYear')"     label="{{'retailActivePrepaidCard.expiryYear.label' | translate }}"   formControlName="expiryYear" 
+   ></app-cc-expiry-year-list-control>
+	     
+	      
+			  <app-dcvv-pin-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('cvv')"     label="{{'retailActivePrepaidCard.cvv.label' | translate }}"   formControlName="cvv" 
+   ></app-dcvv-pin-control>
+	     
+	      
+			  <app-remarks-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('remarks')"     label="{{'retailActivePrepaidCard.remarks.label' | translate }}"   formControlName="remarks" 
+   ></app-remarks-control>
+   <box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-6 grid main-group disclaimer-box">
+
+	<app-terms-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('termsFlag')"
+		label="{{'retailActivePrepaidCard.termsFlag.label' | translate }}" formControlName="termsFlag"
+		[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+
+</box>
+		</box>
+	 </box> 
+	</form>
+	

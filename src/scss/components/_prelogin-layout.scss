@@ -1,0 +1,192 @@
+.prelogin-layout {
+
+    .prelogin-body-inner {
+        .shell-container {
+            .entry-form {
+                padding: 32px 20px 20px;
+                border-radius: 20px;
+                background: #fff;
+                box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.09);
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .header {
+                    width: 100%;
+                    position: relative;
+                    gap: unset;
+                    text-align: left;
+
+                    .title-desc {
+                        color: #80807f;
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: normal;
+                    }
+
+                    .hint {
+                        color: var(--bodyTxtClr);
+                        text-align: right;
+                        font-size: 12px;
+                        font-weight: 400;
+                        line-height: 18px;
+                        position: absolute;
+                        right: 0;
+                        bottom: -5px;
+
+                        span {
+                            color: #e02020;
+                        }
+                    }
+                }
+
+                .title {
+                    color: var(--baseTxtClr);;
+                    font-size: 16px;
+                    font-weight: 700;
+                    line-height: 24px;
+                }
+            }
+
+            .terms-and-condition {
+                border-radius: 12px;
+                background: #fff;
+                box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.06);
+                padding: 20px 16px;
+                display: flex;
+                justify-content: space-between;
+                gap: 20px;
+                flex-direction: column;
+            }
+        }
+
+        .shell-content {
+            .entry-form {
+                box-shadow: unset;
+                border-radius: unset;
+                background-color: transparent;
+                padding: 0;
+            }
+
+            // .form-body {
+            //     padding-bottom: 76px;
+            // }
+
+            .form-footer-actions {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                padding: 0;
+
+                &:has(button:first-child:last-child) {
+                    justify-content: center;
+                }
+            }
+
+            @include small-screen {
+                >*>form {
+                    position: relative;
+                }
+
+                .form-footer-actions {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    @include small-screen {
+        app-prelogin-header {
+            display: none;
+        }
+
+        &.onboarding {
+
+            app-verify-otp-form>form,
+            >*>form {
+                min-height: calc(100vh - 99px - 32px - 86px);
+                position: relative;
+                padding-bottom: 72px;
+            }
+        }
+    }
+
+    @include not-small-screen {
+        position: relative;
+        padding-bottom: 28px;
+
+        app-prelogin-header {
+            display: block;
+
+            .prelogin-header {
+                background: url(../../assets/images/prelogin-header-bg.svg) no-repeat left center var(--primary500);
+                min-height: 70px;
+                background-size: cover;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: #fff;
+                font-weight: 500;
+                z-index: 1;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    // background: url(../../assets/images/brand/brand-logo.svg) no-repeat left center #016b83;
+                    width: 40px;
+                    height: 40px;
+                }
+
+                .prelogin-header__title {
+                    font-size: 16px;
+                    font-weight: 700;
+                    line-height: 24px;
+                }
+            }
+        }
+
+        .prelogin-body {
+            max-width: 784px;
+            // min-height: 592px;
+            margin: 0 auto;
+            padding-top: 20px;
+
+            .prelogin-body-inner {
+                z-index: 1;
+                position: relative;
+                .form-footer-actions {
+                    position: static;
+                    padding: 0;
+                    border-top: 1px solid var(--baseBdrClr);
+                    padding: 20px 0 0;
+                    margin-top: 16px;
+                }
+            }
+
+            &::before {
+                content: "";
+                background: url(../../assets/images/rcob/bg-circle-up.svg) no-repeat transparent;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
+                width: 763.318px;
+                height: 619px;
+            }
+
+            &::after {
+                content: "";
+                background: url(../../assets/images/rcob/bg-circle-down.svg) no-repeat transparent;
+                width: 370px;
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                z-index: 0;
+                height: 220px;
+            }
+
+        }
+    }
+}

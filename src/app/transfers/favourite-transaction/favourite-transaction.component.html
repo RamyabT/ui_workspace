@@ -1,0 +1,41 @@
+<box class="fav-tran-group">
+    <box class="fav-tran-header">
+        <span class="title">{{ 'FAVOURITETRANSACTOIN.title' | translate }}</span>
+        <ng-container *ngIf="_helper.favTransfersApiReceived && _helper.totalRecordCount > 0">
+            <button type="button" class="link arrow-button" (click)="_favouriteTransactionHelper.viewAllFav()">
+                {{ 'BUTTONS.viewAll' | translate }}
+            </button>
+        </ng-container>
+    </box>
+
+    <box class="fav-transfers-sec" [ngClass]="{'result-view': _helper.totalRecordCount > 0}">
+        <ng-container *ngIf="_helper.favTransfersApiReceived; else loader">
+            <ng-container *ngIf="_helper.favTransfersApiReceived && _helper.totalRecordCount > 0"></ng-container>
+        </ng-container>
+
+        <app-retail-favourtie-payments-ro-grid *ngIf="_helper.totalRecordCount != 0" class="fav-transfers-grid-landing"
+            (commonRoGridEvent)="_helper.favTransferRoGridEvent($event)"
+            [actionPublisher]="actionMap$.get('favtransferdetailsGrid')">
+        </app-retail-favourtie-payments-ro-grid>
+
+        <ng-container *ngIf="_helper.favTransfersApiReceived && _helper.totalRecordCount == 0">
+            <box class="no-fav-tran-group">
+                <box class="no-fav-tran">
+                    <box class="no-fav-tran-title">{{ 'FAVOURITETRANSACTOIN.noFavTransactionHeader' | translate }}</box>
+                    <box class="no-fav-tran-desc">{{ 'FAVOURITETRANSACTOIN.noFavTransactionDesc' | translate }}</box>
+                    <button class="no-fav-tran-add-btn" clickable (click)="_helper.initiateNewTransaction()">
+                        {{ 'FAVOURITETRANSACTOIN.noFavTransactionAddBtn' | translate }}
+                    </button>
+                </box>
+                <img *ngIf="!_helper.showFavTransaction"
+                    [src]="skinManager.getAssetFolderPath() + 'skins/images/illustration/no-favourite.svg'"
+                    alt="no fav transactions" />
+            </box>
+        </ng-container>
+    </box>
+
+</box>
+
+<ng-template #loader>
+    <box class="loading"></box>
+</ng-template>

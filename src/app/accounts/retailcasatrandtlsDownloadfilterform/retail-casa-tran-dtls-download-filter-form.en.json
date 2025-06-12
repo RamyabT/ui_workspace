@@ -1,0 +1,15 @@
+"retailcasatrandtlsDownloadfilterform":{
+	"title":"Transaction Filter Download",
+		   "transactionReference": {
+			"label":"Transaction Reference" ,
+			"placeholder": "Transaction Reference"
+			} ,
+		   "transactionType": {
+			"label":"Transaction Type" ,
+			"placeholder": "Transaction Type"
+			} ,
+		   "download": {
+			"label":"Download" ,
+			"placeholder": "Download"
+			}
+	}

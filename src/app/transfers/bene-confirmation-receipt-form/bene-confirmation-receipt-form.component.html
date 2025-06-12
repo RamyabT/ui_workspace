@@ -1,0 +1,84 @@
+<ng-container>
+    <box
+        class="bene-confirmation-receipt-inner confirmation-receipt-inner success {{ result?.statusCode?.toLowerCase() }}">
+        <box class="confirmation-body">
+
+            <ng-container *ngIf="result.statusCode == 'failure'; else success">
+                <box class="status-container">
+                    <box class="status-ico-wrapper">
+                        <span class="status-ico"></span>
+                    </box>
+                    <span class="confirmation-message">
+                        {{ 'beneConfirmationForm.defaultErrorMessage' | translate }}</span>
+                </box>
+
+                <box class="message-container">
+                    <span class="confirmation-description">{{ 'beneConfirmationForm.defaultErrorDescription' | translate }}</span>
+                </box>
+            </ng-container>
+
+            <ng-template #success>
+                <box class="status-container">
+                    <box class="status-ico-wrapper">
+                        <span class="status-ico"></span>
+                    </box>
+                    <!-- <span class="confirmation-description">{{ result?.resultPayload?.errorMessage ||this._result }}</span> -->
+                    <span class="confirmation-message">{{ _requestServiceCode + '.' + _requestStatus + ".message" | translate }}</span>
+                </box>
+    
+                <box class="message-container">
+                    <span class="confirmation-description">{{ result?.resultPayload?.errorMessage ||
+                        result?.resultPayload?.ErrorMessage || _requestServiceCode + '.' + _requestStatus + ".description" |
+                        translate }}</span>
+                </box>
+            </ng-template>
+
+            <!-- <ng-container *ngIf="result?.additionalInfo && result?.additionalInfo.length">
+                <hr />
+                <box class="additional-details-container">
+                    <ng-container *ngFor="let detail of result?.additionalInfo">
+                        <ng-container *ngIf="detail.value">
+                            <ng-container *ngIf="detail.value != 'spacer'; else spacer">
+                                <box class="details">
+                                    <span class="detail-lbl">{{ detail.label|translate }}</span>
+                                    <span class="detail-val">
+                                        <ng-container [ngSwitch]="detail.format">
+                                            <ng-container *ngSwitchCase="'date'">
+                                                {{ detail.value | date : "dd MMM YYYY, hh:mm:ss" }}
+                                            </ng-container>
+                                            <ng-container *ngSwitchDefault>
+                                                {{ detail.value }}
+                                            </ng-container>
+                                        </ng-container>
+
+                                    </span>
+                                </box>
+                            </ng-container>
+                            <ng-template #spacer>
+                                <div class="space-bar"></div>
+                            </ng-template>
+                        </ng-container>
+                    </ng-container>
+
+                </box>
+            </ng-container> -->
+        </box>
+
+        <box class="confirmation-footer">
+            <ng-container *ngIf="result?.resultPayload?.requestPayload?.operationMode != 'D'">
+                <button type="button" class="primary" (click)="gotoTransferSpace()"><span>{{
+                    'beneConfirmationReceiptForm.home' | translate }}</span></button>
+                <!-- <button type="button" class="secondary" (click)="gotoModule('accounts-space')"><span>{{
+                        'confirmationReceiptForm.favourite' | translate }}</span></button>
+
+                <button type="button" class="primary" (click)="markFavourite()"><span>{{
+                        'confirmationReceiptForm.markFavourite' | translate }}</span></button> -->
+            </ng-container>
+            <ng-container *ngIf="result?.resultPayload?.requestPayload?.operationMode == 'D'">
+                <button type="button" class="primary" (click)="gotoTransferSpace()"><span>{{
+                        'beneConfirmationReceiptForm.home' | translate }}</span></button>
+            </ng-container>
+        </box>
+    </box>
+
+</ng-container>

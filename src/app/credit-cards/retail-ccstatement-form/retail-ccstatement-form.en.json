@@ -1,0 +1,27 @@
+"RetailCcstatementForm":{
+"title":"Credit Card Statement",
+		 "cardRefNumber": {
+		  "label":"Credit Card " ,
+		  "placeholder": "Credit Card "
+		  } ,
+		 "fromDate": {
+		  "label":"From Date" ,
+		  "placeholder": "From Date"
+		  } ,
+		 "toDate": {
+		  "label":"To Date" ,
+		  "placeholder": "To Date"
+		  } ,
+		 "transactionsRange": {
+		  "label":"Transactions" ,
+		  "placeholder": "Transactions"
+		  } ,
+		 "reset": {
+		  "label":"Reset" ,
+		  "placeholder": "Reset"
+		  } ,
+		 "submit": {
+		  "label":"Submit" ,
+		  "placeholder": "Submit"
+		  } 
+}

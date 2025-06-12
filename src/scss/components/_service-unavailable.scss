@@ -1,0 +1,43 @@
+.serviceUnavailable-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    .serviceUnavailable-wrapper {
+      position: unset;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      @include small-screen{
+        height: calc(100vh - 200px);
+      }
+  
+      .serviceUnavailable-image {
+       
+        .image {
+          width: 270px;
+          height: 180px;
+          display: block;
+        }
+      }
+  
+      .content {
+        text-align: center;
+        .label-tag{
+            @include h4-bold;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+        .label {
+          @include b1-regular;
+          align-items: center;
+          text-align: center;
+        }
+      }
+    }
+  }
+  

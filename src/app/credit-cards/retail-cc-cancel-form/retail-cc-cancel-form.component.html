@@ -1,0 +1,28 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="retailccCancelform" >
+	   
+	 <box class="entry-form">
+	     
+		<box class="grid entry-form-field-group">
+			  <app-active-cc-list-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('cardRefNumber')"     label="{{'retailccCancelform.cardRefNumber.label' | translate }}"   formControlName="cardRefNumber"  placeholder="{{'retailccCancelform.cardRefNumber.placeholder' | translate }}" 
+     ></app-active-cc-list-control>
+	     
+	      
+			  <app-reason-list-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('reason')"     label="{{'retailccCancelform.reason.label' | translate }}"   formControlName="reason" 
+     ></app-reason-list-control>
+	     
+	      
+			  <app-remarks-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('remarks')"     label="{{'retailccCancelform.remarks.label' | translate }}"   formControlName="remarks" 
+   ></app-remarks-control>
+		<box  id="000_4"  class="col-md-12 grid  main-group  ">
+	     
+	      
+			  <app-terms-control  class="col-md-4"   [actionPublisher]="actionMap$.get('terms')"     label="{{'retailccCancelform.terms.label' | translate }}"   formControlName="terms"  placeholder="{{'retailccCancelform.terms.placeholder' | translate }}" 
+   [textPosition]="state.terms.textPosition"  [ckValues]="state.terms.ckValues" ></app-terms-control>
+		</box>
+	     
+	     
+			  <!-- <fpx-display-text id="FieldId_5"   class="col-md-12  FieldId_5"  [innerHTML]="'retailccCancelform.FieldId_5.text' | translate"   [literals]="commonFormInput"></fpx-display-text> -->
+	 </box> 
+	 </box>
+	</form>
+	

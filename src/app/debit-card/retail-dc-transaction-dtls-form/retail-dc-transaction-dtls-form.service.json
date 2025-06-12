@@ -1,0 +1,5 @@
+ 
+ "RETAILDCTRANSACTIONDTLS" : {
+ "servicePath": ["entry-shell","debitcard", "retail-dc-transaction-dtls-form"],
+ "queryParams": {}
+ }

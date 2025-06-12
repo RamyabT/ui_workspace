@@ -1,0 +1,11 @@
+"RetailEtransferHistoryFilter":{
+"title":"RetailEtransferHistoryFilter",
+		 "fromDate": {
+		  "label":"From Date" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "toDate": {
+		  "label":"To Date" ,
+		  "placeholder": "Placeholder"
+		  } 
+}

@@ -1,0 +1,82 @@
+# for ibd data service.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+#
+# Overwrite chart name
+# nameOverride:
+# replicas: 1
+image:
+  repository: sapphire.intellectdesign.com/k02_cbx-r_k1_ui-retail_dcr_dev_sit/deploy
+  tag: dev-1
+  pullPolicy: Always
+restartPolicy: Always
+
+# Set docker registy to pull private images
+dockerRegSecret: regcret
+
+# We usually recommend not to specify default resources and to leave this as a conscious
+# choice for the user. This also increases chances charts run on environments with little
+# resources, such as Minikube. If you do want to specify resources, uncomment the following
+# lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+
+resources:
+  requests:
+    cpu: "150m"
+    memory: "300Mi"
+  limits:
+    cpu: "250m"
+    memory: "600Mi"
+service:
+  port: 80
+  targetPort: 80
+#  name: lms-inquiry
+
+ingress:
+  enabled: true
+  path: "/dep-sit-retail"
+  ingressClassName: nginx  
+  hosts:
+  - "igcbextmfg.ifincloud.io"
+  tls:
+  - secretName: tls-certificate-key-secret
+    hosts:
+    - "igcbextmfg.ifincloud.io"
+
+hpa:
+  minCount: 1
+  maxCount: 1
+  metrics:
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+
+config:
+  contextPath: "dep-sit-retail"
+  svcName: "igcb-cbxr-ui-retail"
+  svcTag: "cbxr-retail"
+  envName: "sit"
+  configJsonPath: "/usr/share/nginx/html/dep-sit-retail/assets/config"
+  baseURL: "https://igcbextmfg.ifincloud.io"
+  commonPublisher: "/dit4-cbx-common/publisher"
+  accountsPublisher: "/dit4-cbx-accounts/publisher"
+  billPaymentsPublisher: "/dit4-cbx-bill-payments/publisher"
+  transfersPublisher: "/dit4-cbx-transfers/publisher"
+  customersPublisher: "/dit4-cbx-customers/publisher"
+  cardsPublisher: "/dit4-cbx-cards/publisher"
+  depositsPublisher: "/dit4-cbx-deposits/publisher"
+  defaultPublisher: "/dit4-cbx-common/publisher"
+  loansPublisher: "/dit4-cbx-loans/publisher"
+  workflowPublisher: "/dit4-cbx-workflow/publisher"
+  iamPublisher: "/dit4-cbx-iam/publisher"
+  languageId: "en-us"
+  idleTime: "3600"
+  counDown: "60"
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

@@ -1,0 +1,11 @@
+"COBApplicantAddressInfo":{
+"title":"cobapplicantaddressinfo",
+		 "applicantId": {
+		  "label":"ApplicantId" ,
+		  "placeholder": "ApplicantId"
+		  } ,
+		 "permenantAddressFlag": {
+		  "label":" Is communication and home address  are same?" ,
+		  "placeholder": " Is communication and home address  are same?"
+		  } ,
+}

@@ -1,0 +1,50 @@
+<box class="widget context-menu-wrapper" #contextMenuWrapper>
+    <ng-container *ngIf="scheduledDetails || _dialogData.menuCode === 'RETAILTRANSFERTYPE'; else defaultHeader">
+        <header>
+            <span *ngIf="_dialogData.menuCode === 'SCHEDULEDBILLPAYMENTS'"
+                class="header-title">{{scheduledDetails.beneficiaryName}}</span>
+            <span *ngIf="_dialogData.menuCode === 'RETAILSAVEDBILLER'" class="header-title">{{scheduledDetails.nickName
+                || scheduledDetails.billerId?.shortName }}</span>
+            <span *ngIf="_dialogData.menuCode === 'RETAILMANAGEBENE'"
+                class="header-title">{{scheduledDetails.beneNickName}}</span>
+            <span *ngIf="_dialogData.menuCode === 'SCHEDULEDTRANSFERS'"
+                class="header-title">{{scheduledDetails.creditAccNickName?scheduledDetails.creditAccNickName:scheduledDetails.beneficiaryName}}</span>
+            <span *ngIf="_dialogData.menuCode === 'RETAILMULTIBILLPAYMENTS'"
+                class="header-title">{{scheduledDetails?.billerId?.name}}</span>
+            <span *ngIf="_dialogData.menuCode === 'RETAILTRANSFERTYPE'" class="header-title">Transfer money</span>
+
+        </header>
+    </ng-container>
+
+    <ng-template #defaultHeader>
+        <header>
+            <span class="widget-title">Actions</span>
+        </header>
+    </ng-template>
+
+    <ng-container>
+        <box class="context-menu-body">
+            <ng-container>
+                <ul class="actions-list grid">
+                    <ng-container *ngFor="let action of actions">
+                        <li (click)="openLink(action)"
+                            [ngClass]="{'disable-edit' : shouldDisableEdit && (action.id === 'edit')}">
+                            <span class="icon-wrapper {{ action.icon }}"></span>
+                            <box class="action-desc-wrapper">
+                                <span class="text" [innerHTML]=" action.name"></span>
+                                <span class="desc" [innerHTML]=" action?.desc"></span>
+                            </box>
+                        </li>
+                    </ng-container>
+                </ul>
+            </ng-container>
+
+        </box>
+    </ng-container>
+
+    <ng-container>
+        <button type="button" class="btn-popup-close" (click)="closeContextMenu()">
+            close
+        </button>
+    </ng-container>
+</box>

@@ -1,0 +1,51 @@
+"RetailInstaPayForm":{
+"title":"Insta Pay",
+		 "sourceAccount": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "iban": {
+		  "label":"Enter IBAN" ,
+		  "placeholder": "Enter IBAN"
+		  } ,
+		 "confirmIban": {
+		  "label":"Re-Enter IBAN" ,
+		  "placeholder": "Re-Enter IBAN"
+		  } ,
+		 "beneficiaryName": {
+		  "label":"Bank Name" ,
+		  "placeholder": "Bank Name"
+		  } ,
+		 "bankCode": {
+		  "label":"Bank Name" ,
+		  "placeholder": "Bank Name"
+		  } ,
+		 "branchCode": {
+		  "label":"Bank Branch" ,
+		  "placeholder": "Bank Branch"
+		  } ,
+		 "routingCode": {
+		  "label":"BIC" ,
+		  "placeholder": "BIC"
+		  } ,
+		 "branchAddress": {
+		  "label":"Address" ,
+		  "placeholder": "Address"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "purpose": {
+		  "label":"Choose Purpose of Transfer" ,
+		  "placeholder": "Choose Purpose of Transfer"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"I acknowledge and agree to receive important bank communications via my mobile number and email id." ,
+		  "placeholder": "I acknowledge and agree to receive important bank communications via my mobile number and email id."
+		  } 
+}

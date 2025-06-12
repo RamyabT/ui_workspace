@@ -1,0 +1,23 @@
+"WalletAccountDetailsForm": {
+      
+ 
+         "title": "Scan & Pay",
+  
+      "onlinePurchase": {
+         "label": "Online Purchase"
+      },
+      "scanPayLimitMax": {
+         "label": "Max. Transaction Limit"
+      },
+      "scanpayLimit": {
+         "label": "Cumulative Daily Transaction Limit"
+      },
+      "onlinePurchaseLimitMax": {
+         "label": "Max. Transaction Limit"
+      },
+      "onlinePurchaseLimit": {
+         "label": "Cumulative Daily Transaction Limit"
+      }
+      
+      
+   },

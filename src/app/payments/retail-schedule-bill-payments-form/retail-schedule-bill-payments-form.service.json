@@ -1,0 +1,5 @@
+ 
+ "RETAILSCHBILLPAYMENTS" : {
+ "servicePath": ["entry-shell","payments", "retail-schedule-bill-payments-form"],
+ "queryParams": {}
+ }

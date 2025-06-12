@@ -1,0 +1,5 @@
+{
+    "title": "ThriveUnion",
+    "landingPath": "welcome",
+    "redirectOnAuthFailure": ["welcome"]
+}

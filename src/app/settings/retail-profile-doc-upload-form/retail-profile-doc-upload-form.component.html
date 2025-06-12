@@ -1,0 +1,23 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailProfilePicUploadForm">
+
+	<box class="">
+		<box *ngIf="state.subTitle" class="title">{{state.subTitle}}</box>
+		<box class="btn-container col-lg-6 col-sm-12 col-md-12">
+			<fpx-button *ngIf="_helper.deviceDetectorService.isHybrid()"  btnType="button" [btnClass]="'system-ico-button button-camera'" label="Take Photo"
+				(onClick)="_helper.startTakePhoto()"></fpx-button>
+			<!-- <app-file-browse-button class="upload-doc-button" destinationType="file" (fileSelect)="_helper.onFileSelect($event)" label="Browse to Upload"></app-file-browse-button> -->
+
+			<box class="upload-doc-button">
+				<label>
+					<span class="img-ico"><img src="./assets/images/upload-file.svg" alt="document" /></span>
+					<span class="button-txt">Browse to Upload</span>
+				</label>
+
+				<app-profile-doc-upload-control [actionPublisher]="actionMap$.get('fileUpload')"
+					formControlName="fileUpload" [extensions]="state.fileUpload.extensions"
+					[maxSize]="state.fileUpload.maxSize" [isMultiFileUpload]="false">
+				</app-profile-doc-upload-control>
+			</box>
+		</box>
+	</box>
+</form>

@@ -1,0 +1,15 @@
+"RetailRpExistingContractForm":{
+"title":"RetailRpExistingContract",
+		 "rpContractNumber": {
+		  "label":"Select a plan contract" ,
+		  "placeholder": "Select a plan contract"
+		  } ,
+		 "firstName": {
+		  "label":"Contract Holder Name" ,
+		  "placeholder": "Contract Holder Name"
+		  } ,
+		 "usResident": {
+		  "label":"US Resident" ,
+		  "placeholder": "US Resident"
+		  } ,
+}

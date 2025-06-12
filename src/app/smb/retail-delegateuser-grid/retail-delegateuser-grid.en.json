@@ -1,0 +1,67 @@
+"RetailDelegateuserGrid":{
+"title":"delegateuser",
+		 "userName": {
+		  "label":"User Name" ,
+		  "placeholder": "User Name"
+		  } ,
+		 "customerCode": {
+		  "label":"CIF" ,
+		  "placeholder": "CIF"
+		  } ,
+		 "customerName": {
+		  "label":"customerName" ,
+		  "placeholder": "customerName"
+		  } ,
+		 "enabled": {
+		  "label":"supplementarycardflag" ,
+		  "placeholder": "supplementarycardflag"
+		  } ,
+		 "entityCode": {
+		  "label":"Entity Code" ,
+		  "placeholder": "Entity Code"
+		  } ,
+		 "firstName": {
+		  "label":"Customer Name" ,
+		  "placeholder": "Customer Name"
+		  } ,
+		 "lastName": {
+		  "label":"Customer Name" ,
+		  "placeholder": "Customer Name"
+		  } ,
+		 "emailAddress": {
+		  "label":" Email" ,
+		  "placeholder": " Email"
+		  } ,
+		 "mobileNumber": {
+		  "label":"Mobile Number" ,
+		  "placeholder": "Mobile Number"
+		  } ,
+		 "address": {
+		  "label":"Address" ,
+		  "placeholder": "Address"
+		  } ,
+		 "status": {
+		  "label":"Status" ,
+		  "placeholder": "Status"
+		  } ,
+		 "nationality": {
+		  "label":"NationalityListControl" ,
+		  "placeholder": "NationalityListControl"
+		  } ,
+		 "operationMode": {
+		  "label":"Operation Mode" ,
+		  "placeholder": "Operation Mode"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "accessLevel": {
+		  "label":"Access Level" ,
+		  "placeholder": "Access Level"
+		  } ,
+		 "createdBy": {
+		  "label":"Created By" ,
+		  "placeholder": "Created By"
+		  } 
+}

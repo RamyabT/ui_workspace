@@ -1,0 +1,51 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="LoanClosureSimulation">
+
+   <box class="grid entry-form-field-group col-lg-12">
+      <app-loan-account-list-template-control *ngIf="_helper._device.isMobile()" class="col-sm-12 col-md-6 col-lg-6"
+         [actionPublisher]="actionMap$.get('loanAccountNumber')" label="{{
+'LoanClosureSimulation.loanAccountNumber.label' | translate
+}}" formControlName="loanAccountNumber"
+         (commonControlEvent)="handleControlEvent($event)"></app-loan-account-list-template-control>
+
+      <app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('closureDate')"
+         label="{{ 'LoanClosureSimulation.closureDate.label' | translate }}" formControlName="closureDate"
+         [minDate]="state.closureDate.minDate" [maxDate]="state.closureDate.maxDate"></app-request-date-control>
+
+      <fpx-button class="col-xs-2" label="Submit" btnClass=" btn-secondary" [buttonMode]="'button'"
+         (onClick)="_helper.onSubmit()"></fpx-button>
+   </box>
+   <button class="col-xs-2" label="Submit" btnClass=" btn-secondary" (onClick)="_helper.onSubmit()">
+   </button>
+<ng-container *ngIf="state.initalShowPaymentDetails">
+   <ng-container *ngIf="state.showClosureDetails;else detailsLoader">  
+      <box class="display-fields-container grid col-12">
+         <span class="title">Payment Details</span>
+         <ng-container *ngFor="let field of state.fields; index as i">
+            <box class="display-field" *ngIf="state.details[field]">
+               <span class="lbl">{{ 'LoanClosureSimulation.'+field+'.label' | translate }}</span>
+               <span class="val">
+                  <ng-container [ngSwitch]="state.fieldsFormat[i]">
+                     <ng-container *ngSwitchCase="'date'">
+                        {{ state.details[field] | date : "dd MMM yyyy" }}
+                     </ng-container>
+                     <ng-container *ngSwitchCase="'amount'">
+                       {{state.baseCurrency }} {{ state.details[field] | currency : state.baseCurrency  : '' }}
+                     </ng-container>
+                     <ng-container *ngSwitchCase="'precentage'">
+                        {{ state.details[field] + "%" }}
+                     </ng-container>
+                     <ng-container *ngSwitchDefault>
+                        {{ state.details[field] }}
+                     </ng-container>
+                  </ng-container>
+               </span>
+            </box>
+         </ng-container>
+      </box>
+   </ng-container>
+   <ng-template #detailsLoader>
+      <box class="loading"></box>
+   </ng-template>
+</ng-container>
+
+</form>

@@ -1,0 +1,70 @@
+<ng-container *ngIf="device.isMobile(); else desktopMenu">
+    <box class="widget quick-link quick-actions-inner npss-actions">
+        <header>
+            <span class="widget-title">{{ 'WIDGIT_TITLES.casaQuickActionsLbl' | translate }}</span>
+        </header>
+        <box class="widget-body actions-body context-menu-body">
+            <ng-container *ngIf="quickLinks">
+                <ul class="actions-list grid">
+                    <ng-container *ngFor="let item of quickLinks">
+                        <li (click)="openLink(item)">
+                            <span class="icon-wrapper {{item.icon}}">
+                                <!-- <img [src]="'./assets/images/quick-links/' + item.icon + '.svg'" [alt]="item.id" /> -->
+                            </span>
+                            <span class="text" [innerHTML]="item.name"></span>
+                        </li>
+                    </ng-container>
+                </ul>
+            </ng-container>
+        </box>
+    </box>
+</ng-container>
+<ng-template #desktopMenu>
+    <ng-container *ngIf="isPopup">
+        <button type="button" class="btn-popup-close" (click)="closeContextMenu()">close</button>
+    </ng-container>
+    
+    <box class="widget quick-actions-inner npss-actions context-menu-wrapper">
+        <ng-container *ngIf="(cardData && this.device.isMobile()) ; else defaultHeader">
+            <header>
+                <box class="account-info">
+                    <span class="type">{{ cardData.productDesc }}</span>
+                    <span class="acc-number">{{ cardData.cardNumber }}</span>
+                </box>
+            </header>
+        </ng-container>
+    
+        <ng-template #defaultHeader>
+            <header>
+                <span class="widget-title">{{ 'WIDGIT_TITLES.casaQuickActionsLbl' | translate }}</span>
+            </header>
+        </ng-template>
+        
+        <box class="actions-body context-menu-body">
+            <ng-container *ngIf="quickLinks">
+                <ul class="actions-list grid" [ngClass]="{ 'show-more' : doShowMoreQuickActions }">
+                    <ng-container *ngFor="let request of quickLinks">
+                        <li (click)="openLink(request)" [ngClass]="{'active': activeMenu == request.icon}">
+                            <span class="icon-wrapper {{ request.icon }}"></span>
+                            <span class="text" [innerHTML]="request.name"></span>
+                        </li>
+                    </ng-container>
+                </ul>
+            </ng-container>
+    
+            <ng-container *ngIf="!isPopup && quickLinks && quickLinks.length > 5">
+                <button type="button" class="expander" (click)="showMoreQuickActions()">
+                    <svg width="98" height="18" viewBox="0 0 98 18" fill="white" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Drawer">
+                            <path id="Vector 84"
+                                d="M49.7241 18C36.0114 18 39.1635 10.3442 -7.83324e-07 0.0796452C27.9065 0.0796439 104.115 -0.418143 97.6077 1.07522C62.3692 9.16225 62.2015 18 49.7241 18Z"
+                                />
+                        </g>
+                    </svg>
+                    <span>show more</span>
+                </button>
+            </ng-container>
+    
+        </box>
+    </box>
+</ng-template>

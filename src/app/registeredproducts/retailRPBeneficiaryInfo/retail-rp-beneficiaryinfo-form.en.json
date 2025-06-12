@@ -1,0 +1,23 @@
+"RetailRPBeneficiaryInfo":{
+"title":"RetailRPBeneficiaryInfo",
+		 "firstname": {
+		  "label":"First Name" ,
+		  "placeholder": "First Name"
+		  } ,
+		 "initial": {
+		  "label":"Initial" ,
+		  "placeholder": "Initial"
+		  } ,
+		 "lastname": {
+		  "label":"Last Name" ,
+		  "placeholder": "Last Name"
+		  } ,
+		 "relationship": {
+		  "label":"Relationship to holder" ,
+		  "placeholder": "Relationship to holder"
+		  } ,
+		 "proportion": {
+		  "label":"Proportion of Account %" ,
+		  "placeholder": "Proportion of Account %"
+		  } 
+}

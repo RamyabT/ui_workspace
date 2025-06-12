@@ -1,0 +1,5 @@
+ 
+ "RETAILMEMBERSHIPTRANSACTION" : {
+ "servicePath": ["display-shell","membership", "retail-membership-transaction-dtls-ro-grid"],
+ "queryParams": {}
+ }

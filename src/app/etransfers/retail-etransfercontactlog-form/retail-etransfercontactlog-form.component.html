@@ -1,0 +1,148 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailEtransfercontactlogForm">
+	<box class="entry-form-header seleted-bill-primary-details-container" *ngIf="state.mode =='M'">
+		<box *ngIf="!_helper.device.isMobile()" class="primary-details-container">
+			<span class="bill-text">{{'RetailEtransfercontactlogForm.contactDetails.label' | translate }}</span>
+			<span class="close-btn" (click)="_helper.closeContactForm()"></span>
+		</box>
+		<box class="secondary-details-container">
+			<box class="profile-container">
+				<box class="profile">
+					<box class="profile-pic">
+						<span
+							*ngIf="state.firstName?.split(' ').length == 1">{{state.firstName?.substring(0,1)}}
+						</span>
+						<span
+							*ngIf="state.firstName?.split(' ').length > 1 && state.firstName?.split(' ').length <= 2">
+							{{state.firstName?.split(" ")[0]?.charAt(0)
+							+(state.firstName?.split(" ")[1]?
+							state.firstName?.split(" ")[1]?.charAt(0): "")}}
+						</span>
+						<span
+							*ngIf="state.firstName?.split(' ').length > 2">
+							{{state.firstName?.split(" ")[0]?.charAt(0)
+							+(state.firstName?.split(" ")[state.firstName?.split(' ').length - 1]?
+							state.firstName?.split(" ")[state.firstName?.split(' ').length - 1]?.charAt(0): "")}}
+						</span>
+					</box>
+					<box class="profile-name-email">
+						<box class="profile-inside-name-email">
+							<box class="profile-name">{{state.firstName}}</box>
+							<span class="profile-email">
+								<ng-container *ngIf="state.notificationPreference == 'E'; else mobilePreference">
+									{{state.emailId}}
+								</ng-container>
+								<ng-template #mobilePreference>{{ state.phoneNumber | mask : '000-000-0000' }}</ng-template>
+							</span>
+						</box>
+					</box>
+				</box>
+				<box class="button-container-profile">
+					<box class="button-profile" (click)="_helper.navigateToSendMoney()">
+						<span class="icon-wrapper send-money"></span>
+						<span class="text">Send</span>
+					</box>
+					<box class="button-profile" (click)="_helper.navigateToRequestMoney()">
+						<span class="icon-wrapper request-money"></span>
+						<span class="text">Request</span>
+					</box>
+				</box>
+			</box>
+		</box>
+	</box>
+	<box class="entry-form desktop-entry-form">
+
+		<box class="grid entry-form-field-group col-lg-12">
+			<box *ngIf="_helper.device.isHybrid()" class="mobile-contact" [actionPublisher]="actionMap$.get('addMobileContact')">
+				<box class="mobile-contact-img" (click)="_helper.addContactFromMobile()">
+					<span class="add-contact-img">
+						<!-- <img src="../../assets/interac/quick-links/CONTACTS.svg" alt="Add Contact" /> -->
+					</span>
+				</box>
+				<box>
+					<span class="mobile-contact-description">Add contact from my phone</span>
+				</box>
+		
+			</box>
+			<box class="payee-info-header">
+				<box *ngIf="state.reviewMode" class="payee-info-header">
+					<span class="review-header review-title">{{'reviewForm.title' | translate}}</span>
+					<!-- <span *ngIf="!_helper.device.isMobile()" class="review-text">{{'reviewForm.text' | translate}}</span> -->
+				</box>
+				<box *ngIf="!state.reviewMode" class="contact-title" [actionPublisher]="actionMap$.get('contactTitle')">
+					<span class="label">{{'RetailEtransfercontactlogForm.contactDetails.label' | translate }}</span>
+				</box>
+			</box>
+
+			
+			<box class="biller-group col-sm-12">
+			<app-name-control class="col-sm-12 col-md-6 col-lg-12  " [actionPublisher]="actionMap$.get('firstName')"
+				label="{{'RetailEtransfercontactlogForm.firstName.label' | translate }}"
+				placeholder="{{'RetailEtransfercontactlogForm.firstName.placeholder' | translate }}"
+				formControlName="firstName"></app-name-control>
+
+			<app-notification-preference class="col-sm-12 col-md-6 col-lg-12  "
+				[actionPublisher]="actionMap$.get('notificationPreference')"
+				label="{{'RetailEtransfercontactlogForm.notificationPreference.label' | translate }}"
+				formControlName="notificationPreference"
+				[changePublisher]="formChangePublisher$" [dependencyField]="['serviceCode']"></app-notification-preference>
+
+
+			<app-email-control class="col-sm-12 col-md-6 col-lg-12  " [actionPublisher]="actionMap$.get('emailId')"
+				label="{{'RetailEtransfercontactlogForm.emailId.label' | translate }}"
+				placeholder="{{'RetailEtransfercontactlogForm.emailId.placeholder' | translate }}"
+				formControlName="emailId"></app-email-control>
+
+
+			<app-mobile-number-control class="col-sm-12 col-md-6 col-lg-12  "
+				[actionPublisher]="actionMap$.get('phoneNumber')"
+				label="{{'RetailEtransfercontactlogForm.phoneNumber.label' | translate }}"
+				placeholder="{{'RetailEtransfercontactlogForm.phoneNumber.placeholder' | translate }}"
+				formControlName="phoneNumber"></app-mobile-number-control>
+
+
+			<app-security-question class="col-sm-12 col-md-6 col-lg-12  "
+				[actionPublisher]="actionMap$.get('securityQuestion')"
+				label="{{'RetailEtransfercontactlogForm.securityQuestion.label' | translate }}"
+				formControlName="securityQuestion"></app-security-question>
+
+
+			<app-security-answer-masked-control class="col-sm-12 col-md-6 col-lg-12  "
+				[actionPublisher]="actionMap$.get('securityAnswer')"
+				label="{{'RetailEtransfercontactlogForm.securityAnswer.label' | translate }}"
+				formControlName="securityAnswer"></app-security-answer-masked-control>
+
+
+			<app-security-answer class="col-sm-12 col-md-6 col-lg-12  "
+				[actionPublisher]="actionMap$.get('confirmSecurityAnswer')"
+				label="{{'RetailEtransfercontactlogForm.confirmSecurityAnswer.label' | translate }}"
+				formControlName="confirmSecurityAnswer"
+				placeholder="{{'RetailEtransfercontactlogForm.confirmSecurityAnswer.placeholder' | translate }}"></app-security-answer>
+
+			<app-preferred-language-list-control class="col-sm-12 col-md-6 col-lg-12  "
+				[actionPublisher]="actionMap$.get('preferredLanguage')"
+				label="{{'RetailEtransfercontactlogForm.preferredLanguage.label' | translate }}"
+				formControlName="preferredLanguage"></app-preferred-language-list-control>
+
+			<!-- <box class="btn-container col-sm-6 col-md-6 col-lg-6 " *ngIf="this.state.mode=='V'">
+				<fpx-button btnClass="primary" btnType="button"
+					[label]="'RetailEtransfercontactlogForm.update' | translate"
+					(click)="_helper.updateContact()"></fpx-button>
+			</box>
+			<box class="btn-container col-sm-6 col-md-6 col-lg-6" *ngIf="this.state.mode=='V'">
+				<fpx-button btnClass="secondary" btnType="button"
+					[label]="'RetailEtransfercontactlogForm.delete' | translate"
+					(click)="_helper.deleteContact()"></fpx-button>
+			</box> -->
+			</box>
+		</box>
+	</box>
+	<div *ngIf="!_helper.device.isMobile() && (state.mode =='M' || state.mode =='D')" class="shell-footer custom-footer width-100">
+		<div class="btn-container">
+			<button class="btn-secondary" type="button" id="CANCEL" (click)="_helper.deleteContact()">{{'RetailEtransfercontactlogForm.delete' | translate}}</button>
+		</div>
+		<div class="btn-container">
+			<button type="button" class="btn-primary" (click)="_helper.updateContact()" [disabled]="this.formGroup.status=='INVALID'">{{'RetailEtransfercontactlogForm.update' | translate}}
+			</button>
+		</div>
+	</div>
+</form>

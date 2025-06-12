@@ -1,0 +1,15 @@
+<box class="widget cash-flow">
+    <header>
+        <span class="widget-title">{{ 'cashFlow.title' | translate }}</span>
+        <form [formGroup]="formGroup" autocomplete="off" formName="cashFlowMonthSelection" >
+            <app-pfm-months-list-control 
+                [actionPublisher]="actionMap$.get('cashflowMonth')" 
+                formControlName="cashflowMonth"></app-pfm-months-list-control>
+        </form>
+    </header>
+    <box class="widget-body chart-wrapper">
+        <ng-container *ngIf="state.cashflows">
+        <app-cash-flow-chart [chartData]="state.cashflows"></app-cash-flow-chart>
+        </ng-container>
+    </box>
+</box>

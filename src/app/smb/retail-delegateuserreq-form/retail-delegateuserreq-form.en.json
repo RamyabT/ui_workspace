@@ -1,0 +1,39 @@
+"RetailDelegateuserreqForm":{
+"title":"Add Delegate",
+		 "initial": {
+		  "label":"Initial" ,
+		  "placeholder": "Initial"
+		  } ,
+		 "firstName": {
+		  "label":"First Name" ,
+		  "placeholder": "First Name"
+		  } ,
+		 "lastName": {
+		  "label":"Last Name" ,
+		  "placeholder": "Last Name"
+		  } ,
+		 "mobileNumber": {
+		  "label":"Phone Number" ,
+		  "placeholder": "Phone Number"
+		  } ,
+		 "emailAddress": {
+		  "label":" Email Address" ,
+		  "placeholder": " Email Address"
+		  } ,
+		 "userName": {
+		  "label":"User Name" ,
+		  "placeholder": "User Name"
+		  } ,
+		 "nationality": {
+		  "label":"National ID Number" ,
+		  "placeholder": "National ID Number"
+		  } ,
+		 "accessLevel": {
+		  "label":"Access Level" ,
+		  "placeholder": "Access Level"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } 
+}

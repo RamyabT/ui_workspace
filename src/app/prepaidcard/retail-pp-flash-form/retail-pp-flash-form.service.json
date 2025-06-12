@@ -1,0 +1,5 @@
+ 
+ "RETAILPPFLASHFORM" : {
+ "servicePath": ["entry-shell","prepaidcard", "retail-pp-flash-form"],
+ "queryParams": {}
+ }

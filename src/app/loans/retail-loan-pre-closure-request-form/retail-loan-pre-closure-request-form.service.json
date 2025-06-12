@@ -1,0 +1,5 @@
+ 
+ "RETAILLOANPRECLOSURE" : {
+ "servicePath": ["entry-shell","loans", "retail-loan-pre-closure-request-form"],
+ "queryParams": {}
+ }

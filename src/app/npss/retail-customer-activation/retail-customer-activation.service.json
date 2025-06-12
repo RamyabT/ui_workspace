@@ -1,0 +1,5 @@
+ 
+ "RETAILCUSTOMERACTIVATION" : {
+ "servicePath": ["entry-shell","transfers", "retail-customer-activation"],
+ "queryParams": {}
+ }

@@ -1,0 +1,8 @@
+"RETAILOKTALOGIN": {
+    "servicePath": [
+        "entry-shell",
+        "okta-integration",
+        "okta-landing-form"
+    ],
+    "queryParams": {}
+}

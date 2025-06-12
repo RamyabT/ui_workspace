@@ -1,0 +1,84 @@
+<form [formGroup]="formGroup" formName="RetailUserccrestrictionreqInputGrid">
+  <box [hidden]="hideBills" class="input-grid" [style.width]="gridWidth + '%'">
+    <box class="portfolio-summary col-lg-12">
+      <ul class="portfolio-summary-list acc-list">
+        <ng-container formArrayName="formArray">
+          <ng-container *ngFor="
+              let control of formArray.controls;
+              let i = index;
+              let last = last
+            " formGroupName="{{ i }}">
+            <li class="accordion accordion-item-{{ i }}"
+              [ngClass]="{'accordion-content-open': control.get('accordianOpen')?.value}">
+              <box class="product-type-panel input-grid-row">
+                <box class="list-item-header panel-header">
+                  <mat-checkbox [checked]="control.get('accordianOpen')?.value"
+                    (change)="toggleAccordion(i, !control.get('accordianOpen')?.value)"
+                    formControlName="accordianOpen" 
+                    [id]="'RetailUserccrestrictionreqInputGrid_accordianOpen' + '_input_' + i"
+                    ></mat-checkbox>
+
+                  <box class="header-title">
+                    <span class="biller-name">
+                      {{ control?.value?.accountTypeDesc }}
+                    </span>
+                    <span class="biller-id"> #{{
+                      control?.value?.accountNumber
+                      }}</span>
+
+                  </box>
+
+                </box>
+                <div class="list-item-content entry-form">
+                  <fpx-display-text class="title-field-label col-sm-12"
+                    [innerHTML]="'RetailUsercasarestrictionreqForm.accesslevel.label' | translate"></fpx-display-text>
+                  
+
+                  <box class="input-grid-row-item col-sm-6 col-md-6 col-lg-3"
+                    [actionPublisher]="actionMap$[i].get('accountNumber_column')">
+                    <app-access-level-control class="col-md-4  " [actionPublisher]="actionMap$[i].get('inquiryAllowed')"
+                      label="{{'RetailUsercasarestrictionreqForm.inquiryAllowed.label' | translate }}"
+                      formControlName="inquiryAllowed" [textPosition]="state.inquiryAllowed.textPosition"
+                      [ckValues]="state.inquiryAllowed.ckValues"></app-access-level-control>
+                  </box>
+                  <box class="input-grid-row-item col-sm-6 col-md-6 col-lg-3"
+                    [actionPublisher]="actionMap$[i].get('accountNumber_column')">
+                    <app-access-level-control class="col-md-4 " [actionPublisher]="actionMap$[i].get('requestAllowed')"
+                      label="{{'RetailUsercasarestrictionreqForm.requestAllowed.label' | translate }}"
+                      formControlName="requestAllowed" [textPosition]="state.requestAllowed.textPosition"
+                      [ckValues]="state.requestAllowed.ckValues"></app-access-level-control>
+                  </box>
+                  
+                  <box class="input-grid-row-item col-sm-6 col-md-6 col-lg-3"
+                    [actionPublisher]="actionMap$[i].get('accountNumber_column')">
+                    <app-access-level-control class="col-md-4  "
+                      [actionPublisher]="actionMap$[i].get('transactionAllowed')"
+                      label="{{'RetailUsercasarestrictionreqForm.transactionAllowed.label' | translate }}"
+                      formControlName="transactionAllowed" [textPosition]="state.transactionAllowed.textPosition"
+                      [ckValues]="state.transactionAllowed.ckValues"></app-access-level-control>
+
+                  </box>
+                  <box class="input-grid-row-item col-sm-6 col-md-6 col-lg-3"
+                    [actionPublisher]="actionMap$[i].get('accountNumber_column')">
+                    <app-access-level-control class="col-md-4  "
+                      [actionPublisher]="actionMap$[i].get('approvalRequired')"
+                      label="{{'RetailUsercasarestrictionreqForm.approvalRequired.label' | translate }}"
+                      formControlName="approvalRequired" [textPosition]="state.approvalRequired.textPosition"
+                      [ckValues]="state.approvalRequired.ckValues"></app-access-level-control>
+                  </box>
+                </div>
+              </box>
+            </li>
+          </ng-container>
+        </ng-container>
+      </ul>
+    </box>
+  </box>
+  <box [hidden]="!hideBills">
+    <box class="loading casa-summary-loader"></box>
+    <br>
+    <box class="loading casa-summary-loader"></box>
+    <br>
+    <box class="loading casa-summary-loader"></box>
+  </box>
+</form>

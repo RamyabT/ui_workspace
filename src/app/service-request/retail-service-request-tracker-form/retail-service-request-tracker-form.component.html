@@ -1,0 +1,271 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailBeneaedreqForm">
+	<box class="entry-form" [ngClass]="{'header-chat-mobile-container' : _helper._device.isMobile()}">
+		<box class="grid entry-form-field-group col-md-13 col-sm-12 col-lg-12">
+
+			<!-- Back button -->
+			<box class="back-nav-container">
+				<box class="back-btn-container">
+					<button type="button" class="btn-container" (click)="_helper.goBack()">
+						<span class="icon back-btn-icon"></span>
+						<span *ngIf="_helper.showScreen !== 'notification'" class="btn-text">Back to Messages</span>
+						<span *ngIf="_helper.showScreen == 'notification'" class="btn-text">Back to Banking
+							Notifications</span>
+					</button>
+				</box>
+			</box>
+
+
+			<box class="request-tracker"
+				[ngClass]="{'notification-request-tracker' : _helper.showScreen === 'notification'}">
+				<box class="request-details">
+					<box class="service-request-info">
+						<box class="service-details-wrapper">
+							<box class="service-request-primary-info">
+
+								<!-- Header content for different messages and notification -->
+								<box class="subject-status-wrapper">
+									<ng-container [ngSwitch]="state.requestDetails.serviceRequestType.code">
+										<ng-container *ngSwitchCase="'1'">
+											<span class="desc">{{ state.requestDetails.serviceSubCategory.description
+												}}</span>
+										</ng-container>
+
+										<ng-container *ngSwitchCase="'2'">
+											<span class="desc">{{ state.requestDetails.subject }}</span>
+										</ng-container>
+
+										<ng-container *ngSwitchCase="'3'">
+											<box class="offers-header">
+												<box *ngIf="!_helper._device.isMobile()" class="date-time-container">
+													<box class="label">
+														<span class="label-txt">Date</span>
+														<!-- <span class="date-time-separator"></span>
+														<span class="label-txt">Time</span> -->
+													</box>
+													<box class="value">
+														<span class="label-txt">{{ state.requestDetails.date | date: 'dd
+															MMM YYYY'}}</span>
+														<!-- <span class="date-time-separator bold"></span>
+														<span class="label-txt">09:00 AM</span> -->
+													</box>
+												</box>
+
+												<box class="subject-container">
+													<span *ngIf="!_helper._device.isMobile()"
+														class="label subject-txt">Subject</span>
+													<span>{{state.requestDetails.message}}</span>
+												</box>
+											</box>
+
+										</ng-container>
+
+										<ng-container *ngSwitchDefault>
+											<box class="notification-header">
+												<span class="subject-text"> {{state.requestDetails.message}}
+												</span>
+												<span class="date-time ">{{state.requestDetails.date | date: 'dd MMM YYYY | hh:mm a'}}</span>
+												<span class="msg-tag" *ngIf="state.requestDetails.serviceRequestType.code === '5'">Financial Reminders</span>
+											</box>
+										</ng-container>
+
+									</ng-container>
+
+									<!-- <span class="desc">{{ state.requestDetails.subject }}</span> -->
+									<span *ngIf="!_helper.hideElement" class="separator"></span>
+									<box *ngIf="!_helper.hideElement" class="status">
+										<span class="status-indicator {{state.requestDetails.status}}">
+										</span>
+										<span class="status-text">
+											{{state.requestDetails.status}}
+										</span>
+									</box>
+								</box>
+
+								<!-- Reference number only for requests -->
+								<box *ngIf="state.requestDetails.serviceRequestType.code === '2' && !_helper._device.isMobile()"
+									class="request-details">
+									<!-- <span class="category">{{state.requestDetails.category}}</span> -->
+									<span class="ref-num">Ref #: {{state.requestDetails.sourceReference}}</span>
+								</box>
+
+							</box>
+
+							<!-- Show details and cancel request button -->
+							<box class="show-details">
+								<span *ngIf="state.requestDetails.serviceRequestType.code === '2'"
+									(click)="_helper.showDetails()">{{'RETAILMANAGEALERTS.showDetails' |
+									translate}}</span>
+
+								<span
+									*ngIf="state.requestDetails.serviceRequestType.code === '1' && (state.requestDetails.status.toLowerCase() === 'inprogress' || state.requestDetails.status.toLowerCase() === 'new')"
+									(click)="_helper.cancelReq()">{{'RETAILMANAGEALERTS.cancelrequest' |
+									translate}}</span>
+							</box>
+						</box>
+
+					</box>
+				</box>
+			</box>
+		</box>
+
+
+		<!-- Screen content for different request types -->
+		<ng-container [ngSwitch]="_helper.showScreen">
+			<ng-container *ngSwitchCase="'tracker'">
+
+			<span class="line-separator"></span>
+
+			<box class="grid entry-form-field-group col-md-13 col-sm-12 col-lg-12">
+				<box class="request-log">
+
+					<ul class="service-request-list">
+						<li [ngClass]="{'disable-tracker' : !item.stage}" class="service-request-item"
+							*ngFor="let item of state.requestDetailsHistory">
+							<box class="item-primary-details">
+								<box class="item-image">
+									<box class="outer-dot" [ngClass]="item.action.toLowerCase()">
+									</box>
+								</box>
+								<box class="item-info">
+									<span class="message">{{item.action}}</span>
+									<box *ngIf="item.stage"> -
+										<span class="date">{{ item.actionOn | date: 'dd MMM YYYY' }}</span>
+										<span class="separator"></span>
+										<span class="time">{{ item.actionOn | date: 'hh:mm a' }}</span>
+										<box class="description">{{item.remarks}}</box>
+										<box class="item-time"></box>
+									</box>
+								</box>
+							</box>
+
+							<!-- <box class="item-desc">
+								<span>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+									incididunt ut
+								</span>
+							</box> -->
+
+							<box class="comments tracker-comments">
+								<ng-container *ngFor="let grp of _helper.groupedMsgs">
+
+									<ng-container *ngIf="item.action==grp.stage">
+
+										<box class="date-header" *ngIf="grp.rowGroupTitle">
+											<span class="group-date">{{grp.rowGroupTitle | date: 'dd MMM YYYY'}}</span>
+										</box>
+
+										<ng-container *ngIf="!grp.rowGroupTitle">
+											<box class="name-msg-wrapper" [ngClass]="{'from-user':grp.myComment}">
+												<box class="commented-by">{{grp.commentedByName
+													||
+													"Vancity Customer Care"}}
+													<span class="separator"></span>
+													<span class="time">{{grp.updatedOn| date: 'hh:mm a'}}</span>
+												</box>
+
+												<box class="message-comments" [ngClass]="{'myComment':grp.myComment}">
+													<box class="message">{{grp.messageContent}}</box>
+												</box>
+												<box class="files" [ngClass]="{'myFiles':grp.myComment}">
+													<ng-container
+														*ngFor="let file of grp.servicereqcommentsattachement">
+														<box class="icon-doc-wrapper">
+															<box class="download-icon"></box>
+															<box class="attachments"
+																(click)="_helper.downloadFile(file)">
+																{{file.fileName}}</box>
+																<box class="file-icon"></box>
+														</box>
+													</ng-container>
+												</box>
+											</box>
+										</ng-container>
+									</ng-container>
+								</ng-container>
+							</box>
+						</li>
+					</ul>
+
+					<ng-container
+						*ngIf="this.state.commentsAllowed && state.requestDetailsHistory && !_helper._device.isMobile()">
+						<app-service-request-attachment
+							class="tracker-screen-input-box"></app-service-request-attachment>
+					</ng-container>
+					
+				</box>
+			</box>
+		</ng-container>
+
+			<ng-container *ngSwitchCase="'inbox'">
+				<!-- Chatbot Starts -->
+				<box class="comments">
+
+				<ng-container *ngFor="let grp of _helper.groupedMsgs">
+					<box class="date-header" *ngIf="grp.rowGroupTitle">
+						<span class="group-date">{{grp.rowGroupTitle | date: 'dd MMM YYYY'}}</span>
+					</box>
+
+					<ng-container *ngIf="!grp.rowGroupTitle">
+						<box class="name-msg-wrapper" [ngClass]="{'from-user':grp.myComment}">
+							<box class="commented-by">{{grp.commentedByName
+								||
+								"Vancity Customer Care"}}
+								<span class="separator"></span>
+								<span class="time">{{grp.updatedOn| date: 'hh:mm a'}}</span>
+							</box>
+
+							<box class="message-comments" [ngClass]="{'myComment':grp.myComment}">
+								<box class="message">{{grp.messageContent}}</box>
+							</box>
+							<box class="files" [ngClass]="{'myFiles':grp.myComment}">
+								<ng-container *ngFor="let file of grp.servicereqcommentsattachement">
+									<box class="icon-doc-wrapper">
+										<box class="download-icon"></box>
+										<box class="attachments" (click)="_helper.downloadFile(file)">
+											{{file.fileName}}</box>
+										<box class="file-icon"></box>
+									</box>
+								</ng-container>
+							</box>
+						</box>
+					</ng-container>
+				</ng-container>
+			</box>
+
+			<span class="input-separator"></span>
+
+
+			<!-- <box>{{state | json}}</box> -->
+
+			<ng-container *ngIf="this.state.commentsAllowed && !_helper._device.isMobile()">
+				<app-service-request-attachment></app-service-request-attachment>
+			</ng-container>
+
+				<!-- Chatbot Ends -->
+			</ng-container>
+
+			<ng-container *ngSwitchCase="'offer'">
+				<box class="offer-img">
+					<img [src]="'data:image/png;base64,'+state.requestDetails.offerImage">
+				</box>
+			</ng-container>
+
+			<ng-container *ngSwitchCase="'notification'">
+				<box class="notification-content">
+					<span>
+						{{state.requestDetails.message}}
+					</span>
+
+				</box>
+			</ng-container>
+		</ng-container>
+
+	</box>
+
+	<!-- Showing input box only for general messages and request tracker screen in mobile -->
+	<box *ngIf="_helper._device.isMobile() && !_helper.hideElement" class="bottom-input-box">
+		<ng-container *ngIf="this.state.commentsAllowed && state.requestDetailsHistory">
+			<app-service-request-attachment></app-service-request-attachment>
+		</ng-container>
+	</box>
+</form>

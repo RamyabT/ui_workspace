@@ -1,0 +1,46 @@
+<form formName="BadGatewayForm" [autocomplete]="'off'" [formGroup]="formGroup" class="badgateway">
+    <box class="header-wrapper">
+        <box class="main-header-inner">
+            <box class="header-inner-wrapper">
+                <ng-container >
+                    <button type="button" class="brand">
+                        <img src="./assets/images/brand/header-logo.svg" alt="bank" />
+                    </button>
+                </ng-container> 
+            </box>
+        </box>
+    </box>
+    <box class="bad-gateway-box">
+        <box class="bad-gateway-wrapper">
+            <box class="bad-gateway-image"> 
+            </box>
+        </box>
+        <box class="content">
+            <span class="label-tag">{{'BadGatewayForm.label' | translate}}</span>
+            <span class="label">{{'BadGatewayForm.message' | translate}}</span>
+            <button class="button" (click)="_helper.login()">{{'BadGatewayForm.login' | translate}}</button>
+        </box>
+        </box>
+    <!-- <box class="bad-gateway-box">
+        <box class="bad-gateway-wrapper">
+        <box class="bad-gateway-image">
+            <img class="image" src="./assets/images/502-error.svg" />
+        </box>
+        <box class="content">
+            <span class="label-tag">{{ "BadGatewayForm.label" | translate }}</span>
+            <span class="label">{{ "BadGatewayForm.message" | translate }}</span>
+        </box>
+    </box>
+    </box> -->
+    <!-- <box class="form-footer-actions">
+        <button type="button" class="btn-primary" (click)="_helper.login()"> 
+		{{'BadGatewayForm.login' | translate }} </button>
+    </box> -->
+</form>
+
+
+
+        
+
+
+

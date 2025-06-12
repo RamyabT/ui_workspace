@@ -1,0 +1,43 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailFlashDebitCardRequestForm">
+
+	<box class="entry-form">
+		<ng-container *ngIf="state.cardData">
+			<debitcard class="col-12" [cardData]="state.cardData" [formView]="true"></debitcard>
+		</ng-container>
+		<box class="grid entry-form-field-group">
+		<app-debit-card-list-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('cardReference')"
+			label="{{'RetailFlashDebitCardRequestForm.cardReference.label' | translate }}"
+			formControlName="cardReference"
+			(commonControlEvent)="handleControlEvent($event)"></app-debit-card-list-control>
+
+
+		<app-debit-card-number-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('cardNumber')"
+			label="{{'RetailFlashDebitCardRequestForm.cardNumber.label' | translate }}"
+			formControlName="cardNumber"></app-debit-card-number-control>
+
+
+		<app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('cardHolderName')"
+			label="{{'RetailFlashDebitCardRequestForm.cardHolderName.label' | translate }}"
+			formControlName="cardHolderName"></app-name-control>
+
+
+		<app-dcvv-pin-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('cvv')"
+			label="{{'RetailFlashDebitCardRequestForm.cvv.label' | translate }}"
+			formControlName="cvv"></app-dcvv-pin-control>
+
+
+		<app-description-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('validThru')"
+			label="{{'RetailFlashDebitCardRequestForm.validThru.label' | translate }}"
+			formControlName="validThru"></app-description-control>
+			<app-description-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('validFrom')"
+			label="{{'RetailFlashDebitCardRequestForm.validFrom.label' | translate }}"
+			formControlName="validFrom"></app-description-control>
+
+
+		<!-- <app-creditCardStatus-list-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('status')"     label="{{'RetailFlashDebitCardRequestForm.status.label' | translate }}"   formControlName="status" 
+     ></app-creditCardStatus-list-control> -->
+	</box>
+	</box>
+</form>

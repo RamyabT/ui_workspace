@@ -1,0 +1,5 @@
+ 
+ "RETAILSTOPCHEQUEREV" : {
+ "servicePath": ["entry-shell","accounts", "retail-revoke-stop-cheque"],
+ "queryParams": {}
+ }

@@ -1,0 +1,5 @@
+ 
+ "RETAILCHEQUESTATUSINQ" : {
+ "servicePath": ["entry-shell","Accounts", "retail-cheque-status-inquiry-form"],
+ "queryParams": {}
+ }

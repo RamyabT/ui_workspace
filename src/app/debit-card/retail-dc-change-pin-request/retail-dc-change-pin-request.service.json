@@ -1,0 +1,5 @@
+ 
+ "RETAILDCCHANGEPIN" : {
+ "servicePath": ["entry-shell","debitcard", "retail-dc-change-pin-request"],
+ "queryParams": {}
+ }

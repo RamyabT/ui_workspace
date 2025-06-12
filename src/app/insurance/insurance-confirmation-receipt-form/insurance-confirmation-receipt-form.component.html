@@ -1,0 +1,78 @@
+<ng-container>
+    <box class="insurance-confirmation-receipt-inner confirmation-receipt-inner success {{ result?.statusCode?.toLowerCase() }} {{ _requestStatus }}">
+        <box class="confirmation-body">
+            <box class="status-container">
+                <box class="status-ico-wrapper">
+                    <span class="status-ico"></span>
+                </box>
+                <ng-container *ngIf="failedPayment">
+                    <span class="confirmation-message">{{ failedPayment | translate }}</span>
+                </ng-container>
+                <ng-container *ngIf="!failedPayment">
+                    <span class="confirmation-message amount">{{ amount | currency:currency:'' }} <em>{{currency}}</em></span>
+                </ng-container>
+            </box>
+
+            <box class="message-container">
+                <span class="confirmation-description">
+                    <ng-container *ngIf="result?.resultPayload?.errorMessage; else noError">
+                        {{ 'insuranceConfirmationReceipt.defaultErrorDescription' | translate }}
+                    </ng-container>
+                    <ng-template #noError>
+                        {{ _requestServiceCode + '.' + _requestStatus + ".description" | translate }}
+                    </ng-template>
+                </span>
+            </box>
+
+            <ng-container *ngIf="result?.additionalInfo && result?.additionalInfo.length">
+                <hr />
+                <box class="additional-details-container">
+                    <ng-container *ngFor="let detail of result?.additionalInfo">
+                        <ng-container *ngIf="detail.value">
+                            <ng-container *ngIf="detail.value != 'spacer'; else spacer">
+                                <box class="details">
+                                    <span class="detail-lbl">{{ detail.label | translate }}</span>
+                                    <span class="detail-val">
+                                        <ng-container [ngSwitch]="detail.format">
+                                            <ng-container *ngSwitchCase="'date'">
+                                                <!-- {{ detail.value}} -->
+
+                                                {{ detail.value | date : "dd MMM YYYY, HH:mm:ss" }}
+                                            </ng-container>
+                                            <ng-container *ngSwitchDefault>
+                                                {{ detail.value }}
+                                            </ng-container>
+                                        </ng-container>
+
+                                    </span>
+                                </box>
+                            </ng-container>
+                            <ng-template #spacer>
+                                <div class="space-bar"></div>
+                            </ng-template>
+                        </ng-container>
+                    </ng-container>
+
+                </box>
+            </ng-container>
+        </box>
+        <box class="tool-bar">
+            <ng-container *ngIf="_requestStatus != 'ErrorEnd' && scheduleType =='0'">
+                <fpx-button btnType="button" (onClick)="onShareClick()" btnClass="system-ico-button no-text share-info" label="{{'transfersInfo.share' | translate }}"></fpx-button>
+                <div class="seprator1"></div>
+                <fpx-button btnType="button" (onClick)="onDownloadClick()" btnClass="system-ico-button no-text download" label="{{'casaTransactionInfo.download' | translate }}"></fpx-button>
+               </ng-container>
+        </box>
+        <box class="confirmation-footer">
+            <ng-container *ngIf="_requestStatus != 'ErrorEnd'">
+                <button *ngIf="scheduleType == '0'" type="button" class="secondary" [disabled]="doDisableFav" (click)="markFavourite()">
+                    <span>{{ 'insuranceConfirmationReceipt.markFavourite' | translate }}</span>
+                </button>
+            </ng-container>
+            
+            <button type="button" class="primary" (click)="gotoModule('wallet-space/wallet')"><span>{{
+                    'confirmationReceiptForm.home' | translate }}</span></button>
+        </box>
+    </box>
+
+</ng-container>

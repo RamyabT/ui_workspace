@@ -1,0 +1,22 @@
+<box class="confirmation-receipt-inner failure" >
+    <box class="confirmation-body">
+        <box class="status-container">
+            <box class="status-ico-wrapper">
+                <span class="status-ico"></span>
+            </box>
+            <span class="confirmation-message">
+                {{ 'FailureResultForm.errorMessage' | translate }}
+            </span>
+        </box>
+        <box class="message-container">
+            <span class="confirmation-description">
+                {{'FailureResultForm.errorDescription' | translate }}
+            </span>
+        </box>
+    </box>
+
+    <box class="confirmation-footer">
+        <!-- <button type="button" class="secondary" (click)="tryAgain()"><span>{{ 'FailureResultForm.tryAgain' | translate }}</span></button> -->
+        <button type="button" class="primary" (click)="gotoHome()"><span>{{ 'FailureResultForm.home' | translate }}</span></button>
+    </box>
+</box>

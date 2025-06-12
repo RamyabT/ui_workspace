@@ -1,0 +1,23 @@
+"RetailUserdeprestrictionreqForm":{
+"title":"userdeprestrictionreq",
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "inquiryAllowed": {
+		  "label":"Inquiry" ,
+		  "placeholder": "Inquiry"
+		  } ,
+		 "requestAllowed": {
+		  "label":"Request" ,
+		  "placeholder": "Request"
+		  } ,
+		 "transactionAllowed": {
+		  "label":"Transaction" ,
+		  "placeholder": "Transaction"
+		  } ,
+		 "approvalRequired": {
+		  "label":"Approval" ,
+		  "placeholder": "Approval"
+		  } 
+}

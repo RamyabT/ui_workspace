@@ -1,0 +1,78 @@
+#depAppBody{
+    .warning-popup{
+        .mat-dialog-container {
+            border-radius: 16px;
+            padding: 0;
+            height: auto;
+            max-height: unset;
+    
+            .fpx-pop-up-wrapper {
+                .fpx-pop-up-header{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.access-denied-alert{
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .alert-body{
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+
+        .alert-icon-wrapper{
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background-color: #FFF9E6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+
+        .alert-content{
+            display: flex;
+            flex-direction: column;
+
+            .message{
+                @include s3-medium;
+                color: var(--baseTxtClr);
+            }
+            .description{
+                @include b2-regular;
+                color: var(--bodyTxtClr);
+            }
+        }
+    }
+
+    .alert-footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &:has(button:first-child:last-child){
+            justify-content: center;
+        }
+    }
+}
+
+.staging-home-container{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--themeBgClr);
+}

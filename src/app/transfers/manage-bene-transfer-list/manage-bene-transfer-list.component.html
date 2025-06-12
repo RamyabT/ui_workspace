@@ -1,0 +1,106 @@
+<ng-container>
+    <box *ngIf="!_device.isMobile()" class="popup-header">
+        <box class="header-text">
+            {{'BeneTransferList.betweenAccounts' | translate}}
+        </box>
+        <box class="close-btn-container">
+            <button type="button" class="btn-container log-out-btn" (click)="close()">
+                <span class="icon close-btn-icon"></span>
+            </button>
+        </box>
+    </box>
+
+    <box *ngIf="_device.isMobile()" class="accounts-list-popup-header">
+        <button type="button" class="system-ico-button btn-close no-text" name="back"
+            (click)="close()"><span>Close</span></button>
+        <h2 class="module-title"> {{'BeneTransferList.betweenAccounts' | translate}} </h2>
+    </box>
+
+    <box class="portfolio-summary">
+        <ul class="portfolio-summary-list acc-list">
+            <ng-container *ngFor="let panel of portfolioData; let i = index">
+                <li *ngIf="panel.showPanel != false" [ngClass]="'accordion accordion-item-' + i">
+                    <div class="product-type-panel">
+                        <box [ngClass]="{ 'no-record-view': !panel.showHeader }" class="list-item-header panel-header">
+
+                            <box class="nav-search-control ">
+                                <span class="ico ico-nav-search">&nbsp;</span>
+                                <input type="text" name="searchText" placeholder="Search Contact"
+                                    (input)="doServiceSearch($event)" autocomplete="off" />
+
+
+
+                            </box>
+                            <!-- <box class="header-title">
+                              nithish  <span [ngClass]="'panel-title ' + panel.type">{{ panel.category | translate }}</span>
+                            </box>
+
+                        <box class="header-details">
+                            <box class="panel-actions">
+                                <box class="btn-toggle">
+                                    <button type="button" class="btn-icon btn-accordion-toggle"></button>
+                                </box>
+                            </box>
+                        </box> -->
+
+
+                        </box>
+                        <div class="list-item-content">
+                            <ng-container>
+                                <box class="panel-body">
+                                    <ul class="card-wrapper">
+                                        <li *ngFor="let account of panel.data; let j = index" class="card"
+                                            (click)="selectAccount(account)">
+                                            <box class="container">
+                                                <box class="account-details">
+                                                    <box class="product-desc">{{account.nickName }}</box>
+                                                    <box class="product-details">
+                                                        <box class="account-number">{{ account.beneAccount }}</box>
+                                                    </box>
+                                                </box>
+                                                <!-- <box class="balace-details"
+                                                [ngClass]="{ 'usd-account' : account.accountCurrency != this._appConfig.baseCurrency }">
+                                                <ng-container
+                                                    *ngIf="account.accountCurrency != this._appConfig.baseCurrency else baseCurrency">
+                                                    <box class="amount balance"> {{ account.currentBalance | currency :
+                                                        account.accountCurrency
+                                                        : '' }} <em>{{ account.accountCurrency | currencyCode }}</em>
+                                                    </box>
+                                                    <box class="amount main-balance">{{ account.baseCurrencyCurrentBal |
+                                                        currency :
+                                                        _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency |
+                                                            currencyCode }}</em>
+                                                    </box>
+                                                </ng-container>
+                                                <ng-template #baseCurrency>
+                                                    <box class="amount main-balance"> {{ account.currentBalance |
+                                                        currency :
+                                                        account.accountCurrency : '' }} <em>{{ account.accountCurrency |
+                                                            currencyCode }}</em>
+                                                    </box>
+                                                </ng-template>
+                                            </box> -->
+                                            </box>
+
+                                            <span class="line-separator"></span>
+                                        </li>
+
+                                        <box *ngIf="noData || showNoResultsMessage" class="no-data-view">
+                                            <img class="no-result-image"
+                                                src="./assets/images/transfers/no-schedule-transfer.svg"
+                                                alt="no transactions available">
+                                            <box class="no-data-desc">
+                                                {{ 'RetailSavedBillerRoGridForm.noData' | translate }}
+                                            </box>
+                                        </box>
+
+                                    </ul>
+                                </box>
+                            </ng-container>
+                        </div>
+                    </div>
+                </li>
+            </ng-container>
+        </ul>
+    </box>
+</ng-container>

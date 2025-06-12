@@ -1,0 +1,10 @@
+<form [formGroup]="formGroup" autocomplete="off" formName="casa-navigation-form" class="casa-navigation-form">
+    <box class="entry-form">
+        <app-loan-dtl-list-tmplt class="casaAccountDtlListTmplt" [selectedData]="state.selectedAccount" [showViewAll]="_helper.showViewAll"
+        (onClickingViewAll)="_helper.openLoanAccountsLists()"></app-loan-dtl-list-tmplt>
+        <!-- <app-loan-dtl-list-tmplt [selectedData]="selectedData"></app-loan-dtl-list-tmplt> -->
+
+        <!-- <app-loan-account-dtl-list-control class="col-12" [selectableDataList]="state.loanAccounts" formControlName="accountNumber"></app-loan-account-dtl-list-control> -->
+        <app-loan-context-menu [resetActiveMenu]="state.resetActiveMenu" class="col-12 widget quick-link" [accountNumber]="state.accountNumber" ></app-loan-context-menu>
+    </box>
+</form>

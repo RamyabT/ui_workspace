@@ -1,0 +1,40 @@
+<box class="scheduled-bill-details-container">
+
+    <box class="popup-header-wrapper">
+        <box class="popup-header">
+            <span class="popup-title">Scheduled Bills</span>
+        </box>
+
+        <box class="back-btn-container">
+            <button class="back-btn" (click)="close()" aria-label="Back">
+                <span class="icon back-btn-icon"></span>
+            </button>
+        </box>
+    </box>
+
+    <box class="scheduled-bill-details-content">
+        <span class="scheduled-bill-details-content-title">Details</span>
+        <ng-container *ngFor="let detail of scheduleBillDetails">
+            <box *ngIf="detail.showLabel" class="scheduled-bill-details-content-item">
+                <span class="item-title">{{detail.title}}</span>
+                <span class="item-value">
+                    <em *ngIf="detail.title === 'Amount'">
+                        {{ _dialogData?.data?.paymentCurrency
+                        |
+                        currencyCode }}
+                    </em>
+                    <span class="item-value-text" *ngIf="detail.title !== 'Amount'">{{detail.value}}</span>
+                    <span class="item-value-text" *ngIf="detail.title === 'Amount'">
+                        {{detail.value | currency : _dialogData?.data?.paymentCurrency : ''}}
+                    </span>
+                </span>
+            </box>
+        </ng-container>
+    </box>
+
+    <box class="scheduled-bill-details-content-footer">
+        <button class="footer-btn btn-secondary" (click)="deleteBill()">
+            <span class="footer-btn-text">Delete bill</span>
+        </button>
+    </box>
+</box>

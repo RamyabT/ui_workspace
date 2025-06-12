@@ -1,0 +1,72 @@
+<box class="widget  ">
+    
+    <box class="widget-body chart-wrapper">
+        <ng-container  *ngIf="choreDataDisplay; else noData">
+            <box class="member-goal-wrapper">
+                <box class="member-goal-info">
+                    <box class="member-goal-percentage">
+                        <box class="percentage-content">
+                            <svg width="60" height="60" viewBox="0 0 100 100">
+                                <circle id="progress" class="progress-circle"
+                                    cx="50" cy="50" r="40"
+                                    stroke="#1D875A" stroke-width="8"
+                                    fill="none"
+                                    stroke-linecap="round"
+                                    stroke-dasharray="251.2"
+                                    [attr.stroke-dashoffset]="strokeDashoffset" />
+                                <text id="progress-text" x="50" y="55" text-anchor="middle">{{progress+'%'}}</text>
+                            </svg>
+                        </box>
+                        <box class="member-goal-title">{{ 'MEMBERCHORE.title' | translate}}</box>
+                    </box>
+                    <box class="member-goal-summary">
+                            <box class="summary-info">
+                                <box class="primary-info">
+                                <span class="member-goal-item item1"></span>
+                                <span class="member-goal-label">{{ 'MEMBERCHORE.totalchoreslabel' | translate}}</span>
+                                </box>
+                                <box class="sec-info">
+                                    <ng-container >{{totalChore}}
+                                    </ng-container>
+                                    
+                                </box>
+                            </box>
+                            <box class="summary-info">
+                                <box class="primary-info">
+                                <span class="member-goal-item item2"></span>
+                                <span class="member-goal-label">{{ 'MEMBERCHORE.ontracklbl' | translate}}</span>
+                                </box>
+                                <box class="sec-info">
+                                    <ng-container  >{{onTrack}}
+                                    </ng-container>
+                                </box>
+                
+                            </box>
+                    </box>
+                </box>
+                 <box class="member-goal-actions" >
+                    <box class="action-item"  (click)="viewchores()">{{'MEMBERCHORE.viewchores' | translate}}</box>
+                    <box class="list-separator"></box>
+                    <box class="action-item"  (click)="addchores()">{{'MEMBERCHORE.addchores' | translate}}</box>
+                </box>
+               
+            </box>
+        </ng-container>
+        <ng-template #noData>
+                 <box class="member-goal-wrapper">
+                    <box class="no-member-goal">
+                        <box class="no-member-goal-icon">
+                            <img src="./assets/pfm/no_goals.svg" alt="">
+                        </box>
+                        <box class="no-member-goal-info">
+                            <box class="no-member-goal-desc">You have not added any member-chores to track 
+                            </box>
+                            <box class="add-member-goal">Add</box>
+                        </box>
+                    </box>
+                </box>
+            </ng-template>
+    </box>
+</box>
+
+ 

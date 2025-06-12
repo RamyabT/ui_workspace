@@ -1,0 +1,13 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="obvirtualcardselection" >
+	  
+	<box class="entry-form">
+	     
+		<fpx-display-text id="FieldId_2"   class="col-md-12  FieldId_2"  [innerHTML]="'obvirtualcardselection.FieldId_2.text' | translate"  [literals]="commonFormInput"></fpx-display-text>  
+			 
+ <app-obvirtualcard-template-ro-grid class="cob-details-ro-grid col-lg-12 col-sm-12 col-md-12" (commonRoGridEvent)="handleControlEvent($event)"  [actionPublisher]="actionMap$.get('virtualCardTemplate')"    label="obvirtualcardTemplateRoGrid"  formControlName="virtualCardTemplate"
+ ></app-obvirtualcard-template-ro-grid>
+
+
+	</box> 
+</form>
+	

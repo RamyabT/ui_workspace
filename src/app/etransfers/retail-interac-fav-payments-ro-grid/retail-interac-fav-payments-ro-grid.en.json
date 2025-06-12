@@ -1,0 +1,35 @@
+"RetailInteracFavPaymentsRoGrid":{
+"title":"Interac Favourite Payments",
+		 "inventoryNumber": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } ,
+		 "customerCode": {
+		  "label":"Customer Code" ,
+		  "placeholder": "Customer Code"
+		  } ,
+		 "serviceCode": {
+		  "label":"Service Code" ,
+		  "placeholder": "Service Code"
+		  } ,
+		 "paymentId": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } ,
+		 "debitAccount": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "creditAccount": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "paymentCurrency": {
+		  "label":"Currency" ,
+		  "placeholder": "Currency"
+		  } ,
+		 "beneficiaries": {
+		  "label":"beneficiaries" ,
+		  "placeholder": "beneficiaries"
+		  } 
+}

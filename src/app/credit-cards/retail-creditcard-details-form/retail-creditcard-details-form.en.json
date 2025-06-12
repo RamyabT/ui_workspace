@@ -1,0 +1,69 @@
+"RetailCreditcardDetailsForm":{
+"title":"Credit Card Details",
+		 "cardRefNumber": {
+		  "label":"Card Ref Number" ,
+		  "placeholder": "Card Ref Number"
+		  } ,
+		 "creditCardNumberUnMasked": {
+		  "label":"Card Number" ,
+		  "placeholder": "Card Number"
+		  } ,
+		 "primaryCardAccNo": {
+		  "label":"Primary Card Acc No" ,
+		  "placeholder": "Primary Card Acc No"
+		  } ,
+		 "cardType": {
+		  "label":"Card Type" ,
+		  "placeholder": "Card Type"
+		  } ,
+		 "cardCategory": {
+		  "label":"Card Category" ,
+		  "placeholder": "Card Category"
+		  } ,
+		 "status": {
+		  "label":"Card Status" ,
+		  "placeholder": "Card Status"
+		  } ,
+		 "creditLimit": {
+		  "label":"Credit Limit" ,
+		  "placeholder": "Credit Limit"
+		  } ,
+		 "validThru": {
+		  "label":"Valid Till" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "issueDate": {
+		  "label":"Issue Date" ,
+		  "placeholder": "Issue Date"
+		  } ,
+		 "branchDesc": {
+		  "label":"Card Issue Branch" ,
+		  "placeholder": "Card Issue Branch"
+		  } ,
+		 "currency": {
+		  "label":"Card Currency" ,
+		  "placeholder": "Card Currency"
+		  } ,
+		 "overdueAmount": {
+		  "label":"Due Amount" ,
+		  "placeholder": "Due Amount"
+		  } ,
+		 "outstandingAmount": {
+		  "label":"Total Outstanding" ,
+		  "placeholder": "Total Outstanding"
+		  } ,
+		 "lastPaymentReceived": {
+		  "label":"Last Payment Amount" ,
+		  "placeholder": "Last Payment Amount"
+		  } ,
+		 "FieldId_1": {
+		   "text":""
+		 } ,
+		 "downloadCreditCardDetails": {
+		  "label":"Download" ,
+		  "placeholder": "Download"
+		  } ,
+		 "FieldId_3": {
+		   "text":""
+		 } 
+}

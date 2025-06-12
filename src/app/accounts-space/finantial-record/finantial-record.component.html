@@ -1,0 +1,31 @@
+<box class="widget money-flow">
+    <header>
+        <span class="widget-title">{{ 'WIDGIT_TITLES.financialRecordLbl' | translate }}</span>
+        <box class="tool-bar">
+            <mat-select value="JAN" class="default-select">
+                <mat-option value="JAN">Jan</mat-option>
+                <mat-option value="FEB">Feb</mat-option>
+            </mat-select>
+        </box>
+    </header>
+
+    <box class="widget-body">
+        <box class="money-flow-data">
+            <box class="money-item income">
+                <box class="info">
+                    <span class="icon-wrapper"></span>
+                    <span class="lbl">{{ 'MONEY_FLOW.incomeLbl' | translate }}</span>
+                </box>
+                <span class="amount">{{ 10000 | currency : _appConfig.baseCurrency : '' }} <em>{{_appConfig.baseCurrency}}</em></span>
+            </box>
+            <span class="seperator"></span>
+            <box class="money-item expenses">
+                <box class="info">
+                    <span class="icon-wrapper"></span>
+                    <span class="lbl">{{ 'MONEY_FLOW.expensesLbl' | translate }}</span>
+                </box>
+                <span class="amount">{{ 3000 | currency : _appConfig.baseCurrency : '' }} <em>{{_appConfig.baseCurrency}}</em></span>
+            </box>
+        </box>
+    </box>
+</box>

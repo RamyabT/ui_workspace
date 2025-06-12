@@ -1,0 +1,99 @@
+"CobApplicantInfoForm":{
+"title":"CobApplicantInfoForm",
+		 "title": {
+		  "label":"title-control" ,
+		  "placeholder": "Title"
+		  } ,
+		 "firstName": {
+		  "label":"First Name" ,
+		  "placeholder": "First Name"
+		  } ,
+		 "middleName": {
+		  "label":"Middle Name" ,
+		  "placeholder": "Middle Name"
+		  } ,
+		 "lastName": {
+		  "label":"Last Name" ,
+		  "placeholder": "Last Name"
+		  } ,
+		 "fullName": {
+		  "label":"Full Name" ,
+		  "placeholder": "Full Name"
+		  } ,
+		 "suffix": {
+		  "label":"Suffix" ,
+		  "placeholder": "Suffix"
+		  } ,
+		 "gender": {
+		  "label":"Gender" ,
+		  "placeholder": "Gender"
+		  } ,
+		 "dob": {
+		  "label":"Date Of Birth" ,
+		  "placeholder": "Select your Date Of Birth"
+		  } ,
+		 "emailAddress": {
+		  "label":"Email Address" ,
+		  "placeholder": "Enter your Email ID"
+		  } ,
+		 "iSOCodeList": {
+		  "label":"ISO Code" ,
+		  "placeholder": "ISO Code"
+		  } ,
+		 "mobileNumber": {
+		  "label":"Mobile Number" ,
+		  "placeholder": "Enter your Mobile Number"
+		  } ,
+		 "maritalStatus": {
+		  "label":"Marital Status" ,
+		  "placeholder": "Marital Status"
+		  } ,
+		 "residentstatus": {
+		  "label":"Resident Status" ,
+		  "placeholder": "Resident Status"
+		  } ,
+		 "nationality": {
+		  "label":"Nationality" ,
+		  "placeholder": "Nationality"
+		  } ,
+		 "channel": {
+		  "label":"Channel" ,
+		  "placeholder": "Channel"
+		  } ,
+		 "udf1": {
+		  "label":"UDF1" ,
+		  "placeholder": "UDF1"
+		  } ,
+		 "udf2": {
+		  "label":"UDF2" ,
+		  "placeholder": "UDF2"
+		  } ,
+		 "udf3": {
+		  "label":"UDF3" ,
+		  "placeholder": "UDF3"
+		  } ,
+		 "udf4": {
+		  "label":"UDF4" ,
+		  "placeholder": "UDF4"
+		  } ,
+		 "udf5": {
+		  "label":"UDF5" ,
+		  "placeholder": "UDF5"
+		  } ,
+		 "captcha": {
+		  "label":"Captcha" ,
+		  "placeholder": "Captcha"
+		  } ,
+		 "terms": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } ,
+		 "terms2": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } ,
+		 "terms3": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } 
+}

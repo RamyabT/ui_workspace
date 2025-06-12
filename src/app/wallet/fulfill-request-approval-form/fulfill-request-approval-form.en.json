@@ -1,0 +1,15 @@
+"WalletRequestMoneyConfirmationForm":{
+"title":"WalletRequestMoneyConfirmationForm",
+		 "appVersion": {
+		  "label":"Transaction Version" ,
+		  "placeholder": "Transaction Version"
+		  } ,
+		 "feedBackComments": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "rating": {
+		  "label":"CIF" ,
+		  "placeholder": "CIF"
+		  } 
+}

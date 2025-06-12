@@ -1,0 +1,5 @@
+ 
+ "RETAILETRSCHEDULED" : {
+ "servicePath": ["display-shell","etransfers", "retail-schedule-etransfer-display-grid"],
+ "queryParams": {}
+ }

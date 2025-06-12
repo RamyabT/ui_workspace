@@ -1,0 +1,124 @@
+<box class="main-header-inner">
+    <box *ngIf="!_device.isMobile()" class="brand-wrapper">
+        <button type="button" class="brand">
+            <img src="./assets/images/brand/menu-logo.svg" alt="bank" />
+        </button>
+    </box>
+    <box class="header-inner-wrapper">
+        <ng-container *ngIf="_device.isMobile(); else mainHeading">
+            <button type="button" class="brand">
+                <img src="./assets/images/brand/header-logo.svg" alt="bank" />
+            </button>
+        </ng-container>
+
+        <ng-template #mainHeading>
+            <ng-container *ngIf="headerNavBackRequired">
+                <button type="button" class="header-back-btn system-ico-button btn-back no-text" (click)="headerNavBackCallback()">
+                    <span>Back</span>
+                </button>
+            </ng-container>
+            <box class="heading">
+                <!-- <h3 *ngIf="this.appConstant.mainHeader.showUserInfo"
+                    [innerHTML]="_activeSpaceInfoService.getSpaceHeaderText() | translate"></h3> -->
+                
+                <ng-container *ngIf="!_device.isMobile() && this.appConstant.mainHeader.showSearchBar">
+                    <box class="header-search-bar">
+                        <box class="nav-search-control" [ngClass]="{'active-searchbar' : showSearchOptions}">
+                            <input #searchInput type="text" name="searchText" placeholder="Search..." [value]="searchText"
+                             (focus)="onFocusSearchText()"
+                             (blur)="onBlurSearchText()"  
+                             (keydown)="handleTabOnInput($event)"
+                            (input)="doServiceSearch($event)" autocomplete="off" />
+                            <span class="ico ico-nav-search">&nbsp;</span>
+                        </box>
+                        <ng-container *ngIf="showSearchOptionsList && searchText.length > 0">
+                            <box class="data-list">
+                                <ul *ngIf="!showNoResultsMessage">
+                                    <ng-container *ngFor="let option of dataList">
+                                        <li (click)="gotoService(option)">{{option.serviceDescription}}</li>
+                                        <!-- <div class="list-divider"></div> -->
+                                    </ng-container>
+                                </ul>
+                                <ul *ngIf="showNoResultsMessage">
+                                    <li class="no-result">
+                                        <box class="no-result-text-wrapper">
+                                            <box class="no-result-title">{{'HOMESEARCH.noResults' | translate}}</box>
+                                            <box class="no-result-desc">{{'HOMESEARCH.desc' | translate}}</box>
+                                        </box>
+                                        <box>
+                                            <img src="./assets/illustrations/no-search-results.svg" alt="No search results">
+                                        </box>
+                                    </li>
+                                </ul>
+                            </box>
+                            <box class="searchbar-overlay" (click)="closeSearchWin()"></box>
+                        </ng-container>
+                    </box>
+                </ng-container>
+            </box>
+
+        </ng-template>
+
+        <!-- <button type="button" class="btn-burger">
+            <img src="./assets/images/layouts/main-header/burger-menu.svg" alt="menu" />
+        </button> -->
+
+        <box class="header-tool-bar">
+
+
+            <box *ngIf="hasScope('RETAILNOTIFICATION')"   class="header-tool">
+
+                <!-- <button class="mode-toggle-btn" [ngClass]="{'dark-mode': toggleMode === 'Dark Mode'}" (click)="toggleTheme()">{{toggleMode}}</button> -->
+
+
+                <button *ngIf="this.appConstant.mainHeader.showNotificationIcon" type="button"
+                    class="system-ico-button no-text btn-notification" aria-label="Notifications">
+                    <!-- <span class="has-notification">&nbsp;</span> -->
+                    <!-- <img src="./assets/images/layouts/main-header/bell.svg" alt="notification" /> -->
+                </button>
+                <box class="button-tooltip-wrapper" (click)="navToMailBox()">
+                    <button *ngIf="this.appConstant.mainHeader.showEmailIcon" type="button"
+                        class="system-ico-button no-text btn-mail" aria-label="Mail">
+                        <!-- <span class="has-notification">&nbsp;</span> -->
+                        <!-- <img src="./assets/images/layouts/main-header/bell.svg" alt="notification" /> -->
+                    </button>
+                    <box class="tooltip-content-wrapper">
+                        <span class="tooltip-content">
+                            {{'HOMESEARCH.mailboxTooltip' | translate}}
+                        </span>
+                        <span class="tooltip-arrow"></span>
+                    </box>
+
+                    <!-- <box class="notification-count">4</box> -->
+                </box>
+
+
+            </box>
+            <box [ngClass]="{'show-user-profile': _customerService.showUserProfile}" class="user-profile">
+                <button class="profile-pic" (click)="toggleProfile()" aria-label="User Profile">
+                    <!-- <span *ngIf="!this.appConstant.mainHeader.avatorUserProfileIcon && !_customerService?.showUserProfile"
+                        class="user-name">{{this.getUserName()}}</span> -->
+                    <!-- <img *ngIf="!this.appConstant.mainHeader.avatorUserProfileIcon && !_customerService?.showUserProfile" class="default-profile-img"
+                        src="./assets/images/icons/user-profile-img.svg">
+                    <img class="profile-img" *ngIf="this.appConstant.mainHeader.avatorUserProfileIcon"
+                        src="{{userAuth.getProfilePicture()}}" alt="Banker" />
+                    <img class="drop-down-icon" src="./assets/images/layouts/controls/dropdown-arrow.svg" alt="Banker" /> -->
+                    <span class="user-img" *ngIf="getProfilePicType() == 'avatar'">
+                        <img src="./assets/images/avatar.svg" alt="Profile Picture" />
+                    </span>
+                    <span class="user-name"  [ngClass]="{'show-userName' : _customerService.showUserProfile==true}" *ngIf="getProfilePicType() == 'initial'">{{getUserName()}}</span>
+                    <span class="user-img" *ngIf="getProfilePicType() == 'pic'">
+                        <img src="{{userAuth.getProfilePicture()}}" alt="user" alt="Profile Picture" />
+                    </span>
+
+                    <span *ngIf="_customerService?.showUserProfile" class="profile-expand-icon"></span>
+                </button>
+            </box>
+            <box class="userprofile-panel" *ngIf="_customerService?.showUserProfile">
+                <app-user-profile></app-user-profile>
+            </box>
+        </box>
+    </box>
+</box>
+
+<box class="user-account-overlay" *ngIf="_customerService?.showUserProfile" (click)="toggleProfile()"></box>

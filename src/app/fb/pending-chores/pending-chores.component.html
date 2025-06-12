@@ -1,0 +1,16 @@
+
+<box class="pending-chores-wrapper">
+<box class="chores-info-details">
+    <box class="chores-user-profile">
+        <img src="./assets/fb/member.png" alt="">
+    </box>
+    <box class="primary-details">
+        <box class="chore-name">{{cardData?.taskName}}</box>
+        <box class="nick-name">{{childName}}</box>
+    </box>
+</box>
+<box class="secondary-details">
+    <box class="due-date">{{cardData?.dueDate | date : "MMM yy"}}</box>
+    <box class="amount">{{ cardData?.rewardAmount | currency : cardData.rewardCurrency : '' }} <em>{{ cardData.rewardCurrency }}</em></box>
+</box>
+</box>

@@ -1,0 +1,19 @@
+"RetailCasaTransactionStmtROGrid": {
+	"title": "CASA Transaction",
+	"rangeType": {
+		"label": "Date Range Type",
+		"placeholder": "Date Range Type"
+	},
+	"formDate": {
+		"label": "From Date",
+		"placeholder": "From Date"
+	},
+	"toDate": {
+		"label": "To Date",
+		"placeholder": "To Date"
+	},
+	"downloadType": {
+		"label": "Download Format",
+		"placeholder": "Download Format"
+	}
+}

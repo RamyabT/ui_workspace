@@ -1,0 +1,46 @@
+"RetailBeneCCReqForm":{
+"title":"Credit Card Beneficiary",
+		 "creditCardNumber": {
+		  "label":"Credit Card Number" ,
+		  "placeholder": "Credit Card Number"
+		  } ,
+		 "confirmCreditCardNumber": {
+		  "label":"Confirm Credit Card Number" ,
+		  "placeholder": "Confirm Credit Card Number"
+		  } ,
+		 "nickName": {
+		  "label":"Card Nickame" ,
+		  "placeholder": "Card Nickame"
+		  } ,
+		 "bic": {
+		  "label":"BIC" ,
+		  "placeholder": "BIC"
+		  } ,
+		 "bankCode": {
+		  "label":"Bank " ,
+		  "placeholder": "Bank "
+		  } ,
+		 "branchCode": {
+		  "label":"Branch" ,
+		  "placeholder": "Branch"
+		  } ,
+		 "branchAddress": {
+		  "label":"Branch Address" ,
+		  "placeholder": "Branch Address"
+		  } ,
+		 "termsFlag": {
+		  "label":"I hereby agree with the terms and conditions and key facts statements." ,
+		  "placeholder": "I hereby agree with the terms and conditions and key facts statements."
+		  } ,
+		  "isFavourite": {
+			"label":"Mark as Favourite" ,
+			"placeholder": "Mark as Favourite"
+			} ,
+		  "remarks":{
+			"label":"Remarks",
+			"placeholder":"Remarks"
+		  }
+		 "FieldId_9": {
+		   "text":"Sample Text"
+		 } 
+}

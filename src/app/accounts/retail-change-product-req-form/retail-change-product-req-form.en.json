@@ -1,0 +1,15 @@
+"RetailChangeProductReqForm":{
+"title":"Change Existing Account",
+		 "accountNumber": {
+		  "label":"Select the account you want to change from" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "newProductCode": {
+		  "label":"Select the product name you want to change to" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "termsFlag": {
+         "label": "Existing {{accName}} changes from {{prodDesc}} {{accNum}} to {{newProdDesc}} {{accNum}}.",
+         "placeholder": " "
+      }
+}

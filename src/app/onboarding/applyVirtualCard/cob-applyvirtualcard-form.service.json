@@ -1,0 +1,5 @@
+ 
+ "APPLYVIRTUALCARD" : {
+ "servicePath": ["entry-shell","pfm", "applyVirtualCard"],
+ "queryParams": {}
+ }

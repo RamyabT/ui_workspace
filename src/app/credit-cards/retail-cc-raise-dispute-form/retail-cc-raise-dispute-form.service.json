@@ -1,0 +1,5 @@
+ 
+ "RETAILCCRAISEDISPUTE" : {
+ "servicePath": ["entry-shell","creditcard", "retail-cc-raise-dispute-form"],
+ "queryParams": {}
+ }

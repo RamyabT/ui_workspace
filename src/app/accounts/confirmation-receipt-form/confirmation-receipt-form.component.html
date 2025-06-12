@@ -1,0 +1,92 @@
+<ng-container>
+    <box class="confirmation-receipt-inner success {{ result?.statusCode?.toLowerCase() }}">
+        <box class="confirmation-body accounts-success-mode-confirmation-body">
+            <ng-container *ngIf="result.statusCode == 'failure'; else success">
+                <box class="status-container">
+                    <box class="status-ico-wrapper">
+                        <span class="status-ico"></span>
+                    </box>
+                    <span class="confirmation-message">
+                        {{ 'confirmationReceiptForm.dataErrorTitle' | translate }}</span>
+                </box>
+
+                <box class="message-container">
+                    <span class="confirmation-description">{{ 'confirmationReceiptForm.dataErrorMessage' |
+                        translate }}</span>
+                </box>
+            </ng-container>
+
+            <ng-template #success>
+                <box class="status-container">
+                    <box class="status-ico-wrapper">
+                        <span class="status-ico"></span>
+                    </box>
+                    <span class="confirmation-message">{{message}}</span>
+                </box>
+
+
+                <box class="message-container">
+                    <span class="confirmation-description">
+                        <ng-container *ngIf="result?.resultPayload?.errorMessage; else noError">
+                            {{ result?.resultPayload?.errorMessage }}
+                        </ng-container>
+                        <ng-template #noError>
+                            <box class="confirmation-description-container">
+                                <span class="confirmation-description-text">
+                                    <span class="confirmation-description-text-item">
+                                        {{description}}
+                                    </span>
+                                </span>
+
+                            </box>
+                        </ng-template>
+                    </span>
+                </box>
+            </ng-template>
+
+            <!-- <ng-container *ngIf="result?.additionalInfo && result?.additionalInfo.length">
+                <hr />
+                <box class="additional-details-container">
+                    <ng-container *ngFor="let detail of result?.additionalInfo">
+                        <box class="details">
+                            <span class="detail-lbl">{{ 'confirmationReceiptForm.' + detail.label | translate }}</span>
+                            <span class="detail-val">
+                                <ng-container [ngSwitch]="detail.format">
+                                    <ng-container *ngSwitchCase="'date'">
+                                        {{ detail.value | date : "dd MMM YYYY, hh:mm:ss" }}
+                                    </ng-container>
+                                    <ng-container *ngSwitchDefault>
+                                        {{ detail.value }}
+                                    </ng-container>
+                                </ng-container>
+
+                            </span>
+                        </box>
+                    </ng-container>
+                </box>
+            </ng-container> -->
+        </box>
+
+        <box class="confirmation-footer">
+            <ng-container *ngIf="result.statusCode == 'failure'">
+                <button type="button" class="secondary" (click)="gotoModule()"><span>{{
+                        'confirmationReceiptForm.cancel' |
+                        translate }}</span></button>
+                <a href='https://www.vancity.com/contact-us/'target="_blank" (click)="gotoHome()">
+                    <button type="button" class="primary">
+                        <span>{{ 'confirmationReceiptForm.contact' | translate }}</span>
+                    </button>
+                </a>
+            </ng-container>
+            <ng-container *ngIf="result.statusCode != 'failure'">
+                <button type="button" class="secondary" (click)="gotoModule()"><span>{{ 'confirmationReceiptForm.close'
+                        |
+                        translate }}</span></button>
+                <button type="button" class="primary" (click)="gotoHome()"><span>{{ 'confirmationReceiptForm.takeMeHome'
+                        |
+                        translate }}</span></button>
+            </ng-container>
+        </box>
+    </box>
+
+</ng-container>

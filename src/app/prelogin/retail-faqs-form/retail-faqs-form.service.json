@@ -1,0 +1,5 @@
+ 
+ "RETAILFAQPUBLISH" : {
+ "servicePath": ["entry-shell","prelogin", "retail-faqs-form"],
+ "queryParams": {}
+ }

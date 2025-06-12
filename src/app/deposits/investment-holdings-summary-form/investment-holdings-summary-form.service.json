@@ -1,0 +1,5 @@
+ 
+ "RETAILINVESTMENTHOLDINGS" : {
+ "servicePath": ["entry-shell","deposits", "investment-holdings-summary-form"],
+ "queryParams": {}
+ }

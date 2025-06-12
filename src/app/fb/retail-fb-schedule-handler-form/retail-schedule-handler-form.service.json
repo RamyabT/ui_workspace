@@ -1,0 +1,5 @@
+ 
+ "pymts" : {
+ "servicePath": ["entry-shell","transfers", "retail-schedule-handler-form"],
+ "queryParams": {}
+ }

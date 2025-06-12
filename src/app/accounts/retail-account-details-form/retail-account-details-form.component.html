@@ -1,0 +1,166 @@
+<box class="entry-form">
+	<ng-container *ngIf="state.details; else detailsLoader">
+		<!-- <casa-summary-card class="col-12" [cardData]="state.details" [contextmenuBtn]="true"></casa-summary-card> -->
+			<box *ngIf="_helper._device.isMobile()" class="product-desc">{{this.state.details.accountNickname || this.state.details.productDesc}}</box>
+			<box class="display-fields-container col-12">
+				<!-- <h5 class="account-details"> Account Details</h5> -->
+				<span class="account-details header">{{ 'RetailAccountDetailsForm.'+'accountDetails'+'.label' | translate
+				}}</span>
+				<ng-container *ngIf="!_helper.isAccountDetailsApiFailed else errorMessage">
+					<ng-container *ngFor="let field of state.fields; index as i">
+						<box class="display-field" *ngIf="state.details[field]">
+							<box class="lbl-wrapper">
+								<span class="lbl">{{ 'RetailAccountDetailsForm.'+field+'.label' | translate }}</span>
+								<!-- <div *ngIf="field=='currentInterestRate'" class="debit-card-limits">
+									Debit card limits
+								</div> -->
+								<!-- <box class="tooltip-content-wrapper">
+									<span class="tooltip-content">
+										A tooltip has appeared!
+									</span>
+									<span class="tooltip-arrow"></span>
+								</box> -->
+								<!-- <button type="button" class="btn-container">
+									<span class="icon hint-btn-icon"></span>
+								</button> -->
+								<!-- <box class="tooltip-wrapper" *ngIf="field == 'posLimit' || field == 'atmLimit'">
+									<box class="tooltip-content-wrapper">
+										<span class="tooltip-content">
+											A tooltip has appeared!
+										</span>
+										<span class="tooltip-arrow"></span>
+									</box>
+									<button type="button" class="btn-container">
+										<span class="icon hint-btn-icon"></span>
+									</button> 
+							</box>  -->
+							</box>
+							<span class="val">
+								<ng-container [ngSwitch]="state.fieldsFormat[i]">
+									<ng-container *ngSwitchCase="'date'">
+										{{ state.details[field] | date : "dd MMM yyyy" }}
+									</ng-container>
+									<ng-container *ngSwitchCase="'amount'">
+										<span class="amount">{{ _helper.getAbsoluteValue(state.details[field]) | currency : state.details.accountCurrency
+											: '' }} <em>{{state.details.accountCurrency | currencyCode}}</em></span>
+											{{_helper.checkNegativeValue(state.details[field])}}
+									</ng-container>
+									<ng-container *ngSwitchCase="'percentage'">
+										{{ state.details[field] + " %" }}
+									</ng-container>
+									<ng-container *ngSwitchDefault>
+										{{ state.details[field] }}
+									</ng-container>
+								</ng-container>
+							</span>
+						</box>
+					</ng-container>
+
+					<ng-container *ngIf="this.state.hasDcData">
+						<box class="display-field header">
+						<span class="debit-card-limits">{{ 'RetailAccountDetailsForm.'+'debitCardLimits'+'.label' | translate
+							}}
+						</span>
+							<!-- <box class="tooltip-wrapper">
+								<box class="tooltip-content-wrapper">
+									<span class="tooltip-content">
+										A tooltip has appeared!
+									</span>
+									<span class="tooltip-arrow"></span>
+								</box>
+								<button type="button" class="btn-container">
+									<span class="icon hint-btn-icon"></span>
+								</button> 
+						</box>   -->
+						
+						<button type="button" class="btn-container" (click)="_helper.onPopup()">
+										<span class="icon hint-btn-icon"></span>
+						</button>
+								
+						</box>	
+							<!-- <img src="./assets/images/debit-card-tooltip.png" alt="tooltip image" (click)="_helper.onPopup()"/> -->
+
+					
+						<ng-container *ngFor="let field of state.dclimitFields; index as i">
+							<box class="display-field" *ngIf="state.details[field]">
+								<span class="lbl">{{ 'RetailAccountDetailsForm.'+field+'.label' | translate }}</span>
+								<span class="val">
+									<ng-container [ngSwitch]="state.dclimitFieldsFormat[i]">
+										<ng-container *ngSwitchCase="'amount'">
+											<span class="amount">
+												<em *ngIf="state.details.accountCurrency == 'USD'" class="usd">{{ 'SUFFIXCURRENCY' | currencyCode }}</em>
+												{{  _helper.getAbsoluteValue(state.details[field]) | currency :
+												state.details.accountCurrency : '' }}
+												<em>{{ state.details.accountCurrency == 'USD' ? '$' : state.details.accountCurrency
+													| currencyCode }}</em>
+												{{_helper.checkNegativeValue(state.details[field])}}
+												</span>
+										</ng-container>
+										<ng-container *ngSwitchDefault>
+											{{ state.details[field] }}
+										</ng-container>
+									</ng-container>
+								</span>
+							</box>
+						</ng-container>
+					</ng-container>
+
+					<ng-container *ngIf="(this.state.details.accountType=='CA') && (this.state.hasLocData)">
+						<span class="loc-details header">{{ 'RetailAccountDetailsForm.'+'lineOfCreditDetails'+'.label' | translate
+							}}</span>
+						<ng-container *ngFor="let field of state.locFields; index as i">
+							<box class="display-field" *ngIf="state.details[field]">
+								<span class="lbl">{{ 'RetailAccountDetailsForm.'+field+'.label' | translate }}</span>
+								<span class="val">
+									<ng-container [ngSwitch]="state.locFileldsFormart[i]">
+										<ng-container *ngSwitchCase="'date'">
+											{{ state.details[field] | date : "dd MMM yyyy" }}
+										</ng-container>
+										<ng-container *ngSwitchCase="'amount'">
+											<span class="amount">
+												<em *ngIf="state.details.accountCurrency == 'USD'" class="usd">{{ 'SUFFIXCURRENCY' | currencyCode }}</em>
+												{{  _helper.getAbsoluteValue(state.details[field]) | currency :
+												state.details.accountCurrency : '' }} 
+												<em>{{ state.details.accountCurrency == 'USD' ? '$' : state.details.accountCurrency
+													| currencyCode }}</em>
+												{{_helper.checkNegativeValue(state.details[field])}}
+												</span>
+										</ng-container>
+										<ng-container *ngSwitchCase="'percentage'">
+											{{ state.details[field] + " %" }}
+										</ng-container>
+										<ng-container *ngSwitchDefault>
+											{{ state.details[field] }}
+										</ng-container>
+									</ng-container>
+								</span>
+							</box>
+						</ng-container>
+					</ng-container>
+				</ng-container>
+			</box>
+
+			<!-- <box class="display-details-container-footer">
+			<fpx-button btnClass="primary" (onClick)="_helper.onDownloadAccountsDetailsClick()" label="Download"></fpx-button>
+		</box> -->
+		
+			<button *ngIf="!_helper.isAccountDetailsApiFailed" class="btn-wrapper" (click)="_helper.shareInfo($event)">
+				<span class="share-btn-icon"></span>
+				<span class="primary">Share</span>
+			</button>
+			
+		
+	</ng-container>
+
+
+<ng-template #detailsLoader>
+	<box class="loading"></box>
+</ng-template>
+
+<ng-template #errorMessage>
+	<box class="error-message service-unavailable-template">
+		<!-- <span class="error-title">{{_helper.errorTitle}}</span> -->
+		<span class="error-message-text description">{{_helper.errorMessage}}</span>
+	</box>
+</ng-template>
+</box>

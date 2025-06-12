@@ -1,0 +1,76 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailManageEtransferContactlogForm">
+	<box *ngIf="!_helper.device.isMobile()" class="view-scheduled-bills-form">
+        <box class="back-wrapper">
+            <box class="back-btn" (click)="_helper.backToeTransfers()">
+                <span class="ico ico-back"></span>
+                <span class="back-text font-14-20">{{'RetailManageEtransferContactlog.header.backToeTransfers' | translate}}</span>
+            </box>
+
+            <box class="schedule-bill-btn add-contact-btn">
+                <button class="btn-primary" (click)="_helper.addContact()">
+                    <span class="add-payee-text">{{'RetailManageEtransferContactlogForm.addContact' | translate}}</span>
+                </button>
+            </box>
+        </box>
+
+
+        <box class="schedule-bill-form">
+            <box class="schedule-bill-form-header">
+                {{'RetailManageEtransferContactlog.header.manageContacts' | translate}}
+            </box>
+        </box>
+    </box>
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-sm-12 col-md-12 col-lg-12 ">
+			<button *ngIf="_helper.device.isMobile()" class="nav-btn add-contact-btn" type="button" (click)="_helper.addContact()">
+				<span>Add contant</span>
+			</button>
+			<ng-container *ngIf="this.state.isDataReceived;else loader">
+				<ng-container *ngIf="_helper.totalRowCount>0; else noData">
+					
+					<box class="nav-search-control">
+						<span class="ico ico-nav-search"></span>
+						<input type="text" formControlName="searchText" (input)="_helper.onSearchChange($event)"
+							placeholder="Search by name, email or mobile number." />
+					</box>
+					<ng-container [ngTemplateOutlet]="noResultData" *ngIf="this.state.searchDataFound<1"></ng-container>
+				</ng-container>
+			</ng-container>
+			<app-retail-etransfercontactlog-template class="col-sm-12 col-md-12 col-lg-12"
+				(commonRoGridEvent)="_helper.contactListRoGridEvent($event)"
+				[actionPublisher]="actionMap$.get('contactList')"></app-retail-etransfercontactlog-template>
+		</box>
+
+	</box>
+</form>
+
+<ng-template #noData>
+	<box class="no-result-view">
+		<box class="contact-img">
+			<span class="contact-img-wrapper"></span>
+		</box>
+		<box class="no-result-title">{{'RetailManageEtransferContactlogForm.noContactTitle' | translate}}</box>
+		<box class="no-result-desc">{{'RetailManageEtransferContactlogForm.noContactDesc' | translate}}</box>
+		<box class="btn-wrapper">
+			<button class="primary" (click)="_helper.addContact()">{{'RetailManageEtransferContactlogForm.addContact' | translate}}</button>
+			<span class="icon contact-btn-icon"></span>
+		</box>
+	</box>
+</ng-template>
+
+<ng-template #noResultData>
+	<box class="no-result-view">
+		<box class="contact-img">
+			<span class="contact-img-wrapper"></span>
+		</box>
+		<box class="no-result-title">{{'RetailManageEtransferContactlogForm.noContactFilterTitle' | translate}}</box>
+		<box class="no-result-desc">{{'RetailManageEtransferContactlogForm.noContactFilterDesc' | translate}}</box>
+		<box class="btn-wrapper">
+			<button class="primary" (click)="_helper.addContact()">{{'RetailManageEtransferContactlogForm.addContact' | translate}}</button>
+			<span class="icon contact-btn-icon"></span>
+		</box>
+	</box>
+</ng-template>
+<ng-template #loader>
+	<box class="loading"></box>
+</ng-template>

@@ -1,0 +1,22 @@
+<box class="summary-card" [ngClass]="{'has-context-menu': contextmenuBtn}">
+    <box class="summary-card-inner">
+        <box class="primary-details">
+            <box class="account-info">
+                <span class="lbl status" [ngClass]="cardData.status">{{  cardData.walletName   }}</span>
+                <span class="acc-number">{{ cardData.walletAccountNumber }}  </span>
+            </box>
+            <span class="share-info"  (click)="dataShare()" >Share</span>
+        </box>
+        <box class="additional-details">
+            <box class="additional-detail available">
+                <span class="lbl">{{ 'CASASUMMARYCARD.available' | translate }}</span>
+                <span class="amount">{{ cardData.availableBalance  | currency : cardData.currency : ''}} <em>{{ cardData.currency }}</em> </span>
+            </box>
+            <box class="additional-detail hold" (click)="showQR()">
+                 <img src="./assets/wallet/qr-code-icon.svg" alt="QR Code" >
+            </box>
+        </box>
+    </box>
+    
+    <button *ngIf="contextmenuBtn" type="button" class="contextual-menu-trigger" (click)="notifyContextMenuClick()"><span>contextual menu</span></button>
+</box>

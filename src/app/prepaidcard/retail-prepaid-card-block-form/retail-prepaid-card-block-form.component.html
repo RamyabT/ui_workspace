@@ -1,0 +1,42 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailPrepaidBlockForm" >
+	<box class="entry-form">
+		<ng-container *ngIf="state.cardData && device.isMobile()">
+			<prepaidcard class="col-12" [cardData]="state.cardData" [formView]="true"></prepaidcard>
+		</ng-container>
+		<box class="grid entry-form-field-group col-lg-12">
+		<!-- <app-prepaid-card-number-list-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('cardRefNumber')"     label="{{'RetailPrepaidBlockForm.cardRefNumber.label' | translate }}"   formControlName="cardRefNumber"
+				     >
+	</app-prepaid-card-number-list-control> -->
+	<app-ppCardReason  class="col-sm-12 col-md-6 col-lg-12"   [actionPublisher]="actionMap$.get('blockReason')"     label="{{'RetailPrepaidBlockForm.blockReason.label' | translate }}"   formControlName="blockReason"
+		     >
+</app-ppCardReason>
+
+
+<app-remarks-control class="col-sm-12 col-md-6 col-lg-12"   [actionPublisher]="actionMap$.get('otherReason')"     label="{{'RetailPrepaidBlockForm.otherReason.label' | translate }}"   formControlName="otherReason"
+   >
+</app-remarks-control>
+
+<ng-container>
+	<fpx-button btnType="button" btnClass="limitCountries " class="col-lg-12" [label]="'limitCountriesLink.label' | translate"
+		(click)="_helper.addlimitCountriesLink()"></fpx-button>
+</ng-container>
+
+<app-remarks-control  class="col-sm-12 col-md-6 col-lg-12"   [actionPublisher]="actionMap$.get('remarks')"     label="{{'RetailPrepaidBlockForm.remarks.label' | translate }}"   formControlName="remarks"
+   >
+</app-remarks-control>
+<fpx-display-text class="col-sm-12 col-md-6 col-lg-12  change-pin-desc disclaimer-container"
+				[actionPublisher]="actionMap$.get('impNote')"
+				[innerHTML]="'RetailPrepaidBlockForm.impNote.text' | translate"
+				[literals]="commonFormInput"></fpx-display-text>
+
+</box>
+	<box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-12 grid main-group disclaimer-box">
+
+	<app-terms-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('termsAndCondition')"
+		label="{{'RetailPrepaidBlockForm.termsAndCondition.label' | translate }}" formControlName="termsAndCondition"
+		[textPosition]="state.termsAndCondition.textPosition" [ckValues]="state.termsAndCondition.ckValues"></app-terms-control>
+
+</box>
+</box>
+</form>
+	

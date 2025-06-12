@@ -1,0 +1,76 @@
+<box class="view-scheduled-bills-form">
+
+    <box *ngIf="_helper.device.isMobile()" class="schedule-bill-info">
+        <box class="schedule-bill-icon-wrapper">
+            <span class="schedule-bill-icon">
+            </span>
+        </box>
+
+        <box class="schedule-bill-details">
+            <box class="schedule-bill-name" (click)="retailViewScheduleBillsFormHelper.scheduleBill()">
+                Schedule a bill
+            </box>
+        </box>
+    </box>
+
+
+    <box *ngIf="!_helper.device.isMobile()">
+        <box class="back-wrapper">
+            <box class="back-btn" (click)="retailViewScheduleBillsFormHelper.scheduleBill()">
+                <span class="ico ico-back"></span>
+                <span class="back-text font-14-20">{{'billpaymentLabels.backtoBills' | translate}}</span>
+            </box>
+
+            <box class="schedule-bill-btn">
+                <button class="btn-primary" (click)="retailViewScheduleBillsFormHelper.scheduleBill()">
+                    <span class="add-payee-text">{{'billpaymentLabels.scheduleABill' | translate}}</span>
+                </button>
+            </box>
+        </box>
+
+
+        <box class="schedule-bill-form">
+            <box class="schedule-bill-form-header">
+                {{'billpaymentLabels.scheduledBills' | translate}}
+            </box>
+        </box>
+    </box>
+
+
+    <app-retail-view-scheduled-bills-display-grid [hidden]="retailViewScheduleBillsFormHelper.totalRecordCount == 0"
+        (commonRoGridEvent)="retailViewScheduleBillsFormHelper.handleViewScheduleBillsFormGridEvent($event)"
+        [ngClass]="{'no-results': retailViewScheduleBillsFormHelper.viewscheduledApiReceived && (retailViewScheduleBillsFormHelper.totalRecordCount == 0 || retailViewScheduleBillsFormHelper.totalRecordCount == null)}"></app-retail-view-scheduled-bills-display-grid>
+
+</box>
+<ng-container
+    *ngIf="retailViewScheduleBillsFormHelper.viewscheduledApiReceived && (retailViewScheduleBillsFormHelper.totalRecordCount == 0 || retailViewScheduleBillsFormHelper.totalRecordCount == null)">
+    <box class="no-schedule-bills-data-view">
+
+
+        <span class="no-result-image-wrapper">
+            <span class="no-result-image"></span>
+        </span>
+        <box class="pay-a-bill-text" (click)="retailViewScheduleBillsFormHelper.scheduleBill()">{{'billpaymentLabels.scheduleABill' | translate}}</box>
+
+        <box class="message-wrapper">
+            <box class="primary-info">
+                <ng-container>
+                    {{ 'RetailViewScheduledBillsForm.primaryInfo.label' | translate }}
+                </ng-container>
+            </box>
+            <box class="secondary-info">
+                <ng-container>
+                    {{ 'RetailViewScheduledBillsForm.secondaryInfo.label' | translate }}
+                </ng-container>
+            </box>
+        </box>
+        <box class="form-action-container">
+
+            <button (click)="retailViewScheduleBillsFormHelper.scheduleBill()" class="add-payee-btn btn-primary">
+                <span class="ico ico-add-payee"></span>
+                <span class="add-payee-text">{{'billpaymentLabels.schedule' | translate}}</span>
+            </button>
+        </box>
+
+    </box>
+</ng-container>

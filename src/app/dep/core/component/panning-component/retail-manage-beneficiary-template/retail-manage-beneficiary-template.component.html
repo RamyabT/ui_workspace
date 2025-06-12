@@ -1,0 +1,145 @@
+<div class="task-item" id="row_data_{{ index }}" [ngClass]="{'task-completed':selectedData.status == '3'}">
+    <!-- <div *ngIf="_device.isMobile()" class="task-action task-action-left">
+        <ng-container *ngIf="selectedData.status != '3'; else addBadge">
+            <button type="button" class="button-task-action system-ico-button button-delete" clickable
+                (click)="deleteRowData($event, selectedData)">
+                <span>Delete</span>
+            </button>
+
+        </ng-container>
+        <ng-template #addBadge>
+            <button type="button" class="button-task-action" clickable>
+                <span class="button-icon"><img src="./assets/images/icons/circle-question.svg"
+                        alt="assign badge" /></span>
+                <span>Assign<br />Badge</span>
+            </button>
+        </ng-template>
+    </div> -->
+
+    <div class="task-detail-item" (swipeleft)="_device.isMobile()?swipeLeftHandler($event):null"
+        (swiperight)="_device.isMobile()?swipeRightHandler($event):null"
+        (panstart)="_device.isMobile()?panStartHandler($event):null"
+        (panend)="_device.isMobile()?panEndHandler($event):null"
+        (panleft)="_device.isMobile()?panLeftHandler($event):null"
+        (panright)="_device.isMobile()?panRightHandler($event):null"
+        (touchstart)="_device.isMobile()?touchStartHandler($event):null">
+        <box class="transaction-list-item">
+            <ng-container *ngIf="selectedData.rowGroupTitle; else scheduleTransactionDtlsRowData">
+                <box class="row-group-title">{{ selectedData.rowGroupTitle | date : "dd MMM yyyy" }}</box>
+            </ng-container>
+            <ng-template #scheduleTransactionDtlsRowData>
+                <box class="transaction-list-item-inner">
+                    <box class="transaction-icon-wrapper">
+                        <!-- <box class="transaction-icon">
+                            <ng-container *ngIf="selectedData.transactionCategory; else noPhoto">
+                                <img src="./assets/transactions/{{selectedData.transactionCategory}}.svg"
+                                    alt="transactionCategory" />
+                            </ng-container>
+                            <ng-template #noPhoto>
+                                <div class="name-first-letter">
+                                    <span
+                                        *ngIf="selectedData.beneNickName?.split(' ').length == 1">{{selectedData.beneNickName?.substring(0,
+                                        1)}}
+                                    </span>
+                                    <span
+                                        *ngIf="selectedData.beneNickName?.split(' ').length > 1 && selectedData.beneNickName?.split(' ').length != 1">
+                                        {{selectedData.beneNickName?.split(" ")[0]?.charAt(0)
+                                        +(selectedData.beneNickName?.split(" ")[1]?
+                                        selectedData.beneNickName?.split(" ")[1]?.charAt(0): "")}}
+                                    </span>
+
+
+                                </div>
+                            </ng-template>
+                        </box> -->
+                    </box>
+                    <box class="transaction-info">
+                        <box class="transaction-primary-info">
+                            <span class="name">{{selectedData.beneNickName}}</span>
+                            <!-- <ng-container *ngIf="selectedData.serviceCode=='RETAILBENECC'; else default"> -->
+                            <!-- <span class="date">A/c: {{selectedData.serviceCodeDesc}}</span> -->
+                            <!-- </ng-container> -->
+                            <!-- <ng-template #default> -->
+                            <span class="date">A/c: {{selectedData.beneAccount}}</span>
+                            <!-- </ng-template> -->
+                            <!-- <span class="accountNumber">{{selectedData.bankDescription}}</span> -->
+
+                        </box>
+                        <!-- <box class="transaction-secondary-info">
+                            <span class="type">
+                                {{selectedData.serviceCodeDesc}}</span>
+                        </box> -->
+                        <box  *ngIf="!_device.isMobile()" class="sample-class">
+                            <ng-container >
+                                <button type="button" class="button-edit" >
+                                    <span class="span-label">{{'PAYMENTSCONTAINER.delete' | translate}}</span>
+                                </button>
+                            </ng-container>
+                    
+                            <span class="separator"></span>
+                    
+                            <button type="button" class="button-delete" clickable
+                                (click)="deleteBill($event, selectedData)">
+                                <span class="span-label">{{'PAYMENTSCONTAINER.payBill' | translate}}</span>
+                            </button>
+                        </box>
+                    </box>
+                </box>
+
+             
+            </ng-template>
+
+        </box>
+
+    </div>
+
+    <!-- <div class="task-action task-action-right">
+
+        <button *ngIf="!_device.isMobile()" type="button" class="button-task-action system-ico-button button-delete"
+            clickable (click)="deleteRowData($event, selectedData)">
+            <img src="./assets/images/icons/delete.svg" alt="repeat" />
+            <span>Delete</span>
+        </button>
+
+        <button type="button" class="button-task-action system-ico-button button-init-transfer" clickable
+            (click)="initTransferRowData($event, selectedData)">
+            <img src="./assets/images/icons/delete.svg" alt="repeat" />
+            <span>Initiate Transfer</span>
+        </button>
+        <button type="button" class="button-task-action system-ico-button button-favourite" clickable
+            (click)="onClickFavourite($event, selectedData)">
+            <img src="./assets/images/icons/favourite.svg" alt="share" />
+            <span>{{selectedData.isFavourite == "1"? "Unfavourite": "Favourite"}}</span>
+        </button>
+    </div> -->
+
+
+   
+   
+   
+   
+    <!-- <box class="actions">
+        <div class="sample-class">
+        <button type="button" class="system-ico-button grid-button biller-edit no-text btn-edit" clickable
+            (click)="editBill($event, selectedData)">
+            <span class="span-label">{{'PAYMENTSCONTAINER.delete' | translate}}</span>
+        </button>
+
+        <span class="separator"></span>
+
+        <button type="button" class="system-ico-button grid-button no-text btn-delete" clickable
+            (click)="deleteBill($event, selectedData)">
+            <span class="span-label">{{'PAYMENTSCONTAINER.payBill' | translate}}</span>
+        </button>
+    </div>
+    </box> -->
+
+    <div class="seperator-line"></div>
+
+    <box *ngIf="_device.isMobile()" class="options" (click)="displayContextMenu($event)">
+        <img src="./assets/images/icons/grey-dots.svg" alt="more options" />
+    </box>
+
+  
+
+</div>

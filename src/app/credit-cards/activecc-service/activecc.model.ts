@@ -1,0 +1,41 @@
+import { IHttpErrorPayload } from "@fpx/core"
+
+export interface  Activecc {
+       cardNumber:string, 
+       productCode:string, 
+       productDesc:string, 
+       cardHolderName:string, 
+       cardtype:any, 
+       status:string, 
+       autoDebitPaymentAccount:string, 
+       primaryCardAccNo:string, 
+       branchCode:string, 
+       branchDesc:string, 
+       cardRefNumber:string, 
+       eCommstatus:string, 
+       cardCategory:string, 
+       cardPresentStatus:string, 
+       validThru:string, 
+       accType:string, 
+       customerCode:string, 
+       type:any, 
+       creditLimit:number, 
+       availableCashLimit:number, 
+       minPaymentDue:number, 
+       outstandingAmount:number, 
+       lastStatementBalance:number, 
+       overdueAmount:number, 
+       interestRate:string, 
+       unbilledAmount:number, 
+       availablePurchaseLimit:number, 
+       billingAddress:string, 
+       blockReason:any, 
+       issueDate:string, 
+       rewardPointsRedeemedCurrMonth:number, 
+       rewardPointsEarnedCurrMonth:number, 
+       rewardPointsOpeningBal:number, 
+       rewardPointsClosingBal:number, 
+       currency:string 
+  }
+  
+ 

@@ -1,0 +1,8 @@
+"RETAILCCREWARDS": {
+    "servicePath": [
+        "entry-shell",
+        "credit-cards",
+        "retail-cc-rewards"
+    ],
+    "queryParams": {}
+}

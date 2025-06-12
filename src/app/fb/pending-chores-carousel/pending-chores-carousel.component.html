@@ -1,0 +1,35 @@
+<ng-container  *ngIf="_device.isMobile(); else listview">
+    <box class="widget member-pending-chores-carousel">
+        <header>
+            <box class="title-container">
+                <span class="widget-title">{{ 'PENDINGCHORES.title' | translate }} <em class="peding-chore-subcaption">{{ 'PENDINGCHORES.subcaption' | translate : {count: pendingcount || 0} }}</em></span> 
+             </box>
+             <box>
+                <button type="button" class="link" (click)="viewallchores()" *ngIf="receivedValue">View All</button>
+             </box>
+        </header>
+        <ngx-slick-carousel class="member-product-carousel" #slickModal="slick-carousel" [config]="slideConfig"
+            (afterChange)="onCardChanged($event)">
+            <ng-container *ngFor="let card of pendingtaskList">
+                <box ngxSlickItem class="slide" [style.width.px]="slideWidth">
+                     <app-pending-chores [cardData]="card"></app-pending-chores>
+                </box>
+            </ng-container>
+        </ngx-slick-carousel>
+    </box>
+    </ng-container>
+    <ng-template #listview>
+    <box class="widget member-pending-chores-carousel">
+        <header>
+            <box class="title-container">
+                <span class="widget-title">{{ 'PENDINGCHORES.title' | translate }}</span>
+            </box>
+        </header>
+        <box class="chores-listsection-wrapper">
+            <box *ngFor="let card of pendingtaskList">
+                <app-pending-chores [cardData]="card"></app-pending-chores>
+                <box class="line-seperator"></box>
+            </box>
+        </box>
+    </box>
+    </ng-template>

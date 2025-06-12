@@ -1,0 +1,11 @@
+"AddAnotherBeneficiaryForm":{
+"title":"rpcontractinfo",
+		 "firstName": {
+		  "label":"First Name" ,
+		  "placeholder": "First Name"
+		  } ,
+		 "lastName": {
+		  "label":"Last Name" ,
+		  "placeholder": "Last Name"
+		  } 
+}

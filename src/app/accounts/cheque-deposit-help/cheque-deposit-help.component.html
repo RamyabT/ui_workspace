@@ -1,0 +1,47 @@
+<box class="modal-panel">
+    <box class="modal-content-wrapper">
+        <box class="modal-header">
+            <box class="modal-icon-wrapper">    
+                <box class="modal-icon {{modalIconClass}}"></box>
+            </box>
+            <box *ngIf="isFront" class="modal-title">Capture the front side of the cheque</box>
+            <box *ngIf="isBack" class="modal-title">Capture the back side of the cheque</box>
+        </box>
+        <box class="modal-body">
+            <box *ngIf="isFront" class="description-front description">
+                <ul>
+                    <li>Position the cheque on a dark background surface in a well-lit area</li>
+                    <li>Make sure the cheque is flat and smooth with no visible creases</li>
+                    <li>Hold your camera above the cheque, ensuring the entire cheque is within frame</li>
+                    <li>Hold your camera steady—we'll take the picture automatically</li>
+                </ul>
+            </box>
+            <box *ngIf="isBack" class="description-back description">
+                <ul>
+                    <li>Print the following on the back side of the cheque and add your account number:</li>
+                </ul>
+                <box class="inline-title">For deposit only to Vancity Financial Account #:</box>
+                <ul>
+                    <li>Sign your name on the back side of the cheque</li>
+                    <li>Position the cheque on a dark background surface in a well-lit area</li>
+                    <li>Make sure the cheque is flat and smooth with no visible creases</li>
+                    <li>Hold your camera above the cheque, ensuring the entire cheque is within frame</li>
+                    <li>Hold your camera steady—we'll take the picture automatically</li>
+                </ul>
+            </box>
+            <box class="toggle-wrapper">
+                <mat-slide-toggle labelPosition="before" [(ngModel)]="hideMessageNextTime">Hide this message next time</mat-slide-toggle>
+            </box>
+        </box>
+    </box>
+
+   
+    <box class="modal-footer">
+        <box class="btn-container">
+            <button class="btn-cancel" (click)="cancel()">{{ cancelButtonLabel | translate }}</button>
+            <button class="btn-primary" (click)="next()">{{ nextButtonLabel | translate }}</button>
+        </box>
+    </box>    
+</box>
+
+

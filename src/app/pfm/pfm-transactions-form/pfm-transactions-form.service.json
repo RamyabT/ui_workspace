@@ -1,0 +1,5 @@
+ 
+ "RETAILPFMTRANSACTION" : {
+ "servicePath": ["entry-shell","pfm", "pfm-transactions-form"],
+ "queryParams": {}
+ }

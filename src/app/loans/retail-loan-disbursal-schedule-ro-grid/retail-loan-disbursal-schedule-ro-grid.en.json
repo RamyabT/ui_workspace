@@ -1,0 +1,27 @@
+"RetailLoanDisbursalScheduleROGrid":{
+"title":"Disbursement Schedule",
+		 "disbursalId": {
+		  "label":"Disbursal Number" ,
+		  "placeholder": "Disbursal Number"
+		  } ,
+		 "disbursalTo": {
+		  "label":"Disbursal To" ,
+		  "placeholder": "Disbursal To"
+		  } ,
+		 "disbursalAmount": {
+		  "label":"Disbursal Amount" ,
+		  "placeholder": "Disbursal Amount"
+		  } ,
+		 "accountNumber": {
+		  "label":"Credit Account Number" ,
+		  "placeholder": "Credit Account Number"
+		  } ,
+		 "disbursalType": {
+		  "label":"Disbursal Type" ,
+		  "placeholder": "Disbursal Type"
+		  } ,
+		 "paymentMode": {
+		  "label":"Payment Type" ,
+		  "placeholder": "Payment Type"
+		  } 
+}

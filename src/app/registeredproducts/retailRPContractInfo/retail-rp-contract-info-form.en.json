@@ -1,0 +1,39 @@
+"RetailRPContractInfoForm":{
+"title":"RetailRPContractInfoForm",
+		 "firstName": {
+		  "label":"Customer Name" ,
+		  "placeholder": "Customer Name"
+		  } ,
+		 "lastName": {
+		  "label":"Customer Name" ,
+		  "placeholder": "Customer Name"
+		  } ,
+		 "dob": {
+		  "label":"Dob" ,
+		  "placeholder": "Dob"
+		  } ,
+		 "emailAddress": {
+		  "label":" Email" ,
+		  "placeholder": " Email"
+		  } ,
+		 "mobileNumber": {
+		  "label":"Mobile Number" ,
+		  "placeholder": "Mobile Number"
+		  } ,
+		 "rpContactMethod": {
+		  "label":"Preferred Contact Method" ,
+		  "placeholder": "Preferred Contact Method"
+		  } ,
+		 "sin": {
+		  "label":"Social Insurance Number" ,
+		  "placeholder": "Social Insurance Number"
+		  } ,
+		 "sinUsageConsent": {
+		  "label":"I Heard Agree To The Terms in The Declarations  Of Trust" ,
+		  "placeholder": "I Heard Agree To The Terms in The Declarations  Of Trust"
+		  } ,
+		  "trustAgreedFlag": {
+		  "label":"I consent to the use of my Social Insurance Number as described in the agreement" ,
+		  "placeholder": "Placeholder"
+		  } 
+}

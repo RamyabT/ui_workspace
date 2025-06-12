@@ -1,0 +1,7 @@
+"transaction-range-type-control":{
+	"1":"Current Month",
+	"2":"Last Month", 
+	"3":"Last 3 Months", 
+	"4":"Last 6 Months", 
+	"5":"Custom" 
+}

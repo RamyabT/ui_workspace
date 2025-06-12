@@ -1,0 +1,17 @@
+
+  <fpx-ro-grid
+  [tilesConfig]="gridTitles"
+  [columnsArray]="columnsArray"
+  [tableDatafn]="gridService"
+  [toolGroupConfig]="toolGroup"
+  [toolBarConfig]="toolBar"
+  (handleActions)="handleActions($event)"
+  [gridWidth]="_gridWidth"
+  [gridConfig]="gridConfig"
+  [roGridName]="'RetailStopchequeDisplayGrid'"
+  [refreshGrid$]="_helper.refresh$" #fpxRoGrid
+  [interceptors]="interceptors"
+  [cellActionArray]="_helper.getCellActions()"
+  >
+</fpx-ro-grid>
+<div #loadMore></div>

@@ -1,0 +1,5 @@
+ 
+ "RETAILDCACTIVATECARD" : {
+ "servicePath": ["entry-shell","debitcard", "retail-dc-activate-card-form"],
+ "queryParams": {}
+ }

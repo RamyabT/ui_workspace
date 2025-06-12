@@ -1,0 +1,5 @@
+ 
+ "expensesDetails" : {
+ "servicePath": ["entry-shell","loans", "expensesDetails"],
+ "queryParams": {}
+ }

@@ -1,0 +1,93 @@
+<ng-container *ngIf="selectedData && selectedData?.accountNumber">
+    <box class="account-information">
+        <box class="acc-primary-information">
+            <box class="pay-from">{{payFromLabel}}</box>
+            <box class="account-type-number-section">
+                <box class="acc-dtl-balance-section">
+                    <box class="acc-type-number-wrapper">
+                        <span class="acc-type">{{selectedData.accountNickname || selectedData.productDesc }} </span>
+                        <!-- <span class="product-name"> {{ selectedData?.accountNumber }}</span> -->
+
+                        <box class="product-details">
+                            <box class="account-number">{{ selectedData?.accountNumber }}</box>
+                            <box class="seperator"></box>
+                            <box class="account-type">{{ selectedData.accountTypeDesc }}<span class="joint"
+                                    *ngIf="selectedData.ownership == 'Joint'">{{selectedData.ownership}}</span><span
+                                    class="dormant"
+                                    *ngIf="selectedData.accountStatus == 'Dormant'">{{selectedData.accountStatus}}</span>
+                            </box>
+                        </box>
+                    </box>
+                    <box class="balance-wrapper">
+                        <box class="balance-details">
+                            <span class="balance-label">{{'CASASUMMARYCARD.available' | translate}}</span>
+
+                            <ng-container
+                                *ngIf="selectedData.accountCurrency != _appConfig.baseCurrency else avlBaseCurrency">
+                                <box class="balance-val">
+                                    <box class="amount balance-amount-usd"> {{ selectedData.availableBalance | currency :
+                                        selectedData.accountCurrency : '' }} <em>{{ selectedData.accountCurrency |
+                                            currencyCode }}</em></box>
+                                    <box class="amount balance-amount-cad">{{ selectedData.baseCurrencyAvlBal | currency :
+                                        _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                                            }}</em>
+                                    </box>
+                                </box>
+                            </ng-container>
+                            <ng-template #avlBaseCurrency>
+                                <box class="amount balance-amount-cad">{{ selectedData.availableBalance | currency :
+                                    selectedData.accountCurrency : '' }} <em>{{ selectedData.accountCurrency |
+                                        currencyCode }}</em></box>
+                            </ng-template>
+
+                        </box>
+                        <box class="balance-details current-balance">
+                            <span class="balance-label">{{'CASASUMMARYCARD.actual' | translate}}</span>
+
+                            <ng-container
+                                *ngIf="selectedData.accountCurrency != _appConfig.baseCurrency else curBaseCurrency">
+                                <box class="amount balance-amount-usd"> {{ selectedData.currentBalance | currency :
+                                    selectedData.accountCurrency : '' }} <em>{{ selectedData.accountCurrency |
+                                        currencyCode }}</em></box>
+                                <box class="amount balance-amount-cad">{{ selectedData.baseCurrencyCurrentBal | currency :
+                                    _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                                        }}</em></box>
+                            </ng-container>
+                            <ng-template #curBaseCurrency>
+                                <box class="amount balance-amount-cad">{{ selectedData.currentBalance | currency :
+                                    selectedData.accountCurrency : '' }} <em>{{ selectedData.accountCurrency |
+                                        currencyCode }}</em></box>
+                            </ng-template>
+
+                        </box>
+                    </box>
+                </box>
+                <!-- <box class="swap-share-wrapper">
+                    <box [ngClass]="{'hide-view-all' : !showViewAll}" class="swap-act-section" (click)="viewAll()">
+                        <box class="swap-act-icon">
+                            <img src="./assets/images/icons/swap-account.svg">
+                        </box>
+                        <span class="icon swap-act-icon"></span>
+                        <span class="swap-act-text">
+                            {{'CASASUMMARYCARD.viewall' | translate}}
+                        </span>
+                    </box>
+
+                    <box class="share-act-section" (click)="shareInfo($event)">
+                        <box class="share-act-icon">
+                            <img src="./assets/images/icons/share-account.svg">
+                        </box>
+                        <span class="icon swap-act-icon"></span>
+                        <span class="share-act-text">
+                            {{'CASASUMMARYCARD.share' | translate}}
+                        </span>
+                    </box>
+
+                    <box class="default-account">
+                        <mat-slide-toggle [checked]="selectedData.preferredAccount" (change)="setDefaultAccount(selectedData)">Default Account</mat-slide-toggle>
+                    </box>
+                </box> -->
+            </box>
+        </box>
+    </box>
+</ng-container>

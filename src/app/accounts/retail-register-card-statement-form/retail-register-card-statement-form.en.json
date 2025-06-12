@@ -1,0 +1,15 @@
+"RegisterCardStatement":{
+"title":"Register Card Statement",
+		 "emailId": {
+		  "label":" Email" ,
+		  "placeholder": " Email"
+		  } ,
+		 "FieldId_5": {
+		  "label":"Registration Status" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } 
+}

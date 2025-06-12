@@ -1,0 +1,5 @@
+ 
+ "RETAILMODIFYPFMGOALSREQ" : {
+ "servicePath": ["entry-shell","pfm", "retail-pfm-modify-goalreq-form"],
+ "queryParams": {}
+ }

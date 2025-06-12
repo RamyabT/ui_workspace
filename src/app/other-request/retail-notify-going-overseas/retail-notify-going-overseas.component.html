@@ -1,0 +1,39 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="notifygoingoverseas" >
+	  
+	<box class="entry-form">
+	     <box class="entry-form-field-group grid">
+	      
+			  <app-request-date-control  class="col-sm-12 col-md-4 col-lg-6  "   [actionPublisher]="actionMap$.get('depatureDate')"     label="{{'notifygoingoverseas.depatureDate.label' | translate }}"   formControlName="depatureDate" 
+   [minDate]="state.depatureDate.minDate"   [maxDate]="state.depatureDate.maxDate"  ></app-request-date-control>
+	     
+	      
+			  <app-request-date-control  class="col-sm-12 col-md-4 col-lg-6 "   [actionPublisher]="actionMap$.get('arivalDate')"     label="{{'notifygoingoverseas.arivalDate.label' | translate }}"   formControlName="arivalDate" 
+   [minDate]="state.arivalDate.minDate"   [maxDate]="state.arivalDate.maxDate"  ></app-request-date-control>
+	     
+	      
+			  <app-country-list-control  class="col-sm-12 col-md-4 col-lg-6 "   [actionPublisher]="actionMap$.get('country')"     label="{{'notifygoingoverseas.country.label' | translate }}"   formControlName="country" 
+   ></app-country-list-control>
+	     
+	      <!-- <app-country-info-control  class="col-sm-12 col-md-4 col-lg-6 "   [actionPublisher]="actionMap$.get('country')"     label="{{'notifygoingoverseas.country.label' | translate }}"   formControlName="country" 
+   ></app-country-info-control> -->
+			  <app-mobile-number-control  class="col-sm-12 col-md-4 col-lg-6  "   [actionPublisher]="actionMap$.get('contactNumber')"     label="{{'notifygoingoverseas.contactNumber.label' | translate }}"   formControlName="contactNumber" 
+      ></app-mobile-number-control>
+	     
+	 <app-enabled-flag-control class="col-sm-12 col-md-4 col-lg-6"
+				[actionPublisher]="actionMap$.get('temporarilyBlockCard')"
+				label="{{'notifygoingoverseas.temporarilyBlockCard.label' | translate }}"
+				formControlName="temporarilyBlockCard"></app-enabled-flag-control>
+
+	     
+	      
+			  <!-- <app-remarks-control  class="col-sm-12 col-md-4 col-lg-6 "   [actionPublisher]="actionMap$.get('remarks')"     label="{{'notifygoingoverseas.remarks.label' | translate }}"   formControlName="remarks" 
+   ></app-remarks-control> -->
+	     <app-other-remarks-control  class="col-sm-12 col-md-4 col-lg-6 "   [actionPublisher]="actionMap$.get('remarks')"     label="{{'notifygoingoverseas.remarks.label' | translate }}"   formControlName="remarks" 
+   ></app-other-remarks-control>
+	      
+			  <app-terms-control  class="col-12 "   [actionPublisher]="actionMap$.get('termsFlag')"     label="{{'notifygoingoverseas.termsFlag.label' | translate }}"   formControlName="termsFlag" 
+   [textPosition]="state.termsFlag.textPosition"  [ckValues]="state.termsFlag.ckValues" ></app-terms-control>
+	</box> 
+	</box>
+</form>
+	

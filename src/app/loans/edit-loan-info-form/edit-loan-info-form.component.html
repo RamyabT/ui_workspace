@@ -1,0 +1,49 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="EditLoanInfoForm">
+  <box class="entry-form">
+    <box class="entry-form-field-group">
+
+      <box class="slider-field no-flag col-lg-12">
+        <fpx-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('propCost')"
+          label="Property cost" formControlName="propCost" [min]="state.propCost.min"
+          [max]="state.propCost.max" [step]="state.propCost.step"
+          [currencyCode]="state.propCost.currencyCode"></fpx-amount-slider>
+      </box>
+
+      <box class="slider-field no-flag col-lg-12">
+        <fpx-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('vehicleCost')"
+          label="Vehicle cost" formControlName="vehicleCost" [min]="state.vehicleCost.min"
+          [max]="state.vehicleCost.max" [step]="state.vehicleCost.step"
+          [currencyCode]="state.vehicleCost.currencyCode"></fpx-amount-slider>
+      </box>
+
+      <box class="slider-field no-flag col-lg-12">
+        <fpx-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('loanAmount')"
+          label="Loan Amount" formControlName="loanAmount" [min]="state.loanAmount.min"
+          [max]="state.loanAmount.max" [step]="state.loanAmount.step"
+          [currencyCode]="state.loanAmount.currencyCode"></fpx-amount-slider>
+      </box>
+
+      <box class="slider-field no-flag col-lg-12">
+        <fpx-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('downPayment')"
+          label="Down payment amount" formControlName="downPayment" [min]="state.downPayment.min"
+          [max]="state.downPayment.max" [step]="state.downPayment.step"
+          [currencyCode]="state.downPayment.currencyCode"></fpx-amount-slider>
+      </box>
+
+      <box class="slider-field no-flag col-lg-12">
+        <fpx-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('tenor')"
+          label="Tenor" formControlName="tenor" [min]="state.tenor.min"
+          [max]="state.tenor.max" [step]="state.tenor.step"
+          [currencyCode]="state.tenor.currencyCode"></fpx-amount-slider>
+      </box>
+
+      <box class="form-action-container">
+        <fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('reset')"
+          label="{{'DEFAULT.reset' | translate }}" btnClass=" btn-secondary" [buttonMode]="'button'"
+          (onClick)="_helper.onResetClick(null)"></fpx-button>
+        <fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('view')" label="Apply" btnClass=" btn-primary"
+          [buttonMode]="'button'" [disable]="!formGroup.valid" (onClick)="_helper.onViewClick(null)"></fpx-button>
+      </box>
+    </box>
+  </box>
+</form>

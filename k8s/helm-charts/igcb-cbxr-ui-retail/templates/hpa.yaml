@@ -1,0 +1,15 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ template "igcb-cbxr-ui-retail.fullname" . }}-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: autoscaling/v2
+    kind: Deployment
+    name: {{ template "igcb-cbxr-ui-retail.fullname" . }}
+  minReplicas: {{ .Values.hpa.minCount }}
+  maxReplicas: {{ .Values.hpa.maxCount }}
+  metrics:
+{{- with .Values.hpa.metrics }}
+{{ toYaml . | indent 2 }}
+{{- end }}

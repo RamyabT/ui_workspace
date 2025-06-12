@@ -1,0 +1,41 @@
+import { IHttpErrorPayload } from "@fpx/core"
+
+export interface  Blockcc {
+       creditCardNumber:string, 
+       productCode:string, 
+       productDesc:string, 
+       cardHolderName:string, 
+       cardType:any, 
+       status:string, 
+       autoDebitPaymentAccount:string, 
+       primaryCardAccNo:string, 
+       branchCode:string, 
+       branchDesc:string, 
+       cardRefNumber:string, 
+       eCommstatus:string, 
+       cardCategory:string, 
+       cardPresentStatus:string, 
+       validThru:string, 
+       accountType:string, 
+       customerCode:string, 
+       type:any, 
+       creditLimit:number, 
+       blockReason:any, 
+       availableCashLimit:number, 
+       minPaymentDue:number, 
+       outstandingAmount:number, 
+       lastStatementBalance:number, 
+       overdueAmount:number, 
+       issueDate:string, 
+       interestRate:string, 
+       billingAddress:string, 
+       availablePurchaseLimit:number, 
+       unbilledAmount:number, 
+       rewardPointsEarnedCurrMonth:number, 
+       rewardPointsClosingBal:number, 
+       rewardPointsOpeningBal:number, 
+       rewardPointsRedeemedCurrMonth:number, 
+       currency:string 
+  }
+  
+ 

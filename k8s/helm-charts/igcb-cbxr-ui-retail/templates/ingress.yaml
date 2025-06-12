@@ -1,0 +1,42 @@
+{{- if .Values.ingress.enabled -}}
+{{- $fullName := include "igcb-cbxr-ui-retail.fullname" . -}}
+{{- $ingressPath := .Values.ingress.path -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $fullName }}
+  labels:
+    app: {{ template "igcb-cbxr-ui-retail.name" . }}
+    chart: {{ template "igcb-cbxr-ui-retail.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+{{- with .Values.ingress.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+spec:
+  ingressClassName: "{{ .Values.ingress.ingressClassName }}"
+{{- if .Values.ingress.tls }}
+  tls:
+  {{- range .Values.ingress.tls }}
+    - hosts:
+      {{- range .hosts }}
+        - {{ quote . }}
+      {{- end }}
+      secretName: {{ .secretName }}
+  {{- end }}
+{{- end }}
+  rules:
+  {{- range .Values.ingress.hosts }}
+    - host: {{ quote . }}
+      http:
+        paths:
+          - pathType: ImplementationSpecific
+            path: {{ $ingressPath }}
+            backend:
+              service:
+                name: {{ $fullName }}
+                port: 
+                  number: 80
+  {{- end }}
+{{- end }}

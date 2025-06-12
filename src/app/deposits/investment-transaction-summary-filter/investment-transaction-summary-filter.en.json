@@ -1,0 +1,7 @@
+"InvestmentTransactionSummaryFilter":{
+"title":"InvestmentTransactionSummaryFilter",
+		 "transactionDate": {
+		  "label":"From Date" ,
+		  "placeholder": "From Date"
+		  } 
+}

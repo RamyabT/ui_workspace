@@ -1,0 +1,101 @@
+<!-- <button type="button" class="btn-popup-close" (click)="closePopup()">close</button>
+
+<ng-container *ngIf="details; else loader">
+  <box class="casa-transaction-info-wrapper info-popup-wrapper">
+    <header>
+      <box class="casa-transaction-info col-12">
+        <ng-container  *ngIf="details.transactionCategory; else noPhoto">
+        <box class="transaction-icon-wrapper">
+          <img src="./assets/transactions/{{details.transactionCategory}}.svg" alt="transactionCategory" />
+        </box>
+         </ng-container>
+        <ng-template #noPhoto>Pp
+          <div class="name-first-letter">
+              <span *ngIf="details.beneficiaryName?.split(' ').length == 1">{{details.beneficiaryName?.substring(0, 1)}}
+              </span>
+              <span *ngIf="details.beneficiaryName?.split(' ').length > 1 && details.beneficiaryName?.split(' ').length != 1">
+                {{details.beneficiaryName?.split(" ")[0]?.charAt(0) +(details.beneficiaryName?.split(" ")[1]?
+                details.beneficiaryName?.split(" ")[1]?.charAt(0): "")}}
+              </span>
+          </div>
+        </ng-template>
+        <box class="transaction-info">
+          <box class="transaction-primary-info">
+            <span class="name">{{ details.beneficiaryName}}</span>
+            <span class="date">{{ details.paymentDate | date : "dd MMM yyyy" }}</span>
+          </box>
+          <box class="transaction-secondary-info">
+            <span class="amount"><em>-{{details.paymentAmount | currency : details.paymentCurrency: ''}}</em>
+              {{details.paymentCurrency}}</span>
+              <span>{{details.serviceCode}}</span>
+          </box>
+        </box>
+      </box>
+    </header>
+
+    <box class="info-popup-body">
+      <box class="display-fields-container">
+        <ng-container *ngFor="let field of fields; index as i">
+          <box class="display-field">
+            <span class="lbl">{{ 'transfersInfo.'+field | translate }}</span>
+            <span class="val">
+              <ng-container [ngSwitch]="fieldsFormat[i]">
+                <ng-container *ngSwitchCase="'date'">
+                  {{ details[field] | date : "dd MMM yyyy" }}
+                </ng-container>
+                <ng-container *ngSwitchCase="'amount'">
+                  {{ details[field] | currency : details.currency : '' }}
+                </ng-container>
+                <ng-container *ngSwitchCase="'precentage'">
+                  {{ details[field] + "%" }}
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                  {{ details[field] }}
+                </ng-container>
+              </ng-container>
+            </span>
+          </box>
+        </ng-container>
+      </box>
+  
+      <ng-container *ngIf="details?.instrumentId">
+        <hr class="h-seperator" />
+        <box class="cheque-view">
+          <ng-container *ngIf="doViewCheque">
+            <ng-container *ngIf="chequeImage; else loader">
+              <box class="cheque-image-wrapper">
+                <img [src]="chequeImage" alt="cheque" />
+              </box>
+            </ng-container>
+            
+          </ng-container>
+          
+      <box class="cheque-action">
+            <fpx-button *ngIf="!doViewCheque" btn-type="button" btnClass="secondary"
+              label="{{'transfersInfo.viewCheque' | translate}}" (onClick)="viewCheque(details?.instrumentId)"></fpx-button>
+            <fpx-button *ngIf="chequeImage && doViewCheque" btn-type="button" btnClass="secondary"
+              label="{{'transfersInfo.hideCheque' | translate}}" (onClick)="hideCheque()"></fpx-button>
+          </box> -->
+        <!-- </box>
+      </ng-container>
+  
+      <box class="display-details-container-footer">
+        <fpx-button btnType="button" btnClass="tertiary" label="{{'transfersInfo.back' | translate}}" (click)="closePopup()"></fpx-button>
+        <fpx-button btnType="button" btnClass="primary" label="{{'transfersInfo.share' | translate}}" (click)="dataShare()"></fpx-button>
+      </box>
+    </box>
+    
+  </box> -->
+
+    
+   
+  <!-- <fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('share')" label="Share"
+    btnClass=" btn-primary" [buttonMode]="'button'"
+    (onClick)="retailcasatrandtlsfilterformHelper.onViewClick(null)"></fpx-button> -->
+
+
+<!-- </ng-container>
+
+<ng-template #loader>
+  <box class="loading"></box>
+</ng-template> --> 

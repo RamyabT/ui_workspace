@@ -1,0 +1,27 @@
+ <box class="widget member-product-card-carousel">
+    <header>
+        <span class="widget-title">{{ 'MEMBERCARD.title' | translate  : {count: memberlist.length}  }}</span>
+        <fpx-button btnType="button" 
+            btnClass="link add-member" 
+            label="{{'MEMBERCARD.addmember' | translate  }}" (onClick)="addChild()"
+             ></fpx-button>
+    </header>
+    <ng-container *ngIf="_device.isMobile(); else listview">
+    <box class="widget-body chart-wrapper">
+        <ngx-slick-carousel class="member-product-carousel" #slickModal="slick-carousel" 
+        [config]="slideConfig" 
+        (afterChange)="onCardChanged($event)">
+        <ng-container   *ngFor="let card of memberlist; let i=index" >
+            <box ngxSlickItem class="slide"   (click)="onSlideClick(card,i)" >
+                <app-member-card  [cardData]="card"></app-member-card>
+            </box>
+        </ng-container>
+    </ngx-slick-carousel>
+    </box>
+</ng-container>
+<ng-template #listview>
+    <box class="member-widget-selection" *ngFor="let card of memberlist">
+        <app-member-card [cardData]="card"></app-member-card>
+    </box> 
+</ng-template>
+</box>

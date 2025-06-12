@@ -1,0 +1,5 @@
+ 
+ "RETAILMANAGEBENE" : {
+ "servicePath": ["entry-shell","transfers", "retail-manage-bene-form"],
+ "queryParams": {}
+ }

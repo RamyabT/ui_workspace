@@ -1,0 +1,142 @@
+@use '../../layout/grid-system';
+/// For live markup see:
+///  - src\app\dep\core\component\dep-ui-modal-actions-menu\dep-ui-modal-actions-menu.component.html
+/// @example Sample HTML:
+/// <box class="dep-ui-modal-actions-menu-container">
+///     <box *ngIf="!_device.isMobile()" class="dep-ui-modal-actions-menu-header">
+///         <span class="dep-ui-modal-actions-menu-header-text">
+///             Manage Credit Card actions
+///         </span>
+///         <button type="button" class="system-ico-button btn-close no-text" name="back">
+///             <span>{{ 'DEFAULT.close'| translate}}</span>
+///         </button>
+///     </box>
+///     <box class="dep-ui-modal-actions-menu-body">
+///         <h5 class="sub-group-header">Actions</h5>
+///         <box class="action-list">
+///             <button class="action-item">
+///                 <span class="icon-wrapper icon-service-RETAILCCBILLPAYMENT"></span>
+///                 <div class="text-wrapper">
+///                     <span class="text">Pay credit card</span>
+///                     <span class="subtext">
+///                         Make a bill payment towards your balance.
+///                     </span>
+///                 </div>
+///             </button>
+///             <button class="action-item">
+///                 <span class="icon-wrapper icon-service-RETAILCCSTATEMENT"></span>
+///                 <div class="text-wrapper">
+///                     <span class="text">Pay credit card</span>
+///                     <span class="subtext">
+///                         View and download your statements
+///                     </span>
+///                 </div>
+///             </button>
+///             ...
+///         </box>
+///     </box>
+/// </box>
+
+@mixin modal-actions-menu-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 24px;
+    gap: 24px;
+    border-bottom: 1px solid var(--primaryBorderClr);
+    width: 100%;
+    .system-ico-button::before {
+        background-color: var(--modulePrimaryIconClr);
+    }
+}
+@mixin modal-actions-menu-header-text {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    color: var(--modulePrimaryTextClr);
+    flex: 1;
+}
+@mixin modal-actions-menu-body {
+    padding: 0 24px 24px;
+    @include grid-system.small-screen {
+        padding: 8px;
+    }
+}
+@mixin modal-actions-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+
+}
+@mixin modal-actions-sub-group-header {
+    color: var(--modulePrimaryTextClr);
+    font-family: 'sharpgrotesk', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+    margin: 16px 0;
+    @include grid-system.small-screen {
+        margin: 8px 0;
+        padding: 0 16px;
+    }
+}
+
+@mixin modal-actions-button {
+    background-color: var(--moduleBtnSecondaryBgClr);
+    border-radius: 16px;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    width: 200px;
+    align-items: center;
+    justify-content: flex-start;
+    @include grid-system.small-screen {
+        background-color: var(--dialogBackgroundClr);
+        width: 100%;
+        max-width: unset;
+    }
+
+    .icon-wrapper {
+        background-color: var(--moduleActionsPrimaryBgClr);
+        border-radius: 50%;
+        padding: 12px;
+        min-width: 48px;
+        width: 48px;
+        height: 48px;
+        @include grid-system.small-screen {
+            background-color: var(--dialogIconContainerClr);
+        }
+        &::before {
+            background-color: var(--moduleSecondaryIconClr);
+        }
+    }
+}
+
+@mixin modal-actions-button-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+    padding: 4px 8px;
+    text-align: left;
+}
+@mixin modal-actions-button-text {
+    color: var(--modulePrimaryTextClr);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0;
+}
+@mixin modal-actions-button-subtext {
+    color: var(--smallGreyTextClr);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0;
+    font-weight: 500;
+}

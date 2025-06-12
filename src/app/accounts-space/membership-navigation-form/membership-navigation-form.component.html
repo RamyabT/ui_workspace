@@ -1,0 +1,8 @@
+<form [formGroup]="formGroup" autocomplete="off" formName="casa-navigation-form" class="casa-navigation-form">
+    <box class="entry-form">
+        <app-membership-acc-dtl-list-tmplt class="casaAccountDtlListTmplt" [selectedData]="state.selectedAccount" [showViewAll]="_helper.showViewAll"
+        (onClickingViewAll)="_helper.openCasaAccountsLists()"></app-membership-acc-dtl-list-tmplt>
+
+        <app-membership-context-menu [resetActiveMenu]="state.resetActiveMenu" class="col-12 widget quick-link" [accountNumber]="state.accountNumber" ></app-membership-context-menu>
+    </box>
+</form>

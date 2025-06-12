@@ -1,0 +1,32 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailManageBeneForm">
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-sm-12 col-md-12 col-lg-12">
+			<box class="fpx-form-control search-group col-sm-12 col-md-12 col-lg-12">
+				<input mat-input type="text" 
+					formControlName="searchText"
+					placeholder="Search Favourite" class="fpx-field-content search-bar col-sm-12 col-md-12 col-lg-12" />
+			</box>
+			<!-- <div class="bene-segment">
+				<box class="segments">
+					<div *ngFor="let segment of _helper.segments; let i=index">
+						<div class="segment" [ngClass]="{'active':i == _helper.activeSegmentIndex}" (click)="_helper.onClickSegment(i)">{{segment.type}} ({{segment.count}})</div>
+					</div>
+				</box>
+				<img class="filter-icon" src="./assets/images/icons/transfer-filter.svg" alt="">
+			</div> -->
+			<app-retail-view-all-favourtie-payments-ro-grid class="col-sm-12 col-md-12 col-lg-12"
+				(commonRoGridEvent)="_helper.favourtiePaymentsRoGridEvent($event)"
+				[actionPublisher]="actionMap$.get('favtransferdetailsGrid')"></app-retail-view-all-favourtie-payments-ro-grid>
+
+			<ng-container *ngIf="_helper.NoDataInSearch==true">
+				<box class="no-data-view">
+					<img class="no-result-image" src="./assets/images/transfers/no-schedule-transfer.svg"
+						alt="no transactions available">
+					<box class="no-data-desc">No favourite tranfers are added</box>
+
+				</box>
+			</ng-container>
+
+		</box>
+	</box>
+</form>

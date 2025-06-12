@@ -1,0 +1,26 @@
+<box class="chart-container">
+    <fpx-multi-line-chart [xValue]="'week'" [yValue]="['inflow', 'outflow','inflowDashed', 'outflowDashed']" chart [actionPublisher]="actionMap"
+        [chartsPublisher]="chartsAction$" [chartConfigurations]="getChartData()"
+        [additionalKeys]="['isDashed']">
+    </fpx-multi-line-chart>
+
+    <ng-container *ngIf="cashflowChartHelper.legends && cashflowChartHelper.legends.length">
+        <ul class="legends">
+            <ng-container *ngFor="let legend of cashflowChartHelper.legends">
+                <li class="legend {{legend.id}}">
+                    <ng-container *ngIf="legend.id!='prediction'; else prediction">
+                        <span class="bullet" [style.backgroundColor]="legend.color" [attr.aria-label]="legend.id"></span>
+                    </ng-container>
+                    <ng-template #prediction>
+                        <span class="legend-color">
+                            <span class="bullet" [style.backgroundColor]="legend.color" [attr.aria-label]="legend.id"></span>
+                            <span class="bullet" [style.backgroundColor]="legend.color" [attr.aria-label]="legend.id"></span>
+                        </span>
+                    </ng-template>
+                    <span class="legend-text">{{ legend.text | translate }}</span></li>
+            </ng-container>
+        </ul>
+        
+    </ng-container>
+    
+</box>

@@ -1,0 +1,5 @@
+ 
+ "prefMailingAddress" : {
+ "servicePath": ["entry-shell","onboarding", "pref-mailing-address-form"],
+ "queryParams": {}
+ }

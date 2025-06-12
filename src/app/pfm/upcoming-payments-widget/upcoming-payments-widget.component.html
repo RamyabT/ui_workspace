@@ -1,0 +1,12 @@
+<box class="widget upcoming-payments-inner">
+    <header>
+        <span class="widget-title">{{ 'upcomingPaymentsWgt.title' | translate }}</span>
+        <fpx-button btnType="button" 
+            btnClass="link arrow-button" 
+            label="{{'upcomingPaymentsWgt.viewAll' | translate}}"
+            (onClick)="viewAllBills()"></fpx-button>
+    </header>
+    <box class="widget-body upcoming-payments-body">
+        <app-upcoming-payments-dashboard-ro-grid></app-upcoming-payments-dashboard-ro-grid>
+    </box>
+</box>

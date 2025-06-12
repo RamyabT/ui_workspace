@@ -1,0 +1,57 @@
+<box class="confirmation-receipt-inner success {{ result?.statusCode?.toLowerCase() }}" >
+    <box class="confirmation-body">
+        <box class="status-container">
+            <box class="status-ico-wrapper">
+                <span class="status-ico"></span>
+            </box>
+            <span class="confirmation-message">
+                <ng-container *ngIf="result?.requestPayload?.errorCode; else noErrorTtl">
+                    {{ result?.requestPayload?.errorCode }}
+                </ng-container>
+                <ng-template #noErrorTtl>
+                    {{ _requestServiceCode + '.' + _requestStatus + ".message" | translate }}
+                </ng-template>
+            </span>
+        </box>
+        <box class="message-container">
+            <span class="confirmation-description">
+                <ng-container *ngIf="result?.requestPayload?.errorCode; else noErrorMsg">
+                    {{ result?.requestPayload?.errorMessage }}
+                </ng-container>
+                <ng-template #noErrorMsg>
+                    {{ _requestServiceCode + '.' + _requestStatus + ".description" | translate }}
+                </ng-template>
+            </span>
+        </box>
+
+        <ng-container *ngIf="result?.additionalInfo && result?.additionalInfo.length">
+            <hr />
+            <box class="additional-details-container">
+                <ng-container *ngFor="let detail of result?.additionalInfo">
+                    <box class="details">
+                        <span class="detail-lbl">{{ 'confirmationReceiptForm.' + detail.label | translate }}</span>
+                        <span class="detail-val">
+                            <ng-container [ngSwitch]="detail.format">
+                                <ng-container *ngSwitchCase="'date'">
+                                    {{ detail.value | date : "dd MMM YYYY, hh:mm:ss" }}
+                                </ng-container>
+                                <ng-container *ngSwitchDefault>
+                                    {{ detail.value }}
+                                </ng-container>
+                            </ng-container>
+                            
+                        </span>
+                    </box>
+                </ng-container>
+            </box>
+        </ng-container>
+
+    </box>
+
+    <box class="confirmation-footer">
+        <button type="button" class="primary" (click)="done($event)">
+            <span *ngIf = "!isResumeBack">{{ 'confirmationReceiptForm.home' | translate }}</span>
+            <span *ngIf = "isResumeBack">{{ 'confirmationReceiptForm.resume' | translate }}</span>
+        </button>
+    </box>
+</box>

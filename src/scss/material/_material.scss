@@ -1,0 +1,136 @@
+@use "@angular/material" as mat;
+@include mat.core();
+
+$dark-primary-text: rgba(black, 0.87);
+$dark-secondary-text: rgba(black, 0.54);
+$dark-disabled-text: rgba(black, 0.38);
+$dark-dividers: rgba(black, 0.12);
+$dark-focused: rgba(black, 0.12);
+$light-primary-text: white;
+$light-secondary-text: rgba(white, 0.7);
+$light-disabled-text: rgba(white, 0.5);
+$light-dividers: rgba(white, 0.12);
+$light-focused: rgba(white, 0.12);
+
+$primary-color: (
+  900: #00314a,
+  800: #004a70,
+  700: #006395,
+  600: #007cbb,
+  500: #3396c8,
+  400: #66b0d6,
+  300: #99cae3,
+  200: #cce4f1,
+  100: #e6f2f8,
+  50: #e6f2f8,
+  A100: #e6f2f8,
+  A200: #66b0d6,
+  A400: #007cbb,
+  A700: #004a70,
+  contrast: (50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  ),
+);
+
+$my-primary: mat.define-palette($primary-color, 600);
+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$my-theme: mat.define-light-theme((color: (primary: $my-primary,
+        accent: $my-accent,
+      ),
+    ));
+
+@include mat.all-component-themes($my-theme);
+
+.mat-ripple {
+  display: none;
+}
+
+#depAppBody {
+  .mat-checkbox-disabled{
+    pointer-events: none;
+  }
+  .mat-radio-button {
+    &.default{
+      .mat-radio-container {
+        .mat-radio-outer-circle {
+          border-color: var(--neutral500);
+          border-width: 1px;
+        }
+  
+        .mat-radio-inner-circle {
+          background-color: var(--radioTikClr);
+          transform: scale(0.4);
+        }
+      }
+  
+      &.mat-radio-checked {
+        .mat-radio-container {
+          .mat-radio-outer-circle {
+            border-color: var(--radioOnBdrClr);
+            background-color: var(--radioOnBg);
+          }
+        }
+      }
+    }
+  }
+
+  .mat-select-disabled {
+    .mat-select-arrow-wrapper {
+      display: none;
+    }
+  }
+
+  .mat-progress-bar {
+    border-radius: 4px;
+
+    .mat-progress-bar-fill::after {
+      background-color: var(--tertiary500);
+      border-radius: 4px;
+    }
+
+    .mat-progress-bar-buffer {
+      background-color: var(--neutral200);
+      border-radius: 4px;
+    }
+  }
+
+  .mat-checkbox-layout .mat-checkbox-label {
+    white-space: pre-wrap;
+  }
+}
+
+html.small-screen {
+  &.cdk-global-scrollblock {
+    position: unset;
+    overflow: hidden;
+
+    .cdk-overlay-pane {
+      .mat-select-panel-wrap {
+        .fpx-select-panel {
+          max-height: 198px;
+        }
+      }
+    }
+  }
+}
+
+.mat-slide-toggle-bar {
+  @include rtl-direction {
+    direction: rtl;
+    margin-inline-start: 8px;
+    margin-inline-end: 0;
+  }
+}

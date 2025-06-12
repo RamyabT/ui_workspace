@@ -1,0 +1,130 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailDDRequestForm">
+	<box class="entry-form">
+		<box class="grid entry-form-field-group">
+		<app-account-number-list-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('accountNumber')"
+			label="{{'RetailDDRequestForm.accountNumber.label' | translate }}" formControlName="accountNumber"
+			(commonControlEvent)="handleControlEvent($event)">
+		</app-account-number-list-control>
+		<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('availableBalance')"
+				label="{{'RetailOpenNewCasaForm.availableBalance.label' | translate }}"
+				formControlName="availableBalance" 
+				[isCurrEditable]="state.availableBalance.isCurrEditable"
+				[defaultFetch]="state.availableBalance.defaultFetch"
+				[initCurrency]="state.availableBalance.initCurrency"
+				[amountInWords]="state.availableBalance.amountInWords" [changePublisher]="formChangePublisher$"
+				>
+				></app-payment-amount-control>
+
+		<app-dd-beneficiary-name-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('beneficiaryName')"
+			label="{{'RetailDDRequestForm.beneficiaryName.label' | translate }}" formControlName="beneficiaryName">
+		</app-dd-beneficiary-name-control>
+
+		<app-dd-beneficiary-id-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('beneficiaryID')"
+			label="{{'RetailDDRequestForm.beneficiaryID.label' | translate }}" formControlName="beneficiaryID">
+		</app-dd-beneficiary-id-control>
+
+		<app-payable-at-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('payableAt')"
+			label="{{'RetailDDRequestForm.payableAt.label' | translate }}" formControlName="payableAt"
+			placeholder="{{'RetailDDRequestForm.payableAt.placeholder' | translate }}">
+		</app-payable-at-control>
+		<app-issue-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('issueDate')"
+			label="{{'RetailDDRequestForm.issueDate.label' | translate }}" formControlName="issueDate"
+			placeholder="{{'RetailDDRequestForm.issueDate.placeholder' | translate }}"
+			[minDate]="state.issueDate.minDate" [maxDate]="state.issueDate.maxDate">
+		</app-issue-date-control>
+		<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('amount')"
+			label="{{'RetailDDRequestForm.amount.label' | translate }}" formControlName="amount"
+			(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.amount.CurrencyList"
+			[isCurrEditable]="state.amount.isCurrEditable" [defaultFetch]="state.amount.defaultFetch"
+			[initCurrency]="state.amount.initCurrency" [amountInWords]="state.amount.amountInWords"
+			[changePublisher]="formChangePublisher$"
+			[dependencyField]="['fromCurrencyVariable','toCurrencyVariable','accountBalanceVariable']"></app-payment-amount-control>
+		<box class="field-item col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('exchangeDetails')">
+			<box class="info-box">
+			<fpx-label label="{{'FX_RATES.title' | translate}}"></fpx-label>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.dAmount' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.debitAmount"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.cAmount' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.creditAmount"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.exRate' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.exchangeRate"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+			</box>
+		</box>
+
+		<app-acc-delivery-options-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('deliveryOption')" (commonControlEvent)="handleControlEvent($event)"
+			label="{{'RetailDDRequestForm.deliveryOption.label' | translate }}" formControlName="deliveryOption">
+		</app-acc-delivery-options-control>
+		<app-branches-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('dlvryBranch')"
+			label="{{'RetailDDRequestForm.dlvryBranch.label' | translate }}" formControlName="dlvryBranch"
+			placeholder="{{'RetailDDRequestForm.dlvryBranch.placeholder' | translate }}">
+		</app-branches-list-control>
+		<box class="field-item col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('addressInfo')">
+			<fpx-label label="{{'RetailDDRequestForm.addressDetails.label' | translate}}"></fpx-label>
+			<box class="info-box">
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.buildingDetails"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.cityDetails"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.stateDetails"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.countryDetails"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.pinCode"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+			</box>
+		</box>
+		<!-- <app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('chargesAmount')"
+			label="{{'RetailDDRequestForm.chargesAmount.label' | translate }}" formControlName="chargesAmount"
+			(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.chargesAmount.CurrencyList"
+			[isCurrEditable]="state.chargesAmount.isCurrEditable" [defaultFetch]="state.chargesAmount.defaultFetch"
+			[initCurrency]="state.chargesAmount.initCurrency" [amountInWords]="state.chargesAmount.amountInWords"
+			[changePublisher]="formChangePublisher$"
+			[dependencyField]="['fromCurrencyVariable','toCurrencyVariable']"></app-payment-amount-control> -->
+
+			<app-amount-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('chargesAmount')"
+			label="{{ 'RetailChequeBookRequest.chargesAmount.label' | translate }}" formControlName="chargesAmount" [isCurrEditable]="state.chargesAmount.isCurrEditable"
+			[defaultFetch]="state.chargesAmount.defaultFetch" [initCurrency]="state.chargesAmount.initCurrency"
+			[amountInWords]="state.chargesAmount.amountInWords"></app-amount-control>
+
+		<app-remarks-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('remarks')"
+			label="{{'RetailDDRequestForm.remarks.label' | translate }}" formControlName="remarks"
+			placeholder="{{'RetailDDRequestForm.remarks.placeholder' | translate }}">
+		</app-remarks-control>
+		</box>
+		<box box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-6 grid main-group disclaimer-box">
+			<app-terms-control class="col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('terms')"
+				label="{{'RetailDDRequestForm.terms.label' | translate }}" formControlName="terms"
+				placeholder="{{'RetailDDRequestForm.terms.placeholder' | translate }}"
+				[textPosition]="state.terms.textPosition" [ckValues]="state.terms.ckValues">
+			</app-terms-control>
+		</box>
+	</box>
+</form>

@@ -1,0 +1,27 @@
+"InvestmentHoldingsRoGrid":{
+"title":"Investment Holdings",
+		 "securityName": {
+		  "label":"Security Name" ,
+		  "placeholder": "Security Name"
+		  } ,
+		 "symbol": {
+		  "label":"Symbol" ,
+		  "placeholder": "Symbol"
+		  } ,
+		 "quantity": {
+		  "label":"Quantity" ,
+		  "placeholder": "Quantity"
+		  } ,
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "price": {
+		  "label":"Price" ,
+		  "placeholder": "Price"
+		  } ,
+		 "marketPrice": {
+		  "label":"Market Price" ,
+		  "placeholder": "Market Price"
+		  } 
+}

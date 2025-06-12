@@ -1,0 +1,5 @@
+ 
+ "RETAILCCBILLPAYMENT" : {
+ "servicePath": ["entry-shell","creditcard", "retail-cc-bill-payment-form"],
+ "queryParams": {}
+ }

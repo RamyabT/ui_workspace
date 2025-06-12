@@ -1,0 +1,145 @@
+:root{
+    --skin: "10001";
+    /* Base */
+    --baseFontFamily: "sharpgrotesk";
+    --themeBgClr: #F8F4E7;
+    --themeBgClrMob: #FFFEF9;
+    --primaryClr: #F18903;
+    --primary500: #F18903;
+    --secondary500: #000000;
+    --tertiary500: #000000;
+    --tertiary300: #FFFFFF;
+    --neutral900: #000000;
+    --tertiaryAqua500: #FBDBB3;
+    --menuBarBgClr: var(--primary500);
+    --baseBdrClr: #DADADA;
+    --bodyTxtClr: #000000;
+    
+    --systemIconClr: #F18903;
+    --domainIconClr: #F18903;
+    --controlIconClr: #000000;
+    
+    /* Welcome screen header bar */
+    --welcomeScreenBgClr: #F18903;
+    --loginScreenBgClr: #F18903;
+    
+    /* Header bar*/
+    --headerCtrlBdrClr: var(--neutral900);
+    --headerBtnBdrClr: #B3B3B3;
+    --headerSearchTxtPlaceholderClr:var(--neutral600);
+    --headerIconClr: #FFFFFF;
+    
+    /* Menu bar */
+    --mainMenuHoverBgClr: #F8F4E7;
+    --mainMenuActiveBgClr: transparent;
+    --mainMenuIcoClr: #FFFFFF;
+    --mainMenuIcoActiveClr: #000000;
+    --mainMenuIcoClrMob: #818181;
+    --mainMenuIcoActiveClrMob: #F18903;
+    --mainMenuTxtBgClr: var(--mainMenuIcoActiveClr);
+
+    --highlightClr: #FBDBB3;
+    
+    /* Buttons */
+    --btnPrimaryBg: #000000;
+    --btnPrimaryBdr: #000000;
+    --btnPrimaryDisabledBg: #E0E0E0;
+    --btnSecondaryClr: #000000;
+    --btnTertiaryClr: #000000;
+    
+    /* Template dropdown style vars */
+    --dropDownTmpltCtrlBg: #FAD9AE;
+    --dropDownVSeperatorCrl: #414141;
+    --dropdownOptionSelectBg: #FBDBB3;
+    --tmpltDropdownOptionSelectBg: #FBDBB3;
+    
+    /* Tab bar style */
+    --spaceSummaryWidth: 304px;
+    
+    /* Footer */
+    --footerBgClr: #FFFEF9;
+    
+    /* Widget */
+    --wgtTtlClr: #000000;
+    
+    /* Form */
+    --inputTxtClr: #000000;
+    --inputTxtSize: 14px;
+    --inputTxtWeight:var(--fontWeightMedium);
+    --inputBdrRadius: 12px;
+    --inputBdrClr: #B3B3B3;
+    --inputBdr: 1px solid var(--inputBdrClr);
+    --radioBdrClr: #B3B3B3;
+    --radioBdr: 1px solid var(--inputBdrClr);
+    --radioOnBg: #000000;
+    --radioOnBdrClr: #000000;
+    --checkboxBdr: 1px solid var(--inputBdrClr);
+    --checkboxOnBg: #000000;
+    --checkboxOnBdr: 1px solid #000000;
+
+    /* Profile View */
+    --profileViewPrimaryGradian:var(--primary500);
+    --profileViewSecondaryGradian:#e1968d;
+    --profileViewSeperator:var(--primaryClr);
+
+    /* Drop Down */
+    --reachDropDownBgColor: var(--themeBgClr);
+   
+}
+
+
+
+/* Fonts includer */
+
+@font-face {
+    font-family: 'sharpgrotesk';
+    src: url('./fonts/sharpgrotesk/SharpGroteskBook20Regular.eot?#iefix') format("embedded-opentype"),
+        url('./fonts/sharpgrotesk/SharpGroteskBook20Regular.woff2') format("woff2"),
+        url('./fonts/sharpgrotesk/SharpGroteskBook20Regular.woff') format("truetype"),
+        url('./fonts/sharpgrotesk/SharpGroteskBook20Regular.eot'),
+        url('./fonts/sharpgrotesk/SharpGroteskBook20Regular.svg') format(".svg#santander");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sharpgrotesk';
+    src: url('./fonts/sharpgrotesk/SharpGroteskMedium20.eot?#iefix') format("embedded-opentype"),
+        url('./fonts/sharpgrotesk/SharpGroteskMedium20.woff2') format("woff2"),
+        url('./fonts/sharpgrotesk/SharpGroteskMedium20.woff') format("truetype"),
+        url('./fonts/sharpgrotesk/SharpGroteskMedium20.eot'),
+        url('./fonts/sharpgrotesk/SharpGroteskMedium20.svg') format(".svg#santander");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sharpgrotesk';
+    src: url('./fonts/sharpgrotesk/SharpGroteskSmBold20Regular.eot?#iefix') format("embedded-opentype"),
+        url('./fonts/sharpgrotesk/SharpGroteskSmBold20Regular.woff2') format("woff2"),
+        url('./fonts/sharpgrotesk/SharpGroteskSmBold20Regular.woff') format("truetype"),
+        url('./fonts/sharpgrotesk/SharpGroteskSmBold20Regular.eot'),
+        url('./fonts/sharpgrotesk/SharpGroteskSmBold20Regular.svg') format(".svg#santander");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sharpgrotesk';
+    src: url('./fonts/sharpgrotesk/SpaceGrotesk-Bold.eot?#iefix') format("embedded-opentype"),
+        url('./fonts/sharpgrotesk/SpaceGrotesk-Bold.woff2') format("woff2"),
+        url('./fonts/sharpgrotesk/SpaceGrotesk-Bold.woff') format("truetype"),
+        url('./fonts/sharpgrotesk/SpaceGrotesk-Bold.eot'),
+        url('./fonts/sharpgrotesk/SpaceGrotesk-Bold.svg') format(".svg#santander");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: "password";
+  src: url(".fonts/password/password.eot");
+  src: url(".fonts/password/password.eot?#iefix") format("embedded-opentype"),
+    url(".fonts/password/password.woff2") format("woff2"),
+    url(".fonts/password/password.woff") format("woff"),
+    url(".fonts/password/password.ttf") format("truetype");
+}

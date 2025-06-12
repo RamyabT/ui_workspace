@@ -1,0 +1,16 @@
+<box class="app-pay-intro-wrapper">
+    <header>
+        <button type="button" class="link" name="close" (click)="onSkip()"><span>{{ 'appPayIntroForm.close' | translate }}</span></button>
+    </header>
+    <box class="app-pay-intro-body">
+        <box class="pay-img-wrapper">
+            <img src="./assets/app-pay/apple-pay.svg" alt="apple pay" />
+        </box>
+        <box class="app-pay-message">{{ 'appPayIntroForm.apple.message' | translate }}</box>
+        <box class="app-pay-description">{{ 'appPayIntroForm.apple.description' | translate }}</box>
+    </box>
+    <footer>
+        <button type="button" class="link" name="skip" (click)="onSkip()"><span>{{ 'appPayIntroForm.skip' | translate }}</span></button>
+        <button type="submit" class="primary" name="continue" (click)="onContinue()"><span>{{ 'appPayIntroForm.continue' | translate }}</span></button>
+    </footer>
+</box>

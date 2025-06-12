@@ -1,0 +1,13 @@
+<box class="summary-card">
+    <box class="summary-card-inner {{cardData?.icon}}">
+        <box class="primary-details">
+            <box class="account-info">
+                <span class="type">{{cardData?.description}}</span>
+            </box>
+        </box>
+        <box class="additional-details">
+            <span class="lbl">Total Spendings - </span>
+            <span class="amount">{{cardData.expenseAmount | currency :  appConfig.getBaseCurrency() : ''}}<em>{{appConfig.getBaseCurrency()}}</em>  </span>
+        </box>
+    </box>
+</box>

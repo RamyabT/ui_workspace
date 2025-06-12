@@ -1,0 +1,47 @@
+"RetailStopChequeRequestForm": {
+	"title": "stopchequerequest",
+	"inventoryNumber": {
+		"label": "Inventory Number",
+		"placeholder": "Inventory Number"
+	},
+	"accountNumber": {
+		"label": "Select Account",
+		"placeholder": "Select Account"
+	},
+	"stopChequeType": {
+		"label": "Cheque number / Cheque Range ",
+		"placeholder": "Cheque number / Cheque Range "
+	},
+	"chequeNumber": {
+		"label": "Cheque Number",
+		"placeholder": "Cheque Number"
+	},
+	"fromChequeNumber": {
+		"label": "Start of Range",
+		"placeholder": "Start of Range"
+	},
+	"toChequeNumber": {
+		"label": "End of Range",
+		"placeholder": "End of Range"
+	},
+	"reason": {
+		"label": "Reason for Creating Stop",
+		"placeholder": "Reason for Creating Stop"
+	},
+	"payee": {
+		"label": "Payee",
+		"placeholder": "Payee"
+	},
+	"chequeAmount": {
+		"label": "Cheque Amount",
+		"placeholder": "Placeholder"
+	},
+	"chargesAmount": {
+		"label": "Charges",
+		"placeholder": "Charges"
+	},
+	"termsFlag": {
+		"label": "Disclaimer",
+		"placeholder": "Disclaimer"
+	}
+}

@@ -1,0 +1,47 @@
+"RetailDDRequestForm":{
+"title":"Request for Demand Drat",
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "beneficiaryName": {
+		  "label":"Beneficiary Name" ,
+		  "placeholder": "Beneficiary Name"
+		  } ,
+		 "beneficiaryID": {
+		  "label":"Beneficiary ID Number" ,
+		  "placeholder": "Beneficiary ID Number"
+		  } ,
+		 "issueDate": {
+		  "label":"Issue Date" ,
+		  "placeholder": "Issue Date"
+		  } ,
+		 "payableAt": {
+		  "label":"Payable At" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "amount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "deliveryOption": {
+		  "label":"Delivery Option" ,
+		  "placeholder": "Delivery Option"
+		  } ,
+		 "dlvryBranch": {
+		  "label":"Delivery Branch" ,
+		  "placeholder": "Delivery Branch"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "terms": {
+		  "label":"By continuing you confirm and acknowledge the applicable terms and conditions and the Key Fact Statements" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "chargesAmount": {
+		  "label":"Charges Amount" ,
+		  "placeholder": "Charges"
+		  } 
+}

@@ -1,0 +1,33 @@
+<div class="task-item" id="row_data_{{ index }}">
+  <!-- <ng-container *ngIf="_device.isMobile()"> -->
+    <!-- <div class="task-action task-action-left">
+      <button  type="button" class="button-task-action system-ico-button button-delete">
+        <span>Delete</span>
+      </button>
+    </div> -->
+  <!-- </ng-container> -->
+
+  <div class="task-detail-item" (swipeleft)="_device.isMobile()?swipeLeftHandler($event):null"
+  (swiperight)="_device.isMobile()?swipeRightHandler($event):null"
+  (panstart)="_device.isMobile()?panStartHandler($event):null"
+  (panend)="_device.isMobile()?panEndHandler($event):null"
+  (panleft)="_device.isMobile()?panLeftHandler($event):null"
+  (panright)="_device.isMobile()?panRightHandler($event):null"
+  (touchstart)="_device.isMobile()?touchStartHandler($event):null">
+
+    <div class="profile-doc-container">
+      <div class="doc-icon">
+        <img src="./assets/images/settings/{{selectedData.id=='0'?'emirates-id.svg':'passport.svg'}}" alt="doc-file" />
+      </div>
+      <div class="doc-name">{{selectedData.id == '0'?'Emirates_Id':'Passport'}}</div>
+    </div>
+  </div>
+
+  <div class="task-action task-action-right">
+    <button type="button" class="button-task-action system-ico-button button-repeat" clickable
+      (click)="updateDoc($event, selectedData)">
+      <span>Update</span>
+    </button>
+  </div>
+  <div class="seperator-line"></div>
+</div>

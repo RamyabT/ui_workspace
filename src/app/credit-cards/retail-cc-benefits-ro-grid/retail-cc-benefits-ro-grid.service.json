@@ -1,0 +1,5 @@
+ 
+ "RETAILCCBENEFITINFO" : {
+ "servicePath": ["display-shell","credit-cards", "retail-cc-benefits-ro-grid"],
+ "queryParams": {}
+ }

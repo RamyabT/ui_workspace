@@ -1,0 +1,5 @@
+ 
+ "RETAILUNLOCKUSER" : {
+ "servicePath": ["entry-shell","prelogin", "retail-unlockuser-form"],
+ "queryParams": {}
+ }

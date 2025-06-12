@@ -1,0 +1,340 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="LoanDetailsForm">
+    <box class="entry-form" [ngClass]="{'loan-seg-app': !_helper.homeLoan}">
+        <box class="entry-form-field-group">
+            <box class="input-grid-row  review-form loan-details">
+                <box class="casa-transactions-grid-header">
+                    <box class="alerts-header-title">Loan Information</box>
+                    <box class="tool-bar">
+                        <fpx-button btnType="button" btnClass="system-ico-button no-text filter" label="edit"
+                            (onClick)="_helper.edit()"></fpx-button>
+                    </box>
+                </box>
+
+                <box class="loan-info">
+                    <!-- <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.loanAmount.label' | translate }}</span>
+                        <app-name-field-control formControlName="loanAmount"
+                            placeholder="{{'LoanDetailsForm.loanAmount.placeholder' | translate }}"
+                            [actionPublisher]="actionMap$.get('loanAmount')"></app-name-field-control>
+                    </box> -->
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.propCost.label' | translate }}</span>
+                        <app-name-field-control formControlName="propCost"
+                            placeholder="{{'LoanDetailsForm.propCost.placeholder' | translate }}"
+                            [actionPublisher]="actionMap$.get('propCost')"></app-name-field-control>
+                    </box>
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.downPayment.label' | translate }}</span>
+                        <app-name-field-control [actionPublisher]="actionMap$.get('downPayment')"
+                            formControlName="downPayment"
+                            placeholder="{{'LoanDetailsForm.downPayment.placeholder' | translate }}"></app-name-field-control>
+                    </box>
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.tenor.label' | translate }}</span>
+                        <app-name-field-control [actionPublisher]="actionMap$.get('tenor')" formControlName="tenor"
+                            placeholder="{{'LoanDetailsForm.tenor.placeholder' | translate }}"></app-name-field-control>
+                    </box>
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.interestRate.label' | translate }}</span>
+                        <app-name-field-control [actionPublisher]="actionMap$.get('interestRate')"
+                            formControlName="interestRate"
+                            placeholder="{{'LoanDetailsForm.interestRate.placeholder' | translate }}"></app-name-field-control>
+                    </box>
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.emi.label' | translate }}</span>
+                        <app-name-field-control [actionPublisher]="actionMap$.get('emi')" formControlName="emi"
+                            placeholder="{{'LoanDetailsForm.emi.placeholder' | translate }}"></app-name-field-control>
+                    </box>
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.interestAmount.label' | translate }}</span>
+                        <app-name-field-control [actionPublisher]="actionMap$.get('interestAmount')"
+                            formControlName="interestAmount"
+                            placeholder="{{'LoanDetailsForm.interestAmount.placeholder' | translate }}"></app-name-field-control>
+                    </box>
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.repaymentAmount.label' | translate }}</span>
+                        <app-name-field-control [actionPublisher]="actionMap$.get('repaymentAmount')"
+                            formControlName="repaymentAmount"
+                            placeholder="{{'LoanDetailsForm.repaymentAmount.placeholder' | translate }}"></app-name-field-control>
+                    </box>
+
+                </box>
+
+            </box>
+
+        </box>
+
+        <box class="entry-form-field-group">
+            <box class="entry-form-field-group grid col-12 Property-info">
+                <box class="alerts-header-title">{{'LoanDetailsForm.propertyInformation.label' | translate }}</box>
+                <app-prop-loc-control class="col-sm-12 col-md-12 col-lg-12"
+                    [actionPublisher]="actionMap$.get('propLoc')"
+                    label="{{'LoanDetailsForm.propLoc.label' | translate }}"
+                    formControlName="propLoc"></app-prop-loc-control>
+
+                <app-name-field-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('addressLine1')"
+                    label="{{'LoanDetailsForm.addressLine1.label' | translate }}"
+                    formControlName="addressLine1"></app-name-field-control>
+
+                <app-name-field-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('addressLine2')"
+                    label="{{'LoanDetailsForm.addressLine2.label' | translate }}"
+                    formControlName="addressLine2"></app-name-field-control>
+
+                <app-zipcode-list-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('zipcode')"
+                    label="{{'LoanDetailsForm.zipcode.label' | translate }}"
+                    formControlName="zipcode"></app-zipcode-list-control>
+
+                <app-name-field-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('city')"
+                    label="{{'LoanDetailsForm.city.label' | translate }}"
+                    formControlName="city"></app-name-field-control>
+
+                <app-name-field-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('state')"
+                    label="{{'LoanDetailsForm.state.label' | translate }}"
+                    formControlName="state"></app-name-field-control>
+
+            </box>
+
+        </box>
+    </box>
+
+    <box class="entry-form" [ngClass]="{'loan-seg-app': !_helper.vehicleLoan}">
+        <box class="entry-form-field-group">
+            <box class="input-grid-row  review-form loan-details">
+                <box class="casa-transactions-grid-header">
+                    <box class="alerts-header-title">Loan Information</box>
+                    <box class="tool-bar">
+                        <fpx-button btnType="button" btnClass="system-ico-button no-text filter" label="edit"
+                            (onClick)="_helper.edit()"></fpx-button>
+                    </box>
+                </box>
+
+                <box class="loan-info">
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>Vehicle Cost</span>
+                        <app-name-field-control formControlName="vehicleCost"
+                            placeholder="{{'LoanDetailsForm.vehicleCost.placeholder' | translate }}"
+                            [actionPublisher]="actionMap$.get('vehicleCost')"></app-name-field-control>
+                    </box>
+
+                    <!-- <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.propCost.label' | translate }}</span>
+                        <app-name-field-control formControlName="propCost"
+                            placeholder="{{'LoanDetailsForm.propCost.placeholder' | translate }}"
+                            [actionPublisher]="actionMap$.get('propCost')"></app-name-field-control>
+                    </box> -->
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.downPayment.label' | translate }}</span>
+                        <app-name-field-control [actionPublisher]="actionMap$.get('downPayment')"
+                            formControlName="downPayment"
+                            placeholder="{{'LoanDetailsForm.downPayment.placeholder' | translate }}"></app-name-field-control>
+                    </box>
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.tenor.label' | translate }}</span>
+                        <app-name-field-control [actionPublisher]="actionMap$.get('tenor')" formControlName="tenor"
+                            placeholder="{{'LoanDetailsForm.tenor.placeholder' | translate }}"></app-name-field-control>
+                    </box>
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.interestRate.label' | translate }}</span>
+                        <app-name-field-control [actionPublisher]="actionMap$.get('interestRate')"
+                            formControlName="interestRate"
+                            placeholder="{{'LoanDetailsForm.interestRate.placeholder' | translate }}"></app-name-field-control>
+                    </box>
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.emi.label' | translate }}</span>
+                        <app-name-field-control [actionPublisher]="actionMap$.get('emi')" formControlName="emi"
+                            placeholder="{{'LoanDetailsForm.emi.placeholder' | translate }}"></app-name-field-control>
+                    </box>
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.interestAmount.label' | translate }}</span>
+                        <app-name-field-control [actionPublisher]="actionMap$.get('interestAmount')"
+                            formControlName="interestAmount"
+                            placeholder="{{'LoanDetailsForm.interestAmount.placeholder' | translate }}"></app-name-field-control>
+                    </box>
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.repaymentAmount.label' | translate }}</span>
+                        <app-name-field-control [actionPublisher]="actionMap$.get('repaymentAmount')"
+                            formControlName="repaymentAmount"
+                            placeholder="{{'LoanDetailsForm.repaymentAmount.placeholder' | translate }}"></app-name-field-control>
+                    </box>
+
+                </box>
+
+            </box>
+
+        </box>
+
+        <box class="entry-form-field-group">
+            <box class="entry-form-field-group grid col-12 Property-info">
+                <app-vehicle-status-control class="col-sm-12 col-md-12 col-lg-12"
+                    [actionPublisher]="actionMap$.get('vehicleStatus')"
+                    label="{{'LoanDetailsForm.vehicleStatus.label' | translate }}"
+                    formControlName="vehicleStatus"></app-vehicle-status-control>
+
+
+                <app-name-field-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('vehicleMake')"
+                    label="{{'LoanDetailsForm.vehicleMake.label' | translate }}"
+                    formControlName="vehicleMake"></app-name-field-control>
+
+                <app-name-field-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('vehicleModel')"
+                    label="{{'LoanDetailsForm.vehicleModel.label' | translate }}"
+                    formControlName="vehicleModel"></app-name-field-control>
+
+                <app-name-field-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('yearsOfManufacture')"
+                    label="{{'LoanDetailsForm.yearsOfManufacture.label' | translate }}"
+                    formControlName="yearsOfManufacture"></app-name-field-control>
+
+                <app-amount-currency-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('vehiclePrice')"
+                    label="{{'LoanDetailsForm.vehiclePrice.label' | translate }}"
+                    formControlName="vehiclePrice"></app-amount-currency-control>
+
+
+                <box class="entry-form-field-group grid col-12 Property-info">
+
+                    <app-name-field-control class="col-sm-12 col-md-6 col-lg-6"
+                        [actionPublisher]="actionMap$.get('vehicleRegistrationNumber')"
+                        label="{{'LoanDetailsForm.vehicleRegistrationNumber.label' | translate }}"
+                        formControlName="vehicleRegistrationNumber"></app-name-field-control>
+
+                    <app-name-field-control class="col-sm-12 col-md-6 col-lg-6"
+                        [actionPublisher]="actionMap$.get('odometerReading')"
+                        label="{{'LoanDetailsForm.odometerReading.label' | translate }}"
+                        formControlName="odometerReading"></app-name-field-control>
+
+                    <app-name-field-control class="col-sm-12 col-md-6 col-lg-6"
+                        [actionPublisher]="actionMap$.get('previousOwner')"
+                        label="{{'LoanDetailsForm.previousOwner.label' | translate }}"
+                        formControlName="previousOwner"></app-name-field-control>
+
+                    <app-hpi-control class="col-sm-12 col-md-6 col-lg-6"
+                        [actionPublisher]="actionMap$.get('hpi')" label="{{'LoanDetailsForm.hpi.label' | translate }}"
+                        formControlName="hpi"></app-hpi-control>
+                </box>
+
+
+                <box class="alerts-header-title">Dealer information</box>
+
+                <app-name-field-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('dealerName')"
+                    label="{{'LoanDetailsForm.dealerName.label' | translate }}"
+                    formControlName="dealerName"></app-name-field-control>
+
+                <box class="alerts-header-title">Dealer Address</box>
+
+                <app-name-field-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('streetAddress')"
+                    label="{{'LoanDetailsForm.streetAddress.label' | translate }}"
+                    formControlName="streetAddress"></app-name-field-control>
+
+
+                <app-zipcode-list-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('zipcode')"
+                    label="{{'LoanDetailsForm.zipcode.label' | translate }}"
+                    formControlName="zipcode"></app-zipcode-list-control>
+
+                <app-name-field-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('city')"
+                    label="{{'LoanDetailsForm.city.label' | translate }}"
+                    formControlName="city"></app-name-field-control>
+
+                <app-name-field-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('state')"
+                    label="{{'LoanDetailsForm.state.label' | translate }}"
+                    formControlName="state"></app-name-field-control>
+
+                <app-name-field-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('dealerContactPerson')"
+                    label="{{'LoanDetailsForm.dealerContactPerson.label' | translate }}"
+                    formControlName="dealerContactPerson"></app-name-field-control>
+
+                <app-name-field-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('dealerContactPhoneNumber')"
+                    label="{{'LoanDetailsForm.dealerContactPhoneNumber.label' | translate }}"
+                    formControlName="dealerContactPhoneNumber"></app-name-field-control>
+
+                <app-name-field-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('dealerEmailID')"
+                    label="{{'LoanDetailsForm.dealerEmailID.label' | translate }}"
+                    formControlName="dealerEmailID"></app-name-field-control>
+
+            </box>
+
+        </box>
+    </box>
+
+    <box class="entry-form" [ngClass]="{'loan-seg-app': !_helper.personalLoan}">
+        <box class="entry-form-field-group">
+            <box class="input-grid-row  review-form loan-details">
+                <box class="casa-transactions-grid-header">
+                    <box class="alerts-header-title">Loan Information</box>
+                    <box class="tool-bar">
+                        <fpx-button btnType="button" btnClass="system-ico-button no-text filter" label="edit"
+                            (onClick)="_helper.edit()"></fpx-button>
+                    </box>
+                </box>
+
+                <box class="loan-info">
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>Loan Amount</span>
+                        <app-name-field-control formControlName="loanAmount"
+                            placeholder="{{'LoanDetailsForm.loanAmount.placeholder' | translate }}"
+                            [actionPublisher]="actionMap$.get('loanAmount')"></app-name-field-control>
+                    </box>
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.tenor.label' | translate }}</span>
+                        <app-name-field-control [actionPublisher]="actionMap$.get('tenor')" formControlName="tenor"
+                            placeholder="{{'LoanDetailsForm.tenor.placeholder' | translate }}"></app-name-field-control>
+                    </box>
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.interestRate.label' | translate }}</span>
+                        <app-name-field-control [actionPublisher]="actionMap$.get('interestRate')"
+                            formControlName="interestRate"
+                            placeholder="{{'LoanDetailsForm.interestRate.placeholder' | translate }}"></app-name-field-control>
+                    </box>
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.emi.label' | translate }}</span>
+                        <app-name-field-control [actionPublisher]="actionMap$.get('emi')" formControlName="emi"
+                            placeholder="{{'LoanDetailsForm.emi.placeholder' | translate }}"></app-name-field-control>
+                    </box>
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.interestAmount.label' | translate }}</span>
+                        <app-name-field-control [actionPublisher]="actionMap$.get('interestAmount')"
+                            formControlName="interestAmount"
+                            placeholder="{{'LoanDetailsForm.interestAmount.placeholder' | translate }}"></app-name-field-control>
+                    </box>
+
+                    <box class="input-grid-row-item col-sm-12 col-md-12 col-lg-12">
+                        <span>{{'LoanDetailsForm.repaymentAmount.label' | translate }}</span>
+                        <app-name-field-control [actionPublisher]="actionMap$.get('repaymentAmount')"
+                            formControlName="repaymentAmount"
+                            placeholder="{{'LoanDetailsForm.repaymentAmount.placeholder' | translate }}"></app-name-field-control>
+                    </box>
+
+                </box>
+
+            </box>
+
+        </box>
+    </box>
+</form>

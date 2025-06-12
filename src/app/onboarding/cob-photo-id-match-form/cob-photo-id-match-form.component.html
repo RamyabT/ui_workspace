@@ -1,0 +1,65 @@
+<form formName="cobPhotoIdMatch" [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off"
+    [ngClass]="{'pre-photoidscan': !state.photoIdScanCompleted}">
+    <box class="entry-form">
+
+        <ng-container *ngIf="!state.photoIdScanCompleted">
+            <!-- <div class="title">{{_helper.title}}</div> -->
+            <div class="dc-pre-request-header">{{_helper.title}}</div>
+
+            <div class="dc-image">
+                <img src="./assets/images/rcob/scan-id-image.png" alt="">
+            </div>
+            <!-- <div class="dc-note">
+                    {{_helper.note}}
+                </div> -->
+
+            <div class="form-footer-actions">
+                <ng-container *ngIf="_helper.isPrimary == '1'">
+                    <button type="button" class="btn-tertiary" (onclick)="_helper.onBack()">Back</button>
+                </ng-container>
+                <ng-container *ngIf="_helper.isPrimary == '0'">
+                    <button type="submit" class="btn-tertiary" (click)="_helper.skipQueue()">Skip</button>
+                </ng-container>
+                <button type="button" class="btn-primary" (click)="_helper.triggerPhotoIdMatch()"> Proceed </button>
+            </div>
+        </ng-container>
+        
+        <ng-container *ngIf="state.photoIdScanCompleted">
+                <box class="entry-form-field-group grid col-12">
+                <div class="title">{{_helper.completedTitle}}</div>
+
+                <box class="document-images">
+                    <ng-container *ngFor="let image of state.documentImages; let i=index">
+                        <div class="image-group">
+                            <img [src]="'data:image/png;base64,' + image" alt="" />
+                            <div class="img-desc" [innerHTML]="i == 0?'Front view':'Back view'"></div>
+                        </div>
+                    </ng-container>
+                </box>
+                <box class="document-data">
+                    <span *ngIf="_helper._appConfig.getData('processId')" class="arn-number">ARN :
+                        {{_helper._appConfig.getData('processId')}}</span>
+                    <ng-container *ngFor="let group of state.documentData?.userConfirmedValues?.groups">
+                        <ng-container *ngFor="let field of group.fields">
+                            <box class="ocr-field col-sm-12 col-md-12 col-lg-12" *ngIf="field.value">
+                                <span class="lbl">{{ this._helper.insertSpace(field.fieldKey) }}</span>
+                                <span class="val">{{ field.value }}</span>
+                            </box>
+                        </ng-container>
+                    </ng-container>
+                </box>
+                <div *ngIf="state.photoIdScanCompleted" class="terms-and-condition">
+                    <app-terms-condition-control class="col-sm-12 col-lg-12 col-md-12" formControlName="flag">
+                        <span (click)="onClickTermsCondition()">{{'photoIdMatchTerms.terms' | translate}}</span>
+                    </app-terms-condition-control>
+                </div>
+
+                <div class="form-footer-actions">
+                    <button type="button" class="btn-tertiary" (click)="_helper.triggerPhotoIdMatch()"> Rescan </button>
+                    <button type="submit" class="btn-primary" [disabled]="formGroup.invalid"> Submit </button>
+                </div>
+            </box>
+            </ng-container>
+
+    </box>
+</form>

@@ -1,0 +1,43 @@
+"RetailCCPinrequestForm": {
+	"title":"Change PIN",
+	"inventoryNumber": {
+		"label":"Inventory Number" ,
+		"placeholder": "Inventory Number"
+	} ,
+	"cardRefNumber": {
+		"label":"Credit Card" ,
+		"placeholder": "Credit Card"
+	} ,
+	"confirmPin": {
+		"label":" Enter PIN" ,
+		"placeholder": "Confirm Pin"
+	} ,
+	"pin": {
+		"label":"Enter New PIN" ,
+		"placeholder": "New Pin"
+	} ,
+	"reEnterNewPin": {
+		"label":"Re-enter New PIN" ,
+		"placeholder": "Re Enter New Pin"
+	} ,
+	"remarks": {
+		"label":"Remarks" ,
+		"placeholder": "Remarks"
+	} ,
+	"terms": {
+		"label":"I hereby agree with the terms and conditions and key facts statements." ,
+		"placeholder": "I hereby agree with the terms and conditions and key facts statements."
+	} ,
+	"changePinDesc": {
+		"text":"Enter your current 4 digit Credit Card PIN"
+	},
+	"instructions1":{
+		"label": "PIN must be numeric."
+	},
+	"instructions2":{
+		"label": "PIN cannot match portions of your card number."
+	},
+	"instructions3":{
+		"label": "PIN cannot match your card's expiry date."
+	}
+}

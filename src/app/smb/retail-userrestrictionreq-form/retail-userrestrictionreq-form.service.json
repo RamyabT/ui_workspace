@@ -1,0 +1,5 @@
+ 
+ "RETAILDELEGATEUSER" : {
+ "servicePath": ["entry-shell","common", "retail-userrestrictionreq-form"],
+ "queryParams": {}
+ }

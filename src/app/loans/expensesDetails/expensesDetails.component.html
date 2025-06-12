@@ -1,0 +1,21 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="expensesDetails" >
+	  
+	<box class="entry-form">
+	      
+			  <app-monthly-income-control  class="col-md-4  "   [actionPublisher]="actionMap$.get('monthlyExpenses')"     label="{{'expensesDetails.monthlyExpenses.label' | translate }}"   formControlName="monthlyExpenses" 
+   [CurrencyList]="state.monthlyExpenses.CurrencyList" [isCurrEditable]="state.monthlyExpenses.isCurrEditable"  [defaultFetch]="state.monthlyExpenses.defaultFetch" [initCurrency]="state.monthlyExpenses.initCurrency" [amountInWords]="state.monthlyExpenses.amountInWords">  ></app-monthly-income-control>
+	     
+	      
+			  <app-monthly-income-control  class="col-md-4  "   [actionPublisher]="actionMap$.get('otherLoanEMI')"     label="{{'expensesDetails.otherLoanEMI.label' | translate }}"   formControlName="otherLoanEMI" 
+   [CurrencyList]="state.otherLoanEMI.CurrencyList" [isCurrEditable]="state.otherLoanEMI.isCurrEditable"  [defaultFetch]="state.otherLoanEMI.defaultFetch" [initCurrency]="state.otherLoanEMI.initCurrency" [amountInWords]="state.otherLoanEMI.amountInWords">  ></app-monthly-income-control>
+	     
+	      
+			  <app-monthly-income-control  class="col-md-4  "   [actionPublisher]="actionMap$.get('annualPropertyTax')"     label="{{'expensesDetails.annualPropertyTax.label' | translate }}"   formControlName="annualPropertyTax" 
+   [CurrencyList]="state.annualPropertyTax.CurrencyList" [isCurrEditable]="state.annualPropertyTax.isCurrEditable"  [defaultFetch]="state.annualPropertyTax.defaultFetch" [initCurrency]="state.annualPropertyTax.initCurrency" [amountInWords]="state.annualPropertyTax.amountInWords">  ></app-monthly-income-control>
+	     
+	      
+			  <app-monthly-income-control  class="col-md-4  "   [actionPublisher]="actionMap$.get('monthlyCondominiumFees')"     label="{{'expensesDetails.monthlyCondominiumFees.label' | translate }}"   formControlName="monthlyCondominiumFees" 
+   [CurrencyList]="state.monthlyCondominiumFees.CurrencyList" [isCurrEditable]="state.monthlyCondominiumFees.isCurrEditable"  [defaultFetch]="state.monthlyCondominiumFees.defaultFetch" [initCurrency]="state.monthlyCondominiumFees.initCurrency" [amountInWords]="state.monthlyCondominiumFees.amountInWords">  ></app-monthly-income-control>
+	</box> 
+</form>
+	

@@ -1,0 +1,1715 @@
+{
+  "DEFAULT": {
+    "pattern": "Please Enter Valid Data",
+    "required": "This is a mandatory field.",
+    "insufficient_balance_error": "Your account doesn’t have sufficient funds to cover the transfer amount.",
+    "Invalid_Customer_Code": "No Data Available",
+    "accountnumber_exists_error": "Beneficiary Account Number already exists",
+    "nickname_exists_error": "Account Nickname Already Exists",
+    "creditcardnumber_exists_error": "Credit Card Number already exists",
+    "invalid_bic": "Invalid BIC",
+    "iban_exists_error": "IBAN Already Exists",
+    "zero_value_error": "Please enter the Valid Amount",
+    "installment_error": "The number of installments completed is ${numberOfPayment},please enter a value above that.",
+    "edit_installment_error": "Entered number of installment won't be same as present",
+    "same_account_error": "Debit and credit account should not be same",
+    "username_invalid": "You have entered incorrect user id, Please try again",
+    "userpassword_invalid": "You have entered incorrect user id/password, Please try again",
+    "verificationFailed": "Session Failed",
+    "invalid_data": "Based on the policy of the bank.You are unable to register for online banking. Please contact Customer Care Centre for further assistance.",
+    "invalid_cus_data": "Details are not matching, please try again"
+  },
+  "formControlsForm": {
+    "textBox1": {
+      "required": "Text value required"
+    }
+  },
+  "RetailAccountNicknameForm": {
+    "nickName": {
+      "minlength": "Please enter minimum 1 character",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter a valid nickname",
+      "nickname_exists_error": "Account nickname already exists"
+    }
+  },
+  "retailcasatrandtlsfilterform":{
+    "chequeNumber":{
+      "minlength": "Please enter minimum 3 characters",
+      "maxlength": "Maximum Length Exceeded",
+      "required":"Please enter the cheque number"
+    },
+    "transactionDescription":{
+      "minlength":"Please enter mininmum 1 character",
+      "maxlength": "Maximum Length Exceeded",
+      "required":"Please enter the description"
+    },
+    "confirmationNumber":{
+       "minlength":"Please enter mininmum 1 character",
+      "maxlength": "Maximum Length Exceeded",
+      "required":"Please enter the confirmation number"
+    },
+    "transactionAmount":{
+       "required":"Please enter the amount"
+    },
+    "rangeType":{
+      "required":"Please select the transaction period"
+    },
+    "transactionCategoryId":{
+      "required":"Please select the transaction type"
+    },
+    "downloadFileFormat":{
+       "required":"Please select the file format"
+    }
+  },
+  "RetailDDRequestForm": {
+    "amount": {
+      "insufficient_balance_error": "Insufficient Balance in your from account"
+    },
+    "beneficiaryID": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid Beneficiary Details(Accept alphaNumeric)"
+    },
+    "beneficiaryName": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid Beneficiary Details (only alphabets)"
+    },
+    "payableAt": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid city name"
+    },
+    "remarks": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid remarks"
+    }
+  },
+  "RetailOpenNewCasaForm": {
+    "remarks": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid remarks"
+    },
+    "accountName": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Only alphabets are allowed and space are allowed"
+    },
+    "initialDepositAmount": {
+      "insufficient_balance_error": "Insufficient Balance for transaction",
+      "maximumAmount": "Insufficient Balance",
+      "minimumAmount": "Amount is less than the minimum balance required"
+    }
+  },
+  "ApplicantsForm": {
+    "fullName": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid full name"
+    },
+    "middleName": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid middle name"
+    },
+    "lastName": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid last name"
+    },
+    "mobileNum": {
+      "minlength": "Please enter atleast 10 numbers",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Enter only numbers",
+      "mobileDedupe": "Entered mobile number already exists"
+    },
+    "emailAddress": {
+      "pattern": "Please enter valid email address",
+      "emailDedupe": "Entered email address already exists"
+    }
+  },
+  "CobApplicantProfileForm": {
+    "userName": {
+      "minlength": "Please enter minimum eight characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid user name",
+      "Existing_User": "The User name has been been already registered for a different user, Please try again with the new User name"
+    },
+    "confirmPassword": {
+      "pattern": "Please enter valid password",
+      "passwordval": "Entered password didn't match the above"
+    },
+    "password": {
+      "pattern": "Please enter valid password",
+      "passwd": "Please enter password as per policy"
+    }
+  },
+  "RetailChangeMaturityInstructionsForm": {
+    "maturityInstruction": {
+      "maturityInstructionError": "Maturity instruction already present"
+    }
+  },
+  "AddressDetailForm": {
+    "addressLine1": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid address"
+    },
+    "addressLine2": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid address"
+    },
+    "cityText": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid city"
+    },
+    "areaName": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid area name"
+    },
+    "street": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid street name"
+    },
+    "nearestLandmark": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid nearest landmark"
+    },
+    "locationName": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid location name"
+    },
+    "zipCode": {
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid PO BOX"
+    }
+  },
+  "COBApplicantAddressInfo": {
+    "AddressDetailForm": {
+      "addressLine1": {
+        "minlength": "Please enter minimum three characters",
+        "maxlength": "Maximum Length Exceeded",
+        "pattern": "Please enter valid address"
+      },
+      "addressLine2": {
+        "minlength": "Please enter minimum three characters",
+        "maxlength": "Maximum Length Exceeded",
+        "pattern": "Please enter valid address"
+      }
+    },
+    "communicationAddressInv": {
+      "addressLine1": {
+        "minlength": "Please enter minimum three characters",
+        "maxlength": "Maximum Length Exceeded",
+        "pattern": "Please enter valid address"
+      },
+      "addressLine2": {
+        "minlength": "Please enter minimum three characters",
+        "maxlength": "Maximum Length Exceeded",
+        "pattern": "Please enter valid address"
+      },
+      "cityText": {
+        "minlength": "Please enter minimum three characters",
+        "maxlength": "Maximum Length Exceeded",
+        "pattern": "Please enter valid city"
+      }
+    },
+    "permenantAddressInv": {
+      "addressLine1": {
+        "minlength": "Please enter minimum three characters",
+        "maxlength": "Maximum Length Exceeded",
+        "pattern": "Please enter valid address"
+      },
+      "addressLine2": {
+        "minlength": "Please enter minimum three characters",
+        "maxlength": "Maximum Length Exceeded",
+        "pattern": "Please enter valid address"
+      },
+      "cityText": {
+        "minlength": "Please enter minimum three characters",
+        "maxlength": "Maximum Length Exceeded",
+        "pattern": "Please enter valid city"
+      }
+    }
+  },
+  "COBEmploymentInfoForm": {
+    "yearsInEmployment": {
+      "minlength": "Please enter minimum one digit number",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid years"
+    },
+    "companyName": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid company name"
+    },
+    "areaName": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid area name"
+    },
+    "street": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid street name"
+    },
+    "nearestLandmark": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid nearest landmark"
+    },
+    "locationName": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid location name"
+    },
+    "zipCode": {
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter PO BOX"
+    },
+    "buildingName": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid building name"
+    },
+    "empPositionOrDesignation": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid Position"
+    },
+    "empWorkExpDetails": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid work experience details"
+    },
+    "lastEmployersName": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid last employers name"
+    },
+    "empAddressOfLastYear": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid address of last year"
+    },
+    
+    "empNameOwnCompany": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid name of own company"
+    },
+    "empAddressOwnCompany":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid address of own company"
+    },
+    "empPositionAndTitle":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid position/tilte"
+    },
+    "companyaddressInv": {
+      "addressLine1": {
+        "minlength": "Please enter minimum three characters",
+        "maxlength": "Maximum Length Exceeded",
+        "pattern": "Please enter valid address"
+      },
+      "addressLine2": {
+        "minlength": "Please enter minimum three characters",
+        "maxlength": "Maximum Length Exceeded",
+        "pattern": "Please enter valid address"
+      },
+      "cityText": {
+        "minlength": "Please enter minimum three characters",
+        "maxlength": "Maximum Length Exceeded",
+        "pattern": "Please enter valid city"
+      }
+      
+    },
+    "monthlyIncome": {
+      "IncomevalmaxError": "Your monthly income is comes under maximum amount exceeded",
+      "IncomevalminError": "Your monthly income is comes under mininum amount"
+    },
+    "empdependentemiratesid": {
+      "min": "Please enter minimum 15 characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid emirates id number"
+    }
+  },
+  "RetailDepositRequestForm": {
+    "depositAmount": {
+      "insufficient_balance_error": "Insufficient Balance",
+      "minAmount": "Please Enter Minimum ${minAmount} ",
+      "maxAmount": "Entered Amount Should be less than ${maxAmount}. ",
+      "required": "Please enter values to all the mandatory fields",
+      "exchange_rate_fetch_error":"Error in retrieving information, Please try again later"
+    },
+    "tenorInMonths": {
+      "minTenorError": "Please enter minimum tenor",
+      "maxTenorError": "tenor exceeded for the product",
+      "requried": "Please enter values to all the mandatory fields",
+      "pattern": "Please enter numeric values"
+    }
+  },
+  "RetailEstmtRequestForm": {
+    "email": {
+      "Email_Error": "Since your email id is not registered with the bank, you are unable to avail this service."
+    }
+  },
+  "RetailChequeBookRequest": {
+    "remarks": {
+      "pattern": "Invalid Pattern",
+      "minlength": "Please enter minimum 3 characters",
+      "maxlength": "Maximium length Exceed"
+    },
+    "firstName":{
+      "pattern": "Please enter the valid first name",
+      "minlength": "Please enter the valid first name",
+      "maxlength": "Maximium length Exceed",
+      "required":"Please enter the first name"
+    },
+    "lastName":{
+      "pattern": "Please enter the valid last name",
+      "minlength": "Please enter the valid last name",
+      "maxlength": "Maximium length Exceed",
+      "required":"Please enter the last name"
+    },
+    "phoneNumber":{
+      "pattern": "Please enter a valid phone number",
+      "minlength": "Please enter a valid phone number",
+      "maxlength": "Maximium length Exceed",
+      "required":"Please enter the phone number"
+    },
+    "chequeStartNumber":{
+      "maxlength": "Maximium length Exceed",
+      "required":"Please enter the cheque start number"
+    },
+    "deliveryBranch":{
+      "required":"Please select the branch"
+    },
+    "accountNumber":{
+      "required":"Please select the account number"
+    }
+  },
+  "COBFatcaInfoForm": {
+    "cityOfBirth": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid city Name"
+    },
+    "taxPayerId": {
+      "minlength": "Please enter minimum six characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid Tax ID"
+    },
+    "countryOfTax": {
+      "checkcountry": "Please choose valid country"
+    },
+    "countryOfBirth": {
+      "checkcountry": "Please choose valid country"
+    }
+  },
+  "RetailPdcChequeForm": {
+    "chequeNumber": {
+      "minlength": "Please enter minimum characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid pattern"
+    }
+  },
+  "RetailChequeStatusInquiryForm": {
+    "chequeNumber": {
+      "minlength": "Please enter minimum characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern":"Enter valid cheque number"
+    },
+    "toChequeNumber": {
+      "minlength": "Please enter minimum characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern":"Enter valid cheque number"
+    },
+    "fromChequeNumber": {
+      "minlength": "Please enter minimum characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern":"Enter valid cheque number"
+    }
+  },
+  "retailcasatrandtlsDownloadfilterform": {
+    "toDate": {
+      "TO_DATE_MAX_ERROR": "To Date should not be greater than From Date"
+    }
+  },
+  "RetailBeneInternalForm":{
+    "beneNickName":{
+      "pattern" :"Invalid Pattern",
+      "minlength":"Please enter minimum 8 digit",
+      "maxlength":"Maximum Length Exceeded"
+     
+    },
+    "remarks":{
+      "pattern" :"Please Enter Valid Remarks"
+      },
+    
+    "accountNumber":{
+      "pattern":"Please enter minimum 12 digit numerics",
+      "minlength":"Please enter minimum 8 digit",
+      "maxlength":"Maximum Length Exceeded",
+      "error":"Self account  registration restricted",
+      "accountnumber_exists_error": "Account number already exists"
+
+    },
+    "confirmAccountNumber":{
+      "pattern":"Please enter minimum 12 digit numerics",
+      "nameError":"Account number does not match",
+      "fetchError":"Account number does not exist",
+      "minlength":"Please enter minimum 12 digits",
+      "maxlength":"Maximum Length Exceeded",
+      "resFetchError":"New Account Number for this user",
+      "selfAccError":"Own Account Registration is restricted",
+      "accountnumber_exists_error": "Account number already exists",
+      "max":"Maximum Length should be 12 digits"
+
+    },
+    "nickName": {
+      "pattern":"Please enter valid pattern",
+      "minlength": "Please enter more than 1 characters",
+      "nickname_exists_error": "Contact name already exists"    
+
+    }
+  },
+  "RetailBeneDomReq": {
+    "beneNickName": {
+      "pattern": "Invalid Pattern",
+      "minlength": "Please enter minimum 3 characters",
+      "maxlength": "Maximum Length Exceeded"
+    },
+    "accountNumber": {
+      "minlength": "IBAN is Invalid. Please enter valid IBAN and try again",
+      "maxlength": "Maximum Length Exceeded",
+      "error": "Self account  registration restricted",
+      "pattern":"Invalid IBAN Number"
+    },
+    "confirmAccountNumber": {
+      "nameError": "Account Numbers are not matching",
+      "fetchError": "IBAN is Invalid. Please enter valid IBAN and try again",
+      "minlength": "IBAN is Invalid. Please enter valid IBAN and try again",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern":"Invalid IBAN Number"
+    },
+    "nickName": {
+      "minlength": "Please enter more than 3 characters"
+    }
+  },
+  "RetailBeneInternationalReqForm": {
+    "accountNumber": {
+      "minlength": "Please Enter Valid Account Number",
+      "maxlength": "Please Enter Valid Account Number",
+      "errorMsg": "Beneficiary Already Registered",
+      "pattern": "Invalid Pattern"
+    },
+    "beneNickName": {
+      "nameError": "Nick Name Already Exist",
+      "minlength": "Please enter valid Nick Name",
+      "pattern": "Invalid Pattern"
+    },
+    "bic": {
+      "bicInvalid": "Invalid BIC Code",
+      "resNullError":"Invalid BIC",
+      "minlength":"Please Enter Valid BIC"
+    },
+    "iban": {
+      "IBANERROR": "IBAN is Invalid. Please enter valid IBAN and try again",
+      "DEPERR4010": "Beneficiary Already Registered",
+      "minlength": "IBAN is Invalid. Please enter valid IBAN and try again",
+      "maxlength": "Maximum Length Exceeded for IBAN",
+      "pattern": "Invalid IBAN Number"
+    },
+    "confirmIban": {
+      "nameError": "IBAN does not match",
+      "minlength": "IBAN is Invalid. Please enter valid IBAN and try again",
+      "pattern": "Invalid IBAN Number"
+    },
+    "addressLine1": {
+      "minlength": "Please enter valid Address",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Invalid Pattern"
+    },
+    "addressLine2": {
+      "minlength": "Please enter valid Address",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Invalid Pattern"
+    },
+    "beneName": {
+      "minlength": "Please enter valid Name",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Invalid Pattern"
+    },
+    "city": {
+      "minlength": "Please enter valid City",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Invalid Pattern"
+    },
+    "conAccNumber": {
+      "minlength": "Please enter valid Account Number",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Invalid Pattern",
+      "accMisMatch": "Entered Account Number is not same"
+    },
+    "nickName": {
+      "minlength": "Please enter more than 3 characters"
+    },
+    "ifscCode": {
+      "maxlength":"The IFSC code entered is incorrect.Please verify and try again",
+      "minlength": "The IFSC code entered is incorrect.Please verify and try again",
+      "pattern": "The IFSC code entered is incorrect.Please verify and try again"
+    },
+    "intermediaryBic": {
+      "bicInvalid": "Invalid BIC Code",
+      "resNullError":"Invalid BIC",
+      "minlength":"Please Enter Valid BIC"
+    },
+    "additionalBic": {
+      "maxlength":"Please enter a valid SORT CODE, TRANSIT NUMBER, FEDWIRE, or ABA code.",
+      "minlength": "Please enter a valid SORT CODE, TRANSIT NUMBER, FEDWIRE, or ABA code.",
+      "pattern": "Please enter a valid SORT CODE, TRANSIT NUMBER, FEDWIRE, or ABA code."
+    }
+  },
+  "RetailBeneCCReqForm": {
+    "beneNickName": {
+      "nameError": "Nick Name Already Exist"
+    },
+    "creditCardNumber": {
+      "nameError": "Credit Card number is already registered",
+      "minlength": "Please Enter Valid Credit Card Number",
+      "maxLength": "Please Enter Valid Credit Card Number"
+    },
+    "confirmCreditCardNumber": {
+      "nameError": "Credit Card number does not match"
+    },
+    "nickName": {
+      "pattern": "Please enter the valid nickname",
+      "minlength": "Please enter more than 2 characters"
+    },
+    "bic": {
+      "minlength": "Please Enter valid BIC",
+      "resNullError":"Invalid BIC"
+    }
+  },
+  "RetailTestLoginForm": {
+    "username":{
+      "user_invalid": "${user_invalid}",
+      "username_locked":"${username_locked}",
+      "minlength":"Please enter minimum 8 characters",
+      "maxlength":"Please enter maximum 32 characters",
+      "pattern": "Please enter valid user id"
+    },
+    "password": {
+      "user_invalid": "Invalid username/password",
+      "userpassword_invalid": "Invalid username/password",
+      "usermap_invalid":"${usermap_invalid}",
+      "pattern": "Please enter valid password",
+      "minlength":"Please enter minimum 8 characters",
+      "maxlength":"Please enter maximum 32 characters",
+      "userblock":"${userblock}"
+    }
+  },
+  "RetailResetPasswordForm": {
+    "confirmPassword": {
+      "pattern": "Please enter valid password",
+      "passwordval": "Password entered are not matching"
+    },
+    "newPassword": {
+      "pattern": "Please enter valid password",
+      "passwd": "Please enter the password matches with bank password policy"
+    }
+  },
+  "RetailChangePasswordForm": {
+    "confirmPassword": {
+      "pattern": "Please enter valid password",
+      "passwordval": "Password entered are not matching",
+      "minlength": "Please enter minimum 8 characters",
+      "maxlength": "Please enter maximum 32 characters"
+    },
+    "confirmPass":{
+      "pattern": "Please enter valid password",
+      "passwordval": "Password entered are not matching",
+      "currpassval":"New password cannot be same as current or previous passwords",
+      "passconval":"Configured no. of consecutive chars can't be same",
+      "passresval":"${passresval}",
+      "passreqval":"New password does not meet the password policy requirements",
+      "minlength": "Please enter minimum 8 characters",
+      "maxlength": "Please enter maximum 32 characters"
+    },
+    "oldPassword": {
+      "pattern": "Please enter valid password",
+      "minlength": "Please enter minimum 8 characters",
+      "maxlength": "Please enter maximum 32 characters"
+    },
+    "newPassword": {
+      "pattern": "Please enter valid password",
+      "passwd": "Please enter the password matches with bank password policy",
+      "cannotCurrentPass": "New password cannot be same as current password",
+      "minlength": "Please enter minimum 8 characters",
+      "maxlength": "Please enter maximum 32 characters"
+    },
+    "currentPass": {
+      "pattern": "Please enter valid password",
+      "cannotCurrentPass": "New password cannot be same as current password",
+      "minlength": "Please enter minimum 8 characters",
+      "maxlength": "Please enter maximum 32 characters"
+    },
+    "newPass": {
+      "pattern": "Please enter valid password",
+      "passwd": "Please enter the password matches with bank password policy",
+      "cannotCurrentPass": "New password cannot be same as current password",
+      "minlength": "Please enter minimum 8 characters",
+      "maxlength": "Please enter maximum 32 characters"
+    }
+  },
+  "RetailDcActivateCardForm": {
+    "cardName": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Only Alphabets"
+    },
+    "cvv": {
+      "DEPERR5003": "Please Enter Valid Card Details"
+    },
+    "remarks": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded"
+    }
+  },
+  "RetailCCActivationForm": {
+    "cardHolderName": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Only Alphabets"
+    },
+    "cvv": {
+      "DEPERR5003": "Please Enter Valid Card Details"
+    },
+    "remarks": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded"
+    }
+  },
+  "RetailLoanModification": {
+    "deferralAmtError": {
+      "deferralAmtError": "Entered amount is greater than overdue amount"
+    },
+    "remarks": {
+      "minlength": "Please enter minimum characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid reason"
+    }
+  },
+  "dcpinrequest": {
+    "confirmPin": {
+      "DEPERR900015": "Entered PIN is not matching",
+      "pattern": "Please enter valid PIN"
+    },
+    "reenteredPin":{
+      "reenteredPinerr":"Entered PIN is not matching",
+      "pattern": "Please enter valid PIN"
+    },
+    "pin": {
+      "pinError": "Please enter new PIN not match with previous PINs",
+      "pattern": "Please enter valid PIN"
+    },
+    "remarks":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid Remarks"
+    }
+  },
+  "RetailNPSSProxyForm": {
+    "email": {
+      "emailError": "Email already registered",
+      "NoEmail": "Email not available"
+    }
+  },
+  "RetailLoanClosureForm": {
+    "debitAccount": {
+      "insufficient_balance_error": "Insufficient balance in debit account to clear loan amount"
+    },
+    "remarks":{
+      "minlength":"Please enter minimum characters",
+      "maxlength":"Maximum Length Exceeded"
+    }
+  },
+  "DCVerifyPinValidationForm": {
+    "confirmPin": {
+    "DEPERR900015":"Please Enter Valid PIN",
+    "pattern": "Please enter valid PIN"
+    },
+    "pin":{
+      "DEPERR900017":"Please enter correct PIN",
+      "pattern": "Please enter valid PIN"
+    }
+  },
+  "RetailWithinBankTransferFormComponent": {
+    "scheduleHandler.paymentFrequency": {
+      "frequencyErrors": " The number of installments completed is xx, please enter a value above xx"
+    }
+  },
+  "verifyTfa": {
+    "otp": {
+      "minlength": "Please enter valid OTP",
+      "required": " ",
+      "pattern": "Please enter valid OTP"
+    }
+  },
+  "RetailDcTransactionExFilter":{
+    "maximumAmount":{
+      "maxAmountERR": "Maximium Amount Can't less then Min Amount",
+      "maxAmountManERR": "This is mandatory"
+
+    },
+    "minAmount": {
+      "minAmountERR": "Minimum Amount Can't greater then Max Amount",
+      "minAmountManERR": "This is mandatory"
+    }
+  },
+   "RetailForgotPasswordForm": {
+    "username": {
+      "user_invalid": "${user_invalid}",
+      "username_locked":"${username_locked}",
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid user id"
+    },
+    "accountNumber": {
+      "minlength": "Please Enter Valid  Account Number",
+      "maxlength": "Please Enter Valid 10 digit Account Number",
+      "pattern": "Invalid Pattern"
+    },
+    "debitcardNumber": {
+      "minlength": "Please Enter Valid 16 digit Card Number",
+      "maxlength": "Please Enter Valid 16 digit Card Number",
+      "pattern": "Invalid Pattern"
+    },
+    "pin": {
+      "pattern": "Enter Valid 4 digit pin",
+      "user_exists":"${user_exists}",
+      "invalid_user_data":"${invalid_user_data}",
+      "invalid_data": "Based on the policy of the bank.You are unable to register for online banking. Please contact Customer Care Centre for further assistance.",
+      "invalid_cus_data": "Details are not matching, please try again",
+      "usermap_invalid":"${usermap_invalid}",
+      "userblock":"${userblock}"
+    },
+    "dob": {
+      "user_exists":"${user_exists}",
+      "invalid_user_data":"${invalid_user_data}",
+      "invalid_data": "Based on the policy of the bank.You are unable to register for online banking. Please contact Customer Care Centre for further assistance.",
+      "invalid_cus_data": "Details are not matching, please try again",
+      "usermap_invalid":"${usermap_invalid}",
+      "userblock":"${userblock}"
+    },
+    "customerCif": {
+      "minlength": "Please enter valid Customer number",
+      "maxlength": "Please enter valid Customer number",
+      "pattern": "Please enter only numbers"
+    }
+  },
+  "RetailCustomerVerificationForm": {
+    "accountNumber": {
+      "minlength": "Please Enter Valid  Account Number",
+      "maxlength": "Please Enter Valid 10 digit Account Number",
+      "pattern": "Invalid Pattern"
+    },
+    "debitcardNumber": {
+      "minlength": "Please Enter Valid 16 digit Card Number",
+      "maxlength": "Please Enter Valid 16 digit Card Number",
+      "pattern": "Invalid Pattern"
+    },
+    "customerCif": {
+      "minlength": "Please enter valid Customer number",
+      "maxlength": "Please enter valid Customer number",
+      "pattern": "Please enter valid Customer number"
+    },
+    "dob": {
+      "user_exists":"${user_exists}",
+      "invalid_user_data":"${invalid_user_data}",
+      "invalid_data": "Based on the policy of the bank.You are unable to register for online banking. Please contact Customer Care Centre for further assistance.",
+      "invalid_cus_data": "Details are not matching, please try again",
+      "usermap_invalid":"${usermap_invalid}",
+      "userblock":"${userblock}"
+    },
+    "pin": {
+      "pattern": "Enter Valid 4 digit pin",
+      "user_exists": "${user_exists}",
+      "invalid_user_data":"${invalid_user_data}",
+      "invalid_data": "Based on the policy of the bank.You are unable to register for online banking. Please contact Customer Care Centre for further assistance.",
+      "invalid_cus_data": "Details are not matching, please try again",
+      "usermap_invalid":"${usermap_invalid}",
+      "userblock":"${userblock}"
+    }
+  },
+  "RetailDebitCardSetPinForm": {
+    "reenteredPin": {
+      "reenteredPinerr": "Confirm PIN does not match"
+    }
+  },
+  "NPSSSendMoney":{
+    "transactionAmount":{
+      "maxError":"Insufficient Balance"
+    },
+    "email":{
+      "notRegistered":"Customer not Registered"
+    },
+    "mobileNumber":{
+      "notRegistered":"Customer not Registered"
+    }
+  },
+  "RetailNpssRequestMoney":{
+    "transactionAmount":{
+      "maxError":"Insufficient Balance"
+    },
+    "email":{
+      "notRegistered":"Customer not Registered"
+    },
+    "mobileNumber":{
+      "notRegistered":"Customer not Registered"
+    }
+  },
+  "RetailCCReplacementForm":{
+    "otherReason":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length 150 Exceeded",
+      "pattern": "Please enter valid Reason"
+    },
+    "remarks":{
+      "minlength":"Please enter minimum characters",
+      "maxlength":"Maximum Length Exceeded",
+      "pattern": "Please enter valid Remarks"
+    }
+  },
+  "retaildcreplacement":{
+    "otherReason":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Remarks"
+    }
+  },  "RetailPrepaidWalletTransferForm":{
+    "fromCurrency":{
+      "fromcurrency_err":"From currency and To currency should not be same"
+    },
+    "toCurrency":{
+      "tocurrency_err":"From currency and To currency should not be same"
+    },
+    "remarks":{
+      "minlength":"Please enter minimum characters",
+      "maxlength":"Maximum Length Exceeded",
+      "pattern": "Please enter Min 3 to Max 100 characters"
+    },
+    "paymentAmount":{
+      "amount_err":"Please enter valid amount",
+      "exchange_rate_fetch_error":"Error in retrieving information, Please try again later"
+
+    }
+  },
+  "raisedisputedebitcard":{
+    "remarks":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Remarks"
+    },
+    "otherReason":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Remarks"
+    }
+  },
+  "ccraisedispute":{
+    "remarks":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Remarks"
+    },
+    "otherReason":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Remarks"
+    }
+  },
+
+  "registerDeviceForm": {
+    "confirmMpin": {
+      "not_match": "Confirm MPIN not Matched",
+      "minlength": " "
+    },
+    "mpin": {
+      "minlength": " ",
+      "currentMpinMatch": "New MPIN should not same current MPIN"
+    }
+  },
+  "RetailPrepaidTopUpForm": {
+    "amount":{
+      "insufficient_balance_error": "Insufficient Balance in your debit account",      
+       "card_limit_amount_err": "Please enter the Topup amount within ${card_limit_amount_err}, as per the allowed limit"
+      },
+    "remarks": {
+      "minlength": "Please enter minimum three characters",
+      "pattern": "Please enter valid Remarks",
+      "maxlength": "Maximum Length Exceeded"
+    }
+  },
+  "RetailCCBillPaymentForm": {
+    "amount":{
+      "insufficient_balance_error": "Insufficient Balance in your debit account",
+      "amount_err":"There is no due amount",
+      "amount_err1":"There is no outstanding amount",
+      "max_amount_err":"Amount should be less than Outstanding Amount",
+      "min_amount_err":"Amount should be greater than Minimum Due Amount",
+      "exchange_rate_fetch_error":"Error in retrieving information, Please try again later",
+      "zero_value_error": "There is no due amount"
+    },
+    "otherAmount":{
+      "insufficient_balance_error": "Insufficient Balance in your debit account",
+      "max_amount_err":"Amount should be less than Outstanding Amount",
+      "min_amount_err":"Amount should be greater than Minimum Due Amount",
+      "exchange_rate_fetch_error":"Error in retrieving information, Please try again later"
+    },
+    "remarks": {
+      "minlength": "Please enter minimum three characters",
+      "pattern": "Please enter valid Remarks",
+      "maxlength": "Maximum Length Exceeded"
+    }
+  },
+  "RetailApplyCreditCard":{
+    "remarks": {
+      "minlength": "Please enter minimum three characters",
+      "pattern": "Please enter valid Remarks",
+      "maxlength": "Maximum Length Exceeded"
+    }
+  },
+   "RetailPrepaidChanfePin": {
+    "confirmPin": {
+      "DEPERR900017": "Entered PIN is not matching",
+      "pattern": "Please enter valid PIN"
+    },
+    "reenteredPin":{
+      "reenteredPinerr":"Confirm PIN not Matched",
+      "pattern": "Please enter valid PIN"
+    },
+    "pin": {
+      "pinError": "Current PIN & New PIN should not be Same",
+      "pattern": "Please enter valid PIN"
+    },
+    "remarks":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid Remarks"
+    }
+  },
+  "retailActivePrepaidCard":{
+    "cardName": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Only Alphabets"
+    },
+    "cvv": {
+      "DEPERR5007": "Please Enter Valid Card Details"
+    },
+    "remarks": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded"
+    }
+  },
+    "RetailSingleBillPaymentForm":{
+    "paymentAmount":{
+      "minAmount":"Please enter minimum ${minAmount} ",
+      "maxAmount":"Entered amount should be less than ${maxAmount}",
+      "multiplesErr":"Entered amount should be multiples of ${multiplesErr} only",
+      "insufficient_balance_error": "Your account doesn't have the sufficient funds to process this payment."
+    },
+    "remarks": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded"
+    }
+  },
+  "RetailOwnAccountTransferForm": {
+    "sourceAccount": {
+      "singleAccountError": "You don't have another Account",
+      "invalidAccountErr":"Invalid account number.Please select valid account"
+    },
+    "paymentAmount": {
+      "beneNullError":"Please Select Credit Account",
+      "sourceAccNullError":"Please Select Debit Account",
+      "required":"Please enter the amount",
+      "exchange_rate_fetch_error":"Entered amount exceeds maximum limit"
+    },
+    "remarks": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid remarks"
+    },
+    "numberOfPayments":{
+      "maxlength": "Maximum Length Exceeded",
+      "required":"Please enter the valid number of payments"
+    },
+    "paymentFrequency":{
+       "required":"Please select the payment frequency"
+    }
+  },
+  "RetailTaxStatementReq":{
+    "taxRegistrationNumber":{
+      "minlength": "Tax Number should be 15 digits",
+      "maxlength": "Tax Number should be 15 digits",
+      "pattern": "Invalid tax number "
+    }
+  },
+  "RetailNoLiabilityLetter":{
+    "email":{
+      "Email_Error": "Your communication information is unavailable."
+    } ,
+    "addressedTo": {
+      "minlength": "Please enter minimum 3 characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please Enter Valid Data"
+    },
+    "otherReason": {
+      "minlength": "Please enter minimum 3 characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please Enter Valid Data"
+    }
+  },
+  "RetailLiabilityLetterForm":{
+    "email":{
+      "Email_Error": "Your communication information is unavailable."
+    },
+    "addressedTo": {
+      "minlength": "Please enter minimum 3 characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please Enter Valid Data"
+    },
+    "otherReason": {
+      "minlength": "Please enter minimum 3 characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please Enter Valid Data"
+    }
+  },
+  "RetailAdhocAccStmtReqForm":{
+    "emailId":{
+      "Email_Error": "Your communication information is unavailable."
+    },
+    "otherReason":{
+      "minlength": "Please enter minimum 3 characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please Enter Valid Data"
+    }
+  },
+  "ServiceRequestAttachmentForm": {
+    "messageContent":{
+      "minlength": "Please enter minimum 3 characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter the valid message"
+    }
+  },
+  "RetailIBANLetterReqForm":{
+    "emailId":{
+      "Email_Error": "Your communication information is unavailable."
+    },
+    "remarks":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded"
+    }
+  },
+  "RetailCCPinrequestForm": {
+    "confirmPin": {
+      "DEPERR900017": "Entered PIN is not matching",
+      "pattern": "Please enter valid PIN"
+    },
+    "reEnterNewPin": {
+      "reenteredPinerr": "Confirm PIN not Matched",
+      "pattern": "Please enter valid PIN"
+    },
+    "pin": {
+      "pinSecurityError": "PIN entered does not meet security standards",
+      "pattern": "Please enter valid PIN"
+    },
+    "remarks":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid Remarks"
+    }
+  },
+  "retailcreditcardblock":{
+    "remarks":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid Remarks"
+    },
+    "otherReason":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length 150 Exceeded",
+      "pattern": "Please enter valid Reason"
+    }
+  },
+  "retailccunblocked":{
+    "remarks":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid Remarks"
+    },
+    "unBlockOtherReason":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Reason"
+    }
+  },
+   "retaildcunblock":{
+    "remarks":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Remarks"
+    },
+    "unBlockOtherReason":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Remarks"
+    }
+  },
+  "RetailChangeMpinForm": {
+    "currentMpin": {
+      "minlength": " ",
+      "pattern": "Please enter 4 digit number"
+    },
+    "newMpin": {
+      "minlength": "Please enter 4 digit number",
+      "pattern": "Please enter 4 digit number",
+      "currentMpinMatch": "New MPIN should not same current MPIN"
+    },
+    "confirmMpin": {
+      "minlength": "Please enter 4 digit number",
+      "mpinNotMatch": "Entered MPIN doesn't match with new MPIN",
+      "pattern": "Please enter 4 digit number"
+    }
+  },
+  "NPSSLOGIN": {
+    "password": {
+      "verificationFailed": "User is not verified"
+    }
+  },
+  "PreferedMailingAddress": {
+    "otherNationality": {
+      "checkcountry": "Please choose valid country"
+    }
+  },
+  "mpinLoginForm": {
+    "mpin": {
+      "minlength": " "
+    }
+  },
+  "RetailCcLimitChangeForm":{
+    "limitChange":{
+      "limitChangeERR":" Please Change limit To Proceed",
+      "maxlength":"Limit must be in thousands and within the slider's minimum and maximum range.",
+      "minlength":"Limit must be in thousands and within the slider's minimum and maximum range.",
+      "pattern":"Limit must be in thousands and within the slider's minimum and maximum range.",
+      "min": "Limit must be in thousands and within the slider's minimum and maximum range.",
+      "max": "Limit must be in thousands and within the slider's minimum and maximum range.",
+      "required": "Limit must be in thousands and within the slider's minimum and maximum range."
+
+    },
+    "limitChangeFlag":{
+      "maxlength":"Limit must be in thousands and within the slider's minimum and maximum range.",
+      "pattern":"Limit must be in thousands and within the slider's minimum and maximum range."
+    }
+    
+  },
+   "retailpcunblock":{
+    "remarks":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Remarks"
+    },
+    "unblkOtherReason":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Remarks"
+    }
+  },
+  "RetailAddBillerForm":{
+    "nickName":{
+      "pattern":"Please Enter a Valid Nickname",
+      "biller_nickname_exists_error":"Nickname already exist",
+      "maxlength": "Maximum length Exceed"
+    }
+    
+  },
+  "RetailDcTransactionDownloadFilter":{
+    "maximumAmount":{
+      "maxAmountERR": "Maximium Amount Can't less then Min Amount",
+      "maxAmountManERR": "This is mandatory"
+
+    },
+    "minAmount": {
+      "minAmountERR": "Minimum Amount Can't greater then Max Amount",
+      "minAmountManERR": "This is mandatory"
+    }
+  },
+  "BalanceConfirmationReq":{
+    "emailId":{
+      "Email_Error": "Your communication information is unavailable."
+    } 
+  },
+  "RetailInstaPayForm": {
+    "confirmIban": {
+      "confirmIbanError": "Entered IBAN is not matched",
+      "minlength": "IBAN is Invalid. Please enter valid IBAN and try again",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Invalid IBAN Number"
+    },
+    "iban": {
+      "minlength": "IBAN is Invalid. Please enter valid IBAN and try again",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Invalid IBAN Number"
+    },
+    "remarks":{
+      "pattern":"Invalid Pattern",
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded"
+    },
+    "sourceAccount":{
+      "invalidAccountErr":"Invalid account number.Please select valid account"
+    }
+  },
+  "RetailCreateServiceRequestForm":{
+    "remarks":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded"
+    },
+    "subject":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please Enter Valid Data"
+    },
+    "message":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length 2000 Exceeded",
+      "pattern": "Please enter the valid message",
+      "required":"Please enter the message"
+    },
+    "mobileNumber":{
+      "pattern": "Please enter a valid mobile number",
+      "minlength": "Please enter a valid mobile number",
+      "maxlength": "Maximium length Exceed",
+      "required":"Please enter the mobile number"
+    },
+    "email":{
+      "pattern": "Please enter a valid email Id",
+      "minlength": "Please enter a valid email Id",
+      "maxlength": "Maximium length Exceed",
+      "required":"Please enter the email Id"
+    },
+    "SubCategory":{
+      "required":"Please select the subject"
+    },
+    "returnCallTiming":{
+      "required":"Please select the call timing"
+    }
+  },
+   "AdditionalInformation":{
+    "yearResidence":{
+      "checkyear":"Enter valid year"
+    }
+  },
+  "RetailDomesticTransferForm":{
+    "remarks":{
+      "pattern":"Invalid Pattern",
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded"
+    },
+    "sourceAccount":{
+      "invalidAccountErr":"Invalid account number.Please select valid account"
+    },
+    "paymentAmount": {
+      "beneNullError":"Please Select Credit Account",
+      "sourceAccNullError":"Please Select Debit Account"
+    }
+  },
+  "RetailWithinBankTransferForm":{
+    "remarks":{
+      "pattern":"Please use only letters and/or numbers.",
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded"
+    },
+    "sourceAccount":{
+      "invalidAccountErr":"Invalid account number.Please select valid account"
+    },
+    "paymentAmount": {
+      "beneNullError":"Please Select Credit Account",
+      "sourceAccNullError":"Please Select Debit Account",
+       "exchange_rate_fetch_error":"Entered amount exceeds maximum limit"
+    },
+    "confirmAccountNumber": {
+      "max":"Maximum Length should be 12 digits"
+    },
+    "accountNumber":{
+      "accountNumberErr": "Please enter a valid 12-digit account number.",
+      "sameAccountErr": "From and To account cannot be same"
+    }
+  },
+  "RetailCCTransferForm":{
+    "remarks":{
+      "pattern":"Invalid Pattern",
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded"
+    },
+    "sourceAccount":{
+      "invalidAccountErr":"Invalid account number.Please select valid account"
+    },
+    "paymentAmount": {
+      "beneNullError":"Please Select Credit Account",
+      "sourceAccNullError":"Please Select Debit Account"
+    }
+  },
+  "RetailInternationalTransferForm":{
+    "remarks":{
+      "pattern":"Invalid Pattern",
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded"
+    },
+    "sourceAccount":{
+      "invalidAccountErr":"Invalid account number.Please select valid account"
+    },
+    "paymentAmount": {
+      "beneNullError":"Please Select Credit Account",
+      "sourceAccNullError":"Please Select Debit Account"
+    }
+  },
+  "raisedisputePrepaidCard":{
+    "remarks":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Remarks"
+    },
+    "otherReason":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Remarks"
+    }
+  },
+  "RetailUpdateProfileDocForm":{
+    "idNumber":{
+      "pattern": "Please enter valid ID Number"
+    }
+  },
+
+  "RetailScheduleTransferHandler":{
+    "numberOfPayments":{
+      "installmentError":"Number of Payments should be greater than 1",
+      "maxlength": "Maximum Length Exceeded",
+      "required":"Please enter the number of payments",
+      "minNoOfPaymentsErr": "Number of Payments Should not be less than remaining payments",
+      "max":"Maximum Length should be 3 digits",
+      "pattern": "Please enter valid number of payments"
+
+    },
+    "paymentFrequency":{
+      "frequencyError":"Please select the frequency"
+    }
+
+  },
+  "LoginForm":{
+    "username":{
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid user name"
+    },
+    "password":{
+      "pattern": "Please enter valid password"
+    }
+  } ,
+
+  "RetailLoanCalcForm":{
+    "minAmountErr":"Please Enter Minimum ${minamount} ",
+    "maxAmountErr":"Entered Amount Should be less than ${maxamount}."
+  },
+  "RetailProfileDetailsForm": {
+    "mobileNumber": {
+      "minlength": "Please enter valid Mobile Number",
+      "maxlength": "Please enter valid Mobile Number",
+      "pattern": "Please enter valid Mobile Number"
+    }
+  },
+  "RetailStopChequeRequestForm": {
+    "toChequeNumber": {
+      "Cheque_Error": "Please enter end of range greater than start of range",
+      "Invalid_Cheque_number": "Contains invalid Cheque",
+      "CBSERR007": "The given cheque range is not valid",
+      "CBSERR008": "Record already exists",
+      "CBSERR009": "The given cheque range contains already completed cheque",
+      "toCheque_Err": "Please enter the start of range",
+      "minlength": "Please enter a valid cheque number",
+      "maxlength": "Please enter a valid cheque number",
+      "pattern": "Please enter a valid cheque number"
+    },
+    "chequeNumber": {
+      "Invalid_Cheque_number": "Invalid Cheque",
+      "CBSERR002": "Please enter a valid cheque number",
+      "CBSERR003": "Record already exists",
+      "CBSERR004": "Cheque number has already been stopped.",
+      "minlength": "Please enter a valid cheque number",
+      "maxlength": "Please enter a valid cheque numberr",
+      "pattern": "Please enter a valid cheque number"
+    },
+    "fromChequeNumber": {
+      "Invalid_Cheque_number": "Invalid Cheque",
+      "CBSERR002": "Please enter a valid start cheque number",
+      "CBSERR003": "Record already exists",
+      "CBSERR004": "Cheque already processed cannot be stopped",
+      "CBSERR007": "The given cheque range is not valid",
+      "CBSERR008": "The given cheque range contains already stopped cheque",
+      "CBSERR009": "The given cheque range contains already completed cheque",
+      "minlength": "Please enter a valid cheque number",
+      "maxlength": "Please enter a valid cheque number",
+      "pattern": "Please enter a valid cheque number"
+    },
+    "remarks": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter only alphabets"
+    },
+    "otherReason":{
+       "minlength": "Pleae enter the valid reason",
+      "maxlength": "Reason exceeds maximum length",
+      "pattern": "Pleae enter the valid reason "
+    },
+    "payee":{
+      "minlength": "Please enter the valid payee",
+      "maxlength": "Please enter the valid payee",
+      "pattern": "Please enter the valid payee"
+    },
+    "chequeAmount":{
+      "maxAmount": "Please enter a valid amount"
+    }
+  },
+  "RetailChangeProductReqForm": {
+    "accountNumber": {
+      "required": "Please select an account"
+    },
+    "newProductCode":{
+      "required":" Please select the product "
+    }
+  },
+  "RetailMultiBillRequestInputGrid": {
+    "totalBillAmount": {
+      "amountExceed": "Insufficient funds in your account"
+    },
+    "numberOfPayments": {
+      "max": "Invalid number",
+      "min": "Invalid number"
+    }
+  },
+  "RetailScheduleBillPaymentsForm":{
+    "numberOfPayments":{
+      "remPaymentsErr": "Number of Payments Should not be less than remaining payments"
+    }
+
+  },
+  "RetailVisaEStatementReqForm":{
+    "cardRefNumber":{
+      "required":"Please select a credit card"
+    },
+    "year":{
+      "required":"Please select a valid year"
+    }
+  },
+  "RetailAccountEStatementReqForm":{
+    "relationshipNumber":{
+      "required": "Please select a relationship"
+    },
+    "year":{
+      "required": "Please select a valid year"
+    }
+  },
+  "RetailEtransfercontactlogForm": {
+    "firstName": {
+      "minlength": "Please enter minimum three characters.",
+      "maxlength": "Maximum Length Exceeded.",
+      "pattern": "Please enter a valid name that contains only letters, numbers, and/or the symbols ' _ , - .",
+      "duplicate": "You already have a contact with this name. Please change the contact name. "
+    },
+    "emailId": {
+      "pattern": "Please enter a valid email address.",
+      "minlength": "Please enter atleast 9 characters.",
+      "maxlength": "Maximum Length Exceeded.",
+      "duplicate": "Email already exists."
+    },
+    "phoneNumber": {
+      "minlength": "Please enter a valid 10-digit numeric mobile number.",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter a valid 10-digit numeric mobile number.",
+      "duplicate": "Mobile already exists."
+    }
+  },
+  "RetailEtransferCustomerForm":{
+  "firstName":{
+    "required":"Please enter your name.",
+    "minlength": "Please enter minimum three characters.",
+    "maxlength": "Maximum Length Exceeded.",
+    "pattern": "Please enter a valid name that contains only letters, numbers, and/or the symbols ' _ , - ."
+  },
+  "email":{
+    "required":"Please enter your valid email address.",
+    "pattern": "Please enter a valid email address.",
+    "minlength": "Please enter atleast 9 characters.",
+    "maxlength": "Maximum Length Exceeded.",
+    "duplicate": "Email already exists."
+  },
+  "phoneNumber":{
+    "required":"Please enter your valid phone number.",
+    "minlength": "Please enter a valid 10-digit numeric mobile number.",
+    "maxlength": "Maximum Length Exceeded.",
+    "pattern": "Please enter a valid 10-digit numeric mobile number."
+  }
+},
+"RetailEtransferautodepositlogForm":{
+    "emailID":{
+      "duplicate_err": "The email address you entered is already registered for Autodeposit.Please use a different email.",
+      "pattern": "Please enter a valid email address.",
+      "minlength": "Please enter a valid email address.",
+      "maxlength": "Maximum Length Exceeded."
+    },
+    "mobileNumber":{
+      "duplicate_err": "The mobile number you entered is already registered for Autodeposit. Please use a different number.",
+      "pattern": "Please enter a valid mobile number.",
+      "minlength": "Please enter a valid mobile number.",
+      "maxlength": "Maximum Length Exceeded."
+    }
+  },
+  "RetailEtransfer":{
+  "remarks":{
+    "pattern":"Invalid Pattern.",
+    "minlength": "Please enter minimum three characters.",
+    "maxlength": "Maximum Length Exceeded."
+  },
+    "paymentAmount": {
+      "sourceAccNullError": "Please Select Send Money From",
+      "insufficient_balance_error": "Your account does not have sufficient balance to cover this amount.",
+      "amountLimitError": "Please enter a valid amount between $0.01 and $3000."
+    },
+    "contactPhoneNumber": {
+      "minlength": "Please enter a valid phone number",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter a valid 10-digit numeric mobile number.",
+      "duplicate": "Mobile already exists."
+    },
+    "contactName": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter a valid contact name.",
+      "duplicate": "Contact Name Already Exists."
+    },
+    "contactEmailId": {
+      "pattern": "Please enter a valid email address.",
+      "minlength": "Please enter atleast 9 characters.",
+      "maxlength": "Maximum Length Exceeded.",
+      "duplicate": "Email already exists."
+    },
+    "confirmSecurityAnswer": {
+      "securityAnsReq": "Please enter Security Answer",
+      "notMatchErr": "Security Answer not Matched"
+    },
+    "isPreferred": {
+      "sourceAccNullError": "Please Select Money From"
+    },
+    "securityAnswer": {
+      "minlength": "Answer must be between 3-25 characters without spaces, containing only letters, numbers, and/or the symbols ' -.",
+      "maxlength": "Answer must be between 3-25 characters without spaces, containing only letters, numbers, and/or the symbols ' -.",
+      "pattern": "Answer must be between 3-25 characters without spaces, containing only letters, numbers, and/or the symbols ' -."
+    },
+    "securityQuestion": {
+      "minlength": "Question must be between 1-40 characters containing only letters, numbers, and/or the symbols ' _ , . ? -.",
+      "maxlength": "Question must be between 1-40 characters containing only letters, numbers, and/or the symbols ' _ , . ? -.",
+      "pattern": "Question must be between 1-40 characters containing only letters, numbers, and/or the symbols ' _ , . ? -."
+    }
+  },
+  "RetailEtransferRequestMoneyForm": {
+    "remarks": {
+      "pattern": "Invalid Pattern",
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded"
+    },
+    "paymentAmount": {
+      "sourceAccNullError": "Please Select Deposit Money To",
+      "outofRangeError": "Please enter a valid amount between $0.01 and $3000."
+    },
+    "contactPhoneNumber": {
+      "minlength": "Please enter a valid phone number",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter a valid phone number"
+    },
+    "contactName": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter a valid contact name.",
+      "duplicate": "Contact Name Already Exists."
+    },
+    "contactEmailId": {
+      "pattern": "Please enter a valid email address.",
+      "minlength": "Please enter atleast 9 characters",
+      "maxlength": "Maximum Length Exceeded"
+    },
+    "confirmSecurityAnswer": {
+      "securityAnsReq": "Please enter Security Answer",
+      "notMatchErr": "Security Answer not Matched"
+    },
+    "isPreferred": {
+      "sourceAccNullError": "Please Select Deposit Money To"
+    }
+  },
+  "RetailEtransferReceiveMoneyForm": {
+    "securityAnswer": {
+      "required": "Please answer the security question.",
+      "securityAnsReq": "Please answer the security question.",
+      "notMatchErr": "Incorrect answer"
+    }
+  },
+  "RetailEtransferDeclineMoneyForm":{
+    "remarks1": {
+      "required": "Please enter a decline reason.",
+      "pattern": "Please enter a valid decline reason.",
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded"
+    }
+  },
+  "RetailEtransferFulfillRequestMoneyForm": {
+    "remarks2": {
+      "pattern": "Please enter a valid message.",
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded"
+    }
+  },
+  "RetailEtransferDeclineFulfillRequestMoneyForm":{
+    "remarks1": {
+      "required": "Please enter a decline reason.",
+      "pattern": "Please enter a valid decline reason.",
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded"
+    },
+    "remarks2": {
+      "pattern": "Please enter a valid message.",
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded"
+    }
+  },
+  "LinkInvestmentReqForm":{
+    "clientNumber":{
+       "required": "The client number has not been entered.",
+      "pattern": "The client number is invalid.",
+      "minlength": "Please enter minimum five characters",
+      "maxlength": "Maximum Length Exceeded"
+    }
+  }
+}

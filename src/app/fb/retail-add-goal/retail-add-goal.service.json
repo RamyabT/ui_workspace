@@ -1,0 +1,5 @@
+ 
+ "RETAILGOALINFO" : {
+ "servicePath": ["entry-shell","accounts", "retail-add-goal"],
+ "queryParams": {}
+ }

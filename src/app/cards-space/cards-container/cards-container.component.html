@@ -1,0 +1,60 @@
+<box class="module-home accounts-home cards-home" #spaceHome>
+
+    <ng-container *ngIf="_device.isMobile(); else spaceContainer">
+        <creditcard-module-header></creditcard-module-header>
+        <box class="module-home-bg" [style.top.px]="moduleHeaderTop"></box>
+        <creditcard-tab-container (onCreditCardReceived)="onCreditCardReceivedHandler($event)"></creditcard-tab-container>
+    </ng-container>
+
+    <ng-template #spaceContainer>
+        <box class="space-container">
+            <box class="space-content">
+                <creditcard-module-header></creditcard-module-header>
+                <ng-container *ngIf="isReceivedAccounts; else loader">
+                    <ng-container *ngIf="(isReceivedAccounts?.length > 0 || showTemplate); else noRecordDesktop">
+                        <box *ngIf="isReceivedAccounts?.length > 0" class="navigation-form-wrapper">
+                            <creditcard-navigation-form (creditCardData)="creditCardSelected($event)"></creditcard-navigation-form>
+                        </box>
+                        <router-outlet (activate)="onActivate($event)"></router-outlet>
+                    </ng-container>
+                </ng-container>
+            </box>
+            <box class="space-summary" [ngClass]="{'no-gap': isReceivedAccounts?.length == 0}">
+                <creditcards-aside-bar [creditCardData]="cardData"></creditcards-aside-bar>
+            </box>
+        </box>
+    </ng-template>
+</box>
+
+<!-- Content loader -->
+<ng-template #loader>
+    <!-- <ng-container *ngIf="!noTemplate; else noLoanDesktop"> -->
+        <box class="loading"></box>
+    <!-- </ng-container> -->
+</ng-template>
+
+<ng-template #noRecordDesktop>
+    <ng-container [ngSwitch]="accountNavigator">
+        <ng-container *ngSwitchCase="'debit-card'">
+            <box class="no-data-template">
+                <img src="./assets/illustrations/no-account-lg.svg" alt="No DebitCards">
+                <box class="desc">{{ 'CARDSCONTAINER.noDebitCard.desc' | translate }}</box>
+                <button type="button" class="btn-primary no-result-btn">{{ 'CARDSCONTAINER.noDebitCard.button' | translate }}</button>
+            </box>
+        </ng-container>
+        <ng-container *ngSwitchCase="'credit-card'">
+            <box class="no-data-template">
+                <img src="./assets/illustrations/no-account-lg.svg" alt="No CreditCards">
+                <box class="desc">{{ 'CARDSCONTAINER.noCreditCard.desc' | translate }}</box>
+                <button type="button" class="btn-primary no-result-btn" (click)="applyCreditCard()">{{ 'CARDSCONTAINER.noCreditCard.button' | translate }}</button>
+            </box>
+        </ng-container>
+        <ng-container *ngSwitchCase="'prepaid-card'">
+            <box class="no-data-template">
+                <img src="./assets/illustrations/no-account-lg.svg" alt="No Prepaid Cards">
+                <box class="desc">{{ 'CARDSCONTAINER.noPrepaidCard.desc' | translate }}</box>
+                <button type="button" class="btn-primary no-result-btn">{{ 'CARDSCONTAINER.noPrepaidCard.button' | translate }}</button>
+            </box>
+        </ng-container>
+    </ng-container>
+</ng-template>

@@ -1,0 +1,472 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailEtransferRequestMoneyForm">
+
+	<box *ngIf="_helper.formMode == 'VIEW'" class="entry-form-quick-details">
+		<ng-container *ngIf="_helper.formMode == 'VIEW' && _helper.findByKeyDataReceived else loadingRedBg">
+			<box *ngIf="(_helper.formMode == 'VIEW') && _helper.transactionDetails" class="quick-details-box">
+				<box class="transaction-icon-wrapper">
+					<box class="transaction-icon">
+						<span class="transaction-icon-bg" [ngClass]="{
+							'initiated': _helper.transactionDetails.status == 'I', 
+							'pending': _helper.transactionDetails.status == 'P', 
+							'completed': _helper.transactionDetails.status == 'S', 
+							'cancelled': _helper.transactionDetails.status == 'C', 
+							'declined': _helper.transactionDetails.status == 'D', 
+							'failed': _helper.transactionDetails.status == 'F', 
+							'expired': _helper.transactionDetails.status == 'E', 
+							'accepted': _helper.transactionDetails.status == 'A'
+						}"></span>
+					</box>
+				</box>
+				<box class="success-text">{{_helper.decodeTransferMode(_helper.transactionDetails.transferMode)}} · {{_helper.transactionDetails.paymentDate | date:'dd MMM yyyy'}}</box>
+				<span class="amount success-amount">
+					{{_helper.transactionDetails.paymentAmount | currency : _helper.transactionDetails.paymentCurrency : '' }}<em>{{_helper.transactionDetails.paymentCurrency | currencyCode }}</em>
+				</span>
+				<box class="sent-to">{{_helper.transactionDetails.contactName}}</box>
+				<box class="status">{{_helper.decodePaymentStatus(_helper.transactionDetails.status)}}</box>
+			</box>
+		</ng-container>
+	</box>
+	<box *ngIf="state.contact?.firstName && _helper._device.isMobile()" class="contact-details fpx-form-control col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('contactDetails')">
+		<box class="contact-box">
+			<box class="contact-wrapper">
+				<box class="icon-wrapper">
+					<span class="letter-icon">{{state.contact?.firstName?.split(" ")[0]?.charAt(0)
+						+(state.contact?.firstName?.split(" ")[1]?
+						state.contact?.firstName?.split(" ")[1]?.charAt(0): "")}}</span>
+				</box>
+				<box class="details">
+					<span class="name">{{state.contact?.firstName}}</span>
+					<span class="gmail">{{state.contact?.emailId}}</span>
+					<span class="mobile">{{state.contact?.phoneNumber | mask : '000-000-0000'}}</span>
+				</box>
+			</box>
+		</box>
+	</box>
+	<box class="entry-form desktop-entry-form" [ngClass]="{'review-form':( _helper.formMode == 'VIEW' || this.state.review), 'view-mode': (_helper.formMode == 'VIEW' && _helper.transactionDetails)}" >
+		<box *ngIf="this.state.review && this.state.productCode == 'AR.RTL.CHQ.PKG.1'" class="auto-deposit-msg-box service-fee-disclaimer" [actionPublisher]="actionMap$.get('serviceFeeDisclaimer')">
+			<box class="auto-deposit-msg-bg">
+				<span class="auto-deposit-msg-icon">
+				</span>
+			</box>
+			<box class="auto-deposit-desc-box">
+				<span class="auto-deposit-desc-box-msg">{{'RetailEtransfer.serviceFeeDisclaimer.label' | translate }}</span>
+			</box>
+		</box>
+		<ng-container *ngIf="_helper.findByKeyDataReceived else loading">
+
+		</ng-container>
+		<box [hidden]="!_helper.findByKeyDataReceived" class="grid entry-form-field-group col-lg-12" [ngStyle]="{'min-height': (_helper.formMode == 'VIEW' && this._helper.transactionDetails) ? 'unset' : '500px'}">
+			<box *ngIf="_helper._device.isMobile()" class="payee-info-header order-4">
+				<div *ngIf="_helper.formMode != 'VIEW'" class="review-header">{{'reviewForm.title' | translate}}</div>
+				<div *ngIf="_helper.formMode == 'VIEW' && _helper.transactionDetails" class="review-header">{{'transfersDetails.title' | translate}}</div>
+			</box>
+			<box *ngIf="!_helper._device.isMobile() && this.state.review" class="payee-info-header">
+				<span class="review-header review-title">{{'reviewForm.title' | translate}}</span>
+					<span class="review-text">{{'reviewForm.requestMoneyText' | translate}}</span>
+			</box>
+			
+		<!-- <app-eTransfer-contactCategory class="col-sm-12 col-md-12 col-lg-12  "
+			[actionPublisher]="actionMap$.get('contactCategory')"
+			label="{{'RetailEtransferRequestMoneyForm.contactCategory.label' | translate }}"
+			formControlName="contactCategory"></app-eTransfer-contactCategory>
+
+		<app-etransfer-contact-list-template-control class="col-sm-12 col-md-12 col-lg-12"
+			[actionPublisher]="actionMap$.get('contactId')" formControlName="contactId"
+			label="{{'RetailEtransferRequestMoneyForm.contactId.label' | translate }}"
+			placeholder="{{'RetailEtransferRequestMoneyForm.contactId.placeholder' | translate }}"
+			[changePublisher]="formChangePublisher$"
+			(commonControlEvent)="handleControlEvent($event)"></app-etransfer-contact-list-template-control> -->
+			<box *ngIf="!_helper._device.isMobile()" class="biller-group fields-wrapper-group">
+
+				<box class="fields-wrapper">
+					<box class="left-container">
+						<box class="left-container-header">{{'RetailEtransferRequestMoneyForm.contactEmailId.label' | translate }}</box>
+					</box>
+					<box class="right-container">
+						<app-name-control class="col-sm-12 col-md-6 col-lg-12 " [actionPublisher]="actionMap$.get('contactName')"
+							label="{{'RetailEtransfer.contactName.label' | translate }}"
+							formControlName="contactName"></app-name-control>
+						<box *ngIf="state.contact?.firstName" class="contact-details fpx-form-control col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('contactDetails')">
+							<box class="contact-box">
+								<box class="contact-wrapper">
+									<box class="icon-wrapper">
+										<span class="letter-icon">{{state.contact?.firstName?.split(" ")[0]?.charAt(0)
+											+(state.contact?.firstName?.split(" ")[1]?
+											state.contact?.firstName?.split(" ")[1]?.charAt(0): "")}}</span>
+									</box>
+									<box class="details">
+										<span class="name">{{state.contact?.firstName}}</span>
+										<span class="gmail">{{state.contact?.emailId}}</span>
+										<span class="mobile">{{state.contact?.phoneNumber}}</span>
+									</box>
+								</box>
+							</box>
+						</box>
+						<div class="display-field fpx-form-control col-lg-12">
+							<span class="label">{{'RetailEtransfer.contactEmailId.label' | translate }}</span>
+							<span class="value">{{state.contact?.firstName}}</span>
+						</div>
+
+						<app-notification-preference class="col-sm-12 col-md-6 col-lg-12  "
+							[actionPublisher]="actionMap$.get('notificationPreference')"
+							label="{{'RetailEtransferRequestMoneyForm.notificationPreference.label' | translate }}"
+							formControlName="notificationPreference"
+							[changePublisher]="formChangePublisher$" [dependencyField]="['serviceCode']"></app-notification-preference>
+
+						<app-email-control class="col-sm-12 col-md-6 col-lg-12  " [actionPublisher]="actionMap$.get('contactEmailId')"
+							label="{{'RetailEtransferRequestMoneyForm.contactEmailId.label' | translate }}"
+							formControlName="contactEmailId"></app-email-control>
+
+
+						<app-mobile-number-control class="col-sm-12 col-md-6 col-lg-12  "
+							[actionPublisher]="actionMap$.get('contactPhoneNumber')"
+							label="{{'RetailEtransferRequestMoneyForm.contactPhoneNumber.label' | translate }}"
+							formControlName="contactPhoneNumber"></app-mobile-number-control>
+						
+						<app-preferred-language-list-control class="col-sm-12 col-md-6 col-lg-12  "
+							[actionPublisher]="actionMap$.get('preferredLanguage')"
+							label="{{'RetailEtransfer.preferredLanguage.label' | translate }}"
+							formControlName="preferredLanguage"></app-preferred-language-list-control>
+							
+						<!-- <box class="auto-deposit-msg-box" [actionPublisher]="actionMap$.get('autoDepositEnabledMsg')">
+							<box class="auto-deposit-msg-bg">
+								<span class="auto-deposit-msg-icon">
+								</span>
+							</box>
+							<box class="auto-deposit-desc-box">
+								<span class="auto-deposit-desc-box-msg">{{state.contact?.firstName}} has Autodeposit enabled. The
+									transfer will be automatically deposited
+									into their account.</span>
+							</box>
+						</box> -->
+					</box>
+				</box>
+				<box class="fields-wrapper">
+					<box class="left-container">
+						<box class="left-container-header">{{'RetailEtransferRequestMoneyForm.sourceAccount.label' | translate }}</box>
+					</box>
+					<box class="right-container">
+						<box class="pay-from-wrapper column">
+							<span *ngIf="state.review" class="pay-from-label">Deposit to</span>
+			
+							<box class="account-card" [ngClass]="{'single-account-card': !(state.casaAccounts.length > 1)}" (click)="_helper.openCasaAccountsLists()">
+								<box class="account-header-wrapper">
+									<box class="account-header">
+										<h2>{{state.nickname}}</h2>
+										<p>{{state.accType}}
+			
+											<span class="line-separator"></span>
+			
+											{{state.sourceAccount}}
+										</p>
+									</box>
+									<box class="view-account-icon-wrapper">
+										<span class="view-account-icon"></span>
+									</box>
+								</box>
+								<box class="account-details">
+									<p [ngClass]="{'show-default-account': state.selectedAccount?.preferredAccount}"
+										class="default-account">
+										Default account</p>
+									<p class="balance amount">{{ state.accountBalanceVariable | currency :
+										state.fromCurrencyVariable : '' }} <em>{{ state.fromCurrencyVariable | currencyCode }}</em></p>
+								</box>
+							</box>
+						</box>
+					</box>
+				</box>
+				<box class="fields-wrapper">
+					<box class="left-container">
+						<box class="left-container-header">{{'RetailEtransfer.transferDetails.label' | translate }}</box>
+					</box>
+					<box class="right-container">
+						<app-amount-control *ngIf="state.isAmountEnable" class="col-sm-12 col-md-6 col-lg-12"
+							[actionPublisher]="actionMap$.get('paymentAmount')"
+							label="{{'RetailEtransferRequestMoneyForm.paymentAmount.label' | translate }}"
+							formControlName="paymentAmount" (commonControlEvent)="handleControlEvent($event)"
+							[CurrencyList]="state.paymentAmount.CurrencyList" [isCurrEditable]="state.paymentAmount.isCurrEditable"
+							[defaultFetch]="state.paymentAmount.defaultFetch" [initCurrency]="state.paymentAmount.initCurrency"
+							[amountInWords]="state.paymentAmount.amountInWords" >
+						</app-amount-control >
+						<div class="display-field fpx-form-control">
+							<span class="label">{{'RetailEtransfer.paymentAmount.label' | translate }}</span>
+							<span class="value"><em>{{  this.formGroup.get('paymentAmount')?.value?.currencyCode | currencyCode }}</em>{{ this.formGroup.get('paymentAmount')?.value?.amount | currency : this.formGroup.get('paymentAmount')?.value?.currencyCode : '' }}
+								</span>
+						</div>
+						<div *ngIf="this.state.productCode != 'AR.RTL.CHQ.PKG.1'" class="col-sm-12 col-md-6 col-lg-4 display-field  amount-display-field fpx-form-control tooltip-display-field">
+							<fpx-label label="{{'RetailEtransferRequestMoneyForm.serviceFee.label' | translate}}"></fpx-label>
+							<button type="button" class="btn-container tooltip-btn-container" (click)="_helper.onPopup()" aria-label="tool tip">
+								<span class="icon tooltip-icon hint-btn-icon"></span>
+							</button>
+							<box class="grid col-sm-12 col-md-6 col-lg-4 display-field-content">
+								<fpx-display-text id="currency" class="col-md-12 currency"
+									[innerHTML]="state.currency | currencyCode">
+								</fpx-display-text>
+								<fpx-display-text id="paymentAmount" class="col-md-12 paymentAmount"
+									[innerHTML]="state.Amount">
+								</fpx-display-text>
+							</box>
+						</div>
+						<app-schedule-type-control class="col-sm-12 col-md-12 col-lg-12 "
+							[actionPublisher]="actionMap$.get('scheduleType')"
+							label="{{'RetailEtransferRequestMoneyForm.scheduleType.label' | translate }}" formControlName="scheduleType"
+							[changePublisher]="formChangePublisher$" [dependencyField]="['serviceCode']"></app-schedule-type-control>
+
+							<app-payment-date-control class="col-sm-12 col-md-6 col-lg-6  "
+							[actionPublisher]="actionMap$.get('paymentDate')"
+							label="{{'RetailEtransferRequestMoneyForm.paymentDate.label' | translate }}" formControlName="paymentDate"
+							[minDate]="state.paymentDate.minDate" [maxDate]="state.paymentDate.maxDate"></app-payment-date-control>
+
+							<app-retail-schedule-handler-form class="col-sm-12 col-md-12 col-lg-12"
+							(commonFormEvent)="handleControlEvent($event)" [actionPublisher]="actionMap$.get('scheduleHandler')"
+							label="RetailScheduleTransferHandler" formControlName="scheduleHandler"
+							[changePublisher]="formChangePublisher$">
+							</app-retail-schedule-handler-form>
+							<box *ngIf="!_helper.invoiceNumber.isHidden" class="control-wrapper col-sm-12">
+								<span class="control-label-suffix optional-label">Optional</span>
+								<app-status-control class="col-sm-12 col-md-12 col-lg-12 " [actionPublisher]="actionMap$.get('invoiceNumber')"
+								label="{{'RetailEtransferRequestMoneyForm.invoiceNumber.label' | translate }}"
+								placeholder="{{'RetailEtransferRequestMoneyForm.invoiceNumber.placeholder' | translate }}"
+								formControlName="invoiceNumber"></app-status-control>
+							</box>
+							<box class="control-wrapper col-sm-12">
+								<span class="control-label-suffix optional-label">Optional</span>
+								<app-remarks-control class="col-sm-12 col-md-12 col-lg-12 " [actionPublisher]="actionMap$.get('remarks')"
+									label="{{'RetailEtransferRequestMoneyForm.remarks.label' | translate }}"
+									placeholder="{{'RetailEtransferRequestMoneyForm.remarks.placeholder' | translate }}"
+									formControlName="remarks"></app-remarks-control>
+							</box>
+				
+				
+							
+								<app-terms-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+								label="{{'RetailEtransferRequestMoneyForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+								[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+							
+							
+					</box>
+				</box>
+				
+			</box>	
+			<app-name-control *ngIf="_helper._device.isMobile()" class="col-sm-12 col-md-6 col-lg-6 order-3" [actionPublisher]="actionMap$.get('contactName')"
+				label="{{'RetailEtransferRequestMoneyForm.contactName.label' | translate }}"
+				formControlName="contactName"></app-name-control>
+			<div *ngIf="_helper._device.isMobile() && (_helper.formMode != 'VIEW') && !_helper.transactionDetails" class="display-field fpx-form-control col-lg-12">
+				<span class="label">{{'RetailEtransfer.contactEmailId.label' | translate }}</span>
+				<span class="value">{{state.contact?.firstName}}</span>
+			</div>
+			<app-notification-preference *ngIf="_helper._device.isMobile()" class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('notificationPreference')"
+				label="{{'RetailEtransferRequestMoneyForm.notificationPreference.label' | translate }}"
+				formControlName="notificationPreference"
+				[changePublisher]="formChangePublisher$" [dependencyField]="['serviceCode']"></app-notification-preference>
+
+			<app-email-control *ngIf="_helper._device.isMobile()" class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('contactEmailId')"
+				label="{{'RetailEtransferRequestMoneyForm.contactEmailId.label' | translate }}"
+				formControlName="contactEmailId"></app-email-control>
+
+
+			<app-mobile-number-control *ngIf="_helper._device.isMobile()" class="col-sm-12 col-md-6 col-lg-6 order-2"
+				[actionPublisher]="actionMap$.get('contactPhoneNumber')"
+				label="{{'RetailEtransferRequestMoneyForm.contactPhoneNumber.label' | translate }}"
+				formControlName="contactPhoneNumber"></app-mobile-number-control>
+			
+			<app-preferred-language-list-control *ngIf="_helper._device.isMobile()" class="col-sm-12 col-md-6 col-lg-12  "
+				[actionPublisher]="actionMap$.get('preferredLanguage')"
+				label="{{'RetailEtransfer.preferredLanguage.label' | translate }}"
+				formControlName="preferredLanguage"></app-preferred-language-list-control>
+
+			<app-amount-control *ngIf="_helper._device.isMobile() && state.isAmountEnable" class="col-sm-12 col-md-6 col-lg-6 wrapper"
+				[actionPublisher]="actionMap$.get('paymentAmount')"
+				label="{{'RetailEtransferRequestMoneyForm.paymentAmount.label' | translate }}"
+				formControlName="paymentAmount" (commonControlEvent)="handleControlEvent($event)"
+				[CurrencyList]="state.paymentAmount.CurrencyList" [isCurrEditable]="state.paymentAmount.isCurrEditable"
+				[defaultFetch]="state.paymentAmount.defaultFetch" [initCurrency]="state.paymentAmount.initCurrency"
+				[amountInWords]="state.paymentAmount.amountInWords" >
+			</app-amount-control >
+			<div *ngIf="_helper._device.isMobile()" class="display-field fpx-form-control order-1">
+				<span class="label">{{'RetailEtransfer.paymentAmount.label' | translate }}</span>
+				<span class="value"><em>{{  this.formGroup.get('paymentAmount')?.value?.currencyCode | currencyCode }}</em>{{ this.formGroup.get('paymentAmount')?.value?.amount | currency : this.formGroup.get('paymentAmount')?.value?.currencyCode : '' }}
+					</span>
+			</div>
+				
+			<box *ngIf="_helper._device.isMobile()" class="pay-from-wrapper column order-2">
+				<span class="pay-from-label">Deposit to</span>
+
+				<box class="account-card" [ngClass]="{'single-account-card': !(state.casaAccounts.length > 1)}" (click)="_helper.openCasaAccountsLists()">
+					<box class="account-header-wrapper">
+						<box class="account-header">
+							<h2>{{state.nickname}}</h2>
+							<p>{{state.accType}}
+
+								<span class="line-separator"></span>
+
+								{{state.sourceAccount}}
+							</p>
+						</box>
+						<box class="view-account-icon-wrapper">
+							<span class="view-account-icon"></span>
+						</box>
+					</box>
+					<box class="account-details">
+						<p [ngClass]="{'show-default-account': state.selectedAccount?.preferredAccount}"
+							class="default-account">
+							Default account</p>
+						<p class="balance amount">{{ state.accountBalanceVariable | currency :
+							state.fromCurrencyVariable : '' }} <em>{{ state.fromCurrencyVariable | currencyCode }}</em></p>
+					</box>
+				</box>
+			</box>
+
+			<div *ngIf="_helper._device.isMobile() && this.state.productCode != 'AR.RTL.CHQ.PKG.1' && state.Amount" class="col-sm-12 col-md-6 col-lg-4 display-field  amount-display-field fpx-form-control tooltip-display-field">
+				<fpx-label label="{{'RetailEtransferRequestMoneyForm.serviceFee.label' | translate}}"></fpx-label>
+				<button type="button" class="btn-container tooltip-btn-container" (click)="_helper.onPopup()">
+					<span class="icon tooltip-icon hint-btn-icon"></span>
+				</button>
+				<box class="grid col-sm-12 col-md-6 col-lg-4 display-field-content">
+					<fpx-display-text id="currency" class="col-md-12 currency"
+						[innerHTML]="state.currency | currencyCode">
+					</fpx-display-text>
+					<fpx-display-text id="paymentAmount" class="col-md-12 paymentAmount"
+						[innerHTML]="state.Amount">
+					</fpx-display-text>
+				</box>
+			</div>
+
+			<div *ngIf="_helper._device.isMobile() && this.getRoutingParam('mode') == 'V' && _helper.transactionDetails?.status" class="display-field status-display-field fpx-form-control">
+				<span class="label">{{'RetailEtransfer.status.label' | translate }}</span>
+				<span class="value">{{_helper.decodePaymentStatus(_helper.transactionDetails.status)}}</span>
+			</div>
+
+
+				<!-- <app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('serviceFee')"
+				label="{{'RetailEtransferRequestMoneyForm.serviceFee.label' | translate }}"
+				formControlName="serviceFee" (commonControlEvent)="handleControlEvent($event)"
+				[CurrencyList]="state.paymentAmount.CurrencyList" [isCurrEditable]="state.paymentAmount.isCurrEditable"
+				[defaultFetch]="state.paymentAmount.defaultFetch" [initCurrency]="state.paymentAmount.initCurrency"
+				[amountInWords]="state.paymentAmount.amountInWords" [changePublisher]="formChangePublisher$"
+				[dependencyField]="['fromCurrencyVariable','toCurrencyVariable','accountBalanceVariable','scheduleTypeVariable','beneficiaryIdVariable']"></app-payment-amount-control> -->
+
+				
+
+				<app-schedule-type-control *ngIf="_helper._device.isMobile()" class="col-sm-12 col-md-12 col-lg-12 "
+				[actionPublisher]="actionMap$.get('scheduleType')"
+				label="{{'RetailEtransferRequestMoneyForm.scheduleType.label' | translate }}" formControlName="scheduleType"
+				[changePublisher]="formChangePublisher$" [dependencyField]="['serviceCode']"></app-schedule-type-control>
+
+				<app-payment-date-control *ngIf="_helper._device.isMobile()" class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('paymentDate')"
+				label="{{'RetailEtransferRequestMoneyForm.paymentDate.label' | translate }}" formControlName="paymentDate"
+				[minDate]="state.paymentDate.minDate" [maxDate]="state.paymentDate.maxDate"></app-payment-date-control>
+
+				<app-retail-schedule-handler-form *ngIf="_helper._device.isMobile()" class="col-sm-12 col-md-12 col-lg-12"
+				(commonFormEvent)="handleControlEvent($event)" [actionPublisher]="actionMap$.get('scheduleHandler')"
+				label="RetailScheduleTransferHandler" formControlName="scheduleHandler"
+				[changePublisher]="formChangePublisher$">
+			</app-retail-schedule-handler-form>
+
+
+
+			<!-- <app-security-question class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('securityQuestion')"
+				label="{{'RetailEtransferRequestMoneyForm.securityQuestion.label' | translate }}"
+				formControlName="securityQuestion"></app-security-question>
+
+
+			<app-security-answer-masked-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('securityAnswer')"
+				label="{{'RetailEtransferRequestMoneyForm.securityAnswer.label' | translate }}"
+				formControlName="securityAnswer"></app-security-answer-masked-control>
+
+			<app-security-answer class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('confirmSecurityAnswer')"
+				label="{{'RetailEtransferRequestMoneyForm.confirmSecurityAnswer.label' | translate }}"
+				formControlName="confirmSecurityAnswer"></app-security-answer> -->
+
+
+			<!-- <app-eTransfer-create-contact class="col-sm-12 col-md-12 col-lg-12  "
+				[actionPublisher]="actionMap$.get('createContact')"
+				label="{{'RetailEtransferRequestMoneyForm.createContact.label' | translate }}"
+				formControlName="createContact" [textPosition]="state.createContact.textPosition"
+				[ckValues]="state.createContact.ckValues"></app-eTransfer-create-contact> -->
+
+			<!-- <box class="fpx-form-control col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('profileDetails')" >
+				<fpx-label label="Your Contact Details"></fpx-label>
+				<box class="contact-box">
+					<box class="primary-info">
+						<span class="account-info">{{state.eTransferCustomerData?.firstName}}</span>
+					</box>
+					<box class="secondary-info">
+						<span class="val">{{state.eTransferCustomerData?.phoneNumber}}</span>
+					</box>
+					<box class="secondary-info">
+						<span class="val">{{state.eTransferCustomerData?.email}}</span>
+					</box>
+				</box>
+			</box> -->
+
+			<!-- <app-account-list-template-control class="col-sm-12 col-md-12 col-lg-12"
+				[actionPublisher]="actionMap$.get('sourceAccount')" formControlName="sourceAccount"
+				label="{{'RetailEtransferRequestMoneyForm.sourceAccount.label' | translate }}"
+				placeholder="{{'RetailEtransferRequestMoneyForm.sourceAccount.placeholder' | translate }}"
+				(commonControlEvent)="handleControlEvent($event)"></app-account-list-template-control> -->
+
+			<!-- <fpx-checkbox class="col-sm-12 col-md-12 col-lg-12  " [actionPublisher]="actionMap$.get('isPreferred')"
+				label="{{'RetailEtransferRequestMoneyForm.isPreferred.label' | translate }}" formControlName="isPreferred"
+				placeholder="{{'RetailEtransferRequestMoneyForm.isPreferred.placeholder' | translate }}"
+				[textPosition]="state.isPreferred.textPosition" [ckValues]="state.isPreferred.ckValues"></fpx-checkbox> -->
+			<box *ngIf="_helper._device.isMobile() && !_helper.invoiceNumber.isHidden" class="control-wrapper col-sm-12">
+				<span class="control-label-suffix optional-label">Optional</span>
+				<app-status-control class="col-sm-12 col-md-12 col-lg-12 " [actionPublisher]="actionMap$.get('invoiceNumber')"
+				label="{{'RetailEtransferRequestMoneyForm.invoiceNumber.label' | translate }}"
+				placeholder="{{'RetailEtransferRequestMoneyForm.invoiceNumber.placeholder' | translate }}"
+				formControlName="invoiceNumber"></app-status-control>
+			</box>
+			<box *ngIf="_helper._device.isMobile()" class="control-wrapper col-sm-12">
+				<span class="control-label-suffix optional-label">Optional</span>
+				<app-remarks-control class="col-sm-12 col-md-12 col-lg-12 " [actionPublisher]="actionMap$.get('remarks')"
+					label="{{'RetailEtransferRequestMoneyForm.remarks.label' | translate }}"
+					placeholder="{{'RetailEtransferRequestMoneyForm.remarks.placeholder' | translate }}"
+					formControlName="remarks"></app-remarks-control>
+			</box>
+
+
+			
+				<app-terms-control *ngIf="_helper._device.isMobile()" class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'RetailEtransferRequestMoneyForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+			
+			
+
+
+		</box>
+	</box>
+	<div *ngIf="_helper.formMode == 'VIEW' && _helper.transactionDetails && _helper.findByKeyDataReceived" class="shell-footer">
+		<ng-container *ngIf="_helper.transactionDetails.status == 'P'; else otherThanPending">
+			<div class="btn-container">
+				<button class="btn-secondary" type="button" id="CANCEL" (click)="_helper.onCancelETransfer()">{{'RetailEtransferRequestMoneyForm.cancelETransfer' | translate}}</button>
+			</div>
+			<div class="btn-container">
+				<button type="button" class="btn-primary" (click)="_helper.sendReminder()">{{'RetailEtransferRequestMoneyForm.sendReminder' | translate}}
+				</button>
+			</div>
+		</ng-container>
+		<ng-template #otherThanPending>
+			<div class="btn-container">
+				<button type="button" class="btn-primary" (click)="_helper.sendAnotherETransfer()">{{'RetailEtransferRequestMoneyForm.sendETransfer' | translate}}
+				</button>
+			</div>
+		</ng-template>
+			
+	</div>
+</form>
+
+<ng-template #loadingRedBg>	
+	<div class="loading-container">
+		<box class="loading red-bg"></box>
+	</div>
+</ng-template>
+<ng-template #loading>	
+	<div class="loading-container white-bg">
+		<box class="loading"></box>
+	</div>
+</ng-template>

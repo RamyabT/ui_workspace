@@ -1,0 +1,71 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailChangeMaturityInstructionsForm">
+	<box class="entry-form">
+		<box class="grid entry-form-field-group">
+		<app-deposit-acc-number-list-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('accountNumber')"
+			label="{{'RetailChangeMaturityInstructionsForm.accountNumber.label' | translate }}"
+			(commonControlEvent)="handleControlEvent($event)"
+			formControlName="accountNumber">
+		</app-deposit-acc-number-list-control>
+
+
+		<box class="field-item col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('depositDetails')">
+			<fpx-label label="{{'RetailChangeMaturityInstructionsForm.depositDetails.label' | translate}}"></fpx-label>
+
+			<box class="info-box">
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="'RetailChangeMaturityInstructionsForm.depositAmount.label' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.depositDetail.depositAmount"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="'RetailChangeMaturityInstructionsForm.maturityAmount.label' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.depositDetail.maturityAmount"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="'RetailChangeMaturityInstructionsForm.maturityDate.label' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.depositDetail.maturityDate"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="'RetailChangeMaturityInstructionsForm.depositDuration.label' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.depositDetail.depositTerm"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+
+			</box>
+		</box>
+
+		<box class="field-item col-sm-12 col-md-12 col-lg-12">
+			<fpx-hyperlink class="hyber-link" [actionPublisher]="actionMap$.get('serviceCategory')" 
+				(onClick)="_helper.depositDetailOnClick()" label="{{'RetailChangeMaturityInstructionsForm.serviceCategory.label' | translate }}" >
+			</fpx-hyperlink>
+		</box>
+
+		<app-maturity-instructions-list-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('maturityInstruction')"
+			label="{{'RetailChangeMaturityInstructionsForm.maturityInstruction.label' | translate }}"
+			formControlName="maturityInstruction">
+		</app-maturity-instructions-list-control>
+		<app-account-number-list-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('creditAccountNumber')"
+			label="{{'RetailChangeMaturityInstructionsForm.creditAccountNumber.label' | translate }}"
+			formControlName="creditAccountNumber">
+		</app-account-number-list-control>
+    </box>
+		<box id="disclaimer-box" class="col-md-12 grid  main-group  term-box">
+			<app-terms-control class="col-md-12" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'RetailChangeMaturityInstructionsForm.termsFlag.label' | translate }}"
+				formControlName="termsFlag" [textPosition]="state.termsFlag.textPosition"
+				[ckValues]="state.termsFlag.ckValues">
+			</app-terms-control>
+		</box>
+	</box>
+</form>
+	
+

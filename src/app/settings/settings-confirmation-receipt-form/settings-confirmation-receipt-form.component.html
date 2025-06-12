@@ -1,0 +1,60 @@
+<ng-container>
+    <box class="confirmation-receipt-inner success {{ result?.statusCode?.toLowerCase() }}">
+        <box class="confirmation-body">
+            <box class="status-container">
+                <box class="status-ico-wrapper">
+                    <span class="status-ico"></span>
+                </box>
+                <!-- <span class="confirmation-message">{{ result.requestPayload.errorCode || _requestServiceCode + '.' + _requestStatus + ".message" | translate }}</span> -->
+                <span class="confirmation-message">{{ (_requestServiceCode + '.' + _requestStatus + ".message" | translate) }}</span>
+            </box>
+
+            <box class="message-container">
+                <span class="confirmation-description">{{ (result.requestPayload.errorMessage) || (_requestServiceCode + '.' + _requestStatus + ".description" | translate) }}</span>
+                <!-- <span class="confirmation-description">{{ _requestServiceCode + '.' + _requestStatus + ".description" | translate }}</span> -->
+            </box>
+
+            <ng-container *ngIf="result?.additionalInfo && result?.additionalInfo.length">
+                <hr />
+                <box class="additional-details-container">
+                    <ng-container *ngFor="let detail of result?.additionalInfo">
+                        <box class="details">
+                            <span class="detail-lbl">{{ 'confirmationReceiptForm.' + detail.label | translate }}</span>
+                            <span class="detail-val">
+                                <ng-container [ngSwitch]="detail.format">
+                                    <ng-container *ngSwitchCase="'date'">
+                                        {{ detail.value }}
+                                    </ng-container>
+                                    <ng-container *ngSwitchDefault>
+                                        {{ detail.value }}
+                                    </ng-container>
+                                </ng-container>
+
+                            </span>
+                        </box>
+                    </ng-container>
+                </box>
+            </ng-container>
+        </box>
+
+
+        <box class="confirmation-footer login-confirmation-footer">
+            <!-- <button type="button" class="secondary" (click)="gotoModule('login')"><span>{{ 'confirmationReceiptForm.download' | translate }}</span></button> -->
+            <!-- <ng-container *ngIf="forceLogout; else noChangePassword"> -->
+            <!-- <button type="button" class="primary" (click)="gotoLogin()"><span>{{ 'confirmationReceiptForm.login' |
+                        translate }}</span></button>
+            </ng-container> -->
+            <!-- <ng-template #noChangePassword> -->
+            <ng-container *ngIf="_requestStatus === 'ServiceRequestQueue'; else noServiceRequest">
+                <button type="button" class="secondary" (click)="gotoSettings()"><span>{{
+                        'confirmationReceiptForm.settings' | translate }}</span></button>
+                <button type="button" class="primary" (click)="gotoModule('service-request-space')"><span>{{
+                        'confirmationReceiptForm.trackStatus' | translate }}</span></button>
+            </ng-container>
+            <ng-template #noServiceRequest>
+                <button type="button" class="primary" (click)="gotoSettings()"><span>{{
+                        'confirmationReceiptForm.settings' | translate }}</span></button>
+            </ng-template>
+        </box>
+    </box>
+</ng-container>

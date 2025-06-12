@@ -1,0 +1,8 @@
+@media screen and (min-width: 769px) {
+    #depAppBody{
+        .welcome-banner-wrapper {
+            background: url('./images/banners/welcome-banner.png') no-repeat 0 0 transparent;
+            background-size: cover;
+        }
+    }
+}

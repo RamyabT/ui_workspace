@@ -1,0 +1,5 @@
+ 
+ "RETAILCUSTDOC" : {
+ "servicePath": ["display-shell","settings", "retail-customer-document-details-ro-grid"],
+ "queryParams": {}
+ }

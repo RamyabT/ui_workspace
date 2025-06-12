@@ -1,0 +1,136 @@
+.system-ico-button.add-new {
+    border: none;
+}
+
+.casaAccountDtlListTmplt {
+    .ng-template-select {
+        --controlIconClr: #FFFFFF;
+
+        mat-select-trigger * {
+            color: #FFF !important;
+        }
+    }
+
+    .mat-focus-indicator:hover .mat-option-text *,
+    .mat-selected.mat-active * {
+        color: #FFF !important;
+    }
+}
+
+.recover-link{
+    button{
+        color: var(--primaryClr500) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    #depAppBody {
+        app-login .login-layout header {
+            padding-top: 0;
+
+            img {
+                background-color: #FFFFFF;
+                padding-top: 40px;
+                border-radius: 0 0 8px 8px;
+            }
+        }
+
+        .overview-header-inner header .brand,
+        .main-header-inner .brand{
+            background-color: #FFFFFF;
+            border-radius: 0 0 8px 8px;
+            position: relative;
+            min-height: 60px;
+
+            img{
+                position: absolute;
+                top: -48px;
+                padding-top: 48px;
+                background-color: #FFFFFF;
+                border-radius: 0 0 8px 8px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 769px) {
+    #depAppBody {
+        .welcome-banner-wrapper {
+            background: var(--welcomeBanner) no-repeat -20px 0 transparent;
+            background-size: auto 100%;
+            width: 675px;
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                right: -40px;
+                width: 5px;
+                border-style: solid;
+                border-top: 0;
+                border-bottom: 0;
+                border-left-width: 18px;
+                border-right-width: 10px;
+                border-color: #C2C6D1;
+                opacity: 0.3;
+                bottom: 0;
+                top: 0;
+            }
+        }
+
+        .welcome-container-inner {
+            .welcome-note-container {
+                margin-left: 710px;
+
+                .welcome-title {
+                    width: 50%;
+                    color: var(--secondaryClr);
+                }
+            }
+
+            header {
+                padding-top: 20px;
+                padding-bottom: 20px;
+
+                .bank-logo {
+                    width: 86px;
+                    height: 64px;
+                }
+            }
+        }
+
+        .prelogin-header {
+            header {
+                padding-top: 0;
+
+                img {
+                    background-color: #FFFFFF;
+                    padding-top: 40px;
+                    border-radius: 0 0 8px 8px;
+                }
+            }
+        }
+
+        app-login .login-layout header {
+            padding-top: 20px;
+            padding-bottom: 4px;
+        }
+
+        .layout {
+            .side-menu {
+                .brand {
+                    background-color: #FFF;
+                    width: 184px;
+                    margin: 0 auto 24px;
+                    display: block;
+                    border-radius: 0 0 8px 8px;
+                    padding: 13px;
+                }
+            }
+        }
+
+        balance-sheet {
+            background: var(--primaryClr);
+        }
+    }
+}

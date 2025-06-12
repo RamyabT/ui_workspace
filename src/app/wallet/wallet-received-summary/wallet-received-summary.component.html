@@ -1,0 +1,31 @@
+<box class="grid transaction-container">
+    <box class="transactions-stmt-grid-wrapper col-12">
+         <ng-container *ngIf="state.isDataReceived; else loader">
+            <box class="casa-transactions-grid-header">
+                <span class="title">{{ 'TransferSummaryForm.receivedtitle' | translate }}</span>
+                <box class="tool-bar">
+                    <fpx-button btnType="button" btnClass="system-ico-button no-text filter" label="filter"
+                        (onClick)="_helper.filter()"></fpx-button>
+                    <fpx-button btnType="button" btnClass="system-ico-button no-text download" label="download"
+                        (onClick)="_helper.onDownloadClick()"></fpx-button>
+                </box>
+            </box>
+            <ng-container *ngIf="state.gridData && state.gridData.length; else noTransfers">
+            </ng-container>
+        </ng-container>
+        <app-wallet-received-summary-ro-grid [actionPublisher]="actionMap$.get('receiveSummaryGrid')"
+            (commonRoGridEvent)="_helper.handleTransfersHistoryGridEvent($event)"></app-wallet-received-summary-ro-grid>
+    </box>
+</box>
+
+<ng-template #loader>
+    <box class="loading"></box>
+</ng-template>
+
+<ng-template #noTransfers>
+    <box class="no-result-view">
+        <img class="no-result-image" src="./assets/images/transfers/no-schedule-transfer.svg" alt="">
+        <box class="no-result-desc">{{ 'TransferSummaryForm.noTransfer' | translate }}</box>
+        
+    </box>
+</ng-template>

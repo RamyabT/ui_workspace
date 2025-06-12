@@ -1,0 +1,42 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailRPAddressInfo">
+
+	<box class="entry-form">
+
+
+		<app-rp-addresstype-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('rpaddressType')"
+			label="{{'RetailRPAddressInfo.rpaddressType.label' | translate }}"
+			formControlName="rpaddressType"></app-rp-addresstype-control>
+
+
+		<app-zipcode-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('pobox')"
+			label="{{'RetailRPAddressInfo.pobox.label' | translate }}"
+			formControlName="pobox"></app-zipcode-list-control>
+
+
+		<app-street-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('street')"
+			label="{{'RetailRPAddressInfo.street.label' | translate }}" formControlName="street"></app-street-control>
+
+
+		<app-city-control-dropdown class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('city')"
+			label="{{'RetailRPAddressInfo.city.label' | translate }}" formControlName="city"
+			[changePublisher]="formChangePublisher$"
+			[dependencyField]="['country','province']"></app-city-control-dropdown>
+
+
+		<app-state-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('province')"
+			label="{{'RetailRPAddressInfo.province.label' | translate }}" formControlName="province"
+			[changePublisher]="formChangePublisher$"
+			[dependencyField]="['country']"></app-state-list-control>
+
+
+		<app-country-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('country')"
+			label="{{'RetailRPAddressInfo.country.label' | translate }}"
+			formControlName="country"></app-country-list-control>
+
+
+		<app-zipcode-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('postalCode')"
+			label="{{'RetailRPAddressInfo.postalCode.label' | translate }}"
+			formControlName="postalCode"></app-zipcode-list-control>
+	</box>
+</form>

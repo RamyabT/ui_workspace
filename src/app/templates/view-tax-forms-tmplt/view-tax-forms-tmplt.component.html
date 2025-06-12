@@ -1,0 +1,47 @@
+<ng-container *ngIf="selectedData.NoData;  else viewTaxFormsListTmplt">
+    <span class="NoData">
+        {{ 'RetailCasaTransactionDtlsRoGrid.noData' | translate }}
+    </span>
+</ng-container>
+<ng-template #viewTaxFormsListTmplt>
+    <box class="transaction-list-item">
+        <ng-container >
+            <box class="transaction-list-item-inner">
+                <box class="transaction-icon-wrapper">
+                    <box class="transaction-icon">
+                        <img src="./assets/transactions/TAXFORMPDF.svg" alt="{{ selectedData.taxformName }}" />
+                    </box>
+                </box>
+                <box class="transaction-info col-sm-4">
+                    <box class="transaction-primary-info">
+                        <box class="transaction-primary-details">
+                            <box class="trx-type">
+                                <span class="start">{{selectedData.taxformName}}</span>
+                            </box>
+                            <box class="trx-desc">
+                                <span>{{getDateOfGen()}}
+                                </span>
+                            </box>
+                        </box>
+
+                    </box>
+                    <box class="transaction-secondary-info">
+                        <box class="transaction-secondary-details">
+                            <box class="transaction-icon" >
+                                <box class="downlaod-btn-container">
+                                    <button type="button" class="btn-container"
+                                        (click)="onDownloadClick()">
+                                        <span class="icon download-btn-icon"></span>
+                                        <span><u>{{'viewTaxFormsForm.download'| translate}}</u></span>
+                                    </button>
+                                </box>
+
+                            </box>
+                        </box>
+                    </box>
+
+                </box>
+            </box>
+        </ng-container>
+    </box>
+</ng-template>

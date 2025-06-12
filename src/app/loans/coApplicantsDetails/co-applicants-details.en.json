@@ -1,0 +1,35 @@
+"coApplicantsDetails":{
+"title":"coApplicantsDetails",
+		 "tenantId": {
+		  "label":"TenantId" ,
+		  "placeholder": "TenantId"
+		  } ,
+		 "applicantId": {
+		  "label":"ApplicantId" ,
+		  "placeholder": "ApplicantId"
+		  } ,
+		 "serialNumber": {
+		  "label":"Serial Number" ,
+		  "placeholder": "Serial Number"
+		  } ,
+		 "relationCode": {
+		  "label":"Relationship" ,
+		  "placeholder": "Relationship"
+		  } ,
+		 "relationDesc": {
+		  "label":"Relationship" ,
+		  "placeholder": "Relationship"
+		  } ,
+		 "name": {
+		  "label":"User Name" ,
+		  "placeholder": "User Name"
+		  } ,
+		 "idNumber": {
+		  "label":"IdNumber" ,
+		  "placeholder": "IdNumber"
+		  },
+		  "coApplicant": {
+			"label": "Do you want to add co-applicant?",
+			"placeholder": "Do you want to add co-applicant?"
+		  } 
+}

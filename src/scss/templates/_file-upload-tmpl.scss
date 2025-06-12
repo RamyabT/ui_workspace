@@ -1,0 +1,75 @@
+/**file-upload-template**/
+.attachments{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .file-upload{
+        border: 1px dashed var(--secondary500);
+        border-radius: 12px;
+        padding: 12px;
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        cursor: pointer;
+        .upload-name{
+            @include s4-medium;
+            color : var(--secondary500);
+        }
+    }
+    .document-wrapper{
+        border: 1px solid var(--secondary500);
+        border-radius: 12px;
+        .document-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--secondary500);
+            .doc-primary{
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                .paperclip{
+                    width: 20px;
+                    height:20px;
+                }
+                .doc-name{
+                    @include b2-regular;
+                    color:var(--secondary500);
+                    text-decoration: underline;
+                }
+            }
+        }
+        >:last-child{
+            border-bottom: none;
+        }
+    }
+    .button-delete {
+        color: #ffffff;
+        &::before {
+          background-color: var(--errorClr);
+          mask-image: url("../../assets/images/icons/delete.svg");
+          -webkit-mask-image: url("../../assets/images/icons/delete.svg");
+          -webkit-mask-repeat: no-repeat;
+          -webkit-mask-position: center;
+        }
+      }
+      .button-upload {
+        color: #ffffff;
+        padding: 0px;
+        &::before {
+          background-color: var(--secondary500);
+          mask-image: url("../../assets/images/upload-file.svg");
+          -webkit-mask-image: url("../../assets/images/upload-file.svg");
+          -webkit-mask-repeat: no-repeat;
+          -webkit-mask-position: center;
+        }
+      }
+}
+.file-attachments{
+    // position: relative;
+    // .file-attach{
+    //     position: absolute;
+    //     right: 70px;
+    //     bottom: 0px;
+    // }
+}

@@ -1,0 +1,45 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailPrepaidChanfePin" >
+	   
+	 <box class="entry-form">
+		<ng-container *ngIf="state.cardData && device.isMobile()">
+			<prepaidcard class="col-12" [cardData]="state.cardData" [formView]="true"></prepaidcard>
+		</ng-container>
+		<box class="grid entry-form-field-group">
+			  <!-- <app-prepaid-card-number-list-control  class="col-sm-12 col-md-6 col-lg-12"   [actionPublisher]="actionMap$.get('cardReference')"     label="{{'RetailPrepaidChanfePin.cardReference.label' | translate }}"   formControlName="cardReference" 
+     ></app-prepaid-card-number-list-control> -->
+
+	 <fpx-display-text class="col-sm-12 col-md-6 col-lg-12  change-pin-desc"
+				[actionPublisher]="actionMap$.get('infoNote')"
+				[innerHTML]="'RetailPrepaidChanfePin.changePinDesc.text' | translate"
+				[literals]="commonFormInput"></fpx-display-text>
+	      
+			  <app-dc-pin-control  class="col-sm-12 col-md-6 col-lg-12"   [actionPublisher]="actionMap$.get('confirmPin')"     label="{{'RetailPrepaidChanfePin.confirmPin.label' | translate }}"   formControlName="confirmPin" 
+   ></app-dc-pin-control>
+	      
+   <!-- <hr class="spacer"> -->
+   <fpx-display-text class="spacer" [actionPublisher]="actionMap$.get('line')"></fpx-display-text>
+	      
+			  <app-dc-pin-control  class="col-sm-12 col-md-6 col-lg-12"   [actionPublisher]="actionMap$.get('pin')"     label="{{'RetailPrepaidChanfePin.pin.label' | translate }}"   formControlName="pin" 
+   ></app-dc-pin-control>
+	     
+	      
+			  <app-dc-reenterpin-control  class="col-sm-12 col-md-6 col-lg-12"   [actionPublisher]="actionMap$.get('reenteredPin')"     label="{{'RetailPrepaidChanfePin.reenteredPin.label' | translate }}"   formControlName="reenteredPin" 
+   ></app-dc-reenterpin-control>
+	     
+	      
+			  <app-remarks-control  class="col-sm-12 col-md-6 col-lg-12"   [actionPublisher]="actionMap$.get('remarks')"     label="{{'RetailPrepaidChanfePin.remarks.label' | translate }}"   formControlName="remarks" 
+   ></app-remarks-control>
+	     </box>
+		 <box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-12 grid main-group disclaimer-box">
+
+			<app-terms-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'RetailPrepaidChanfePin.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+	
+		</box>
+			  <!-- <app-terms-control  class="col-sm-12 col-md-6 col-lg-12"   [actionPublisher]="actionMap$.get('termsFlag')"     label="{{'RetailPrepaidChanfePin.termsFlag.label' | translate }}"   formControlName="termsFlag" 
+   [textPosition]="state.termsFlag.textPosition"  [ckValues]="state.termsFlag.ckValues" ></app-terms-control> -->
+	 </box> 
+	 <!-- </box> -->
+	</form>
+	

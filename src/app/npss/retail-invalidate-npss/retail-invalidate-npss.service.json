@@ -1,0 +1,5 @@
+ 
+ "RETAILINVALIDATENPSS" : {
+ "servicePath": ["entry-shell","transfers", "retail-invalidate-npss"],
+ "queryParams": {}
+ }

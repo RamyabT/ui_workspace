@@ -1,0 +1,5 @@
+ 
+ "BILLERLISTROGRIDFORM" : {
+ "servicePath": ["entry-shell","payments", "biller-list-ro-grid-form"],
+ "queryParams": {}
+ }

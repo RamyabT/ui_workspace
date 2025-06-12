@@ -1,0 +1,57 @@
+<box>
+    <box class="widget-nav">
+        <span class="widget-nav-ico-wrapper widget-nav-schedule-bills"></span>
+        <span class="widget-nav-name">{{ 'ScheduleBillForm.title' | translate }}</span>
+        <box *ngIf="state.gridData?.length > 1 && _device.isMobile()" class="widget-view-link" (click)="_helper.viewAllScheduledBills()">
+            <!-- {{ 'ScheduleBillForm.viewAll' | translate }} -->
+            <span class="view-all-icon"></span>
+        </box>
+    </box>
+
+    <box class="grid transaction-container">
+        <box *ngIf="!_helper.showExceptionMsg" class="transactions-stmt-grid-wrapper col-12">
+            <ng-container *ngIf="state.isDataReceived">
+                <ng-container *ngIf="state.gridData && state.gridData.length; else noTransfers">
+                </ng-container>
+            </ng-container>
+            <box class="content-footer-container" [ngClass]="{ 'no-bill-payments' : state.gridData?.length == 0 }">
+                <app-retail-schedule-bills-ro-grid class="schedule-ro-grid"
+                    [ngClass]="{'schedule-bills-loaded' : state.gridData?.length > 0}"
+                    [actionPublisher]="actionMap$.get('scheduletransactiondetailsGrid')"
+                    (commonRoGridEvent)="_helper.handleSchedulePaymentsGridEvent($event)">
+                </app-retail-schedule-bills-ro-grid>
+                <box *ngIf="state.gridData?.length > 1 && !_device.isMobile()" class="widget-footer-view-all"
+                    (click)="_helper.viewAllScheduledBills()">
+                    <!-- <span class="viewAll">{{ 'ScheduleBillForm.viewAll' | translate }}</span> -->
+
+                    <box class="view-all-icon-container">
+                        <span class="view-all-icon"></span>
+                    </box>
+                    <box class="view-all-text">View all</box>
+                </box>
+                <box *ngIf="state.gridData?.length === 1 " class="widget-footer">
+                    <!-- <img *ngIf="_device.isMobile()" src="./assets/images/icons/add.svg"> -->
+                    <div *ngIf="!_device.isMobile()" class="line-divider"></div>
+                    <button type="button" class="add-btn" (click)="_helper.addScheduleBills()">{{
+                        'ScheduleBillForm.addBtn' | translate }}</button>
+                </box>
+            </box>
+        </box>
+    </box>
+</box>
+
+<box *ngIf="_helper.showExceptionMsg">
+    <box class="no-result-view">
+        <img class="no-result-image" src="./assets/images/transfers/no-scheduled-bills.svg" alt="">
+        <box class="no-result-desc">{{ state.exceptionMessage }}</box>
+    </box>
+</box>
+
+<ng-template #noTransfers>
+    <box class="no-result-view" [ngClass]="{'hidden-button': !_helper.showButton}">
+        <img class="no-result-image" src="./assets/images/transfers/no-scheduled-bills.svg" alt="">
+        <box class="no-result-desc" [ngClass]="{ 'no-access-scope' : !_helper.hasScope('RETAILSCHBILLPAYMENTS') }">{{ 'ScheduleBillForm.noTransfer' | translate }}</box>
+        <button *ngIf="_helper.hasScope('RETAILSCHBILLPAYMENTS')" type="button" class="no-result-add-btn" (click)="_helper.initiateNewTransaction()">{{
+            'ScheduleBillForm.initiateBtn' | translate }}</button>
+    </box>
+</ng-template>

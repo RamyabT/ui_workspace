@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sitretailconfigmap
+data:
+  config.json: |-
+    {
+        "baseURL": "{{ .Values.config.baseURL }}",
+        "loginURL": "{{ .Values.config.loginURL }}",
+        "Common": "{{ .Values.config.commonPublisher }}",
+        "Accounts": "{{ .Values.config.accountsPublisher }}",
+        "Customers": "{{ .Values.config.customersPublisher }}",
+        "Payments": "{{ .Values.config.transfersPublisher }}",
+        "CreditCards": "{{ .Values.config.cardsPublisher }}",
+        "Cards": "{{ .Values.config.cardsPublisher }}",
+        "DebitCards": "{{ .Values.config.cardsPublisher }}",
+        "PrepaidCards": "{{ .Values.config.cardsPublisher }}",
+        "Deposits": "{{ .Values.config.depositsPublisher }}",
+        "defaultContext": "{{ .Values.config.defaultPublisher }}",
+        "WorkflowService": "{{ .Values.config.workflowPublisher }}",
+        "Loans": "{{ .Values.config.loansPublisher }}",
+        "BillPayments": "{{ .Values.config.billPaymentsPublisher }}",
+        "IAM": "{{ .Values.config.iamPublisher }}",
+        "languageId": "{{ .Values.config.languageId }}",
+        "IdleTime": "{{ .Values.config.idleTime }}",
+        "Coundown": "{{ .Values.config.counDown }}"
+    }

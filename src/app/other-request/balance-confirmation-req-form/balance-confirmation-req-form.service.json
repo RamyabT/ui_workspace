@@ -1,0 +1,5 @@
+ 
+ "BalanceConfirmationReq" : {
+ "servicePath": ["entry-shell","servicerequest", "balance-confirmation-req-form"],
+ "queryParams": {}
+ }

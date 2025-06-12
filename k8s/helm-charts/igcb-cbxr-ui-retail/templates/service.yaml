@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "igcb-cbxr-ui-retail.fullname" . }}
+  labels:
+    app: {{ template "igcb-cbxr-ui-retail.name" . }}
+    chart: {{ template "igcb-cbxr-ui-retail.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 80 
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ template "igcb-cbxr-ui-retail.name" . }}
+    release: {{ .Release.Name }}

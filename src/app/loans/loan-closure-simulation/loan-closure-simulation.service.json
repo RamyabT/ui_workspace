@@ -1,0 +1,5 @@
+ 
+ "LOANCLOSURESIMULATION" : {
+ "servicePath": ["entry-shell","loans", "loan-closure-simulation"],
+ "queryParams": {}
+ }

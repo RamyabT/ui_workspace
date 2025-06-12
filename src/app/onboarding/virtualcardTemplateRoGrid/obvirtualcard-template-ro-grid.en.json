@@ -1,0 +1,23 @@
+"obvirtualcardTemplateRoGrid":{
+"title":"obvirtualcardTemplateRoGrid",
+		 "templateId": {
+		  "label":"Template Id" ,
+		  "placeholder": "Template Id"
+		  } ,
+		 "cardtype": {
+		  "label":"Card Type" ,
+		  "placeholder": "Card Type"
+		  } ,
+		 "cardform": {
+		  "label":"Card Form" ,
+		  "placeholder": "Card Form"
+		  } ,
+		 "cardimage": {
+		  "label":"Card Image" ,
+		  "placeholder": "Card Image"
+		  } ,
+		 "cardvalidity": {
+		  "label":"Card Validity" ,
+		  "placeholder": "Card Validity"
+		  } 
+}

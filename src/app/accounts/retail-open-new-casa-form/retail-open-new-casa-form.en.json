@@ -1,0 +1,71 @@
+"RetailOpenNewCasaForm":{
+"title":"opennewcasa",
+		 "accountType": {
+		  "label":"Account Type" ,
+		  "placeholder": "Account Type"
+		  } ,
+		 "productCode": {
+		  "label":"Product" ,
+		  "placeholder": "Product"
+		  } ,
+		 "accountName": {
+		  "label":"Account Name" ,
+		  "placeholder": "Account Name"
+		  } ,
+		 "openingBranch": {
+		  "label":"Opening Branch" ,
+		  "placeholder": "Opening Branch"
+		  } ,
+		 "accountCurrency": {
+		  "label":"Account Currency " ,
+		  "placeholder": "Account Currency "
+		  } ,
+		 "email": {
+		  "label":" Email" ,
+		  "placeholder": " Email"
+		  } ,
+		 "mobileNumber": {
+		  "label":"Mobile Number" ,
+		  "placeholder": "Mobile Number"
+		  } ,
+		 "debitAccountNumber": {
+		  "label":"Funding Account" ,
+		  "placeholder": "Funding Account"
+		  } ,
+		 "initialDepositAmount": {
+		  "label":"Initial Deposit Amount" ,
+		  "placeholder": "Initial Deposit Amount"
+		  } ,
+		 "ischequebookreq": {
+		  "label":"Request For Cheque Book" ,
+		  "placeholder": "Request For Cheque Book"
+		  } ,
+		 "deliveryOption": {
+		  "label":"Delivery Option" ,
+		  "placeholder": "Delivery Option"
+		  } ,
+		 "authPersonId": {
+		  "label":"Auth Person Id" ,
+		  "placeholder": "Auth Person Id"
+		  } ,
+		 "authPersonName": {
+		  "label":"Auth Person Name" ,
+		  "placeholder": "Auth Person Name"
+		  } ,
+		 "chargesAmount": {
+		  "label":"Charges Amount" ,
+		  "placeholder": "Charges Amount"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } ,
+		 "addressDetails": {
+		  "label":"Address Details" ,
+		  "placeholder": "Address Details"
+		  } 
+}

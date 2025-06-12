@@ -1,0 +1,5 @@
+ 
+ "RETAILRPADDRESS" : {
+ "servicePath": ["entry-shell","registeredproducts", "RetailRPAddressInfo"],
+ "queryParams": {}
+ }

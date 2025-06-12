@@ -1,0 +1,16 @@
+<box class="casa-home-container">
+    <box class="module-tab-container">
+        <mat-tab-group [(selectedIndex)]="activeTabIndex" (selectedTabChange)="onTabChanged($event)">
+            <mat-tab label="{{ 'TRANSFERSCONTAINER.scheduled' | translate }}">
+                <ng-template matTabContent>
+                    <app-fb-schedule-form></app-fb-schedule-form>
+                </ng-template>
+            </mat-tab>
+            <mat-tab label="{{ 'TRANSFERSCONTAINER.history' | translate }}">
+                <ng-template matTabContent>
+                    <!-- <transfer-summary-form></transfer-summary-form> -->
+                </ng-template>
+            </mat-tab>
+        </mat-tab-group>
+    </box>
+</box>

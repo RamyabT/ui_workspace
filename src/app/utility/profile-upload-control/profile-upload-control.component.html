@@ -1,0 +1,9 @@
+<box class="profile-picture"  (click)="_helper.updatePhoto()">
+    <box class="image-wrapper">
+        <img src="{{_helper.userAuth.getProfilePicture()}}" alt="{{ 'USERPROFILE.profilePhoto' | translate }}" class="profile-photo">
+        <!-- <img src="./assets/images/user-profile.png" alt="profile-photo" class="profile-photo"> -->
+    </box>
+    <button class="edit-photo system-ico-button no-text edit" type="button"><span>Edit</span></button>
+    <!-- <img src="./assets/images/icons/eye-icon.svg" alt="edit-photo" class="edit-photo" -->
+    <!-- (click)="_helper.updatePhoto()"> -->
+</box>

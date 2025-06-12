@@ -1,0 +1,5 @@
+ 
+ "ETRANSFERRECEIVEMONEY" : {
+ "servicePath": ["entry-shell","etransfers", "retail-etransfer-decline-money-form"],
+ "queryParams": {}
+ }

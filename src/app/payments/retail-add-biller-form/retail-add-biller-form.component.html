@@ -1,0 +1,69 @@
+<box *ngIf="_helper._device.isMobile()" class="edit-biller-form-header">
+
+	<box class="form-header">
+		{{state.formHeader}}
+	</box>
+
+	<span class="back-btn-wrapper" (click)="_helper.backToManageBiller('')">
+		<span class="back-btn-icon"></span>
+	</span>
+</box>
+
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailAddBillerForm">
+
+	<box class="entry-form" [ngClass]="{'desktop-entry-form': !_helper._device.isMobile()}">
+		<box class="grid entry-form-field-group col-lg-12">
+			<box *ngIf="!_helper._device.isMobile() && !state.reviewMode" class="payee-info-header">
+				<span class="payee-info-title">{{'billpaymentLabels.payeeInformation' | translate}}</span>
+			</box>
+
+			<box *ngIf="!_helper._device.isMobile() && state.reviewMode" class="payee-info-header">
+				<span class="review-title">{{'reviewForm.title' | translate}}</span>
+				<span class="review-text">{{'billpaymentLabels.editAddPayeeReviewLabel' | translate}}</span>
+			</box>
+
+			<box class="biller-group add-biller" [ngClass]="{'edit-biller-group': state.editMode, 'add-biller-group': state.addMode}">
+
+				<box *ngIf="state.operationMode === 'M' && !state.reviewMode" class="payee-info">
+					<box class="payee-icon-wrapper">
+						<span class="payee-icon">
+						</span>
+					</box>
+
+					<box  class="payee-details">
+						<box class="payee-name">
+							{{state.selectedBiller?.nickName||state.selectedBiller?.billerId.name}}
+						</box>
+
+						<box *ngIf="state.selectedBiller?.nickName" class="payee-type">
+							{{state.selectedBiller?.billerId.name}}
+						</box>
+					</box>
+				</box>
+
+				<box *ngIf="_helper._device.isMobile()" class="review-header">
+					<span class="edit-icon">{{'reviewForm.title' | translate}}</span>
+				</box>
+
+				<app-biller-search-list-control class="col-md-12 col-lg-12 col-sm-12"
+					[actionPublisher]="actionMap$.get('billerId')"
+					label="{{'RetailAddBillerForm.billerId.label' | translate }}"
+					placeholder="{{'RetailAddBillerForm.billerId.placeholder' | translate }}" formControlName="billerId"
+					[changePublisher]="formChangePublisher$"
+					(commonControlEvent)="handleControlEvent($event)"></app-biller-search-list-control>
+
+				<app-dynamic-form class="col-md-12 col-lg-12 col-sm-12"
+					[dynamicFormActionPublisher]="_helper.dynamicFormAction"
+					(dynamicFormChange)="_helper.dynamicFormChange($event)"
+					[dynamicFormData]="state.dynamicFormData"></app-dynamic-form>
+
+				<app-biller-nickname-control class="col-md-12 col-lg-12 col-sm-12"
+					[actionPublisher]="actionMap$.get('nickName')"
+					label="{{'RetailAddBillerForm.nickName.label' | translate }}" formControlName="nickName"
+					placeholder="{{'RetailAddBillerForm.nickName.placeholder' | translate }}"></app-biller-nickname-control>
+
+			</box>
+
+		</box>
+	</box>
+</form>

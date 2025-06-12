@@ -1,0 +1,35 @@
+"RetailIBANLetterReqForm":{
+"title":"IBAN Letter Request",
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "iBAN": {
+		  "label":"IBAN" ,
+		  "placeholder": "IBAN"
+		  } ,
+		 "deliveryOption": {
+		  "label":"Delivery Option" ,
+		  "placeholder": "Delivery Option"
+		  } ,
+		  "emailId": {
+			"label":" Email Id" ,
+			"placeholder": ""
+			} ,
+			"deliveryBranch": {
+				"label":"Delivery Branch" ,
+				"placeholder": ""
+				} ,
+		 "termsFlag": {
+		  "label":"Kindly issue me a IBAN Letter" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "chargesAmount": {
+		  "label":"Charges" ,
+		  "placeholder": "Charges"
+		  } 
+}

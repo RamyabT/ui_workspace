@@ -1,0 +1,108 @@
+{
+  "navigations" : [
+    {
+      "id": "newToBank",
+      "align": "center",
+      "name": "New to Bank",
+      "icon": "new-to-bank.svg",
+      "serviceCode": "RETAILPLNEWTOBANK",
+      "isChannelPreference" : "M" 
+    },
+    {
+      "id": "selfregister",
+      "align": "outer",
+      "name": "selfregister",
+      "icon": "new-to-bank.svg",
+      "serviceCode": "RETAILSELFREG",
+      "isChannelPreference" : "M" 
+    },
+    {
+      "id": "atmFinder",
+      "align": "outer",
+      "name": "ATM Finder",
+      "icon": "atm-finder.svg",
+      "serviceCode": "RETAILPLATMFINDER",
+      "isChannelPreference" : "D" 
+    },
+    {
+      "id": "offers",
+      "align": "outer",
+      "name": "Offers",
+      "icon": "offers.svg",
+      "serviceCode": "RETAILPLOFFERS",
+      "isChannelPreference" : "D" 
+    },
+    {
+      "id": "contacts",
+      "align": "outer",
+      "name": "Contact Us",
+      "icon": "contacts.svg",
+      "serviceCode": "RETAILPLCONTACTS",
+      "isChannelPreference" : "D" 
+    },
+    {
+      "id": "applyCard",
+      "align": "outer",
+      "name": "Apply card",
+      "icon": "apply-card.svg",
+      "serviceCode": "RETAILPLAPPLYCARD",
+      "isChannelPreference" : "M" 
+    },
+    {
+      "id": "branchFinder",
+      "align": "inner",
+      "name": "Branch Finder",
+      "icon": "branch-finder.svg",
+      "serviceCode": "RETAILPLBRANCHFINDER",
+      "isChannelPreference" : "D" 
+    },
+    {
+      "id": "videos",
+      "align": "inner",
+      "name": "Videos",
+      "icon": "videos.svg",
+      "serviceCode": "RETAILPLVIDEOS",
+      "isChannelPreference" : "M" 
+    },
+    {
+      "id": "resume",
+      "align": "inner",
+      "name": "Resume Application",
+      "icon": "faq.svg",
+      "serviceCode": "RETAILPLRESUMEAPPLICATION",
+      "isChannelPreference" : "M" 
+    },
+    {
+      "id": "faq",
+      "align": "inner",
+      "name": "FAQ",
+      "icon": "faq.svg",
+      "serviceCode": "RETAILPLFAQ",
+      "isChannelPreference" : "D" 
+    },
+    {
+      "id": "tips",
+      "align": "inner",
+      "name": "Security Tips",
+      "icon": "faq.svg",
+      "serviceCode": "RETAILPLTIPS",
+      "isChannelPreference" : "D" 
+    },
+    {
+      "id": "lockCard",
+      "align": "inner",
+      "name": "Lock card",
+      "icon": "apply-card.svg",
+      "serviceCode": "RETAILPLLOCKCARD",
+      "isChannelPreference" : "M" 
+    },
+    {
+      "id": "terms",
+      "align": "inner",
+      "name": "T&C",
+      "icon": "faq.svg",
+      "serviceCode": "RETAILPLTERMS",
+      "isChannelPreference" : "M" 
+    }
+  ]
+}

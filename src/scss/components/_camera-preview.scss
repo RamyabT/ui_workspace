@@ -1,0 +1,114 @@
+@media (max-width: 480px) {
+
+  html:has(.camera-preview-div){
+    background-color: transparent;
+  }
+
+  .camera-preview-div {
+    background: rgba(0, 0, 0, 0.5);
+    /* Center vertically AND horizontally */
+    position: fixed;
+    /*it can be fixed too*/
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    /* This to solve "the content will not be cut when the window is smaller than the content": */
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat !important;
+  }
+
+  .use_pic_class,
+  .retake_pic_class,
+  .take_pic_class {
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    margin: auto;
+    left: 0px;
+    right: 0px;
+    bottom: 20px;
+    background-color: #c49a6c;
+  }
+
+  .camera-preview-mode {
+    background: transparent !important;
+    overflow: hidden;
+  }
+
+  .camera-preview-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .use_pic_class {
+    left: 25%;
+    right: auto;
+    background-color: #ffffff;
+    mask: url(../../assets/images/icons/tick.svg) no-repeat center;
+    -webkit-mask: url(../../assets/images/icons/tick.svg) no-repeat center;
+    mask-size: 40px;
+    -webkit-mask-size: 40px;
+  }
+
+  .take_pic_class {
+    outline: 5px solid #ffffff !important;
+    border: 4px solid #000000;
+    background-color: #ffffff;
+  }
+
+  .retake_pic_class {
+    left: auto;
+    right: 25%;
+    background-color: #ffffff;
+    mask: url(../../assets/images/icons/close.svg) no-repeat center;
+    -webkit-mask: url(../../assets/images/icons/close.svg) no-repeat center;
+    mask-size: 40px;
+    -webkit-mask-size: 40px;
+  }
+
+  .close_frame_class {
+    background-color: #ffffff;
+    mask: url(../../assets/images/icons/circle-close.svg) no-repeat center;
+    -webkit-mask: url(../../assets/images/icons/circle-close.svg) no-repeat center;
+    mask-size: 40px;
+    -webkit-mask-size: 40px;
+    border: none;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+  }
+
+  .start_frame_class {
+    border: none;
+    border-radius: 50px;
+    position: fixed;
+    margin: auto;
+    left: 10%;
+    right: 10%;
+    bottom: 20px;
+    background-color: #12486B;
+    font-size: 20px;
+    color: #ffffff;
+    padding: 10px;
+  }
+
+  .photo_hint_class {
+    color: #fff;
+    position: fixed;
+    top: 20%;
+    right: 10%;
+    left: 10%;
+    font-size: 18px;
+  }
+
+}

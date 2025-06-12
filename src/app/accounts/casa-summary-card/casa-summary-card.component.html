@@ -1,0 +1,131 @@
+<box class="summary-card" [ngClass]="{'has-context-menu': contextmenuBtn}">
+    <box class="summary-card-inner">
+        <box class="pay-from">{{payFromLabel}}</box>
+        <box class="primary-details">
+            <box class="account-details">
+                <box class="product-name">{{ cardData.accountNickname || cardData.productDesc }}</box>
+                <box class="product-details">
+                    <box class="type">
+                        {{cardData.accountTypeDesc.replace(' Account', '')}}
+                    </box>
+                    <box class="separator"></box>
+                    <box class="account-number">{{ cardData.accountNumber | accountNumberTrim }}</box>
+                </box>
+
+                <!-- <box>
+                    <em *ngIf="cardData?.ownership && cardData.ownership.toLowerCase() == 'joint'"
+                        class="tag ownership">{{
+                        'CASASUMMARYCARD.joint' | translate }}</em>
+                    <em *ngIf="cardData?.accountStatus && cardData?.accountStatus?.toLowerCase() == 'dormant'"
+                        class="tag dormant">{{ cardData.accountStatus }}</em>
+                </box> -->
+
+                <box class="tag-wrapper">
+                    <span class="joint-tag"
+                        *ngIf="cardData?.ownership && cardData.ownership.toLowerCase() == 'joint'">{{
+                        'CASASUMMARYCARD.joint' | translate }}</span>
+
+
+                    <span class="dormant-tag"
+                        *ngIf="cardData?.accountStatus && cardData?.accountStatus?.toLowerCase() == 'dormant'">{{
+                        cardData.accountStatus | titlecase }}
+                        <span class="dormant-info" (click)="openDormantInfo()">
+                            <!-- <span *ngIf="showTooltip" class="tooltip-text">{{dormantInfo | translate}}</span> -->
+                        </span>
+                    </span>
+                </box>
+            </box>
+
+            <box class="share-btn-container">
+                <button type="button" class="share-container share-btn" (click)="dataShare()" [disabled]="this.isSharingInProgress">
+                    <span class="icon share-btn-icon"></span>
+                </button>
+            </box>
+
+        </box>
+        <box class="additional-details">
+            <box class="additional-detail available">
+                <span class="lbl">{{ 'CASASUMMARYCARD.available' | translate }}</span>
+
+                <ng-container *ngIf="cardData.accountCurrency != _appConfig.baseCurrency else avlBaseCurrency">
+                    <box class="amount usd-amount">
+                        <em class="usd">{{ 'SUFFIXCURRENCY' |
+                            currencyCode }}</em>
+                        {{ getAbsoluteValue(cardData.availableBalance) | currency :
+                        cardData.accountCurrency : '' }}
+                        <em>{{ cardData.accountCurrency == 'USD' ? '$' :
+                            cardData.accountCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(cardData.availableBalance)}}
+                    </box>
+                </ng-container>
+                <ng-template #avlBaseCurrency>
+                    <box class="amount cad-amount">{{ getAbsoluteValue(cardData.availableBalance) | currency :
+                        cardData.accountCurrency : '' }} <em>{{ cardData.accountCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(cardData.availableBalance)}}
+                    </box>
+                </ng-template>
+
+
+            </box>
+            <box class="additional-detail actual">
+                <span class="lbl">{{ 'CASASUMMARYCARD.actual' | translate }}</span>
+
+                <ng-container *ngIf="cardData.accountCurrency != _appConfig.baseCurrency else curBaseCurrency">
+                    <box class="amount usd-amount">
+                        <em class="usd">{{ 'SUFFIXCURRENCY' |
+                            currencyCode }}</em>
+                        {{ getAbsoluteValue(cardData.currentBalance) | currency :
+                        cardData.accountCurrency : '' }}
+                        <em>{{ cardData.accountCurrency == 'USD' ? '$' :
+                            cardData.accountCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(cardData.currentBalance)}}
+                    </box>
+                </ng-container>
+                <ng-template #curBaseCurrency>
+                    <box class="amount cad-amount">{{ getAbsoluteValue(cardData.currentBalance) | currency :
+                        cardData.accountCurrency : '' }} <em>{{ cardData.accountCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(cardData.currentBalance)}}
+                    </box>
+                </ng-template>
+
+
+            </box>
+            <box class="additional-detail hold">
+                <span class="lbl">{{ 'CASASUMMARYCARD.hold' | translate }}</span>
+
+                <ng-container *ngIf="cardData.accountCurrency != _appConfig.baseCurrency else baseCurrencyHold">
+                    <box class="amount usd-amount">
+                        <em>{{ 'SUFFIXCURRENCY' |
+                            currencyCode }}</em>
+                        {{ getAbsoluteValue(cardData.holdBalance) | currency :
+                        cardData.accountCurrency : '' }}
+                        <em>{{ cardData.accountCurrency == 'USD' ? '$' :
+                            cardData.accountCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(cardData.holdBalance)}}
+                    </box>
+                </ng-container>
+                <ng-template #baseCurrencyHold>
+                    <box class="amount cad-amount">{{ getAbsoluteValue(cardData.holdBalance || 0.00) | currency :
+                        cardData.accountCurrency : '' }} <em>{{ cardData.accountCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(cardData.holdBalance)}}
+                    </box>
+                </ng-template>
+
+
+            </box>
+            <!-- <box class="default-account">
+                <mat-slide-toggle [checked]="cardData.preferredAccount" (change)="setDefaultAccount(cardData)">Default
+                    Account</mat-slide-toggle>
+            </box> -->
+        </box>
+    </box>
+
+    <button *ngIf="contextmenuBtn" type="button" class="contextual-menu-trigger"
+        (click)="notifyContextMenuClick()"><span>contextual menu</span></button>
+</box>

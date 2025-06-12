@@ -1,0 +1,40 @@
+.get-start-details{
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    @include not-small-screen {
+        padding: 80px 24px;
+        border-radius: 16px;
+        background: #FFF;
+        box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.09);
+    }
+
+    .get-start-img{
+        text-align: center;
+    }
+
+    .start-tips{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        color: #000000;
+        text-align: center;
+
+        .info-field-ttl{
+            @include h4-bold;
+        }
+
+        .info-field-content{
+            @include b2-regular;
+        }
+    }
+}
+
+app-npss-get-start-form{
+    .form-footer-actions{
+        position: absolute;
+        bottom: 0;
+    }
+}

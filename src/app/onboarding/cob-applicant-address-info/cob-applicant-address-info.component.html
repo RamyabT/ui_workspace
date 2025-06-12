@@ -1,0 +1,53 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="COBApplicantAddressInfo" >
+	   
+	 <box class="entry-form">
+		<box class="entry-form-field-group col-12 grid">
+			<span *ngIf="_helper._appConfig.getData('processId')" class="arn-number">{{'OnBoarding.arn' | translate
+				}}{{_helper._appConfig.getData('processId')}}</span>
+
+			<box id="header" class="col-md-12 grid  header  ">
+				<fpx-display-text id="title1" class="title"
+					[innerHTML]="'COBApplicantAddressInfo.title1.text' | translate"
+					[literals]="commonFormInput"></fpx-display-text>
+				<fpx-display-text *ngIf="_helper._deviceDetectorService.isDesktop()" id="hint" class="hint"
+					[innerHTML]="'COBApplicantAddressInfo.hint.text' | translate"
+					[literals]="commonFormInput"></fpx-display-text>
+			</box>
+			<!-- addressDetail -->
+			<app-address-detail-form class="col-sm-12 col-md-6 col-lg-12" (commonFormEvent)="handleControlEvent($event)"
+				[actionPublisher]="actionMap$.get('permenantAddressInv')" label="addressdetailForm"
+				formControlName="permenantAddressInv"></app-address-detail-form>
+
+			<!-- permenantAddressFlag -->
+			<app-enabled-flag-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('permenantAddressFlag')"
+				label="{{'COBApplicantAddressInfo.permenantAddressFlag.label' | translate }}"
+				formControlName="permenantAddressFlag"></app-enabled-flag-control>
+			<!-- permenantAddressInv -->
+			<box id="headerbox" class="col-md-12 grid  headerbox" [actionPublisher]="actionMap$.get('headerbox')">
+				<fpx-display-text id="header1" class="col-sm-12 col-md-12 col-lg-12 title"
+					[innerHTML]="'COBApplicantAddressInfo.header1.text' | translate"
+					[literals]="commonFormInput"></fpx-display-text>
+			</box>
+
+				<app-address-detail-form class="col-sm-12 col-md-6 col-lg-12" (commonFormEvent)="handleControlEvent($event)"
+				[actionPublisher]="actionMap$.get('communicationAddressInv')" label="addressdetailForm"
+				formControlName="communicationAddressInv"></app-address-detail-form>
+
+				<!-- <box id="headerbox" class="col-md-12 grid  headerbox" [actionPublisher]="actionMap$.get('headerbox')">
+				<fpx-display-text id="header1" class="col-sm-12 col-md-12 col-lg-12 title"
+					[innerHTML]="'COBApplicantAddressInfo.header1.text' | translate"
+					[literals]="commonFormInput"></fpx-display-text>
+			</box> -->
+			<!-- workAddressInv -->
+			<!-- <box id="headerbox" class="col-md-12 grid  headerbox" [actionPublisher]="actionMap$.get('headerbox')"> -->
+				<!-- <fpx-display-text id="header1" class="col-sm-12 col-md-12 col-lg-12 title"
+					[innerHTML]="'COBApplicantAddressInfo.header2.text' | translate"
+					[literals]="commonFormInput"></fpx-display-text> -->
+			<!-- </box> -->
+			<!-- <app-address-detail-form class="col-sm-12 col-md-6 col-lg-12" (commonFormEvent)="handleControlEvent($event)"
+				[actionPublisher]="actionMap$.get('workAddressInv')" label="addressdetailForm"
+				formControlName="workAddressInv"></app-address-detail-form> -->
+		</box>
+	</box>
+</form>

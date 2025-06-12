@@ -1,0 +1,1118 @@
+#depAppBody {
+
+    .display-field{
+        fpx-label{
+            font-weight: var(--fontWeightRegular);
+        }
+    }
+
+    .mat-select-panel-wrap {
+        min-width: calc(100% + 32px);
+        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.24) !important;
+        border-radius: var(--dropdownPanelRadius);
+        padding: var(--dropdownPanelPadding);
+        background-color: var(--inputBgClr);
+        overflow: auto;
+        scrollbar-width: none;
+        --optionsPosition: calc(-1 * env(safe-area-inset-bottom));
+        transform: translateY(var(--optionsPosition));
+
+        .fpx-select-panel {
+            min-width: 100% !important;
+            background-color: transparent;
+            padding: unset;
+            border-radius: unset;
+            overflow: unset;
+            box-shadow: none !important;
+            transform: translateY(0px) !important;
+        }
+    }
+
+    /* Form styles */
+    form{
+        .fpx-form-control{
+            fpx-label{
+                mat-label{
+                    display: block;
+                }
+            }
+
+            .indicator{
+                padding-inline-start: 4px;
+                display: none;
+            }
+        }
+        
+        .info-fields{
+            .info-box {
+                flex-direction: column;
+                flex-basis: 100%;
+                background-color: #F8EADA;
+                border: none;
+            }
+        }
+        .disclaimer-box{
+            background-color: #FFFFFF;
+            padding: 16px;
+            border-radius: 12px;
+            border: 0.5px solid #B3B3B3;
+            line-height: 24px;
+            font-size: 12px;
+            color: #414042;
+            fpx-display-text{
+                > div {
+                    display: flex;
+                    flex-direction: column;
+                    gap:4px;
+                }
+            }
+
+            p{
+                padding: 0;
+                margin: 0;
+                font-size: 12px;
+            }
+            .link{
+                font-weight: var(--fontWeightMedium);
+                font-size: 12px;
+                line-height: 24px;
+            }
+        }
+        .terms-box{
+            background-color: #FFFFFF;
+            padding: 16px;
+            border-radius: 12px;
+
+        }
+
+    }
+    .fieldset-title{
+        font-size: 16px;
+        font-weight: var(--fontWeightMedium);
+        line-height: 20px;
+        flex-basis: 100%;
+        margin: 0;
+
+        &::after{
+            display: none;
+        }
+    }
+
+    .amount {
+        display: inline-flex;
+        flex-direction: row-reverse;
+    }
+
+    .toasts{
+        border: 2px solid #1D875A;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: #FFFFFF;
+        box-shadow: 0px 0px 4px 0px #3FA225AB;
+
+        .toast {
+            &.toast-success {
+                .toast__title {
+                    color: #1D875A !important;
+                    font-size: 14px;
+                    margin: 0;
+                    line-height: 18px;
+                }
+                .toast__message{
+                    color: #252A2E;
+                }
+            }
+        }
+    }
+
+    .stepper-btn-container {
+        @include not-small-screen {
+            justify-content: space-between;
+        }
+    }
+    
+    /* Menu icon styles */
+    .menu-icon {
+        &.HOME::before {
+            mask: url(../../assets/images/layouts/menu-bar/desktop-home.svg) no-repeat 50% 50%;
+            -webkit-mask: url(../../assets/images/layouts/menu-bar/desktop-home.svg) no-repeat 50% 50%;
+            mask-size: 24px;
+            -webkit-mask-size: 24px;
+
+            @include small-screen {
+                mask: url(../../assets/images/layouts/menu-bar/home.svg) no-repeat 50% 50%;
+                -webkit-mask: url(../../assets/images/layouts/menu-bar/home.svg) no-repeat 50% 50%;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+            }
+        }
+
+        @include small-screen{
+            &.nav-home.active {
+                background-color: #FFFFFF;
+            }
+        }
+
+        &:is(.home, .RETAILHOME) {
+            mask: url(../../assets/images/layouts/menu-bar/desktop-home.svg) no-repeat 50% 50%;
+            -webkit-mask: url(../../assets/images/layouts/menu-bar/desktop-home.svg) no-repeat 50% 50%;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+        }
+
+        &:is(.BILLS, .MOBBILLS) {
+            &::before {
+                mask: url(../../assets/images/layouts/menu-bar/bills.svg) no-repeat 50% 50%;
+                -webkit-mask: url(../../assets/images/layouts/menu-bar/bills.svg) no-repeat 50% 50%;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+            }
+        }
+
+        &:is(.TRANSFERS, .MOBTRANSFERS) {
+            &::before {
+                mask: url(../../assets/images/layouts/menu-bar/transfers.svg) no-repeat 50% 50%;
+                -webkit-mask: url(../../assets/images/layouts/menu-bar/transfers.svg) no-repeat 50% 50%;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+            }
+        }
+
+        &:is(.ETRANSFERS, .MOBETRANSFERS) {
+            &::before {
+                mask: url(../../assets/images/layouts/menu-bar/e-transfers.svg) no-repeat 50% 50%;
+                -webkit-mask: url(../../assets/images/layouts/menu-bar/e-transfers.svg) no-repeat 50% 50%;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+            }
+        }
+
+        &:is(.EDOCUMENTS, .MOBEDOCUMENTS) {
+            &::before {
+                mask: url(../../assets/images/layouts/menu-bar/e-documents.svg) no-repeat 50% 50%;
+                -webkit-mask: url(../../assets/images/layouts/menu-bar/e-documents.svg) no-repeat 50% 50%;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+            }
+        }
+
+        &:is(.OFFERSPRODUCTS, .MOBOFFERSPRODUCTS) {
+            &::before {
+                mask: url(../../assets/images/layouts/menu-bar/e-transfers.svg) no-repeat 50% 50%;
+                -webkit-mask: url(../../assets/images/layouts/menu-bar/e-transfers.svg) no-repeat 50% 50%;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+            }
+        }
+
+        &:is(.OPENACCOUNT, .MOBOPENACCOUNT) {
+            &::before {
+                mask: url(../../assets/images/layouts/menu-bar/e-transfers.svg) no-repeat 50% 50%;
+                -webkit-mask: url(../../assets/images/layouts/menu-bar/e-transfers.svg) no-repeat 50% 50%;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+            }
+        }
+
+        &:is(.RATES, .MOBRATES) {
+            &::before {
+                mask: url(../../assets/images/layouts/menu-bar/rates.svg) no-repeat 50% 50%;
+                -webkit-mask: url(../../assets/images/layouts/menu-bar/rates.svg) no-repeat 50% 50%;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+            }
+        }
+
+        &:is(.MOBCHEQUEDEPOSIT) {
+            &::before {
+                mask: url(../../assets/images/layouts/menu-bar/autodeposit.svg) no-repeat 50% 50%;
+                -webkit-mask: url(../../assets/images/layouts/menu-bar/autodeposit.svg) no-repeat 50% 50%;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+            }
+        }
+
+        &:is(.MOBOFFERS) {
+            &::before {
+                mask: url(../../assets/images/layouts/menu-bar/offers.svg) no-repeat 50% 50%;
+                -webkit-mask: url(../../assets/images/layouts/menu-bar/offers.svg) no-repeat 50% 50%;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+            }
+        }
+
+        &:is(.MORE, .MOBMORE) {
+            &::before {
+                mask: url(../../assets/images/layouts/menu-bar/more.svg) no-repeat 50% 50%;
+                -webkit-mask: url(../../assets/images/layouts/menu-bar/more.svg) no-repeat 50% 50%;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+            }
+        }
+        &:is(.OFFERS) {
+            &::before {
+                mask: url(../../assets/images/layouts/menu-bar/offers.svg) no-repeat 50% 50%;
+                -webkit-mask: url(../../assets/images/layouts/menu-bar/offers.svg) no-repeat 50% 50%;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+            }
+        }
+        &:is(.CHANGEACCOUNT) {
+            &::before {
+                mask: url(../../assets/images/layouts/menu-bar/change-account.svg) no-repeat 50% 50%;
+                -webkit-mask: url(../../assets/images/layouts/menu-bar/change-account.svg) no-repeat 50% 50%;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+            }
+        }
+    }
+
+    .nav-menu-list {
+
+        .menu-icon {
+            width: 20px;
+            height: 20px;
+            overflow: hidden;
+            background-color: transparent;
+            @include small-screen{
+                width: 24px;
+                height: 24px;
+            }
+
+            &::before {
+                content: "";
+                width: 20px;
+                height: 20px;
+                overflow: hidden;
+                background-color: var(--iconClr);
+                display: block;
+                -webkit-mask-size: 20px;
+                mask-size: 20px;
+
+                @include small-screen{
+                    width: 24px;
+                    height: 24px;
+                    background-color: #7A7A7A;
+                }
+            }
+        }
+
+        li {
+            &.active {
+                .nav-menu-item {
+                    @include not-small-screen {
+                        background-color: var(--menuHoverBgClr) !important;
+                    }
+                }
+                .menu-icon {
+                    &::before {
+                        background-color: var(--tertiaryBtnBgClr);
+                    }
+                }
+                @include small-screen {
+                    span.menu-desc {
+                        color: var(--tertiaryBtnBgClr) !important;
+                    }
+                }
+
+                &#nav_menu_MORE {
+                    .menu-desc {
+                        color: var(--tertiaryBtnBgClr) !important;
+                    }
+                }
+            }
+
+            @include not-small-screen {
+                &:hover {
+                    .menu-icon {
+                        &::before {
+                            background-color: var(--tertiaryBtnBgClr);
+                        }
+                    }
+                }
+            }
+        }
+
+        .nav-home {
+            &.active {
+                .home {
+                    &::before {
+                        background-color: var(--tertiaryBtnBgClr);
+                    }
+                }
+            }
+        }
+    }
+
+    .fpx-form-control{
+        .field-label, fpx-label{
+            font-weight: var(--fontWeightRegular);
+        }
+        .fpx-field-content{
+            font-weight: var(--fontWeightMedium);
+            height: 48px;
+            border: unset;
+        }
+    }
+
+    .shell-container{
+        .shell-header{
+            @include small-screen{
+                background-color: var(--primary500);
+            }
+        }
+    }
+
+    .shell-header__title {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 24px;
+        color: var(--modulePrimaryTextClr);
+
+        @include small-screen {
+            color: #FFFFFF;
+        }
+    }
+
+    .more-menu-actions{
+
+        .actions-list{
+            .icon-wrapper{
+                background-color: #FFFFFF;
+                border: 1px solid #000000;
+                width: 44px;
+                height: 44px;
+
+                &::before{
+                    background-color: var(--primary500);
+                }
+            }
+        }
+    }
+
+    .actions-list {
+        .icon-wrapper {
+            &:is(.RETAILACCOUNT, .RETAILMEMBERSHIP)::before {
+                mask-image: url("../../assets/images/quick-links/RETAILACCOUNT.svg");
+                -webkit-mask-image: url("../../assets/images/quick-links/RETAILACCOUNT.svg");
+            }
+            &:is(.RETAILCHANGEPRODUCT)::before {
+                mask-image: url("../../assets/images/quick-menu/change-account.svg");
+                -webkit-mask-image: url("../../assets/images/quick-menu/change-account.svg");
+            }
+            &:is(.CHEQUEDEPOSIT)::before {
+                mask-image: url("../../assets/images/quick-menu/CHEQUEDEPOSIT.svg");
+                -webkit-mask-image: url("../../assets/images/quick-menu/CHEQUEDEPOSIT.svg");
+            }
+            &:is(.RETAILTRANSFERS)::before {
+                mask-image: url("../../assets/images/quick-menu/transfer.svg");
+                -webkit-mask-image: url("../../assets/images/quick-menu/transfer.svg");
+            }
+            &:is(.RETAILPAYBILL, .RETAILMULTIBILLPAYMENT,.RETAILMULTIBILLREQUEST)::before {
+                mask-image: url("../../assets/images/quick-menu/bill.svg");
+                -webkit-mask-image: url("../../assets/images/quick-menu/bill.svg");
+            }
+            &:is(.RETAILETRANSFER,.RETAILMANAGEETRANSFERSENDMONEY)::before {
+                mask-image: url("../../assets/images/quick-menu/e-transfer.svg");
+                -webkit-mask-image: url("../../assets/images/quick-menu/e-transfer.svg");
+            }
+            &:is(.RETAILESTMTREQ)::before {
+                mask-image: url("../../assets/images/quick-menu/estatement.svg");
+                -webkit-mask-image: url("../../assets/images/quick-menu/estatement.svg");
+            }
+            &:is(.RETAILVOIDCHEQUE)::before {
+                mask-image: url("../../assets/images/quick-menu/download-direct-deposit-form.svg");
+                -webkit-mask-image: url("../../assets/images/quick-menu/download-direct-deposit-form.svg");
+            }
+            &:is(.RETAILACCNICKNAME)::before {
+                mask-image: url("../../assets/images/quick-menu/edit.svg");
+                -webkit-mask-image: url("../../assets/images/quick-menu/edit.svg");
+            }
+            &:is(.RETAILCHQBKREQ)::before {
+                mask-image: url("../../assets/images/quick-menu/cheque-book.svg");
+                -webkit-mask-image: url("../../assets/images/quick-menu/cheque-book.svg");
+            }
+            &:is(.RETAILSTOPCHEQUE)::before {
+                mask-image: url("../../assets/images/quick-menu/stop.svg");
+                -webkit-mask-image: url("../../assets/images/quick-menu/stop.svg");
+            }
+            &:is(.RETAILSTOPCHEQUESUMMARY)::before {
+                mask-image: url("../../assets/images/quick-menu/stop.svg");
+                -webkit-mask-image: url("../../assets/images/quick-menu/stop.svg");
+                background-color: var(--tertiaryBtnBgClr);
+            }
+            &:is(.RETAILLOANDETAILS)::before {
+                mask-image: url("../../assets/images/quick-links/RETAILLOANDETAILS.svg");
+                -webkit-mask-image: url("../../assets/images/quick-links/RETAILLOANDETAILS.svg");
+            }
+            &:is(.RETAILLOANPAYMENTINFO)::before {
+                mask-image: url("../../assets/images/quick-links/RETAILLOANPAYMENTINFO.svg");
+                -webkit-mask-image: url("../../assets/images/quick-links/RETAILLOANPAYMENTINFO.svg");
+            }
+            &:is(.RETAILLOANCURRENTINTERESTINFO)::before {
+                mask-image: url("../../assets/images/quick-links/RETAILLOANCURRENTINTERESTINFO.svg");
+                -webkit-mask-image: url("../../assets/images/quick-links/RETAILLOANCURRENTINTERESTINFO.svg");
+            }
+
+            &:is(.RETAILAPPLYLOAN)::before {
+                mask-image: url("../../assets/images/icons/loans.svg");
+                -webkit-mask-image: url("../../assets/images/icons/loans.svg");
+            }
+
+            &:is(.RETAILLOANPAYMENT)::before {
+                mask-image: url("../../assets/images/icons/make-payment.svg");
+                -webkit-mask-image: url("../../assets/images/icons/make-payment.svg");
+            }
+            &:is(.RETAILLOANDISBURSALSCHEDULE)::before {
+                mask-image: url("../../assets/images/quick-links/RETAILLOANDISBURSALSCHEDULE.svg");
+                -webkit-mask-image: url("../../assets/images/quick-links/RETAILLOANDISBURSALSCHEDULE.svg");
+            }
+            &:is(.RETAILLOANCLOSURE)::before {
+                mask-image: url("../../assets/images/quick-links/RETAILLOANCLOSURE.svg");
+                -webkit-mask-image: url("../../assets/images/quick-links/RETAILLOANCLOSURE.svg");
+            }
+            &:is(.RETAILLOANINTERESTCERTIFICATE)::before {
+                mask-image: url("../../assets/images/quick-links/RETAILLOANINTERESTCERTIFICATE.svg");
+                -webkit-mask-image: url("../../assets/images/quick-links/RETAILLOANINTERESTCERTIFICATE.svg");
+            }
+            &.delete::before {
+                mask-image: url("../../assets/images/transfers/delete.svg");
+                -webkit-mask-image: url("../../assets/images/transfers/delete.svg");
+            }
+            &.edit::before {
+                mask-image: url("../../assets/images/transfers/edit.svg");
+                -webkit-mask-image: url("../../assets/images/transfers/edit.svg");
+            }
+            &:is(.RETAILBILLERACCOUNT)::before {
+                mask-image: url("../../assets/images/quick-links/RETAILADDPAYEE.svg");
+                -webkit-mask-image: url("../../assets/images/quick-links/RETAILADDPAYEE.svg");
+            }
+
+            &:is(.RETAILADDBILLERACCOUNT)::before {
+                mask-image: url("../../assets/images/quick-links/RETAILADDPAYEE.svg");
+                -webkit-mask-image: url("../../assets/images/quick-links/RETAILADDPAYEE.svg");
+            }
+
+            &:is(.RETAILVIEWSCHEDULEDBILLS, .RETAILSCHBILLPAYMENTS)::before {
+                mask-image: url("../../assets/images/quick-links/RETAILVIEWSCHEDULEDBILLS.svg");
+                -webkit-mask-image: url("../../assets/images/quick-links/RETAILVIEWSCHEDULEDBILLS.svg");
+            }
+            &:is(.RETAILSAVEDBILLER)::before {
+                mask-image: url("../../assets/images/quick-links/RETAILMANAGEPAYEE.svg");
+                -webkit-mask-image: url("../../assets/images/quick-links/RETAILMANAGEPAYEE.svg");
+            }
+            &:is(.RETAILMANAGEETRANSFERSENDMONEY)::before {
+                mask-image: url("../../assets/interac/quick-links/ETRANSFERSENDMONEY.svg");
+                -webkit-mask-image: url("../../assets/interac/quick-links/ETRANSFERSENDMONEY.svg");
+            }
+            &:is(.RETAILMANAGEETRANSFERREQUESTMONEY)::before {
+                mask-image: url("../../assets/interac/quick-links/ETRANSFERREQUESTMONEY.svg");
+                -webkit-mask-image: url("../../assets/interac/quick-links/ETRANSFERREQUESTMONEY.svg");
+            }
+            &:is(.RETAILETRSCHEDULED)::before {
+                mask-image: url("../../assets/interac/quick-links/RETAILETRSCHEDULED.svg");
+                -webkit-mask-image: url("../../assets/interac/quick-links/RETAILETRSCHEDULED.svg");
+            }
+            &:is(.RETAILETRANSFERMANAGECONTACT)::before {
+                mask-image: url("../../assets/interac/quick-links/CONTACTS.svg");
+                -webkit-mask-image: url("../../assets/interac/quick-links/CONTACTS.svg");
+            }
+            &:is(.GETETRFAUTODEPOSIT)::before {
+                mask-image: url("../../assets/interac/quick-links/RETAILETRANSFERAUTODEPOSIT.svg");
+                -webkit-mask-image: url("../../assets/interac/quick-links/RETAILETRANSFERAUTODEPOSIT.svg");
+            }
+            &:is(.RETAILETRANSFERREGISTRATION)::before {
+                mask-image: url("../../assets/interac/quick-links/RETAILETRANSFERREGISTRATION.svg");
+                -webkit-mask-image: url("../../assets/interac/quick-links/RETAILETRANSFERREGISTRATION.svg");
+            }
+            &:is(.RETAILMANAGEETRANSFERCONTACT)::before {
+                mask-image: url("../../assets/interac/quick-links/RETAILMANAGEETRANSFERCONTACT.svg");
+                -webkit-mask-image: url("../../assets/interac/quick-links/RETAILMANAGEETRANSFERCONTACT.svg");
+            }
+
+            &:is(.RETAILTRANOAT)::before {
+                mask-image: url("../../assets/images/icons/transfer-oat.svg");
+                -webkit-mask-image: url("../../assets/images/icons/transfer-oat.svg");
+            }
+
+            &:is(.RETAILTRANINTBT)::before {
+                mask-image: url("../../assets/images/icons/transfer-wbt.svg");
+                -webkit-mask-image: url("../../assets/images/icons/transfer-wbt.svg");
+            }
+
+            &:is(.own-account)::before {
+                mask-image: url("../../assets/images/icons/transfer-oat.svg");
+                -webkit-mask-image: url("../../assets/images/icons/transfer-oat.svg");
+            }
+
+            &:is(.another-account)::before {
+                mask-image: url("../../assets/images/icons/transfer-wbt.svg");
+                -webkit-mask-image: url("../../assets/images/icons/transfer-wbt.svg");
+            }
+
+
+            .ql-RETAILETRANSFERMANAGECONTACT {
+                .icon-wrapper {
+                  &::before {
+                      mask-image: url(../../assets/interac/quick-links/CONTACTS.svg);
+                      -webkit-mask-image: url(../../assets/interac/quick-links/CONTACTS.svg);
+                  }
+                }
+              }
+              .ql-GETETRFAUTODEPOSIT{
+                .icon-wrapper {
+                  &::before {
+                      mask-image: url(../../assets/interac/quick-links/RETAILETRANSFERAUTODEPOSIT.svg);
+                      -webkit-mask-image: url(../../assets/interac/quick-links/RETAILETRANSFERAUTODEPOSIT.svg);
+                  }
+                }
+              }
+
+        }
+    }
+
+    @include small-screen {
+
+        .header-btn {
+            button {
+                min-width: 120px !important;
+                min-height: 48px !important;
+            }
+        }
+
+        .side-menu {
+            .main-menu {
+                .nav-menu-item {
+                    gap: 4px;
+                    .menu-desc{
+                        white-space: nowrap;
+                        color: var(--smallGreyTextClr);
+                        font-size: 10px;
+                        font-weight: var(--fontWeightSemiBold);
+                        line-height: 12px;
+                        font-family: var(--secondaryFontFamily);
+                    }
+                }
+            }
+        }
+        
+        contextual-actions,
+        app-deposits-context-menu,
+        loan-contextual-actions,
+        payments-contextual-actions,
+        app-etransfers-context-actions,
+        app-transfers-context-menu {
+            .quick-actions-inner {
+                padding: 8px;
+
+                header {
+                    padding: 0;
+                }
+            }
+
+            .actions-body {
+                ul.actions-list {
+                    gap: 8px;
+                    // justify-content: space-between;
+                    @include small-screen{
+                        --container-col-count: 3;
+                    }
+
+                    li {
+                        @include small-screen{
+                           --item-col-count: 1;
+                        }
+                        padding: 24px 8px 16px;
+                        --item-col-count: 4;
+                        gap: 8px;
+                        background-color: var(--moduleSecondaryBgClr);
+                        border-radius: 28px;
+                        min-width: 100px;
+                        @include not-small-screen{
+                            flex: 1;
+                        }
+
+                        .icon-wrapper {
+                            border: 0px solid transparent;
+                            width: unset;
+                            height: unset;
+                            background-color: unset;
+
+                            &::before {
+                                background-color: var(--quickMenuIconBgClr);
+                                width: 24px;
+                                height: 24px;
+                            }
+                        }
+
+                        .text {
+                            font-size: 12px;
+                            font-weight: var(--fontWeightSemiBold);
+                            line-height: 16px;
+                            display: flex;
+                            align-items: center;
+                            color: var(--modulePrimaryTextClr);
+                            font-family: var(--secondaryFontFamily);
+                        }
+                    }
+                }
+            }
+        }
+
+        .context-menu-popup {
+            .mat-dialog-container {
+                background-color: transparent;
+                border-radius: unset;
+                box-shadow: none;
+
+                .context-menu-wrapper {
+                    header {
+                        padding: 8px 16px;
+
+                        .header-title {
+                            font-size: 36px;
+                            font-weight: 500;
+                            line-height: 40px;
+                            color: var(--modulePrimaryTextClr);
+                            width: 100%;
+                            word-wrap: break-word;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+
+            .context-menu-body {
+                .actions-list {
+
+                    li {
+                        text-align: unset;
+                    }
+
+                    .icon-wrapper {
+                        background-color: #FFFFFF;
+                        border: 1px solid #000000;
+                        width: 24px;
+                        height: 24px;
+
+                        &::before{
+                            background-color: var(--primary500);
+                        }
+                    }
+
+                    .text {
+                        font-size: 14px;
+                        font-weight: var(--fontWeightSemiBold);
+                        line-height: 20px;
+                        color: var(--modulePrimaryTextClr);
+                        display: flex;
+                        align-items: center;
+                        font-family: var(--secondaryFontFamily);
+                        white-space: nowrap;
+                    }
+
+                    .desc {
+                        font-size: 12px;
+                        font-weight: var(--fontWeightMedium);
+                        line-height: 16px;
+                        color: var(--smallGreyTextClr);
+                    }
+                }
+            }
+        }
+
+        app-casa-context-menu,
+        app-creditcard-context-menu,
+        app-loan-context-menu,
+        app-actions-panel,
+        app-deposits-context-menu,
+        app-edocument-context-menu,
+        app-payments-quick-actions,
+        app-transfers-context-menu,
+        app-more-menu,
+        app-deposits-mob-link-accounts-list,
+        app-deposits-mob-quick-actions{
+            .context-menu-wrapper {
+                display: flex;
+                flex-direction: column;
+
+                .context-menu-body {
+                    padding: 0 8px;
+
+                    .actions-list {
+                        gap: 8px;
+
+                        li {
+                            --item-col-count: 12;
+                            gap: 8px;
+                            background-color: var(--moduleActionsPrimaryBgClr);
+                            border-radius: 28px;
+                            flex-basis: 100%;
+                            flex-direction: row;
+                            padding: 8px;
+
+                            .icon-wrapper {
+                                background: var(--modulePrimaryWrapperClr);
+                                height: 64px;
+                                min-width: 64px;
+                                display: flex;
+                                border: unset;
+                                border-radius: 50%;
+
+
+                                &::before {
+                                    background-color: var(--moduleSecondaryIconClr);
+                                    // width: 32px;
+                                    // height: 32px;
+                                    // mask-size: 32px;
+                                }
+                            }
+
+                            .action-desc-wrapper {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 4px;
+                                padding: 4px 8px;
+                            }
+
+                            &.disable-edit {
+                                pointer-events: none;
+                                opacity: 0.4;
+                            }
+
+                            &.hide-pay-bill {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include not-small-screen {
+
+        .header-btn {
+            button {
+                min-width: 120px !important;
+            }
+        }
+
+        button:is(.primary, .secondary, .tertiary, .btn-primary, .btn-secondary, .btn-tertiary) {
+            font-size: 14px;
+            line-height: 20px;
+            font-family: var(--secondaryFontFamily);
+            height: 48px;
+            padding: 0 32px;
+            font-weight: 600;
+            min-width: 160px;
+            border: unset;
+
+            span {
+                font-family: var(--secondaryFontFamily);
+            }
+
+            &.btn-secondary,
+            &.secondary {
+                border: unset;
+                background: var(--moduleBtnSecondaryBgClr);
+            }
+
+            &.btn-tertiary,
+            &.tertiary {
+                border: unset;
+                background: var(--tertiaryBtnBgClr);
+                color: #FFFFFF;
+            }
+        }
+
+        .layout {
+            height: auto;
+            min-height: 100%;
+            main-header{
+                .main-header-inner{
+                    .heading h3{
+                        font-weight: var(--fontWeightSemiBold);
+                    }
+                }
+            }
+        }
+        main-footer{
+            position: static;
+        }
+        .display-fields-container{
+            --container-col-count: 18;
+            flex: 1;
+            gap: 20px 24px;
+            --gap-size: 24px;
+
+            .display-field{
+                > span{
+                    &.lbl{
+                        font-weight: var(--fontWeightRegular);
+                    }
+                }
+            }
+        }
+
+        .space-content{
+            .context-menu-wrapper{
+                max-height: unset;
+                header {
+                    // display: none;
+                    .widget-title {
+                        font-size: 20px;
+                        line-height: 24px;
+                        font-weight: 500;
+                        &::before {
+                            content: none;
+                        }
+                    }
+                }
+    
+                .context-menu-body {
+                    padding: 8px 16px;
+    
+                    .actions-list {
+                        .icon-wrapper {
+                            width: 44px;
+                            height: 44px;
+                        }
+                    }
+
+                    &.menu-expand-view{
+                        box-shadow: 0 6px 15px #BFBFBF;
+                    }
+                }
+            }
+        }
+
+        .dep-info-popup {
+            .form-action-container {
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                padding: 24px 36px;
+            }
+        }
+
+        app-casa-context-menu,app-loan-context-menu,
+        app-edocument-context-menu,app-payments-quick-actions,
+        app-transfers-context-menu {
+            .slick-slider {
+                  .slick-arrow {
+                      top: calc(50% - 22px);
+                      transform: unset;
+                      background-color: #FFFFFF !important;
+                      width: 44px;
+                      height: 44px;
+                      border-radius: 50%;
+                      display: flex;
+                    align-items: center;
+                    justify-content: center;
+                      &::before {
+                          content: "";
+                          -webkit-mask-repeat: no-repeat;
+                          -webkit-mask-position: center;
+                          background-color: #414042;
+                          opacity: 1;
+                          width: 24px;
+                          height: 24px;
+                          display: block;
+                      }
+                      &.slick-prev {
+                        left: -60px;
+                        &::before {
+                            mask-image: url(../../assets/images/icons/back-arrow.svg);
+                            -webkit-mask-image: url(../../assets/images/icons/back-arrow.svg);
+                        }
+                      }
+                      &.slick-next {
+                        right: -60px;
+                        &::before {
+                            transform: rotate(180deg);
+                            mask-image: url(../../assets/images/icons/back-arrow.svg);
+                            -webkit-mask-image: url(../../assets/images/icons/back-arrow.svg);
+                        }
+                      }
+                      &.slick-disabled {
+                        background-color: #EBE8DB !important;
+                      }
+                      &.slick-prev {
+                        left: -60px;
+                      }
+                      &.slick-next {
+                        right: -60px;
+                      }
+                    }
+            }
+            
+        }
+        app-payments-quick-actions {
+            .context-menu-body .actions-list {
+                max-width: unset;
+                .slick-slider .slick-track {
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .dep-info-popup {
+        .mat-dialog-container {
+            .fpx-pop-up-wrapper {
+                .fpx-pop-up-header {
+                    .fpx-pop-up__title {
+                        font-size: 20px;
+                        font-weight: var(--fontWeightSemiBold);
+                        line-height: 20px;
+                        color: #FFFFFF;
+                    }
+
+                    @include small-screen {
+                        padding: 32px 20px 24px;
+                    }
+                }
+            }
+        }
+    }
+
+    .actions-list {
+        .icon-wrapper {
+            &:is(.RETAILLOANPAYMENT)::before {
+                mask-image: url("../../assets/images/icons/make-payment.svg");
+                -webkit-mask-image: url("../../assets/images/icons/make-payment.svg");
+            }
+        }
+    }
+
+
+    .font-14-20 {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .font-12-16 {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .font-12-24 {
+        font-size: 12px;
+        line-height: 24px;
+    }
+
+    .font-14-24 {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .font-16-24 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .font-20-24 {
+        font-size: 20px;
+        line-height: 24px;
+    }  
+
+    mat-label {
+        @include small-screen{
+            &:has(.info-tip-wrapper){
+                position: relative;
+            }
+        }
+        .info-tip-wrapper {
+            pointer-events: all;
+            @include not-small-screen{
+                position: relative;
+            }
+
+            .info-tip-content {
+                display: none;
+            }
+
+            .info-tip {
+                display: inline-block;
+                height: 12px;
+                width: 12px;
+                border-radius: 50%;
+                mask: url(../../assets/images/icons/dormant-info.svg) no-repeat center center;
+                -webkit-mask: url(../../assets/images/icons/dormant-info.svg) no-repeat center center;
+                mask-size: 14px;
+                mask-position: center;
+                -webkit-mask-position: center;
+                background-color: var(--toolTipBgClr);
+                cursor: default;
+                vertical-align: middle;
+            }
+
+            &:hover {
+                
+                .info-tip-content {
+                    position: absolute;
+                    z-index: 1;
+                    display: inline-block;
+                    background: var(--tooltipBgClr);
+                    padding: 4px 12px !important;
+                    color: var(--whiteClr);
+                    font-size: 12px;
+                    font-weight: 600;
+                    line-height: 16px;
+                    border-radius: 12px;
+                    font-family: var(--secondaryFontFamily);
+                    min-width: 283px;
+                    left: 0;
+                    top: 14px;
+                    width: max-content;
+                    max-width: 200px;
+                    word-wrap: break-word;
+                }
+            }
+        }
+    }
+
+
+    fpx-password {
+        .fpx-form-control {
+            .fpx-field-content {
+                &:has(input[type="text"]) {
+                    .eye-icon {
+                        &::after {
+                            mask: url(../../assets/images/icons/eye-close.svg) no-repeat center center;
+                            -webkit-mask: url(../../assets/images/icons/eye-close.svg) no-repeat center center;
+                        }
+                    }
+                }
+
+                &:has(input[type="password"]) {
+                    .eye-icon {
+                        &::after {
+                            mask: url(../../assets/images/icons/eye-open.svg) no-repeat center center;
+                            -webkit-mask: url(../../assets/images/icons/eye-open.svg) no-repeat center center;
+                        }
+                    }
+                }
+
+                .eye-icon {
+                    right: unset;
+                    top: unset;
+                    text-indent: -30px;
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        width: 24px;
+                        height: 24px;
+                        background-color: var(--primaryIconClr);
+                        left: 0;
+                        top: 0;
+                    }
+                }
+            }
+        }
+    }
+
+}

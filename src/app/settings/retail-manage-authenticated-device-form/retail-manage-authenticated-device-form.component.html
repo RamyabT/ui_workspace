@@ -1,0 +1,17 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailManageAuthenticatedDeviceForm" >
+	   
+	 <box class="entry-form">
+		<box  class="col-md-12 col-sm-12 col-lg-12"  [actionPublisher]="actionMap$.get('manageMyDeviceGridGroup')">
+
+		<app-retail-manage-authenticated-device-ro-grid [actionPublisher]="actionMap$.get('manageMyDeviceGrid')" (commonRoGridEvent)="handleControlEvent($event)"></app-retail-manage-authenticated-device-ro-grid>
+		</box>
+		<box class="no-result-view" [actionPublisher]="actionMap$.get('noManageMyDeviceGridGroup')">
+			<img class="no-result-image" src="./assets/images/billers/no-saved-biller.svg" alt="">
+			<fpx-display-text class="no-result-desc"
+				[innerHTML]="'No authenticated device is available'"></fpx-display-text>
+			<!-- <fpx-button btnType="button" btnClass="btn-primary" label="Add Biller"
+				(onClick)="_helper.initiateNewTransaction()"></fpx-button> -->
+		</box>
+	 </box> 
+	</form>
+	

@@ -1,0 +1,5 @@
+ 
+ "ETRANSFERSENDMONEY" : {
+ "servicePath": ["display-shell","etransfers", "etransfer-history-ro-grid"],
+ "queryParams": {}
+ }

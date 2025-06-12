@@ -1,0 +1,26 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailPcTransactionExFilter" >
+	   
+	 <box class="entry-form">
+		<box class="grid entry-form-field-group">
+	     
+			  <fpx-date  class="col-md-4"   [actionPublisher]="actionMap$.get('fromDate')"     label="{{'RetailPcTransactionExFilter.fromDate.label' | translate }}"   formControlName="fromDate"  placeholder="{{'RetailPcTransactionExFilter.fromDate.placeholder' | translate }}" 
+   [minDate]="state.fromDate.minDate"   [maxDate]="state.fromDate.maxDate"  ></fpx-date>
+	     
+	     
+			  <fpx-date  class="col-md-4"   [actionPublisher]="actionMap$.get('toDate')"     label="{{'RetailPcTransactionExFilter.toDate.label' | translate }}"   formControlName="toDate"  placeholder="{{'RetailPcTransactionExFilter.toDate.placeholder' | translate }}" 
+   [minDate]="state.toDate.minDate"   [maxDate]="state.toDate.maxDate"  ></fpx-date>
+	     
+	     
+			  <fpx-display-text id="FieldId_4"   class="col-md-12  FieldId_4"  [innerHTML]="'RetailPcTransactionExFilter.FieldId_4.text' | translate"   [literals]="commonFormInput"></fpx-display-text>
+	     
+	     
+			  <fpx-text-box  class="col-md-4"   [actionPublisher]="actionMap$.get('minAmount')"     label="{{'RetailPcTransactionExFilter.minAmount.label' | translate }}"   formControlName="minAmount"  placeholder="{{'RetailPcTransactionExFilter.minAmount.placeholder' | translate }}" 
+   ></fpx-text-box>
+	     
+	     
+			  <fpx-text-box  class="col-md-4"   [actionPublisher]="actionMap$.get('maximumAmount')"     label="{{'RetailPcTransactionExFilter.maximumAmount.label' | translate }}"   formControlName="maximumAmount"  placeholder="{{'RetailPcTransactionExFilter.maximumAmount.placeholder' | translate }}" 
+   ></fpx-text-box>
+	 </box> 
+	 </box>
+	</form>
+	

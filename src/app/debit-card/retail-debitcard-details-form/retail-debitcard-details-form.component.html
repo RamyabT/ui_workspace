@@ -1,0 +1,72 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="retaildebitcardform">
+
+   <box class="entry-form">
+      <ng-container *ngIf="_helper.cardData">
+         <debitcard class="col-12" [cardData]="_helper.cardData" [showFlashCardBtn]="true" (showFlashCardDetails)="submitForm()"></debitcard>
+      </ng-container>
+      <box class="grid entry-form-field-group display-controls-container">
+         <!-- <app-card-ref-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('cardReference')"     label="{{'retaildebitcardform.cardReference.label' | translate }}"   formControlName="cardRefNumber" 
+		></app-card-ref-control> -->
+
+         <!-- <app-principal-paid-account--control class="col-sm-12 col-md-6 col-lg-6"
+            [actionPublisher]="actionMap$.get('cardNumber')"
+            label="{{'retaildebitcardform.cardNumber.label' | translate }}"
+            formControlName="cardNumber"></app-principal-paid-account--control> -->
+
+
+         <!-- <app-card-type-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('cardType')"
+            label="{{'retaildebitcardform.cardType.label' | translate }}"
+            formControlName="cardType"></app-card-type-control> -->
+
+
+         <!-- <app-status-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('status')"
+            label="{{'retaildebitcardform.status.label' | translate }}" formControlName="status"></app-status-control>
+
+
+         <app-valid-till-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('validThru')"
+            label="{{'retaildebitcardform.validThru.label' | translate }}" formControlName="validThru"
+            [minDate]="state.validThru.minDate" [maxDate]="state.validThru.maxDate"></app-valid-till-control> -->
+
+
+            <app-valid-till-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('validFrom')"
+            label="{{'retaildebitcardform.validFrom.label' | translate }}" formControlName="validFrom"
+         ></app-valid-till-control>
+
+         <app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('branchDesc')"
+            label="{{'retaildebitcardform.branchDesc.label' | translate }}"
+            formControlName="branchDesc"></app-name-control>
+
+         <app-issue-date-control  class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('issueDate')"
+            label="{{'retaildebitcardform.issueDate.label' | translate }}" formControlName="issueDate"
+         ></app-issue-date-control >
+
+         <box id="000_8" class="col-md-12 grid  main-group  ">
+            <fpx-display-text id="linkedAccount" class="col-sm-12 col-md-6 col-lg-12  linkedAccount"
+               [innerHTML]="'retaildebitcardform.linkedAccount.text' | translate"
+               [literals]="commonFormInput"></fpx-display-text>
+
+               <app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('cardHolderName')"
+               label="{{'retaildebitcardform.cardHolderName.label' | translate }}" formControlName="cardHolderName">
+            </app-name-control>
+
+            <app-acc-number-control class="col-sm-12 col-md-6 col-lg-6"
+               [actionPublisher]="actionMap$.get('accountNumber')"
+               label="{{'retaildebitcardform.accountNumber.label' | translate }}" formControlName="accountNumber">
+            </app-acc-number-control>
+
+         
+
+            <app-balance-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('actualBalance')"
+               label="{{'retaildebitcardform.actualBalance.label' | translate }}" formControlName="actualBalance">
+            </app-balance-control>
+            <app-account-type-control class="col-sm-12 col-md-6 col-lg-6"
+               [actionPublisher]="actionMap$.get('accountType')"
+               label="{{'retaildebitcardform.accountType.label' | translate }}" formControlName="accountType">
+            </app-account-type-control>
+            <app-balance-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('avlBalance')"
+               label="{{'retaildebitcardform.avlBalance.label' | translate }}" formControlName="avlBalance">
+            </app-balance-control>
+         </box>
+      </box>
+   </box>
+</form>

@@ -1,0 +1,19 @@
+<div class="picture-wrapper" *ngIf="!resultImg; else resultImgTmplt" (click)="takePictureButtonClick()">
+    <img src="{{takePictureBtnIcon}}" alt="upload-file">
+    <label class="lbl-placeholder">{{placeholder}}</label>
+</div>
+
+<ng-template #resultImgTmplt>
+    <div class="upload-image-wrapper">
+        <div class="picture-wrapper-uploaded">
+            <img src="{{value}}" alt="cheque-image">
+            <div class="reset-button-wrapper">
+                <div class="reset-button-outer">
+                    <button type="button" class="reset_button" (click)="resetCapture()"></button>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+    
+</ng-template>

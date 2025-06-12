@@ -1,0 +1,31 @@
+"RetailPrepaidTopUpForm":{
+"title":"Prepaid Top Up",
+		 "cardRefNumber": {
+		  "label":"Select Card" ,
+		  "placeholder": "Select Card"
+		  } ,
+		 "accountNumber": {
+		  "label":"From Account Number" ,
+		  "placeholder": "From Account Number"
+		  } ,
+		 "currency": {
+		  "label":"Currency " ,
+		  "placeholder": "Currency "
+		  } ,
+		 "amount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "charges": {
+		  "label":"Charges" ,
+		  "placeholder": "Charges"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Placeholder"
+		  } 
+}

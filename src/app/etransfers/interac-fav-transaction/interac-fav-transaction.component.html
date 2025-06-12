@@ -1,0 +1,34 @@
+<box class="fav-tran-group">
+    <box *ngIf="_helper.favTransfersApiReceived; else loader" class="fav-tran-header">
+        <span *ngIf="_helper.favTransfersApiReceived && _helper.totalRecordCount > 0" class="title">{{ 'favouriteETransaction.title' | translate }}</span>
+        <ng-container *ngIf="_helper.favTransfersApiReceived && _helper.totalRecordCount > 0">
+            <button type="button"  (click)="_helper.viewAllFav()">
+                <span class="txt">See all</span></button>
+        </ng-container>
+    </box>
+
+    <box class="fav-transfers-sec" [ngClass]="{'result-view': _helper.totalRecordCount > 0}">
+        <ng-container *ngIf="_helper.favTransfersApiReceived; else loader">
+            <ng-container *ngIf="_helper.favTransfersApiReceived && _helper.totalRecordCount > 0">
+            </ng-container>
+        </ng-container>
+        <app-retail-interac-fav-payments-ro-grid *ngIf="_helper.totalRecordCount != 0"
+            class="fav-transfers-grid-landing" (commonRoGridEvent)="_helper.favETransferRoGridEvent($event)"
+            [actionPublisher]="actionMap$.get('favEtransferdetailsGrid')">
+        </app-retail-interac-fav-payments-ro-grid>
+        <ng-container *ngIf="_helper.favTransfersApiReceived && _helper.totalRecordCount == 0">
+            <box class="no-fav-tran-group">
+                <img
+                    [src]="_helper.skinManager.getAssetFolderPath() + 'skins/images/illustration/no-favourite.svg'"
+                    alt="no fav transactions" />
+                <box class="no-fav-tran">
+                    <box class="no-fav-tran-desc">{{ 'FAVOURITETRANSACTOIN.noFavTransactionDesc' | translate }}</box>
+                </box>
+            </box>
+        </ng-container>
+    </box>
+</box>
+
+<ng-template #loader>
+    <box class="loading"></box>
+</ng-template>

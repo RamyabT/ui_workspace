@@ -1,0 +1,80 @@
+<div class="task-item" id="row_data_{{ index }}">
+    <div *ngIf="_device.isMobile()" class="task-action task-action-left">
+        <button  (click)="deleteBudget(selectedData)" type="button" class="button-task-action system-ico-button button-delete">
+            <span>Delete</span>
+        </button>
+    </div>
+
+    <div class="task-detail-item {{selectedData?.categoryCode?.icon}}" (swipeleft)="_device.isMobile()?swipeLeftHandler($event):null"
+        (swiperight)="_device.isMobile()?swipeRightHandler($event):null"
+        (panstart)="_device.isMobile()?panStartHandler($event):null"
+        (panend)="_device.isMobile()?panEndHandler($event):null"
+        (panleft)="_device.isMobile()?panLeftHandler($event):null"
+        (panright)="_device.isMobile()?panRightHandler($event):null"
+        (touchstart)="_device.isMobile()?touchStartHandler($event):null">
+
+        <box class="budget-item">
+            <box class="primary-info">
+              <box class="budget-category">
+                <box class="icon-wrapper">
+                  <span class="budget-icon {{selectedData?.categoryCode?.icon}}" [ngStyle]="{
+                    '--pfmCategoryIcon': 'url(./assets/pfm/category-icons/' + selectedData?.categoryCode?.icon + '.svg)', 
+                    '--categoryColor': selectedData?.categoryCode?.iconTheme
+                  }"></span>
+                </box>
+                <box class="budget-desc">{{selectedData.categoryCode.description}}</box>
+              </box>
+              <box class="pending-duration">{{getDaysDifference(selectedData)}}d
+              <img src="./assets/pfm/duration.svg" alt="budget duration" />
+              </box>
+            </box>
+            <box class="secondary-info">
+              <box class="budget-summary">
+                <box class="frequency">{{selectedData.frequencyDescription}}</box>
+                <box class="budget-amount curr-amount">
+                    <span class="amount">{{selectedData.budgetAmount}}</span>
+                    <span class="currency">{{_appConfig.getBaseCurrency()}}</span>
+                </box>
+              </box>
+              <box class="budget-progress">
+                <span class="track">
+                    <span class="fill" [style.width.%]="(selectedData.percent)"
+                    [ngClass]="{'start': (selectedData.percent >= 0 && selectedData.percent <= 60), 'ongoing':(selectedData.percent>60 && selectedData.percent<=90),'almost':selectedData.percent>90 }">&nbsp;</span>
+                </span>
+            </box>
+              <box class="budget-summary">
+                <ng-container *ngIf="selectedData.percent <=100; else exceededAmount">
+                    <box class="rem-balance">
+                        <span class="text">Remaining balance - </span>
+                        <span class="curr-amount">
+                            <span class="amount">{{selectedData.budgetAmount - selectedData.amountSpent}}</span>
+                            <span class="currency">{{_appConfig.getBaseCurrency()}}</span>
+                        </span>
+                    </box>
+                  </ng-container>
+                  <ng-template #exceededAmount>
+                    <box class="rem-balance">
+                      <span class="text">Exceeded Amount - </span>
+                      <span class="curr-amount">
+                          <span class="amount">{{selectedData.amountSpent - selectedData.budgetAmount}}</span>
+                          <span class="currency">{{_appConfig.getBaseCurrency()}}</span>
+                      </span>
+                  </box>
+                  </ng-template>
+                  <span class="spent-percentage">{{selectedData?.percent | number: '1.0-0'}}%</span>
+              </box>
+            </box>
+        </box>
+    </div>
+
+    <div  class="task-action task-action-right">
+      <ng-container *ngIf="!_device.isMobile()">
+        <button  (click)="deleteBudget(selectedData)" type="button" class="button-task-action system-ico-button button-delete">
+          <span>Delete</span>
+      </button>
+      </ng-container>
+        <button  (click)="editBudget(selectedData)" type="button" class="button-task-action system-ico-button button-edit">
+            <span>Edit</span>
+        </button>
+    </div>
+</div>

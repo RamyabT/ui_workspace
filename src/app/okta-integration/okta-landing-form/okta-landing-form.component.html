@@ -1,0 +1,11 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="OktaLandingForm">
+	<box class="entry-form">
+
+        <box *ngIf="state.showBiometricRegistration" class="enable-biometric-form col-12">
+            <box class="enable-biometric-illustration">
+                <img src="./assets/illustrations/{{ state.availableBiometricOption }}-id.svg" alt="biometric" />
+            </box>
+        </box>
+        
+    </box>
+</form>

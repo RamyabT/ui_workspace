@@ -1,0 +1,40 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailRequestMoneyConfirmation">
+  <box class="entry-form">
+    <box class="grid entry-form-field-group col-12">
+      <box class="bene-details">
+        
+        <box class="bene-initial">
+          <span>{{ state.customerDetails.initial }}</span>
+        </box>
+        <box class="bene-primary-info">
+          <box class="name">{{ 'RetailRequestMoneyConfirmation.requestFromTxt' | translate :
+            {customerName: state.customerDetails.customerName} }}</box>
+          <ng-container *ngIf="state.customerDetails?.mobileNumber">
+            <box class="phone-number">{{ state.customerDetails?.mobileNumber }}</box>
+          </ng-container>
+        </box>
+
+      </box>
+
+      <box class="amount-details grid">
+        <app-payment-amount-control 
+          class="col-sm-12 col-md-12 col-lg-12 npss-money-transfers-amount-control"
+          [actionPublisher]="actionMap$.get('transactionAmount')"
+          placeholder="{{'RetailRequestMoneyConfirmation.transactionAmount.placeholder' | translate }}"
+          formControlName="transactionAmount" (commonControlEvent)="handleControlEvent($event)"
+          [CurrencyList]="state.transactionAmount.CurrencyList"
+          [isCurrEditable]="state.transactionAmount.isCurrEditable"
+          [defaultFetch]="state.transactionAmount.defaultFetch" [initCurrency]="state.transactionAmount.initCurrency"
+          [amountInWords]="state.transactionAmount.amountInWords" [changePublisher]="formChangePublisher$"
+          [dependencyField]="['transactionCurrency']"></app-payment-amount-control>
+
+        <app-npss-remarks-control 
+          class="col-sm-12 col-md-12 col-lg-12 npss-money-transfers-remarks-control"
+          placeholder="{{ 'RetailRequestMoneyConfirmation.remarks.placeholder' | translate }}"
+          [actionPublisher]="actionMap$.get('remarks')" formControlName="remarks">
+        </app-npss-remarks-control>
+      </box>
+    </box>
+  </box>
+
+</form>

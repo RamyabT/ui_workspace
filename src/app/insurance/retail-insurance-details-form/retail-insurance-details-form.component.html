@@ -1,0 +1,139 @@
+<div class="entry-form">
+	<ng-container *ngIf="state.details; else detailsLoader">
+	<box *ngIf="device.isMobile()">
+	  <app-insurance-summary-card-carousel class="col-12"></app-insurance-summary-card-carousel>
+	</box>
+  
+	  <box class="display-fields-container grid col-12">
+		<!-- VEHICLE Section -->
+		<ng-container *ngIf="state.details.productType === 'VEHICLE'">
+		  <ng-container *ngFor="let field of state.fields; index as i">
+			<ng-container *ngIf="vehicleFields.includes(field)">
+			  <box class="display-field" *ngIf="state.details[field]">
+				<span class="lbl">{{ 'RetailInsuranceDetailsForm.' + field + '.label' | translate }}</span>
+				<span class="val" [id]="'displayText_' + field">
+				  <ng-container [ngSwitch]="state.fieldsFormat[i]">
+					<ng-container *ngSwitchCase="'date'">
+					  {{ state.details[field] | date: "dd MMM yyyy" }}
+					</ng-container>
+					<ng-container *ngSwitchCase="'amount'">
+					  <span class="amount">
+						{{ state.details[field] | currency: state.details.accountCurrency : '' }}
+						<em>{{ state.details.accountCurrency | currencyCode }}</em>
+					  </span>
+					</ng-container>
+					<ng-container *ngSwitchCase="'percentage'">
+					  {{ state.details[field] + ' %' }}
+					</ng-container>
+					<ng-container *ngSwitchDefault>
+					  {{ state.details[field] }}
+					</ng-container>
+				  </ng-container>
+				</span>
+			  </box>
+			</ng-container>
+		  </ng-container>
+		</ng-container>
+  
+		<!-- TRAVEL Section -->
+		<ng-container *ngIf="state.details.productType === 'TRAVEL'">
+		  <ng-container *ngFor="let field of state.fields; index as i">
+			<ng-container *ngIf="travelFields.includes(field)">
+			  <box class="display-field" *ngIf="state.details[field]">
+				<span class="lbl">{{ 'RetailInsuranceDetailsForm.' + field + '.label' | translate }}</span>
+				<span class="val" [id]="'displayText_' + field">
+				  <ng-container [ngSwitch]="state.fieldsFormat[i]">
+					<ng-container *ngSwitchCase="'date'">
+					  {{ state.details[field] | date: "dd MMM yyyy" }}
+					</ng-container>
+					<ng-container *ngSwitchCase="'amount'">
+					  <span class="amount">
+						{{ state.details[field] | currency: state.details.accountCurrency : '' }}
+						<em>{{ state.details.accountCurrency | currencyCode }}</em>
+					  </span>
+					</ng-container>
+					<ng-container *ngSwitchCase="'percentage'">
+					  {{ state.details[field] + ' %' }}
+					</ng-container>
+					<ng-container *ngSwitchDefault>
+					  {{ state.details[field] }}
+					</ng-container>
+				  </ng-container>
+				</span>
+			  </box>
+			</ng-container>
+		  </ng-container>
+		</ng-container>
+
+		<!-- HOME Section -->
+		<ng-container *ngIf="state.details.productType === 'HOME'">
+			<ng-container *ngFor="let field of state.fields; index as i">
+			  <ng-container *ngIf="homeFields.includes(field)">
+				<box class="display-field" *ngIf="state.details[field]">
+				  <span class="lbl">{{ 'RetailInsuranceDetailsForm.' + field + '.label' | translate }}</span>
+				  <span class="val" [id]="'displayText_' + field">
+					<ng-container [ngSwitch]="state.fieldsFormat[i]">
+					  <ng-container *ngSwitchCase="'date'">
+						{{ state.details[field] | date: "dd MMM yyyy" }}
+					  </ng-container>
+					  <ng-container *ngSwitchCase="'amount'">
+						<span class="amount">
+						  {{ state.details[field] | currency: state.details.accountCurrency : '' }}
+						  <em>{{ state.details.accountCurrency | currencyCode }}</em>
+						</span>
+					  </ng-container>
+					  <ng-container *ngSwitchCase="'percentage'">
+						{{ state.details[field] + ' %' }}
+					  </ng-container>
+					  <ng-container *ngSwitchDefault>
+						{{ state.details[field] }}
+					  </ng-container>
+					</ng-container>
+				  </span>
+				</box>
+			  </ng-container>
+			</ng-container>
+		  </ng-container>
+  
+		<!-- Default section for all other product types -->
+		<ng-container *ngIf="state.details.productType !== 'VEHICLE' && state.details.productType !== 'TRAVEL' && state.details.productType !== 'HOME'">
+		  <ng-container *ngFor="let field of state.fields; index as i">
+			<box class="display-field" *ngIf="state.details[field]">
+			  <span class="lbl">{{ 'RetailInsuranceDetailsForm.' + field + '.label' | translate }}</span>
+			  <span class="val" [id]="'displayText_' + field">
+				<ng-container [ngSwitch]="state.fieldsFormat[i]">
+				  <ng-container *ngSwitchCase="'date'">
+					{{ state.details[field] | date: "dd MMM yyyy" }}
+				  </ng-container>
+				  <ng-container *ngSwitchCase="'amount'">
+					<span class="amount">
+					  {{ state.details[field] | currency: state.details.accountCurrency : '' }}
+					  <em>{{ state.details.accountCurrency | currencyCode }}</em>
+					</span>
+				  </ng-container>
+				  <ng-container *ngSwitchCase="'percentage'">
+					{{ state.details[field] + ' %' }}
+				  </ng-container>
+				  <ng-container *ngSwitchCase="'applicantName'">
+					{{ state.details.firstName }} {{ state.details.lastName }}
+				  </ng-container>
+				  <ng-container *ngSwitchDefault>
+					{{ state.details[field] }}
+				  </ng-container>
+				</ng-container>
+			  </span>
+			</box>
+		  </ng-container>
+		</ng-container>
+	  </box>
+	</ng-container>
+
+	<box class="display-details-container-footer">
+		<fpx-button btnClass="primary" (onClick)="_helper.onDownloadInsuranceDetailsClick()" label="Download"></fpx-button>
+	</box>
+  </div>
+  
+  <ng-template #detailsLoader>
+	<box class="loading"></box>
+  </ng-template>
+  

@@ -1,0 +1,63 @@
+
+<box class="widget context-menu-wrapper" #contextMenuWrapper>
+    <header>
+        <span class="header-title">{{
+            title
+        }}</span>
+    </header>
+    <box class="more-menu-actions">
+        <box class="context-menu-body">
+            <ng-container >
+        
+                <ul class="actions-list grid">
+                    <ng-container >
+                        <li (click)="goToAvisoOnline()">
+                            <!-- <span class="icon-wrapper menu-icon {{item.id}} {{item.icon}}"></span> -->
+                             <!-- <box class="aviso-shadow"> -->
+                              <!-- <img src="../../../assets/images/icons/avisto.svg" alt="Aviso"> -->
+                                <box class="aviso-online-shadow-box">
+                                 <img class="aviso-online-shadow" src="../../../assets/images/quick-links/aviso-online.svg" alt="Aviso">
+                                </box>
+                             <!-- </box> -->
+                         <box class="aviso-online-header">
+                            <span class="text"> Go to Aviso Online</span>
+        
+                         </box>
+                        </li>
+
+                         <li (click)="goToLinkAccount()">
+                            <!-- <span class="icon-wrapper menu-icon {{item.id}} {{item.icon}}"></span> -->
+                           <box class="link-account-shadow-box">
+                             <img class="link-account-shadow" src="../../../assets/images/quick-links/link-investing-account.svg" alt="Qtrade">
+                            </box> 
+                         <box class="link-account-header">
+                            <span class="text"> Link account</span>
+                            
+                         </box>
+                        
+                        </li>
+
+                         <li (click)="goToUnlinkAccount()">
+                            <!-- <span class="icon-wrapper menu-icon {{item.id}} {{item.icon}}"></span> -->
+                           <box class="unlink-account-shadow-box">
+                             <img class="unlink-account-shadow" src="../../../assets/images/quick-links/unlink-investing-account.svg" alt="Qtrade">
+                            </box> 
+                         <box class="a">
+                            <span class="text"> Unlink account</span>
+                            
+                         </box>
+                        
+                        </li>
+                    </ng-container>
+                </ul>
+            </ng-container>
+    
+        </box>
+    </box>
+    <ng-container *ngIf="_device.isMobile()">
+        <button type="button" class="btn-popup-close" (click)="closeContextMenu()">
+          close
+        </button>
+    </ng-container>
+</box>   
+

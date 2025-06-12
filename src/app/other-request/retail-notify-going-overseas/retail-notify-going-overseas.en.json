@@ -1,0 +1,31 @@
+"notifygoingoverseas":{
+"title":"Notify Going Overseas",
+		 "depatureDate": {
+		  "label":"Departure Date" ,
+		  "placeholder": "Departure Date"
+		  } ,
+		 "arivalDate": {
+		  "label":"Arrival Date" ,
+		  "placeholder": "Arrival Date"
+		  } ,
+		 "country": {
+		  "label":"Country" ,
+		  "placeholder": "Country"
+		  } ,
+		 "contactNumber": {
+		  "label":"Contact Number" ,
+		  "placeholder": "Contact Number"
+		  } ,
+		 "temporarilyBlockCard": {
+		  "label":"Block Card" ,
+		  "placeholder": "Block Card"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"I confirm that the information provided is accurate and I understand that I am responsible for any transactions on my account" ,
+		  "placeholder": "Acknowledgment"
+		  } 
+}

@@ -1,0 +1,80 @@
+<ng-container>
+    <box class="confirmation-receipt-inner success {{ result?.statusCode?.toLowerCase() }}">
+        <box class="confirmation-body">
+            <ng-container *ngIf="result.statusCode == 'failure'; else success">
+                <ng-container *ngIf="result.requestPayload.errorCode=='DEPOTPERROR002' ; else default">
+                    <box class="status-container">
+                        <box class="status-ico-wrapper">
+                            <span class="status-ico"></span>
+                        </box>
+                        <span class="confirmation-message">{{ 'RPConfirmationReceiptForm.DEPOTPERROR002' | translate }}</span>
+                    </box>
+
+                    <box class="message-container">
+                        <span class="confirmation-description">{{ 'RPConfirmationReceiptForm.OTPFailureMsg' | translate }}</span>
+                    </box>
+
+                </ng-container>
+                <ng-template #default>
+                    <box class="status-container">
+                        <box class="status-ico-wrapper">
+                            <span class="status-ico"></span>
+                        </box>
+                        <span class="confirmation-message">
+                            {{ 'RPConfirmationReceiptForm.defaultErrorMessage' | translate }}</span>
+                    </box>
+
+                    <box class="message-container">
+                        <span class="confirmation-description">{{ 'RPConfirmationReceiptForm.defaultErrorDescription'
+                            | translate }}</span>
+                    </box>
+                </ng-template>
+
+            </ng-container>
+            <ng-template #success>
+                <box class="status-container">
+                    <box class="status-ico-wrapper">
+                        <span class="status-ico"></span>
+                    </box>
+                    <span class="confirmation-message">{{ result.requestPayload.errorCode || _requestServiceCode + '.' +
+                        _requestStatus + ".message" | translate }}</span>
+                </box>
+
+                <box class="message-container">
+                    <span class="confirmation-description">{{ result.requestPayload.errorMessage || _requestServiceCode
+                        + '.' + _requestStatus + ".description" | translate }}</span>
+                </box>
+            </ng-template>
+
+            <ng-container *ngIf="result?.additionalInfo && result?.additionalInfo.length">
+                <hr />
+                <box class="additional-details-container">
+                    <ng-container *ngFor="let detail of result?.additionalInfo">
+                        <box class="details">
+                            <span class="detail-lbl">{{ 'confirmationReceiptForm.' + detail.label | translate }}</span>
+                            <span class="detail-val">
+                                <ng-container [ngSwitch]="detail.format">
+                                    <ng-container *ngSwitchCase="'date'">
+                                        {{ detail.value | date : "dd MMM YYYY, hh:mm:ss" }}
+                                    </ng-container>
+                                    <ng-container *ngSwitchDefault>
+                                        {{ detail.value }}
+                                    </ng-container>
+                                </ng-container>
+
+                            </span>
+                        </box>
+                    </ng-container>
+                </box>
+            </ng-container>
+        </box>
+
+        <box class="confirmation-footer">
+            <button type="button" class="secondary" (click)="gotoModule('accounts-space')"><span>{{
+                    'confirmationReceiptForm.download' | translate }}</span></button>
+            <button type="button" class="primary" (click)="gotoHome()"><span>{{ 'confirmationReceiptForm.home' |
+                    translate }}</span></button>
+        </box>
+    </box>
+
+</ng-container>

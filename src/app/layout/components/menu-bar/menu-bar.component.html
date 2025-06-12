@@ -1,0 +1,79 @@
+<box class="main-menu">
+    <ng-container *ngIf="_device.isMobile(); else fullMenuList">
+        <box class="nav-menu-list" >
+            <ul>
+                <ng-container *ngFor="let item of mobMainMenuList; let i = index">
+                <ng-container *ngIf="mobMainMenuList.length>3">
+                    <li id="nav_menu_{{item.id}}" [ngClass]="{'active': (item.id.includes('MOB')) ? (item.id === 'MOB' + _appConfig.getActiveMenuId()) : (!_appConfig.getActiveMenuId() ? (item.id === 'home') : (item.id === _appConfig.getActiveMenuId()))  }">
+                        <!-- <ng-container *ngIf="item.id == 'home'; else normalMenu">
+                            &nbsp;
+                        </ng-container>
+                        <ng-template #normalMenu> -->
+                            <box class="nav-menu-item" (click)="navigateTo(item.id)" >
+                                <span class="menu-icon {{item.id}} {{item?.icon}}">&nbsp;</span>
+                                <span class="menu-desc">{{ item.name | translate}}</span>
+                            </box>
+                        <!-- </ng-template> -->
+                    </li>
+                    </ng-container>
+                    <ng-container *ngIf="mobMainMenuList.length<=3" >
+                    <li id="nav_menu_{{item.id}}" [ngClass]="{'active': (item.id.includes('MOB')) ? (item.id === 'MOB' + _appConfig.getActiveMenuId()) : (!_appConfig.getActiveMenuId() ? (item.id === 'home') : (item.id === _appConfig.getActiveMenuId()))  }"
+                    *ngIf="item.id != 'MOBHOME'">
+                        <box class="nav-menu-item" (click)="navigateTo(item.id)" >
+                            <span class="menu-icon {{item.id}} {{item?.icon}}">&nbsp;</span>
+                            <span class="menu-desc">{{ item.name | translate}}</span>
+                        </box>
+                    </li>
+                    </ng-container>
+                </ng-container>
+            </ul>
+            <!-- <box class="nav-menu-item nav-home" [ngClass]="{ 'active': 'home' == _appConfig.getActiveMenuId().toLowerCase() }" (click)="navigateTo('home')">
+
+                <span class="menu-icon home">&nbsp;</span>
+                <span class="menu-desc">Home</span>
+            </box>
+            <box class="menu-bg"></box> -->
+        </box>
+    </ng-container>
+
+    <ng-template #fullMenuList>
+        <!-- <button type="button" class="brand">
+            <img src="./assets/images/brand/menu-logo.svg" alt="bank" />
+        </button> -->
+
+        <box class="nav-menu-list">
+            <ul>
+                <ng-container *ngFor="let item of mainMenuList; let i = index">
+                    <li id="nav_menu_{{item.id}}" (click)="navigateTo(item.id)" [ngClass]="{
+                        'active': item.id == _activeSpaceInfoService.getActiveSpace() || item.id == _appConfig.getActiveMenuId()
+                    }">
+                        <box class="nav-menu-item">
+                            <span class="menu-icon {{ item.id }} {{item?.icon}}">&nbsp;</span>
+                            <span class="menu-desc">{{ item.name | translate }}</span>
+                        </box>
+                    </li>
+                </ng-container>
+            </ul>
+            <hr>
+            <ng-container *ngFor="let item of mainMenuList; let i = index">
+                <ng-container *ngIf="item?.id == 'MORE'">
+                    <ul class="ul-more-menu" *ngIf="item?.menus">
+                        <ng-container *ngFor="let subItem of item.menus; let i = index">
+                            <li class="li-more-menu" id="nav_menu_{{subItem.id}}" (click)="navigateFromMoreMenu(subItem, item)"
+                            [ngClass]="{
+                                'active': subItem.id == moreActiveMenuId
+                            }">
+                                <box class="nav-menu-item">
+                                    <span class="menu-icon {{ subItem.id }} {{subItem.icon}}">&nbsp;</span>
+                                    <span class="menu-desc">{{ subItem.name | translate }}</span>
+                                </box>
+                                <box></box>
+                            </li>
+                        </ng-container>
+                    </ul>
+                </ng-container>
+            </ng-container>
+        </box>
+    </ng-template>
+
+</box>

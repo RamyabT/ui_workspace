@@ -1,0 +1,5 @@
+ 
+ "RETAILSINGLEPAYMENT" : {
+ "servicePath": ["entry-shell","payments", "retail-single-bill-payment-form"],
+ "queryParams": {}
+ }

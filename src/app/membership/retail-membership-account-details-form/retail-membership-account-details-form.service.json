@@ -1,0 +1,5 @@
+ 
+ "RETAILMEMBERSHIP" : {
+ "servicePath": ["entry-shell","membership", "retail-membership-account-details-form"],
+ "queryParams": {}
+ }

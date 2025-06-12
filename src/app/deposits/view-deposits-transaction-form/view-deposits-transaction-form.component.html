@@ -1,0 +1,32 @@
+<box class="grid transaction-container">
+    <!-- <ng-container *ngIf="_helper.cardData"> -->
+        <app-dep-investment-summary-card *ngIf="_helper.showCard" class="col-12" [cardData]="_helper.cardData"></app-dep-investment-summary-card>
+    <!-- </ng-container> -->
+    <box class="casa-transactions-grid-wrapper col-12">
+        <box class="casa-transactions-grid-header">
+            <span class="title">Transaction</span>
+             <!-- <span class="title"></span> -->
+            <box class="tool-bar">
+                <fpx-button btnType="button" btnClass="system-ico-button no-text filter" label="filter" (onClick)="_viewDepositsTransactionFormHelper.filter()"></fpx-button>
+                <fpx-button btnType="button" btnClass="system-ico-button no-text download" label="download" (onClick)="_viewDepositsTransactionFormHelper.onDownloadClick(null)"></fpx-button>
+            </box>
+        </box>
+        <app-investment-transaction-summary-grid
+            [actionPublisher]="state.transactionsListRoGrid"
+            (commonRoGridEvent)="_helper.casaTransactionGridEvent($event)"></app-investment-transaction-summary-grid>
+    </box>
+
+    <ng-container *ngIf="_helper.casaTransactionApiReceived && (_helper.totalRecordCount == 0 || _helper.totalRecordCount == null)">
+        <box class="no-data-view">
+            <img class="no-result-image" src="./assets/images/transfers/no-schedule-transfer.svg" alt="no transactions available">
+            <box class="no-data-desc">
+                <ng-container *ngIf="!(this.state.formValues?.fromDate || this.state.formValues?.toDate); else dateFilter">
+                    {{ 'viewDepositsTransactionForm.noTransfer' | translate }}
+                </ng-container>
+                <ng-template  #dateFilter>
+                    {{ 'viewDepositsTransactionForm.noTransfer1' | translate }}
+                </ng-template>
+            </box>    
+        </box>
+    </ng-container>
+</box>

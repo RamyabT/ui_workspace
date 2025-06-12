@@ -1,0 +1,5 @@
+<form name="qrcodeGenerate">
+<ng-container *ngIf="state.qrCodeData">
+    <qrcode [qrdata]="state.qrCodeData" [width]="190"></qrcode>
+</ng-container>
+</form>

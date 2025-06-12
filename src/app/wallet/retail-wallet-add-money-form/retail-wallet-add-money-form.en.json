@@ -1,0 +1,35 @@
+"RetailWalletAddMoneyForm":{
+"title":"retail-wallet-add-money-form",
+		 "walletAccount": {
+		  "label":"Wallet Account Number" ,
+		  "placeholder": "Wallet Account Number"
+		  } ,
+		 "fromAccount": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "paymentDate": {
+		  "label":"Payment Date" ,
+		  "placeholder": "Payment Date"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } ,
+		 "exchangeRate": {
+		  "label":"Rate of Interest" ,
+		  "placeholder": "Rate of Interest"
+		  } ,
+		 "baseRate": {
+		  "label":"Rate of Interest" ,
+		  "placeholder": "Rate of Interest"
+		  } 
+}

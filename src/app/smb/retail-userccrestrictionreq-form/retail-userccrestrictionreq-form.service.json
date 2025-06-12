@@ -1,0 +1,5 @@
+ 
+ "RETAILCCDELEGATE" : {
+ "servicePath": ["entry-shell","common", "retail-userccrestrictionreq-form"],
+ "queryParams": {}
+ }

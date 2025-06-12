@@ -1,0 +1,5 @@
+ 
+ "RETAILDCSUMMARY" : {
+ "servicePath": ["entry-shell","debitcard", "retail-debitcard-details-form"],
+ "queryParams": {}
+ }

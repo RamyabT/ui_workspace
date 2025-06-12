@@ -1,0 +1,5 @@
+ 
+ "RETAILMANAGEALERTS" : {
+ "servicePath": ["display-shell","settings", "retail-manage-alerts-ro-grid"],
+ "queryParams": {}
+ }

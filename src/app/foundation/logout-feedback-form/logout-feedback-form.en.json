@@ -1,0 +1,15 @@
+"LogoutFeedBackForm":{
+"title":"LogoutFeedBackForm",
+		 "appVersion": {
+		  "label":"Transaction Version" ,
+		  "placeholder": "Transaction Version"
+		  } ,
+		 "feedBackComments": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "rating": {
+		  "label":"CIF" ,
+		  "placeholder": "CIF"
+		  } 
+}

@@ -1,0 +1,53 @@
+@media screen and (min-width: 769px) {
+    #depAppBody{
+        .welcome-banner-wrapper {
+            background: url('./images/banners/welcome-banner.png') no-repeat 0 0 transparent;
+            background-size: cover;
+            top: 0;
+        }
+        .welcome-container-inner .welcome-note-container{
+            display: none;
+        }
+        .prelogin-header{
+            background: var(--primary500);
+        }
+        .prelogin-body{
+            &::before{
+                display: none;
+            }
+            &::after{
+                display: none;
+            }
+        }
+
+        .brand{
+            img{
+                width: 170px;
+            }
+        }
+
+        .login-layout {
+            header {
+                background-color: var(--primary500);
+            }
+        }
+
+        .login-container{
+            right: unset;
+            left: calc(50% - 315px);
+            .shell-container{
+                border-radius: 20px;
+            }
+        }
+
+        banner-ads {
+            .slick-list{
+                border-radius: 20px;
+            }
+            .ad-item{
+                height: 410px !important;
+                border-radius: 0;
+            }
+        }
+    }
+}

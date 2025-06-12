@@ -1,0 +1,37 @@
+<box class="widget offers" [ngClass]="{'no-offers' : bannersList?.length === 0}">
+  <!-- <header>
+        <span class="widget-title">{{ 'ADSWIDGET.title' | translate }}</span>
+    </header> -->
+  <box *ngIf="bannersList?.length > 0 && adsLoaded" [ngClass]="{'only-one-child': bannersList?.length <= 1}">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+      <box ngxSlickItem class="slide" *ngFor="let slide of bannersList">
+
+        <box class="ad-item">
+          <box class="ad-banner" (click)="adAction(slide)">
+            <img [src]="'data:image/png;base64,'+slide.image" [alt]="slide.title">
+          </box>
+          <box class="ad-body">
+            <box class="ad-message" [innerHTML]="slide.subTitle"></box>
+            <button type="button" class="btn-arrow right" (click)="adAction(slide)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Icon">
+                  <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" fill="var(--primaryClr)" />
+                  <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="white" />
+                  <path id="Vector"
+                    d="M15.0186 12.0466C15.0079 12.2418 14.9304 12.4274 14.7991 12.5722L10.1151 17.682C10.0423 17.7726 9.95165 17.8473 9.84886 17.9015C9.74606 17.9558 9.63325 17.9884 9.51737 17.9974C9.40149 18.0064 9.285 17.9916 9.17505 17.9539C9.0651 17.9162 8.96403 17.8564 8.87806 17.7782C8.7921 17.7 8.72306 17.605 8.67519 17.4991C8.62732 17.3931 8.60164 17.2785 8.59973 17.1623C8.59781 17.0461 8.6197 16.9307 8.66405 16.8233C8.7084 16.7159 8.77427 16.6186 8.85761 16.5376L13.016 12L8.85761 7.46239C8.77427 7.38137 8.7084 7.28415 8.66405 7.17671C8.6197 7.06927 8.59781 6.95389 8.59973 6.83768C8.60164 6.72146 8.62732 6.60687 8.67519 6.50095C8.72305 6.39503 8.7921 6.30003 8.87806 6.2218C8.96403 6.14357 9.0651 6.08376 9.17505 6.04606C9.28499 6.00835 9.40149 5.99355 9.51737 6.00256C9.63325 6.01158 9.74606 6.04421 9.84886 6.09846C9.95165 6.15271 10.0423 6.22743 10.1151 6.31801L14.7991 11.4278C14.8748 11.5113 14.9332 11.609 14.9709 11.7152C15.0086 11.8214 15.0248 11.934 15.0186 12.0466Z"
+                    fill="white" />
+                </g>
+              </svg>
+
+            </button>
+          </box>
+        </box>
+      </box>
+    </ngx-slick-carousel>
+  </box>
+
+
+  <box *ngIf="!adsLoaded">
+    <box class="table-spinner"></box>
+  </box>
+</box>

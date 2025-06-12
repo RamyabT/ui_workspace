@@ -1,0 +1,5 @@
+ 
+ "RETAILPROFILEDETAILS" : {
+ "servicePath": ["entry-shell","settings", "retail-profile-details-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,22 @@
+"RetailPcTransactionExFilter":{
+"title":"RetailPcTransactionExFilter",
+		 "fromDate": {
+		  "label":"From Date" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "toDate": {
+		  "label":"To Date" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "FieldId_4": {
+		   "text":"Amount&nbsp; Range"
+		 } ,
+		 "minAmount": {
+		  "label":"Minimum Amount" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "maximumAmount": {
+		  "label":"Maximum Amount" ,
+		  "placeholder": "Placeholder"
+		  } 
+}

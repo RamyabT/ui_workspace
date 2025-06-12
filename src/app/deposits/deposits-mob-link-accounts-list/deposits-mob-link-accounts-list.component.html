@@ -1,0 +1,54 @@
+
+<box class="widget context-menu-wrapper" #contextMenuWrapper>
+    <header>
+        <span class="header-title">{{
+            title
+        }}</span>
+    </header>
+    <box class="more-menu-actions">
+        <box class="context-menu-body">
+            <ng-container >
+                <box class="disclaimer">
+                       <box class="info-icon"></box>
+                        <box class="disclaimer-content">Link your Aviso Wealth or Qtrade Direct Investing® account from the service partners listed below to your Vancity online banking to view balances, transaction history, and account details. Doing so will provide you with a more complete view of your finances.  For added security, the date of birth on record at your credit union has been pre-populated from our banking system and cannot be changed.  </box>
+                </box>
+                <ul class="actions-list grid">
+                    <ng-container >
+                        <li (click)="openAvisoLink()">
+                            <!-- <span class="icon-wrapper menu-icon {{item.id}} {{item.icon}}"></span> -->
+                             <!-- <box class="aviso-shadow"> -->
+                              <!-- <img src="../../../assets/images/icons/avisto.svg" alt="Aviso"> -->
+                                <box class="aviso-shadow-box">
+                                 <img class="aviso-shadow" src="../../../assets/images/icons/aviso-small-color.svg" alt="Aviso">
+                                </box>
+                             <!-- </box> -->
+                         <box class="aviso-description">
+                            <span class="text"> Aviso Wealth*</span>
+                             <span class="description">Investment platforms</span>
+                         </box>
+                        </li>
+
+                         <li (click)="openQtradeLink()">
+                            <!-- <span class="icon-wrapper menu-icon {{item.id}} {{item.icon}}"></span> -->
+                           <box class="qtrade-shadow-box">
+                             <img class="qtrade-shadow" src="../../../assets/images/icons/qtrade-small-color.svg" alt="Qtrade">
+                            </box> 
+                         <box class="qtrade-description">
+                            <span class="text"> Qtrade Direct Investing®</span>
+                            <span class="description">Self-directed trading platform</span>
+                         </box>
+                        
+                        </li>
+                    </ng-container>
+                </ul>
+            </ng-container>
+    
+        </box>
+    </box>
+    <ng-container *ngIf="_device.isMobile()">
+        <button type="button" class="btn-popup-close" (click)="closeContextMenu()">
+          close
+        </button>
+    </ng-container>
+</box>   
+

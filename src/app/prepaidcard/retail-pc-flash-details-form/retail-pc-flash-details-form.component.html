@@ -1,0 +1,59 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailPCDetailsForm" >
+	   
+	 <box class="entry-form">
+		<ng-container *ngIf="state.cardData">
+			<prepaidcard class="col-12" [cardData]="state.cardData" [showFlashCardBtn]="true" [startTimer]="true"   [showName]="true" (showFlashCardDetails)="submitForm()"></prepaidcard>
+		</ng-container>
+		<box class="grid entry-form-field-group display-controls-container">
+	      
+	 <app-valid-till-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('validFrom')"
+	 label="{{'RetailPCDetailsForm.validFrom.label' | translate }}" formControlName="validFrom"
+  ></app-valid-till-control>
+
+  <app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('branchDesc')"
+	 label="{{'RetailPCDetailsForm.branchDesc.label' | translate }}"
+	 formControlName="branchDesc"></app-name-control>
+
+  <app-issue-date-control  class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('issueDate')"
+	 label="{{'RetailPCDetailsForm.issueDate.label' | translate }}" formControlName="issueDate"
+  ></app-issue-date-control >
+  <app-balance-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('actualBalance')"
+  label="{{'RetailPCDetailsForm.actualBalance.label' | translate }}" formControlName="actualBalance">
+</app-balance-control>
+<app-balance-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('productDesc')"
+label="{{'RetailPCDetailsForm.productDesc.label' | translate }}" formControlName="productDesc">
+</app-balance-control>
+  <app-account-type-control class="col-sm-12 col-md-6 col-lg-6"
+  [actionPublisher]="actionMap$.get('accountType')"
+  label="{{'RetailPCDetailsForm.accountType.label' | translate }}" formControlName="accountType">
+</app-account-type-control>
+
+  <!-- <box id="000_8" class="col-md-12 grid  main-group  ">
+	 <fpx-display-text id="linkedAccount" class="col-sm-12 col-md-6 col-lg-6  linkedAccount"
+		[innerHTML]="'RetailPCDetailsForm.linkedAccount.text' | translate"
+		[literals]="commonFormInput"></fpx-display-text>
+
+	 <app-acc-number-control class="col-sm-12 col-md-6 col-lg-6"
+		[actionPublisher]="actionMap$.get('accountNumber')"
+		label="{{'RetailPCDetailsForm.accountNumber.label' | translate }}" formControlName="accountNumber">
+	 </app-acc-number-control>
+
+	 <app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('cardHolderName')"
+		label="{{'RetailPCDetailsForm.cardHolderName.label' | translate }}" formControlName="cardHolderName">
+	 </app-name-control>
+
+	 <app-balance-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('actualBalance')"
+		label="{{'RetailPCDetailsForm.actualBalance.label' | translate }}" formControlName="actualBalance">
+	 </app-balance-control>
+	 <app-account-type-control class="col-sm-12 col-md-6 col-lg-6"
+		[actionPublisher]="actionMap$.get('accountType')"
+		label="{{'RetailPCDetailsForm.accountType.label' | translate }}" formControlName="accountType">
+	 </app-account-type-control>
+	 <app-balance-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('avlBalance')"
+		label="{{'RetailPCDetailsForm.avlBalance.label' | translate }}" formControlName="avlBalance">
+	 </app-balance-control>
+		</box> -->
+	 </box> 
+	 </box>
+	</form>
+	

@@ -1,0 +1,92 @@
+<box class="entry-form">
+	<ng-container *ngIf="state.details; else detailsLoader">
+		<app-wallet-summary-card class="col-12" [cardData]="state.details" [contextmenuBtn]="true">
+		</app-wallet-summary-card>
+
+		<box class="display-fields-container wallet-detail-form grid col-12">
+			<ng-container *ngFor="let field of state.fields; index as i">
+				<box class="display-field col-sm-12" *ngIf="state.details[field]">
+					<span class="lbl">{{ 'WalletAccountDetailsForm.'+field+'.label' | translate }}</span>
+					<span class="val" [id]="'displayText_' + field">
+						<ng-container [ngSwitch]="state.fieldsFormat[i]">
+							<ng-container *ngSwitchCase="'date'">
+								{{ state.details[field] | date : "dd MMM yyyy" }}
+							</ng-container>
+							<ng-container *ngSwitchCase="'amount'">
+								<span
+									class="amount">{{ state.details[field] | currency : state.details.accountCurrency : '' }}
+									<em>{{state.details.accountCurrency | currencyCode}}</em></span>
+							</ng-container>
+							<ng-container *ngSwitchCase="'percentage'">
+								{{ state.details[field] + " %" }}
+							</ng-container>
+							<ng-container *ngSwitchDefault>
+								{{ state.details[field] }}
+							</ng-container>
+						</ng-container>
+					</span>
+
+				</box>
+			</ng-container>
+
+			<box class="detail-form-head">{{'WalletAccountDetailsForm.scanPay.title' | translate }} </box>
+			<ng-container *ngFor="let field of state.scanfields; index as i">
+				<box class="display-field" *ngIf="state.details[field]">
+					<span class="lbl">{{ 'WalletAccountDetailsForm.'+field+'.label' | translate }}</span>
+					<span class="val" [id]="'displayText_' + field">
+						<ng-container [ngSwitch]="state.fieldsFormat[i]">
+							<ng-container *ngSwitchCase="'date'">
+								{{ state.details[field] | date : "dd MMM yyyy" }}
+							</ng-container>
+							<ng-container *ngSwitchCase="'amount'">
+								<span
+									class="amount">{{ state.details[field] | currency : state.details.accountCurrency : '' }}
+									<em>{{state.details.accountCurrency | currencyCode}}</em></span>
+							</ng-container>
+							<ng-container *ngSwitchCase="'percentage'">
+								{{ state.details[field] + " %" }}
+							</ng-container>
+							<ng-container *ngSwitchDefault>
+								{{ state.details[field] }}
+							</ng-container>
+						</ng-container>
+					</span>
+
+				</box>
+			</ng-container>
+
+			<box class="detail-form-head">{{'WalletAccountDetailsForm.onlinePurchase.title' | translate }} </box>
+			<ng-container *ngFor="let field of state.scanfields; index as i">
+				<box class="display-field" *ngIf="state.details[field]">
+					<span class="lbl">{{ 'WalletAccountDetailsForm.'+field+'.label' | translate }}</span>
+					<span class="val" [id]="'displayText_' + field">
+						<ng-container [ngSwitch]="state.fieldsFormat[i]">
+							<ng-container *ngSwitchCase="'date'">
+								{{ state.details[field] | date : "dd MMM yyyy" }}
+							</ng-container>
+							<ng-container *ngSwitchCase="'amount'">
+								<span
+									class="amount">{{ state.details[field] | currency : state.details.accountCurrency : '' }}
+									<em>{{state.details.accountCurrency | currencyCode}}</em></span>
+							</ng-container>
+							<ng-container *ngSwitchCase="'percentage'">
+								{{ state.details[field] + " %" }}
+							</ng-container>
+							<ng-container *ngSwitchDefault>
+								{{ state.details[field] }}
+							</ng-container>
+						</ng-container>
+					</span>
+
+				</box>
+			</ng-container>
+
+		</box>
+
+
+	</ng-container>
+</box>
+
+<ng-template #detailsLoader>
+	<box class="loading"></box>
+</ng-template>

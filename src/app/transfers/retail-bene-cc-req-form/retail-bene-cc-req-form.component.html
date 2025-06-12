@@ -1,0 +1,88 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailBeneCCReqForm">
+
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-12">
+
+
+			<app-confirm-credit-card-number-control appBlockCopyPaste class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('creditCardNumber')"
+				label="{{'RetailBeneCCReqForm.creditCardNumber.label' | translate }}" formControlName="creditCardNumber"
+				(commonControlEvent)="handleControlEvent($event)" [dependencyField]="['serviceCodeVaribale','formMode']"
+				[changePublisher]="formChangePublisher$" [visiblityChange]="state.visibilityChange"
+				[dependencyField]="['formMode']" [autoComplete]="state.autoComplete">
+			</app-confirm-credit-card-number-control>
+
+
+			<app-credit-card-number-control appBlockCopyPaste class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('confirmCreditCardNumber')"
+				label="{{'RetailBeneCCReqForm.confirmCreditCardNumber.label' | translate }}"
+				formControlName="confirmCreditCardNumber" (commonControlEvent)="handleControlEvent($event)"
+				 [dependencyField]="['serviceCodeVaribale','formMode']"
+				[changePublisher]="formChangePublisher$" [dependencyField]="['formMode']">
+			</app-credit-card-number-control>
+
+			<box class="col-sm-12 col-md-6 col-lg-6">
+				<app-domestic-bic-control appBlockCopyPaste class="col-sm-12 col-md-12 col-lg-12 uppercase" [actionPublisher]="actionMap$.get('bic')"
+				label="{{'RetailBeneCCReqForm.bic.label' | translate }}" formControlName="bic"
+				(commonControlEvent)="handleControlEvent($event)"></app-domestic-bic-control>
+
+				<fpx-button class="col-sm-12 col-md-12 col-lg-12 search-bic-btn" btnClass="link" btnType="button" [label]="'RetailBeneCCReqForm.searchByBeneBankBIC' | translate" (onClick)="_helper.searchBic()"></fpx-button>
+			</box>
+		</box>
+
+		<box class="grid entry-form-field-group display-controls-container col-sm-12 col-md-12 col-lg-12" #bankDetails
+			[actionPublisher]="actionMap$.get('bankDetails')">
+			<app-bank-code-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('bankDescription')"
+				label="{{'RetailBeneCCReqForm.bankDescription.label' | translate }}"
+				formControlName="bankDescription"></app-bank-code-control>
+
+			<app-branches-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('branchDescription')"
+				label="{{'RetailBeneCCReqForm.branchDescription.label' | translate }}"
+				formControlName="branchDescription"></app-branches-control>
+
+			<app-address-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('branchAddress')"
+				label="{{'RetailBeneCCReqForm.branchAddress.label' | translate }}"
+				formControlName="branchAddress"></app-address-control>
+		</box>
+
+		<box class="grid entry-form-field-group col-sm-12 col-md-12 col-lg-12" #beneDetails [actionPublisher]="actionMap$.get('beneDetails')">
+			<app-bene-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('beneficiaryName')"
+				label="{{'RetailBeneCCReqForm.beneficiaryName.label' | translate }}"
+				formControlName="beneficiaryName"></app-bene-name-control>
+
+
+			<app-bene-nickname-control class="col-sm-12 col-md-12 col-lg-6"
+				[actionPublisher]="actionMap$.get('nickName')"
+				label="{{'RetailBeneCCReqForm.nickName.label' | translate }}" formControlName="nickName"
+				[changePublisher]="formChangePublisher$"></app-bene-nickname-control>
+
+				<!-- <app-is-favourite-control class="col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('isFavourite')"
+			label="{{'RetailBeneInternalForm.isFavourite.label' | translate }}" formControlName="isFavourite"
+			placeholder="{{'RetailBeneInternalForm.isFavourite.placeholder' | translate }}"
+			[textPosition]="state.isFavourite.textPosition" [ckValues]="state.isFavourite.ckValues"></app-is-favourite-control> -->
+
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('remarks')"
+				label="{{'RetailBeneCCReqForm.remarks.label' | translate }}"
+				formControlName="remarks"></app-remarks-control>
+
+		</box>
+
+
+		<box class="group disclaimer-box col-sm-12 col-md-12 col-lg-12" #termsDetails
+			[actionPublisher]="actionMap$.get('termsDetails')">
+
+			
+
+			<app-terms-control class="col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('terms')"
+				label="{{'RetailBeneCCReqForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+				placeholder="{{'RetailBeneInternalForm.termsFlag.placeholder' | translate }}"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+
+
+			<!-- <fpx-display-text class="disclaimer-txt"
+				[innerHTML]="'Disclaimer: Lorem Ipsum content needs to be shared by the team'"></fpx-display-text> -->
+
+		</box>
+	</box>
+
+</form>

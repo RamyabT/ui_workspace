@@ -1,0 +1,46 @@
+"RetailAdhocAccStmtReqForm":{
+"title":"Adhoc Account Stmt Request",
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "requestFor": {
+		  "label":"Request For" ,
+		  "placeholder": "Request For"
+		  } ,
+		 "fromDate": {
+		  "label":"From Date" ,
+		  "placeholder": "From Date"
+		  } ,
+		 "toDate": {
+		  "label":"To Date" ,
+		  "placeholder": "To Date"
+		  } ,
+		 "reason": {
+		  "label":"Reason" ,
+		  "placeholder": "Reason"
+		  } ,
+		 "otherReason": {
+		  "label":"Other Reason" ,
+		  "placeholder": "Other Reason"
+		  } ,
+		 "deliveryOption": {
+		  "label":"Delivery Option" ,
+		  "placeholder": "Delivery Option"
+		  } ,
+		  "emailId": {
+			"label":" Email Id" ,
+			"placeholder": ""
+			} ,
+		 "chargesAmount": {
+		  "label":"Charges Amount" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "Disclaimer": {
+		   "text":"Sample Text"
+		 } 
+}

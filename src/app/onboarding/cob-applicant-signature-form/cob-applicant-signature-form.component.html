@@ -1,0 +1,64 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="CobApplicantSignatureForm">
+
+	<box class="entry-form">
+		<box class="entry-form-field-group grid col-sm-12 col-md-12 col-lg-12">
+			<span *ngIf="_helper._appConfig.getData('processId')" class="arn-number">{{'OnBoarding.arn' | translate
+				}}{{_helper._appConfig.getData('processId')}}</span>
+
+			<box id="header" class="col-md-12 grid  header  ">
+				<fpx-display-text id="title1" class="title" [innerHTML]="'Kindly upload your Signature'"
+					[literals]="commonFormInput"></fpx-display-text>
+			</box>
+
+			<box *ngIf="!state.triggered" class="upload-field-group">
+				<box class="upload-field">
+					<app-file-browse-button class="upload-doc-button" destinationType="file"
+						(fileSelect)="_helper.onFileSelect($event)" label="Upload Signature"></app-file-browse-button>
+					<fpx-display-text id="title1" class="col-md-12  or"
+						[innerHTML]="'CobApplicantSignatureForm.or' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+					<button type="button" rel="camera" class="secondary"
+						(click)="_helper.initiateCamera()">{{'OnBoarding.takePicturebtn' | translate }}</button>
+					<fpx-display-text id="title1" class="col-md-12  support-files"
+						[innerHTML]="'CobApplicantSignatureForm.supportedFiles' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+			</box>
+
+
+			<box *ngIf="state.triggered" class="field-set">
+				<box class="fpx-form-control col-sm-12 col-lg-12 col-md-12">
+					<ng-container *ngIf="state.captureBy == 'browse'; else cameraPreview">
+						<box class="doc-img-preview-wrapper">
+							<img [src]="_helper.dom.bypassSecurityTrustUrl(state.imageSrc)" alt="document preview" />
+						</box>
+					</ng-container>
+
+					<ng-template #cameraPreview>
+						<ng-container *ngIf="_helper._deviceDetectorService.isHybrid();  else webCamPreview">
+							<fpx-photo-capture formControlName="signatureImage" [startCamera]="state.doStartCamera"
+								[stopCamera]="state.doStopCamera" [takePhoto]="state.doTakePhoto"
+								(onReady)="_helper.onCameraReady($event)"
+								(onTakePicture)="_helper.dodocCaptureChange($event)"></fpx-photo-capture>
+						</ng-container>
+						<ng-template #webCamPreview>
+							<webcam [trigger]="_helper.triggerObservable" (imageCapture)="_helper.handleImage($event)"
+								*ngIf="_helper.showWebCam" [switchCamera]="_helper.nextWebcamObservable">
+							</webcam>
+						</ng-template>
+					</ng-template>
+
+				</box>
+			</box>
+		</box>
+		<div class="form-footer-actions">
+			<button type="button" class="btn-tertiary" (click)="_helper.resetForm()">{{'OnBoarding.retakebtn' |
+				translate }}</button>
+			<button [hidden]="!_helper.cameraMode" type="button" class="btn-primary"
+				(click)="_helper.takePicture()">{{'OnBoarding.takePhotobtn' | translate }}</button>
+			<button [disabled]="!formGroup.valid" [hidden]="_helper.cameraMode" type="submit"
+				class="btn-primary">{{'OnBoarding.submitbtn' | translate }}</button>
+		</div>
+
+	</box>
+</form>

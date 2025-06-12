@@ -1,0 +1,5 @@
+ 
+ "RETAILMULTIBILLREQUEST" : {
+ "servicePath": ["entry-shell","billpayment", "retail-multi-bill-request-form"],
+ "queryParams": {}
+ }

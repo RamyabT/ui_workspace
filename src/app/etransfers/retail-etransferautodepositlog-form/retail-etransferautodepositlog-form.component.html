@@ -1,0 +1,203 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailEtransferautodepositlogForm">
+	<box class="entry-form desktop-entry-form">
+		<box class="grid entry-form-field-group col-lg-12">
+		
+			<ng-container *ngIf="state.status!='Pending'; else Pending">
+				<box *ngIf="state.mode!='M' && state.mode!='D'" class="payee-info-header">
+					<box class="intro-container">
+						<box class="interac-img">
+							<span class="interac-logo"><img src="./assets/interac/interac-menu-ico.png"
+									alt="interac trade mark" /></span>
+							<div class="header">Register for Autodeposit</div>
+						</box>
+						<!-- <div *ngIf="_helper._device.isMobile()" class="line"></div> -->
+					</box>	
+				</box>
+				<box class="biller-group fields-wrapper-group col-sm-12">
+					<app-notification-preference class="col-sm-12 col-md-6 col-lg-12  "
+					[actionPublisher]="actionMap$.get('ntfnType')"
+					label="{{'RetailEtransferautodepositlogForm.ntfnType.label' | translate }}"
+					formControlName="ntfnType"
+					(commonControlEvent)="handleControlEvent($event)"
+					[changePublisher]="formChangePublisher$" [dependencyField]="['serviceCode']"></app-notification-preference>
+	
+				<box *ngIf="!_helper._device.isMobile() &&!this.formGroup.get('mobileNumber')?.disabled && (state.mode =='M' || state.mode =='D')" class="fields-wrapper">
+					<box class="left-container">
+						<box class="left-container-header">{{'RetailEtransferautodepositlogForm.mobileNumber.label' | translate }}</box>
+					</box>
+					<box class="right-container">
+						<app-mobile-number-control class="col-sm-12 col-md-12 col-lg-12  " [ngClass]="{'readOnly':state.mode=='M'||state.mode=='D'}"
+							[actionPublisher]="actionMap$.get('mobileNumber')"
+							label="{{'RetailEtransferautodepositlogForm.mobileNumber.label' | translate }}"
+							placeholder="{{'RetailEtransferautodepositlogForm.mobileNumber.placeholder' | translate }}"
+							formControlName="mobileNumber"></app-mobile-number-control>
+						<!-- <app-mobile-phone-number-control class="col-sm-12 col-md-12 col-lg-12  " [ngClass]="{'readOnly':state.mode=='M'||state.mode=='D'}"
+						[actionPublisher]="actionMap$.get('mobileNumber')"
+						label="{{'RetailEtransferautodepositlogForm.mobileNumber.label' | translate }}"
+						placeholder="{{'RetailEtransferautodepositlogForm.mobileNumber.placeholder' | translate }}"
+						formControlName="mobileNumber"></app-mobile-phone-number-control> -->
+					</box>
+				</box>
+				<app-mobile-number-control *ngIf="_helper._device.isMobile() &&!this.formGroup.get('mobileNumber')?.disabled && (state.mode =='M' || state.mode =='D')" class="col-sm-12 col-md-12 col-lg-12  " [ngClass]="{'readOnly':state.mode=='M'||state.mode=='D'}"
+					[actionPublisher]="actionMap$.get('mobileNumber')"
+					label="{{'RetailEtransferautodepositlogForm.mobileNumber.label' | translate }}"
+					placeholder="{{'RetailEtransferautodepositlogForm.mobileNumber.placeholder' | translate }}"
+					formControlName="mobileNumber"></app-mobile-number-control>
+				<!-- <app-mobile-phone-number-control *ngIf="_helper._device.isMobile() &&!this.formGroup.get('mobileNumber')?.disabled && (state.mode =='M' || state.mode =='D')" class="col-sm-12 col-md-12 col-lg-12  " [ngClass]="{'readOnly':state.mode=='M'||state.mode=='D'}"
+						[actionPublisher]="actionMap$.get('mobileNumber')"
+						label="{{'RetailEtransferautodepositlogForm.mobileNumber.label' | translate }}"
+						placeholder="{{'RetailEtransferautodepositlogForm.mobileNumber.placeholder' | translate }}"
+						formControlName="mobileNumber"></app-mobile-phone-number-control> -->
+
+				<app-mobile-number-control *ngIf="state.mode!='M' && state.mode!='D'" class="col-sm-12 col-md-12 col-lg-12  " [ngClass]="{'readOnly':state.mode=='M'||state.mode=='D'}"
+					[actionPublisher]="actionMap$.get('mobileNumber')"
+					label="{{'RetailEtransferautodepositlogForm.mobileNumber.label' | translate }}"
+					placeholder="{{'RetailEtransferautodepositlogForm.mobileNumber.placeholder' | translate }}"
+					formControlName="mobileNumber"></app-mobile-number-control>
+	
+	
+				<box *ngIf="!_helper._device.isMobile() &&!this.formGroup.get('emailID')?.disabled && (state.mode =='M' || state.mode =='D')" class="fields-wrapper">
+					<box class="left-container">
+						<box class="left-container-header">{{'RetailEtransferautodepositlogForm.emailID.label' | translate }}</box>
+					</box>
+					<box class="right-container">
+						<app-email-control class="col-sm-12 col-md-12 col-lg-12 " [ngClass]="{'readOnly':state.mode=='M'||state.mode=='D'}"
+						[actionPublisher]="actionMap$.get('emailID')"
+							label="{{'RetailEtransferautodepositlogForm.emailID.label' | translate }}"
+							placeholder="{{'RetailEtransferautodepositlogForm.emailID.placeholder' | translate }}"
+							(commonControlEvent)="handleControlEvent($event)"
+							formControlName="emailID"></app-email-control>
+					</box>
+				</box>
+				<app-email-control *ngIf="_helper._device.isMobile() &&!this.formGroup.get('emailID')?.disabled && (state.mode =='M' || state.mode =='D')" class="col-sm-12 col-md-12 col-lg-12 " [ngClass]="{'readOnly':state.mode=='M'||state.mode=='D'}"
+						[actionPublisher]="actionMap$.get('emailID')"
+							label="{{'RetailEtransferautodepositlogForm.emailID.label' | translate }}"
+							placeholder="{{'RetailEtransferautodepositlogForm.emailID.placeholder' | translate }}"
+							(commonControlEvent)="handleControlEvent($event)"
+							formControlName="emailID"></app-email-control>
+
+				<app-email-control *ngIf="state.mode!='M' && state.mode!='D'"  class="col-sm-12 col-md-12 col-lg-12 " [ngClass]="{'readOnly':state.mode=='M'||state.mode=='D'}"
+				[actionPublisher]="actionMap$.get('emailID')"
+					label="{{'RetailEtransferautodepositlogForm.emailID.label' | translate }}"
+					placeholder="{{'RetailEtransferautodepositlogForm.emailID.placeholder' | translate }}"
+					(commonControlEvent)="handleControlEvent($event)"
+					formControlName="emailID"></app-email-control>
+	
+				<!-- <span class="header-style">Deposit To</span> -->
+				<!-- <box class="auto-account-card" (click)="_helper.openCasaAccountsLists()">
+					<div class="auto-account-details">
+						<span class="auto-account-type" >{{state.nickname}}</span>
+						
+						<span class="auto-account-number" >{{state.accType}}
+							{{state.sourceAccount}}</span>
+					</div>
+					<box>
+						<span class="interac-acc"><img src="./assets/images/icons/etransfer-account.svg" alt="account" /></span>
+						<div class="balance-details">
+							<span class="balance">{{this.state.accountBalanceVariable | currency}}</span>
+						</div>
+					</box>
+				</box> -->
+				<box *ngIf="!_helper._device.isMobile() && (state.mode =='M' || state.mode =='D')" class="fields-wrapper">
+					<box class="left-container">
+						<box class="left-container-header">{{'RetailEtransferautodepositlogForm.depositTo' | translate }}</box>
+					</box>
+					<box class="right-container">
+						<box class="pay-from-wrapper column">
+							<!-- <span class="pay-from-label">{{'RetailEtransferautodepositlogForm.depositTo' | translate}}</span> -->
+							<box class="account-card" [ngClass]="{'single-account-card': !(state.casaAccounts.length > 1)}" (click)="_helper.openCasaAccountsLists()">
+								<box class="account-header-wrapper">
+									<box class="account-header">
+										<h2>{{state.nickname}}</h2>
+										<p>{{state.accType}} 
+											<span class="line-separator"></span>
+										{{state.sourceAccount}}</p>
+									</box>
+									<box class="view-account-icon-wrapper">
+										<span class="view-account-icon"></span>
+									</box>
+								</box>
+								<box class="account-details">
+									<p [ngClass]="{'show-default-account': state.selectedAccount?.preferredAccount}" class="default-account">Default account</p>
+									<p class="balance amount">{{ state.accountBalanceVariable | currency :
+										state.fromCurrencyVariable : '' }} <em>{{
+											state.fromCurrencyVariable | currencyCode }}</em></p>
+								</box>
+							</box>
+						</box>
+					</box>
+				</box>
+				<box *ngIf="_helper._device.isMobile() && (state.mode =='M' || state.mode =='D')" class="pay-from-wrapper column">
+					<span class="pay-from-label">{{'RetailEtransferautodepositlogForm.depositTo' | translate}}</span>
+					<box class="account-card" [ngClass]="{'single-account-card': !(state.casaAccounts.length > 1)}" (click)="_helper.openCasaAccountsLists()">
+						<box class="account-header-wrapper">
+							<box class="account-header">
+								<h2>{{state.nickname}}</h2>
+								<p>{{state.accType}} 
+									<span class="line-separator"></span>
+								{{state.sourceAccount}}</p>
+							</box>
+							<box class="view-account-icon-wrapper">
+								<span class="view-account-icon"></span>
+							</box>
+						</box>
+						<box class="account-details">
+							<p [ngClass]="{'show-default-account': state.selectedAccount?.preferredAccount}" class="default-account">Default account</p>
+							<p class="balance amount">{{ state.accountBalanceVariable | currency :
+								state.fromCurrencyVariable : '' }} <em>{{
+									state.fromCurrencyVariable | currencyCode }}</em></p>
+						</box>
+					</box>
+				</box>
+				<box *ngIf="state.mode !='M' && state.mode !='D'" class="pay-from-wrapper column">
+					<span class="pay-from-label">{{'RetailEtransferautodepositlogForm.depositTo' | translate}}</span>
+					<box class="account-card" [ngClass]="{'single-account-card': !(state.casaAccounts.length > 1)}" (click)="_helper.openCasaAccountsLists()">
+						<box class="account-header-wrapper">
+							<box class="account-header">
+								<h2>{{state.nickname}}</h2>
+								<p>{{state.accType}} 
+									<span class="line-separator"></span>
+								{{state.sourceAccount}}</p>
+							</box>
+							<box class="view-account-icon-wrapper">
+								<span class="view-account-icon"></span>
+							</box>
+						</box>
+						<box class="account-details">
+							<p [ngClass]="{'show-default-account': state.selectedAccount?.preferredAccount}" class="default-account">Default account</p>
+							<p class="balance amount">{{ state.accountBalanceVariable | currency :
+								state.fromCurrencyVariable : '' }} <em>{{
+									state.fromCurrencyVariable | currencyCode }}</em></p>
+						</box>
+					</box>
+				</box>
+			</box>
+				
+	
+			</ng-container> 
+	
+			<ng-template #Pending>
+			<box class="pending">
+			
+			<box class="alert-circle-img">
+				<img class="alert-circle" src="./assets/images/icons/alert-circle.svg" alt="no alert circle available">
+			</box>
+			<box class="pending-msg">Verify your Autodeposit registration.</box>
+			<box class="pending-desc">
+				A notification from Interac was sent to {{state.pendingEmail}} with a link to complete your Autodeposit registration.
+				<!-- Check your inbox to confirm your email 
+				<span class='pending-email'> {{state.pendingEmail}}</span> address and finish setting up your Interac e-Transfer Autodeposit -->
+			</box>
+			<box class="confirmation-autodeposit-desc">
+                <span class="note">{{ 'econfirmationReceiptForm.setUpAutoDeposit_Note' | translate }}</span>
+            </box>
+			<box class="close-btn">
+				<button type="button" class="btn-primary" (click)="_helper.goToAutoDeposit()">
+				<span class="label">Close</span></button>
+			</box>	
+		</box>		
+			</ng-template>
+		</box>
+	</box>
+	
+</form>

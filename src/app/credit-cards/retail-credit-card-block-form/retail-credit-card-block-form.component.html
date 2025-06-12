@@ -1,0 +1,56 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="retailcreditcardblock">
+
+
+
+
+	<box class="entry-form">
+		<ng-container *ngIf="state.cardData && device.isMobile()">
+			<creditcard class="col-12" [cardData]="state.cardData" [formView]="true"></creditcard>
+		</ng-container>
+		<box class="grid entry-form-field-group">
+
+
+			<!-- <app-active-cc-list-control  class="col-sm-12 col-md-6 col-lg-4
+			  "   [actionPublisher]="actionMap$.get('cardReference')"     label="{{'retailcreditcardblock.cardReference.label' | translate }}"   formControlName="cardReference" 
+     ></app-active-cc-list-control> -->
+
+
+			<app-credit-block-reason-list-control class="col-sm-12 col-md-6 col-lg-12
+			  " [actionPublisher]="actionMap$.get('reason')" label="{{'retailcreditcardblock.reason.label' | translate }}"
+				formControlName="reason"></app-credit-block-reason-list-control>
+
+
+			<!-- <app-payment-amount-control  class="col-sm-12 col-md-6 col-lg-4
+			  "   [actionPublisher]="actionMap$.get('charges')"     label="{{'retailcreditcardblock.charges.label' | translate }}"   formControlName="charges" 
+   [CurrencyList]="state.charges.CurrencyList" [isCurrEditable]="state.charges.isCurrEditable"  [defaultFetch]="state.charges.defaultFetch" [initCurrency]="state.charges.initCurrency" [amountInWords]="state.charges.amountInWords">  ></app-payment-amount-control>
+	      -->
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('otherReason')"
+				label="{{'RetailDebitCardBlockForm.otherReason.label' | translate }}"
+				formControlName="otherReason"></app-remarks-control>
+
+
+			<ng-container>
+				<fpx-button class="col-lg-12" btnType="button" btnClass="limitCountries"
+					[label]="'limitCountriesLink.label' | translate"
+					(click)="_helper.addlimitCountriesLink()"></fpx-button>
+			</ng-container>
+
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-12
+			  " [actionPublisher]="actionMap$.get('remarks')" label="{{'retailcreditcardblock.remarks.label' | translate }}"
+				formControlName="remarks"></app-remarks-control>
+
+			 <fpx-display-text class="col-sm-12 col-md-6 col-lg-12 change-pin-desc  disclaimer-box"
+				[actionPublisher]="actionMap$.get('impNote')"
+				[innerHTML]="'retailcreditcardblock.impNote.text' | translate"
+				[literals]="commonFormInput"></fpx-display-text>
+		</box>
+
+		<box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-12 grid main-group term-box">
+
+			<app-terms-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'retailcreditcardblock.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+
+		</box>
+	</box>
+</form>

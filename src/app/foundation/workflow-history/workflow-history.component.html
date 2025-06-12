@@ -1,0 +1,102 @@
+<box class="workflow-container">
+  <box
+    *ngIf="workflowDetails && workflowHistoryDetails"
+    class="workflow-banner"
+  >
+    <box class="detail-line">
+      <box class="initiator-label">Initiator Name</box>
+      <box class="initiator-value">{{
+        workflowDetails.initBy
+      }}</box>
+    </box>
+    <box class="status-line">
+      <box class="approval">
+        <box class="approval-label">Approval Remaining</box>
+        <box class="approval-value">{{
+          this.workflowDetails?.pendingCount
+        }}</box>
+      </box>
+      <box class="status">
+        <box class="status-label">Transfer Status</box>
+        <box class="status-value">{{ workflowHistoryDetails[0].action }}</box>
+      </box>
+    </box>
+  </box>
+  <box class="display-field-group">
+    <fpx-accordion [title]="'Workflow History'" [open]="accordionOpen">
+      <!-- <fpx-label label="Reference Number : {{workflowRef}}"></fpx-label> -->
+      <ul class="workflow-history-list">
+        <li
+          class="workflow-history-item"
+          *ngFor="let item of workflowHistoryDetails"
+        >
+          <box class="details" [ngClass]="{'approved': item.action == 'Approved' || item.action == 'Completed' }">
+            <box class="item-primary-details">
+              <box class="item-image">
+                <div class="outer-dot">
+                  <div class="inner-dot"></div>
+                </div>
+              </box>
+              <box class="item-timestamp">
+                <box class="item-date"
+                  >{{ item.actionOnDate | date : "dd MMM yy" }}
+                </box>
+                <box class="item-time">{{ item.actionOnTime }}</box>
+              </box>
+              <!-- <box class="item-stage-details">
+                            <box class="item-stage-desc">{{item.stage}}
+                                </box>
+                            <box class="item-stage-owner">
+                                {{item.actionBy}}
+                            </box> 
+                            </box> -->
+            </box>
+            <box class="item-secondary-details">
+              <!-- <box class="item-action">
+                            <box class="item-action-label">Action:</box>
+                            <box class="item-action-value">{{item.action}}</box>
+                        </box>
+                        <box class="item-action">
+                            <box class="item-action-label">Stage:</box>
+                            <box class="item-action-value">{{item.stage}}</box>
+                        </box> -->
+              <box class="item-action" *ngIf="item.action">
+                <box
+                  *ngIf="item.action == 'Initiated'"
+                  class="item-action-label"
+                  >Initiated By</box
+                >
+                <box
+                  *ngIf="item.action == 'Approved'"
+                  class="item-action-label"
+                  >Approved By
+                  </box
+                >
+                <box
+                  *ngIf="item.action == 'Completed'"
+                  class="item-action-label"
+                  >Completed By
+                  </box
+                >
+                <box *ngIf="item.actionBy" class="item-action-value">{{
+                  item.actionBy
+                }}</box>
+              </box>
+              <!-- <box class="item-action" *ngIf="item.actionBy">
+                            <box class="item-action-label">Action By:</box>
+                            <box class="item-action-value">{{item.actionBy}}</box>
+                        </box> -->
+            </box>
+          </box>
+
+          <box *ngIf="item.remarks" class="item-remarks">
+            <box class="item-remarks-label">Remarks: </box>
+            <box class="item-remarks-value">
+              {{ item.remarks }}
+            </box>
+          </box>
+        </li>
+      </ul>
+    </fpx-accordion>
+  </box>
+</box>

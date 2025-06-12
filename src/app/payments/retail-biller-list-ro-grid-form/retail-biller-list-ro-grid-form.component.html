@@ -1,0 +1,24 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailBillerListRoGriForm" >
+	   
+	 <box class="entry-form">
+			<box class="grid entry-form-field-group">
+				<box  class="fpx-form-control search-group col-sm-12 col-lg-12">
+					<input mat-input type="text" formControlName="searchText" placeholder="Search Biller"
+						class="fpx-field-content search-bar col-sm-12 col-12" />
+				</box>
+	
+				<box  class="col-md-12 col-sm-12 col-lg-12" >
+					<app-retail-biller-list-ro-grid  [actionPublisher]="actionMap$.get('billersGrid')" (commonRoGridEvent)="handleControlEvent($event)"></app-retail-biller-list-ro-grid>
+				</box>
+	
+				<!-- <box class="no-result-view" [actionPublisher]="actionMap$.get('noSavedBillersGrid')">
+					<img class="no-result-image" src="./assets/images/billers/no-saved-biller.svg" alt="">
+					<fpx-display-text class="no-result-desc"
+						[innerHTML]="'No Bills added. Add a bill by clicking add'"></fpx-display-text>
+					<fpx-button btnType="button" btnClass="btn-primary" label="Add Biller"
+						(onClick)="_helper.initiateNewTransaction()"></fpx-button>
+				</box> -->
+			</box>
+	 </box> 
+	</form>
+	

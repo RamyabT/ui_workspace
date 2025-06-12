@@ -1,0 +1,87 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailWalletReqMoneyForm" >
+	  
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-12">
+               <box class="col-sm-12 col-md-6 col-lg-6 phonebook-wrapper">
+                    <app-mobile-number-control class="col-sm-12 col-md-6 col-lg-6 "
+                         [actionPublisher]="actionMap$.get('mobileNumber')"
+                         label="{{'RetailWalletReqMoneyForm.mobileNumber.label' | translate }}"
+                         formControlName="mobileNumber"></app-mobile-number-control>
+                    <fpx-button class="col-sm-12 col-md-12 col-lg-12 select-contact" btnClass="system-ico-button no-text phone-book" btnType="button" (onClick)="_helper.searchMobileNumber()"
+                    [actionPublisher]="actionMap$.get('selectContact')"></fpx-button>
+               </box>	
+               <box class="bene-details">
+				
+				<ng-container *ngIf="state.senderInitial">
+					<box class="bene-initial">
+						<span>{{ state.senderInitial }}</span>
+					</box>
+					<box class="bene-primary-info">
+						<box class="name">
+							<span>Requesting from {{state.senderName}}</span>
+						</box>
+					</box>
+				</ng-container>
+			
+			
+				<box class="amount-details grid">
+					<app-payment-amount-control class="col-sm-12 col-md-12 col-lg-12 wallet-money-transfer-amount-control"
+						[actionPublisher]="actionMap$.get('amount')"
+						placeholder="{{ 'RetailWalletReqMoneyForm.amount.placeholder' | translate }}"
+						formControlName="amount" (commonControlEvent)="handleControlEvent($event)"
+						[CurrencyList]="state.amount.CurrencyList" [isCurrEditable]="state.amount.isCurrEditable"
+						[defaultFetch]="state.amount.defaultFetch" [initCurrency]="state.amount.initCurrency"
+						[amountInWords]="state.amount.amountInWords" [changePublisher]="formChangePublisher$"
+						[dependencyField]="['fromCurrencyVariable','toCurrencyVariable','accountBalanceVariable']">
+					</app-payment-amount-control>
+                         <app-npss-remarks-control class="col-sm-12 col-md-12 col-lg-12 npss-money-transfers-remarks-control"
+						placeholder="{{ 'NPSSSendMoney.remarks.placeholder' | translate }}" [actionPublisher]="actionMap$.get('remarks')"
+						formControlName="remarks">
+					</app-npss-remarks-control>
+				</box>
+			</box>
+ <app-wallet-account-number-dropdown-control class="col-sm-12 col-md-6 col-lg-12"
+         [actionPublisher]="actionMap$.get('fromAccount')"
+          label="{{'RetailWalletReqMoneyForm.fromAccount.label' | translate }}"
+          placeholder="{{'RetailWalletReqMoneyForm.fromAccount.placeholder' | translate }}"
+          formControlName="fromAccount" (commonControlEvent)="handleControlEvent($event)"
+          [changePublisher]="formChangePublisher$" [dependencyField]="['toAccount']">
+      </app-wallet-account-number-dropdown-control>
+	      
+           
+     <app-wallet-account-number-dropdown-control class="col-sm-12 col-md-6 col-lg-12"
+                [actionPublisher]="actionMap$.get('toAccount')"
+                label="{{'RetailWalletReqMoneyForm.toAccount.label' | translate }}"
+                placeholder="{{'RetailWalletReqMoneyForm.toAccount.placeholder' | translate }}"
+                formControlName="toAccount" (commonControlEvent)="handleControlEvent($event)">
+            </app-wallet-account-number-dropdown-control>
+
+  <app-currency-list-control class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('walletCurr')"
+        label="{{'RetailWalletReqMoneyForm.walletCurr.label' | translate }}"
+        formControlName="walletCurr"></app-currency-list-control>
+
+     <app-charges-borne-control class="col-sm-12 col-md-6 col-lg-6"
+     [actionPublisher]="actionMap$.get('chargesBorneBy')"
+     label="{{'RetailDomesticTransferForm.chargesBorneBy.label' | translate }}"
+     formControlName="chargesBorneBy" [changePublisher]="formChangePublisher$"
+     (commonControlEvent)="handleControlEvent($event)"
+     [dependencyField]="['paymentAmountVariable',
+          'fromCurrencyVariable',
+          'serviceCodeVariable',
+          'fromAccountVariable',
+          'toAccountVariable',
+          'accountBalanceVariable',
+          'debitAmountVariable','scheduleTypeVariable']"></app-charges-borne-control>
+          <app-charges-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('chargesAmount')"
+     label="{{'RetailDomesticTransferForm.chargesAmount.label' | translate }}"
+     formControlName="chargesAmount" (commonControlEvent)="handleControlEvent($event)"
+     [CurrencyList]="state.chargesAmount.CurrencyList" [isCurrEditable]="state.chargesAmount.isCurrEditable"
+     [defaultFetch]="state.chargesAmount.defaultFetch" [initCurrency]="state.chargesAmount.initCurrency"
+     [amountInWords]="state.chargesAmount.amountInWords" [changePublisher]="formChangePublisher$"></app-charges-control>
+     <fpx-display-text class="info-field-label" [innerHTML]="'RetailWalletTransferForm.charges' | translate :{charges:state.charges}"
+				[literals]="commonFormInput"></fpx-display-text>
+	     </box> 
+     </box>
+</form>
+	

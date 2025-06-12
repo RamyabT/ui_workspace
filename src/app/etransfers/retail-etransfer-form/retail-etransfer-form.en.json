@@ -1,0 +1,51 @@
+"RetailEtransfer":{
+"title":"Send Money",
+		 "sourceAccount": {
+		  "label":"Send Money From" ,
+		  "placeholder": "Send From"
+		  } ,
+		 "contactCategory": {
+		  "label":"Send Money to" ,
+		  "placeholder": "Send Money to"
+		  } ,
+		 "contactId": {
+		  "label":"Contacts" ,
+		  "placeholder": "Contacts"
+		  } ,
+		 "contactName": {
+		  "label":"Contact Name" ,
+		  "placeholder": "Contact Name"
+		  } ,
+		 "contactEmailId": {
+		  "label":"Contact Email ID" ,
+		  "placeholder": "Contact Email ID"
+		  } ,
+		 "contactPhoneNumber": {
+		  "label":"Contact Mobile Phone number" ,
+		  "placeholder": "Contact Mobile Phone number"
+		  } ,
+		 "notificationPreference": {
+		  "label":"Notify contact by" ,
+		  "placeholder": "Notify contact by"
+		  } ,
+		 "createContact": {
+		  "label":"Save as contacts" ,
+		  "placeholder": "Save as contacts"
+		  } ,
+		 "paymentAmount": {
+		  "label":"How much you want to Send?" ,
+		  "placeholder": "How much you want to Send?"
+		  } ,
+		 "securityQuestion": {
+		  "label":"Security Question" ,
+		  "placeholder": "Security Question"
+		  } ,
+		 "securityAnswer": {
+		  "label":"Security Answer" ,
+		  "placeholder": "Security Answer"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } 
+}

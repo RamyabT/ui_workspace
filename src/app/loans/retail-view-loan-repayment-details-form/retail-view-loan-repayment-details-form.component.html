@@ -1,0 +1,14 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailViewLoanRepaymentDetailsForm">
+	<box class="entry-form">
+		<box class="grid entry-form-field-group grid entry-form-field-group col-md-13 col-sm-12 col-lg-12">
+			<box class="year-header">
+                <span class="previous" [ngClass]="{'disabled': !this.state.years[this.state.yearCount - 1]}" (click)="_helper.previous()"></span>
+				<span class="year">{{ this.state.currentYear }}</span>
+				<span class="next" [ngClass]="{'disabled': !this.state.years[this.state.yearCount + 1]}" (click)="_helper.next()"></span>
+			</box>
+			<app-retail-loan-repayment-schedule-ro-grid class="col-md-13 col-sm-12 col-lg-12" (commonRoGridEvent)="_helper.onLoadRepaymentGrid($event)"
+				[actionPublisher]="actionMap$.get('repaymentSchedule')" label="RetailLoanRepaymentScheduleROGrid"
+				></app-retail-loan-repayment-schedule-ro-grid>
+		</box>
+	</box>
+</form>

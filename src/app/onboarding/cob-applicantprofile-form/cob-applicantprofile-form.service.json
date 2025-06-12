@@ -1,0 +1,5 @@
+ 
+ "RETAILAPPLICANTPROFILE" : {
+ "servicePath": ["entry-shell","onboarding", "cob-applicantprofile-form"],
+ "queryParams": {}
+ }

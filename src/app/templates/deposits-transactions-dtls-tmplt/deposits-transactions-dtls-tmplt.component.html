@@ -1,0 +1,126 @@
+<div class="task-item" id="row_data_{{ index }}">
+
+    <div class="task-detail-item">
+        <box *ngIf="_device.isMobile()" class="transaction-list-item-inner">
+            <box class="transaction-icon-wrapper">
+                <box class="transaction-icon">
+                    <span class="transaction-icon-bg" [ngClass]="{
+                        'incoming': selectedData.debitCreditFlag == 'C', 
+                        'outgoing': selectedData.debitCreditFlag == 'D'
+                    }"></span>
+                </box>
+            </box>
+            <box class="transaction-info">
+                <box class="transaction-primary-info">
+                    <span class="name">{{ selectedData.transactionDescription }}</span>
+                </box>
+                <box class="transaction-secondary-info">
+                    <ng-container
+                        *ngIf="selectedData.transactionCurrency != this._appConfig.baseCurrency else baseCurrency">
+                        <span class="amount" [ngClass]="{
+                            'credit' : selectedData.debitCreditFlag == 'C', 
+                            'debit' : selectedData.debitCreditFlag == 'D'}">
+                            <em class="usd">{{'SUFFIXCURRENCY' | currencyCode }}</em>
+                            {{getAbsoluteValue(selectedData.transactionAmount) | currency : _appConfig.baseCurrency : ''
+                            }}
+                            <em> {{selectedData.transactionCurrency == 'USD' ? '$' : selectedData.transactionCurrency |
+                                currencyCode }}</em>
+                            {{checkNegativeValue(selectedData.transactionAmount)}}
+                        </span>
+                        <span class="amount amount-bal">
+                            <em class="usd">{{'SUFFIXCURRENCY' | currencyCode }}</em>
+                            {{getAbsoluteValue(selectedData.balance) | currency : _appConfig.baseCurrency : '' }}
+                            <em> {{selectedData.transactionCurrency == 'USD' ? '$' : selectedData.transactionCurrency |
+                                currencyCode }}</em>
+                            {{checkNegativeValue(selectedData.balance)}}
+                        </span>
+                    </ng-container>
+                    <ng-template #baseCurrency>
+                        <span class="amount" [ngClass]="{
+                            'credit' : selectedData.debitCreditFlag == 'C', 
+                            'debit' : selectedData.debitCreditFlag == 'D'}">
+                            {{getAbsoluteValue(selectedData.transactionAmount) | currency :
+                            selectedData.transactionCurrency: ''}}
+                            <em>{{selectedData.transactionCurrency | currencyCode}}</em>
+                            {{checkNegativeValue(selectedData.transactionAmount)}}
+                        </span>
+                        <span class="amount amount-bal">
+                            {{getAbsoluteValue(selectedData.balance) | currency : selectedData.transactionCurrency: ''}}
+                            <em>{{selectedData.transactionCurrency | currencyCode}}</em>
+                            {{checkNegativeValue(selectedData.balance)}}
+                        </span>
+                    </ng-template>
+                </box>
+            </box>
+        </box>
+        <box *ngIf="!_device.isMobile()" class="transaction-list-item-inner">
+            <!-- <box class="date">{{selectedData.transactionDate | date: 'dd MMM YYYY'}}</box> -->
+            <box class="transaction-icon-wrapper">
+                <box class="transaction-icon">
+                    <span class="transaction-icon-bg" [ngClass]="{
+                        'incoming': selectedData.debitCreditFlag == '1', 
+                        'outgoing': selectedData.debitCreditFlag == 'D'
+                    }"></span>
+                    <!-- <img src="./assets/{{getTransactionIcon()}}" alt="{{ selectedData.transactionCategory }}" /> -->
+                </box>
+            </box>
+            <box class="transaction-info">
+                <!-- <box class="name">{{ getTransactionType()   }}</box> -->
+                <box class="name">{{ selectedData.transactionDescription }}</box>
+                <ng-container
+                    *ngIf="selectedData.transactionCurrency != this._appConfig.baseCurrency else baseCurrency">
+                    <span class="amount amount-bal">
+                        <em class="usd">{{'SUFFIXCURRENCY' | currencyCode }}</em>
+                        {{ getAbsoluteValue(selectedData.balance) | currency : _appConfig.baseCurrency : '' }}
+                        <em> {{selectedData.transactionCurrency == 'USD' ? '$' : selectedData.transactionCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(selectedData.balance)}}
+                    </span>
+                    <span class="amount amount-bal">
+                        <em class="usd">{{'SUFFIXCURRENCY' | currencyCode }}</em>
+                        {{ getAbsoluteValue(selectedData.balance) | currency : _appConfig.baseCurrency : '' }}
+                        <em> {{selectedData.transactionCurrency == 'USD' ? '$' : selectedData.transactionCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(selectedData.balance)}}
+                    </span>
+                    <span class="amount" [ngClass]="{
+                            'credit' : selectedData.debitCreditFlag == 'C', 
+                            'debit' : selectedData.debitCreditFlag == 'D'}">
+                        <em class="usd">{{'SUFFIXCURRENCY' | currencyCode }}</em>
+                        {{ getAbsoluteValue(selectedData.transactionAmount) | currency : _appConfig.baseCurrency : '' }}
+                        <em> {{selectedData.transactionCurrency == 'USD' ? '$' : selectedData.transactionCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(selectedData.transactionAmount)}}
+                        <!-- <span *ngIf="selectedData.debitCreditFlag == 'D'">-</span> -->
+                    </span>
+                    <span class="amount amount-bal">
+                        <em class="usd">{{'SUFFIXCURRENCY' | currencyCode }}</em>
+                        {{ getAbsoluteValue(selectedData.balance) | currency : _appConfig.baseCurrency : '' }}
+                        <em> {{selectedData.transactionCurrency == 'USD' ? '$' : selectedData.transactionCurrency |
+                            currencyCode }}</em>
+                        {{checkNegativeValue(selectedData.balance)}}
+                    </span>
+                </ng-container>
+                <ng-template #baseCurrency>
+                    <span class="amount" [ngClass]="{
+                                            'credit' : selectedData.debitCreditFlag == 'C', 
+                                            'debit' : selectedData.debitCreditFlag == 'D'}">
+                        {{getAbsoluteValue(selectedData.transactionAmount)| currency : selectedData.transactionCurrency:
+                        ''}}
+                        <em>{{selectedData.transactionCurrency | currencyCode}}</em>
+                        {{checkNegativeValue(selectedData.transactionAmount)}}
+                    </span>
+                    <span class="amount amount-bal">
+                        {{getAbsoluteValue(selectedData.balance)| currency : selectedData.transactionCurrency: ''}}
+                        <em>{{selectedData.transactionCurrency | currencyCode}}</em>
+                        {{checkNegativeValue(selectedData.balance)}}
+                    </span>
+                </ng-template>
+            </box>
+        </box>
+
+    </div>
+
+    <div class="seperator-line"></div>
+
+</div>

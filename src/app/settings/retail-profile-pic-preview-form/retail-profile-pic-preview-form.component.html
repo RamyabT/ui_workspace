@@ -1,0 +1,16 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailProfilePicPreviewForm">
+
+	<box class="entry-form-field-group picture-preview">
+		<box class="profile-picture">
+			<box class="image-wrapper">
+				<img [src]="state.imageData" alt="profile-photo" class="profile-photo">
+			</box>
+		</box>
+		<box class="btn-container">
+			<fpx-button [btnClass]="'btn-secondary'" label="Change Photo"
+			(onClick)="_helper.changePhoto()"></fpx-button>
+			<fpx-button [btnClass]="'btn-tertiary'" label="Remove"
+			(onClick)="_helper.removePhoto()"></fpx-button>
+		</box>
+	</box>
+</form>

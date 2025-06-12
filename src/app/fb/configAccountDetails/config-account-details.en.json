@@ -1,0 +1,39 @@
+"configAccountDetails":{
+"title":"Config Account Details",
+		 "debitAccNo": {
+		  "label":"Debit From Account" ,
+		  "placeholder": "Debit From Account"
+		  } ,
+		 "initialBalance": {
+		  "label":"Set-up Account Balance" ,
+		  "placeholder": "Set-up Account Balance"
+		  } ,
+		 "recurringfrequency": {
+		  "label":"Recurring Allowance Frequency" ,
+		  "placeholder": "Recurring Allowance Frequency"
+		  } ,
+		 "recurringAmount": {
+		  "label":"Recurring Allowance Amount" ,
+		  "placeholder": "Recurring Allowance Amount"
+		  } ,
+		 "startDate": {
+		  "label":"Start Date" ,
+		  "placeholder": "Start Date"
+		  } ,
+		 "noOfInstallments": {
+		  "label":"No. of Payments" ,
+		  "placeholder": "No. of Payments"
+		  } ,
+		 "endDate": {
+		  "label":"End Date" ,
+		  "placeholder": "End Date"
+		  } ,
+		 "dailyLimit": {
+		  "label":"Daily Spending Limit" ,
+		  "placeholder": "Daily Spending Limit"
+		  } ,
+		 "trnAuthLimit": {
+		  "label":"Transaction Authorization Limit" ,
+		  "placeholder": "Transaction Authorization Limit"
+		  } 
+}

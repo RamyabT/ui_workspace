@@ -1,0 +1,5 @@
+ 
+ "RETAILGETLOANDISCLOSURE" : {
+ "servicePath": ["entry-shell","edocuments", "retail-tax-form-filter-form"],
+ "queryParams": {}
+ }

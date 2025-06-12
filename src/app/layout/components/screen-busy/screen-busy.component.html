@@ -1,0 +1,11 @@
+<div class="spinner screen-busy">
+    <img [src]="'./assets/' + screenBusySpinnerImage" alt="screen busy" />
+    <div class="screen-busy-text">
+        <ng-container *ngIf="_userService.isLoggedIn; else preLogin">
+            Demand more values for your money.
+        </ng-container>
+        <ng-template #preLogin>
+            A financial force for change.
+        </ng-template>
+    </div>
+</div>

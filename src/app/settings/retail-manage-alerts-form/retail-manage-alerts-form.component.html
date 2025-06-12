@@ -1,0 +1,6 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailManageAlertsForm" >
+	 <box class="entry-form">
+		<app-retail-manage-alerts-ro-grid [actionPublisher]="actionMap$.get('manageUserAlert')"></app-retail-manage-alerts-ro-grid>
+	 </box> 
+	</form>
+	

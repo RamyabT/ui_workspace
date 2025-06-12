@@ -1,0 +1,10 @@
+"RetailUnlockuserForm":{
+"title":"retailunlockuser",
+		 "Message": {
+		   "text":"Sample Text"
+		 } ,
+		 "Reactivate": {
+		  "label":"Reactivate" ,
+		  "placeholder": "Reactivate"
+		  } 
+}

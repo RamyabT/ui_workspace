@@ -1,0 +1,30 @@
+.captcha-container{
+    .captcha-input-wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .captcha-pan{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+
+            .captcha-image{
+                border: 1px dotted #909090;
+                border-radius: 8px;
+            }
+        
+            .refresh-captcha{
+                width: 20px;
+                height: 20px;
+                flex-grow: 0;
+                flex-shrink: 0;
+            }
+        }
+    }
+    .text-canvas{
+        display: none;
+    }
+}
+

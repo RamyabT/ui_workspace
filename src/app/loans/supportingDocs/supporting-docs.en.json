@@ -1,0 +1,31 @@
+"supportingDocs":{
+"title":"supportingDocs",
+		 "tenantId": {
+		  "label":"TenantId" ,
+		  "placeholder": "TenantId"
+		  } ,
+		 "applicantId": {
+		  "label":"ApplicantId" ,
+		  "placeholder": "ApplicantId"
+		  } ,
+		 "serialNumber": {
+		  "label":"Serial Number" ,
+		  "placeholder": "Serial Number"
+		  } ,
+		 "docCode": {
+		  "label":"DocumentNo" ,
+		  "placeholder": "DocumentNo"
+		  } ,
+		 "docDesc": {
+		  "label":"Description" ,
+		  "placeholder": "Description"
+		  } ,
+		 "fileInv": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } ,
+		 "fileName": {
+		  "label":"File Name" ,
+		  "placeholder": "File Name"
+		  } 
+}

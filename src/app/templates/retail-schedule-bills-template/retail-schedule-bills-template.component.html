@@ -1,0 +1,48 @@
+<box>
+    <box class="schedule-transfer-template-body">
+        <box class="name-amount-date-wrapper">
+
+            <box class="schedule-icon-container">
+                <span class="schedule-biller-initial">{{getInitial()}}</span>
+            </box>
+
+            <box class="schedule-details-wrapper">
+
+                <span class="beneficiaryName">{{selectedData.beneficiaryName}}</span>
+
+                <box class="payment-amount-wrapper">
+
+                    <span class="paymentAmount amount"> {{selectedData.paymentAmount | currency :
+                        selectedData.paymentCurrency :
+                        ''}}<em>{{ selectedData.paymentCurrency | currencyCode }}</em></span>
+
+                    <box class="date-actions">
+                        <box class="date">{{selectedData.paymentDate | date :
+                            "dd MMM YYYY"}}</box>
+                    </box>
+                </box>
+            </box>
+        </box>
+
+        <box class="options" [ngClass]="{'active-option' : isDisplayContextMenu && _device.isDesktop()}"
+            (click)="displayContextMenu($event,selectedData)">
+            <span class="options-icon"></span>
+            <!-- <img src="./assets/images/icons/grey-dots.svg" alt="more options" /> -->
+        </box>
+    </box>
+</box>
+
+<ng-container *ngIf="isDisplayContextMenu && !_device.isMobile()">
+    <ng-container *ngIf="actions">
+        <box class="quick-menu" [ngStyle]="getContextMenuStyle()">
+            <li *ngFor="let item of actions;let i = index"
+                [ngClass]="{'disable-menu' : shouldDisableEdit && (item.id === 'edit')}">
+                <span class="icon-wrapper {{ item.id }}"></span>
+                <box class="menu" [innerHTML]="item.name | translate" (click)="action(item, i, selectedData)"></box>
+            </li>
+        </box>
+    </ng-container>
+</ng-container>
+
+
+<box *ngIf="isDisplayContextMenu && !_device.isMobile()" class="context-menu-overlay" (click)="closeContext()"></box>

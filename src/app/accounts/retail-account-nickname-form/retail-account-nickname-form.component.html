@@ -1,0 +1,74 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailAccountNicknameForm">
+
+	<box class="entry-form desktop-entry-form" [ngClass]="{'disable-delete-btn': _helper.disableDeleteBtn, 'hide-delete-btn': !_helper.isSelectedAccountHasNickname}">
+		<box class="grid entry-form-field-group col-12">
+
+			<box class="biller-group fields-wrapper-group">
+				<box class="fields-wrapper">
+					<box *ngIf="!_helper._device.isMobile()" class="left-container">
+						<box class="left-container-header">Account nickname</box>
+					</box>
+					<box class="right-container">
+
+						<box class="account-number-wrapper">
+							<box class="account-name">{{_helper.selectedAccountNicknameDetails?.accountNickname || _helper.selectedAccountNicknameDetails?.productDesc}}</box>
+							<box class="account-number">{{_helper._activeSpaceInfoService.getAccountNumber() | accountNumberTrim}}</box>
+						</box>
+
+						<app-account-number-list-control class="col-sm-12 col-md-12 col-lg-12"
+							[actionPublisher]="actionMap$.get('accountNumber')"
+							label="{{'RetailAccountNicknameForm.accountNumber.label' | translate }}"
+							formControlName="accountNumber" (commonControlEvent)="handleControlEvent($event)">
+						</app-account-number-list-control>
+
+
+
+						<box class="nick-name-field-wrapper col-sm-12 col-md-12 col-lg-12">
+
+							<app-nick-name-control class="col-sm-12 col-md-12 col-lg-12"
+								[actionPublisher]="actionMap$.get('nickName')"
+								label="{{'RetailAccountNicknameForm.nickName.label' | translate }}"
+								placeholder="{{'RetailAccountNicknameForm.nickName.placeholder' | translate }}"
+								formControlName="nickName"
+								(keydown)="_helper.handleEnterOnInput($event)"
+								></app-nick-name-control>
+							<span *ngIf="_helper.isNicknameExists"class="clear-nickname-btn" (click)="_helper.clearNickname()"></span>
+							<div class="max-35-characters">
+								{{'RetailAccountNicknameForm.max35Characters.label' | translate }}
+							</div>
+						</box>
+
+						<!-- <box *ngIf="!_helper._device.isMobile()" class="col-sm-12 col-md-12 col-lg-12"
+							[actionPublisher]="actionMap$.get('delete-nickname')">
+							<box class="panel-actions">
+								<button type="button" class="action delete-nickname" (click)="_helper.onDelete()">
+									<span class="lbl"
+										[innerHTML]="'RetailAccountNicknameForm.deleteNickname.label' | translate"></span>
+								</button>
+							</box>
+						</box> -->
+					</box>
+
+				</box>
+			</box>
+
+
+
+			<!-- <box *ngIf="_helper._device.isMobile()" class="input-icon-wrapper">
+				<app-nick-name-control [actionPublisher]="actionMap$.get('nickName')"
+					label="{{'RetailAccountNicknameForm.nickName.label' | translate }}" formControlName="nickName"
+					[changePublisher]="formChangePublisher$" (commonControlEvent)="handleControlEvent($event)"
+					[dependencyField]="['currentNicknameVariable']"></app-nick-name-control>
+
+				<box [actionPublisher]="actionMap$.get('delete-nickname')" class="panel-actions">
+					<button type="button" class="action delete-nickname" (click)="_helper.onDelete()">
+						<span class="lbl"
+							[innerHTML]="'RetailAccountNicknameForm.deleteNickname.label' | translate"></span>
+					</button>
+				</box>
+			</box> -->
+
+		</box>
+
+	</box>
+</form>

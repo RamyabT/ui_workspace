@@ -1,0 +1,274 @@
+<box *ngIf="!_device.isMobile() else mobileView">
+
+    <box class="stop-cheque-widget schedule-form pending-cheques">
+        <ng-container *ngIf="state.isDataReceived ; else loader">
+            <box [hidden]="!_helper.hideStopChequeLoader">
+                <box *ngIf="_helper.stopChequeDetails?.length > 0; else noData" class="widget-content-footer-container">
+                    <box class="widget-content home-layout">
+                        <box class="portfolio-summary">
+                            <ul class="portfolio-summary-list acc-list">
+                                <ng-container *ngFor="let selectedData of _helper.stopChequeDetails; let i = index">
+                                    <li [ngClass]="{'accordian-open-start': selectedData.accordianOpened}" id="cheques-list"
+                                        [class]="'accordion accordion-item-' + i">
+                                        <div class="product-type-panel">
+                                            <box class="list-item-header panel-header">
+                                                <box class="top-container">
+                                                    <box class="cheque-number-amount-container">
+                                                            <box class="cheque-number">
+                                                                <span class="label">{{
+                                                                    "RetailStopchequeDisplayGrid.chequeNumber.label" |
+                                                                    translate
+                                                                    }}</span>
+                                                                <span class="value">#{{
+                                                                    selectedData.chequeNumber
+                                                                    ? selectedData.chequeNumber
+                                                                    : selectedData.fromChequeNumber +
+                                                                    "-" +
+                                                                    selectedData.toChequeNumber
+                                                                    }}</span>
+                                                            </box>
+                                                            <box class="cheque-amount"
+                                                                *ngIf="selectedData.chequeAmount">
+                                                                <span *ngIf="selectedData.chequeAmount"
+                                                                    class="amount">{{
+                                                                    selectedData.chequeAmount
+                                                                    | currency : selectedData.currency : ""
+                                                                    }}
+                                                                    <em>{{ '$' | currencyCode }}</em></span>
+                                                                <span *ngIf="!selectedData.chequeAmount"
+                                                                    class="amount">-</span>
+                                                            </box>
+                                                    </box>
+                                                    <box class="stop-date-pending-status-container">
+                                                        <box class="date">
+                                                            <span class="label">{{
+                                                                "RetailStopchequeDisplayGrid.requestDate.label" |
+                                                                translate
+                                                                }}</span>
+                                                            <span class="value">{{
+                                                                (selectedData.stopDate | date : "dd MMM YYYY") ||
+                                                                "-"
+                                                                }}</span>
+                                                        </box>
+                                                        <box class="status-container">
+                                                            <span class="status-value">Pending</span>
+                                                        </box>
+                                                    </box>
+                                                    <box class="btn-toggle" (click)="_helper.toggleAccordion(i)">
+                                                        <button type="button" class="btn-icon btn-accordion-toggle"
+                                                            aria-label="Toggle panel"></button>
+                                                    </box>
+                                                </box>
+                                            </box>
+                                            <div class="list-item-content panel-body">
+                                                <box class="content-container">
+                                                    <box class="display-field-wrapper accountNumber">
+                                                        <span class="label">{{
+                                                            "RetailStopchequeDisplayGrid.account.label" | translate
+                                                            }}</span>
+                                                        <span class="value">{{_helper.getAccountDetails()}}</span>
+                                                    </box>
+                                                    <box class="display-field-wrapper" *ngIf="selectedData.payeeName">
+                                                        <span class="label">{{
+                                                            "RetailStopchequeDisplayGrid.payee.label" | translate
+                                                            }}</span>
+                                                        <span class="value">{{selectedData.payeeName || "-"}}</span>
+                                                    </box>
+                                                    <box class="display-field-wrapper reason-wrapper"
+                                                        *ngIf="selectedData.reason">
+                                                        <span class="label">{{
+                                                            "RetailStopchequeDisplayGrid.reason.label" | translate
+                                                            }}</span>
+                                                        <span class="value">{{
+                                                            _helper.getReason(selectedData)
+                                                            }}</span>
+                                                    </box>
+                                                    <box class="btn-container">
+                                                        <button type="button" class="btn-primary"
+                                                            (click)="_helper.revoke(selectedData)">
+                                                            {{
+                                                            "RetailStopchequeDisplayGrid.revoke.label" | translate
+                                                            }}
+                                                        </button>
+                                                    </box>
+                                                </box>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ng-container>
+                            </ul>
+                        </box>
+                    </box>
+                </box>
+            </box>
+        </ng-container>
+    </box>
+    <div class="shell-footer custom-footer width-100" style="margin-top: 8px;" *ngIf="state.isDataReceived">
+        <div class="btn-container" [hidden]="!_helper.hideStopChequeLoader">
+            <button type="button" class="btn-primary" (click)="_helper.StopCheque()">{{
+                "RetailStopchequeDisplayGrid.newRequest.label" | translate
+                }}</button>
+        </div>
+    </div>
+
+</box>
+<ng-template #mobileView>
+    <box class="stop-cheque-widget schedule-form">
+        <!-- <box class="widget-nav">
+            <span class="widget-nav-name">{{
+                "RetailStopchequeDisplayGrid.stoppedTitle" | translate
+                }}</span>
+            <button matTooltip="{{_helper.stoppedChequesTooltip}}" matTooltipClass="custom-tooltip btn-icon"
+                [attr.aria-label]="'RetailStopchequeDisplayGrid.stoppedTitle' | translate">
+                <span class="icon-wrapper"></span>
+            </button>
+        </box> -->
+        <ng-container *ngIf="state.isDataReceived ; else loader">
+            <box [hidden]="!_helper.hideStopChequeLoader">
+                <box *ngIf="_helper.stopChequeDetails?.length > 0; else noData" class="widget-content-footer-container">
+                    <box class="widget-content home-layout">
+                        <box class="portfolio-summary">
+                            <ul class="portfolio-summary-list acc-list">
+                                <ng-container *ngFor="let selectedData of _helper.stopChequeDetails; let i = index">
+                                    <li [ngClass]="{'accordian-open-start': selectedData.accordianOpened}"
+                                        [class]="'accordion accordion-item-' + i">
+                                        <div class="product-type-panel">
+                                            <box class="list-item-header panel-header">
+                                                <box class="top-container">
+                                                    <box class="cheque-number-amount-container">
+                                                        <box class="cheque-number">
+                                                            <span class="label">{{
+                                                                "RetailStopchequeDisplayGrid.chequeNumber.label" |
+                                                                translate
+                                                                }}</span>
+                                                            <span class="value">#{{
+                                                                selectedData.chequeNumber
+                                                                ? selectedData.chequeNumber
+                                                                : selectedData.fromChequeNumber +
+                                                                "-" +
+                                                                selectedData.toChequeNumber
+                                                                }}</span>
+                                                        </box>
+                                                        <box class="cheque-amount" *ngIf="selectedData.chequeAmount">
+                                                            <span *ngIf="selectedData.chequeAmount" class="amount">{{
+                                                                selectedData.chequeAmount
+                                                                | currency : selectedData.currency : ""
+                                                                }}
+                                                                <em>{{ '$' | currencyCode }}</em></span>
+                                                            <span *ngIf="!selectedData.chequeAmount"
+                                                                class="amount">-</span>
+                                                        </box>
+                                                    </box>
+                                                    <box class="btn-toggle" (click)="_helper.toggleAccordion(i)">
+                                                        <button type="button" class="btn-icon btn-accordion-toggle"
+                                                            aria-label="Toggle panel"></button>
+                                                    </box>
+                                                </box>
+                                                <box class="bottom-container">
+                                                    <box class="date">
+                                                        <span class="label">{{
+                                                            "RetailStopchequeDisplayGrid.requestDate.label" | translate
+                                                            }}</span>
+                                                        <span class="value">{{
+                                                            (selectedData.stopDate | date : "dd MMM YYYY") || "-"
+                                                            }}</span>
+                                                    </box>
+                                                    <!-- <box class="date">
+                                          <span class="label">{{
+                                              "RetailStopchequeDisplayGrid.stopDate.label" | translate
+                                          }}</span>
+                                          <span class="value">{{
+                                              (selectedData.stopDate | date : "dd MMM YYYY") || "-"
+                                          }}</span>
+                                      </box> -->
+                                                    <box class="status-container">
+                                                        <span class="status-value">Pending</span>
+                                                    </box>
+                                                </box>
+                                            </box>
+                                            <div class="list-item-content panel-body">
+                                                <box class="content-container">
+                                                    <box class="display-field-wrapper">
+                                                        <span class="label">{{
+                                                            "RetailStopchequeDisplayGrid.account.label" | translate
+                                                            }}</span>
+                                                        <span class="value">{{_helper.getAccountDetails()}}</span>
+                                                    </box>
+                                                    <box class="display-field-wrapper" *ngIf="selectedData.payeeName">
+                                                        <span class="label">{{
+                                                            "RetailStopchequeDisplayGrid.payee.label" | translate
+                                                            }}</span>
+                                                        <span class="value">{{selectedData.payeeName || "-"}}</span>
+                                                    </box>
+                                                    <box class="display-field-wrapper reason-wrapper"
+                                                        *ngIf="selectedData.reason">
+                                                        <span class="label">{{
+                                                            "RetailStopchequeDisplayGrid.reason.label" | translate
+                                                            }}</span>
+                                                        <span class="value">{{
+                                                            _helper.getReason(selectedData)
+                                                            }}</span>
+                                                    </box>
+                                                    <!-- <box class="display-field-wrapper">
+                                            <span class="label">{{
+                                              "RetailStopchequeDisplayGrid.charges.label" | translate
+                                            }}</span>
+                                            <span class="value">{{selectedData.charges || "-"}}</span>
+                                        </box> -->
+                                                    <box class="btn-container">
+                                                        <button type="button" class="btn-primary"
+                                                            (click)="_helper.revoke(selectedData)">
+                                                            {{
+                                                            "RetailStopchequeDisplayGrid.revoke.label" | translate
+                                                            }}
+                                                        </button>
+                                                    </box>
+                                                </box>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ng-container>
+                            </ul>
+                        </box>
+                    </box>
+                </box>
+            </box>
+        </ng-container>
+
+        <!-- <box *ngIf="_helper.stopChequeDetails?.length > 4" class="widget-footer-view-all">
+            <box class="view-all-icon-container">
+                <span class="view-all-icon"></span>
+            </box>
+            <box class="view-all-text">{{
+                "RetailStopchequeDisplayGrid.viewAll.label" | translate
+                }}</box>
+        </box> -->
+    </box>
+    <div class="shell-footer custom-footer width-100" style="margin-top: 8px;" *ngIf="state.isDataReceived">
+        <div class="btn-container" [hidden]="!_helper.hideStopChequeLoader">
+            <button type="button" class="btn-primary" (click)="_helper.StopCheque()">{{
+                "RetailStopchequeDisplayGrid.newRequest.label" | translate
+                }}</button>
+        </div>
+    </div>
+
+</ng-template>
+
+<ng-template #noData>
+    <box class="no-result-view no-data-view">
+        <box><span class="no-data-image"></span></box>
+        <box class="no-result-desc no-data-desc">{{ 'RetailStopchequeDisplayGrid.noData.label' | translate }}</box>
+    </box>
+</ng-template>
+<ng-template #noTransfers>
+    <box class="no-result-view">
+        <img class="no-result-image" src="./assets/images/transfers/no-scheduled-transfer.svg" alt="">
+        <box class="no-result-desc">{{ 'ScheduleTransferForm.noTransfer' | translate }}</box>
+        <button type="button" class="no-result-add-btn">{{
+            'ScheduleTransferForm.initiateBtn' | translate }}</button>
+    </box>
+</ng-template>
+
+<ng-template #loader>
+    <box class="table-spinner"></box>
+</ng-template>

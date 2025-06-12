@@ -1,0 +1,241 @@
+<box class="dep-confirmation">
+    <box *ngIf="!_device.isMobile()" class="accounts-list-popup-header">
+        <span class="pay-from-header">{{title}}</span>
+        <button type="button" class="system-ico-button btn-close no-text" name="back"
+            (click)="close()"><span>Close</span></button>
+    </box>
+
+    <box class="accounts-list-popup-body">
+        <box class="details-container">
+            <box *ngIf="_device.isMobile()  && fromAccountsModule" class="module-home-header">
+                <button type="button" class="system-ico-button btn-close no-text" name="back"
+                    (click)="close()"><span>Close</span></button>
+                <h2 class="module-title"> {{'AccountsTransferList.betweenAccounts' | translate}} </h2>
+            </box>
+
+            <box class="pay-from-header-mobile"  *ngIf="_device.isMobile()  && !fromAccountsModule">
+                <span class="pay-from-header" *ngIf="this.title !=='Eligible Account'">
+                    {{'AccountsTransferList.transferForm' | translate}}
+                </span>
+
+                <span class="pay-from-header" *ngIf="this.title ==='Eligible Account'">
+                    {{'AccountsTransferList.transferTo' | translate}}
+                </span>
+            </box>
+            <box class="account-wrapper">
+
+                <ng-container *ngFor="let panel of CASAAccounts; let i = index">
+                    <box [ngClass]="{'active': panel.active}" class="summary-card" (click)="selectAccount(panel, i)">
+                        <box class="summary-card-inner">
+                            <box class="primary-details">
+                                <box class="account-details">
+                                    <box class="product-name">{{ panel.accountNickname || panel.productDesc }}</box>
+                                    <box class="account-details-wrapper ">
+                                        <box class="type">{{ panel.accountTypeDesc || panel.accountType}}</box>
+                                        <box class="account-number">{{ panel.accountNumber | accountNumberTrim }}</box>
+                                    </box>
+                                    <box class="account-status">
+                                        <span *ngIf="panel?.ownership && panel.ownership.toLowerCase() == 'joint'"
+                                            class="joint">{{
+                                            'CASASUMMARYCARD.joint' | translate }}</span>
+                                        <span
+                                            *ngIf="panel?.accountStatus && panel.accountStatus.toLowerCase() == 'dormant'"
+                                            class="dormant">{{ panel.accountStatus | titlecase }}
+                                            <span *ngIf="fromAccountsModule" class="dormant-info"
+                                                (click)="openDormantInfo($event, i)"
+                                                (mouseenter)="showDormantInfoDesktop($event, i)"
+                                                (mouseleave)="showDormantInfoDesktop($event, i)">
+                                                <span *ngIf="panel?.showTooltip" class="tooltip-text">{{dormantInfo |
+                                                    translate}}</span>
+                                            </span>
+                                        </span>
+                                    </box>
+                                </box>
+                                <!-- <box *ngIf="_device.isMobile()" class="share-btn-container">
+                                    <button type="button" class="share-container share-btn"
+                                        (click)="dataShare(panel, $event)">
+                                        <span class="icon share-btn-icon"></span>
+                                    </button>
+                                </box> -->
+                            </box>
+                            <box *ngIf="!fromAccountsModule; else balanceDetails" class="account-secondary-details">
+                                <box [ngClass]="{'show-checkbox': (panel.active || panel.preferredAccount) && title == 'Transfer From', 'default-account-checkbox-selected': panel.preferredAccount && !panel.active}"
+                                    class="default-account-checkbox">
+                                    <mat-checkbox (change)="onChecked($event, i)"
+                                        [checked]="panel.selectedAsDefaultAccount"
+                                        *ngIf="this.title !=='Eligible Account'">
+                                        <span *ngIf="panel.preferredAccount" class="lbl">
+                                            {{'AccountsList.defaultAccount' | translate}}</span>
+
+                                        <span *ngIf="!panel.preferredAccount" class="lbl">{{'AccountsList.makeDefault' |
+                                            translate}}</span>
+                                    </mat-checkbox>
+                                </box>
+                                <box class="account-balance">
+                                    <!-- <span class="amount">{{ panel.availableBalance | currency :
+                                        panel.accountCurrency : '' }} <em>{{ panel.accountCurrency |
+                                            currencyCode }}</em>
+                                    </span> -->
+                                    <ng-container
+                                        *ngIf="panel?.accountCurrency != _appConfig.baseCurrency else avlBaseCurrency">
+                                        <box class="balance-val">
+                                            <box class="amount balance-amount-usd balance">
+                                                <em class="usd">{{ 'SUFFIXCURRENCY' |
+                                                    currencyCode }}</em>
+                                                {{getAbsoluteValue(panel?.availableBalance) |
+                                                currency
+                                                :
+                                                panel?.accountCurrency : '' }}
+                                                <em>{{ panel?.accountCurrency == 'USD' ? '$' :
+                                                    panel?.accountCurrency |
+                                                    currencyCode }}</em>
+                                                {{checkNegativeValue(panel?.availableBalance)}}
+                                            </box>
+                                        </box>
+                                    </ng-container>
+                                    <ng-template #avlBaseCurrency>
+                                        <box class="amount balance-amount-cad balance">{{
+                                            getAbsoluteValue(panel?.availableBalance) | currency
+                                            :
+                                            panel?.accountCurrency : '' }} <em>{{
+                                                panel?.accountCurrency |
+                                                currencyCode }}</em>
+                                            {{checkNegativeValue(panel?.availableBalance)}}
+                                        </box>
+                                    </ng-template>
+                                </box>
+                            </box>
+                            <ng-template #balanceDetails>
+                                <box class="account-secondary-details">
+                                    <box class="balance-wrapper">
+                                        <box class="balance-details">
+                                            <span class="balance-label">{{'CASASUMMARYCARD.available' |
+                                                translate}}</span>
+                                            <ng-container
+                                                *ngIf="panel.accountCurrency != _appConfig.baseCurrency else avlBaseCurrency">
+                                                <box class="balance-val">
+                                                    <box class="amount balance-amount-usd">
+                                                        <em class="usd">{{ 'SUFFIXCURRENCY' |
+                                                            currencyCode }}</em>
+                                                        {{ getAbsoluteValue(panel.availableBalance) | currency
+                                                        :
+                                                        panel.accountCurrency : '' }}
+                                                        <em>{{ panel.accountCurrency == 'USD' ? '$' :
+                                                            panel.accountCurrency |
+                                                            currencyCode }}</em>
+                                                        {{checkNegativeValue(panel.availableBalance)}}
+                                                    </box>
+                                                    <box *ngIf="!_device.isMobile()" class="amount balance-amount-cad">
+                                                        {{
+                                                        getAbsoluteValue(panel.baseCurrencyAvlBal) | currency
+                                                        :
+                                                        _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency |
+                                                            currencyCode
+                                                            }}</em>
+                                                        {{checkNegativeValue(panel.baseCurrencyAvlBal)}}
+                                                    </box>
+                                                </box>
+                                            </ng-container>
+                                            <ng-template #avlBaseCurrency>
+                                                <box class="amount balance-amount-cad">{{
+                                                    getAbsoluteValue(panel.availableBalance)
+                                                    | currency :
+                                                    panel.accountCurrency : '' }} <em>{{
+                                                        panel.accountCurrency |
+                                                        currencyCode }}</em>
+                                                    {{checkNegativeValue(panel.availableBalance)}}
+                                                </box>
+                                            </ng-template>
+                                        </box>
+
+
+                                        <box class="balance-details">
+                                            <span class="balance-label">{{'CASASUMMARYCARD.actual' | translate}}</span>
+                                            <ng-container
+                                                *ngIf="panel.accountCurrency != _appConfig.baseCurrency else curBaseCurrency">
+                                                <box class="balance-val">
+                                                    <box class="amount balance-amount-usd">
+                                                        <em class="usd">{{ 'SUFFIXCURRENCY' |
+                                                            currencyCode }}</em>
+                                                        {{ getAbsoluteValue(panel.availableBalancealance) | currency :
+                                                        panel.accountCurrency : '' }}
+                                                        <em>{{ panel.accountCurrency == 'USD' ? '$' :
+                                                            panel.accountCurrency |
+                                                            currencyCode }}</em>
+                                                        {{checkNegativeValue(panel.availableBalancealance)}}
+                                                    </box>
+                                                    <box *ngIf="!_device.isMobile()" class="amount balance-amount-cad">
+                                                        {{
+                                                        getAbsoluteValue(panel.baseCurrencyavailableBalanceal) |
+                                                        currency
+                                                        :
+                                                        _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency |
+                                                            currencyCode
+                                                            }}</em>
+                                                        {{checkNegativeValue(panel.baseCurrencyavailableBalanceal)}}
+                                                    </box>
+                                                </box>
+                                            </ng-container>
+                                            <ng-template #curBaseCurrency>
+                                                <box class="amount balance-amount-cad">{{
+                                                    getAbsoluteValue(panel.availableBalancealance) |
+                                                    currency :
+                                                    panel.accountCurrency : '' }} <em>{{
+                                                        panel.accountCurrency |
+                                                        currencyCode }}</em>
+                                                    {{checkNegativeValue(panel.availableBalancealance)}}
+                                                </box>
+                                            </ng-template>
+                                        </box>
+
+
+                                        <box class="balance-details">
+                                            <span class="balance-label">{{'CASASUMMARYCARD.hold' | translate}}</span>
+                                            <ng-container
+                                                *ngIf="panel.accountCurrency != _appConfig.baseCurrency else baseCurrencyHold">
+                                                <box class="balance-val">
+                                                    <box class="amount balance-amount-usd">
+                                                        <em class="usd">{{ 'SUFFIXCURRENCY' |
+                                                            currencyCode }}</em>
+                                                        {{ getAbsoluteValue(panel.holdBalance || 0.00) | currency :
+                                                        panel.accountCurrency : '' }}
+                                                        <em>{{ panel.accountCurrency == 'USD' ? '$' :
+                                                            panel.accountCurrency |
+                                                            currencyCode }}</em>
+                                                        {{checkNegativeValue(panel.holdBalance)}}
+                                                    </box>
+                                                </box>
+                                            </ng-container>
+                                            <ng-template #baseCurrencyHold>
+                                                <box class="amount balance-amount-cad">{{
+                                                    getAbsoluteValue(panel.holdBalance || 0.00) |
+                                                    currency :
+                                                    panel.accountCurrency : '' }} <em>{{
+                                                        panel.accountCurrency |
+                                                        currencyCode }}</em>
+                                                    {{checkNegativeValue(panel.holdBalance)}}
+                                                </box>
+                                            </ng-template>
+
+                                        </box>
+                                    </box>
+                                </box>
+                            </ng-template>
+
+                        </box>
+                    </box>
+                </ng-container>
+            </box>
+        </box>
+    </box>
+</box>
+<box *ngIf="!fromAccountsModule" class="btn-footer-container">
+    <button type="button" class="btn-secondary" (click)="close()" aria-label="Close">
+        <span>Close</span>
+    </button>
+
+    <button [ngClass]="{'disabled-btn': !enableSaveBtn}" type="button" class="btn-primary" (click)="saveChanges()"
+        aria-label="Save Changes">
+        <span>Save changes</span>
+    </button>
+</box>

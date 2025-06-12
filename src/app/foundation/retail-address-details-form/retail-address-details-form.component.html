@@ -1,0 +1,46 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailAddressDetailsForm" >
+	   
+	 <box class="entry-form">
+	     
+	      
+			  <app-address-control  class="col-md-6"   [actionPublisher]="actionMap$.get('addressType')"     label="{{'RetailAddressDetailsForm.addressType.label' | translate }}"   formControlName="addressType" 
+   ></app-address-control>
+	     
+	      
+			  <app-building-id-control  class="col-md-6"   [actionPublisher]="actionMap$.get('buildingId')"     label="{{'RetailAddressDetailsForm.buildingId.label' | translate }}"   formControlName="buildingId" 
+   ></app-building-id-control>
+	     
+	      
+			  <app-building-name-control  class="col-md-6"   [actionPublisher]="actionMap$.get('buildingName')"     label="{{'RetailAddressDetailsForm.buildingName.label' | translate }}"   formControlName="buildingName" 
+   ></app-building-name-control>
+	     
+	      
+			  <app-country-list-control  class="col-md-6"   [actionPublisher]="actionMap$.get('country')"     label="{{'RetailAddressDetailsForm.country.label' | translate }}"   formControlName="country" 
+   ></app-country-list-control>
+	     
+	      
+			  <app-state-list-control  class="col-md-6"   [actionPublisher]="actionMap$.get('state')"     label="{{'RetailAddressDetailsForm.state.label' | translate }}"   formControlName="state" 
+			       [changePublisher]="formChangePublisher$"    	 
+					   
+					
+				 [dependencyField]="['country']"
+   ></app-state-list-control>
+	     
+	      
+			  <app-city-control  class="col-md-6"   [actionPublisher]="actionMap$.get('city')"     label="{{'RetailAddressDetailsForm.city.label' | translate }}"   formControlName="city" 
+   ></app-city-control>
+	     
+	      
+			  <app-zipcode-list-control  class="col-md-6"   [actionPublisher]="actionMap$.get('zipCode')"     label="{{'RetailAddressDetailsForm.zipCode.label' | translate }}"   formControlName="zipCode" 
+   ></app-zipcode-list-control>
+	     
+	      
+			  <app-email-control  class="col-md-6"   [actionPublisher]="actionMap$.get('email')"     label="{{'RetailAddressDetailsForm.email.label' | translate }}"   formControlName="email" 
+   ></app-email-control>
+	     
+	      
+			  <app-mobile-number-control  class="col-md-6"   [actionPublisher]="actionMap$.get('mobileNumber')"     label="{{'RetailAddressDetailsForm.mobileNumber.label' | translate }}"   formControlName="mobileNumber" 
+   ></app-mobile-number-control>
+	 </box> 
+	</form>
+	

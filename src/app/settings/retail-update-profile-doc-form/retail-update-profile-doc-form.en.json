@@ -1,0 +1,11 @@
+"RetailUpdateProfileDocForm":{
+"title":"RetailUpdateProfileDocForm",
+		 "idNumber": {
+		  "label":"DocIdControl" ,
+		  "placeholder": "DocIdControl"
+		  } ,
+		 "expiryDate": {
+		  "label":"From Date" ,
+		  "placeholder": "From Date"
+		  } 
+}

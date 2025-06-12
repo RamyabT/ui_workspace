@@ -1,0 +1,23 @@
+"RetailChqdDepositForm":{
+"title":"chequedeposit",
+		 "depositAccount": {
+		  "label":"Deposit into" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "chequeAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "chequeImageFrontSide": {
+		  "label":"Front Side Image" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "chequeImageBackSide": {
+		  "label":"Back Side Image" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "cbxrTerms": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Placeholder"
+		  } 
+}

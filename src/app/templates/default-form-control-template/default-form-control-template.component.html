@@ -1,0 +1,57 @@
+<!-- Payment method list -->
+<ng-template let-selectedData #paymentMethodListTmplt [fpxControlTemplate]="'paymentMethodListTmplt'">
+    <box class="payment-method-list-item">
+        <box class="header" *ngIf="selectedData.id=='1'">
+            <span class="type">{{selectedData.text}}</span>
+            <span class="desc">Instant Payment | 24 x 7 | {{_appConfig.baseCurrency}} Only</span>
+        </box>
+
+        <box class="header" *ngIf="selectedData.id=='2'">
+            <span class="type">{{selectedData.text}}</span>
+            <span class="desc"></span>
+        </box>
+
+
+        <box class="header" *ngIf="selectedData.id=='3'">
+            <span class="type">{{selectedData.text}}</span>
+            <span class="desc">Instant Payment| 24 x 7 | {{_appConfig.baseCurrency}} only | </span>
+        </box>
+        <box class="spacer"></box>
+        <!-- <box class="body" *ngIf="selectedData.id=='1'">
+            <span class="limit-lbl">Transaction Limit </span>
+            <span class="limit-val">Upto {{_appConfig.baseCurrency}} 50,000</span>
+            <span class="charges">Transfer Charges: ₹ 10 </span>
+        </box> -->
+
+        <box class="body" *ngIf="selectedData.id=='1'">
+            <box class="recommended-box" *ngIf="this._appConfig?.getData('defaultChannel')=='1'">
+                <span class="recommended">Recommended</span>
+            </box>
+            <span class="limit-lbl">Within {{_appConfig.baseCountry}}  |</span>
+            <span class="limit-lbl">Transaction Limit |</span>
+            <span class="limit-val">Upto {{_appConfig.baseCurrency}} 50,000</span>
+            <!-- <span class="charges">Transfer Charges: ₹ 10 </span> -->
+        </box>
+
+        <box class="body" *ngIf="selectedData.id=='2'">
+            <box class="recommended-box" *ngIf="this._appConfig?.getData('defaultChannel')=='2'">
+                <span class="recommended">Recommended</span>
+            </box>
+            <span class="limit-lbl"> Available only on working days |</span>
+            <span class="limit-lbl">Time:08:00am to 07:30pm | </span>
+            <!-- <span class="limit-val">Upto. ₹ 200,000</span> -->
+            <span class="limit-val">As per approved transfer limits</span>
+            <!-- <span class="charges">Transfer Charges: ₹ 10 </span> -->
+        </box>
+
+        <box class="body" *ngIf="selectedData.id=='3'">
+            <box class="recommended-box" *ngIf="this._appConfig?.getData('defaultChannel')=='3'">
+                <span class="recommended">Recommended</span>
+            </box>
+            <span class="limit-lbl">Within {{_appConfig.baseCountry}} | </span>
+            <span class="limit-lbl">Transaction Limit |</span>
+            <span class="limit-val">Upto {{_appConfig.baseCurrency}} 50,000</span>
+            <!-- <span class="charges">Transfer Charges: ₹ 10 </span> -->
+        </box>
+    </box>
+</ng-template>

@@ -1,0 +1,7 @@
+"FatcaConfirmation":{
+"title":"fatcaConfirmation",
+		 "enabledFlag": {
+		  "label":"Enabled Flag" ,
+		  "placeholder": "Enabled Flag"
+		  } 
+}

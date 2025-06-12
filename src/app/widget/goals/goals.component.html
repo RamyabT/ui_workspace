@@ -1,0 +1,25 @@
+<box class="widget goals">
+    <header>
+        <span class="widget-title">{{ 'WIDGIT_TITLES.goalsLbl' | translate }}</span>
+        <button type="button" class="link">{{ 'BUTTONS.viewAll' | translate }}</button>
+    </header>
+
+    <box class="widget-body">
+        <ul class="goal-list">
+            <li>
+                <box class="category-name">
+                    {{ 'GOALS_CATEGORY.food' | translate }}
+                </box>
+                <box class="goal-progress-bar">
+                    <box class="progress-points">
+                        <span class="start amount">{{300 | currency : _appConfig.baseCurrency : ''}} <em>{{_appConfig.baseCurrency}}</em></span>
+                        <span class="end amount">{{1000 | currency : _appConfig.baseCurrency : ''}} <em>{{_appConfig.baseCurrency}}</em></span>
+                    </box>
+                    <box class="progress-track">
+                        <span class="fill" [style.width.%]="20"></span>
+                    </box>
+                </box>
+            </li>
+        </ul>
+    </box>
+</box>

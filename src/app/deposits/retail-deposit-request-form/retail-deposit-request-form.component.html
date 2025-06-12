@@ -1,0 +1,152 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailDepositRequestForm">
+
+	<box class="entry-form">
+		<box id="FieldId_1" class="col-md-12 grid  entry-form-field-group  ">
+
+			<app-account-number-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('debitAccount')"
+				label="{{'RetailDepositRequestForm.debitAccount.label' | translate }}" formControlName="debitAccount"
+				(commonControlEvent)="handleControlEvent($event)"></app-account-number-list-control>
+			<box id="availableBalanceGroup" [actionPublisher]="actionMap$.get('availableBalanceGroup')"
+				class="col-md-12 grid  field-item col-sm-12 col-md-12 col-lg-6  ">
+				<fpx-label id="availableBalanceLbl"
+					label="{{'RetailDepositRequestForm.availableBalanceLbl.label' | translate }}"
+					class="col-md-12 "></fpx-label>
+				<fpx-display-text id="availableBalanceVal" class="col-md-12 info-box availableBalanceVal"
+					[innerHTML]="state.availableBalanceVal" [literals]="commonFormInput"></fpx-display-text>
+			</box>
+
+
+			<app-deposits-products class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('productCode')"
+				label="{{'RetailDepositRequestForm.productCode.label' | translate }}" formControlName="productCode"
+				(commonControlEvent)="handleControlEvent($event)"></app-deposits-products>
+
+			<app-currency-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('depositCurrency')"
+				label="{{'RetailDepositRequestForm.depositCurrency.label' | translate }}"
+				formControlName="depositCurrency"></app-currency-list-control>
+
+
+			<app-request-date-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('depositDate')"
+				label="{{'RetailDepositRequestForm.depositDate.label' | translate }}" formControlName="depositDate"
+				[minDate]="state.depositDate.minDate" [maxDate]="state.depositDate.maxDate"></app-request-date-control>
+
+
+
+
+			<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('depositAmount')"
+				label="{{'RetailDepositRequestForm.depositAmount.label' | translate }}" formControlName="depositAmount"
+				(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.depositAmount.CurrencyList"
+				[isCurrEditable]="state.depositAmount.isCurrEditable" [defaultFetch]="state.depositAmount.defaultFetch"
+				[initCurrency]="state.depositAmount.initCurrency" [amountInWords]="state.depositAmount.amountInWords"
+				[changePublisher]="formChangePublisher$"
+				[dependencyField]="['fromCurrencyVariable','toCurrencyVariable','availableBalanceVariable']">
+			</app-payment-amount-control>
+			<box id="fxDetailsGroup" [actionPublisher]="actionMap$.get('fxDetailsGroup')"
+				class="col-md-12 grid  field-item col-sm-12 col-md-12 col-lg-12">
+				<box class="field-item col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('fxRates')">
+					<box class="info-box">
+						<fpx-label class="info-field-label" label="FX Rates"></fpx-label>
+						<box class="info-field">
+							<fpx-display-text class="info-field-label" [innerHTML]="'Debit Amount: '"
+								[literals]="commonFormInput"></fpx-display-text>
+							<fpx-display-text class="info-field-value" [innerHTML]="state.fxRates.debitAmount"
+								[literals]="commonFormInput"></fpx-display-text>
+						</box>
+						<box class="info-field">
+							<fpx-display-text class="info-field-label" [innerHTML]="'Credit Amount: '"
+								[literals]="commonFormInput"></fpx-display-text>
+							<fpx-display-text class="info-field-value" [innerHTML]="state.fxRates.creditAmount"
+								[literals]="commonFormInput"></fpx-display-text>
+						</box>
+						<box class="info-field">
+							<fpx-display-text class="info-field-label" [innerHTML]="'Exchange Rate: '"
+								[literals]="commonFormInput"></fpx-display-text>
+							<fpx-display-text class="info-field-value" [innerHTML]="state.fxRates.exchangeRate"
+								[literals]="commonFormInput"></fpx-display-text>
+						</box>
+					</box>
+				</box>
+			</box>
+
+
+			<app-month-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('tenorInMonths')"
+				label="{{'RetailDepositRequestForm.tenorInMonths.label' | translate }}"
+				formControlName="tenorInMonths"></app-month-list-control>
+
+
+			<app-interest-payment-frequency-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('interestpaymentfrequency')"
+				label="{{'RetailDepositRequestForm.interestpaymentfrequency.label' | translate }}"
+				formControlName="interestpaymentfrequency"
+				(commonControlEvent)="handleControlEvent($event)"></app-interest-payment-frequency-list-control>
+
+			<box class="field-item col-sm-12 col-md-12 col-lg-12"
+				[actionPublisher]="actionMap$.get('maturityDetailsGroup')">
+				<box class="info-box">
+					<fpx-label class="info-field-label" label="Maturity Details"></fpx-label>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'Interest Rate: '"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.interestRateDisplay"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'Maturity Amount: '"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.maturityAmountDisplay"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'Interest Amount: '"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.interestAmountDisplay"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+				</box>
+			</box>
+
+
+
+
+			<app-maturity-instructions-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('maturityInstructions')"
+				label="{{'RetailDepositRequestForm.maturityInstructions.label' | translate }}"
+				formControlName="maturityInstructions"></app-maturity-instructions-list-control>
+
+
+			<app-account-number-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('creditAccount')"
+				label="{{'RetailDepositRequestForm.creditAccount.label' | translate }}"
+				formControlName="creditAccount"></app-account-number-list-control>
+
+
+			<!-- <app-charity-list-control class="col-sm-12 col-md-12 col-lg-6  "
+				[actionPublisher]="actionMap$.get('charity')"
+				label="{{'RetailDepositRequestForm.charity.label' | translate }}"
+				formControlName="charity"></app-charity-list-control>
+
+
+			<app-percentage-control class="col-sm-12 col-md-12 col-lg-6  "
+				[actionPublisher]="actionMap$.get('charityPercentage')"
+				label="{{'RetailDepositRequestForm.charityPercentage.label' | translate }}"
+				formControlName="charityPercentage"></app-percentage-control> -->
+
+
+			<app-remarks-control class="col-sm-12 col-md-12 col-lg-12  " [actionPublisher]="actionMap$.get('remarks')"
+				label="{{'RetailDepositRequestForm.remarks.label' | translate }}" formControlName="remarks"
+				placeholder="{{'RetailDepositRequestForm.remarks.placeholder' | translate }}"></app-remarks-control>
+
+
+			<app-terms-control class="col-sm-12 col-md-12 col-lg-12 " [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'RetailDepositRequestForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+				placeholder="{{'RetailDepositRequestForm.termsFlag.placeholder' | translate }}"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+
+		</box>
+	</box>
+</form>

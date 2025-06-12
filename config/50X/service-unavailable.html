@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+@media (min-width: 769px) {
+  .header-wrapper {
+    padding-left: 0;
+  }
+
+  .header-wrapper .main-header-inner {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    min-width: 100%;
+    min-height: 72px;
+    padding: 0;
+    background: #F04E39;
+  }
+
+  .header-wrapper .main-header-inner .header-inner-wrapper {
+    display: flex;
+    width: 83.5%;
+    padding: 24px;
+    .brand{
+        background: transparent;
+        border: none;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .header-wrapper {
+    padding-left: 0;
+  }
+
+  .header-wrapper .main-header-inner {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    min-width: 100%;
+    min-height: 64px;
+    padding: 0;
+    background: #F04E39;
+  }
+
+  .header-wrapper .main-header-inner .header-inner-wrapper {
+    display: flex;
+    width: 83.5%;
+    padding: 24px;
+    .brand{
+        background: transparent;
+        border: none;
+    }
+  }
+}
+
+         .header-wrapper{
+            background-color: red;
+            min-height: 72px;
+            min-width: 100%;
+            .header-text{
+                min-height: 26px;
+                min-width: 83px;
+            }
+        }
+        .serviceUnavailable-box {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            .serviceUnavailable-wrapper {
+                position: unset;
+                min-height: 432px;
+                max-width: 432px;
+                display: flex;
+                margin: 99px 84px 144px;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+
+                .serviceUnavailable-image {
+
+                    width: 360px;
+                    height: 360px;
+                    background: #F8F4E7;
+                    border-radius: 360px;
+                }
+            }
+
+            .content {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                height: 432px;
+                width: 672px;
+                gap: 32px;
+                margin-top: 20vh;
+
+                .label-tag {
+                    align-items: center;
+                    display: flex;
+                    font-size: 48px;
+                    line-height: 56px;
+                    text-align: left;
+                }
+
+                .label {
+                    align-items: center;
+                    text-align: left;
+                    font-size: 14px;
+                }
+
+                .button {
+                    background-color: #000000;
+                    border-radius: 999px;
+                    min-width: 120px;
+                    height: 48px;
+                    color: #FFFFFF;
+                    width: 160px;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <box class="header-wrapper">
+        <box class="main-header-inner">
+            <box class="header-inner-wrapper">
+                <ng-container >
+                    <button type="button" class="brand">
+                        <img src="../../src/assets/images/brand/header-logo.svg" alt="bank" />
+                    </button>
+                </ng-container> 
+            </box>
+        </box>
+    </box>
+    <box class="serviceUnavailable-box">
+        <box class="serviceUnavailable-wrapper">
+            <box class="serviceUnavailable-image">
+            </box>
+        </box>
+        <box class="content">
+            <span class="label-tag">Service temporarily unavailable</span>
+            <span class="label">We’re currently updating this service to improve the experience for our
+                members. Please check back later. </span>
+        </box>
+    </box>
+</body>
+
+</html>

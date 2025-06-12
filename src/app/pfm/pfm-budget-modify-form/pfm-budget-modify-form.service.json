@@ -1,0 +1,5 @@
+ 
+ "RETAILMODIFYPFMBUDGET" : {
+ "servicePath": ["entry-shell","pfm", "pfm-budget-modify-form"],
+ "queryParams": {}
+ }

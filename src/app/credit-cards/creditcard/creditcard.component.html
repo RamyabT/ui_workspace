@@ -1,0 +1,75 @@
+<box *ngIf="cardData.status && cardData.productDesc && !_device.isMobile()" class="debitcard summary-card" [ngClass]="{
+    'show-flash-card-btn':showFlashCardBtn,
+    'form-view':formView,
+    'show-name': showName,
+    'has-context-menu': contextmenuBtn
+    }"
+    [class]="cardData.status.toLowerCase() +' '+cardData.productDesc.split(' ').join('').toLowerCase()">
+    <box class="card">
+        <box class="debit-logo"></box>
+        <box class="debitcard-title">
+            <span class="title">{{cardData.productDesc}}</span>
+        </box>
+        <box class="debitcard-name">
+            <span class="name">{{cardData.cardHolderName}}</span>
+        </box>
+        <box class="debitcard-number">
+            <span class="number">{{cardData.creditCardNumber | creditCardNumberMask}}</span>
+        </box>
+        <box class="debitcard-footer">
+            <box class="debitcard-footer-primary">
+                <span class="valid">{{'CREDITCARD.valid' | translate }}</span>
+                <span class="date">{{cardData.validThru}}</span>
+            </box>
+            <box class="debitcard-footer-secondary">
+                <box class="debitcard-expiry">
+                    <span class="cvv">{{'CREDITCARD.cvv' | translate }}</span>
+                    <span class="pin">{{cardData.cvv?cardData.cvv:'***'}}</span>
+                     <!-- <span class="pin">***</span> -->
+                </box>
+                <box class="card-status">
+                    <span class="status-type" label="Active">{{cardData.status}}</span>
+                </box>
+            </box>
+        </box>
+    </box>
+    <box *ngIf="showFlashCardBtn" class="flash-card" [ngClass]="{'start-timer': startTimer}">
+        <button type="button" *ngIf="!startTimer" class="flash-card-button btn-secondary" (click)="onClickFlashCard()">{{'DEBITCARD.flash' | translate }}</button>
+        <box  type="button" *ngIf="startTimer" class="flash-card-button">{{'CREDITCARD.hideIn' | translate }} {{this.timer}}s</box>
+    </box>
+    <button *ngIf="contextmenuBtn" type="button" class="contextual-menu-trigger" (click)="notifyContextMenuClick()"><span>{{'CREDITCARD.contextualMenu' | translate }}</span></button>
+</box>
+
+<ng-container *ngIf="_device.isMobile()">
+    <box class="summary-card" [ngClass]="{'has-context-menu': contextmenuBtn}">
+        <box class="summary-card-inner">
+            <box class="primary-details">
+                <box class="account-details">
+                    <box class="product-name">{{ cardData.productDesc }}</box>
+                    <box class="product-details">
+                        <box class="account-number">{{ cardData.creditCardNumber | creditCardNumberMask }}</box>
+                    </box>
+                </box>
+            </box>
+
+            <box class="additional-details">
+                <box class="additional-detail">
+                    <span class="lbl">{{ 'RetailCreditCardDetails.currentBalance' | translate }}</span>
+                    <box class="amount cad-amount">{{ getAbsoluteValue(cardData.outstandingAmount) | currency }}</box>
+                </box>
+            </box>
+            <box class="additional-details">
+                <box class="additional-detail">
+                    <span class="lbl">{{ 'RetailCreditCardDetails.availableCredit' | translate }}</span>
+                    <box class="amount cad-amount">{{ getAbsoluteValue(cardData.availableCreditLimit) | currency }}</box>
+                </box>
+            </box>
+            <box class="additional-details">
+                <box class="additional-detail">
+                    <span class="lbl">{{ 'RetailCreditCardDetails.statementBalance' | translate }}</span>
+                    <box class="amount cad-amount">{{ getAbsoluteValue(cardData.lastStatementBalance) | currency }}</box>
+                </box>
+            </box>
+        </box>
+    </box>
+</ng-container>

@@ -1,0 +1,43 @@
+"RetailDomesticTransferForm":{
+"title":"Domestic Transfer",
+		 "sourceAccount": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "beneficiaryId": {
+		  "label":"Beneficiary" ,
+		  "placeholder": "Beneficiary"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "scheduleType": {
+		  "label":"Choose Payment Type" ,
+		  "placeholder": "Choose Payment Type"
+		  } ,
+		 "paymentDate": {
+		  "label":"Payment Date" ,
+		  "placeholder": "Payment Date"
+		  } ,
+		 "purpose": {
+		  "label":"Choose Purpose of Transfer" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "transferType": {
+		  "label":"Choose Payment Method" ,
+		  "placeholder": "Choose Payment Method"
+		  } ,
+		 "chargesBorneBy": {
+		  "label":"Charges Borne By" ,
+		  "placeholder": "Charges Borne By"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"I acknowledge and agree to receive important bank communications via my mobile number and email id." ,
+		  "placeholder": "Placeholder"
+		  } 
+}

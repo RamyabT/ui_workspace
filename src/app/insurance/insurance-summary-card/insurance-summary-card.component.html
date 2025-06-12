@@ -1,0 +1,49 @@
+<box *ngIf="device.isMobile(); else spaceContainer">
+  <box class="insurance-summary-wrapper insurance-home">
+    <box class="insurance-summary-card" [ngClass]="[insuranceItem.productType?.toLowerCase(), contextmenuBtn ? 'has-context-menu' : '']">
+      <box class="insurance-content">
+        <box class="policy-title">
+          {{ insuranceItem.productTypeDesc }} <span class="activeStatus" *ngIf="insuranceItem.status === 'Active'" title="Active"></span>
+          <span class="inactiveStatus" *ngIf="insuranceItem.status === 'InActive'" title="InActive">
+      </span></box>
+        <box class="policy-number">{{ insuranceItem.policyNumber }}</box>
+        <box class="policy-term">Premium Amount - {{insuranceItem.currency}} {{ insuranceItem.premiumAmount }}</box>
+        <box class="expiry-date">Expiry Date - {{ insuranceItem.closeDate | date: 'dd/MM/yyyy' }}</box>
+      </box>
+
+      <box class="quick-actions-toggle" *ngIf="context === 'container'">
+        <button (click)="onToggle()" class="insurance-arrow" [ngClass]="{ 'rotate-up': isToggled, 'rotate-down': !isToggled }"
+          aria-label="toggle quick actions"></button>
+      </box>
+      <box class="quick-actions-toggle" *ngIf="context === 'form'">
+        <span class="share-info" (click)=dataShare()>Share</span>
+      </box>
+      <box *ngIf="context === 'form'">
+      <button *ngIf="contextmenuBtn" type="button" class="contextual-menu-trigger" (click)="notifyContextMenuClick()"><span>contextual menu</span></button>
+    </box>
+    </box>
+    <box *ngIf="isToggled" class="insurance-summary-list-actions">
+      <app-insurance-quick-actions (onSelectCard)="onSelectCard()" [insuranceId]="insuranceItem.insuranceId" [insuranceStatus]="insuranceItem.status"></app-insurance-quick-actions>
+    </box>
+  </box>
+</box>
+
+<ng-template #spaceContainer>
+  <box class="insurance-summary-wrapper">
+    <box class="insurance-summary-card" [ngClass]="insuranceItem.productType?.toLowerCase()">
+      <box class="insurance-content">
+        <box class="policy-title">
+          {{ insuranceItem.productTypeDesc }} <span class="activeStatus" *ngIf="insuranceItem.status === 'Active'" title="Active"></span>
+          <span class="inactiveStatus" *ngIf="insuranceItem.status === 'InActive'" title="InActive"></span></box>
+        <box class="policy-number">{{ insuranceItem.policyNumber }}</box>
+        <box class="policy-term">Premium Amount - {{insuranceItem.currency}} {{ insuranceItem.premiumAmount }}</box>
+        <box class="expiry-date">Expiry Date - {{ insuranceItem.closeDate | date: 'dd/MM/yyyy' }}</box>
+      </box>
+      <box class="quick-actions-toggle">
+        <mat-radio-button class="default" color="primary"
+        [checked]="selectedProduct==insuranceItem.productType.toUpperCase()" (change)="selectProduct(insuranceItem)"
+        ></mat-radio-button>
+      </box>
+    </box>
+  </box>
+</ng-template>

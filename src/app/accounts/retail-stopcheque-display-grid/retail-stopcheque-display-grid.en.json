@@ -1,0 +1,27 @@
+"RetailStopchequeDisplayGrid":{
+"title":"View Stop Cheque",
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "reason": {
+		  "label":"Reason" ,
+		  "placeholder": "Reason"
+		  } ,
+		 "payeeName": {
+		  "label":"Payee Name" ,
+		  "placeholder": "Payee Name"
+		  } ,
+		 "chequeNumber": {
+		  "label":"Cheque number/ Cheque range" ,
+		  "placeholder": "Cheque number/ Cheque range"
+		  } ,
+		 "chequeAmount": {
+		  "label":"Cheque Amount " ,
+		  "placeholder": "Cheque Amount "
+		  } ,
+		 "stopDate": {
+		  "label":"Requested Date" ,
+		  "placeholder": "Requested Date"
+		  } 
+}

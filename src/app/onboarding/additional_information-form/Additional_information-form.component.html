@@ -1,0 +1,85 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="AdditionalInformation">
+
+	<box class="entry-form">
+
+		<fpx-label class="Header" label="Residence in UAE Since"></fpx-label>
+		<box class="col-sm-12 col-md-6 col-lg-6 grid">
+			<app-month-residence-controls class="col-sm-6 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('monthResidence')"
+				label="{{'AdditionalInformation.monthResidence.label' | translate }}"
+				placeholder="{{'AdditionalInformation.monthResidence.placeholder' | translate }}"
+				formControlName="monthResidence"></app-month-residence-controls>
+
+
+			<app-year-residence-controls class="col-sm-6 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('yearResidence')"
+				label="{{'AdditionalInformation.yearResidence.label' | translate }}"
+				placeholder="{{'AdditionalInformation.yearResidence.placeholder' | translate }}"
+				formControlName="yearResidence"></app-year-residence-controls>
+		</box>
+
+		<app-country-info-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('countryinfo')"
+			label="{{'AdditionalInformation.countryinfo.label' | translate }}" formControlName="countryinfo">
+		</app-country-info-control>
+
+		<fpx-label class="Header" label="Accounts with Other Banks (In or Outside UAE)"></fpx-label>
+
+		<app-country-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('country')"
+			label="{{'AdditionalInformation.country.label' | translate }}"
+			formControlName="country"></app-country-list-control>
+
+		<app-bank-name-control class="col-md-4" [actionPublisher]="actionMap$.get('bankName')"
+			label="{{'AdditionalInformation.bankName.label' | translate }}"
+			formControlName="bankName"></app-bank-name-control>
+
+
+		<app-account-number-info-control class="col-md-4" [actionPublisher]="actionMap$.get('accountNumber')"
+			label="{{'AdditionalInformation.accountNumber.label' | translate }}"
+			formControlName="accountNumber"></app-account-number-info-control>
+
+		<fpx-label class="Header" label="Expected Customer Activity (in AED)"></fpx-label>
+
+
+
+		<app-pref-Annual-income-component class="col-md-4" [actionPublisher]="actionMap$.get('otherIncome')"
+			label="{{'AdditionalInformation.otherIncome.label' | translate }}"
+			formControlName="otherIncome"></app-pref-Annual-income-component>
+
+
+		<app-pref-Annual-income-component class="col-md-4" [actionPublisher]="actionMap$.get('cashDeposit')"
+			label="{{'AdditionalInformation.cashDeposit.label' | translate }}"
+			formControlName="cashDeposit"></app-pref-Annual-income-component>
+
+
+		<app-pref-Annual-income-component class="col-md-4" [actionPublisher]="actionMap$.get('localForeignInward')"
+			label="{{'AdditionalInformation.localForeignInward.label' | translate }}"
+			formControlName="localForeignInward"></app-pref-Annual-income-component>
+
+
+
+		<app-pref-Annual-income-component class="col-md-4" [actionPublisher]="actionMap$.get('outwardClearing')"
+			label="{{'AdditionalInformation.outwardClearing.label' | translate }}"
+			formControlName="outwardClearing"></app-pref-Annual-income-component>
+
+
+		<app-pref-Annual-income-component class="col-md-4" [actionPublisher]="actionMap$.get('avgCashWithdraw')"
+			label="{{'AdditionalInformation.avgCashWithdraw.label' | translate }}"
+			formControlName="avgCashWithdraw"></app-pref-Annual-income-component>
+
+
+		<app-pref-Annual-income-component class="col-md-4" [actionPublisher]="actionMap$.get('localForeignOutward')"
+			label="{{'AdditionalInformation.localForeignOutward.label' | translate }}"
+			formControlName="localForeignOutward"></app-pref-Annual-income-component>
+
+
+		<app-pref-Annual-income-component class="col-md-4" [actionPublisher]="actionMap$.get('InwardClearing')"
+			label="{{'AdditionalInformation.InwardClearing.label' | translate }}"
+			formControlName="InwardClearing"></app-pref-Annual-income-component>
+
+
+
+
+
+
+	</box>
+</form>

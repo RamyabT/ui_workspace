@@ -1,0 +1,43 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailIndIndividualsDDReqForm" >
+	  
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-lg-12">
+	      
+			  <app-name-control  class="col-md-12 col-lg-6 col-sm-12"   [actionPublisher]="actionMap$.get('firstName')"     label="{{'RetailIndIndividualsDDReqForm.firstName.label' | translate }}"   formControlName="firstName" 
+     ></app-name-control>
+	     
+	      
+			  <app-name-control  class="col-md-12 col-lg-6 col-sm-12"   [actionPublisher]="actionMap$.get('lastName')"     label="{{'RetailIndIndividualsDDReqForm.lastName.label' | translate }}"   formControlName="lastName" 
+     ></app-name-control>
+	     
+	      
+			  <app-date-of-birth-control  class="col-md-12 col-lg-6 col-sm-12"   [actionPublisher]="actionMap$.get('dob')"     label="{{'RetailIndIndividualsDDReqForm.dob.label' | translate }}"   formControlName="dob" 
+   [minDate]="state.dob.minDate"   [maxDate]="state.dob.maxDate"  ></app-date-of-birth-control>
+	     
+	      
+			  <app-app-sin-control  class="col-md-12 col-lg-6 col-sm-12"   [actionPublisher]="actionMap$.get('socialInsuranceNum')"     label="{{'RetailIndIndividualsDDReqForm.socialInsuranceNum.label' | translate }}"   formControlName="socialInsuranceNum" 
+   ></app-app-sin-control>
+	     
+   <app-account-number-list-control  class="col-md-12 col-lg-6 col-sm-12"   [actionPublisher]="actionMap$.get('accountNumber')"     label="{{'RetailIndIndividualsDDReqForm.accountNumber.label' | translate }}"   formControlName="accountNumber" 
+   ></app-account-number-list-control>
+
+			 
+
+   <box class="info-field">
+	<fpx-display-text class="info-field-label" [innerHTML]="'RetailIndIndividualsDDReqForm.text' | translate"
+		[literals]="commonFormInput"></fpx-display-text>
+		</box>
+
+<!-- 	      
+			  <app-terms-control  class="col-md-12 col-lg-6 col-sm-12"   [actionPublisher]="actionMap$.get('terms')"     label="{{'RetailIndIndividualsDDReqForm.terms.label' | translate }}"   formControlName="terms" 
+   [textPosition]="state.terms.textPosition"  [ckValues]="state.terms.ckValues" ></app-terms-control> -->
+	</box> 
+	
+	<box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-6 grid main-group disclaimer-box">
+		<app-terms-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('terms')"
+			label="{{ 'RetailIndIndividualsDDReqForm.terms.label' | translate }}" formControlName="terms"
+			[textPosition]="state.terms.textPosition" [ckValues]="state.terms.ckValues"></app-terms-control>
+	</box>
+	</box>
+</form>
+	

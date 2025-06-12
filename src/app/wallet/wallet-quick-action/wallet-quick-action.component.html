@@ -1,0 +1,24 @@
+<box class="widget quick-actions-inner context-menu-wrapper">
+    <header>
+        <!-- <span class="widget-title">Quick Actions</span> -->
+        <span class="widget-title">{{ 'WIDGIT_TITLES.casaQuickActionsLbl' | translate }}</span>
+    </header>
+    <box class="widget-body actions-body context-menu-body">
+        <ng-container *ngIf="quickLinks">
+            <ul class="actions-list grid transfers-quick-links" [ngClass]="{ 'show-more' : doShowMoreQuickActions }">
+                <ng-container *ngFor="let menu of quickLinks">
+                    <li [class]="'ql-' + menu.serviceCode" [ngClass]="{'active': _activeMenu == menu.serviceCode}" (click)="openContextMenu(menu)">
+                        <span class="icon-wrapper"></span>
+                        <span class="text" [innerHTML]="menu.name"></span>
+                    </li>
+                </ng-container>
+            </ul>
+        </ng-container>
+
+        <ng-container *ngIf="!_device.isMobile() && quickLinks && quickLinks.length > 5">
+            <button type="button" class="expander" (click)="toggleMoreQuickActions()"><span>show more</span></button>
+        </ng-container>
+    </box>
+</box>
+
+<box class="quick-action-menu-overlay" *ngIf="doShowMoreQuickActions" (click)="hideMoreQuickActions($event)"></box>

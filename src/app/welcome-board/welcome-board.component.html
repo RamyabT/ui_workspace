@@ -1,0 +1,147 @@
+ <box class="prelogin-container" >
+     <header>
+         <box class="logo-container" > </box>
+         <box class="header-title" *ngIf="!_device.isMobile();">
+            <span class="lbl1">{{'WELCOMEBOARDCONTAINER.title' | translate}} </span>
+            <span class="lbl2">{{'WELCOMEBOARDCONTAINER.titleSub' | translate}}</span>
+         </box>
+         <box class="tools">
+             <button type="button" class="icon lang"></button>
+             <button type="button" class="icon theme" [ngClass]="{'darktheme' : darkTheme }" (click)="themeChange()"></button>
+         </box>
+         
+     </header>
+
+     <ng-container *ngIf="_device.isMobile(); else animatelargescreen ">
+     <div class="marquee-container" #marqueeContainer *ngIf="!darkTheme">
+        <div class="marquee" #marqueeElement>
+          <img class="animate-image" src="./assets/welcomeboard/prelogin_animate_lg.svg" alt="animate image" />
+          <!-- <img class="animate-image" src="./assets/welcomeboard/prelogin_animate.svg" alt="animate image" /> -->
+         </div>
+      </div>
+
+
+      <div class="marquee-container" #marqueeContainer  *ngIf="darkTheme">
+        <div class="marquee" #marqueeElement>
+          <img class="animate-image" src="./assets//themes/dark/images/prelogin_animate_dark.svg" alt="animate image" />
+          <img class="animate-image" src="./assets//themes/dark/images/prelogin_animate_dark.svg" alt="animate image" />
+        </div>
+      </div>
+      </ng-container>
+      <ng-template #animatelargescreen>
+          <div class="marquee-container" #marqueeContainer *ngIf="!darkTheme">
+        <div class="marquee" #marqueeElement>
+          <img class="animate-image-lgscreen" src="./assets/welcomeboard/prelogin_animate_desktop_lg.svg" alt="animate image" />
+          </div>
+      </div>
+
+      </ng-template>
+<!-- 
+/      <ng-container *ngIf="!_device.isMobile();">
+          <div class="marquee-container" #marqueeContainer  >
+        <div class="marquee" #marqueeElement>
+          <img class="animate-image" src="./assets/welcomeboard/prelogin_animate_desktop_lg.svg" alt="animate image" />
+          </div>
+      </div>
+
+      </ng-container> -->
+     <box class="menu-container"  *ngIf="_device.isMobile();">
+         <box class="title">
+             <span class="lbl1">{{'WELCOMEBOARDCONTAINER.title' | translate}} </span>
+            <span class="lbl2">{{'WELCOMEBOARDCONTAINER.titleSub' | translate}}</span>
+         </box>
+         <box class="app-nav-menu-container">
+             <ng-container *ngFor="let menu of appNavMenuList; index as i">
+
+                 <box id="appNavMenu{{i}}" class="app-nav-item-menu {{ menu.align }}" (click)="appnavClickHandler(menu)">
+                     <span class="nav-ico" [ngStyle]="{ 'mask-image': 'url(./assets/welcomeboard/' + menu.icon + ')' , '-webkit-mask-image': 'url(./assets/welcomeboard/' + menu.icon + ')'}"   >
+                         <!-- <img src="./assets/welcomeboard/{{menu.icon}}" [alt]="menu.name" /> -->
+                     </span>
+                     <span class="nav-menu-name">{{ 'WELCOMEBOARDCONTAINER.navigationTxt.' + menu.id | translate }}</span>
+                 </box>
+             </ng-container>
+         </box>
+         <box class="signup-btn">
+             <box class="login">
+                 <button (click)="userLogin()">
+                    <box class="icon">  </box>
+                    <box class="contentlbl">
+                        <span class="lblheader">
+                            {{'WELCOMEBOARDCONTAINER.userLoginlbl' | translate}}
+                        </span>
+                        <span>
+                            {{'WELCOMEBOARDCONTAINER.loginsubText' | translate}}
+                        </span>
+                    </box>
+                    
+                 </button>
+             </box>
+             <box class="registration">
+                <button (click)="newToBank()">
+                   <box class="icon">  </box>
+                   <box class="contentlbl">
+                       <span class="lblheader">
+                         {{'WELCOMEBOARDCONTAINER.navigationTxt.newToBank' | translate}}  </span>
+                   </box>
+                   
+                </button>
+            </box>
+         </box>
+     </box>
+
+     <!----------Login form------->
+<box class="login-form-container" *ngIf="!_device.isMobile();">
+
+    <app-test-login-form></app-test-login-form>
+</box>
+
+     <!------------------->
+
+     <!-------download button container-->
+    <box class="link-container" *ngIf="!_device.isMobile();">
+        <box class="dowload">
+            <span>
+                <img src="./assets/welcomeboard/apple-download.svg" alt="Apple app store">
+            </span>
+             <span>
+                <img src="./assets/welcomeboard/android-download.svg" alt="Google app store">
+            </span>
+        </box>
+        <box class="links">
+                <span>{{'WELCOMEBOARDCONTAINER.navigationTxt.newToBank' | translate}}</span> 
+                <span class="vertical-line"></span>
+                <span>{{'WELCOMEBOARDCONTAINER.selfreg' | translate}}</span>
+                <span class="vertical-line"></span>
+                <span>{{'WELCOMEBOARDCONTAINER.selfreg' | translate}}</span>
+        </box>
+    </box>
+     <!-------Footer------->
+     <footer *ngIf="!_device.isMobile();">
+        <box class="layer-one">
+                <box class="icons-list">
+                    <span class="icon fb"></span>
+                     <span class="icon linkedin"></span>
+                      <span class="icon insta"></span>
+                      <span class="icon twitter"></span>
+                      <span class="icon wechat"></span>
+                </box>
+                <box class="links">
+                        <span class="label">{{'WELCOMEBOARDCONTAINER.navigationTxt.offers' | translate}}</span>
+                        <span class="label">{{'WELCOMEBOARDCONTAINER.navigationTxt.contacts' | translate}}</span>
+                        <span class="label">{{'WELCOMEBOARDCONTAINER.navigationTxt.faq' | translate}}</span>
+                        <span class="label">{{'WELCOMEBOARDCONTAINER.navigationTxt.tips' | translate}}</span>
+                        <span class="label">{{'WELCOMEBOARDCONTAINER.navigationTxt.atmFinder' | translate}}</span>
+                        <span class="label">{{'WELCOMEBOARDCONTAINER.navigationTxt.branchFinder' | translate}}</span>
+                </box>
+        </box>
+         <box class="layer-two">
+            <box class="copyright">
+                    &#169; {{'WELCOMEBOARDCONTAINER.copyright' | translate}} 
+            </box>
+            <box class="footer-brand-logo">
+                <span>{{'WELCOMEBOARDCONTAINER.powered' | translate}} </span>
+                <span><img src="./assets/welcomeboard/igcb-logo.svg" alt="Igcb"></span>
+            </box>
+        </box>
+     </footer>
+ </box>

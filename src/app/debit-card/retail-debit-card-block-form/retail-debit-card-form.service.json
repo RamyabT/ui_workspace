@@ -1,0 +1,5 @@
+ 
+ "RETAILDCBLOCK" : {
+ "servicePath": ["entry-shell","debitcard", "retail-debit-card-block-form"],
+ "queryParams": {}
+ }

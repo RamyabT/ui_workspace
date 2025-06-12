@@ -1,0 +1,513 @@
+// .prelogin-container {
+//     background: var(--preloginBgClr);
+//     background: linear-gradient(180deg, rgba(247, 247, 247, 1)48%, rgba(177, 207, 214, 1) 55%, rgba(1, 107, 131, 1) 100%);
+//     width: 100%;
+//     min-height: 100vh;
+
+//     //Header Start
+//     header {
+//         padding: 40px 24px 20px;
+//         display: flex;
+//         flex-direction: row;
+//         justify-content: space-between;
+
+//         .logo-container {
+//             width: 156px;
+//             height: 40px;
+//         }
+
+//         .tools {
+//             display: flex;
+//             flex-direction: row;
+//             gap: 20px;
+
+//             .icon {
+//                 width: 32px;
+//                 height: 32px;
+//                 border-radius: var(--quicklinksIcoBdrRadius);
+//                 background-color: var(--quicklinksIcoBg);
+//                 border: var(--quicklinksIcoBdr);
+//                 display: flex;
+//                 align-items: center;
+//                 justify-content: center;
+
+//                 &.theme::before {
+//                     content: " ";
+//                     width: 20px;
+//                     height: 20px;
+//                     background-color: var(--tertiary500);
+//                     mask-repeat: no-repeat;
+//                     -webkit-mask-repeat: no-repeat;
+//                     mask-position: center;
+//                     -webkit-mask-position: center;
+//                     mask-size: 20px;
+//                     -webkit-mask-size: 20px;
+//                     mask-image: url('../../assets/welcomeboard/theme-icon.svg');
+//                     -webkit-mask-image: url('../../assets/welcomeboard/theme-icon.svg');
+//                 }
+
+//                 &.theme.dark-theme::before {
+//                     mask-image: url('../../assets/welcomeboard/darktheme-icon.svg');
+//                     -webkit-mask-image: url('../../assets/welcomeboard/darktheme-icon.svg');
+//                 }
+//             }
+//         }
+//     }
+
+//     //Header End  
+
+//     .box {
+//         margin: 0;
+//     }
+
+//     .menu-container {
+//         padding: 26px 20px;
+//         background: url('../../assets/welcomeboard/login-bottom-bg.svg');
+//         background-position: center center;
+//     }
+
+//     .menu-container .header-title {
+//         display: flex;
+//         flex-direction: column;
+//         color: var(--secondary500);
+//         @include h3-medium;
+
+//         strong {
+//             @include h1-bold;
+//         }
+//     }
+
+//     .app-nav-menu-container {
+//         display: flex;
+//         gap: 12px;
+//         padding: 22px 20px 56px 20px;
+//         overflow-x: scroll;
+//         margin: 0 -20px;
+
+//         .app-nav-item-menu {
+//             width: 72px;
+//             height: 72px;
+//             flex-shrink: 0;
+//             background: var(--neutral50);
+//             display: flex;
+//             flex-direction: column;
+//             border-radius: 12px;
+//             align-items: center;
+//             @include b4-regular;
+//             padding: 6px;
+//             line-height: 14px;
+//             color: var(--navmenuTextClr);
+//             text-align: center;
+
+//             span.nav-ico {
+//                 width: 28px;
+//                 height: 28px;
+//                 background: var(--tertiary500);
+//                 mask-repeat: no-repeat;
+//             }
+
+//         }
+//     }
+
+
+//     .signup-btn {
+//         display: flex;
+//         flex-direction: column;
+//         gap: 12px;
+
+//         .login button {
+//             width: 100%;
+//             background: var(--neutral50);
+//             padding: 0px 16px;
+//             border-radius: 12px;
+//             display: flex;
+//             flex-direction: row;
+//             gap: 10px;
+//             height: 53px;
+//             align-items: center;
+
+//             .icon {
+//                 width: 24px;
+//                 mask-image: url('../../assets/welcomeboard/login.svg');
+//                 -webkit-mask-image: url('../../assets/welcomeboard/login.svg');
+//                 mask-repeat: no-repeat;
+//                 mask-position: 0px 2px;
+//                 background: var(--neutral900);
+//                 height: 25px;
+//             }
+
+//             .contentlbl {
+//                 display: flex;
+//                 flex-direction: column;
+//                 align-items: flex-start;
+//                 gap: 2px;
+//                 @include b4-regular;
+//                 line-height: 14px;
+
+//                 .lblheader {
+//                     @include b2-regular;
+//                     color: var(--neutral900);
+//                     line-height: 18px;
+//                 }
+//             }
+//         }
+
+//         .registration button {
+//             width: 100%;
+//             padding: 0px 16px;
+//             border-radius: 12px;
+//             display: flex;
+//             flex-direction: row;
+//             gap: 10px;
+//             align-items: center;
+//             border: 1px solid var(--neutral50);
+//             height: 53px;
+
+//             .lblheader {
+//                 @include b2-regular;
+//                 color: var(--neutral50);
+//             }
+
+//             .icon {
+//                 width: 24px;
+//                 height: 25px;
+//                 mask-image: url('../../assets/welcomeboard/new-to-bank.svg');
+//                 -webkit-mask-image: url('../../assets/welcomeboard/new-to-bank.svg');
+//                 mask-repeat: no-repeat;
+//                 background: var(--neutral50);
+//             }
+//         }
+//     }
+
+//     /*********************/
+
+//     .animation-container {
+//         direction: ltr;
+//         .marquee-container {
+//             background: url('../../assets/welcomeboard/prelogin_bg.svg') repeat 0 -10px transparent;
+//             display: block;
+//             white-space: nowrap;
+
+//             .banner {
+//                 width: 2075px;
+//                 height: 359px;
+//                 display: inline-block;
+//                 background: url("../../assets/images/welcome/welcome-banner.png") no-repeat 0 0;
+
+//                 span {
+//                     display: none;
+//                 }
+
+//                 @include small-screen{
+//                     height: 340px;
+//                 }
+//             }
+
+//             @include small-screen{
+//                 background-position: 0 40px;
+//             }
+//         }
+//     }
+
+//     .login-form-container{
+//         display: flex;
+//         flex-direction: column;
+//         gap:20px;
+//     }
+
+//     .marquee {
+//         white-space: nowrap;
+//     }
+
+//     .animate-image {
+//         height: auto;
+//     }
+
+//     .app-nav-menu-container::-webkit-scrollbar {
+//         display: none;
+//     }
+
+//     .animate-image-lgscreen {
+//         width: 2094px;
+//         height: auto;
+//         margin-right: 0px;
+//     }
+
+//     @include large-screen {
+//         background: var(--neutral50);
+//         display: flex;
+//         flex-direction: column;
+
+//         .header-title {
+//             display: flex;
+//             flex-direction: row;
+//             align-items: baseline;
+//             gap: 4px;
+//             justify-content: center;
+//             padding-bottom: 30px;
+//             @include h3-medium;
+
+//             strong {
+//                 @include h1-bold;
+//                 display: inline-block;
+//             }
+//         }
+
+//         header {
+//             padding: 16px 48px 34px !important;
+//             flex-grow: 0;
+//         }
+
+//         .animation-container {
+//             position: absolute;
+//             left: 0;
+//         }
+
+//         .body-container {
+//             flex: 1;
+//             position: relative;
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//         }
+
+//         footer {
+//             display: flex;
+//             flex-direction: column;
+//             background: var(--primary500);
+//             flex-shrink: 0;
+
+//             .layer-one {
+//                 display: flex;
+//                 flex-direction: row;
+//                 justify-content: space-between;
+//                 padding: 24px 48px;
+//                 border-bottom: 1px solid var(--neutral50);
+//             }
+
+//             .icons-list {
+//                 display: flex;
+//                 flex-direction: row;
+//                 gap: 28px;
+
+//                 .icon {
+//                     width: 24px;
+//                     height: 24px;
+//                     background: var(--neutral50);
+
+//                     &.fb {
+//                         mask-image: url('../../assets/welcomeboard/Facebook.svg');
+//                         -webkit-mask-image: url('../../assets/welcomeboard/Facebook.svg');
+//                         mask-repeat: no-repeat;
+//                     }
+
+//                     &.linkedin {
+//                         mask-image: url('../../assets/welcomeboard/LinkedIn.svg');
+//                         -webkit-mask-image: url('../../assets/welcomeboard/LinkedIn.svg');
+//                         mask-repeat: no-repeat;
+//                     }
+
+//                     &.insta {
+//                         mask-image: url('../../assets/welcomeboard/instagram.svg');
+//                         -webkit-mask-image: url('../../assets/welcomeboard/instagram.svg');
+//                         mask-repeat: no-repeat;
+//                     }
+
+//                     &.twitter {
+//                         mask-image: url('../../assets/welcomeboard/x-logo.svg');
+//                         -webkit-mask-image: url('../../assets/welcomeboard/x-logo.svg');
+//                         mask-repeat: no-repeat;
+//                     }
+
+//                     &.wechat {
+//                         mask-image: url('../../assets/welcomeboard/WeChat.svg');
+//                         -webkit-mask-image: url('../../assets/welcomeboard/WeChat.svg');
+//                         mask-repeat: no-repeat;
+//                     }
+//                 }
+
+//             }
+
+//             .links {
+//                 display: flex;
+//                 flex-direction: row;
+//                 gap: 40px;
+//                 align-content: center;
+
+//                 .label {
+//                     color: var(--neutral50);
+//                     @include b2-regular
+//                 }
+//             }
+
+//             .layer-two {
+//                 display: flex;
+//                 flex-direction: row;
+//                 justify-content: space-between;
+//                 padding: 20px 48px;
+//                 color: var(--neutral50);
+//                 align-items: center;
+
+//                 .copyright {
+//                     @include b2-regular
+//                 }
+
+//                 .footer-brand-logo {
+//                     display: flex;
+//                     flex-direction: row;
+//                     align-items: center;
+//                     @include b4-regular;
+//                     gap: 10px
+//                 }
+//             }
+//         }
+
+//         .link-container {
+//             .dowload {
+//                 display: flex;
+//                 flex-direction: row;
+//                 gap: 8px;
+//                 position: absolute;
+//                 left: 48px;
+//             }
+
+//             .links {
+//                 margin: 0 auto;
+//                 display: flex;
+//                 justify-content: center;
+//                 gap: 20px;
+//             }
+
+//             .vertical-line {
+//                 width: 1px;
+//                 background: var(--shareIcoBgClr);
+//             }
+//         }
+
+//         .login-form-container .shell-container {
+//             width: 420px;
+//             margin: 0 auto;
+//             padding: 24px 34px 30px;
+//             box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.0901960784);
+//             border-radius: 20px;
+//             background: var(--neutral50);
+
+//             .field-item {
+//                 display: flex;
+//                 flex-direction: column;
+//                 gap: 4px;
+
+//                 .recover-link {
+//                     text-align: right;
+//                 }
+//             }
+
+//             .shell-header {
+//                 display: none;
+//             }
+
+//             .shell-body {
+//                 padding: 0
+//             }
+//         }
+
+//         .footer-brand-logo .logo {
+//             width: 163px;
+//             height: 35px;
+//             background: url('../../assets/welcomeboard/igcb-logo.svg');
+//             background-repeat: no-repeat;
+//         }
+//     }
+// }
+
+// app-login .login-layout .prelogin-container header {
+//     padding: 40px 24px 20px;
+// }
+
+// .field-item .register-now {
+//     display: none;
+// }
+
+// .lang-select.mat-select {
+//     width: 32px;
+//     height: 32px;
+
+//     .mat-select-value {
+//         padding: 10px 15px;
+//         margin: -20px;
+//     }
+
+//     .mat-select-arrow-wrapper {
+//         display: none;
+//     }
+// }
+
+// @include large-screen {
+//     app-login .login-layout .form-footer-actions {
+//         justify-content: flex-end;
+//     }
+// }
+
+
+// @include small-screen {
+
+//     .login-form-container {
+//         padding: 16px;
+//         border-radius: 50%;
+
+//         .shell-container {
+//             background-color: var(--neutral50);
+//             width: calc(100vw - 40px);
+//             overflow: hidden;
+//             min-height: unset;
+//             padding: 0px 20px;
+//             padding-inline-end: 10px;
+//             padding-inline-start: 10px;
+//             z-index: 1;
+//             border-radius: 20px;
+//             position: absolute !important;
+//             top: 50%;
+//             left: 50%;
+//             transform: translate(-50%, -50%);
+
+//             .shell-header {
+//                 display: none;
+//             }
+
+//             form {
+//                 padding-bottom: 0 !important;
+//             }
+
+//             .field-item {
+//                 display: flex;
+//                 flex-direction: column;
+//                 gap: 4px;
+
+//                 .recover-link {
+//                     text-align: right;
+//                 }
+//             }
+//         }
+
+//     }
+
+//     .link-container {
+//         padding: 220px 24px 0px;
+
+//         .links {
+//             margin: 0 auto;
+//             display: flex;
+//             justify-content: space-around;
+
+//             >button {
+//                 color: var(--neutral50);
+//             }
+//         }
+
+//         .vertical-line {
+//             width: 1px;
+//             background: var(--neutral50);
+//         }
+//     }
+
+// }

@@ -1,0 +1,41 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="PfmBudgetModifyForm" >
+	  
+	<box class="entry-form">
+	     <box class="grid entry-form-field-group">
+	      
+			  <app-pfm-category-list-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('categoryCode')"     label="{{'PfmBudgetModifyForm.categoryCode.label' | translate }}"   formControlName="categoryCode" 
+     ></app-pfm-category-list-control>
+	     
+	      
+			  <!-- <app-pfm-sub-category-list-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('pfmSubCategory')"     label="{{'PfmBudgetModifyForm.pfmSubCategory.label' | translate }}"   formControlName="pfmSubCategory"
+     ></app-pfm-sub-category-list-control> -->
+
+	  <app-pfm-sub-category-list-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('pfmSubCategory')"     label="{{'PfmTransactionModifyForm.pfmSubCategory.label' | translate }}"   formControlName="pfmSubCategory" 
+                   [changePublisher]="formChangePublisher$"        
+              [dependencyField]="['categoryCode']"></app-pfm-sub-category-list-control>
+	 
+	     
+	      
+			  <app-currency-list-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('currencyCode')"     label="{{'PfmBudgetModifyForm.currencyCode.label' | translate }}"   formControlName="currencyCode" 
+     ></app-currency-list-control>
+	     
+	 <app-amount-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('budgetAmount')"     label="{{'PfmBudgetModifyForm.budgetAmount.label' | translate }}"   formControlName="budgetAmount" 
+	 [CurrencyList]="state.budgetAmount.CurrencyList" [isCurrEditable]="state.budgetAmount.isCurrEditable"  [defaultFetch]="state.budgetAmount.defaultFetch" [initCurrency]="state.budgetAmount.initCurrency" [amountInWords]="state.budgetAmount.amountInWords">  ></app-amount-control>
+			  <!-- <app-amount-currency-control  class="col-md-4  "   [actionPublisher]="actionMap$.get('amount')"     label="{{'PfmBudgetModifyForm.amount.label' | translate }}"   formControlName="amount" 
+   [CurrencyList]="state.amount.CurrencyList" [isCurrEditable]="state.amount.isCurrEditable"  [defaultFetch]="state.amount.defaultFetch" [initCurrency]="state.amount.initCurrency" [amountInWords]="state.amount.amountInWords">  ></app-amount-currency-control> -->
+	     
+	      
+			  <app-request-date-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('startDate')"     label="{{'PfmBudgetModifyForm.startDate.label' | translate }}"   formControlName="startDate" 
+   [minDate]="state.startDate.minDate"   [maxDate]="state.startDate.maxDate"  ></app-request-date-control>
+	     
+	      
+			  <app-request-date-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('endDate')"     label="{{'PfmBudgetModifyForm.endDate.label' | translate }}"   formControlName="endDate" 
+   [minDate]="state.endDate.minDate"   [maxDate]="state.endDate.maxDate"  ></app-request-date-control>
+	     
+	      
+			  <app-frequency-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('frequency')"     label="{{'PfmBudgetModifyForm.frequency.label' | translate }}"   formControlName="frequency" 
+     ></app-frequency-control>
+		</box> 
+	</box>
+</form>
+	

@@ -1,0 +1,5 @@
+ 
+ "RETAILFXRATES" : {
+ "servicePath": ["display-shell","settings", "retail-fx-rates-ro-grid"],
+ "queryParams": {}
+ }

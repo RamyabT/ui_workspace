@@ -1,0 +1,79 @@
+<form
+  [formGroup]="formGroup"
+  (ngSubmit)="submit()"
+  autocomplete="off"
+  formName="retailpcunblock"
+>
+  <box class="entry-form">
+    <ng-container *ngIf="state.cardData">
+      <prepaidcard
+        class="col-12"
+        [cardData]="state.cardData"
+        [formView]="true"
+      ></prepaidcard>
+    </ng-container>
+    <box class="grid entry-form-field-group">
+      <!-- <app-blockPrepaidCardList  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('cardReference')"     label="{{'retailpcunblock.cardReference.label' | translate }}"   formControlName="cardReference" 
+     ></app-blockPrepaidCardList> -->
+
+      <!-- 	      
+			  <app-pcUnblockReason  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('reason')"     label="{{'retailpcunblock.reason.label' | translate }}"   formControlName="reason" 
+     ></app-pcUnblockReason> -->
+
+      <!-- 	      
+			  <app-payment-amount-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('charges')"     label="{{'retailpcunblock.charges.label' | translate }}"   formControlName="charges" 
+   ></app-payment-amount-control> -->
+
+      <app-debit-card-block-reason-list
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('blockReason')"
+        label="{{ 'retailpcunblock.blockReason.label' | translate }}"
+        formControlName="blockReason"
+      ></app-debit-card-block-reason-list>
+
+      <app-remarks-control
+      class="col-sm-12 col-md-6 col-lg-6"
+      [actionPublisher]="actionMap$.get('otherReason')"
+      label="{{ 'retailpcunblock.otherReason.label' | translate }}"
+      formControlName="otherReason"
+    ></app-remarks-control>
+
+      <app-cc-unblock-reason-list-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('reason')"
+        label="{{ 'retailpcunblock.reason.label' | translate }}"
+        formControlName="reason"
+        [changePublisher]="formChangePublisher$"
+        [dependencyField]="['blockReason']"
+      >
+      </app-cc-unblock-reason-list-control>
+
+      <app-remarks-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('unblkOtherReason')"
+        label="{{ 'retailpcunblock.unblkOtherReason.label' | translate }}"
+        formControlName="unblkOtherReason"
+      ></app-remarks-control>
+
+      <app-remarks-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('remarks')"
+        label="{{ 'retailpcunblock.remarks.label' | translate }}"
+        formControlName="remarks"
+      ></app-remarks-control>
+      <box
+        id="group_disclaimer-box"
+        class="col-sm-12 col-md-6 col-lg-6 grid main-group disclaimer-box"
+      >
+        <app-terms-control
+          class="col-sm-12 col-md-6 col-lg-6"
+          [actionPublisher]="actionMap$.get('termsFlag')"
+          label="{{ 'retailpcunblock.termsFlag.label' | translate }}"
+          formControlName="termsFlag"
+          [textPosition]="state.termsFlag.textPosition"
+          [ckValues]="state.termsFlag.ckValues"
+        ></app-terms-control>
+      </box>
+    </box>
+  </box>
+</form>

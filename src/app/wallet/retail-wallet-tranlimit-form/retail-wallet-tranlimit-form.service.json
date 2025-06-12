@@ -1,0 +1,5 @@
+ 
+ "RETAILWALLETLIMIT" : {
+ "servicePath": ["entry-shell","wallet", "retail-wallet-tranlimit-form"],
+ "queryParams": {}
+ }

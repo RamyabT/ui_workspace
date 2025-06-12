@@ -1,0 +1,11 @@
+"RetailSavingsAccountRoGrid":{
+"title":"Savings Accounts",
+		 "accountType": {
+		  "label":"AccountType" ,
+		  "placeholder": "AccountType"
+		  } ,
+		 "iban": {
+		  "label":"IBAN" ,
+		  "placeholder": "IBAN"
+		  } 
+}

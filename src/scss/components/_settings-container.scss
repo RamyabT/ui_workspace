@@ -1,0 +1,570 @@
+#depAppBody {
+  app-retail-my-profile-form {
+    .my-profile {
+      // flex-direction: column;
+      // align-content: center;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      @include small-screen {
+      min-height: 76vh;
+      }
+
+      .profile-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .profile-picture {
+        position: relative;
+
+        .image-wrapper {
+          border: 2px;
+          background: linear-gradient(135deg, #85fff7 0%, #016b83 100%);
+          border-radius: 50%;
+          display: flex;
+
+          .profile-photo {
+            width: 152px;
+            height: 152px;
+            padding: 2px;
+            border-radius: 50%;
+          }
+        }
+
+        .edit-photo {
+          position: absolute;
+          top: 75%;
+          right: 5px;
+          background: #f4f4f4;
+          padding: 8px;
+          border-radius: 50%;
+          border: 1px solid;
+        }
+      }
+
+      .profile-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+
+        .profile-name {
+          @include s4-medium;
+        }
+
+        .login-details {
+          @include b2-regular;
+          color: var(--bodyTxtVariantClr);
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      .module-tab-container {
+        mat-tab-group {
+          gap: 16px;
+          mat-tab-header {
+            .mat-tab-label-container .mat-tab-list {
+              flex-grow: 1 !important;
+              @include not-small-screen {
+                width: unset !important;
+                flex-grow: 0 !important;
+                .mat-tab-labels{
+                  display: block;
+                }
+              }
+              .mat-tab-labels {
+                .mat-tab-label {
+                  flex: 1;
+                  height: 33px;
+                  @include not-small-screen {
+                    width: 168px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .profil-doc-container {
+          .empty-doc-container {
+            margin-bottom: 20px;
+            margin-top: 10px;
+            text-align: center;
+            .empty-doc {
+              margin-bottom: 16px;
+            }
+            .empty-doc-text {
+              @include s3-medium;
+              font-size: 16px;
+              color: var(--bodyTxtClr);
+            }
+          }
+          .doc-upload-container {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 20px;
+            .upload-label {
+              @include s4-medium;
+              font-size: 14px;
+              color: var(--bodyTxtClr);
+            }
+            .doc-upload-btn {
+              cursor: pointer;
+              border: 1px dotted var(--neutral500);
+              padding: 12px 24px 12px 24px;
+              border-radius: 16px;
+              display: flex;
+              justify-content: center;
+              gap: 14px;
+
+              .upload-icon {
+                &::before {
+                  content: "";
+                  display: inline-block;
+                  width: 24px;
+                  height: 24px;
+                  background-color: var(--secondary500);
+                  mask: url(../../assets/images/upload-file.svg) no-repeat
+                    center;
+                  -webkit-mask: url(../../assets/images/upload-file.svg)
+                    no-repeat center;
+                  mask-size: 26px;
+                  -webkit-mask-size: 26px;
+                }
+              }
+              .upload-txt {
+                @include s4-medium;
+                font-size: 14px;
+                color: var(--secondary500);
+              }
+            }
+          }
+        }
+      }
+    }
+    .footer-btn {
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 20px;
+    }
+  }
+
+  app-retail-profile-doc-upload-form,app-scan-wallet-qr {
+    .title {
+      @include s3-medium;
+      color: var(--baseTxtClr);
+      padding: 20px 16px 40px 16px;
+    }
+
+    .btn-container {
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      fpx-button{
+        .tool-bar{
+          padding: 0;
+        }
+        button {
+          width: 128px;
+          height: 140px;
+  
+        }
+      }
+      .upload-doc-button {
+        cursor: pointer;
+        padding: 12px;
+        width: 128px;
+        height: 140px;
+
+        color: var(--baseTxtClr);
+        @include s2-medium;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid var(--neutral300);
+        border-radius: 24px;
+        label {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .button-txt {
+            text-align: center;
+          }
+        }
+        app-profile-doc-upload-control,app-Image-upload-control {
+          position: absolute;
+          opacity: 0;
+          z-index: 2;
+          .fpx-field-content {
+            border: none;
+            svg {
+              display: none;
+            }
+            .fpx-description-container {
+              .fpx-description {
+                display: flex;
+                flex-direction: column-reverse;
+                .fpx-file-browse {
+                  height: 72px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  app-retail-profile-pic-upload-form {
+    .title {
+      @include s3-medium;
+      color: var(--baseTxtClr);
+      padding: 24px 16px;
+    }
+
+    .btn-container {
+      // padding: 0 40px;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      fpx-button{
+        .tool-bar{
+          padding: 0;
+        }
+        button {
+          width: 128px;
+          height: 140px;
+  
+        }
+      }
+    
+      .upload-doc-button {
+        cursor: pointer;
+        padding: 12px;
+        width: 128px;
+        height: 140px;
+
+        color: var(--baseTxtClr);
+        @include s2-medium;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid var(--neutral300);
+        border-radius: 24px;
+      }
+    }
+  }
+
+  app-retail-profile-pic-preview-form {
+    .picture-preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+
+      .profile-photo {
+        width: 240px;
+        height: 240px;
+        border-radius: 50%;
+      }
+
+      .btn-container {
+        flex-direction: column;
+      }
+    }
+  }
+
+  app-retail-manage-alerts-form {
+    .entry-form {
+      display: block !important;
+      width: 100%;
+    }
+  }
+
+  app-retail-fx-rates-form {
+    .entry-form {
+      display: block !important;
+      width: 100%;
+
+      .entry-form-field-group {
+        width: 100%;
+        display: block !important;
+        padding: 20px 0px 20px 20px;
+      }
+    }
+  }
+
+  app-retail-manage-authenticated-device-form {
+    .entry-form {
+      display: block !important;
+      width: 100%;
+      .no-result-view {
+        padding: 80px 16px 42px;
+      }
+    }
+  }
+
+  app-retail-change-password-form {
+    .entry-form {
+      .passowrd-group {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .password-entry {
+          gap: 20px;
+          display: flex;
+          flex-direction: column;
+        }
+        .profile-rule {
+          @include b3-medium;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          .rule {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+
+            &.rule:before {
+              content: " ";
+              width: 16px;
+              min-width: 16px;
+              height: 16px;
+              display: block;
+              //   background: url(../../assets/images/icons/white-tick-mark.svg) no-repeat center;
+              //   mask: url(../../assets/images/icons/tick.svg) no-repeat center;
+              //   -webkit-mask: url(../../assets/images/icons/tick.svg) no-repeat center;
+              //   background: url(../../assets/images/icons/tick.svg) no-repeat center transparent;
+              // mask-size: 24px;
+              // -webkit-mask-size: 24px;
+              //   background-color: #adadad;
+              border-radius: 50%;
+            }
+
+            &.valid:before {
+              //   background-color: #3fa225;
+              background: url(../../assets/images/icons/tick.svg) no-repeat
+                center transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+fpx-display-shell{
+  fpx-multi-file-upload{
+    .fpx-file-upload-container{
+      display: none !important; 
+    }
+    .file-option{
+      display: none !important;
+    }
+    
+  }
+}
+
+fpx-display-shell {
+  app-retail-update-profile-doc-form {
+    .entry-form {
+      .doc-view {
+        .doc-delete-icon {
+          .button-delete{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+fpx-entry-shell {
+  app-retail-update-profile-doc-form {
+    .entry-form {
+      .doc-view {
+        .doc-delete-icon {
+          .button-download{
+            // display: none;
+          }
+        }
+      }
+    }
+  }
+}
+.review-form {
+  app-retail-update-profile-doc-form {
+    .entry-form {
+      .doc-view {
+        .doc-delete-icon {
+          .button-delete{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+app-retail-update-profile-doc-form {
+  .doc-upload-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    pointer-events:all;
+    
+    @include not-small-screen {
+      flex-direction: row;
+    }
+    // margin-top: 20px;
+    .upload-label {
+      @include s4-medium;
+      font-size: 14px;
+      color: var(--bodyTxtClr);
+    }
+    .doc-upload-btn {
+      cursor: pointer;
+      border: 1px dotted var(--neutral500);
+      padding: 26px 24px 26px 24px;
+      border-radius: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      .upload-icon {
+        &::before {
+          content: "";
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          background-color: var(--secondary500);
+          mask: url(../../assets/images/upload-file.svg) no-repeat center;
+          -webkit-mask: url(../../assets/images/upload-file.svg) no-repeat
+            center;
+          mask-size: 26px;
+          -webkit-mask-size: 26px;
+        }
+      }
+      .upload-txt {
+        @include b4-regular;
+        font-size: 12px;
+        color: var(--secondary500);
+      }
+    }
+  }
+
+  .doc-upload-rule-container {
+    margin: 0 20px;
+    ul {
+      list-style: auto;
+      li {
+        @include b2-regular;
+        font-size: 14px;
+        color: var(--bodyTxtVariantClr);
+      }
+    }
+  }
+
+  .doc-view {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 28px;
+    justify-content: space-between;
+    border-bottom: 0.5px solid #e0e0e0;
+    padding: 20px 0;
+    @include not-small-screen {
+      padding: 20px 10px;
+    }
+    .doc-detail {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      .doc-icon {
+        flex-basis: 8%;
+      }
+
+      .doc-name {
+        cursor: pointer;
+        @include b4-regular;
+        font-size: 14px;
+      }
+    }
+    .doc-delete-icon {
+      display: flex;
+      gap: 10px;
+      .button-delete::before {
+        content: "";
+        display: inline-block;
+        width: 24px;
+        height: 23px;
+        background-color: var(--errorClr);
+        mask-image: url("../../assets/images/icons/delete.svg");
+        -webkit-mask-image: url("../../assets/images/icons/delete.svg");
+        mask-size: 22px;
+        -webkit-mask-size: 22px;
+      }
+
+      .button-download::before {
+        content: "";
+        display: inline-block;
+        width: 24px;
+        height: 23px;
+        background-color: var(--secondaryClr);
+        mask-image: url("../../assets/images/icons/download.svg");
+        -webkit-mask-image: url("../../assets/images/icons/download.svg");
+        mask-size: 22px;
+        -webkit-mask-size: 22px;
+      }
+    }
+  }
+}
+
+html:not(.small-screen) #depAppBody {
+  app-settings-container,
+  app-other-request-container {
+    .space-content {
+      gap: 0px;
+    }
+  }
+  app-retail-change-password-form {
+    .passowrd-group {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      .profile-rule {
+        background-color: #f6fffe;
+        padding: 16px;
+        border: 1px solid #cce1e6;
+        border-radius: 12px;
+      }
+    }
+  }
+  app-retail-my-profile-form {
+    .mat-tab-list {
+      width: unset !important;
+      .mat-tab-label {
+        min-width: 150px !important;
+        flex: 0 !important;
+      }
+    }
+  }
+}

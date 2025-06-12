@@ -1,0 +1,5 @@
+ 
+ "RETAILPREPAIDCHANGEPIN" : {
+ "servicePath": ["entry-shell","prepaidcard", "retail-prepaid-change-pin"],
+ "queryParams": {}
+ }

@@ -1,0 +1,189 @@
+.welcome-container-inner{
+    background: linear-gradient(180deg, #FFF 15.44%, var(--welcomeScreenBgClr) 30.38%);
+    width: 100%;
+    height: 100vh;
+    touch-action: none;
+
+    @include not-small-screen{
+        background: var(--welcomeScreenBgClr);
+    }
+
+    header{
+        padding: 12px 24px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        @include not-small-screen{
+            padding-bottom: 12px;
+            background-color: var(--preloginHeaderBgClr);
+        }
+
+        .bank-logo{
+            margin: 0;
+            padding: 0;
+            width: 156px;
+        }
+
+        .mat-select{
+            border: 1px solid var(--secondary500);
+            border-radius: var(--inputBdrRadius);
+            padding: var(--inputPadding);
+
+            .mat-select-arrow-wrapper {
+                width: var(--controlIcoWidth);
+                height: var(--controlIcoHeight);
+                margin: 0;
+                background-color: var(--controlIconClr);
+                mask: url("../../assets/images/layouts/controls/dropdown-arrow.svg") no-repeat center;
+                -webkit-mask: url("../../assets/images/layouts/controls/dropdown-arrow.svg") no-repeat center;
+                mask-size: var(--controlIcoSize);
+                -webkit-mask-size: var(--controlIcoSize);
+          
+                >* {
+                  display: none;
+                }
+              }
+          
+              [aria-expanded="true"] .mat-select-arrow-wrapper {
+                transform: rotate(180deg) !important;
+              }
+        }
+    }
+
+    .welcome-note-container{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        color: var(--neutral50);
+        padding: 66px 24px 0;
+        background: url(../../assets/images/welcome/welcome-note-bg.svg) no-repeat center transparent;
+        background-size: cover;
+        touch-action: auto;
+        pointer-events: none;
+
+        @include not-small-screen{
+            margin-left: 32%;
+            background: unset;
+            position: relative;
+            padding: 30px 24px 0;
+            z-index: 1;
+        }
+
+        h2.welcome-title{
+            @include h2-bold;
+            color: inherit;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+        p.welcome-note{
+            @include b1-regular;
+            padding: 0;
+            margin: 0;
+            color: inherit;
+        }
+    }
+
+    .welcome-banner-wrapper{
+        width: 100%;
+        position: fixed;
+        top:76px;
+        bottom: 0;
+        left: 0;
+        background-size: auto 100%;
+        pointer-events: none;
+    }
+
+    .app-navigator-container{
+        $containerWidth: 760;
+        $containerHeight: 760;
+        position: fixed;
+        width: #{$containerWidth}px;
+        height: #{$containerHeight}px;
+        bottom: -280px;
+        left: calc(50% - 380px);
+        cursor: grab;
+        user-select: none;
+        
+        @include not-small-screen {
+            left: unset;
+            right: 0;
+        }
+
+        .app-nav-item{
+            width: 126px;
+            height: 126px;
+            border-radius: 50%;
+            background: linear-gradient(139.11deg, rgba(255, 255, 255, 1) 5%, rgba(255, 255, 255, 0.4) -4.45%, rgba(255, 255, 255, 0.1) 76.07%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            color: var(--neutral50);
+            font-size: 14px;
+            font-weight: var(--fontWeightRegular);
+            padding: 0 12px;
+            flex-direction: column;
+            gap:2px;
+            text-align: center;
+            cursor: pointer;
+
+            &::before{
+                content: "";
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                border-left: 1px solid #F4F4F480;
+                border-top: 1px solid #F4F4F480;
+                display: block;
+                position: absolute;
+                pointer-events: none;
+                box-shadow: 1px 1px 1px #00000030;
+              }
+
+            .nav-ico{
+                img{
+                    width: 24px;
+                }
+            }
+
+            .nav-menu-name{
+                padding: 0 14px;
+            }
+
+            &.center-menu{
+                width: 100px;
+                height: 100px;
+                background: #FFFFFF;
+                left: calc(50% - 50px);
+                top: calc(50% - 50px);
+                @include s4-medium;
+                color:var(--secondary500);
+            }
+
+            &.inner{
+                width: 98px;
+                height: 98px;
+            }
+        }
+
+        .bg-dots-group{
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+
+            .bg-dot {
+                position:absolute;
+                width:40px;
+                height:40px;
+                background-color: #4F84A4;
+                border-radius: 50%;
+                opacity: 0.3;
+                border: 3px solid #4F84A4;
+            }
+        }
+    }
+}

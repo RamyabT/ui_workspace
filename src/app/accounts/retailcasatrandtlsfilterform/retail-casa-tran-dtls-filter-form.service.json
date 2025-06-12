@@ -1,0 +1,5 @@
+ 
+ "RETAILCASATRANDTLSFILTER" : {
+ "servicePath": ["entry-shell","accounts", "retailcasatrandtlsfilterform"],
+ "queryParams": {}
+ }

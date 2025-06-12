@@ -1,0 +1,39 @@
+"RetailManageBeneRoGrid":{
+"title":"RetailManageBeneficiary",
+		 "customerCode": {
+		  "label":"CIF" ,
+		  "placeholder": "CIF"
+		  } ,
+		 "beneAccount": {
+		  "label":"BeneficiaryId" ,
+		  "placeholder": "BeneficiaryId"
+		  } ,
+		 "status": {
+		  "label":"Status" ,
+		  "placeholder": "Status"
+		  } ,
+		 "isFavourite": {
+		  "label":" Enabled" ,
+		  "placeholder": " Enabled"
+		  } ,
+		 "externalRef": {
+		  "label":"External Reference" ,
+		  "placeholder": "External Reference"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "entityCode": {
+		  "label":"Entity Code" ,
+		  "placeholder": "Entity Code"
+		  } ,
+		 "addressLine1": {
+		  "label":"Address Line1" ,
+		  "placeholder": "Address Line1"
+		  } ,
+		 "benePhoto": {
+		  "label":"DocumentReference" ,
+		  "placeholder": "DocumentReference"
+		  } 
+}

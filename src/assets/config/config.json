@@ -1,0 +1,54 @@
+{
+    "baseURL": "https://igcbextmfg.ifincloud.io",
+    "Common": "/vancity-cbx-common/publisher",
+    "Accounts": "/vancity-cbx-accounts/publisher",
+    "Customers": "/vancity-cbx-customers/publisher",
+    "Cards": "/vancity-cbx-cards/publisher",
+    "CreditCards": "/vancity-cbx-cards/publisher",
+    "DebitCards": "/vancity-cbx-cards/publisher",
+    "Payments": "/vancity-cbx-transfers/publisher",
+    "PrepaidCards": "/vancity-cbx-cards/publisher",
+    "Deposits": "/vancity-cbx-deposits/publisher",
+    "Loans": "/vancity-cbx-loans/publisher",
+    "defaultPublisher": "/vancity-cbx-common/publisher",
+    "defaultContext": "/vancity-cbx-common/publisher",
+    "WorkflowService": "/vancity-cbx-workflow/publisher",
+    "IAM": "/vancity-cbx-iam/publisher",
+    "BillPayments":"/vancity-cbx-bill-payments/publisher",
+    "AccountsHealthCheck":"/vancity-cbx-accounts",
+    "CommonHealthCheck":"/vancity-cbx-common",
+    "IAMHealthHealthCheck":"/vancity-cbx-iam",
+    "WorkflowHealthCheck":"/vancity-cbx-workflow",
+    "olive": "/olive/publisher",
+    "languageId": "en-us",
+    "IdleTime": 900,
+    "Coundown": 60,
+    "sessionMaxTime": 3600,
+    "requestMask": 1,
+    "okta": {
+        "oidc": {
+            "issuer": "https://dev-91649780.okta.com/oauth2/default",
+            "clientId": "0oaexthayzw23F0pH5d7",
+          "mobileClientId": "0oaorarukcFrJg5HQ5d7",
+        "redirectUri": "http://localhost:4200/login/callback",
+          "mobileRedirectUri": "vansit:/callback",
+            "scopes": [
+                "openid",
+                "profile",
+                "email",
+                "offline_access"
+            ],
+            "testing": {
+                "disableHttpsCheck": "false"
+            },
+            "postLogoutRedirectUri": "http://localhost:4200",
+          "mobilePostLogoutRedirectUri": "vansit:/logout"
+        },
+        "widget": {
+            "USE_CLASSIC_ENGINE": "true"
+        },
+        "resourceServer": {
+            "messagesUrl": "http://localhost:4200/api/messages"
+        }
+    }
+}

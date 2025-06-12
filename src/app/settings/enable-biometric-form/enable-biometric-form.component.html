@@ -1,0 +1,18 @@
+<box class="entry-form">
+    
+    <box class="grid settings-enable-biometric-form col-12">
+        <box class="enable-biometric-illustration col-12" [ngClass]="{ 'disabled-biometric' : !state.enabledBiometric }">
+            <img src="./assets/illustrations/{{ state.available }}-id.svg" alt="biometric" />
+        </box>
+    
+        <ng-container *ngIf="state.biometricResultMsg">
+            <box class="enable-biometric-result col-12" >
+                {{ state.biometricResultMsg | translate }}
+            </box>
+            <box class="confirmation-footer col-12">
+                <button type="button" class="primary" (click)="_helper.gotoSettings()"><span>{{ 'confirmationReceiptForm.settings' | translate }}</span></button>
+            </box>
+        </ng-container>
+    </box>
+    
+</box>

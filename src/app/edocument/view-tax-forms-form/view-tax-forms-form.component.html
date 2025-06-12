@@ -1,0 +1,46 @@
+<box class="grid transaction-container">
+    <box class="casa-transactions-grid-wrapper col-12">
+        <box class="casa-transactions-grid-header">
+            <span class="title">{{'viewTaxFormsForm.title' | translate }}</span>
+            <box class="tool-bar">
+                <button
+                    *ngIf="_viewTaxFormsFormHelper.showClearButton && !_viewTaxFormsFormHelper.deviceDetectorService.isMobile()"
+                    class="clear-filter" (click)="_viewTaxFormsFormHelper.clearFilter()">Clear Filter</button>
+                <fpx-button btnType="button" btnClass="system-ico-button no-text filter" label="filter"
+                [ngClass]="{'active-filter' : _viewTaxFormsFormHelper.showClearButton}"
+                    (onClick)="_viewTaxFormsFormHelper.filter()"></fpx-button>
+            </box>
+        </box>
+        <box class="mobile-clear-filter"
+            *ngIf="_viewTaxFormsFormHelper.showClearButton && _viewTaxFormsFormHelper.deviceDetectorService.isMobile()">
+            <button class="clear-filter" (click)="_viewTaxFormsFormHelper.clearFilter()">Clear Filter</button>
+        </box>
+
+        <box>
+            <ng-container *ngIf="!(this.state.formValues?.dateFrom && this.state.formValues?.dateTo); else filterDate">
+                <span [hidden]="_helper.totalRecordCount == 0" class="sub-header">{{'viewTaxFormsForm.subData' |
+                    translate }}</span>
+            </ng-container>
+            <ng-template #filterDate>
+                <span [hidden]="_helper.totalRecordCount == 0"
+                    class="sub-header">{{this.state.formValues?.formatdateFrom}}-{{this.state.formValues?.formatdateTo}}</span>
+            </ng-template>
+        </box>
+
+        <app-retail-taxforms-display-grid [actionPublisher]="state.transactionsListRoGrid"
+            (commonRoGridEvent)="_helper.taxFormsGridEvent($event)"></app-retail-taxforms-display-grid>
+    </box>
+
+    <ng-container
+        *ngIf="_helper.taxFormsApiReceived && (_helper.totalRecordCount == 0 || _helper.totalRecordCount == null)">
+        <box class="no-data-view">
+            <img class="no-result-image" src="./assets/images/transfers/no-schedule-transfer.svg"
+                alt="no transactions available">
+            <box class="no-data-desc">
+                <ng-container>
+                    {{ 'viewTaxFormsForm.noDocument' | translate }}
+                </ng-container>
+            </box>
+        </box>
+    </ng-container>
+</box>

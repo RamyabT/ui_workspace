@@ -1,0 +1,46 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailPdcChequeForm">
+  <box class="entry-form">
+    <box class="grid entry-form-field-group col-sm-12 col-md-12 col-lg-12">
+      <app-account-number-list-control class="col-sm-12 col-md-6 col-lg-6"
+				(commonControlEvent)="handleControlEvent($event)"
+        [actionPublisher]="actionMap$.get('accountNumber')" 
+        label="{{ 'RetailPdcChequeForm.accountNumber.label' | translate }}" formControlName="accountNumber" placeholder="{{
+          'RetailPdcChequeForm.accountNumber.placeholder' | translate
+        }}"></app-account-number-list-control>
+
+      <app-pdc-inquiry-type-control class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('pdcInquiryType')"
+        label="{{ 'RetailPdcChequeForm.pdcInquiryType.label' | translate }}" formControlName="pdcInquiryType"
+        placeholder="{{
+          'RetailPdcChequeForm.pdcInquiryType.placeholder' | translate
+        }}"></app-pdc-inquiry-type-control>
+      <app-amount-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('amount')"
+        label="{{'RetailPdcChequeForm.amount.label' | translate }}" [CurrencyList]="state.amount.CurrencyList"
+        [isCurrEditable]="state.amount.isCurrEditable" [defaultFetch]="state.amount.defaultFetch"
+        [initCurrency]="state.amount.initCurrency" [amountInWords]="state.amount.amountInWords"
+        formControlName="amount">
+        ></app-amount-control>
+      <app-cheque-number-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('chequeNumber')"
+        label="{{ 'RetailPdcChequeForm.chequeNumber.label' | translate }}" formControlName="chequeNumber" placeholder="{{
+          'RetailPdcChequeForm.chequeNumber.placeholder' | translate
+        }}"></app-cheque-number-control>
+
+      <app-issue-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('fromDate')"
+        label="{{ 'RetailPdcChequeForm.fromDate.label' | translate }}" formControlName="fromDate" placeholder="{{
+          'RetailPdcChequeForm.fromDate.placeholder' | translate
+        }}" [minDate]="state.fromDate.minDate" [maxDate]="state.fromDate.maxDate"></app-issue-date-control>
+
+      <app-issue-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('toDate')"
+        label="{{ 'RetailPdcChequeForm.toDate.label' | translate }}" formControlName="toDate"
+        placeholder="{{ 'RetailPdcChequeForm.toDate.placeholder' | translate }}" [minDate]="state.toDate.minDate"
+        [maxDate]="state.toDate.maxDate"></app-issue-date-control>
+      <box id="FieldId_7" class="col-sm-12 col-md-6 col-lg-6 grid">
+        <!-- <fpx-button class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('search')" label="Search"
+				btnClass=" btn-secondary" [buttonMode]="'button'"
+				(onClick)="retailPdcChequeFormHelper.onSearchClick(null)"></fpx-button> -->
+      </box>
+      <!-- <app-retail-pdc-cheque-display-grid class="col-sm-12 col-md-6 col-lg-6" (commonRoGridEvent)="handleControlEvent($event)" [actionPublisher]="actionMap$.get('pdcChequeInquiry')"    label="RetailPdcCheque"  formControlName="pdcChequeInquiry"
+ ></app-retail-pdc-cheque-display-grid> -->
+    </box>
+  </box>
+</form>

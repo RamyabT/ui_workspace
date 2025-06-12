@@ -1,0 +1,51 @@
+<box class="summary-card" [ngClass]="{'has-context-menu': contextmenuBtn}">
+    <box class="summary-card-inner">
+        <box class="primary-details">
+            <box class="account-info">
+                <span class="type">{{ cardData.accountNumber}}</span>
+            </box>
+        </box>
+
+        <box class="additional-details">
+
+            <ng-container [ngSwitch]="cardData.accountType">
+                <ng-container *ngSwitchCase="'Aviso'">
+                    <box class="additional-detail">
+                        <span class="lbl">{{ 'DEPOSITSUMMARYCARD.totalMarketValue' | translate }}</span>
+                        <span class="amount">{{cardData.totalMarketValue | currency : cardData.currency : ''}}
+                            <em>{{cardData.currency}}</em></span>
+                    </box>
+                    <box class="additional-detail right-data deposit-amount">
+                        <span class="lbl">{{ 'DEPOSITSUMMARYCARD.asOfDate' | translate }}</span>
+                        <span class="amount">{{cardData.asOfDate | date : "dd MMM yyyy" }}</span>
+                    </box>
+                </ng-container>
+                <ng-container *ngSwitchCase="'Registered Products'">
+                    <box class="additional-detail">
+                        <span class="lbl">{{ 'DEPOSITSUMMARYCARD.principalAmount' | translate }}</span>
+                        <span class="amount">{{cardData.principalAmount | currency : cardData.accountCurrency : ''}} <em>{{cardData.accountCurrency}}</em> </span>
+                    </box>
+                    <box class="additional-detail right-data deposit-amount">
+                        <span class="lbl">{{ 'DEPOSITSUMMARYCARD.depositDate' | translate }}</span>
+                        <span class="amount">{{cardData.openDate | date : "dd MMM yyyy" }}</span>
+                    </box>
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                    <box class="additional-detail">
+                        <span class="lbl">{{ 'DEPOSITSUMMARYCARD.depositAmount' | translate }}</span>
+                        <span class="amount">{{cardData.depositAmount | currency : cardData.accountCurrency : ''}} <em>{{cardData.accountCurrency}}</em>
+                            </span>
+                    </box>
+                    <box class="additional-detail right-data deposit-amount">
+                        <span class="lbl">{{ 'DEPOSITSUMMARYCARD.depositDate' | translate }}</span>
+                        <span class="amount">{{cardData.openDate | date : "dd MMM yyyy" }}</span>
+                    </box>
+                </ng-container>
+            </ng-container>
+
+        </box>
+
+        <button *ngIf="contextmenuBtn" type="button" class="contextual-menu-trigger"
+            (click)="notifyContextMenuClick()"><span>contextual menu</span></button>
+    </box>
+</box>

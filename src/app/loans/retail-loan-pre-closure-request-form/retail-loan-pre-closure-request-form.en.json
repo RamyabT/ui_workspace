@@ -1,0 +1,27 @@
+"RetailLoanPreClosureRequest":{
+"title":"Loan Pre Closure",
+		 "loanAccountNumber": {
+		  "label":"Loan Account Number" ,
+		  "placeholder": "Loan Account Number"
+		  } ,
+		 "debitAccountNumber": {
+		  "label":"Debit Account Number" ,
+		  "placeholder": "Debit Account Number"
+		  } ,
+		 "prePaymentAmount": {
+		  "label":"Prepayment Amount" ,
+		  "placeholder": "Prepayment Amount"
+		  } ,
+		 "paymentDate": {
+		  "label":"Payment Date" ,
+		  "placeholder": "Payment Date"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } 
+}

@@ -1,0 +1,5 @@
+ 
+ "RETAILCCPINREQ" : {
+ "servicePath": ["entry-shell","creditcard", "retail-cc-pin-request"],
+ "queryParams": {}
+ }

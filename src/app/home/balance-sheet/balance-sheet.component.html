@@ -1,0 +1,43 @@
+<ng-container *ngIf="balanceSheet; else loader">
+    <!-- <box class="networth">
+        <span class="lbl">{{ 'balanceSheet.networth' | translate }}</span>
+        <box class="networth-data">
+            <span class="amount">{{ balanceSheet.networth | currency : balanceSheet.currency : '' }} <em>{{ balanceSheet.currency }}</em></span>
+            <span class="score postive">+6.0%</span>
+        </box>
+    </box> -->
+
+    <box class="balance-sheet-inner">
+        <box class="assets">
+            <span class="balance-info">
+                <span class="balance-ico">
+                    <img src="./assets/images/overview/you_have.svg" alt="assets" />
+                </span>
+                <span class="balance-lbl">{{ 'balanceSheet.assets' | translate }}</span>
+            </span>
+           <ng-container *ngIf="showContent; else privacyEnabled;">
+                <span class="amount">{{balanceSheet?.totalAsset || 0 | currency : balanceSheet.currency : ''}}<em>{{balanceSheet.currency}}</em></span>
+            </ng-container>
+        </box>
+        <box class="seperator">&nbsp;</box>
+        <box class="liability">
+            <span class="balance-info">
+                <span class="balance-ico">
+                    <img src="./assets/images/overview/you_owe.svg" alt="liability" />
+                </span>
+                <span class="balance-lbl">{{ 'balanceSheet.liability' | translate }}</span>
+            </span>
+           <ng-container *ngIf="showContent; else privacyEnabled;">
+                <span class="amount">{{balanceSheet?.totalLiablity || 0 | currency : balanceSheet.currency : ''}}<em>{{balanceSheet.currency}}</em></span>
+            </ng-container>
+        </box>
+    </box>
+</ng-container>
+
+<ng-template #privacyEnabled>
+    <span class="amount">XXXXXXX <em>{{ appConfigService.getBaseCurrency() }}</em></span>
+</ng-template>
+
+<ng-template #loader>
+	<box class="loading"></box>
+</ng-template>

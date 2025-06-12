@@ -1,0 +1,15 @@
+"retailmembershiptrandtlsfilterform":{
+"title":"retailmembershiptrandtlsfilterform",
+		 "FieldId_1": {
+		  "label":"Range Type" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "FieldId_2": {
+		  "label":"Date" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "FieldId_3": {
+		  "label":"Date" ,
+		  "placeholder": "Placeholder"
+		  } 
+}

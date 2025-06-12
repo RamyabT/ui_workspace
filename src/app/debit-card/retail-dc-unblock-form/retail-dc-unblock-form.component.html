@@ -1,0 +1,45 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="retaildcunblock">
+
+	<box class="entry-form">
+		<ng-container *ngIf="state.cardData && device.isMobile()">
+			<debitcard class="col-12" [cardData]="state.cardData" [formView]="true"></debitcard>
+		</ng-container>
+		<box class="grid entry-form-field-group col-lg-12">
+
+			<!-- <app-blocked-dc-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('cardReference')"
+				label="{{'retaildcunblock.cardReference.label' | translate }}"
+				formControlName="cardReference"></app-blocked-dc-list-control> -->
+
+				<app-debit-card-block-reason-list class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('blockReason')" label="{{'retaildcunblock.blockReason.label' | translate }}"
+				formControlName="blockReason"></app-debit-card-block-reason-list>
+
+				<app-dispute-remarks-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('otherReason')"
+				label="{{'retaildcunblock.otherReason.label' | translate }}"
+				formControlName="otherReason"></app-dispute-remarks-control>
+
+			<app-cc-unblock-reason-list-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('reason')" label="{{'retaildcunblock.reason.label' | translate }}"
+				formControlName="reason"
+				[changePublisher]="formChangePublisher$"    	 
+				[dependencyField]="['blockReason']">
+			</app-cc-unblock-reason-list-control>
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('unBlockOtherReason')"
+				label="{{'retaildcunblock.unBlockOtherReason.label' | translate }}"
+				formControlName="unBlockOtherReason"></app-remarks-control>
+
+			<!-- [changePublisher]="formChangePublisher$" [dependencyField]="['blockReason']" -->
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('remarks')"
+				label="{{'retaildcunblock.remarks.label' | translate }}"
+				formControlName="remarks"></app-remarks-control>
+		</box>
+		<box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-12 grid main-group disclaimer-box">
+
+            <app-terms-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+                label="{{'retaildcunblock.termsFlag.label' | translate }}" formControlName="termsFlag"
+                [textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+
+        </box>
+	</box>
+</form>

@@ -1,0 +1,7 @@
+"RetailNPSSProxy":{
+"title":"Set Email as Proxy",
+		 "email": {
+		  "label":" Email" ,
+		  "placeholder": " Email"
+		  } 
+}

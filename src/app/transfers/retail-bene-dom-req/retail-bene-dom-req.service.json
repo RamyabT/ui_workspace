@@ -1,0 +1,5 @@
+ 
+ "RETAILBENEDOMESTIC" : {
+ "servicePath": ["entry-shell","transfers", "retail-bene-dom-req"],
+ "queryParams": {}
+ }

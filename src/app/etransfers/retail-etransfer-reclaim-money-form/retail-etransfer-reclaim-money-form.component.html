@@ -1,0 +1,82 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailEtransferReclaimMoneyForm">
+
+	<box class="entry-form" [ngClass]="{'desktop-entry-form': !_helper._device.isMobile()}">
+		<box class="grid entry-form-field-group col-lg-12 col-sm-12">
+
+			<box *ngIf="state.eTransferUserData?.beneficiaryName"
+				class="contact-details fpx-form-control col-sm-12 col-md-12 col-lg-12"
+				[actionPublisher]="actionMap$.get('profileDetails')">
+				<fpx-label class="col-lg-12" [ngClass]="{'label-dtl': !_helper._device.isMobile()}"
+					label="{{'RetailEtransferReclaimMoneyForm.contactName.label' | translate}}"></fpx-label>
+				<box class="contact-box  col-lg-12">
+					<box class="contact-wrapper">
+						<box class="icon-wrapper">
+							<span class="letter-icon">{{state.eTransferUserData?.beneficiaryName?.split("
+								")[0]?.charAt(0)
+								+(state.eTransferUserData?.beneficiaryName?.split(" ")[1]?
+								state.eTransferUserData?.beneficiaryName?.split(" ")[1]?.charAt(0): "")}}</span>
+						</box>
+						<box class="details">
+							<span class="name">{{state.eTransferUserData?.beneficiaryName}}</span>
+							<span class="gmail">{{state.eTransferUserData?.contactEmailId}}</span>
+							<span class="mobile">{{state.eTransferUserData?.contactPhoneNumber}}</span>
+						</box>
+					</box>
+				</box>
+			</box>
+			<box class="amount-details" [ngClass]="{'biller-group': !_helper._device.isMobile()}">
+				<box class="pay-from-label" *ngIf="!_helper._device.isMobile()">
+					{{'RetailEtransferReclaimMoneyForm.sourceAccount.label' | translate}}
+				</box>
+				<box class="amount-details" [ngClass]="{'detail-group': !_helper._device.isMobile()}">
+
+					<box class="display field Amount col-sm-12 col-md-6 col-lg-12">
+						<fpx-label
+							label="{{'RetailEtransferReclaimMoneyForm.paymentAmount.label' | translate}}"></fpx-label>
+						<box class="col-sm-12 col-md-6 col-lg-12 display-field-content">
+							<fpx-display-text id="currency" class="col-md-12 currency"
+								[innerHTML]="state.currency | currencyCode">
+							</fpx-display-text>
+							<fpx-display-text id="paymentAmount" class="col-md-12 paymentAmount"
+								[innerHTML]="state.amount">
+							</fpx-display-text>
+						</box>
+					</box>
+
+					<box class="pay-from-wrapper column">
+						<span class="pay-from-label" *ngIf="_helper._device.isMobile()">{{'RetailEtransferReclaimMoneyForm.sourceAccount.label' | translate
+							}}</span>
+
+						<box class="account-card" [ngClass]="{'single-account-card': !(state.casaAccounts.length > 1)}" (click)="_helper.openCasaAccountsLists()">
+							<box class="account-header-wrapper">
+								<box class="account-header">
+									<h2>{{state.selectedAccount?.accountNickname || state.selectedAccount?.productDesc}}
+									</h2>
+									<p>{{state.selectedAccount?.accountTypeDesc }}
+
+										<span class="line-separator"></span>
+
+										{{state.selectedAccount?.accountNumber}}
+									</p>
+								</box>
+								<box class="view-account-icon-wrapper">
+									<span class="view-account-icon"></span>
+								</box>
+							</box>
+							<box class="account-details">
+								<p [ngClass]="{'show-default-account': state.selectedAccount?.preferredAccount}"
+									class="default-account">
+									{{'RetailEtransferReclaimMoneyForm.defaultAccount' | translate}}</p>
+								<p class="balance amount">{{ state.accountBalanceVariable | currency :
+									state.fromCurrencyVariable : '' }} <em>{{ state.fromCurrencyVariable | currencyCode
+										}}</em>
+								</p>
+							</box>
+						</box>
+					</box>
+				</box>
+			</box>
+
+		</box>
+	</box>
+</form>

@@ -1,0 +1,27 @@
+"RetailPayInsurance":{
+"title":"RetailPayInsurance",
+		 "paymentAmount": {
+		  "label":"Premium Due" ,
+		  "placeholder": "Premium Due"
+		  } ,
+		 "paymentDate": {
+		  "label":"Premium Due Date" ,
+		  "placeholder": "Premium Due Date"
+		  } ,
+		 "paymentMethod": {
+		  "label":"Payment Method" ,
+		  "placeholder": "Payment Method"
+		  } ,
+		 "creditCardRefNumber": {
+		  "label":"Credit Card Ref Number" ,
+		  "placeholder": "Credit Card Ref Number"
+		  } ,
+		 "debitCardRefNumber": {
+		  "label":"DebitCardRefNumber" ,
+		  "placeholder": "DebitCardRefNumber"
+		  } ,
+		 "autoPay": {
+		  "label":"Enabled Flag" ,
+		  "placeholder": "Enabled Flag"
+		  } 
+}

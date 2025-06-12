@@ -1,0 +1,5 @@
+ 
+ "RETAILBENECC" : {
+ "servicePath": ["entry-shell","transfers", "retail-bene-cc-req-form"],
+ "queryParams": {}
+ }

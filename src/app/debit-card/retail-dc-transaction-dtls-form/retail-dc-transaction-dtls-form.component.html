@@ -1,0 +1,34 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailDcTransactionDtlsForm" >
+	   
+	 <box class="entry-form">
+	     
+	      
+			  <app-transaction-ref-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('transactionReference')"     label="{{'RetailDcTransactionDtlsForm.transactionReference.label' | translate }}"   formControlName="transactionReference" 
+   ></app-transaction-ref-control>
+	     
+	      
+			  <app-request-date-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('valueDate')"     label="{{'RetailDcTransactionDtlsForm.valueDate.label' | translate }}"   formControlName="valueDate" 
+   [minDate]="state.valueDate.minDate"   [maxDate]="state.valueDate.maxDate"  ></app-request-date-control>
+	     
+	      
+			  <app-request-date-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('transactionDate')"     label="{{'RetailDcTransactionDtlsForm.transactionDate.label' | translate }}"   formControlName="transactionDate" 
+   [minDate]="state.transactionDate.minDate"   [maxDate]="state.transactionDate.maxDate"  ></app-request-date-control>
+	     
+	      
+			  <app-description-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('transactionDescription')"     label="{{'RetailDcTransactionDtlsForm.transactionDescription.label' | translate }}"   formControlName="transactionDescription" 
+   ></app-description-control>
+	     
+	      
+			  <app-transaction-type-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('transType')"     label="{{'RetailDcTransactionDtlsForm.transType.label' | translate }}"   formControlName="transType" 
+   ></app-transaction-type-control>
+	     
+	      
+			  <app-payment-amount-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('transactionAmount')"     label="{{'RetailDcTransactionDtlsForm.transactionAmount.label' | translate }}"   formControlName="transactionAmount" 
+   [CurrencyList]="state.transactionAmount.CurrencyList" [isCurrEditable]="state.transactionAmount.isCurrEditable"  [defaultFetch]="state.transactionAmount.defaultFetch" [initCurrency]="state.transactionAmount.initCurrency" [amountInWords]="state.transactionAmount.amountInWords">  ></app-payment-amount-control>
+	     
+	      
+			  <app-payment-amount-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('balance')"     label="{{'RetailDcTransactionDtlsForm.balance.label' | translate }}"   formControlName="balance" 
+   [CurrencyList]="state.balance.CurrencyList" [isCurrEditable]="state.balance.isCurrEditable"  [defaultFetch]="state.balance.defaultFetch" [initCurrency]="state.balance.initCurrency" [amountInWords]="state.balance.amountInWords">  ></app-payment-amount-control>
+	 </box> 
+	</form>
+	

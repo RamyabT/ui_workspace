@@ -1,0 +1,18 @@
+.orientation-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background-color: var(--elementPrimaryBgClr);
+    color: var(--largePrimaryTextClr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: var(--baseFontFamily);
+    font-weight: 500;
+}

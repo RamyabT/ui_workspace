@@ -1,0 +1,95 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailLoanPreClosureRequest">
+
+	<box class="entry-form">
+
+
+		<!-- <app-loan-account-number-list-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('loanAccountNumber')"     label="{{'RetailLoanPreClosureRequest.loanAccountNumber.label' | translate }}"   formControlName="loanAccountNumber" 
+     ></app-loan-account-number-list-control>
+	     
+	      
+			  <app-account-number-list-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('debitAccountNumber')"     label="{{'RetailLoanPreClosureRequest.debitAccountNumber.label' | translate }}"   formControlName="debitAccountNumber" 
+     ></app-account-number-list-control>
+	     
+	      
+			  <app-transaction-amount-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('prePaymentAmount')"     label="{{'RetailLoanPreClosureRequest.prePaymentAmount.label' | translate }}"   formControlName="prePaymentAmount" 
+   ></app-transaction-amount-control>
+	     
+	      
+			  <app-request-date-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('paymentDate')"     label="{{'RetailLoanPreClosureRequest.paymentDate.label' | translate }}"   formControlName="paymentDate" 
+   [minDate]="state.paymentDate.minDate"   [maxDate]="state.paymentDate.maxDate"  ></app-request-date-control> -->
+
+		<app-loan-account-list-template-control *ngIf="_helper._device.isMobile()" class="col-sm-12 col-md-6 col-lg-4"
+			[actionPublisher]="actionMap$.get('loanAccountNumber')" label="{{
+'RetailLoanPreClosureRequest.loanAccountNumber.label' | translate
+}}" formControlName="loanAccountNumber" placeholder="{{
+'RetailLoanPreClosureRequest.loanAccountNumber.placeholder' | translate
+}}" [changePublisher]="formChangePublisher$"
+			(commonControlEvent)="handleControlEvent($event)"></app-loan-account-list-template-control>
+
+		<app-account-list-template-control class="col-sm-12 col-md-6 col-lg-12"
+			[actionPublisher]="actionMap$.get('debitAccountNumber')"
+			label="{{ 'RetailLoanPreClosureRequest.debitAccountNumber.label' | translate }}"
+			formControlName="debitAccountNumber"
+			(commonControlEvent)="handleControlEvent($event)"></app-account-list-template-control>
+
+		<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('prePaymentAmount')"
+			label="{{ 'RetailLoanPreClosureRequest.prePaymentAmount.label' | translate }}"
+			formControlName="prePaymentAmount" [CurrencyList]="state.prePaymentAmount.CurrencyList"
+			[isCurrEditable]="state.prePaymentAmount.isCurrEditable"
+			[defaultFetch]="state.prePaymentAmount.defaultFetch" [initCurrency]="state.prePaymentAmount.initCurrency"
+			[amountInWords]="state.prePaymentAmount.amountInWords" (commonControlEvent)="handleControlEvent($event)"
+			[changePublisher]="formChangePublisher$" [dependencyField]="[
+'fromCurrencyVariable',
+'toCurrencyVariable',
+'availableBalanceVariable'
+]">
+			></app-payment-amount-control>
+
+		<app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('paymentDate')"
+			label="{{ 'RetailLoanPreClosureRequest.paymentDate.label' | translate }}" formControlName="paymentDate"
+			[minDate]="state.paymentDate.minDate" [maxDate]="state.paymentDate.maxDate"></app-request-date-control>
+
+		<box class="field-item col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('exchangeDetails')">
+			<fpx-label label="{{'FX_RATES.title' | translate}}"></fpx-label>
+			<box class="info-box">
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.dAmount' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.paymentSummary.debitAmount"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.cAmount' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.paymentSummary.creditAmount"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.exRate' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.paymentSummary.exchangeRate"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+			</box>
+		</box>
+
+		<app-remarks-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('remarks')"
+			label="{{'RetailLoanPreClosureRequest.remarks.label' | translate }}"
+			formControlName="remarks"></app-remarks-control>
+
+		<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('chargesAmount')"
+			label="{{'RetailLoanPreClosureRequest.chargesAmount.label' | translate }}" formControlName="chargesAmount"
+			(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.chargesAmount.CurrencyList"
+			[isCurrEditable]="state.chargesAmount.isCurrEditable" [defaultFetch]="state.chargesAmount.defaultFetch"
+			[initCurrency]="state.chargesAmount.initCurrency" [amountInWords]="state.chargesAmount.amountInWords"
+			[changePublisher]="formChangePublisher$"></app-payment-amount-control>
+
+		<box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-12 grid main-group disclaimer-box">
+			<app-terms-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{ 'RetailLoanPreClosureRequest.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+		</box>
+	</box>
+</form>

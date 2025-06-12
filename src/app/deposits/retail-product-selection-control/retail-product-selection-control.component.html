@@ -1,0 +1,72 @@
+<div [hidden]="readMore">
+  <box class="product-card-carousel-container">
+    <ng-container *ngIf="!isProductsLoading; else loader">
+      <ng-container *ngIf="selectableList$ | async as selectableList">
+        <ngx-slick-carousel class="product-carousel" #slickModal="slick-carousel" [config]="slideConfig"
+          (afterChange)="onCardChanged($event)">
+          <ng-container *ngFor="let selectableData of selectableList; index as i">
+            <box ngxSlickItem class="slide" [style.width.px]="slideWidth" [id]="selectableData.id"
+              [ngClass]="{'slide-checked': formControl.value == selectableData.id}">
+              <ng-container [ngTemplateOutlet]="ngTemplateName ? getTemplate(ngTemplateName) : defaultTemplate"
+                [ngTemplateOutletContext]="{ $implicit: selectableData, slideIndex: i }">
+              </ng-container>
+            </box>
+          </ng-container>
+        </ngx-slick-carousel>
+      </ng-container>
+    </ng-container>
+  </box>
+
+  <ng-template #defaultTemplate let-selectableData let-slideIndex="slideIndex">
+    <!-- <div>
+      <box class="product-card" onClick="event.stopPropagation();Window.ProductSelectionControlComponent.onClickCard(slideIndex)">
+        <div class="image">
+          <img class="out-line" src="./assets/images/rcob/Vector.svg" alt="">
+          <img class="product-image" src="./assets/images/rcob/current-account.png" alt="">
+          <img class="subtract" src="./assets/images/rcob/current-acc-subtract.png" alt="">   
+          <div class="content">Current Account</div>   
+        </div>
+      </box>
+    </div> -->
+    <div [innerHtml]="selectableData?.imageContent">
+    </div>
+  </ng-template>
+
+  <!-- <div class="product-description">
+    With the bank Savings Account, you can earn interest on your credit balance and access your funds with an international Debit/ATM card.
+  </div>
+  <div class="product-benefit-header">Benefits</div>
+  <ul class="product-benefits">
+   
+  </ul>
+  <div class="read-more"><a onClick="event.stopPropagation();Window.ProductSelectionControlComponent.showModel(0)">Read more</a> </div> -->
+  <ng-container *ngIf="this.data">
+    <div [innerHtml]="this.data?.[this.currentIndex].shortDesc | safeHtml"></div>
+  </ng-container>
+
+</div>
+
+<ng-container *ngIf="this.data">
+  <div [hidden]="!readMore" class="read-more">
+    <div [innerHtml]="this.data[this.currentIndex].imageContent | safeHtml"></div>
+    <div [innerHtml]="this.data[this.currentIndex].detailDesc | safeHtml"></div>
+  </div>
+  <!-- <div class="product-description">
+    Bank multiple currency savings account provides easy access to your funds worldwide through our friendly telephone support.
+  </div>
+  <div class="product-benefit-header">Benefits</div>
+  <ul class="product-benefits">
+    <li class="product-benefit"><span>Earn interest on your account</span></li>
+    <li class="product-benefit"><span>Thumb impression account operation available</span></li>
+    <li class="product-benefit"><span>Both individual and joint accounts are available</span></li>
+  </ul>
+  <div class="product-benefit-header">Fees</div>
+  <ul class="product-benefits">
+    <li class="product-benefit"><span>No fees on account opening</span></li>
+  </ul> -->
+</ng-container>
+
+<!-- Content loader -->
+<ng-template #loader>
+  <box class="loading"></box>
+</ng-template>

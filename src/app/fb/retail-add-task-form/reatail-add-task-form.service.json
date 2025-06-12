@@ -1,0 +1,5 @@
+ 
+ "RETAILTASKINFO" : {
+ "servicePath": ["entry-shell","accounts", "retail-add-task-form"],
+ "queryParams": {}
+ }

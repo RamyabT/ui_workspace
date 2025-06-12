@@ -1,0 +1,49 @@
+<!-- <div class="hint">You can add 2 more countries of your tax residency</div> -->
+
+<box [style.width]="gridWidth+'%'" class="input-grid-title"  (click)="addSubFormGroup()">
+  <!-- <fpx-label label="{{'othercountrytaxinfo.title' | translate }}"></fpx-label> -->
+  <button type="button" class="btn-link"> Add Country of Tax Residency </button>
+</box>
+
+<form [formGroup]="formGroup" formName="othercountrytaxinfo">
+  <box class="input-grid" [style.width]="gridWidth+'%'">
+    <!-- <box class="input-grid-row input-grid-header">
+	    <box class="input-grid-row-item" [style.width]="columnWidth[0]+'%'" >
+	        <span>#</span>
+	      </box>
+		<box class="input-grid-row-item" [style.width]="columnWidth[1]+'%'" >
+			<span>{{'othercountrytaxinfo.country.label' | translate }}</span>
+		</box>
+		<box class="input-grid-row-item" [style.width]="columnWidth[2]+'%'" >
+			<span>{{'othercountrytaxinfo.taxPayerId.label' | translate }}</span>
+		</box>
+	     <box class="input-grid-row-item" [style.width]="columnWidth[3]+'%'" >
+	        <span>Actions</span>
+	     </box>
+    </box> -->
+    <ng-container formArrayName="formArray">
+      <ng-container *ngFor="let control of formArray.controls; let i = index; let last = last" formGroupName="{{ i }}">
+        <box class="input-grid-row">
+          <box class="input-grid-row-item" [style.width]="columnWidth[0]+'%'">
+            <span class="index">Country {{ i+1 }}</span>
+          </box>
+
+          <box class="input-grid-row-item" [style.width]="columnWidth[1]+'%'">
+            <span>{{'othercountrytaxinfo.country.label' | translate }}</span>
+            <app-country-list-control formControlName="country"
+              [actionPublisher]="actionMap$[i].get('country')"></app-country-list-control>
+          </box>
+
+          <box class="input-grid-row-item" [style.width]="columnWidth[2]+'%'">
+            <span>{{'othercountrytaxinfo.taxPayerId.label' | translate }}</span>
+            <app-tax-payer-id-control formControlName="taxPayerId"
+              [actionPublisher]="actionMap$[i].get('taxPayerId')"></app-tax-payer-id-control>
+          </box>
+          <box class="input-grid-row-item" [style.width]="columnWidth[3]+'%'">
+            <mat-icon (click)="deleteSubFormGroup(i)" class="icon">Delete</mat-icon>
+          </box>
+        </box>
+      </ng-container>
+    </ng-container>
+  </box>
+</form>

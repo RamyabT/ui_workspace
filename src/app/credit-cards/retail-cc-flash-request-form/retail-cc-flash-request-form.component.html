@@ -1,0 +1,34 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailCCFlashRequestForm" >
+	   
+	 <box class="entry-form">
+	     
+	      
+			  <app-active-cc-list-control  class="col-md-4"   [actionPublisher]="actionMap$.get('cardRefNumber')"     label="{{'RetailCCFlashRequestForm.cardRefNumber.label' | translate }}"   formControlName="cardRefNumber" 
+			      (commonControlEvent)="handleControlEvent($event)"
+				      ></app-active-cc-list-control>
+	     
+	      
+			  <app-debit-card-number-control  class="col-md-4"   [actionPublisher]="actionMap$.get('creditCardNumber')"     label="{{'RetailCCFlashRequestForm.creditCardNumber.label' | translate }}"   formControlName="creditCardNumber" 
+   ></app-debit-card-number-control>
+	     
+	      
+			  <app-cvv-control  class="col-md-4"   [actionPublisher]="actionMap$.get('cvv')"     label="{{'RetailCCFlashRequestForm.cvv.label' | translate }}"   formControlName="cvv" 
+   ></app-cvv-control>
+	     
+	      
+			  <app-valid-till-control  class="col-md-4"   [actionPublisher]="actionMap$.get('validThru')"     label="{{'RetailCCFlashRequestForm.validThru.label' | translate }}"   formControlName="validThru" 
+   [minDate]="state.validThru.minDate"   [maxDate]="state.validThru.maxDate"  ></app-valid-till-control>
+	     
+	      
+			  <app-valid-till-control  class="col-md-4"   [actionPublisher]="actionMap$.get('validFrom')"     label="{{'RetailCCFlashRequestForm.validFrom.label' | translate }}"   formControlName="validFrom" 
+   [minDate]="state.validFrom.minDate"   [maxDate]="state.validFrom.maxDate"  ></app-valid-till-control>
+	     
+	      
+			  <app-name-control  class="col-md-4"   [actionPublisher]="actionMap$.get('cardHolderName')"     label="{{'RetailCCFlashRequestForm.cardHolderName.label' | translate }}"   formControlName="cardHolderName" 
+   ></app-name-control>
+	     
+	     
+		    	<!-- <fpx-button class="col-md-2"  [actionPublisher]="actionMap$.get('tap')"  label ="Tap to See" btnClass=" btn-secondary"  [buttonMode]="'button'"      (onClick)="retailCCFlashRequestFormHelper.onTapClick()"></fpx-button> -->
+	 </box> 
+	</form>
+	

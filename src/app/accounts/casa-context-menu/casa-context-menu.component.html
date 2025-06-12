@@ -1,0 +1,134 @@
+<box [ngClass]="{ 'module-home': _dialogData.showModuleHeader }">
+  <ng-container *ngIf="_dialogData.showModuleHeader">
+    
+      <box class="module-home-header">
+        <button type="button" class="nav-btn" (click)="closeContextMenu()">
+            <span>Close</span>
+        </button>
+        <h2 class="module-title module-title-btn">
+                {{ 'MODULE_HEADER.everydayBanking' | translate }}
+        </h2>
+      </box>
+  </ng-container>
+
+  <box class="widget context-menu-wrapper" #contextMenuWrapper>
+    <ng-container *ngIf="cardData; else defaultHeader">
+      <header>
+        <span class="header-title">{{
+          cardData.accountNickname || cardData.productDesc
+        }}</span>
+      </header>
+    </ng-container>
+
+    <ng-template #defaultHeader>
+      <header>
+        <span class="widget-title">{{
+          "WIDGIT_TITLES.casaQuickActionsLbl" | translate
+        }}</span>
+      </header>
+    </ng-template>
+
+    <ng-container *ngIf="_device.isMobile(); else desktopMenu">
+      <box class="context-menu-body" [ngClass]="{ 'menu-expand-view': doShowMoreQuickActions }">
+        <ng-container *ngIf="quickLinks; else quickActionsLoader">
+          <ul class="actions-list grid" [ngClass]="{ 'show-more': doShowMoreQuickActions }">
+            <ng-container *ngIf="_dialogData.showSubGroupHeader else noSubGrpQuickLinks">
+              <ng-container *ngFor="let key of objectKeys(quickLinksGrpObject)">
+                <box *ngIf="this.quickLinksGrpObject[key].length>0" class="sub-group-header">{{'CASACONTEXTMENU.'+key | translate}}</box>
+                <ng-container *ngFor="let item of quickLinksGrpObject[key]">
+                  <li (click)="openLink(item)" [ngClass]="{ active: activeMenu == item.serviceCode}">
+                    <span class="icon-wrapper {{ item.serviceCode }}"></span>
+                    <box>
+                    <span class="text"
+                      [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span>
+                      <span class="text short-text" [innerHTML]="item?.shortName"></span>
+                    </box>
+                  </li>
+                </ng-container>
+              </ng-container>
+            </ng-container>
+            <ng-template #noSubGrpQuickLinks>
+              <ng-container *ngFor="let item of quickLinks">
+                <li (click)="openLink(item)"
+                  [ngClass]="{ active: activeMenu == item.serviceCode , 'hide-pay-bill' : item.serviceCode == 'RETAILMULTIBILLREQUEST' && cardData.baseCurrencyAvlBal}">
+                  <span class="icon-wrapper {{ item.serviceCode }}"></span>
+                  <box>
+                    <span class="text"
+                    [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span>
+                    <span class="text short-text"
+                    [innerHTML]="item?.shortName"></span>
+                  </box>
+                </li>
+              </ng-container>
+            </ng-template>
+
+          </ul>
+        </ng-container>
+
+        <ng-container *ngIf="
+            !isPopup &&
+            quickLinks &&
+            quickLinks.length > appConstant.contextMenuColCount
+          ">
+          <button type="button" class="expander" (click)="showMoreQuickActions()">
+            <span>show more</span>
+          </button>
+        </ng-container>
+      </box>
+    </ng-container>
+    <ng-template #desktopMenu>
+      <box class="context-menu-body" *ngIf="quickLinks?.length > 0; else quickActionsLoader">
+        <box class="actions-list">
+          <!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"> -->
+
+            <ng-container *ngIf="_dialogData.showSubGroupHeader else noSubGrpQuickLinks">
+              <ng-container *ngFor="let key of objectKeys(quickLinksGrpObject)">
+                <box class="sub-group-header">{{'CASACONTEXTMENU.'+key | translate}}</box>
+                <ng-container *ngFor="let item of quickLinksGrpObject[key]">
+                  <box class="tab slide" [ngClass]="{ active: activeMenu == item.serviceCode }">
+                    <box class="item" (click)="openLink(item)">
+                      <span class="icon-wrapper {{ item.serviceCode }}"></span>
+                      <span class="text"
+                        [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span>
+                    </box>
+                  </box>
+                </ng-container>
+              </ng-container>
+            </ng-container>
+            <ng-template #noSubGrpQuickLinks>
+              <ng-container *ngFor="let item of quickLinks">
+                <box class="tab slide" [ngClass]="{ active: activeMenu == item.serviceCode }">
+                  <box class="item" (click)="openLink(item)">
+                    <span class="icon-wrapper {{ item.serviceCode }}"></span>
+                    <span class="text"
+                      [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span>
+                  </box>
+                </box>
+              </ng-container>
+            </ng-template>
+        </box>
+      </box>
+    </ng-template>
+    <ng-container *ngIf="isPopup">
+      <button type="button" class="btn-popup-close" (click)="closeContextMenu()">
+        close
+      </button>
+    </ng-container>
+  </box>
+</box>
+
+<ng-template #quickActionsLoader>
+  <box class="quick-actions-loader quick-links">
+    <ul>
+      <li>
+        <span class="text">&nbsp;</span>
+      </li>
+      <li>
+        <span class="text">&nbsp;</span>
+      </li>
+      <li>
+        <span class="text">&nbsp;</span>
+      </li>
+    </ul>
+  </box>
+</ng-template>

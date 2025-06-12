@@ -1,0 +1,62 @@
+<ng-container >
+    <box class="confirmation-receipt-inner {{ result?.statusCode?.toLowerCase() }} {{ _requestStatus.toLowerCase() }}" >
+        <box class="confirmation-body">
+            <box class="status-container">
+                <box class="status-ico-wrapper">
+                    <span class="status-ico"></span>
+                </box>
+                
+                <span class="confirmation-message">{{ _requestServiceCode + '.' + _requestStatus + ".message" | translate }}</span>
+            </box>
+
+            <box class="message-container">
+            <span class="confirmation-description">{{ _requestStatus==='errorend'?apiErrorMsg:_requestServiceCode + '.' + _requestStatus + ".description" | translate }}</span>
+            </box>
+    
+            <ng-container *ngIf="result?.additionalInfo && result?.additionalInfo.length">
+                <hr />
+                <!-- <box class="additional-details-container">
+                    <ng-container *ngFor="let detail of result?.additionalInfo">
+                        <box class="details">
+                            <span class="detail-lbl">{{ 'accountsconfirmationReceiptForm.' + detail.label | translate }}</span>
+                            <span class="detail-val">
+                                <ng-container [ngSwitch]="detail.format">
+                                    <ng-container *ngSwitchCase="'date'">
+                                        {{ detail.value | date : "dd MMM YYYY" }}
+                                    </ng-container>
+                                    <ng-container *ngSwitchDefault>
+                                        {{ detail.value }}
+                                    </ng-container>
+                                </ng-container>
+                                
+                            </span>
+                        </box>
+                    </ng-container>
+                </box> -->
+            </ng-container>
+        </box>
+<ng-container *ngIf="_requestStatus==='errorend' else defaultBtn">
+    <box class="confirmation-footer">
+        <!-- <button type="button" class="secondary" (click)="downloadReceipt()"><span>{{ 'transfersconfirmationReceiptForm.home' | translate }}</span></button> -->
+        <button type="button" class="primary" (click)="gotoLogin()"><span>{{'LOGIN.backtologin' | translate}}</span></button>
+        <!-- <button type="button" class="primary" (click)="gotoModule('transfers-space')"><span>{{ 'transfersconfirmationReceiptForm.home' | translate }}</span></button> -->
+    </box>
+</ng-container>
+<ng-template #defaultBtn>
+       <box class="confirmation-footer">
+            <!-- <button type="button" class="secondary" (click)="downloadReceipt()"><span>{{ 'transfersconfirmationReceiptForm.home' | translate }}</span></button> -->
+            <button type="button" class="primary" (click)="gotoLogin()"><span>{{'LOGIN.signin' | translate}}</span></button>
+            <!-- <button type="button" class="primary" (click)="gotoModule('transfers-space')"><span>{{ 'transfersconfirmationReceiptForm.home' | translate }}</span></button> -->
+        </box>
+</ng-template>
+    </box>
+
+</ng-container>
+
+        
+        <!-- <box class="confirmation-actions">
+            <button type="button" class="secondary" (click)="gotoModule('accounts-space')"><span>Return to CASA</span></button>
+            <button type="button" class="primary" (click)="doRepeat()"><span>Make Another Request</span></button>
+        </box>
+    </box>
+</ng-container> -->

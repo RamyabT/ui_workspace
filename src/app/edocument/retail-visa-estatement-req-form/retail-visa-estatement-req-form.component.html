@@ -1,0 +1,86 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailVisaEStatementReqForm">
+
+	<box class="manage-btn">
+		<button class="secondary" (click)="_helper.manageStatement()">Manage Visa eStatement</button>
+	</box>
+
+	<box class="entry-form">
+		<box id="FieldId_18" class="col-md-12 grid  entry-form-field-group col-lg-12 ">
+			<box class="download-statement-header">
+				<span class="mob-header">{{'RetailVisaEStatementReqForm.title' | translate }}</span>
+			</box>
+			<hr *ngIf="_helper.device.isMobile()" class="title-line">
+
+			<box class="estatment-form-container">
+				<box class="grid">
+					<app-credit-card-list-control class="col-sm-12 col-md-6 col-lg-4 "
+						[actionPublisher]="actionMap$.get('cardRefNumber')"
+						label="{{'RetailVisaEStatementReqForm.cardRefNumber.label' | translate }}"
+						formControlName="cardRefNumber"
+						(commonControlEvent)="handleControlEvent($event)"></app-credit-card-list-control>
+
+					<app-yearlist class="col-sm-12 col-md-6 col-lg-4" [actionPublisher]="actionMap$.get('year')"
+						label="{{'RetailVisaEStatementReqForm.year.label' | translate }}" formControlName="year"
+						(commonControlEvent)="handleControlEvent($event)"></app-yearlist>
+
+					<!-- <app-retail-visa-estatement-grid [actionPublisher]="actionMap$.get('RetailVisaEstatementGrid')"
+				(commonRoGridEvent)="_helper.handleVisaEstatementGridEvent($event)">
+			</app-retail-visa-estatement-grid> -->
+					<!-- <box class="view-btn col-xs-2 col-sm-12 col-md-6 col-lg-4 ">
+				<fpx-button class="view-btn col-xs-2 col-sm-12 col-md-6 col-lg-4" label="View"
+					btnClass=" btn-secondary" [buttonMode]="'button'" (onClick)="_helper.onSubmit()"
+					[disable]="false"></fpx-button>
+				</box> -->
+					<hr *ngIf="_helper.device.isMobile()" class="view-line">
+					<box class="view-btn col-xs-2 col-sm-12 col-md-6 col-lg-4 ">
+						<button type="button" id="viewButton" class="enabled" (click)="_helper.onSubmit()">
+							<span>View</span>
+						</button>
+					</box>
+				</box>
+
+
+				<box class="line-separator" *ngIf="!_helper.device.isMobile()"></box>
+
+				<box *ngIf="_helper.showcardDetails" class="available-details">
+					<box class="header">{{'RetailVisaEStatementReqForm.gridTitle'| translate}}</box>
+
+					<ng-container *ngFor="let card of _helper.cardDetails">
+
+						<box class="detail-wrapper">
+							<span>{{card.dateOfGeneration | date : "dd MMM yyyy"}}</span>
+
+							<box class="downlaod-btn-container">
+								<button type="button" class="btn-container"
+									(click)="_helper.onDownloadClick(card.statementReference)">
+									<span class="icon download-btn-icon"></span>
+									<span class="text-bold"><u>{{'RetailVisaEStatementReqForm.download'|
+											translate}}</u></span>
+								</button>
+							</box>
+						</box>
+
+						<box class="line-divider"></box>
+					</ng-container>
+				</box>
+
+				<ng-container *ngIf="!_helper.showcardDetails">
+					<box class="no-data">
+						<img class="no-result-image" src="./assets/images/transfers/no-schedule-transfer.svg"
+							alt="no transactions available">
+						<box class="primary-msg">
+
+							<b> {{ 'RetailVisaEStatementReqForm.noTransfer1' | translate }} </b>
+
+						</box>
+					</box>
+				</ng-container>
+			</box>
+		</box>
+
+	</box>
+</form>
+
+<!-- <app-retail-taxforms-display-grid [actionPublisher]="state.transactionsListRoGrid"
+       (commonRoGridEvent)="_helper.taxFormsGridEvent($event)">
+</app-retail-taxforms-display-grid> -->

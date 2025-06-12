@@ -1,0 +1,40 @@
+.bad-gateway-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    .bad-gateway-wrapper {
+      position: unset;
+      height: calc(70vh - 217px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  
+      .bad-gateway-image {
+       
+        .image {
+          width: 270px;
+          height: 180px;
+          display: block;
+        }
+      }
+  
+      .content {
+        text-align: center;
+        .label-tag{
+            @include h4-bold;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+        .label {
+          @include b1-regular;
+          align-items: center;
+          text-align: center;
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,70 @@
+<box>
+    <box class="schedule-transfer-template-body">
+        <box class="name-amount-date-wrapper">
+
+            <box class="schedule-icon-container">
+                <span class="schedule-icon"></span>
+            </box>
+
+            <box class="schedule-details-wrapper">
+                <span class="beneficiaryName"
+                    *ngIf="selectedData.serviceCode=='RETAILSCHOAT'">{{selectedData?.beneficiaryName
+                    ?selectedData?.beneficiaryName:selectedData?.creditAccProdDesc}}</span>
+
+                <span class="beneficiaryName"
+                    *ngIf="selectedData.serviceCode=='RETAILSCHINTBT'">{{maskCreditAccountNumber(selectedData?.creditAccountNumber)}}</span>
+
+
+                <box class="payment-amount-wrapper">
+                    <span class="paymentAmount amount">
+                        <ng-container
+                        *ngIf="selectedData.paymentCurrency != appConfig.baseCurrency else baseCurrency">
+                            <span class="amount">
+                                <em class="usd">{{ 'SUFFIXCURRENCY' | currencyCode }}</em>
+                                {{ getAbsoluteValue(selectedData.paymentAmount) | currency : appConfig.baseCurrency :
+                                '' }}
+                                <em> -{{selectedData.paymentCurrency == 'USD' ? '$' : selectedData.paymentCurrency |
+                                    currencyCode }}</em>
+                                {{checkNegativeValue(selectedData.paymentAmount)}}
+                            </span>
+                    </ng-container>
+                    <ng-template #baseCurrency>
+                        <box class="type-amount-wrapper">
+                            <span class="amount">
+                                {{getAbsoluteValue(selectedData.paymentAmount)| currency : selectedData.paymentCurrency:
+                                ''}}
+                                <em>-{{selectedData.paymentCurrency | currencyCode}}</em>
+                                {{checkNegativeValue(selectedData.paymentAmount)}}
+                            </span>
+                        </box>
+                    </ng-template>
+                    </span>
+
+                    <box class="date-actions">
+                        <box class="date">{{selectedData.paymentDate | date :"dd MMM YYYY"}}</box>
+                    </box>
+                </box>
+            </box>
+        </box>
+
+        <box class="options" [ngClass]="{'active-option' : isDisplayContextMenu && _device.isDesktop()}"
+            (click)="displayContextMenu($event,selectedData)">
+            <span class="options-icon"></span>
+            <!-- <img src="./assets/images/icons/grey-dots.svg" alt="more options" /> -->
+        </box>
+    </box>
+</box>
+
+<ng-container *ngIf="isDisplayContextMenu && !_device.isMobile()">
+    <ng-container *ngIf="actions">
+        <box class="quick-menu" [ngStyle]="getContextMenuStyle()">
+            <li *ngFor="let item of actions;let i = index"
+                [ngClass]="{'disable-menu' : !shouldAllowEdit && (item.id === 'edit')}">
+                <span class="icon-wrapper {{ item.id }}"></span>
+                <box class="menu" [innerHTML]="item.name | translate" (click)="action(item, i, selectedData)"></box>
+            </li>
+        </box>
+    </ng-container>
+</ng-container>
+
+<box *ngIf="isDisplayContextMenu && !_device.isMobile()" class="context-menu-overlay" (click)="closeContext()"></box>

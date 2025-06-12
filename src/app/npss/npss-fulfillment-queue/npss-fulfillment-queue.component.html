@@ -1,0 +1,45 @@
+<box class="widget fulfillment-queue">
+  <header>
+    <span class="title">{{ 'WIDGIT_TITLES.upcomingPaymentsLbl' | translate }}</span>
+  </header>
+  <box class="widget-body fulfillment-queue-body">
+    <box class="fulfillment-queue-list">
+      <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+        <box ngxSlickItem class="slide" *ngFor="let item of items">
+          <box class="fulfillment-queue-detail">
+            <box class="primary-info">
+              <box class="primary-info-sec-1">
+                <img src="./assets/images/transfers/fulfillment-queue.svg" alt="" />
+                <span class="primary-info-text"> Requested Funds </span>
+              </box>
+              <box class="primary-info-sec-1">
+                {{item?.difference}}d
+                <img src="./assets/images/transfers/remaining-time.svg" alt="" />
+              </box>
+            </box>
+            <box class="secondary-info">
+              <box class="secondary-info-sec-1">
+                <span class="request-name">
+                  {{ item.senderName + ' ' + item.senderSurname }}
+                </span>
+                <span class="amount">
+                  <em>{{ item.currency }}</em>
+                  {{ item.totalAmount | currency: item.currency:'' }}
+                </span>
+              </box>
+              <box class="secondary-info-sec-2">
+                <button class="decline-button" (click)="actionOnDecline(item)">
+                  Decline
+                </button>
+                <span class="seperator"> </span>
+                <button class="pay-button" (click)="actionOnPay(item)">
+                  Pay
+                </button>
+              </box>
+            </box>
+          </box>
+        </box>
+      </ngx-slick-carousel>
+    </box>
+  </box>
+</box>

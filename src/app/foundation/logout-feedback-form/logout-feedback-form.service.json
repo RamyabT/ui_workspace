@@ -1,0 +1,5 @@
+ 
+ "RETAILUSERFEEDBACK" : {
+ "servicePath": ["entry-shell","settings", "logout-feedback-form"],
+ "queryParams": {}
+ }

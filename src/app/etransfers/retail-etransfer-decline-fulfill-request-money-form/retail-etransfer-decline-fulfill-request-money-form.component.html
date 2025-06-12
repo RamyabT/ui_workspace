@@ -1,0 +1,33 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailEtransferDeclineFulfillRequestMoneyForm">
+
+	<box class="entry-form" [ngClass]="{'desktop-entry-form': !_helper._device.isMobile()}">
+	<box class="grid entry-form-field-group col-sm-12 col-lg-12">
+		<box class="form-details-group">
+			<box class="pay-from-label" *ngIf="!_helper._device.isMobile()">
+				{{'RetailEtransferDeclineFulfillRequestMoneyForm.depositLabel' | translate}}
+			</box>
+			<box class="detail-group">
+				<box class="auto-deposit-msg-box">
+					<box class="auto-deposit-msg-bg">
+						<span class="auto-deposit-msg-icon">
+						</span>
+					</box>
+					<box class="declineNote">
+						<span>{{'RetailEtransferDeclineFulfillRequestMoneyForm.declineNote' | translate }}</span>
+					</box>
+				</box>
+		
+				<app-remarks-control class=" decline-reason col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('remarks1')"
+					label="{{'RetailEtransferDeclineFulfillRequestMoneyForm.remarks1.label' | translate }}"
+					placeholder="{{'RetailEtransferDeclineFulfillRequestMoneyForm.remarks1.placeholder' | translate }}"
+					formControlName="remarks1"></app-remarks-control>
+                  
+                <app-remarks-control class=" decline-reason col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('remarks2')"
+					label="{{'RetailEtransferDeclineFulfillRequestMoneyForm.remarks2.label' | translate }}"
+					placeholder="{{'RetailEtransferDeclineFulfillRequestMoneyForm.remarks2.placeholder' | translate }}"
+					formControlName="remarks2"></app-remarks-control>   
+			</box>
+		</box>
+	</box>
+	</box>
+</form>

@@ -1,0 +1,112 @@
+<button type="button" class="btn-popup-close" (click)="closePopup()">close</button>
+
+<ng-container *ngIf="details; else loader">
+  <box class="casa-transaction-info-wrapper info-popup-wrapper">
+    <header>
+      <box class="casa-transaction-info col-12">
+        <box class="transaction-icon-wrapper">
+          <ng-container *ngIf="this.details.merchantId; else transCat">
+              <img src="./assets/merchants/{{this._appConfig.getMerchantById(this.details.merchantId)?.icon}}"
+                  alt="this.this.details.merchantName" />
+          </ng-container>
+          <ng-template #transCat>
+              <ng-container *ngIf="this.details.transCat; else noPhoto">
+                <img src="./assets/transactions/{{details.transactionCategory}}.svg" alt="transactionCategory" />
+              </ng-container>
+          </ng-template>
+          <ng-template #noPhoto>
+              <div class="name-first-letter">
+                  <span
+                      *ngIf="this.details.transactionDescription?.split(' ').length == 1">{{this.details.transactionDescription?.substring(0,
+                      1)}}
+                  </span>
+                  <span
+                      *ngIf="this.details.transactionDescription?.split(' ').length > 1 && this.details.transactionDescription?.split(' ').length != 1">
+                      {{this.details.transactionDescription?.split(" ")[0]?.charAt(0)
+                      +(this.details.transactionDescription?.split(" ")[1]?
+                      this.details.transactionDescription?.split(" ")[1]?.charAt(0): "")}}
+                  </span>
+              </div>
+          </ng-template>
+        </box>
+        <box class="transaction-info">
+          <box class="transaction-primary-info">
+            <span class="name">{{ details.transactionDescription }}</span>
+            <span class="date">{{ details.transactionDate | date : "dd MMM yyyy hh:mm:ss" }}</span>
+          </box>
+          <box class="transaction-secondary-info">
+            <span class="amount" [ngClass]="{
+                        'credit' : details.transType == 'C',
+                        'debit' : details.transType == 'D'
+                      }"><em>{{details.transactionCurrency}}</em> {{details.transactionAmount | currency : details.transactionCurrency: ''}}</span>
+            <span class="amount"><em>{{details.transactionCurrency}}</em> {{details.balance | currency : details.transactionCurrency: ''}}
+              </span>
+          </box>
+        </box>
+      </box>
+    </header>
+
+    <box class="info-popup-body">
+      <box class="display-fields-container">
+        <ng-container *ngFor="let field of fields; index as i">
+          <box class="display-field">
+            <ng-container *ngIf="field == 'accountNumber'; else defaultLabel">
+              <!-- <span class="lbl">{{ 'casaTransactionInfo.'+ details['transType']+field | translate }}</span> -->
+              <span class="lbl">{{ 'casaTransactionInfo.'+field | translate }}</span>
+            </ng-container>
+            <ng-template #defaultLabel>
+              <span class="lbl">{{ 'casaTransactionInfo.'+field | translate }}</span>
+            </ng-template>
+            <span class="val">
+              <ng-container [ngSwitch]="fieldsFormat[i]">
+                <ng-container *ngSwitchCase="'date'">
+                  {{ details[field] | date : "dd MMM yyyy" }}
+                </ng-container>
+                <ng-container *ngSwitchCase="'amount'">
+                  {{ details[field] | currency : details.currency : '' }}
+                </ng-container>
+                <ng-container *ngSwitchCase="'precentage'">
+                  {{ details[field] + "%" }}
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                  {{ details[field] }}
+                </ng-container>
+              </ng-container>
+            </span>
+          </box>
+        </ng-container>
+      </box>
+  
+      <!-- <ng-container *ngIf="details?.instrumentId">
+        <hr class="h-seperator" />
+        <box class="cheque-view">
+          <ng-container *ngIf="doViewCheque">
+            <ng-container *ngIf="chequeImage; else loader">
+              <box class="cheque-image-wrapper">
+                <img [src]="chequeImage" alt="cheque" />
+              </box>
+            </ng-container>
+            
+          </ng-container>
+          
+          <box class="cheque-action">
+            <fpx-button *ngIf="!doViewCheque" btn-type="button" btnClass="secondary"
+              label="{{'casaTransactionInfo.viewCheque' | translate}}" ></fpx-button>
+            <fpx-button *ngIf="chequeImage && doViewCheque" btn-type="button" btnClass="secondary"
+              label="{{'casaTransactionInfo.hideCheque' | translate}}" ></fpx-button>
+          </box>
+        </box>
+      </ng-container> -->
+  
+      <!-- <box class="display-details-container-footer">
+        <fpx-button btnType="button" btnClass="tertiary" label="{{'casaTransactionInfo.back' | translate}}"></fpx-button>
+        <fpx-button btnType="button" btnClass="primary" label="{{'casaTransactionInfo.download' | translate}}"></fpx-button>
+      </box> -->
+    </box>
+    
+  </box>
+</ng-container>
+
+<ng-template #loader>
+  <box class="loading"></box>
+</ng-template>

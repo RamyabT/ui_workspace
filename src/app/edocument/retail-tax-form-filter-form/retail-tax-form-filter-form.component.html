@@ -1,0 +1,41 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailTaxFormFilterForm">
+	<box *ngIf="!retailTaxFormFilterFormHelper.deviceDetectorService.isMobile()" class="header">
+		<box class="title">
+			Filter
+		</box>
+		<box class="close-btn-container">
+			<button type="button" class="btn-container" (click)="retailTaxFormFilterFormHelper.close()">
+				<span class="icon close-btn-icon"></span>
+			</button>
+		</box>
+	</box>
+
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-sm-12 col-md-12 col-lg-12">
+
+
+			<fpx-date class="col-sm-6 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('dateFrom')"
+				label="{{'RetailTaxFormFilterForm.dateFrom.label' | translate }}" formControlName="dateFrom"
+				placeholder="{{'RetailTaxFormFilterForm.dateFrom.placeholder' | translate }}"
+				[minDate]="state.dateFrom.minDate" [maxDate]="state.dateFrom.maxDate"></fpx-date>
+
+
+			<fpx-date class="col-sm-6 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('dateTo')"
+				label="{{'RetailTaxFormFilterForm.dateTo.label' | translate }}" formControlName="dateTo"
+				placeholder="{{'RetailTaxFormFilterForm.dateTo.placeholder' | translate }}"
+				[minDate]="state.dateTo.minDate" [maxDate]="state.dateTo.maxDate"></fpx-date>
+
+			<box class="form-action-container">
+				<fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('reset')"
+					label="{{ 'RetailTaxFormFilterForm.reset.label' | translate }}" btnClass=" btn-secondary"
+					[buttonMode]="'button'" (onClick)="retailTaxFormFilterFormHelper.onResetClick(null)"></fpx-button>
+
+
+				<fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('filter')"
+					label="{{ 'RetailTaxFormFilterForm.filter.label' | translate }}" btnClass=" btn-primary"
+					[buttonMode]="'button'" [disable]="formGroup.invalid"
+					(onClick)="retailTaxFormFilterFormHelper.onViewClick(null)"></fpx-button>
+			</box>
+		</box>
+	</box>
+</form>

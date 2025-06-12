@@ -1,0 +1,27 @@
+"RetailViewScheduledBillsDisplayGrid":{
+"title":"Scheduled Bills",
+		 "paymentDate": {
+		  "label":"Payment Date" ,
+		  "placeholder": "Payment Date"
+		  } ,
+		 "beneficiaryName": {
+		  "label":"Payee Name" ,
+		  "placeholder": "Payee Name"
+		  } ,
+		 "sourceAccount": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "scheduleType": {
+		  "label":"Payment Type" ,
+		  "placeholder": "Payment Type"
+		  } ,
+		 "operationMode": {
+		  "label":"Action" ,
+		  "placeholder": "Action"
+		  } 
+}

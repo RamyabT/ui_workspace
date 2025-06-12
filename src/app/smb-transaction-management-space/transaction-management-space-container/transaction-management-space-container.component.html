@@ -1,0 +1,46 @@
+<box class="module-home smb-transaction-management-home" #spaceHome>
+    <ng-container *ngIf="_deviceMgr.isMobile(); else spaceContainer">
+        <box class="module-home-bg" [style.top.px]="moduleHeaderTop"></box>
+        <box class="module-home-inner">
+            <fpx-display-text class="module-title"
+                innerHTML="{{'SMBTRANSACTIONMANAGEMENTHOME.title' | translate}}"></fpx-display-text>
+
+            <box class="module-tab-container">
+                <!-- <ng-container *ngIf="hasDelegates; else delegatesIntroTmplt"> -->
+                    <app-retail-transaction-management-form></app-retail-transaction-management-form>
+                <!-- </ng-container> -->
+            </box>
+        </box>
+    </ng-container>
+</box>
+
+<!-- <ng-template #delegatesIntroTmplt>
+    <app-retail-transaction-management-form></app-retail-transaction-management-form>
+</ng-template> -->
+
+<ng-template #spaceContainer>
+    <box class="space-container">
+        <box class="space-summary">
+            
+            <box class="add-delegate-btn-container">
+                <box class="delegats-message">
+                    <box class="desc">{{ 'SMBDELEGATEHOME.addDelegatesDesc' | translate }}</box>
+                    <button class="btn-add-delegats" clickable (click)="addDelegates()">{{ 'SMBDELEGATEHOME.addBtn' | translate }}</button>
+                </box>
+                <img [src]="skinManager.getAssetFolderPath() + 'skins/images/illustration/delegate-management.svg'" alt="add delegates" />
+            </box>
+
+            <box class="offers-widget">
+                <banner-ads [serviceCode]="'RETAILDASHBOARD'"></banner-ads>
+            </box>
+        </box>
+
+        <box class="space-content">
+            <box class="smb-main">
+                <box class="smb-router">
+                    <router-outlet (activate)="onActivate($event)"></router-outlet>
+                </box>
+            </box>
+        </box>
+    </box>
+</ng-template>

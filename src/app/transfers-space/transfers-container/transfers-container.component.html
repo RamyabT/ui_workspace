@@ -1,0 +1,115 @@
+<box class="module-home e-transfers-home" #spaceHome [ngClass]="{'mobile-transfers-home' : _device.isMobile()}">
+    <ng-container *ngIf="_device.isMobile(); else spaceContainer">
+        <ng-container *ngIf="appConstant.requiredAccountsSpaceNavigation; else showDirectMudule">
+            <box class="module-home-bg" [style.top.px]="moduleHeaderTop"></box>
+            <box class="module-home-inner">
+                <fpx-display-text class="module-title"
+                    innerHTML="{{'TRANSFERSCONTAINER.title' | translate}}"></fpx-display-text>
+                <box class="fav-transfers-widget">
+                    <app-favourite-transaction></app-favourite-transaction>
+                </box>
+                <box class="transfers-quick-action-widget">
+                    <app-transfers-quick-actions></app-transfers-quick-actions>
+                </box>
+                <box class="module-tab-container">
+                    <mat-tab-group [(selectedIndex)]="activeTabIndex" (selectedTabChange)="onTabChanged($event)">
+                        <mat-tab label="{{ 'TRANSFERSCONTAINER.scheduled' | translate }}">
+                            <ng-template matTabContent>
+                                <app-schedule-form></app-schedule-form>
+                            </ng-template>
+                        </mat-tab>
+                        <mat-tab label="{{ 'TRANSFERSCONTAINER.history' | translate }}">
+                            <ng-template matTabContent>
+                                <transfer-summary-form></transfer-summary-form>
+                            </ng-template>
+                        </mat-tab>
+                    </mat-tab-group>
+                </box>
+            </box>
+        </ng-container>
+        <ng-template #showDirectMudule>
+
+            <box class="module-home-header">
+                <!-- <button type="button" class="system-ico-button btn-back no-text" name="back" (click)="goBack()"><span>Back</span></button> -->
+                <h2 class="module-title">{{ 'MODULE_HEADER.transfers' | translate }}</h2>
+            </box>
+
+            <box class="body-home-container">
+
+                <ng-container *ngIf="!casaAccountsApiFailed else apiErrorTemplate">
+                    <ng-container>
+                        <box class="e-transfers-quick-action-widget">
+                            <app-transfers-context-menu></app-transfers-context-menu>
+                        </box>
+                    </ng-container>
+
+
+                    <box class="module-tab-container payments-home-wrapper">
+                        <ng-container>
+                            <app-transfers-home></app-transfers-home>
+                        </ng-container>
+                    </box>
+                </ng-container>
+
+            </box>
+        </ng-template>
+    </ng-container>
+
+    <ng-template #spaceContainer>
+        <box class="space-container">
+            <box class="space-summary" *ngIf="!appConstant.requiredAccountsSpaceNavigation">
+                <!-- <transfers-aside-bar></transfers-aside-bar> -->
+            </box>
+            <ng-container *ngIf="appConstant.requiredAccountsSpaceNavigation">
+                <box class="space-summary">
+                    <box class="module-tab-container">
+                        <transfers-summary-container
+                            (onAccountsReceived)="onCasaAccountReceivedHandler($event)"></transfers-summary-container>
+                    </box>
+                    <box>
+                        <app-favourite-transaction></app-favourite-transaction>
+                    </box>
+                    <box class="offers-widget">
+                        <banner-ads [serviceCode]="serviceCode"></banner-ads>
+                    </box>
+                </box>
+            </ng-container>
+            <box class="space-content bills-content">
+                <box class="space-module-header-transfers" *ngIf="!appConstant.requiredAccountsSpaceNavigation">
+                    <transfers-module-header></transfers-module-header>
+                </box>
+
+                <ng-container *ngIf="isReceivedAccounts; else loader">
+                    <ng-container *ngIf="!casaAccountsApiFailed else apiErrorTemplate">
+                        <ng-container *ngIf="(isReceivedAccounts?.length > 0 || showTemplate)">
+                            <box *ngIf="isReceivedAccounts?.length > 0" class="navigation-form-wrapper">
+                                <transfers-navigation-form></transfers-navigation-form>
+                            </box>
+                            <box>
+                                <router-outlet (activate)="onActivate($event)"></router-outlet>
+                            </box>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+            </box>
+        </box>
+    </ng-template>
+</box>
+<!-- Content loader -->
+<ng-template #loader>
+    <box class="loading  casa-summary-loader"></box>
+</ng-template>
+
+<ng-template #noRecordDesktop>
+    <box class="no-data-template">
+        <img src="./assets/illustrations/no-account-lg.svg" alt="No Accounts">
+        <box class="desc">{{ 'TRANSFERSCONTAINER.noAccounts.desc' | translate }}</box>
+        <button type="button" class="btn-primary no-result-btn" (click)="addNewAccount()">{{
+            'TRANSFERSCONTAINER.noAccounts.button' | translate }}</button>
+    </box>
+</ng-template>
+<ng-template #apiErrorTemplate>
+    <box class="service-unavailable-template">
+        <box class="description">{{'accountsPanel.apiErrorData' | translate}}</box>
+    </box>
+</ng-template>

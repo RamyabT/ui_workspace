@@ -1,0 +1,58 @@
+<box class="userprofile-panel-inner">
+    <!-- <box class="polygon-design">
+        <img src="./assets/images/layouts/controls/polygon.svg" />
+    </box> -->
+    <box class="profile-details">
+        <box class="profile-details-info">
+            <box class="profile-pic">
+                <!-- <span class="user-name">{{getUserName()}}</span> -->
+                <span class="user-img" *ngIf="getProfilePicType() == 'avatar'">
+                    <img src="./assets/images/avatar.svg" alt="Profile Picture" />
+                </span>
+                <span class="user-name" *ngIf="getProfilePicType() == 'initial'">{{getUserName()}}</span>
+                <span class="user-img" *ngIf="getProfilePicType() == 'pic'">
+                    <img src="{{userAuth.getProfilePicture()}}" alt="user" alt="Profile Picture" />
+                </span>
+                <!-- <img src="{{userAuth.getProfilePicture()}}" alt="user" /> -->
+            </box>
+            <box class="profile-info">
+                <span class="lbl">{{getUserFullName()}}</span>
+                <span class="details"><span class="last-login-lbl">{{ 'USERPROFILE.lastLogin' | translate }}</span>
+                    {{lastLoginDate}} 
+                    <span class="separator"></span>
+                    {{lastLoginTime}}
+                </span>
+                <span *ngIf="this.appConstant.userProfile.showLastFailedLogin" class="details"><span
+                        class="last-login-lbl">{{ 'USERPROFILE.lastFailedLogin' | translate }}</span>
+                    {{lastFailedLogin}}</span>
+
+            </box>
+        </box>
+    </box>
+    <box class="user-profile-menu-container dark-mode-container">
+        <button type="button" class="btn-container">
+            <span class="lbl">{{ 'USERPROFILE.darkmode' | translate }}</span>
+        </button>
+        <mat-slide-toggle [checked]="toggleValue" (change)="toggleTheme()"></mat-slide-toggle>
+    </box>
+    <box class="user-profile-menu-container" [ngClass]="{ 'no-access-scope':!('RETAILSETTINGS' | AccessScope) && !device.isMobile() }">
+
+
+        <button *ngIf="device.isMobile()" (click)="navtoModule('REACHUS')" type="button"
+            class="btn-container reach-us-btn">
+            <span class="icon contact-btn-icon"></span>
+            <span class="lbl">{{ 'USERPROFILE.reachUs' | translate }}</span>
+        </button>
+        <button *ngIf="'RETAILSETTINGS' | AccessScope" type="button" class="btn-container settings-btn" (click)="navtoModule('SETTINGSSPACE')">
+            <span class="icon settings-btn-icon"></span>
+            <span class="lbl">{{ 'USERPROFILE.settings' | translate }}</span>
+        </button>
+    </box>
+    <box class="user-profile-menu-container logout-menu-container">
+        <button type="button" class="btn-container log-out-btn" (click)="navtoModule('LOGOUT')">
+            <span class="icon logout-btn-icon"></span>
+            <span class="lbl">{{ 'USERPROFILE.logout' | translate }}</span>
+        </button>
+    </box>
+    
+</box>

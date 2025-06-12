@@ -1,0 +1,28 @@
+<box class="widget goals">
+    <header>
+        <span class="widget-title">{{ 'DEBITCARDSPENDINGOVERVIEW.title' | translate }}</span>
+        <button type="button" class="link">{{ 'BUTTONS.viewAll' | translate }}</button>
+    </header>
+
+    <box class="widget-body">
+        <ul class="goal-list">
+            <li>
+                <!-- <box class="category-name">
+                    {{ 'DEBITCARDSPENDINGOVERVIEW.title' | translate }}
+                </box> -->
+                <box class="goal-progress-bar">
+                    <box class="spend">
+                        <span class="start amount">{{7000 | currency : _appConfig.baseCurrency : ''}} <em>{{_appConfig.baseCurrency}}</em></span>
+                    </box>
+                    <box class="progress-track">
+                        <span class="fill" [style.width.%]="70"></span>
+                    </box>
+                    <box class="limit">
+                        <span class="lbl">{{ 'DEBITCARDSPENDINGOVERVIEW.limitLabel' | translate }}</span>
+                        <span class="end amount">{{10000 | currency : _appConfig.baseCurrency : ''}} <em>{{_appConfig.baseCurrency}}</em></span>
+                    </box>
+                </box>
+            </li>
+        </ul>
+    </box>
+</box>

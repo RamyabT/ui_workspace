@@ -1,0 +1,52 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" class="entry-form">
+	<box class="form-body grid">
+		<div class="kf-header col-sm-12 col-md-12 col-lg-12">
+			<div class="kf-title">{{ 'COBKeyFactsStatementsForm.header' | translate }}</div>
+			<div class="kf-description" [innerHTML]="'COBKeyFactsStatementsForm.description' | translate">
+
+			</div>
+		</div>
+		<div class="kf-open-link">
+			<button type="button" class="btn-secondary" (click)="_helper.onOpenClick()"> {{'COBKeyFactsStatementsForm.openLink' | translate }}
+			</button>
+		</div>
+		<div class="kf-terms col-sm-12 col-md-12 col-lg-12">
+
+			<app-kfs-checkbox-control (click)="_helper.onReadTermsCondition()" class="col-sm-12 col-lg-12 col-md-12"
+				formControlName="kfsFlag" [ckValues]="state.kfsFlag.ckValues">
+			</app-kfs-checkbox-control>
+
+			<div class="kfs-lbl-content">
+				<span (click)="_helper.onReadTermsCondition()">{{
+					'COBKeyFactsStatementsForm.onReadTermsCondition' | translate }}
+				</span>
+				<a href="javascript:void(0)" (click)="_helper.onReadTermsCondition()" class="action-link">{{
+					'COBKeyFactsStatementsForm.onReadTermsCondition1' | translate }}</a><a
+					href="javascript:void(0)" (click)="_helper.onReadTermsCondition()" class="action-link">{{
+					'COBKeyFactsStatementsForm.onReadTermsCondition2' | translate }}</a><span>{{
+					'COBKeyFactsStatementsForm.onReadTermsCondition3' | translate }}
+				</span>
+				<a href="javascript:void(0)" (click)="_helper.onReadTermsCondition()" class="action-link">{{
+					'COBKeyFactsStatementsForm.onReadTermsCondition4' | translate }}</a><span>{{
+					'COBKeyFactsStatementsForm.onReadTermsCondition5' | translate }}
+				</span>
+				<a href="javascript:void(0)" (click)="_helper.onReadTermsCondition()" class="action-link">{{
+					'COBKeyFactsStatementsForm.onReadTermsCondition6' | translate }}</a>
+			</div>
+
+
+
+			<div class="notes">{{
+				'COBKeyFactsStatementsForm.notes' | translate }}
+				
+			</div>
+		</div>
+	</box>
+
+	<div class="btn-container">
+		<!-- <button type="button" class="btn-tertiary" (click)="_helper.onBackClick()"> {{'OnBoarding.backbtn' | translate }} </button> -->
+		<button type="submit" class="btn-primary" [disabled]="formGroup.invalid"
+			(click)="submit()">{{'OnBoarding.proceedbtn' | translate }}
+		</button>
+	</div>
+</form>

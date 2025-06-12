@@ -1,0 +1,30 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailRPAccountInfo">
+
+	<box class="entry-form">
+		<box class="entry-form-field-group grid col-12">
+			<app-account-number-list-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('fromAccount')"
+			label="{{'RetailRPAccountInfo.fromAccount.label' | translate }}"
+			(commonControlEvent)="handleControlEvent($event)"
+			formControlName="fromAccount"></app-account-number-list-control>
+			
+			<app-charges-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('depositAmount')"
+			label="{{'RetailRPAccountInfo.depositAmount.label' | translate }}" formControlName="depositAmount"
+			[CurrencyList]="state.depositAmount.CurrencyList" [isCurrEditable]="state.depositAmount.isCurrEditable"
+			[defaultFetch]="state.depositAmount.defaultFetch" [initCurrency]="state.depositAmount.initCurrency"
+			[amountInWords]="state.depositAmount.amountInWords"> </app-charges-control>
+
+		<fpx-text-box class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('productId')"
+			label="{{'RetailRPAccountInfo.productId.label' | translate }}" formControlName="productId"
+			placeholder="{{'RetailRPAccountInfo.productId.placeholder' | translate }}"></fpx-text-box>
+
+		<app-retail-intended-use-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('intendedUse')"
+			label="{{'RetailRPAccountInfo.intendedUse.label' | translate }}"
+			formControlName="intendedUse" 
+			[changePublisher]="formChangePublisher$"
+        	[dependencyField]="['serviceCodeValue']"></app-retail-intended-use-control>
+		</box>
+		
+	</box>
+</form>

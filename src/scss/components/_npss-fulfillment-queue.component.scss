@@ -1,0 +1,110 @@
+#depAppBody {
+    .fulfillment-queue-body{
+        margin: 0 -16px 0 0;
+        @include not-small-screen {
+            margin: 0;
+            background-color: unset;
+            box-shadow: unset;
+            padding: 0;
+        }
+    }
+    .fulfillment-queue-list {
+        width: 100%;
+    
+        .slick-track{
+            display: flex;
+
+            .slick-slide{
+                padding: 0 12px;
+
+                &:first-child{
+                    padding-left: 0;
+                }
+            }
+        }
+    
+        .fulfillment-queue-detail {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color: #FFFFFF;
+            min-height: 102px;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid var(--primary500);
+    
+            .primary-info {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 8px;
+    
+                .primary-info-sec-1 {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 4px;
+                    @include s4-medium;
+                    color: var(--bodyTxtClr);
+    
+                }
+            }
+    
+            .secondary-info {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 20px;
+                align-items: center;
+    
+                .secondary-info-sec-1 {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    color: var(--bodyTxtClr);
+
+                    .request-name{
+                        @include s4-medium;
+                    }
+    
+                    .amount {
+                        @include s2-bold;
+                        color: var(--bodyTxtClr);
+
+                        em{
+                            @include s4-medium;
+                        }
+                    }
+                }
+    
+                .secondary-info-sec-2 {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    gap: 6px;
+                    height: 30px;
+    
+                    .pay-button {
+                        @include b4-regular;
+                        background-color: var(--primary500);
+                        color: var(--neutral50);
+                        border-radius: 20px;
+                        min-width: 65px;
+                    }
+    
+                    .seperator {
+                        margin: 6px;
+                        padding: 0.5px;
+                        background-color: var(--baseBdrClr);
+                        border-radius: 1px;
+                   }
+    
+                    .decline-button {
+                        @include b4-regular;
+                        color: var(--primary500);
+                    }
+    
+                }
+            }
+        }
+    }
+}

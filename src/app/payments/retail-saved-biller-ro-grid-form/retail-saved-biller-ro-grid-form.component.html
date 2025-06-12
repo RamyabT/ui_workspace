@@ -1,0 +1,115 @@
+<box [hidden]="_helper.totalRecordCount == 0" class="bill-payments-header">
+	<box class="pay-bill-title">
+		<span>{{'billpaymentLabels.payBillTitle' | translate}}</span>
+	</box>
+
+	<box *ngIf="_helper.totalRecordCount > 1">
+		<button class="select-multiple-btn" (click)="_helper.selectMultipleBill()">{{'billpaymentLabels.selectMultiple'
+			| translate}}</button>
+	</box>
+</box>
+
+<form [formGroup]="formGroup" autocomplete="off" formName="RetailSavedBillerRoGridForm">
+
+
+	<box class="entry-form">
+		<box class="grid entry-form-field-group">
+			<ng-container *ngIf="_helper.billsApiFailed; else mainContent">
+				<ng-template [ngTemplateOutlet]="apiErrorTemplate"></ng-template>
+			</ng-container>
+			
+				<ng-template #mainContent>
+					<box class="col-md-12 col-sm-12 col-lg-12 grid-wrapper">
+
+						
+						<ng-container *ngIf="!state.isDataReceived">
+							<box class="loading casa-summary-loader bills-loader"></box>
+						</ng-container>
+
+						
+						<app-retail-saved-biller-ro-grid 
+							[actionPublisher]="actionMap$.get('savedBillersGrid')"
+							(commonRoGridEvent)="_helper.billGridEvent($event)">
+						</app-retail-saved-biller-ro-grid>
+
+					</box>
+				</ng-template>
+
+
+			<!-- <ng-container *ngIf="!_helper.billsApiFailed else apiErrorTemplate">
+
+				<box class="col-md-12 col-sm-12 col-lg-12">
+					
+						<app-retail-saved-biller-ro-grid [actionPublisher]="actionMap$.get('savedBillersGrid')"
+							(commonRoGridEvent)="_helper.billGridEvent($event)"></app-retail-saved-biller-ro-grid>
+					
+				</box>
+
+			</ng-container> -->
+
+
+			<box [hidden]="_helper.totalRecordCount == 0" class="no-data-view"
+				[actionPublisher]="actionMap$.get('noFilteredData')">
+				<img class="no-result-image" src="./assets/images/transfers/no-schedule-transfer.svg"
+					alt="no transactions available">
+				<box class="no-data-desc">
+					{{ 'RetailSavedBillerRoGridForm.noData' | translate }}
+				</box>
+			</box>
+		</box>
+
+	</box>
+
+	<box class="no-bill-result-view" [ngClass]="{'empty-bills': _helper.totalRecordCount == 0}"
+		[actionPublisher]="actionMap$.get('noSavedBillersGrid')">
+
+		<span class="no-result-image-wrapper">
+			<span class="no-result-image"></span>
+		</span>
+		<box class="no-bill-result-view-content">
+			<box class="pay-a-bill-text">{{'billpaymentLabels.payBillTitle' | translate}}</box>
+
+			<box class="message-wrapper">
+				<box class="primary-info">
+					<ng-container>
+						{{ 'RetailSavedBillerRoGridForm.primaryInfo.label' | translate }}
+					</ng-container>
+				</box>
+				<!-- <box class="secondary-info">
+				<ng-container>
+					{{ 'RetailSavedBillerRoGridForm.secondaryInfo.label' | translate }}
+				</ng-container>
+			</box> -->
+			</box>
+		</box>
+		<box *ngIf="'RETAILBILLERACCOUNT' | AccessScope" class="form-action-container">
+
+			<button (click)="_helper.initiateNewTransaction()" class="add-payee-btn btn-primary">
+				<span class="ico ico-add-payee"></span>
+				<span class="add-payee-text">{{'billpaymentLabels.addPayee' | translate}}</span>
+			</button>
+		</box>
+
+		<!-- <fpx-display-text class="no-result-desc"
+			[innerHTML]="'Add a payee to get started'"></fpx-display-text>
+		<fpx-button btnType="button" btnClass="btn-primary" label="Add Biller"
+			(onClick)="_helper.initiateNewTransaction()"></fpx-button> -->
+	</box>
+	<!-- <ng-container *ngIf="!state.isDataReceived || !_helper.totalRecordCount">
+		<box class="loading casa-summary-loader"></box>
+	</ng-container> -->
+	 <!-- <ng-template #apiErrorTemplate>
+		<box class="service-unavailable-template">
+			<box class="description">{{'accountsPanel.apiErrorData' | translate}}</box>
+		</box>
+	</ng-template> -->
+
+
+<ng-template #apiErrorTemplate>
+	<box class="service-unavailable-template">
+		<box class="description">{{ 'accountsPanel.apiErrorData' | translate }}</box>
+	</box>
+</ng-template>
+ 
+
+</form>

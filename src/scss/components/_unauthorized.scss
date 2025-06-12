@@ -1,0 +1,31 @@
+.unauthorized-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .unauthorized-wrapper {
+    position: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .unauthorized-image {
+     
+      .image {
+        width: 270px;
+        height: 180px;
+        display: block;
+      }
+    }
+
+    .content {
+      text-align: center;
+      .label {
+        @include h4-bold;
+        align-items: center;
+      }
+    }
+  }
+}

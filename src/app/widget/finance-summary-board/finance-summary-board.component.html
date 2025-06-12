@@ -1,0 +1,86 @@
+<ng-container *ngIf="cardData?.actions; else noData">
+    <box class="budget-wrapper">
+        <box class="budget-info">
+            <box class="budget-percentage">
+                <box class="percentage-content">
+                    <svg width="60" height="60" viewBox="0 0 100 100">
+                        <circle id="progress" class="progress-circle"
+                            cx="50" cy="50" r="40"
+                            stroke="#1D875A" stroke-width="8"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-dasharray="251.2"
+                            [attr.stroke-dashoffset]="strokeDashoffset" />
+                        <text id="progress-text" x="50" y="55" text-anchor="middle">{{cardData.progress+'%'}}</text>
+                    </svg>
+                </box>
+                <box class="budget-title">{{cardData?.title}}</box>
+            </box>
+            <box class="budget-summary">
+                    <box class="summary-info">
+                        <box class="primary-info">
+                        <span class="budget-item item1"></span>
+                        <span class="budget-label">Target</span>
+                        </box>
+                        <box class="sec-info">
+                            <ng-container *ngIf="cardData?.title=='Budget'; else goal">{{cardData?.target}}
+                            </ng-container>
+                            <ng-template #goal>
+                                <box class="budget-value">{{cardData?.target | currency : appConfig.baseCurrency : '' }} {{ appConfig.baseCurrency}}
+                                </box> 
+                            </ng-template>
+                        </box>
+                    </box>
+                    <box class="summary-info">
+                        <box class="primary-info">
+                        <span class="budget-item item2"></span>
+                        <span class="budget-label">{{'financeSummaryBoard.'+cardData?.title.toLowerCase()+'.Achieved' | translate}}</span>
+                        </box>
+                        <box class="sec-info">
+                            <ng-container *ngIf="cardData?.title=='Budget'; else achievedGoal">{{cardData?.achieved}}
+                            </ng-container>
+                            <ng-template #achievedGoal>
+                                <box class="budget-value">{{cardData?.achieved | currency : appConfig.baseCurrency : '' }} {{ appConfig.baseCurrency}}
+                                </box> 
+                            </ng-template>
+                        </box>
+        
+                    </box>
+            </box>
+        </box>
+        <box class="budget-actions">
+            <box class="action-item" (click)="takeAction(cardData?.actions[0].id)">{{cardData?.actions[0].desc}}</box>
+            <box class="list-separator"></box>
+            <box class="action-item" (click)="takeAction(cardData?.actions[1].id)">{{cardData?.actions[1].desc}}</box>
+        </box>
+    </box>
+</ng-container>
+
+<ng-template #noData>
+    <ng-container *ngIf="cardData?.type == 'budget'">
+        <box class="budget-wrapper">
+            <box class="no-budget">
+                <box class="no-budget-icon">
+                    <img src="./assets/pfm/no_{{cardData.type}}.svg" alt="{{cardData.type}}">
+                </box>
+                <box class="no-budget-info">
+                    <box class="no-budget-desc">{{ 'pfmFinanceCard.noData.' + cardData.type + '.desc' | translate }}</box>
+                    <box class="add-budget" (click)="createSummary(cardData.type)">{{ 'pfmFinanceCard.noData.' + cardData.type + '.addBtnLbl' | translate }}</box>
+                </box>
+            </box>
+        </box>
+    </ng-container>
+    <!-- <ng-template #goal>
+        <box class="budget-wrapper">
+          <box class="no-budget">
+            <box class="no-budget-icon">
+                <img src="./assets/pfm/no_goals.svg" alt="">
+            </box>
+            <box class="no-budget-info">
+                <box class="no-budget-desc">You have not added any goals to track</box>
+                <box class="add-budget">Add</box>
+            </box>
+          </box>
+        </box>
+    </ng-template> -->
+</ng-template>

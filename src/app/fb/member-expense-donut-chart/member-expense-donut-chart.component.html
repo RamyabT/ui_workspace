@@ -1,0 +1,4 @@
+<fpx-donut-chart [idvalue]="chartHelper.id" [textvalue]="chartHelper.text" chart [actionPublisher]="actionMap"
+[chartConfigurations]="getChartData()" [chartsPublisher]="chartsAction$" [showTooltip]="false"
+[tooltipContent]="chartHelper.id" (arcClickEvent)="chartHelper.arcClickEvent($event)">
+</fpx-donut-chart>

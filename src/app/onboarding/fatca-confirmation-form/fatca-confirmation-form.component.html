@@ -1,0 +1,42 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="FatcaConfirmation">
+	<div class="fatca-box">
+		<box class="entry-form">
+			<box class="entry-form-field-group col-12 grid">
+				<span *ngIf="_helper._appConfig.getData('processId')" class="arn-number">{{'OnBoarding.arn' | translate }}{{_helper._appConfig.getData('processId')}}</span>
+				<box class="fatca-container">
+
+					<box class="fatca-header">{{'fatcaconfirmation.header' | translate }}</box>
+					<box class="fatca-content1">{{'fatcaconfirmation.content1' | translate }}</box>
+					<box class="fatca-content2">{{'fatcaconfirmation.content2' | translate }}
+					</box>
+					<box class="dc-pre-request-document">
+						<ul>
+							<li [innerHTML]="'fatcaconfirmation.questions.list1' | translate"></li>
+							<li [innerHTML]="'fatcaconfirmation.questions.list2' | translate"></li>
+							<li [innerHTML]="'fatcaconfirmation.questions.list3' | translate"></li>
+							<li [innerHTML]="'fatcaconfirmation.questions.list4' | translate"></li>
+							<li [innerHTML]="'fatcaconfirmation.questions.list5' | translate"></li>
+							<li [innerHTML]="'fatcaconfirmation.questions.list6' | translate"></li>
+						</ul>
+					</box>
+					<br>
+					<br>
+					<div class="enabledflag-action">
+						<!-- <app-enabled-flag-control  class="col-md-4"   [actionPublisher]="actionMap$.get('enabledFlag')"     label="{{'COBFatcaInfoForm.enabledFlag.label' | translate }}"   formControlName="enabledFlag" 
+		 ></app-enabled-flag-control> -->
+						<app-self-declaration-flag-control class="col-md-4"
+							[actionPublisher]="actionMap$.get('selfdeclarationflag')"
+							label="{{'COBFatcaInfoForm.selfdeclarationflag.label' | translate }}"
+							formControlName="selfdeclarationflag"></app-self-declaration-flag-control>
+					</div>
+
+
+					<!-- <button type="submit" class="fatca-button" (click)="submit"> I don't hold a US passport or a
+					US Permanent resident card </button>
+	
+				<div class="fatca-link"><a href="javascript:void(0)" >I hold US passport or a <br>US Permanent resident card</a></div> -->
+				</box>
+			</box>
+		</box>
+	</div>
+</form>

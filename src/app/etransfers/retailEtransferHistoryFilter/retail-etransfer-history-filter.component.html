@@ -1,0 +1,33 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailEtransferHistoryFilter">
+
+	<box class="entry-form">
+		<box class="grid entry-form-field-group">
+
+
+			<!-- <fpx-date class="col-sm-12 col-md-6 col-lg-6 " [actionPublisher]="actionMap$.get('fromDate')"
+				label="{{'RetailEtransferHistoryFilter.fromDate.label' | translate }}" formControlName="fromDate"
+				placeholder="{{'RetailEtransferHistoryFilter.fromDate.placeholder' | translate }}"
+				[minDate]="state.fromDate.minDate" [maxDate]="state.fromDate.maxDate"></fpx-date>
+
+
+			<fpx-date class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('toDate')"
+				label="{{'RetailEtransferHistoryFilter.toDate.label' | translate }}" formControlName="toDate"
+				placeholder="{{'RetailEtransferHistoryFilter.toDate.placeholder' | translate }}"
+				[minDate]="state.toDate.minDate" [maxDate]="state.toDate.maxDate"></fpx-date> -->
+
+				<app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('fromDate')"
+				label="{{ 'RetailFilterTransaction.fromDate.label' | translate }}" formControlName="fromDate"
+				[minDate]="state.fromDate.minDate" [maxDate]="state.fromDate.maxDate"></app-request-date-control>
+		
+			  <app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('toDate')"
+				label="{{ 'RetailFilterTransaction.toDate.label' | translate }}" formControlName="toDate"
+				[minDate]="state.toDate.minDate" [maxDate]="state.toDate.maxDate"></app-request-date-control>
+
+			<box class="form-action-container">
+				<fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('apply')" label="Apply"
+					btnClass=" btn-secondary" [buttonMode]="'button'"
+					(onClick)="retailEtransferHistoryFilterHelper.apply()"></fpx-button>
+			</box>
+		</box>
+	</box>
+</form>

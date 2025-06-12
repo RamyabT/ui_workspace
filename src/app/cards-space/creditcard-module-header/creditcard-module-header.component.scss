@@ -1,0 +1,96 @@
+.back-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 24px;
+
+    .back-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+
+        .back-text {
+            font-weight: 600;
+            font-family: var(--secondaryFontFamily);
+            color: var(--primaryBaseTxtClr);
+        }
+
+        .ico-back {
+            height: 20px;
+            width: 20px;
+            display: block;
+
+            &::before {
+                content: " ";
+                mask: url("../../../assets/images/icons/back-form.svg") no-repeat center;
+                -webkit-mask: url("../../../assets/images/icons/back-form.svg") no-repeat center;
+                mask-size: 20px;
+                -webkit-mask-size: 20px;
+                background-color: var(--modulePrimaryTextClr);
+                display: block;
+                height: 20px;
+                width: 20px;
+            }
+        }
+    }
+
+    .all-accounts-btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+
+        .all-accounts-text {
+            font-weight: 600;
+            font-family: var(--secondaryFontFamily);
+            gap: 8px;
+            color: var(--primaryBaseTxtClr);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+
+            &::before {
+                content: " ";
+                mask-image: url("../../../assets/images/icons/accounts-all.svg");
+                -webkit-mask-image: url("../../../assets/images/icons/accounts-all.svg");
+                width: 24px;
+                height: 24px;
+                display: inline-block;
+                background-color: var(--primaryBaseTxtClr) !important;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+                mask-repeat: no-repeat;
+                -webkit-mask-repeat: no-repeat;
+            }
+        }
+
+    }
+
+    .new-act-btn {
+        button {
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 24px 0 16px !important;
+            height: 40px !important;
+
+            &::before {
+                content: " ";
+                mask-image: url("../../../assets/images/quick-links/RETAILADDPAYEE.svg");
+                -webkit-mask-image: url("../../../assets/images/quick-links/RETAILADDPAYEE.svg");
+                width: 24px;
+                height: 24px;
+                display: inline-block;
+                background-color: #FFFFFF !important;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+                mask-repeat: no-repeat;
+                -webkit-mask-repeat: no-repeat;
+            }
+        }
+    }
+
+}

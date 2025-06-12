@@ -1,0 +1,102 @@
+<box class="tab-container-inner">
+    <ng-container *ngIf="debitCards; else loader">
+        <ng-container *ngIf="debitCards.length; else noCard">
+            <ng-container *ngIf="device.isMobile(); else listView">
+                <debitcard-carousel [summary]="debitCards" (onSelectCard)="onSelectCard($event)"></debitcard-carousel>
+            </ng-container>
+            <ng-template #listView>
+                <ul class="debir-card-list">
+                    <ng-container *ngFor="let card of debitCards">
+                        <debitcard [cardData]="card" [formView]="true"></debitcard>
+                        <hr />
+                    </ng-container>
+                </ul>
+            </ng-template>
+        </ng-container>
+    </ng-container>
+
+    <box class="tab-main-content">
+        <!-- <box class="action-buttons">
+            <box class="action-button feature">Card features</box>
+            <box class="action-button detail">Card details</box>
+        </box> -->
+        <ng-container *ngIf="device.isMobile()">
+            <box class="accounts-insights-container">
+                <ng-container *ngIf="currentCard?.status?.toLowerCase() == 'blocked';else second">
+                    <box class="card-info-tmplt">
+                        <box class="header">Your Card is Blocked</box>
+                        <box class="description">The debit card is currently blocked , Click on the below button to make the unblock request</box>
+                        <button class="card-info-btn" (click)="unBlockCard()">Unblock Card</button>
+                    </box>
+                </ng-container>
+            </box>
+            <ng-container *ngIf="quickMenus && quickMenus.length">
+                <contextual-actions [quickLinks]="quickMenus" [cardData]="currentCard"></contextual-actions>
+            </ng-container>
+        </ng-container>
+
+        <ng-container *ngIf="!device.isMobile()">
+            <app-goals></app-goals>
+        </ng-container>
+
+        <box class="offers-widget">
+            <banner-ads [serviceCode]="'RETAILDASHBOARD'"></banner-ads>
+        </box>
+    </box>
+</box>
+
+<!-- Content loader -->
+<ng-template #loader>
+    <box class="loading casa-summary-loader"></box>
+</ng-template>
+
+<ng-template #noCard>
+    <box *ngIf="device.isMobile()" class="no-account-tmplt no-casa-tmplt">
+        <box class="left-section">
+            <span class="no-result-desc">No Cards are created, Start by creating a new card with Us!</span>
+            <!-- <button type="button" class="no-result-btn">Create</button> -->
+        </box>
+        <box class="right-section">
+            <img src="./assets/illustrations/no-account.svg" alt="create an account" />
+        </box>
+    </box>
+</ng-template>
+
+<ng-template #second>
+    <ng-container *ngIf="currentCard?.status?.toLowerCase() == 'inactive';else third">
+        <box class="card-info-tmplt">
+            <box class="header">Your card is Inactive</box>
+            <box class="description">To begin using your Debit Card, Please activate it by clicking the below button.</box>
+            <button class="card-info-btn" (click)="activateCard()">Activate Card</button>
+        </box>
+    </ng-container>
+    <ng-template #third>
+        <ng-container *ngIf="currentCard?.status?.toLowerCase() == 'blocked permanently';else fourth">
+            <box class="card-info-tmplt">
+                <box class="header">Blocked permanently</box>
+                <box class="description">This Card has been blocked, So it can't be accessed now. Please contact the bank for further assistance.</box>
+                <!-- <button class="card-info-btn" (click)="activateCard()">Activate Card</button> -->
+            </box>
+        </ng-container>
+    </ng-template>
+    <ng-template #fourth>
+        <ng-container *ngIf="chartData; else loader">
+            <ng-container *ngIf="chartData.length > 0; else fifth">
+                <app-debitcard-spending-summary [chartData]="chartData" (spendDate)="getAccountsInsights($event)"></app-debitcard-spending-summary>
+            </ng-container>
+        </ng-container>
+    </ng-template>
+    <ng-template #fifth>
+        <box class="no-insights-tmplt no-cards">
+            <box class="header">
+                <span class="name">{{ 'DCTABCONTAINER.noCreditCard' | translate }}</span>
+            </box>
+            <box class="desc">{{ 'DCTABCONTAINER.freeCard' | translate }}</box>
+            <box class="benefit-points">
+                <span class="benefit-desc">{{ 'DCTABCONTAINER.noJoiningFee' | translate }}</span>
+                <span class="benefit-desc">{{ 'DCTABCONTAINER.fuelWaiver' | translate }}</span>
+                <span class="benefit-desc">{{ 'DCTABCONTAINER.points' | translate }}Up to 2 Payback points</span>
+            </box>
+        </box>
+    </ng-template>
+</ng-template>

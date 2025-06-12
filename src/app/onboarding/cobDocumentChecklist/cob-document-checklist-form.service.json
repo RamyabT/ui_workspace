@@ -1,0 +1,5 @@
+ 
+ "RETAILDOCUMENTCHECKLIST" : {
+ "servicePath": ["entry-shell","pfm", "cobDocumentChecklist"],
+ "queryParams": {}
+ }

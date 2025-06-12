@@ -1,0 +1,5 @@
+ 
+ "RETAILSERVICEREQUESTADHOC" : {
+ "servicePath": ["entry-shell","servicerequest", "retail-service-request-details-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,127 @@
+/**
+* Framework grid system styles
+*/
+
+@use "sass:math";
+
+// breakpoints map
+$breakpoints: (
+  sm: "max-width: 1024px",
+  // sm: "max-width: 768px",
+  // md: "(min-width: 769px) and (max-width: 1024px)",
+  lg: "min-width: 1025px"
+);
+
+$fontSizeBreakpoints:(
+  sm: 14,
+  md: 15,
+  lg: 16
+);
+
+// media query mixin
+@mixin break($size) {
+  @media (map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+// number of columns variable
+$items: 12;
+
+// grid container
+@mixin grid{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-self: stretch;
+
+  --container-col-count: 12;
+  --container-gap-count: calc(var(--container-col-count) - 1);
+  --gap-size: 20px;
+  --combined-gap-size: calc(var(--container-gap-count) * var(--gap-size));
+  --col-size: calc((100% - var(--combined-gap-size)) / var(--container-col-count));
+  gap: var(--gap-size);
+
+  >* {
+    --item-gap-count: calc(var(--item-col-count) - 1);
+    --item-size: calc(var(--item-col-count) * var(--col-size) + var(--item-gap-count) * var(--gap-size));
+    flex: 0 0 var(--item-size);
+    min-width: 0;
+  }
+}
+.grid,
+.entry-form {
+  @include grid;
+}
+
+@for $i from 1 through $items {
+  .col-#{$i} {
+    box-sizing: border-box;
+    width: (math.div($i, $items) * 100%);
+    --item-col-count: #{$i};
+  }
+
+}
+
+// loop over the breakpoints
+@each $key, $value in $breakpoints {
+  @for $i from 1 through $items {
+    .col-#{$key}-#{$i} {
+      box-sizing: border-box;
+
+      @include break($key) {
+        width: (math.div($i, $items) * 100%);
+        --item-col-count: #{$i};
+      }
+    }
+  }
+}
+
+// define breakpoint for setting font size
+@each $key, $value in $breakpoints {
+  html{
+    @include break($key) {
+      --responsiveFontSize: #{map-get($fontSizeBreakpoints, $key)}px;
+    }
+  }
+}
+
+@mixin small-screen{
+  @media (map-get($breakpoints, 'sm')) {
+    @content;
+  }
+}
+@mixin medium-screen{
+  @media (map-get($breakpoints, 'md')) {
+    @content;
+  }
+}
+@mixin large-screen{
+  @media (map-get($breakpoints, 'lg')) {
+    @content;
+  }
+}
+// @mixin not-small-screen{
+//   @media screen and (min-width: 769px) {
+//     @content;
+//   }
+// }
+
+@mixin not-small-screen{
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin not-large-screen{
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin rtl-direction{
+  &:dir(rtl) {
+    @content;
+  }
+}

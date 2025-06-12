@@ -1,0 +1,60 @@
+<box *ngIf="_helper.hasScope('RETAILSCHTRANSFERS')">
+    <box class="widget-nav">
+        <span class="widget-nav-ico-wrapper widget-nav-schedule-transfers"></span>
+        <span class="widget-nav-name">{{ 'ScheduleTransferForm.title' | translate }}</span>
+        <box *ngIf="state.gridData?.length > 1 && _device.isMobile()" class="widget-view-link" (click)="_helper.viewAllScheduledTransfers()">
+            <!-- {{ 'ScheduleTransferForm.viewAll' | translate }} -->
+            <span class="view-all-icon"></span>
+        </box>
+    </box>
+
+    <box class="grid transaction-container">
+        <box *ngIf="!_helper.showExceptionMsg" class="transactions-stmt-grid-wrapper col-12">
+            <ng-container *ngIf="state.isDataReceived">
+                <ng-container *ngIf="state.gridData && state.gridData.length; else noTransfers">
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="_helper.hasScope('RETAILSCHTRANSFERS') ; else noTransfers">
+                <box  class="content-footer-container" [ngClass]="{ 'no-transfers' : state.gridData?.length == 0 }">
+                <app-retail-schedule-transfers-ro-grid class="schedule-ro-grid"
+                    [ngClass]="{'schedule-transfers-loaded' : state.gridData?.length > 0}"
+                    [actionPublisher]="actionMap$.get('scheduletransferdetailsGrid')"
+                    (commonRoGridEvent)="_helper.handleSchedulePaymentsGridEvent($event)">
+                </app-retail-schedule-transfers-ro-grid>
+                <box *ngIf="state.gridData?.length > 1 && !_device.isMobile()" class="widget-footer-view-all"
+                    (click)="_helper.viewAllScheduledTransfers()">
+                    <!-- <span class="viewAll">{{ 'ScheduleTransferForm.viewAll' | translate }}</span> -->
+
+                    <box class="view-all-icon-container">
+                        <span class="view-all-icon"></span>
+                    </box>
+                    <box class="view-all-text">View All</box>
+                </box>
+                <box *ngIf="state.gridData?.length === 1 " class="widget-footer">
+                    <!-- <img *ngIf="_device.isMobile()" src="./assets/images/icons/add.svg"> -->
+                    <div *ngIf="!_device.isMobile()" class="line-divider"></div>
+                    <button type="button" class="add-btn" (click)="_helper.initiateNewTransaction()">{{
+                        'ScheduleBillForm.addBtn' | translate }}</button>
+                </box>
+            </box>
+            </ng-container>
+            
+        </box>
+    </box>
+</box>
+
+<box *ngIf="_helper.showExceptionMsg">
+    <box class="no-result-view">
+        <img class="no-result-image" src="./assets/images/transfers/no-scheduled-transfer.svg" alt="">
+        <box class="no-result-desc">{{ state.exceptionMessage }}</box>
+    </box>
+</box>
+
+<ng-template #noTransfers>
+    <box class="no-result-view">
+        <img class="no-result-image" src="./assets/images/transfers/no-scheduled-transfer.svg" alt="">
+        <box class="no-result-desc">{{ 'ScheduleTransferForm.noTransfer' | translate }}</box>
+        <button *ngIf="_helper.hasScope('RETAILSCHTRANSFERS')" type="button" class="no-result-add-btn" (click)="_helper.initiateNewTransaction()">{{
+            'ScheduleTransferForm.initiateBtn' | translate }}</button>
+    </box>
+</ng-template>

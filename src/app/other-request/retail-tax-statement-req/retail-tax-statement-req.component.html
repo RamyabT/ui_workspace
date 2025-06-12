@@ -1,0 +1,33 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailTaxStatementReq" >
+	   
+	 <box class="entry-form">
+		<box class="entry-form-field-group grid">
+	      
+			  <app-retail-tax-registration-number  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('taxRegistrationNumber')"     label="{{'RetailTaxStatementReq.taxRegistrationNumber.label' | translate }}"   formControlName="taxRegistrationNumber" 
+   ></app-retail-tax-registration-number>
+
+   <fpx-multi-file-upload  #fpxControl  class="col-sm-12 col-md-6 col-lg-12"   [actionPublisher]="actionMap$.get('supportingDocuments')"     label="{{'RetailTaxStatementReq.supportingDocuments.label' | translate }}"  [extensions]="'.pdf, .doc, .docx'" formControlName="supportingDocuments" 
+   [ngTemplateName]="'fileUploadTmplt'"></fpx-multi-file-upload>
+	      
+			  <app-for-month-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('Month')"     label="{{'RetailTaxStatementReq.Month.label' | translate }}"   formControlName="Month" 
+     ></app-for-month-control>
+	      
+	      
+			  <app-retail-for-year  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('year')"     label="{{'RetailTaxStatementReq.year.label' | translate }}"   formControlName="year" 
+     ></app-retail-for-year>
+	     
+	      
+			  <app-remarks-control  class="col-sm-12 col-md-6 col-lg-12"   [actionPublisher]="actionMap$.get('remarks')"     label="{{'RetailTaxStatementReq.remarks.label' | translate }}"   formControlName="remarks" 
+   ></app-remarks-control>
+   </box>
+   <box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-12 grid main-group disclaimer-box">
+		<!-- <box  id="disclaimer-box"  class="col-sm-12 col-md-6 col-lg-4 grid  main-group  "> -->
+	     
+	      
+			  <app-terms-control  class="col-sm-12 col-md-6 col-lg-12"   [actionPublisher]="actionMap$.get('terms')"     label="{{'RetailTaxStatementReq.terms.label' | translate }}"   formControlName="terms"  placeholder="{{'RetailTaxStatementReq.terms.placeholder' | translate }}" 
+   [textPosition]="state.terms.textPosition"  [ckValues]="state.terms.ckValues" ></app-terms-control>
+		</box>
+	 <!-- </box>  -->
+	</box> 
+	</form>
+	

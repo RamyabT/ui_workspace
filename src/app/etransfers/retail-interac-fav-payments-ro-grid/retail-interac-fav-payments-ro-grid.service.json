@@ -1,0 +1,5 @@
+ 
+ "RETAILETRANSFERFAVPAYMENTS" : {
+ "servicePath": ["display-shell","etransfers", "retail-interac-fav-payments-ro-grid"],
+ "queryParams": {}
+ }

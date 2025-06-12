@@ -1,0 +1,39 @@
+"RetailEtransferDeclineMoneyForm":{
+"title":"RetailEtransferDeclineMoneyForm",
+		 "contactName": {
+		  "label":"Customer Name" ,
+		  "placeholder": "Customer Name"
+		  } ,
+		 "contactEmailId": {
+		  "label":" Email" ,
+		  "placeholder": " Email"
+		  } ,
+		 "contactPhoneNumber": {
+		  "label":"Mobile Number" ,
+		  "placeholder": "Mobile Number"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "FieldId_1": {
+		  "label":"Would you like to deposit the money?" ,
+		  "placeholder": "Would you like to deposit the money?"
+		  } ,
+		 "sourceAccount": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "securityQuestion": {
+		  "label":"Security Question" ,
+		  "placeholder": "Security Question"
+		  } ,
+		 "securityAnswer": {
+		  "label":"Security Answer" ,
+		  "placeholder": "Security Answer"
+		  } 
+}

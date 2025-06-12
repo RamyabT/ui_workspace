@@ -1,0 +1,111 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="AddressDetailForm">
+	<box class="entry-form">
+		<span class="title">{{_helper._appConfig.getData('title')}}</span>
+		<!-- addressLine1 -->
+		<app-building-name-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('addressLine1')"
+			label="{{'AddressDetailForm.addressLine1.label' | translate }}"
+			placeholder="{{'AddressDetailForm.addressLine1.placeholder' | translate }}" formControlName="addressLine1">
+		</app-building-name-control>
+		<!-- addressLine2 -->
+		<app-building-name-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('addressLine2')"
+			label="{{'AddressDetailForm.addressLine2.label' | translate }}"
+			placeholder="{{'AddressDetailForm.addressLine2.placeholder' | translate }}" formControlName="addressLine2">
+		</app-building-name-control>
+		<!-- addressLine3 -->
+		<app-building-name-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('addressLine3')"
+			label="{{'AddressDetailForm.addressLine3.label' | translate }}"
+			placeholder="{{'AddressDetailForm.addressLine3.placeholder' | translate }}" formControlName="addressLine3">
+		</app-building-name-control>
+		
+		<!-- homeOwnership -->
+		<app-homeownership-list-control class="col-sm-12 col-md-6 col-lg-6  "
+			[actionPublisher]="actionMap$.get('homeOwnership')"
+			label="{{'AddressDetailForm.homeOwnership.label' | translate }}" formControlName="homeOwnership">
+		</app-homeownership-list-control>
+		<!-- country -->
+		<app-country-list-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('country')"
+			placeholder="{{'AddressDetailForm.country.placeholder' | translate }}"
+			label="{{'AddressDetailForm.country.label' | translate }}" formControlName="country">
+		</app-country-list-control>
+		<!-- region -->
+		<app-region-list-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('region')"
+			placeholder="{{'AddressDetailForm.region.placeholder' | translate }}"
+			label="{{'AddressDetailForm.region.label' | translate }}" formControlName="region"
+			[changePublisher]="formChangePublisher$" [dependencyField]="['country']">
+		</app-region-list-control>
+		<!-- states -->
+		<app-state-list-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('states')"
+			placeholder="{{'AddressDetailForm.states.placeholder' | translate }}"
+			label="{{'AddressDetailForm.states.label' | translate }}" formControlName="states"
+			[changePublisher]="formChangePublisher$" [dependencyField]="['country']">
+		</app-state-list-control>
+		<!-- district -->
+		<app-district-list-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('district')"
+			placeholder="{{'AddressDetailForm.district.placeholder' | translate }}"
+			[changePublisher]="formChangePublisher$" label="{{'AddressDetailForm.district.label' | translate }}"
+			formControlName="district" [dependencyField]="['country','states']">
+		</app-district-list-control>
+		<!-- city -->
+		<app-city-control-dropdown class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('city')"
+			label="{{'AddressDetailForm.city.label' | translate }}" formControlName="city"
+			[changePublisher]="formChangePublisher$" placeholder="{{'AddressDetailForm.city.placeholder' | translate }}"
+			[dependencyField]="['country','states']">
+		</app-city-control-dropdown>
+		<!-- town -->
+		<app-barangay-list-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('town')"
+			[changePublisher]="formChangePublisher$" label="{{'AddressDetailForm.town.label' | translate }}"
+			formControlName="town" [dependencyField]="['country','states','city']">
+		</app-barangay-list-control>
+		<!-- zipCode -->
+		<app-zipcode-list-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('zipCode')"
+			placeholder="{{'AddressDetailForm.zipCode.placeholder' | translate }}"
+			label="{{'AddressDetailForm.zipCode.label' | translate }}" formControlName="zipCode">
+		</app-zipcode-list-control>
+		<!-- addressType -->
+		<!-- <app-addressType class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('addressType')"
+			label="{{'AddressDetailForm.addressType.label' | translate }}"
+			formControlName="addressType"></app-addressType> -->
+
+		<!-- <box id="000_2" class="col-sm-12 col-md-6 col-lg-6 grid list-align main-group  "> -->
+
+			<!-- iSOCodeList -->
+			<app-isocode-list-control class="col-sm-6 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('iSOCodeList')"
+				label="{{'AddressDetailForm.iSOCodeList.label' | translate }}"
+				placeholder="{{'AddressDetailForm.iSOCodeList.placeholder' | translate }}"
+				formControlName="iSOCodeList"></app-isocode-list-control>
+
+			<!-- landlineNumber -->
+			<app-landline-number-control class="col-sm-6 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('landlineNumber')"
+				label="{{'AddressDetailForm.landlineNumber.label' | translate }}"
+				placeholder="{{'AddressDetailForm.landlineNumber.placeholder' | translate }}"
+				formControlName="landlineNumber"></app-landline-number-control>
+
+			<!-- extensionNumber -->
+			<app-extension-number-control class="col-sm-6 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('extensionNumber')"
+				label="{{'AddressDetailForm.extensionNumber.label' | translate }}"
+				placeholder="{{'AddressDetailForm.extensionNumber.placeholder' | translate }}"
+				formControlName="extensionNumber"></app-extension-number-control>
+		<!-- </box> -->
+		<!-- udf1 -->
+		<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('udf1')"
+			placeholder="{{'AddressDetailForm.udf1.placeholder' | translate }}"
+			label="{{'AddressDetailForm.udf1.label' | translate }}" formControlName="udf1">
+		</app-user-defined-control>
+		<!-- udf2 -->
+		<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('udf2')"
+			placeholder="{{'AddressDetailForm.udf2.placeholder' | translate }}"
+			label="{{'AddressDetailForm.udf2.label' | translate }}" formControlName="udf2">
+		</app-user-defined-control>
+		<!-- udf3 -->
+		<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('udf3')"
+			placeholder="{{'AddressDetailForm.udf3.placeholder' | translate }}"
+			label="{{'AddressDetailForm.udf3.label' | translate }}" formControlName="udf3">
+		</app-user-defined-control>
+	</box>
+</form>

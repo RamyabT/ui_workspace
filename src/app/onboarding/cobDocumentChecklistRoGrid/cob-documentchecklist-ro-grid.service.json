@@ -1,0 +1,5 @@
+ 
+ "DOCUMENTCHECKLISTROGRID" : {
+ "servicePath": ["display-shell","onboarding", "CobDocumentChecklistRoGrid"],
+ "queryParams": {}
+ }

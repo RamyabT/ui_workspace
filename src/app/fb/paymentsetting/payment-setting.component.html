@@ -1,0 +1,115 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="paymentsetting">
+	<box class="manage-alert-container" [ngClass]="{'disable-cfg-alert':(_helper.toggleScanAndPay == '0')}">
+		<box class="alerts-header">
+			<box class="alerts-header-title">{{'addChildAccount.scanandPayAllowed.label' | translate }}</box>
+			<box class="alerts-header-toggle">
+				<mat-slide-toggle [checked]="selectedData?.enabled=='1'?true:false"
+					formControlName="scanandPayAllowed"></mat-slide-toggle>
+			</box>
+		</box>
+
+		<box class="entry-form ">
+			<box class="grid entry-form-field-group col-sm-12">
+				<box class="entry-form col-sm-12">
+					<box class="slider-field no-flag col-lg-12">
+						<fpx-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('maxTranLimit')"
+							label="{{'addChildAccount.maxTranLimit.label' | translate }}" formControlName="maxTranLimit"
+							[min]="_helper.maxTranMinLimit" [max]="_helper.maxtranlimit"
+							[step]="state.maxTranLimit.step"
+							[currencyCode]="state.maxTranLimit.currencyCode"></fpx-amount-slider>
+					</box>
+
+					<box class="slider-field no-flag col-lg-12">
+						<fpx-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('dailTranLimit')"
+							label="{{'addChildAccount.dailTranLimit.label' | translate }}"
+							formControlName="dailTranLimit" [min]="_helper.dailyTranMInLimit"
+							[max]="_helper.dailtTranMaxLimit" [step]="state.dailTranLimit.step"
+							[currencyCode]="state.dailTranLimit.currencyCode"></fpx-amount-slider>
+					</box>
+				</box>
+			</box>
+		</box>
+
+	</box>
+	<box class="manage-alert-container" [ngClass]="{'disable-cfg-alert':(_helper.toggleVirtualCard=='0')}">
+		<box class="alerts-header">
+			<box class="alerts-header-title">{{'addChildAccount.issueCard.label' | translate }}</box>
+			<box class="alerts-header-toggle">
+				<mat-slide-toggle [checked]="selectedData?.enabled=='1'?true:false"
+					formControlName="issueCard"></mat-slide-toggle>
+			</box>
+		</box>
+
+		<box class="virtual-card-panel">
+			<box class="virtual-card-preview"
+				[style.background-image]="'url(data:image/png;;base64,'+state.cardImage + ')'">
+				<box class="virtual-card-data">
+					<box class="virtual-card-one">
+						<span class="smart-bank">
+							<img src="./assets/fb/smart-bank.svg" alt="smart-bank">
+						</span>
+						<span>
+							<img src="./assets/fb/virtual-card.svg" alt="virtual-card">
+						</span>
+					</box>
+					<box class="virtual-card-two">
+						<span class="virtual-card-details">
+							<span class="virtual-card-holder-name">{{'addChildAccount.virtualcardHolderName.label' |
+								translate }}</span>
+							<span class="virtual-card-name">{{'addChildAccount.virtualcardName.label' | translate
+								}}</span>
+						</span>
+					</box>
+					<box class="virtual-card-three">
+						<span class="virtual-card-details">
+							<span class="virtual-card-holder-name">{{'addChildAccount.expiryDate.label' | translate
+								}}</span>
+							<span class="virtual-card-name">{{'addChildAccount.expiry.label' | translate }}</span>
+						</span>
+						<span>
+							<img src="./assets/fb/visa.svg" alt="visa">
+						</span>
+					</box>
+				</box>
+				<!-- <img [src]="'data:image/png;base64,'+state.cardImage" [alt]="'Payment card'"> -->
+			</box>
+
+			<box class="virtual-card-options">
+				<app-virtual-card-options-control class="col-sm-12 col-md-6 col-lg-6"
+					[actionPublisher]="actionMap$.get('themeCode')"
+					formControlName="themeCode"></app-virtual-card-options-control>
+			</box>
+		</box>
+
+
+		<box class="entry-form ">
+			<box class="grid entry-form-field-group col-sm-12">
+				<box class="entry-form col-sm-12">
+					<box class="slider-field no-flag col-lg-12">
+						<fpx-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('atmlimit')"
+							label="{{'addChildAccount.atmlimit.label' | translate }}" formControlName="atmlimit"
+							[min]="_helper.atmMinLimit" [max]="_helper.atmMaxLimit" [step]="state.atmlimit.step"
+							[currencyCode]="state.atmlimit.currencyCode"></fpx-amount-slider>
+					</box>
+
+					<box class="slider-field no-flag col-lg-12">
+						<fpx-amount-slider class="col-md-12"
+							[actionPublisher]="actionMap$.get('contactlesspaymentLimit')"
+							label="{{'addChildAccount.contactlesspaymentLimit.label' | translate }}"
+							formControlName="contactlesspaymentLimit" [min]="_helper.contactlessMinLimit"
+							[max]="_helper.contactlessMaxLimit" [step]="state.contactlesspaymentLimit.step"
+							[currencyCode]="state.contactlesspaymentLimit.currencyCode"></fpx-amount-slider>
+					</box>
+
+					<box class="slider-field no-flag col-lg-12">
+						<fpx-amount-slider class="col-md-12" [actionPublisher]="actionMap$.get('poslimit')"
+							label="{{'addChildAccount.poslimit.label' | translate }}" formControlName="poslimit"
+							[min]="_helper.posMinLimit" [max]="_helper.posMaxLimit" [step]="state.poslimit.step"
+							[currencyCode]="state.poslimit.currencyCode"></fpx-amount-slider>
+					</box>
+				</box>
+			</box>
+		</box>
+
+	</box>
+</form>

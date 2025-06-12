@@ -1,0 +1,23 @@
+"RetailEtransferFulfillRequestMoneyForm":{
+"title":"FULFILLREQUESTMONEY",
+		 "contactId": {
+		  "label":"Money Request Received From" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "messageRequestor": {
+		  "label":"Message from requestor" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Requested Amount" ,
+		  "placeholder": "Requested Amount"
+		  } ,
+		 "sourceAccount": {
+		  "label":"Debit From" ,
+		  "placeholder": "Debit From"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } 
+}

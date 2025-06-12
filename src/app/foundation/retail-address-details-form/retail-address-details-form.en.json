@@ -1,0 +1,39 @@
+"RetailAddressDetailsForm":{
+"title":"cobaddressinfo",
+		 "addressType": {
+		  "label":"Address Type" ,
+		  "placeholder": "Address Type"
+		  } ,
+		 "buildingId": {
+		  "label":"Building Id" ,
+		  "placeholder": "Building Id"
+		  } ,
+		 "buildingName": {
+		  "label":"Building Name" ,
+		  "placeholder": "Building Name"
+		  } ,
+		 "country": {
+		  "label":"Country" ,
+		  "placeholder": "Country"
+		  } ,
+		 "state": {
+		  "label":"State" ,
+		  "placeholder": "State"
+		  } ,
+		 "city": {
+		  "label":"City" ,
+		  "placeholder": "City"
+		  } ,
+		 "zipCode": {
+		  "label":"Zip Code" ,
+		  "placeholder": "Zip Code"
+		  } ,
+		 "email": {
+		  "label":" Email " ,
+		  "placeholder": " Email "
+		  } ,
+		 "mobileNumber": {
+		  "label":"Mobile Number" ,
+		  "placeholder": "Mobile Number"
+		  } 
+}

@@ -1,0 +1,5 @@
+ 
+ "RETAILCASADELEGATE" : {
+ "servicePath": ["entry-shell","common", "retail-usercasarestrictionreq-form"],
+ "queryParams": {}
+ }

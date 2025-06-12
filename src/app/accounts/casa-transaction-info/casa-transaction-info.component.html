@@ -1,0 +1,95 @@
+<button  *ngIf="device.isMobile()" type="button" class="btn-popup-close" (click)="closePopup()">close</button>
+<ng-container *ngIf="details; else loader">
+  
+  <box class="casa-transaction-info-wrapper info-popup-wrapper">
+    <header>
+      <button *ngIf="!device.isMobile()" type="button" class="popup-close-btn" (click)="closePopup()" aria-label="close"></button>
+      <box class="casa-transaction-info col-12">
+        <box class="transaction-icon-wrapper">
+          <img src="./assets/transactions/{{details.transactionCategory}}.svg" alt="transactionCategory" />
+        </box>
+        <box class="transaction-info">
+          <box class="transaction-primary-info">
+            <span class="name">{{ details.transactionDescription | slice:0: 20 }}{{details.transactionDescription.length > 20 ? '...' : ''}}</span>
+            <span class="date">{{ details.transactionDateTime | date : "dd MMM yyyy hh:mm:ss" }}</span>
+          </box>
+          <box class="transaction-secondary-info">
+            <span class="amount" [ngClass]="{
+                        'credit' : details.debitCreditFlag == 'C',
+                        'debit' : details.debitCreditFlag == 'D'
+                      }">{{details.transactionAmount | currency : details.transactionCurrency: ''}}
+              <em>{{details.transactionCurrency}}</em></span>
+            <span class="amount">{{details.balance | currency : details.transactionCurrency: ''}}
+              <em>{{details.transactionCurrency}}</em></span>
+          </box>
+        </box>
+      </box>
+    </header>
+
+    <box class="info-popup-body">
+      <box class="display-fields-container">
+        <ng-container *ngFor="let field of fields; index as i">
+          <box class="display-field col-12">
+            <span class="lbl">{{ 'casaTransactionInfo.'+field | translate }}</span>
+            <span class="val" [id]="'displayText_' + field">
+              <ng-container [ngSwitch]="fieldsFormat[i]">
+                <ng-container *ngSwitchCase="'date'">
+                  {{ details[field] | date : "dd MMM yyyy" }}
+                </ng-container>
+                <ng-container *ngSwitchCase="'amount'">
+                  {{ details[field] | currency : details.currency : '' }}
+                </ng-container>
+                <ng-container *ngSwitchCase="'precentage'">
+                  {{ details[field] + "%" }}
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                  {{ details[field] }}
+                </ng-container>
+              </ng-container>
+            </span>
+          </box>
+        </ng-container>
+      </box>
+  
+      <!-- <ng-container *ngIf="details?.instrumentId"> -->
+        <ng-container *ngIf="details?.chequeNumber">
+        <hr class="h-seperator" />
+        <box class="cheque-view">
+          <ng-container *ngIf="doViewCheque">
+            <ng-container *ngIf="chequeImage; else loader">
+              <box class="cheque-image-wrapper">
+                <img [src]="chequeImage" alt="cheque" />
+              </box>
+            </ng-container>
+            
+          </ng-container>
+          
+          <box class="cheque-action">
+            <fpx-button *ngIf="!doViewCheque" btn-type="button" btnClass="secondary"
+              label="{{'casaTransactionInfo.viewCheque' | translate}}" (onClick)="viewCheque(details?.chequeNumber,details?.accountNumber,details?.debitCreditFlag)"></fpx-button>
+              <fpx-button *ngIf="!doViewCheque" btn-type="button" btnClass="secondary"
+              label="{{'casaTransactionInfo.downloadChequeImage' | translate}}" (onClick)="download(details?.chequeNumber)"></fpx-button>
+            <fpx-button *ngIf="chequeImage && doViewCheque" btn-type="button" btnClass="secondary"
+              label="{{'casaTransactionInfo.hideCheque' | translate}}" (onClick)="hideCheque()"></fpx-button>
+          </box>
+        </box>
+      </ng-container>
+  
+      <!-- <box class="display-details-container-footer">
+        <fpx-button btnType="button" btnClass="tertiary" label="{{'casaTransactionInfo.back' | translate}}"></fpx-button>
+        <fpx-button btnType="button" btnClass="primary" label="{{'casaTransactionInfo.download' | translate}}"></fpx-button>
+      </box> -->
+    </box>
+   
+  </box>
+  
+</ng-container>
+<box class="display-details-container-footer">
+  <fpx-button class="col-xs-2" 
+    label="{{'retailcasatrandtlsDownloadfilterform.download.label' | translate }}"
+    btnClass=" btn-primary" [buttonMode]="'button'" 
+    (onClick)="downloadStatementDetails()" btnId="DOWNLOAD_SMT"></fpx-button>
+</box>
+<ng-template #loader>
+  <box class="loading"></box>
+</ng-template>

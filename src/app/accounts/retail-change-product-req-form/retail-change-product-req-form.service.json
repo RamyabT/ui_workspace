@@ -1,0 +1,5 @@
+
+ "RETAILCHANGEPRODUCT" : {
+ "servicePath": ["entry-shell","accounts", "retail-change-product-req-form"],
+ "queryParams": {}
+ }

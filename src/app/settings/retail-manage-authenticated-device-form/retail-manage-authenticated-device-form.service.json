@@ -1,0 +1,5 @@
+ 
+ "MANAGEAUTHDEVICE" : {
+ "servicePath": ["entry-shell","settings", "retail-manage-authenticated-device-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,71 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="PreferedMailingAddress">
+	<box class="entry-form">
+		<box class="entry-form-field-group col-12 grid">
+			<span *ngIf="_helper._appConfig.getData('processId')"
+				class="arn-number">{{'OnBoarding.arn' | translate }}{{_helper._appConfig.getData('processId')}}</span>
+		<app-preferred-purpose-of-account class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('preferredPurposeOfAccount')"
+			label="{{'PreferedMailingAddress.preferredPurposeOfAccount.label' | translate }}"
+			formControlName="preferredPurposeOfAccount">
+		</app-preferred-purpose-of-account>
+         
+		<app-main-source-of-income class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('mainSourceOfIncome')"
+			label="{{'PreferedMailingAddress.mainSourceOfIncome.label' | translate }}"
+			formControlName="mainSourceOfIncome">
+		</app-main-source-of-income>
+
+		<!-- <app-salary-or-monthly-income-component class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('salaryOrMonthlyIncome')"
+			label="{{'PreferedMailingAddress.salaryOrMonthlyIncome.label' | translate }}"
+			formControlName="salaryOrMonthlyIncome">
+		</app-salary-or-monthly-income-component>
+
+		<app-pref-Annual-income-component class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('prefAnnualIncome')"
+			label="{{'PreferedMailingAddress.prefAnnualIncome.label' | translate }}" 
+			formControlName="prefAnnualIncome">
+		</app-pref-Annual-income-component>  -->
+
+		<!-- <app-salary-monthly-income class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('salaryOrMonthlyIncome')"
+			label="{{'PreferedMailingAddress.salaryOrMonthlyIncome.label' | translate }}"
+			formControlName="salaryOrMonthlyIncome">
+		</app-salary-monthly-income>
+
+		<app-pref-annual-income class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('prefAnnualIncome')"
+			label="{{'PreferedMailingAddress.prefAnnualIncome.label' | translate }}" 
+			formControlName="prefAnnualIncome">
+		</app-pref-annual-income> -->
+
+		<app-country-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('countryOfResidence')"
+			label="{{'PreferedMailingAddress.countryOfResidence.label' | translate }}"
+			formControlName="countryOfResidence">
+		</app-country-list-control>
+
+		<app-preferred-branch-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('preferredBranch')"
+			label="{{'PreferedMailingAddress.preferredBranch.label' | translate }}" formControlName="preferredBranch">
+		</app-preferred-branch-control>
+
+		<app-preferred-mailing-address class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('preferredMailingAddress')"
+			label="{{'PreferedMailingAddress.preferredMailingAddress.label' | translate }}"
+			formControlName="preferredMailingAddress">
+		</app-preferred-mailing-address>
+
+		<app-nationality-holder-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('dualNationalityHolder')"
+			label="{{'PreferedMailingAddress.dualNationalityHolder.label' | translate }}"
+			formControlName="dualNationalityHolder">
+		</app-nationality-holder-control>
+
+		<app-country-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('otherNationality')"
+			label="{{'PreferedMailingAddress.otherNationality.label' | translate }}" formControlName="otherNationality">
+		</app-country-list-control>
+
+		<app-preferred-marital-status-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('preferredMaritalStatus')"
+			label="{{'PreferedMailingAddress.preferredMaritalStatus.label' | translate }}"
+			formControlName="preferredMaritalStatus">
+		</app-preferred-marital-status-control>
+
+		<app-pep-declaration-flag class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('pepDeclaration')"
+		label="{{'PreferedMailingAddress.pepDeclaration.label' | translate }}" formControlName="pepDeclaration">
+		</app-pep-declaration-flag>
+
+	</box>
+	</box>
+</form>

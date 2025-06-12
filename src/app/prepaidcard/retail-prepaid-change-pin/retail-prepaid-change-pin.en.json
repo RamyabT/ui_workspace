@@ -1,0 +1,27 @@
+"RetailPrepaidChanfePin":{
+"title":"RetailPrepaidCardChangePin",
+		 "cardReference": {
+		  "label":"Prepaid Card Number" ,
+		  "placeholder": "Prepaid Card Number"
+		  } ,
+		 "confirmPin": {
+		  "label":"Confirm Pin" ,
+		  "placeholder": "Confirm Pin"
+		  } ,
+		 "pin": {
+		  "label":"Pin" ,
+		  "placeholder": "Pin"
+		  } ,
+		 "reenteredPin": {
+		  "label":"ReEnter New Pin" ,
+		  "placeholder": "ReEnter New Pin"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } 
+}

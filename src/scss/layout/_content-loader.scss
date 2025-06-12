@@ -1,0 +1,96 @@
+@mixin skeleton-loader ($height:28px, $bgColor:#F8F7FA, $rippleColor:#FFFFFF){
+  height: $height;
+  background-color: $bgColor;
+  // border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(90deg,
+        rgba($rippleColor, 0) 0,
+        rgba($rippleColor, 0.2) 20%,
+        rgba($rippleColor, 0.5) 50%,
+        rgba($rippleColor, 0.8) 60%,
+        rgba($rippleColor, 0));
+    animation: ripple 2s infinite;
+    content: '';
+    height: 100%;
+  }
+}
+
+@keyframes ripple {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.loading{
+  display: block;
+  min-height: 28px;
+  border-radius: 20px;
+  margin: 0px 0px 8px;
+
+  &.casa-summary-loader {
+    --content-height: 80px;
+  }
+
+  @include skeleton-loader(var(--content-height));
+}
+.dropdown-template {
+  position: relative;
+  .control-loader {
+    position: absolute;
+    top: calc(20px + calc(50% - 14px));
+    width: 100%;
+  }
+}
+
+.quick-actions-loader{
+  padding: 16px;
+  &.quick-links{
+    @include small-screen {
+      ul {
+        flex-direction: column;
+        li{ 
+          span.text{
+            @include skeleton-loader(80px);
+          }
+        }
+      }
+    }
+  } 
+  ul{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+    li{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap:8px;
+      flex-basis: 25%;
+
+      span.icon{
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-grow: 0;
+        flex-shrink: 0;
+        @include skeleton-loader(44px);
+      }
+      span.text{
+        border-radius: 20px;
+        width: 100%;
+        @include skeleton-loader(16px);
+      }
+    }
+  }
+}

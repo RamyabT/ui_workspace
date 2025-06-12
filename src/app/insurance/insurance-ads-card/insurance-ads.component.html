@@ -1,0 +1,11 @@
+<box class="insurance-card-wrapper" [ngClass]="[insuranceType, size || 'default']" *ngIf="insuranceData">
+      <box class="insurance-content">
+        <span class="title">{{ insuranceData.title }}</span>
+        <ul>
+          <li *ngFor="let point of insuranceData.points">
+            {{ point.text }}
+          </li>
+        </ul>
+        <a href="#">Explore</a>
+      </box>
+</box>

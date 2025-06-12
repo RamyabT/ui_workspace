@@ -1,0 +1,45 @@
+<ng-container >
+    <box class="confirmation-receipt-inner success {{ result?.statusCode?.toLowerCase() }}" >
+        <box class="confirmation-body">
+            <box class="status-container">
+                <box class="status-ico-wrapper">
+                    <span class="status-ico"></span>
+                </box>
+                <span class="confirmation-message">{{ result.requestPayload.errorCode || _requestServiceCode + '.' + _requestStatus + ".message" | translate }}</span>
+            </box>
+
+            <box class="message-container">
+                <span class="confirmation-description">{{ result.requestPayload.errorMessage || _requestServiceCode + '.' + _requestStatus + ".description" | translate }}</span>
+            </box>
+    
+            <ng-container *ngIf="result?.additionalInfo && result?.additionalInfo.length">
+                <hr />
+                <box class="additional-details-container">
+                    <ng-container *ngFor="let detail of result?.additionalInfo">
+                        <box class="details">
+                            <span class="detail-lbl">{{ 'confirmationReceiptForm.' + detail.label | translate }}</span>
+                            <span class="detail-val">
+                                <ng-container [ngSwitch]="detail.format">
+                                    <ng-container *ngSwitchCase="'date'">
+                                        {{ detail.value | date : "dd MMM YYYY, HH:MM:SS" }}
+                                    </ng-container>
+                                    <ng-container *ngSwitchDefault>
+                                        {{ detail.value }}
+                                    </ng-container>
+                                </ng-container>
+                                
+                            </span>
+                        </box>
+                    </ng-container>
+                </box>
+            </ng-container>
+        </box>
+
+        <box class="confirmation-footer">
+            <button type="button" class="secondary" (click)="gotoModule('accounts-space')"><span>{{ 'confirmationReceiptForm.download' | translate }}</span></button>
+            <button type="button" class="primary" (click)="gotoHome()"><span>{{ 'confirmationReceiptForm.home' | translate }}</span></button>
+            <button type="button" *ngIf="this.setPin" class="primary" (click)="doSetPin()"><span>Set Pin</span></button>
+        </box>
+    </box>
+
+</ng-container>

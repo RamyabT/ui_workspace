@@ -1,0 +1,26 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailTrackGoalsForm.title">
+	<box class="entry-form col-sm-12 col-md-12 col-lg-12">
+		<ng-container *ngIf="state.isDataReceived; else loader">
+			<fpx-radio-button class="col-sm-12 col-md-12 col-lg-12 segments"
+				[actionPublisher]="actionMap$.get('goalSegments')" formControlName="goalSegments"
+				[selectableList$]="state.goalSegmentList$" ngTemplateName="chicletsRadio"
+				(commonControlEvent)="handleControlEvent($event)">
+			</fpx-radio-button>
+		</ng-container>
+		<ng-container *ngIf="state.gridData && state.gridData.length; else noTransfers">
+		</ng-container>
+		<app-retail-pfm-goals-ro-grid [actionPublisher]="actionMap$.get('goalsGrid')" formControlName="goalsGrid"
+			(commonRoGridEvent)="_helper.trackGoalsRoGridEvent($event)"></app-retail-pfm-goals-ro-grid>
+	</box>
+</form>
+
+<ng-template #noTransfers>
+	<box class="no-result-view">
+		<img class="no-result-image" src="./assets/images/transfers/no-transfer-history.svg" alt="">
+		<box class="no-result-desc">{{ 'TransferSummaryForm.goals' | translate }}</box>
+	</box>
+</ng-template>
+
+<ng-template #loader>
+	<box class="loading"></box>
+</ng-template>

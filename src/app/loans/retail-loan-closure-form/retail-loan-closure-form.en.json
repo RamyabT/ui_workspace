@@ -1,0 +1,26 @@
+"RetailLoanClosureForm":{
+"title":"Loan  Closure",
+		 "loanAccountNumber": {
+		  "label":"Select Loan Account" ,
+		  "placeholder": "Select Loan Account"
+		  } ,
+		 "debitAccount": {
+		  "label":"Debit Account Number" ,
+		  "placeholder": "Debit Account Number"
+		  } ,
+		 "closureDate": {
+		  "label":"Payment Date" ,
+		  "placeholder": "Payment Date"
+		  } ,
+		 "remarks": {
+		  "label":"Reason for Early Settlement" ,
+		  "placeholder": "Reason for Early Settlement"
+		  } ,
+		 "termsFlag": {
+		  "label":"By continuing you confirm and acknowledge the applicable terms and conditions" ,
+		  "placeholder": "By continuing you confirm and acknowledge the applicable terms and conditions"
+		  } ,
+		  "infoNote": {
+			"text": "Disclaimer:Sufficient funds to be available in account for settlement"
+		 }
+}

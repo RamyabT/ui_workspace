@@ -1,0 +1,59 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailDelegateuserreqForm">
+
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-12">
+
+			<app-delegateinitial-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('initial')"
+				label="{{'RetailDelegateuserreqForm.initial.label' | translate }}"
+				formControlName="initial"></app-delegateinitial-control>
+
+
+			<app-delegate-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('firstName')"
+				label="{{'RetailDelegateuserreqForm.firstName.label' | translate }}"
+				formControlName="firstName"></app-delegate-name-control>
+
+
+			<app-delegate-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('lastName')"
+				label="{{'RetailDelegateuserreqForm.lastName.label' | translate }}"
+				formControlName="lastName"></app-delegate-name-control>
+
+
+			<app-mobile-number-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('mobileNumber')"
+				label="{{'RetailDelegateuserreqForm.mobileNumber.label' | translate }}"
+				formControlName="mobileNumber"></app-mobile-number-control>
+
+
+			<app-email-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('emailAddress')"
+				label="{{'RetailDelegateuserreqForm.emailAddress.label' | translate }}"
+				formControlName="emailAddress"></app-email-control>
+
+
+			<app-delegate-username-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('userName')"
+				label="{{'RetailDelegateuserreqForm.userName.label' | translate }}"
+				formControlName="userName" (commonControlEvent)="handleControlEvent($event)"
+				[dependencyField]="['serviceCodeVaribale','formMode']"
+			   [changePublisher]="formChangePublisher$"></app-delegate-username-control>
+
+
+			<app-nationality-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('nationality')"
+				label="{{'RetailDelegateuserreqForm.nationality.label' | translate }}"
+				formControlName="nationality"></app-nationality-control>
+
+
+			<app-account-restriction-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('accessLevel')"
+				label="{{'RetailDelegateuserreqForm.accessLevel.label' | translate }}"
+				formControlName="accessLevel"></app-account-restriction-control>
+
+
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('remarks')"
+				label="{{'RetailDelegateuserreqForm.remarks.label' | translate }}"
+				formControlName="remarks"></app-remarks-control>
+		</box>
+
+	</box>
+</form>

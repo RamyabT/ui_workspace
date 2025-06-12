@@ -1,0 +1,93 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="BalanceConfirmationReq">
+
+	<box class="entry-form">
+		<box class="entry-form-field-group grid">
+
+
+			<app-letter-for-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('letterFor')"
+				label="{{'BalanceConfirmationReq.letterFor.label' | translate }}"
+				formControlName="letterFor"></app-letter-for-control>
+
+
+			<app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('date')"
+				label="{{'BalanceConfirmationReq.date.label' | translate }}" formControlName="date"
+				[minDate]="state.date.minDate" [maxDate]="state.date.maxDate"></app-request-date-control>
+
+
+			<app-service-req-delivery-option-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('deliveryOption')"
+				label="{{'BalanceConfirmationReq.deliveryOption.label' | translate }}" formControlName="deliveryOption"
+				(commonControlEvent)="handleControlEvent($event)"></app-service-req-delivery-option-control>
+
+
+			<app-email-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('emailId')"
+				label="{{'BalanceConfirmationReq.emailId.label' | translate }}"
+				formControlName="emailId"></app-email-control>
+
+			<box class="field-item  col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('addressInfo')">
+				
+				<box class="info-box">
+					<fpx-label label="{{ 'BalanceConfirmationReq.addressDetails.label' | translate }}"></fpx-label>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.buildingDetails"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.cityDetails"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.stateDetails"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.countryDetails"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.pinCode"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+				</box>
+			</box>
+
+
+			<app-branches-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('branch')"
+				label="{{'BalanceConfirmationReq.branch.label' | translate }}"
+				formControlName="branch"></app-branches-list-control>
+
+
+			<app-charges-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('chargesAmount')"
+				label="{{'BalanceConfirmationReq.chargesAmount.label' | translate }}" formControlName="chargesAmount"
+				[CurrencyList]="state.chargesAmount.CurrencyList" [isCurrEditable]="state.chargesAmount.isCurrEditable"
+				[defaultFetch]="state.chargesAmount.defaultFetch" [initCurrency]="state.chargesAmount.initCurrency"
+				[amountInWords]="state.chargesAmount.amountInWords"> ></app-charges-control>
+
+
+
+
+
+
+
+			<!-- <app-balance-confirmation-details-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('balanceConfirmationDetails')"     label="{{'BalanceConfirmationReq.balanceConfirmationDetails.label' | translate }}"   formControlName="balanceConfirmationDetails" 
+   ></app-balance-confirmation-details-control> -->
+
+			<fpx-multi-file-upload #fpxControl class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('balanceConfirmationDetails')"
+				label="{{'BalanceConfirmationReq.balanceConfirmationDetails.label' | translate }}"
+				[extensions]="'.pdf,.doc,.docx,.jpg,.jpeg,.png'"  formControlName="balanceConfirmationDetails"
+				[ngTemplateName]="'fileUploadTmplt'"></fpx-multi-file-upload>
+
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('remarks')"
+				label="{{'BalanceConfirmationReq.remarks.label' | translate }}"
+				formControlName="remarks"></app-remarks-control>
+
+		</box>
+
+		<app-terms-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('acknowledgement')"
+			label="{{'BalanceConfirmationReq.acknowledgement.label' | translate }}" formControlName="acknowledgement"
+			[textPosition]="state.acknowledgement.textPosition"
+			[ckValues]="state.acknowledgement.ckValues"></app-terms-control>
+
+	</box>
+</form>

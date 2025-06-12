@@ -1,0 +1,48 @@
+@mixin define-icon($name, $iconPath, $size: 24px) {
+    $relativeIconPath: '../#{$iconPath}';
+    .#{$name}::before {
+        content: '';
+        background-image: url($relativeIconPath);
+        background-repeat: no-repeat;
+        mask-image: url($relativeIconPath);
+        mask-size: 100%;
+        -webkit-mask-image: url($relativeIconPath);
+        -webkit-mask-repeat: no-repeat;
+        width: $size;
+        height: $size;
+        display: inline-block;
+    }
+}
+$relativeAssetPath: '../../assets/';
+/// -----------------------------------------------------------------------------
+/// Create a class name for an icon by adding to the $icons_collection map below:
+/// The map "key" is the desired class name.
+/// The map "value" is the path to the icon resource.
+/// (e.g.  The "icon-link-account" class name will display the "link-account.svg" icon)
+$icons_collection: (
+    'icon-link-account': $relativeAssetPath + 'images/icons/link-account.svg',
+    'icon-alert-hexagon': $relativeAssetPath + 'images/alert-hexagon.svg',
+    'icon-success': $relativeAssetPath + 'illustrations/confirmation-success.svg',
+    'icon-power-button': $relativeAssetPath + 'images/icons/power-button.svg',
+
+    /// SERVICE_CODE-specific icons -------------------------------------------
+    'icon-service-RETAILCCACTIVATION': $relativeAssetPath + 'images/quick-menu/activate-card.svg',
+    'icon-service-RETAILCCBILLPAYMENT': $relativeAssetPath + 'images/quick-menu/credit-card-pay.svg',
+    'icon-service-RETAILCCSTATEMENT': $relativeAssetPath + 'images/quick-menu/statement.svg',
+    'icon-service-RETAILCCRAISEDISPUTE': $relativeAssetPath + 'images/quick-menu/dispute.svg',
+    'icon-service-RETAILCCREWARDS': $relativeAssetPath + 'images/quick-menu/rewards.svg',
+    'icon-service-RETAILCCPINREQ': $relativeAssetPath + 'images/quick-menu/pincode.svg',
+    'icon-service-RETAILCCBLOCK': $relativeAssetPath + 'images/quick-menu/lock.svg',
+    'icon-service-RETAILCCUNBLOCK': $relativeAssetPath + 'images/quick-menu/unlock.svg',
+    'icon-service-RETAILCCLIMITCHANGE': $relativeAssetPath + 'images/quick-menu/limits.svg',
+    'icon-service-RETAILCCSTATEMENTSETTINGS': $relativeAssetPath + 'images/quick-menu/statement-settings.svg',
+
+    // credit card transactions icons -----------------------------------------
+    'icon-cc-transaction-credit': $relativeAssetPath + 'images/icons/arrow-semicircle-up-in.svg',
+    'icon-cc-transaction-debit': $relativeAssetPath + 'images/icons/arrow-semicircle-down-in.svg',
+);
+
+/// -----------------------------------------------------------------------------
+@each $name, $iconPath in $icons_collection {
+    @include define-icon($name, $iconPath);
+}

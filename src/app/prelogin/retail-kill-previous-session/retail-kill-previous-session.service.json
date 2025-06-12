@@ -1,0 +1,5 @@
+ 
+ "RETAILKILLPREVSESSION" : {
+ "servicePath": ["entry-shell","prelogin", "retail-kill-previous-session"],
+ "queryParams": {}
+ }

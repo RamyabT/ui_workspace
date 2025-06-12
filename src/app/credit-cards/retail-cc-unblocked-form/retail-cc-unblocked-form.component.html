@@ -1,0 +1,63 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="retailccunblocked">
+
+	<!-- <box class="entry-form"> -->
+
+
+	<!-- <app-block-cc-list-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('cardReference')"     label="{{'retailccunblocked.cardReference.label' | translate }}"   formControlName="cardReference" 
+     ></app-block-cc-list-control> -->
+
+
+	<!-- <app-credit-block-reason-list-control  class="col-md-4"   [actionPublisher]="actionMap$.get('blockReason')"     label="{{'retailccunblocked.blockReason.label' | translate }}"   formControlName="blockReason" 
+     ></app-credit-block-reason-list-control> -->
+
+	<box class="entry-form">
+		<ng-container *ngIf="state.cardData">
+			<creditcard class="col-12" [cardData]="state.cardData" [formView]="true"></creditcard>
+		</ng-container>
+		<box class="grid entry-form-field-group col-sm-12 col-md-6 col-lg-12">
+
+			<app-credit-block-reason-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('blockReason')"
+				label="{{'retailccunblocked.blockReason.label' | translate }}"
+				formControlName="blockReason"></app-credit-block-reason-list-control>
+
+
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('otherReason')"
+				label="{{'retailccunblocked.otherReason.label' | translate }}"
+				formControlName="otherReason"></app-remarks-control>
+
+			<!-- <app-cc-unblock-reason-list-control  class="col-md-4"   [actionPublisher]="actionMap$.get('unblockReason')"     label="{{'retailccunblocked.unblockReason.label' | translate }}"   formControlName="unblockReason" 
+     ></app-cc-unblock-reason-list-control> -->
+
+
+			<app-cc-unblock-reason-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('reason')" label="{{'retaildcunblock.reason.label' | translate }}"
+				formControlName="unblockReason" [changePublisher]="formChangePublisher$"
+				[dependencyField]="['blockReason']">
+			</app-cc-unblock-reason-list-control>
+
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('unBlockOtherReason')"
+				label="{{'retailccunblocked.unBlockOtherReason.label' | translate }}"
+				formControlName="unBlockOtherReason"></app-remarks-control>
+
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('remarks')"
+				label="{{'retailccunblocked.remarks.label' | translate }}"
+				formControlName="remarks"></app-remarks-control>
+		</box>
+
+
+
+		<!-- <box  id="000_6"  class="col-md-9 grid  main-group  "> -->
+
+		<box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-12 grid main-group term-box">
+
+			<!-- <fpx-display-text id="FieldId_7"   class="col-md-5  FieldId_7"  [innerHTML]="'retailccunblocked.FieldId_7.text' | translate"   [literals]="commonFormInput"></fpx-display-text> -->
+
+
+			<app-terms-control class="col-md-12" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'retailccunblocked.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+		</box>
+	</box>
+</form>

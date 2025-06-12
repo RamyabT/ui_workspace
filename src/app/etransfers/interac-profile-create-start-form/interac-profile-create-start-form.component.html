@@ -1,0 +1,16 @@
+<box class="etransfers-create-profile">
+    <box class="header">
+        <fpx-display-text class="page-title" [innerHTML]="'interacProfileCreateStartForm.title' | translate"></fpx-display-text>
+    </box>
+    <box class="intro-container">
+        <box class="img-wrapper">
+            <img src="./assets/interac/etransfers-create-profile.svg" alt="create interac profile" />
+        </box>
+        <box class="details">
+            <fpx-display-text [innerHTML]="'interacProfileCreateStartForm.desc' | translate"></fpx-display-text>
+        </box>
+        <box class="btn-container">
+            <fpx-button btnClass="primary" btnType="button" [label]="'interacProfileCreateStartForm.createBtnLbl' | translate" (click)="startCreateProfile()"></fpx-button>
+        </box>
+    </box>
+</box>

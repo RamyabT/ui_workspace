@@ -1,0 +1,130 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailCreateServiceRequestForm">
+
+	<box class="grid entry-form-field-group col-lg-12 col-sm-12">
+		<ng-container *ngIf="!_device.isMobile()">
+			<fpx-label class="col-sm-12 col-md-12 col-lg-12 header"
+				[innerHTML]="'RetailCreateServiceRequestForm.header.text' | translate">
+			</fpx-label>
+		</ng-container>
+		<ng-container *ngIf="_device.isMobile()">
+			<box class="col-sm-12 col-md-12 col-lg-12 grid arrow">
+				<button type="button" class="btn-container col-sm-1" (click)="_helper.backNavigate()">
+					<span class="img back-arrow-icon"></span>
+				</button>
+				<fpx-label class="col-sm-10 header"
+					[innerHTML]="'RetailCreateServiceRequestForm.header.text' | translate">
+				</fpx-label>
+			</box>
+		</ng-container>
+		<app-request-sub-category-list class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('SubCategory')"
+			label="{{'RetailCreateServiceRequestForm.SubCategory.label' | translate }}" formControlName="SubCategory"
+			[changePublisher]="formChangePublisher$" [dependencyField]="['Category']"></app-request-sub-category-list>
+
+
+		<app-message-control allowCutCopyPaste class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('message')"
+			label="{{'RetailCreateServiceRequestForm.message.label' | translate }}"
+			formControlName="message"></app-message-control>
+
+		<box id="group_disclaimer-box" class="col-sm-12 col-md-12 col-lg-12 grid main-group disclaimer-box">
+			<fpx-display-text class="col-sm-12 col-md-12 col-lg-12"
+				[innerHTML]="'RetailCreateServiceRequestForm.disclaimer.text' | translate">
+			</fpx-display-text>
+		</box>
+
+		<box class="col-sm-12 col-md-12 col-lg-12">
+			<box class="label-tooltip-wrapper">
+				<fpx-label class="label"
+					[innerHTML]="'RetailCreateServiceRequestForm.servicerequestadhocdtls.label' | translate">
+				</fpx-label>
+
+				<box class="btn-tooltip-container">
+					<box class="tooltip-wrapper">
+						<box class="tooltip-content-wrapper">
+							<span class="tooltip-content">
+								<span class="tooltip-header">{{'RetailCreateServiceRequestForm.attachment.label' |
+									translate}}</span>
+								<ul>
+									<li>{{'RetailCreateServiceRequestForm.attachment.note1' | translate}}</li>
+									<li>{{'RetailCreateServiceRequestForm.attachment.note2' | translate}}</li>
+								</ul>
+							</span>
+							<span class="tooltip-arrow"></span>
+						</box>
+					</box>
+					<button type="button" class="btn-container">
+						<span class="icon hint-btn-icon"></span>
+					</button>
+
+
+				</box>
+			</box>
+
+			<fpx-multi-file-upload #fpxControl class="col-sm-12 col-md-6 col-lg-12"
+				[extensions]="'.pdf,.png,.csv,.jpeg,.jpg,.doc,.docx,.xls,.xlsx,application/pdf,application/msword,application/excel,application/vnd.openxmlformats-officedocument.wordprocessingml.document'"
+				[actionPublisher]="actionMap$.get('servicerequestadhocdtls')" formControlName="servicerequestadhocdtls"
+				[ngTemplateName]="'fileUploadTmplt'">
+			</fpx-multi-file-upload>
+		</box>
+
+		<app-enabled-flag-control class="col-sm-12 col-md-12 col-lg-12"
+			[actionPublisher]="actionMap$.get('responseRequired')"
+			label="{{'RetailCreateServiceRequestForm.responseRequired.label' | translate }}"
+			formControlName="responseRequired"></app-enabled-flag-control>
+
+
+		<app-contact-method-control class="col-sm-12 col-md-6 col-lg-4"
+			[actionPublisher]="actionMap$.get('contactMethod')"
+			label="{{'RetailCreateServiceRequestForm.contactMethod.label' | translate }}"
+			formControlName="contactMethod"></app-contact-method-control>
+
+
+		<app-mobile-number-control class="col-sm-12 col-md-6 col-lg-4"
+			[actionPublisher]="actionMap$.get('mobileNumber')"
+			label="{{'RetailCreateServiceRequestForm.mobileNumber.label' | translate }}"
+			formControlName="mobileNumber"></app-mobile-number-control>
+
+		<app-return-call-timing-list-control class="col-sm-12 col-md-6 col-lg-4"
+			[actionPublisher]="actionMap$.get('returnCallTiming')"
+			label="{{'RetailCreateServiceRequestForm.returnCallTiming.label' | translate }}"
+			formControlName="returnCallTiming">
+		</app-return-call-timing-list-control>
+
+
+		<box class="col-sm-12 col-md-6 col-lg-4 email-tooltip-wrapper">
+			<ng-container *ngIf="this.state.show">
+				<box class="btn-tooltip-container">
+					<box class="tooltip-wrapper">
+						<box class="tooltip-content-wrapper">
+							<span class="tooltip-content">
+								<span>
+									Your email address provided will be used to send a confirmation and any future updates
+									directly to your inbox.
+								</span>
+							</span>
+							<span class="tooltip-arrow"></span>
+						</box>
+					</box>
+					<button type="button" class="btn-container">
+						<span class="icon hint-btn-icon"></span>
+					</button>
+				</box>
+			</ng-container>
+			<app-email-control class="col-sm-12 col-md-6 col-lg-4" [actionPublisher]="actionMap$.get('email')"
+				label="{{'RetailCreateServiceRequestForm.email.label' | translate }}"
+				formControlName="email"></app-email-control>
+		</box>
+
+
+		<box class="col-sm-12 col-md-12 col-lg-12 disclaimer-note"
+				[innerHtml]="'RetailCreateServiceRequestForm.Note.text' | translate">
+		</box>
+
+	</box>
+	<ng-container *ngIf="!_device.isMobile()">
+		<box class="form-action-container">
+			<fpx-button class="col-xs-2 " label="Back" btnClass=" btn-secondary" [buttonMode]="'button'"
+				(onClick)="_helper.backNavigate()"></fpx-button>
+		</box>
+	</ng-container>
+</form>

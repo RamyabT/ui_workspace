@@ -1,0 +1,5 @@
+ 
+ "ETRANSFERRECLAIMMONEY" : {
+ "servicePath": ["entry-shell","etransfers", "retail-etransfer-reclaim-money-form"],
+ "queryParams": {}
+ }

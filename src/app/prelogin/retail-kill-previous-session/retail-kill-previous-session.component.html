@@ -1,0 +1,21 @@
+<form (ngSubmit)="submit()" autocomplete="off" formName="RetailKillPreviousSessionForm">
+	<div class="entry-form">
+		<box class="session-active-content-wrapper">
+			<box class="session-active-illustrator">
+				<img src="./assets/illustrations/session-active.svg" alt="session active" />
+			</box>
+			<box class="session-active-content">
+				<fpx-display-text class="form-heading"
+					[innerHTML]="'RetailKillPreviousSessionForm.formHeading' | translate"></fpx-display-text>
+				<fpx-display-text class="body-text"
+					[innerHTML]="'RetailKillPreviousSessionForm.sessionActiveMsg' | translate"></fpx-display-text>
+			</box>
+			<box class="form-footer-actions">
+				<button type="submit" class="btn-tertiary" (click)="_helper.cancelEvent()">{{
+					'RetailKillPreviousSessionForm.cancelBtnLbl' | translate }}</button>
+				<button type="submit" class="primary" [disabled]="formGroup.invalid" (click)="_helper.submitEvent()">{{
+					'RetailKillPreviousSessionForm.submitBtnLbl' | translate }}</button>
+			</box>
+		</box>
+	</div>
+</form>

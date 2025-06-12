@@ -1,0 +1,13 @@
+<box class="goal-chores-card-carousel">
+    <ngx-slick-carousel class="budget-product-carousel" #slickModal="slick-carousel" [config]="slideConfig"
+        (afterChange)="onCardChanged($event)">
+        <ng-container >
+            <box ngxSlickItem class="slide" [style.width.px]="slideWidth">
+                 <app-member-goals ></app-member-goals>
+            </box>
+            <box ngxSlickItem class="slide" [style.width.px]="slideWidth">
+                <app-member-chores-summary ></app-member-chores-summary>
+           </box>
+        </ng-container>
+    </ngx-slick-carousel>
+</box>

@@ -1,0 +1,7 @@
+{
+    "RETAILTRANINTBT": {
+        "hideFields": [
+            "purpose"
+        ]
+    }
+}

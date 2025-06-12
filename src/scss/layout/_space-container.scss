@@ -1,0 +1,27 @@
+@include not-small-screen{
+    .space-container{
+        padding: 16px 36px 90px;
+        display: flex;
+        flex-direction: row;
+        gap:36px;
+
+        .space-summary{
+            width: var(--spaceSummaryWidth);
+            flex-grow: 0;
+            flex-shrink: 0;
+            flex-basis: 30%;
+        }
+        .space-content{
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            
+            .navigation-form-wrapper{
+                margin-bottom: 20px;
+                position: relative;
+                z-index: 1;
+            }
+        }
+    }
+}

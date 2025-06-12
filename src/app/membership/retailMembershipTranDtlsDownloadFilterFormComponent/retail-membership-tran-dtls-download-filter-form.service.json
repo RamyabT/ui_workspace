@@ -1,0 +1,5 @@
+ 
+ "RETAILMEMBERSHIPTRANSACTION" : {
+ "servicePath": ["entry-shell","membership", "RetailLoanTranDtlsDownloadFilterFormComponent"],
+ "queryParams": {}
+ }

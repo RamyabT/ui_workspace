@@ -1,0 +1,5 @@
+ 
+ "cobaddressinfo" : {
+ "servicePath": ["entry-shell","foundation", "retail-address-details-form"],
+ "queryParams": {}
+ }

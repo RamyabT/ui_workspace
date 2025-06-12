@@ -1,0 +1,5 @@
+ 
+ "RETAILDCLIMITS" : {
+ "servicePath": ["entry-shell","debitcard", "retail-debit-card-limit-request"],
+ "queryParams": {}
+ }

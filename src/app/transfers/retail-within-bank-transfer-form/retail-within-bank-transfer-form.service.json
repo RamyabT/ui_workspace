@@ -1,0 +1,5 @@
+ 
+ "RETAILTRANINTBT" : {
+ "servicePath": ["entry-shell","transfers", "retail-within-bank-transfer-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,162 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="employmentInfo">
+
+	<box class="entry-form ">
+
+		<box class="entry-form-field-group col-12 grid">
+			<!-- Type of Employment -->
+			<app-employment-type-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('employmentType')"
+				label="{{'employmentInfo.employmentType.label' | translate }}" formControlName="employmentType"
+				placeholder="{{'employmentInfo.employmentType.placeholder' | translate }}"></app-employment-type-list-control>
+
+			<!-- Subemployment Type -->
+			<app-sub-emp-type-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('subemptype')"
+				label="{{'employmentInfo.subemptype.label' | translate }}"
+				formControlName="subemptype"></app-sub-emp-type-list-control>
+
+			<!-- Employment Status -->
+			<app-emp-status-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('empstatus')"
+				label="{{'employmentInfo.empstatus.label' | translate }}"
+				formControlName="empstatus"></app-emp-status-list-control>
+
+			<!-- Company Name -->
+			<app-company-name-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('companyName')"
+				label="{{'employmentInfo.companyName.label' | translate }}" formControlName="companyName"
+				placeholder="{{'employmentInfo.companyName.placeholder' | translate }}"></app-company-name-control>
+
+			<!-- Company Code -->
+			<app-employer-name-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('company_Code')"
+				label="{{'employmentInfo.company_Code.label' | translate }}"
+				formControlName="company_Code"></app-employer-name-list-control>
+
+			<!-- Occupation Type -->
+			<app-emp-occupation-type-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('occupationType')"
+				label="{{'employmentInfo.occupationType.label' | translate }}"
+				formControlName="occupationType"></app-emp-occupation-type-control>
+
+			<!-- Industry Code -->
+			<app-industrycode-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('industryCode')"
+				label="{{'employmentInfo.industryCode.label' | translate }}" formControlName="industryCode"
+				placeholder="{{'employmentInfo.industryCode.placeholder' | translate }}"></app-industrycode-control>
+
+			<!-- position -->
+			<app-position-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('position')"
+				label="{{'employmentInfo.position.label' | translate }}" formControlName="position"
+				placeholder="{{'employmentInfo.position.placeholder' | translate }}"></app-position-control>
+
+			<!-- designation -->
+			<app-designation-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('designation')"
+				label="{{'employmentInfo.designation.label' | translate }}"
+				formControlName="designation"></app-designation-list-control>
+
+			<!-- department -->
+			<app-department-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('department')"
+				label="{{'employmentInfo.department.label' | translate }}" formControlName="department"
+				placeholder="{{'employmentInfo.department.placeholder' | translate }}"></app-department-control>
+
+			<!-- natureofbus -->
+			<app-nature-of-bus-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('natureofbus')"
+				label="{{'employmentInfo.natureofbus.label' | translate }}"
+				formControlName="natureofbus"></app-nature-of-bus-list-control>
+
+			<!-- Source of income -->
+			<app-emp-soi-list-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('empsoi')"
+				label="{{'employmentInfo.empsoi.label' | translate }}"
+				formControlName="empsoi"></app-emp-soi-list-control>
+
+			<!-- monthlyIncome -->
+			<!-- <app-monthly-income-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('monthlyIncome')"
+				label="{{'employmentInfo.monthlyIncome.label' | translate }}" formControlName="monthlyIncome"
+				placeholder="{{'employmentInfo.monthlyIncome.placeholder' | translate }}" [isCurrEditable]="state.monthlyIncome.isCurrEditable"
+				[defaultFetch]="state.monthlyIncome.defaultFetch" [initCurrency]="state.monthlyIncome.initCurrency"
+				[amountInWords]="state.monthlyIncome.amountInWords">
+			</app-monthly-income-control> -->
+			<app-pref-Annual-income-component class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('monthlyIncome')"
+				label="{{'employmentInfo.monthlyIncome.label' | translate }}" formControlName="monthlyIncome"
+				placeholder="{{'employmentInfo.monthlyIncome.placeholder' | translate }}">
+			</app-pref-Annual-income-component>
+
+			<!-- annualIncome -->
+			<app-pref-Annual-income-component class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('annualIncome')"
+				label="{{'employmentInfo.annualIncome.label' | translate }}" formControlName="annualIncome"
+				placeholder="{{'employmentInfo.annualIncome.placeholder' | translate }}">
+			</app-pref-Annual-income-component>
+
+			<!-- taxIdNumber -->
+			<app-tax-id-number-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('taxIdNumber')"
+				label="{{'employmentInfo.taxIdNumber.label' | translate }}" formControlName="taxIdNumber"
+				placeholder="{{'employmentInfo.taxIdNumber.placeholder' | translate }}">
+			</app-tax-id-number-control>
+
+			<!-- Years In Employment -->
+			<app-years-in-employment class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('workingSince')"
+				label="{{'employmentInfo.workingSince.label' | translate }}" formControlName="workingSince"
+				placeholder="{{'employmentInfo.workingSince.placeholder' | translate }}">
+			</app-years-in-employment>
+
+			<!-- Years of Business -->
+			<app-years-of-business-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('OperatingSince')"
+				label="{{'employmentInfo.OperatingSince.label' | translate }}" formControlName="OperatingSince"
+				placeholder="{{'employmentInfo.OperatingSince.placeholder' | translate }}">
+			</app-years-of-business-control>
+
+			<box class="col-sm-12 col-md-12 col-lg-12">
+				<box id="header" class="col-12 grid header title-align">
+					<fpx-display-text id="title1" class="title"
+						[innerHTML]="'employmentInfo.addressdetail.label' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<!-- addressdetail -->
+				<app-address-detail-form class="col-sm-12 col-md-12 col-lg-12 "
+					(commonFormEvent)="handleControlEvent($event)" [actionPublisher]="actionMap$.get('addressdetail')"
+					label="addressdetail" formControlName="addressdetail">
+				</app-address-detail-form>
+			</box>
+
+			<!-- udf1 -->
+			<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('userDefinedField1')"
+				label="{{'employmentInfo.userDefinedField1.label' | translate }}"
+				formControlName="userDefinedField1"></app-user-defined-control>
+
+			<!-- ufd2 -->
+			<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('userDefinedField2')"
+				label="{{'employmentInfo.userDefinedField2.label' | translate }}"
+				formControlName="userDefinedField2"></app-user-defined-control>
+
+			<!-- udf3 -->
+			<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('userDefinedField3')"
+				label="{{'employmentInfo.userDefinedField3.label' | translate }}"
+				formControlName="userDefinedField3"></app-user-defined-control>
+
+			<!-- UDF4 -->
+			<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('userDefinedField4')"
+				label="{{'employmentInfo.userDefinedField4.label' | translate }}"
+				formControlName="userDefinedField4"></app-user-defined-control>
+
+			<!-- udf5 -->
+			<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('userDefinedField5')"
+				label="{{'employmentInfo.userDefinedField5.label' | translate }}"
+				formControlName="userDefinedField5"></app-user-defined-control>
+		</box>
+	</box>
+</form>

@@ -1,0 +1,5 @@
+ 
+ "RETAILLOANDISBURSALSCHEDULE" : {
+ "servicePath": ["entry-shell","loans", "retail-loan-disbursal-details-form"],
+ "queryParams": {}
+ }

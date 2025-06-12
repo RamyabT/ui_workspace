@@ -1,0 +1,5 @@
+ 
+ "RETAILLOANTRANSACTIONSUMMARY" : {
+ "servicePath": ["entry-shell","loans", "RetailLoanTranDtlsFilterForm"],
+ "queryParams": {}
+ }

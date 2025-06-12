@@ -1,0 +1,34 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="additionalDocument">
+
+	<box class="entry-form">
+		<box id="product-desc">
+			<box class="product-description">
+				<ng-container>
+					<div class="product-header">{{'AdditionalPassportCapture.productheader' | translate }}</div>
+					{{'AdditionalPassportCapture.productbody' | translate }}
+				</ng-container>
+			</box>
+			<!-- <box *ngIf="!state.triggered" class="upload-field-group">
+				<box class="upload-field">
+					<app-file-browse-button class="upload-doc-button" destinationType="file"
+						(fileSelect)="_helper.onFileSelect($event)" label="Upload Signature"></app-file-browse-button>
+				</box>
+			</box>
+			<box *ngIf="state.triggered" class="field-set">
+				<box class="fpx-form-control col-sm-12 col-lg-12 col-md-12">
+					<ng-container *ngIf="state.captureBy == 'browse'">
+						<box class="doc-img-preview-wrapper">
+							<img [src]="_helper.dom.bypassSecurityTrustUrl(state.imageSrc)" alt="document preview" />
+						</box>
+					</ng-container>
+				</box>
+			</box> -->
+		</box>
+	</box>
+
+	<!-- <box class="form-action-container-shell">
+		<button type="button" (click)="onDicline()" class="btn-tertiary">{{'OnBoarding.skipbtn' | translate
+			}}</button>
+		<button type="button" (click)="submit()" class="btn-primary">{{'OnBoarding.proceedbtn' | translate }}</button>
+	</box> -->
+</form>

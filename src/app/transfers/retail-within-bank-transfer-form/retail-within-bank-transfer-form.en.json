@@ -1,0 +1,75 @@
+"RetailWithinBankTransferForm":{
+"title":"RetailWithinBankTransferForm",
+		 "sourceAccount": {
+		  "label":"From Account" ,
+		  "placeholder": "From Account"
+		  } ,
+		 "beneficiaryId": {
+		  "label":"Select Beneficiary" ,
+		  "placeholder": "Select Beneficiary"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Payment Amount" ,
+		  "placeholder": "Payment Amount"
+		  } ,
+		 "scheduleType": {
+		  "label":"Payment Option" ,
+		  "placeholder": "Payment Option"
+		  } ,
+		 "paymentDate": {
+		  "label":"Payment Date" ,
+		  "placeholder": "Payment Date"
+		  } ,
+		  "internalPurpose": {
+			"label":"Purpose" ,
+			"placeholder": "Purpose"
+			} ,
+		 "endDate": {
+		  "label":"End Date" ,
+		  "placeholder": "End Date"
+		  } ,
+		 "paymentId": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } ,
+		 "beneficiaryAdvice": {
+		  "label":"Beneficiary Advice" ,
+		  "placeholder": "Beneficiary Advice"
+		  } ,
+		 "beneficiaryEmail": {
+		  "label":"Email ID" ,
+		  "placeholder": "Email ID"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } ,
+		 "rateApplied": {
+		  "label":"Rate Applied" ,
+		  "placeholder": "Rate Applied"
+		  } ,
+		 "baseRateApplied": {
+		  "label":"Base Rate Applied" ,
+		  "placeholder": "Base Rate Applied"
+		  } ,
+		 "debitCurrency": {
+		  "label":"Debit Currency " ,
+		  "placeholder": "Debit Currency "
+		  } ,
+		 "debitAmount": {
+		  "label":"Debit Amount" ,
+		  "placeholder": "Debit Amount"
+		  } ,
+		 "creditAmount": {
+		  "label":"Credit Amount" ,
+		  "placeholder": "Credit Amount"
+		  } ,
+		 "creditCurrency": {
+		  "label":"Credit Currency " ,
+		  "placeholder": "Credit Currency "
+		  } 
+}

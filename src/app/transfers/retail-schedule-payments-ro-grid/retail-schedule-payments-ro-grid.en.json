@@ -1,0 +1,51 @@
+"RetailSchedulePaymentsRoGrid":{
+"title":"RetailSchedulePaymentsRoGrid",
+		 "serviceCode": {
+		  "label":"Transfer Type" ,
+		  "placeholder": "Transfer Type"
+		  } ,
+		 "scheduleType": {
+		  "label":"Payemnt Type" ,
+		  "placeholder": "Payemnt Type"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Payment Amount" ,
+		  "placeholder": "Payment Amount"
+		  } ,
+		 "sourceAccount": {
+		  "label":"Debit Number" ,
+		  "placeholder": "Debit Number"
+		  } ,
+		 "creditAccountNumber": {
+		  "label":"Beneficiary Number" ,
+		  "placeholder": "Beneficiary Number"
+		  } ,
+		 "beneficiaryName": {
+		  "label":"Beneficiary Name" ,
+		  "placeholder": "Beneficiary Name"
+		  } ,
+		 "nextPaymentDate": {
+		  "label":"Next Payment" ,
+		  "placeholder": "Next Payment"
+		  } ,
+		 "paymentFrequency": {
+		  "label":"Payment Frequency" ,
+		  "placeholder": "Payment Frequency"
+		  } ,
+		 "numberOfPayments": {
+		  "label":"No of Payments" ,
+		  "placeholder": "No of Payments"
+		  } ,
+		 "paymentStatus": {
+		  "label":"Status" ,
+		  "placeholder": "Status"
+		  } ,
+		 "paymentDate": {
+		  "label":"Initiation Date" ,
+		  "placeholder": "Initiation Date"
+		  } ,
+		 "paymentId": {
+		  "label":"Reference#" ,
+		  "placeholder": "Reference#"
+		  } 
+}

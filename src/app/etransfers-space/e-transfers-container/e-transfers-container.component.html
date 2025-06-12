@@ -1,0 +1,139 @@
+<box class="module-home e-transfers-home" [ngClass]="{'sticky-start': stikcyStart, 'sticky-end': stikcyEnd}" #spaceHome>
+    <ng-container *ngIf="_deviceMgr.isMobile(); else spaceContainer">
+        <ng-container *ngIf="appConstant.requiredAccountsSpaceNavigation; else showDirectMudule">
+            <box class="module-home-bg" [style.top.px]="moduleHeaderTop"></box>
+
+            <fpx-display-text class="module-title"
+                innerHTML="{{'ETRANSFERSCONTAINER.title' | translate}}"></fpx-display-text>
+
+            <box class="module-home-inner">
+                <ng-container [ngTemplateOutlet]="interacProfileSummaryTmplt" *ngIf="!hasInteracProfile"></ng-container>
+                <ng-container *ngIf="hasInteracProfile">
+                    <box class="fav-transfers-widget">
+                        <app-interac-fav-transaction></app-interac-fav-transaction>
+                    </box>
+
+                    <box class="interac-trade-mark hasInteracProfile">
+                        <span class="interac-logo"><img src="./assets/interac/interac-trade-mark-logo.png"
+                                alt="interac trade mark" /></span>
+                        <fpx-display-text class="trade-mark-desc"
+                            innerHTML="{{'ETRANSFERSCONTAINER.interacTradeMarkDesc' | translate}}"></fpx-display-text>
+                    </box>
+
+                    <box class="e-transfers-quick-action-widget">
+                        <app-etransfers-context-actions></app-etransfers-context-actions>
+                    </box>
+                </ng-container>
+
+                <box class="module-tab-container">
+                    <ng-container *ngIf="hasInteracProfile; else interacProfileTmplt">
+                        <app-etransfers-home></app-etransfers-home>
+                    </ng-container>
+                </box>
+            </box>
+        </ng-container>
+        <ng-template #showDirectMudule>
+
+            <box class="module-home-header">
+                <h2 class="module-title">
+                        {{ 'MODULE_HEADER.etransfers' | translate }}
+                </h2>
+                <button type="button" class="nav-btn" (click)="back()">
+                    <span>Close</span>
+                </button>
+                <h2 class="module-title module-title-btn">
+                        {{ 'MODULE_HEADER.transferHistory' | translate }}
+                </h2>
+            </box>
+
+            <box class="body-home-container">
+                <ng-container [ngTemplateOutlet]="interacProfileSummaryTmplt" *ngIf="!hasInteracProfile"></ng-container>
+                <ng-container *ngIf="hasInteracProfile">
+                    <box class="e-transfers-quick-action-widget">
+                        <app-etransfers-context-actions></app-etransfers-context-actions>
+                    </box>
+                    <box class="fav-transfers-widget">
+                        <app-interac-fav-transaction></app-interac-fav-transaction>
+                    </box>
+                </ng-container>
+                <div #loadMoreStart class="load-more start"></div>
+                <div #loadMoreEnd class="load-more end"></div>
+                <box class="module-tab-container payments-home-wrapper">
+                    <ng-container *ngIf="hasInteracProfile; else interacProfileTmplt">
+                        <app-etransfers-home></app-etransfers-home>
+                    </ng-container>
+                </box>
+            </box>
+
+        </ng-template>
+    </ng-container>
+</box>
+
+<ng-template #interacProfileTmplt>
+    <!-- <app-interac-profile-create-start-form></app-interac-profile-create-start-form> -->
+    <box class="loading"></box>
+</ng-template>
+
+<ng-template #spaceContainer>
+    <box class="space-container">
+        <box class="space-summary" *ngIf="!appConstant.requiredAccountsSpaceNavigation">
+            <etransfers-aside-bar></etransfers-aside-bar>
+        </box>
+        <ng-container *ngIf="appConstant.requiredAccountsSpaceNavigation">
+            <box class="space-summary">
+
+                <ng-container *ngIf="hasInteracProfile; else interacProfileSummaryTmplt">
+                    <box class="e-transfers-fav-summary">
+                        <app-interac-fav-transaction></app-interac-fav-transaction>
+                    </box>
+                </ng-container>
+    
+                <box class="offers-widget">
+                    <banner-ads [serviceCode]="'RETAILDASHBOARD'"></banner-ads>
+                </box>
+            </box>
+        </ng-container>
+       
+
+        <box class="space-content">
+            <box class="space-module-header" *ngIf="!appConstant.requiredAccountsSpaceNavigation">
+                <e-transfers-module-header></e-transfers-module-header>
+            </box>
+            <box class="etransfers-main">
+                <ng-container *ngIf="hasInteracProfile; else loader">
+                    <box class="etransfers-navigation navigation-form-wrapper border-top">
+                        <app-etransfers-context-actions></app-etransfers-context-actions>
+                    </box>
+                    <box class="fav-transfers-widget navigation-form-wrapper">
+                        <app-interac-fav-transaction></app-interac-fav-transaction>
+                    </box>
+                </ng-container>
+
+                <box class="etransfers-router">
+                    <router-outlet (activate)="onActivate($event)"></router-outlet>
+                </box>
+            </box>
+        </box>
+    </box>
+</ng-template>
+
+<!-- no profile for interac -->
+<ng-template #interacProfileSummaryTmplt>
+    <box class="loading"></box>
+    <!-- <box class="why-interac-container">
+        <box class="interac-message">
+            <fpx-display-text class="description"
+                innerHTML="{{'ETRANSFERSCONTAINER.whyInteracDescription' | translate}}"></fpx-display-text>
+            <box class="interac-trade-mark">
+                <span class="interac-logo"><img src="./assets/interac/interac-trade-mark-logo.png"
+                        alt="interac trade mark" /></span>
+                <fpx-display-text class="trade-mark-desc"
+                    innerHTML="{{'ETRANSFERSCONTAINER.interacTradeMarkDesc' | translate}}"></fpx-display-text>
+            </box>
+        </box>
+    </box> -->
+</ng-template>
+
+<ng-template #loader>   
+    <box *ngIf="hasInteracProfile == undefined" class="loading"></box>
+</ng-template>

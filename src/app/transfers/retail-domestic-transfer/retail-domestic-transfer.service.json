@@ -1,0 +1,5 @@
+ 
+ "RETAILTRANDOMESTIC" : {
+ "servicePath": ["entry-shell","transfers", "retail-domestic-transfer"],
+ "queryParams": {}
+ }

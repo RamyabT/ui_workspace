@@ -1,0 +1,143 @@
+<div class="map-wrapper">
+  <div class="res-search map-container">
+    <ng-container *ngIf="device.isMobile()">
+      <div class="search-container" *ngIf="showSearch==false">
+        <div class="search-bar">
+          <input type="text" class="input-search" id="searchinput" name="search-input"
+            placeholder="{{ 'googleMapAtm.SEARCH.placeholder' | translate }}" autocomplete="off" autocorrect="off"
+            autocapitalize="off" spellcheck="false" onkeypress="return event.keyCode != 13;"
+            (focus)="showSearchFilterList()" (focusout)="hideSearchFilterList()" [(ngModel)]="searchText"
+            (click)="filterSearchMenu($event)" (keyup)="filterSearchMenu($event)" />
+          <button type="button" class="close btn-close-flash" [hidden]="!this.searchText">
+          </button>
+        </div>
+        <div *ngIf="searchText?.length" [ngClass]="{
+                'search-result-container': true,
+                'show-search-list': showSearchList
+              }">
+          <ng-container *ngFor="let item of searchFilterList">
+            <a class="search-menu-item" (click)="navigateTo(item)">
+              <ng-container>
+                <span innerHTML="{{ item.atmName+', '+item.address }}"></span>
+              </ng-container>
+            </a>
+          </ng-container>
+          <div class="no-data-txt" [hidden]="searchFilterList.length">
+            <span>{{
+              "googleMapAtm.SEARCH.noSearchresultfound" | translate
+              }}</span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <div class="g-map">
+      <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapClick)="close_window()"
+        (mapReady)="mapReady($event)">
+        <agm-marker *ngFor="let atm of atmfinder" [latitude]="atm.latitude" [longitude]="atm.longitude"
+          [markerDraggable]="false" (markerClick)="selectMarker($event, infoWindow)" (markerClick)="getDirection(atm)">
+          <agm-info-window #infoWindow>
+            <ng-container>
+              <strong>{{ "googleMapAtm.atm" | translate }}:</strong><br />
+              {{ atm.atmName }}<br />
+              <strong>{{ "googleMapAtm.address" | translate }}:</strong>
+              {{ atm.street }} {{ atm.address }}<br />
+              <strong>{{ "googleMapAtm.duration" | translate }}:</strong>
+              {{ atm.duration }}<br />
+            </ng-container>
+          </agm-info-window>
+        </agm-marker>
+        <agm-direction *ngIf="doShowDirection" [origin]="origin" [destination]="destination">
+        </agm-direction>
+      </agm-map>
+    </div>
+
+    <box class="address-container">
+      <ng-container *ngIf="showSearch==false">
+
+        <ng-container *ngIf="!device.isMobile()">
+          <div class="search-container" *ngIf="showSearch==false">
+            <div class="search-bar">
+              <input type="text" class="input-search" id="searchinput" name="search-input"
+                placeholder="{{ 'googleMapAtm.SEARCH.placeholder' | translate }}" autocomplete="off" autocorrect="off"
+                autocapitalize="off" spellcheck="false" onkeypress="return event.keyCode != 13;"
+                (focus)="showSearchFilterList()" (focusout)="hideSearchFilterList()" [(ngModel)]="searchText"
+                (click)="filterSearchMenu($event)" (keyup)="filterSearchMenu($event)" />
+              <button type="button" class="close btn-close-flash" [hidden]="!this.searchText">
+              </button>
+            </div>
+            <div *ngIf="searchText?.length" [ngClass]="{
+                    'search-result-container': true,
+                    'show-search-list': showSearchList
+                  }">
+              <ng-container *ngFor="let item of searchFilterList">
+                <a class="search-menu-item" (click)="navigateTo(item)">
+                  <ng-container>
+                    <span innerHTML="{{ item.address | translate }}"></span>
+                  </ng-container>
+                </a>
+              </ng-container>
+              <div class="no-data-txt" [hidden]="searchFilterList.length">
+                <span>{{
+                  "googleMapAtm.SEARCH.noSearchresultfound" | translate
+                  }}</span>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <div class="history-page">
+          <div class="resultpage">
+            <ng-container *ngFor="let atm of atmfinder">
+              <div class="resultpage-divider" clickable (click)="getDirection(atm)">
+                <ng-container>
+                  <div class="result-bank">
+                    <div class="bank-logo">
+                      <img src="./assets/images/bank-location.svg" />
+                    </div>
+                    <div class="result-sub-header-navigation">
+                      <div class="result-atmname">
+                        {{ atm.atmName }}
+                      </div>
+                      <div class="result-sub-header">
+                        {{ atm.street }} {{ atm.address }}
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="showSearch==true">
+        <div class="selected-address-panel close-pannel-page">
+          <div class="resultpage">
+            <ng-container>
+              <div class="distance-details">
+                <div class="close-details">
+                  <img class="close" clickable (click)="closePanel()" src="./assets/images/icons/close.svg" />
+                  <div class="dist-details">
+                    <div class="distance">
+                      <div class="address-details">
+                        <span class="">{{ this.selectedAddress?.atmName }}</span>
+                        <!-- <span>{{ this.selectedAddress?.address }}</span>
+                        <span class="duration">{{ this.duration}}</span> -->
+                      </div>
+                    </div>
+
+                    <div>
+                      <button type="button" class="showmap" (click)="showMap()"><span> Get Directions</span>
+                        <img class="navigation" clickable src="./assets/images/navigation.svg" /></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+    </box>
+  </div>
+</div>

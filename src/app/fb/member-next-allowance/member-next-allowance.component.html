@@ -1,0 +1,23 @@
+<box class="widget upcoming-payments-inner">
+    <header>
+        <box class="title-container">
+            <span class="widget-title">{{ 'MEMBERNEXTALLOWANCE.title' | translate }}</span>
+                 
+                <span  fpxTooltip
+                [tooltipData]="{  currentValue : 'test' }" class="tooltip-btn"  >
+             </span>
+
+         </box>
+        
+        <fpx-button btnType="button" 
+            btnClass="link "  (click)="nextallowanceviewall()"
+            label="{{'MEMBERNEXTALLOWANCE.viewAll' | translate}}"
+             ></fpx-button>
+    </header>
+    <box class="widget-body upcoming-payments-body">
+        <app-member-next-allowance-ro-grid></app-member-next-allowance-ro-grid>
+    </box>
+</box>
+
+
+ 

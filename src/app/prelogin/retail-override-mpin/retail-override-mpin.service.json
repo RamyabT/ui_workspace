@@ -1,0 +1,5 @@
+ 
+ "RETAILOVERRIDEMPIN" : {
+ "servicePath": ["entry-shell","prelogin", "retail-override-mpin"],
+ "queryParams": {}
+ }

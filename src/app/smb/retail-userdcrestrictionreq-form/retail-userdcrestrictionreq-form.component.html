@@ -1,0 +1,26 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailUserdcrestrictionreqForm" >
+	  
+	<box class="entry-form">
+	     
+	      
+			  <app-card-reference-control  class="col-md-4  "   [actionPublisher]="actionMap$.get('cardRef')"     label="{{'RetailUserdcrestrictionreqForm.cardRef.label' | translate }}"   formControlName="cardRef" 
+   [textPosition]="state.cardRef.textPosition"  [ckValues]="state.cardRef.ckValues" ></app-card-reference-control>
+	     
+	      
+			  <app-access-level-control  class="col-md-4  "   [actionPublisher]="actionMap$.get('inquiryAllowed')"     label="{{'RetailUserdcrestrictionreqForm.inquiryAllowed.label' | translate }}"   formControlName="inquiryAllowed" 
+   [textPosition]="state.inquiryAllowed.textPosition"  [ckValues]="state.inquiryAllowed.ckValues" ></app-access-level-control>
+	     
+	      
+			  <app-access-level-control  class="col-md-4  "   [actionPublisher]="actionMap$.get('requestAllowed')"     label="{{'RetailUserdcrestrictionreqForm.requestAllowed.label' | translate }}"   formControlName="requestAllowed" 
+   [textPosition]="state.requestAllowed.textPosition"  [ckValues]="state.requestAllowed.ckValues" ></app-access-level-control>
+	     
+	      
+			  <app-access-level-control  class="col-md-4  "   [actionPublisher]="actionMap$.get('transactionAllowed')"     label="{{'RetailUserdcrestrictionreqForm.transactionAllowed.label' | translate }}"   formControlName="transactionAllowed" 
+   [textPosition]="state.transactionAllowed.textPosition"  [ckValues]="state.transactionAllowed.ckValues" ></app-access-level-control>
+	     
+	      
+			  <app-access-level-control  class="col-md-4  "   [actionPublisher]="actionMap$.get('approvalRequired')"     label="{{'RetailUserdcrestrictionreqForm.approvalRequired.label' | translate }}"   formControlName="approvalRequired" 
+   [textPosition]="state.approvalRequired.textPosition"  [ckValues]="state.approvalRequired.ckValues" ></app-access-level-control>
+	</box> 
+</form>
+	

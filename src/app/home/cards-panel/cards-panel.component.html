@@ -1,0 +1,183 @@
+<box class="product-type-panel cards-panel">
+    <!-- <box *ngIf="!device.isMobile()" class="panel-header">
+        <box>
+            <span class="panel-title cards">{{ 'cardsPanel.title' | translate }}</span>
+        </box>
+        <box class="panel-actions">
+            <button class="action new-account" (click)="newCreditCard()">
+                <span class="lbl" [innerHTML]="'cardsPanel.applyNewCard' | translate"></span>
+            </button>
+        </box>
+    </box> -->
+    <ng-container *ngIf="creditCards; else loader">
+      <ng-container *ngIf="!creditcardApiFailed else apiErrorTemplate">
+        <ng-container *ngIf="this.creditCards.length > 0; else noAccount">
+            <box class="panel-body">
+                <ul class="card-wrapper">
+                    <li *ngFor="let card of creditCards; let i = index" class="card" (click)="gotoCards(card)">
+                        <ng-container *ngIf="device.isMobile(); else desktopContainer" >
+                            <box class="container">
+                                <box class="account-details card-details">
+                                    <box class="account-type productDesc">{{ card.productDesc }}</box>
+                                    <box class="account-type">{{'cardsPanel.cardDesc' | translate}}</box>
+                                </box>
+                                <box class="account-info">
+                                    <box class="account-number card-number">{{ card.creditCardNumber | creditCardNumberMask }}</box>
+                                    <box class="balace-details">
+                                        <box class="amount main-balance"> {{ getAbsoluteValue(card.outstandingAmount) | currency : card.accountCurrency : '' }} 
+                                            <em>{{ card.accountCurrency | currencyCode }}</em>
+                                            {{checkNegativeValue(card.outstandingAmount)}}
+                                        </box>
+                                    </box>
+                                </box>
+                            </box>
+                        </ng-container>
+                        <ng-template #desktopContainer>
+                            <box class="container">
+                                <box class="left-section">
+                                    <box class="account-details">
+                                        <box class="product-desc">{{ card.productDesc }}</box>
+                                        <box class="product-details">
+                                            <box class="account-type accountTypeDesc">{{'cardsPanel.cardDesc' | translate}}</box>
+                                            <box class="seperator"></box>
+                                            <box class="account-number">{{ card.creditCardNumber | creditCardNumberMask }}</box>
+                                        </box>
+                                    </box>
+                                </box>
+                                <box class="right-section">
+                                    <box class="balace-details">
+                                        <box class="amount main-balance"> 
+                                            {{ getAbsoluteValue(card.outstandingAmount) | currency : card.accountCurrency : '' }} <em>{{ card.accountCurrency | currencyCode }}</em>
+                                            {{checkNegativeValue(card.outstandingAmount)}}</box>
+                                    </box>
+                                    <box class="options" [ngClass]="{ 'open-menu-view' : card.displayContextMenu }">
+                                        <ng-container *ngIf="!cardHasInactiveAccountStatus(card) && !cardHasDerogatoryAccountStatus(card)">
+                                            <ng-container *ngFor="let quickAction of getQuickActions(card)">
+                                                <button class="quick-menu-btn"
+                                                (mouseenter)="showQuickMenuTooltip($event, card, quickAction)"
+                                                (mouseleave)="hideQuickMenuTooltip($event, card, quickAction)"
+                                                (click)="onClickQuickAction($event, card, quickAction.serviceCode)"
+                                                >
+                                                    <span class="icon-wrapper icon-service-{{quickAction.serviceCode}}"></span>
+                                                    <ng-container *ngIf="quickAction.showTooltip">
+                                                        <span  class="lbl custom-tooltip quick-menu-tooltip" 
+                                                            [innerHTML]="quickAction?.serviceDescriptionI18n?.[languageService.getLanguage()] || quickAction.serviceDescription"></span>
+                                                    </ng-container>
+                                                </button>
+                                            </ng-container>
+                                            <span class="more-options">
+                                                <span class="icon-wrapper more-vertical" [ngClass]="{ 'open-menu-view' : card.displayContextMenu }" (click)="displayContextMenu($event, card, i)"></span>
+                                            </span>
+                                        </ng-container>
+                                        <ng-container *ngIf="cardHasDerogatoryAccountStatus(card)">
+                                            <button class="quick-menu-btn" (click)="onClickDerogatoryStatus($event)">
+                                                <span class="icon-wrapper icon-with-error icon-alert-hexagon"></span>
+                                             </button>
+                                        </ng-container>
+                                    </box>
+                                </box>
+                            </box>
+                        </ng-template>
+                        <box *ngIf="device.isMobile()" class="options" [ngClass]="{ 'open-menu-view' : card.displayContextMenu }">
+                            <ng-container *ngIf="!cardHasInactiveAccountStatus(card) && !cardHasDerogatoryAccountStatus(card)">
+                                <span class="more-options">
+                                    <span class="icon-wrapper more-vertical" (click)="displayContextMenu($event, card, i)"></span>
+                                </span>
+                            </ng-container>
+                            <ng-container *ngIf="cardHasDerogatoryAccountStatus(card)">
+                                <button class="quick-menu-btn" (click)="onClickDerogatoryStatus($event)">
+                                    <span class="icon-wrapper icon-with-error icon-alert-hexagon"></span>
+                                 </button>
+                            </ng-container>
+                        </box>
+                        <!-- <box *ngIf="!device.isMobile()" class="hover-actions">
+                            <button class="hov-button" (click)="payCard($event)">
+                                <span class="hov-action pay-card" [innerHTML]="'cardsPanel.payCard' | translate"></span>
+                            </button>
+                            <button class="hov-button" (click)="lockCard($event)">
+                                <span class="hov-action lock-unlock" [innerHTML]="'cardsPanel.lockCard' | translate"></span>
+                            </button>
+                            <span class="more-options">
+                                <img src="./assets/images/icons/more-vertical.svg" alt="more options" (click)="displayContextMenu($event, card)"/>
+                            </span>
+                        </box> -->
+                    </li>
+                </ul>
+                <box class="panel-footer">
+                     <box class="total" *ngIf="device.isMobile()">
+                        <span class="total-lbl">{{ 'accountsPanel.cards.total' | translate }}</span> 
+                         <!-- <span class="total-balance amount"> {{ total | currency : _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode }}</em></span>  -->
+                         <box class="balace-details">
+                            <span class="total-balance amount"> {{ getAbsoluteValue(total?.totalCAD) | currency : _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode }}</em>
+                                {{checkNegativeValue(total?.totalCAD)}}
+                            </span>
+                            <!-- <span *ngIf="this.accountCurrency" class="total-balance amount"> {{ total?.totalUSD.amount | currency : accountCurrency : '' }} <em>{{ accountCurrency | currencyCode }}</em></span> -->
+                        </box>
+                    </box> 
+                </box>
+
+                <box *ngIf="'RETAILAPPLYCREDITCARD' | AccessScope"
+                    class="panel-button-container">
+                    <button class="new-account-footer" (click)="newCreditCard()">{{'cardsPanel.applyNewCard' | translate}}</button>
+                </box>
+            </box>
+            
+            <box *ngIf="device.isMobile()" class="panel-actions">
+                <button *ngIf="'RETAILAPPLYCREDITCARD' | AccessScope" class="action new-account" (click)="newCreditCard()">
+                    <span class="icon-wrapper new-account"></span>
+                    <!-- <img src="./assets/images/icons/new-account.svg" alt="" srcset=""> -->
+                    <span class="lbl" [innerHTML]="'cardsPanel.applyNewCard' | translate"></span>
+                </button>
+            </box>
+        </ng-container>
+      </ng-container>  
+    </ng-container>
+</box>
+<ng-template #noAccount>
+    <box class="no-data-panel no-panel-footer">
+        <box class="no-card no-footer-panel">
+            <span class="noCredit">{{'cardsPanel.noCreditCard' | translate}}</span>
+            <box class="panel-button-container">
+                <button 
+                    class="link-account-footer" 
+                    (click)="linkAccount()">{{'cardsPanel.addYourCard' | translate}}</button>
+                <button *ngIf="'RETAILAPPLYCREDITCARD' | AccessScope"
+                    class="new-account-footer" 
+                    (click)="newCreditCard()">{{'cardsPanel.applyNewCard' | translate}}</button>
+            </box>
+            
+        </box>
+        <box *ngIf="device.isMobile()" class="actions flex-end">
+            <button *ngIf="'RETAILAPPLYCREDITCARD' | AccessScope"
+            class="action-btn btn-secondary" (click)="newCreditCard()">
+                <span class="action-lbl new-credit-card" [innerHTML]="'cardsPanel.applyNewCard' | translate"></span>
+            </button>
+        </box>
+    </box>
+</ng-template>
+
+<ng-template #apiErrorTemplate>
+    <box class="service-unavailable-template">
+        <box *ngIf="creditcardApiFailed === 'UNAVAILABLE'" class="description">{{'cardsPanel.apiUnavailable' | translate}}</box>
+        <box *ngIf="creditcardApiFailed === 'DATA_CORRUPTED'" class="description">{{'cardsPanel.apiDataCorrupted' | translate}}</box>
+        <box *ngIf="creditcardApiFailed === 'TIMEOUT'" class="description">{{'cardsPanel.apiTimeout' | translate}}</box>
+    </box>
+</ng-template>
+
+<ng-container *ngIf="isDisplayContextMenu">
+    <ng-container *ngIf="contextMenuItems">
+        <box class="quick-menu" [ngStyle]="getContextMenuStyle()">
+                <li *ngFor="let item of contextMenuItems" (click)="openLink(item)">
+                    <span class="icon-wrapper icon-service-{{ item.serviceCode }}"></span>
+                    <box class="menu" [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></box>
+                </li>
+        </box>
+    </ng-container>
+</ng-container>
+<!-- Content loader -->
+<ng-template #loader>
+    <box class="skeleton-loader portfolio-summary-loader no-panel-footer"></box>  
+</ng-template>
+
+
+<!-- <box class="user-account-overlay" *ngIf="this.isDisplayContextMenu" (click)="toggleProfile($event)"></box> -->

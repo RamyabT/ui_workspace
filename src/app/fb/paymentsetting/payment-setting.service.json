@@ -1,0 +1,5 @@
+ 
+ "paymentsetting" : {
+ "servicePath": ["entry-shell","fb", "paymentsetting"],
+ "queryParams": {}
+ }

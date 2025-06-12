@@ -1,0 +1,36 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailWalletTransactionLimitForm" >
+	  
+	<box class="entry-form">
+	      
+		<box class="entry-form grid entry-form-field-group col-sm-12">
+		<box class="slider-field">
+			<app-dc-service-flag class="col-sm-12 col-md-6 col-lg-4"
+				[actionPublisher]="actionMap$.get('scanPayFlag')"
+				label="{{'RetailWalletTransactionLimitForm.scanPayFlag.label' | translate }}"
+				formControlName="scanPayFlag"  [ckValues]="state.serviceFlag.ckValues" ></app-dc-service-flag>
+			<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-4"
+				[actionPublisher]="actionMap$.get('scanPayLimit')"
+				
+				formControlName="scanPayLimit" [min]="state.scanPayLimit.min"
+				[max]="state.scanPayLimit.max" [step]="state.scanPayLimit.step"
+				[currencyCode]="state.scanPayLimit.currencyCode"></app-dc-amount-slider>
+				<hr>
+			</box>
+
+			<box class="slider-field">
+				<app-dc-service-flag class="col-sm-12 col-md-6 col-lg-4"
+					[actionPublisher]="actionMap$.get('onlinePurchaseFlag')"
+					label="{{'RetailWalletTransactionLimitForm.onlinePurchaseFlag.label' | translate }}"
+					formControlName="onlinePurchaseFlag"  [ckValues]="state.serviceFlag.ckValues"></app-dc-service-flag>
+				<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-4"
+					[actionPublisher]="actionMap$.get('onlinePurchaseLimit')"
+					formControlName="onlinePurchaseLimit" [min]="state.onlinePurchaseLimit.min"
+					[max]="state.onlinePurchaseLimit.max" [step]="state.onlinePurchaseLimit.step" 
+					[currencyCode]="state.onlinePurchaseLimit.currencyCode"
+					></app-dc-amount-slider>
+					<hr>
+				</box>
+			 </box>
+	</box> 
+</form>
+	

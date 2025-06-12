@@ -1,0 +1,5 @@
+ 
+ "addChildAccount" : {
+ "servicePath": ["entry-shell","fb", "addChildAccount"],
+ "queryParams": {}
+ }

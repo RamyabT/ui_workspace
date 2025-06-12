@@ -1,0 +1,14 @@
+<form formName="login" [autocomplete]="'off'" (ngSubmit)="submit()" [formGroup]="formGroup">
+  <div class="login-form-wrapper">
+    <span class="login-form-img"></span>
+    <span class="login-form-heading">Change Password</span>
+    <div class="form-field">
+      <app-user-name label="Username" formControlName="username"></app-user-name>
+    </div>
+    <!-- <div class="btn-container">
+      <button [disabled]="!formGroup.valid" type="submit" class="btn-login">
+        submit
+      </button>
+    </div> -->
+  </div>
+</form>

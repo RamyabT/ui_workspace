@@ -1,0 +1,5 @@
+ 
+ "RETAILLOANINTCERTIFICATE" : {
+ "servicePath": ["entry-shell","loans", "retail-loan-interest-certificate-form"],
+ "queryParams": {}
+ }

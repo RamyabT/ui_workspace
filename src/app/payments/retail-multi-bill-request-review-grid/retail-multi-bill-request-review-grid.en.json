@@ -1,0 +1,11 @@
+"RetailMultiBillRequestInputGrid":{
+"title":"RetailMultiBillRequestInputGrid",
+		 "totalBillAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "paymentDate": {
+		  "label":"Payment Date" ,
+		  "placeholder": "Payment Date"
+		  } 
+}

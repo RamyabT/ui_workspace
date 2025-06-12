@@ -1,0 +1,22 @@
+"CobResumebackForm":{
+"title":"resumeback",
+		 "resumeOption": {
+		  "label":"Select identification type" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "onboardingRef": {
+		  "label":"Onboarding Reference" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "mobileNumber": {
+		  "label":"Mobile number" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "emailAddress": {
+		  "label":"Email Address" ,
+		  "placeholder": "Email Address"
+		  } ,
+		 "header": {
+		   "text":"How can we identify you for resume application"
+		 } 
+}

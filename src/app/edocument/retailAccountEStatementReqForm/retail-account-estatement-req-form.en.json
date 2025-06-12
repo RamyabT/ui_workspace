@@ -1,0 +1,11 @@
+"RetailAccountEStatementReqForm":{
+"title":"Download Account eStatement",
+		 "estmtrelationship": {
+		  "label":"Select Relationship" ,
+		  "placeholder": "Select Relationship"
+		  } ,
+		 "year": {
+		  "label":"Select Year" ,
+		  "placeholder": "Select Year"
+		  } 
+}

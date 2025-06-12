@@ -1,0 +1,16 @@
+ <box class="widget memeber-spending-card">
+        <header>
+            <span class="widget-title">{{ 'MEMBEREXPENSE.title' | translate  }}</span>
+            <form [formGroup]="formGroup" autocomplete="off" formName="spendingflowMonthSelection" >
+                <app-pfm-months-list-control 
+                    [actionPublisher]="actionMap$.get('spendingflowMonth')" 
+                    formControlName="spendingflowMonth"></app-pfm-months-list-control>
+            </form>
+        </header>
+        <box class="widget-body chart-wrapper">
+            <box class="memeber-spending-wrapper">           
+                <app-member-spending-chart></app-member-spending-chart>
+        <!-- <box class="showdetail-btn">{{ 'MEMBEREXPENSE.showdetailbtn' | translate  }}</box> -->
+        </box>
+            </box>
+    </box>

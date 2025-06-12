@@ -1,0 +1,349 @@
+#depAppBody {
+
+    .system-ico-button{
+        &.grid-button{
+            height: 40px;
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #F4F4F4;
+            border-radius: 4px;
+            padding: unset;
+        }
+        &.biller-edit.btn-edit::before {
+            mask: url("../../assets/images/icons/biller-edit.svg") no-repeat center;
+            -webkit-mask: url("../../assets/images/icons/biller-edit.svg") no-repeat center;
+        }
+    }
+
+    em.tag{
+        padding: 2px 8px;
+        border-radius: 13px;
+        @include b4-medium;
+        color:  var(--neutral50);
+        line-height: 16px;
+
+        &.dormant{
+            background-color: #575757;
+        }
+
+        &.ownership{
+            background-color: #FDC47F;
+            color: #000000;
+        }
+    }
+
+    .casa-transactions-dtls-list-tmpl{
+        gap: 16px;
+        padding: 24px;
+        @include small-screen{
+            gap: 12px;
+            padding: 20px 0;
+        }
+        .transaction-list-item {
+            cursor: default;
+            
+            .row-group-title{
+                padding: 0;
+                color: #ABABAB;
+            }
+            .transaction-list-item-inner{
+                border-bottom: 1px solid  var(--baseBdrClr);
+                padding: 0 0 16px;
+                @include small-screen{
+                    padding: 0 0 12px;
+                }
+
+                .transaction-icon-wrapper{
+                    align-items: flex-start;
+                    .transaction-icon{
+                        border-color:  var(--baseBdrClr);
+                    }
+                }
+
+                .transaction-info{
+                    border: none;
+                    padding: 0;
+                    align-items: flex-start;
+                    flex-wrap: wrap;
+
+                    .transaction-primary-info{
+                        max-width: 48%;
+                        word-wrap: break-word;
+                        min-width: 48%;
+
+                        .trx-type{
+                            font-size: 14px;
+                            font-weight:  var(--fontWeightMedium);
+                            line-height: 22px;
+                            color: #000000;
+                        }
+                        .trx-desc{
+                            font-size: 12px;
+                            font-weight:  var(--fontWeightRegular);
+                            line-height: 16px;
+                            color: #575757;
+                        }
+                        .xchange-details{
+                            font-size: 12px;
+                            font-weight:  var(--fontWeightMedium);
+                            line-height: 16px;
+                            color: #575757;
+
+                            @include small-screen{
+                                display: flex;
+                                flex-direction: column;
+                                gap: 0;
+                                .seperator{
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                    .transaction-secondary-info{
+                        .amount{
+                            font-size: 12px;
+                            font-weight:  var(--fontWeightRegular);
+                            line-height: 18px;
+                            color: #575757;
+
+                            @include small-screen{
+                                font-size: 14px;
+                            }
+
+                            &::before{
+                                display: none;
+                            }
+                        }
+                        .trx-amount{
+                            font-size: 16px;
+                            font-weight:  var(--fontWeightSemiBold);
+                            line-height: 24px;
+                            color:  var(--amountDebitClr);
+                            @include small-screen{
+                                font-weight:  var(--fontWeightMedium);
+                            }
+                            &.credit{
+                                color: var(--amountCreditClr);
+                            }
+                        }
+                    }
+                    .additional-info{
+                        flex-basis: 100%;
+                    }
+                }
+            }
+        }
+
+        .btn-tag{
+            padding: 6px 12px;
+            border: 1px solid #FAD9AE;
+            background-color: #FDF0DF;
+            border-radius: 40px;
+
+            font-size: 11px;
+            font-weight:  var(--fontWeightRegular);
+            line-height: 15px;
+            color: #002027;
+        }
+    }
+
+    @include not-small-screen{
+        .casaAccountDtlListTmplt,
+        .loanAccountDtlListTmplt {
+            .fpx-field-content{
+                box-shadow: none;
+                padding: 16px 20px;
+            }
+            .account-info {
+                gap:32px;
+                align-items: center;
+
+                .acc-primary-info{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 20px;
+                    width: 416px;
+                    flex-grow: 0;
+                    flex-shrink: 0;
+    
+                    .info-item{
+                        flex: 1;
+
+                        .acc-type{
+                            @include s4-medium;
+                            color:  var(--bodyTxtClr);
+                            display: flex;
+                            flex-direction: row;
+                            gap: 8px;
+                            align-items: center;
+                        }
+    
+                        .product-name{
+                            @include s3-medium;
+                            line-height: 22px;
+                            color: #000000;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+
+                .info-item{
+                    flex-basis: 30%;
+                    align-items: flex-start;
+                    .lbl{
+                        @include s4-medium;
+                        color: #000000;
+                    }
+                    .amount{
+                        @include s3-medium;
+                        color: #000000;
+                    }
+                    .val{
+                        @include s3-medium;
+                        color: #000000;
+                    }
+                }
+
+                .share-btn-holder{
+                    position: absolute;
+                    right:22px;
+                    z-index: 1;
+
+                    .share-info{
+                        &::before{
+                            background-color: #000000;
+                        }
+                    }
+                }
+            }
+
+            .v-seperator{
+                align-self: normal;
+            }
+            
+            .acc-holder-img{
+                width: 46px;
+                height: 46px;
+                background-color: #FFEAD0;
+                border-radius: 50%;
+                overflow: hidden;
+                flex-grow: 0;
+                flex-shrink: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img{
+                    width: 38px;
+                }
+            }
+
+            .mat-select-trigger{
+                .mat-select-arrow-wrapper{
+                    margin-right: 86px;
+                }
+            }
+
+            .mat-option{
+                padding: 0;
+                .mat-option-text{
+                    padding: 12px 126px 12px 20px;
+                    .account-info{
+                        .share-btn-holder{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include small-screen{
+        casa-summary-card,
+        creditcard,
+        loan-summary-card {
+            .summary-card {
+                .summary-card-inner {
+                    padding: 8px;
+                }
+                .primary-details{
+                    display: flex;
+                    flex-direction: column;
+                    gap:5px;
+
+                    .account-info{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .type{
+                            display: flex;
+                            flex-direction: row;
+                            flex: 1;
+                            align-items: center;
+                            gap: 8px;
+
+                            font-size: 14px;
+                            font-weight:  var(--fontWeightRegular);
+                            line-height: 22px;
+                            color: #000000;
+
+                        }
+                        .share-info{
+                            width:24px;
+                            height: 24px;
+                            flex-grow: 0;
+                            flex-shrink: 0;
+                            &::before{
+                                background-color: #000000;
+                            }
+                        }
+                    }
+                    .product-name{
+                        font-size: 14px;
+                        font-weight:  var(--fontWeightMedium);
+                        line-height: 22px;
+                        color: #000000;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+
+                .additional-details {
+                    .additional-detail {
+                        color: #000000;
+                        width: 100%;
+                        flex-direction: row;
+
+                        .lbl {
+                            font-size: 12px;
+                            line-height: 12px;
+                            font-weight:  var(--fontWeightRegular);
+                            color: inherit;
+                        }
+                        .amount{
+                            font-size: 14px;
+                            line-height: 14px;
+                            font-weight:  var(--fontWeightMedium);
+                            color: inherit;
+                        }
+
+                    }
+                }
+
+                &.has-context-menu{
+                    padding-bottom: 0;
+                    &::after{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+}

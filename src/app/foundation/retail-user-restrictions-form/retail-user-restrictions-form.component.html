@@ -1,0 +1,24 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailUserRestrictionsForm">
+
+	<box class="entry-form">
+		<box class="user-data-container">
+			<ng-container *ngIf="state.userRestictionData; else noUserTemp">
+				<ng-container *ngFor="let data of state.userRestictionData; index as i">
+					<box [ngClass]="{'is-linked-account':state.customerCode === data.customerCode}" class="user-data "
+						(click)="_helper.selectCif(data,i)">
+						<box class="user-datails">
+							<span class="cif-number">{{data.customerCode}}</span>
+							<span class="account-name">{{data.customerName}}</span>
+						</box>
+						<box class="user-data-checkbox">
+							<span class="tick"></span>
+						</box>
+					</box>
+				</ng-container>
+			</ng-container>
+			<ng-template #noUserTemp>
+				<box class="no-user-data">{{'RetailUserRestrictionsForm.noDataMessage' | translate}}</box>
+			</ng-template>
+		</box>
+	</box>
+</form>

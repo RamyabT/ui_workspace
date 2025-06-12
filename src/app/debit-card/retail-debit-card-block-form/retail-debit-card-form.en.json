@@ -1,0 +1,30 @@
+"RetailDebitCardBlockForm":{
+"title":"Block Debit Card",
+		 "cardReference": {
+		  "label":"Active Debit Card" ,
+		  "placeholder": "Active Debit Card"
+		  } ,
+		 "reason": {
+		  "label":"debitcardblockreason" ,
+		  "placeholder": "debitcardblockreason"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } ,
+		  "charges":{
+			"label":"Charges",
+			"placeholder":"Charges"
+		  },
+		  "otherReason": {
+			"label":"Other Reason" ,
+			"placeholder": "Other reason"
+			} ,
+		"impNote":{
+			"text":"Disclaimer:Please note that if the card is not unblocked within 7 days, then the card will be moved to permanent block and new card will be issued automatically."
+		}
+}

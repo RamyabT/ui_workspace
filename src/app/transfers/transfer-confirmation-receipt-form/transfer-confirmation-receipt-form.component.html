@@ -1,0 +1,58 @@
+<ng-container>
+    <box
+        class="transfer-confirmation-receipt-inner confirmation-receipt-inner success {{ result?.statusCode?.toLowerCase() }} {{ _requestStatus }}">
+        <box [ngClass]="{'delete-mode-confirmation-body': result?.payload?.requestPayload?.operationMode === 'D', 'failure-mode-confirmation-body': _requestStatus === 'ErrorEnd'}" class="confirmation-body">
+            <box class="status-container">
+                <box class="status-ico-wrapper">
+                    <span class="status-ico"></span>
+                </box>
+                <!-- <span class="confirmation-message">{{ result?.payload?.errorCode || amount }}</span> -->
+                <!-- <span class="confirmation-message">{{ failedPayment || amount }}</span> -->
+                <ng-container *ngIf="failedPayment">
+                    <span class="confirmation-message">{{ failedPayment | translate }}</span>
+                </ng-container>
+                <ng-container *ngIf="!failedPayment">
+                    <!-- <span class="confirmation-message amount">{{ amount | currency:currency:'' }} <em>{{currency}}</em></span> -->
+                    <span class="confirmation-message"> {{ _requestServiceCode + '.' + _requestStatus + ".message" |
+                        translate }}</span>
+                </ng-container>
+            </box>
+
+
+            <box class="message-container">
+                <span class="confirmation-description">
+                    <ng-container *ngIf="result?.payload?.requestPayload?.errorMessage; else noError">
+                        {{ 'transfersConfirmationReceipt.defaultErrorDescription' | translate }}
+                    </ng-container>
+                    <ng-template #noError>
+                        <box class="confirmation-description-text">
+                            {{ _requestServiceCode + '.' + _requestStatus + ".description" | translate }}
+                        </box>
+                        <box *ngIf="result?.payload?.requestPayload?.operationMode !== 'D'"
+                            class="confirmation-description-refNum confirmation-description-sub-text">
+                            {{'billpaymentLabels.reference' | translate}}
+                            #{{result.payload?.requestPayload?.transactionReference}}
+                        </box>
+                        <box *ngIf="result?.payload?.requestPayload?.operationMode !== 'D'"
+                            class="confirmation-description-date confirmation-description-sub-text">
+                            {{result.payload?.requestPayload?.initiatedOn | date:'dd MMM yyyy'}}
+                        </box>
+                    </ng-template>
+                </span>
+            </box>
+
+        </box>
+
+        <box class="confirmation-footer">
+
+            <box class="button-container">
+
+                <ng-container>
+                    <button type="button" class="btn-primary" (click)="gotoTranHome()"><span>{{
+                            'RETAILSCHOAT.backToTransfers' | translate }}</span></button>
+                </ng-container>
+            </box>
+        </box>
+    </box>
+
+</ng-container>

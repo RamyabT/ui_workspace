@@ -1,0 +1,5 @@
+ 
+ "RETAILRPSUCCESSORINFO" : {
+ "servicePath": ["entry-shell","registeredproducts", "RetailRPSuccessorinfo"],
+ "queryParams": {}
+ }

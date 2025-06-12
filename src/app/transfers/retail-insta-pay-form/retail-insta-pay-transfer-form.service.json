@@ -1,0 +1,5 @@
+ 
+ "RETAILTRANINSTA" : {
+ "servicePath": ["entry-shell","transfers", "retail-insta-pay-form"],
+ "queryParams": {}
+ }

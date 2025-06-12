@@ -1,0 +1,5 @@
+ 
+ "RETAILLIABILITY" : {
+ "servicePath": ["entry-shell","servicerequest", "retail-liability-letter-form"],
+ "queryParams": {}
+ }

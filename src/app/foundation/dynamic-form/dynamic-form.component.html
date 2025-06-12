@@ -1,0 +1,187 @@
+<form [formGroup]="form">
+  <div  formArrayName="dynamicFormGroup">
+      <div
+        *ngFor="let formControl of dynamicFormGroup?.controls; let i = index">
+        <div class="grid input-panel" formGroupName="{{i}}" >
+          <ng-container *ngFor="let control of formConfig; let controlIndex = index">
+            <box [class.fpx-disabled]="control.isDisable" class="fpx-form-control col-lg-12 col-md-12 col-sm-12 {{control.dispType=='3'?'checkbox':''}}">
+              <ng-container [ngSwitch]="control.dispType">
+                <!-- textBox -->
+                <ng-container *ngSwitchCase="'1'">
+                  <fpx-label *ngIf="control?.label" [control]="$any(formControl)?.controls?.[control.formControlName]" #fpxLabel [label]="control?.label"></fpx-label>
+
+                  <div class="fpx-field-content">
+                    <input
+                      [readonly]="control.isDisable"
+                      [disabled]="control.isDisable"
+                      class="mat-input-element"
+                      (change)="textBoxChange(i,control.formControlName)"
+                      (focus)="onfocus(controlIndex)"
+                      (blur)="onblur(controlIndex)"
+                      matInput
+                      [maxlength]="control?.maxLength || 1000000"
+                      formControlName="{{ control.formControlName }}"
+                      appBlockCopyPaste/>
+                    </div>
+                    <mat-error *ngIf="formControl.get(control.formControlName)?.touched && formControl.get(control.formControlName)?.hasError('required')">
+                      Please enter {{control.label}}
+                    </mat-error>  
+                    <mat-error *ngIf="formControl.get(control.formControlName)?.touched && formControl.get(control.formControlName)?.hasError('pattern') && !control.isFocused">
+                      Please enter valid {{control.label}}
+                    </mat-error>
+                    <mat-error *ngIf="formControl.get(control.formControlName)?.touched && formControl.get(control.formControlName)?.hasError('minLength') && !control.isFocused">
+                      Min length
+                    </mat-error>
+                    <ng-container *ngIf="control?.errorMessagesArray?.length>0">
+                      <mat-error *ngIf="formControl.get(control.formControlName)?.touched && formControl?.get(control.formControlName)?.hasError(getErrorCode(control)) && !control.isFocused">
+                        {{getErrorMessage(control.label,getErrorCode(control))}}
+                      </mat-error>
+                    </ng-container>
+                </ng-container>
+                 <!-- comboBox -->
+
+                  <ng-container *ngSwitchCase="'2'">
+                    <fpx-label *ngIf="control?.label" [control]="$any(formControl)?.controls?.[control.formControlName]" #fpxLabel [label]="control?.label"></fpx-label>
+
+                    <div class="fpx-field-content">
+               
+                      <input
+                        type="number"
+                        [readonly]="control.isDisable"
+                        [disabled]="control.isDisable"
+                        class="mat-input-element"
+                        (change)="textBoxChange(i,control.formControlName)"
+                        (focus)="onfocus(controlIndex)"
+                        (blur)="onblur(controlIndex)"
+                        matInput
+                        [max]="control.maxLength"
+                        fpxNumberInput
+                        formControlName="{{ control.formControlName }}"
+                        appBlockCopyPaste
+                        />
+                      </div>
+                      <mat-error *ngIf="!control.isDisable && formControl.get(control.formControlName)?.touched && formControl.get(control.formControlName)?.hasError('required')">
+                        Please enter {{control.label}}
+                      </mat-error>  
+                      <mat-error *ngIf="formControl.get(control.formControlName)?.touched && formControl.get(control.formControlName)?.hasError('pattern') && !control.isFocused">
+                        Please enter valid {{control.label}}
+                      </mat-error>
+                      <mat-error *ngIf="formControl.get(control.formControlName)?.touched && formControl.get(control.formControlName)?.hasError('minLength') && !control.isFocused">
+                        Min length
+                      </mat-error>
+                      <ng-container *ngIf="control?.errorMessagesArray?.length>0">
+                        <mat-error *ngIf="formControl.get(control.formControlName)?.touched && formControl?.get(control.formControlName)?.hasError(getErrorCode(control)) && !control.isFocused">
+                          {{getErrorMessage(control.label,getErrorCode(control))}}
+                        </mat-error>
+                      </ng-container>
+                  </ng-container>
+                 <!-- checkBox -->
+                <ng-container *ngSwitchCase="'3'"> 
+                <mat-checkbox
+                  [checked]="control.defaultValue=='1'?true:false"
+                  (change)="textBoxChange(i,control.formControlName,control,$event)"
+                  [labelPosition]="control.textPosition"
+                  [color]="'primary'"
+                >
+                <fpx-label class="content" *ngIf="control?.label" [control]="$any(formControl)?.controls?.[control.formControlName]" #fpxLabel [label]="control?.label"></fpx-label>
+
+                </mat-checkbox>
+             
+                <mat-error *ngIf=" !control.isDisable && formControl.get(control.formControlName)?.touched && formControl.get(control.formControlName)?.hasError('required')">
+                  Please enter {{control.label}}
+                </mat-error>  
+                <mat-error *ngIf="formControl.get(control.formControlName)?.touched && formControl.get(control.formControlName)?.hasError('pattern')">
+                  Please enter valid {{control.label}}
+                </mat-error>
+                <mat-error *ngIf="formControl.get(control.formControlName)?.touched && formControl.get(control.formControlName)?.hasError('minLength')">
+                  Min length
+                </mat-error>
+                <ng-container *ngIf="control?.errorMessagesArray?.length>0">
+                  <mat-error *ngIf="formControl.get(control.formControlName)?.touched && formControl?.get(control.formControlName)?.hasError(getErrorCode(control)) && !control.isFocused">
+                    {{getErrorMessage(control.label,getErrorCode(control))}}
+                  </mat-error>
+                </ng-container>
+
+                </ng-container>
+                <!-- dropdown -->
+                <ng-container *ngSwitchCase="'4'">
+                  <fpx-label *ngIf="control?.label" [control]="$any(formControl)?.controls?.[control.formControlName]" #fpxLabel [label]="control?.label"></fpx-label>
+                  <div #fpxFieldConrtent class="fpx-field-content">
+                    <mat-select
+                    (selectionChange)="textBoxChange(i,control.formControlName,control,$event.value)"
+                    formControlName="{{ control.formControlName }}"
+                    panelClass="fpx-select-panel"
+                    [disabled]="control?.isDisable">
+                
+                      <ng-container *ngIf="control.lov">
+                        <mat-option
+                          *ngFor="let selectableData of control.lov; let idx = index"
+                          [value]="selectableData.lovId"
+                          
+                        >
+                          {{ selectableData?.lovDesc}}
+                        </mat-option>
+                      </ng-container>
+                    </mat-select>
+                  </div>
+                  <mat-error *ngIf=" !control.isDisable && formControl.get(control.formControlName)?.touched && formControl.get(control.formControlName)?.hasError('required')">
+                    Please enter {{control.label}}
+                  </mat-error>  
+                  <mat-error *ngIf="formControl.get(control.formControlName)?.touched && formControl.get(control.formControlName)?.hasError('pattern')">
+                    Please enter valid {{control.label}}
+                  </mat-error>
+                  <mat-error *ngIf="formControl.get(control.formControlName)?.touched && formControl.get(control.formControlName)?.hasError('minLength')">
+                    Min length
+                  </mat-error>
+                  <ng-container *ngIf="control?.errorMessagesArray?.length>0">
+                    <mat-error *ngIf="formControl.get(control.formControlName)?.touched && formControl?.get(control.formControlName)?.hasError(getErrorCode(control)) && !control.isFocused">
+                      {{getErrorMessage(control.label,getErrorCode(control))}}
+                    </mat-error>
+                  </ng-container>
+                </ng-container>
+                <!-- date -->
+                <ng-container *ngSwitchCase="'5'">
+                 
+                </ng-container>
+                <!-- Password -->
+                <ng-container *ngSwitchCase="'6'">
+                  <div >
+                    <fpx-label *ngIf="control?.label" [control]="$any(formControl)?.controls?.[control.formControlName]" #fpxLabel [label]="control?.label"></fpx-label>
+
+                    <div class="fpx-field-content">
+                      <input 
+                        type="password"
+                        [readonly]="control.isDisable"
+                        [disabled]="control.isDisable"
+                        class="mat-input-element"
+                        (change)="textBoxChange(i,control.formControlName)"
+                        (focus)="onfocus(controlIndex)"
+                        (blur)="onblur(controlIndex)"
+                        matInput
+                        [maxlength]="control?.maxLength || 1000000"
+                        formControlName="{{ control.formControlName }}"
+                        appBlockCopyPaste/>
+                      </div>
+                      <mat-error *ngIf="!control.isDisable && formControl.get(control.formControlName)?.touched && formControl.get(control.formControlName)?.hasError('required')">
+                        Please enter {{control.label}}
+                      </mat-error>  
+                      <mat-error *ngIf="formControl.get(control.formControlName)?.touched && formControl.get(control.formControlName)?.hasError('pattern') && !control.isFocused">
+                        Please enter valid {{control.label}}
+                      </mat-error>
+                      <mat-error *ngIf="formControl.get(control.formControlName)?.touched && formControl.get(control.formControlName)?.hasError('minLength') && !control.isFocused">
+                        Min length
+                      </mat-error>
+                      <ng-container *ngIf="control?.errorMessagesArray?.length>0">
+                        <mat-error *ngIf="formControl.get(control.formControlName)?.touched && formControl?.get(control.formControlName)?.hasError(getErrorCode(control)) && !control.isFocused">
+                          {{getErrorMessage(control.label,getErrorCode(control))}}
+                        </mat-error>
+                      </ng-container>
+                  </div>
+                </ng-container>
+              </ng-container>
+            </box>
+          </ng-container>
+        </div>
+      </div>
+  </div>
+</form>

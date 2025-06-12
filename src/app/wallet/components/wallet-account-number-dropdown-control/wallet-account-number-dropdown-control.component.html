@@ -1,0 +1,7 @@
+<box class="dropdown-template">
+        <fpx-selectable-dropdown class="fpx-form-control" [controlName]="formControlName" #fpxControl
+                [selectableList$]="selectableDataList$" [label]="label" [placeholder]="placeholder"
+                [lookupTrigger$]="lookupResponse$" [ngTemplateName]="'walletListTmplt'">
+        </fpx-selectable-dropdown>
+        <box *ngIf="controlBusy" class="control-loader loading"></box>
+</box>

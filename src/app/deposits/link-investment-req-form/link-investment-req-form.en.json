@@ -1,0 +1,23 @@
+"LinkInvestmentReqForm":{
+"title":"Link Investment Req",
+		 "customerCode": {
+		  "label":"Customer Code" ,
+		  "placeholder": "Customer Code"
+		  } ,
+		 "lastName": {
+		  "label":"Last Name" ,
+		  "placeholder": "Last Name"
+		  } ,
+		 "postalCode": {
+		  "label":"Postal Code" ,
+		  "placeholder": "Postal Code"
+		  } ,
+		 "dob": {
+		  "label":"Date Of Birth" ,
+		  "placeholder": "Date Of Birth"
+		  } ,
+		 "clientNumber": {
+		  "label":"Client Number" ,
+		  "placeholder": "Client Number"
+		  } 
+}

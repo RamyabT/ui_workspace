@@ -1,0 +1,34 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="InvestmentTransactionSummaryFilter">
+
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-sm-12 col-md-12 col-lg-12">
+			<app-range-type-control class="col-sm-12 col-md-12 col-lg-12"
+		[actionPublisher]="actionMap$.get('rangeType')"
+		label="{{'InvestmentTransactionSummaryFilter.rangeType.label' | translate }}" formControlName="rangeType"
+		placeholder="{{'InvestmentTransactionSummaryFilter.rangeType.placeholder' | translate }}">
+	</app-range-type-control>
+
+			<app-request-date-control class="col-sm-6 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('fromDate')"
+				label="{{ 'InvestmentTransactionSummaryFilter.fromDate.label' | translate }}" formControlName="fromDate"
+				 [minDate]="state.fromDate.minDate" [maxDate]="state.fromDate.maxDate"></app-request-date-control>
+
+			<app-request-date-control class="col-sm-6 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('toDate')"
+				label="{{ 'InvestmentTransactionSummaryFilter.toDate.label' | translate }}" formControlName="toDate"
+				 [minDate]="state.toDate.minDate" [maxDate]="state.toDate.maxDate"></app-request-date-control>
+			
+			<app-download-file-format-list-control class="col-sm-12 col-md-12 col-lg-12"
+				[actionPublisher]="actionMap$.get('downloadFileFormat')"
+				label="{{'investmenttransactionsummarydownloadfilter.downloadFileFormat.label' | translate }}"
+				formControlName="downloadFileFormat">
+			</app-download-file-format-list-control>
+
+
+			<box class="form-action-container">
+				<fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('download')"
+					label="{{'investmenttransactionsummarydownloadfilter.download.label' | translate }}"
+					btnClass=" btn-primary" [buttonMode]="'button'" [disable]="formGroup.invalid"
+					(onClick)="investmenttransactionsummarydownloadfilterHelper.onDownloadClick(null)"></fpx-button>
+			</box>
+		</box>
+	</box>
+</form>

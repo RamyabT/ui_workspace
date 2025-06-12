@@ -1,0 +1,5 @@
+ 
+ "APPLICANTSINFO" : {
+ "servicePath": ["entry-shell","onboarding", "cob-applicant-info-form"],
+ "queryParams": {}
+ }

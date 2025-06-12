@@ -1,0 +1,65 @@
+<button type="button" class="btn-popup-close" (click)="closePopup()">close</button>
+
+<ng-container *ngIf="details; else loader">
+  <box class="casa-transaction-info-wrapper info-popup-wrapper member-goals-list">
+    <header>
+      <box class="casa-transaction-info col-12"> 
+        <button *ngIf="!device.isMobile()" type="button" class="pop-up-close" (click)="closePopup()">close</button>
+        <box class="transaction-icon-wrapper">
+          <box  >
+              <img src="./assets/pfm/goal.svg"
+                  alt="View chore" />
+          </box>
+           
+        </box>
+        <box class="transaction-info">
+          <box class="transaction-primary-info">
+            <span class="name">{{ details.goalName }}</span>
+            <span class="date">{{ 'MEMBERCHORE.reward' | translate }} - {{ details.contributionAmount  }}</span>
+          </box>
+          <box class="transaction-secondary-info">
+            <span class="amount" [ngClass]="{
+                        'credit' : details.transType == 'C',
+                        'debit' : details.transType == 'D'
+                      }">{{details.targetAmt  }}
+              <em>{{details.currency}}</em></span>
+             <box class="pending-duration">2d
+              <img src="./assets/fb/duration-white.svg" alt="goal duration" />
+              </box> 
+          </box>
+        </box>
+      </box>
+    </header>
+
+    <box class="info-popup-body fb-goaldetails-wrapper">
+      <box class="fb-goaldetails">
+        <box>
+          <span class="lbl">{{ 'MEMBERCHORE.totalchoreslabel' | translate }}</span>
+          <span class="value">{{totalTask}}</span>
+        </box>
+        <box>
+          <span class="lbl">{{ 'MEMBERCHORE.chorescompletelabel' | translate }}</span>
+          <span class="value">{{completedMappedTask}}</span>
+        </box>
+      </box>
+  
+      <box class="entry-form col-sm-12 col-md-12 col-lg-12">
+        <box>{{'MEMBERCHORE.chorelinkGoallbl' | translate }}</box>
+   		 
+
+          <box class="entry-form col-sm-12 col-md-12 col-lg-12">
+            <app-member-view-chores></app-member-view-chores>
+          </box>
+       
+       
+       
+      </box>
+       
+    </box>
+    
+  </box>
+</ng-container>
+
+<ng-template #loader>
+  <box class="loading"></box>
+</ng-template>

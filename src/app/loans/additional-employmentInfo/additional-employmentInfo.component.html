@@ -1,0 +1,54 @@
+<form [formGroup]="formGroup" formName="additionalEmploymentInfo">
+	<box class="input-grid country-of-tax-input-grid" [style.width]="gridWidth+'%'">
+
+		<ng-container formArrayName="formArray">
+			<ng-container *ngFor="let control of formArray.controls; let i = index; let last = last"
+				formGroupName="{{ i }}">
+				<box class="input-grid-row">
+					<box class="add-emp-title col-sm-12 col-md-6 col-lg-12">
+						<box class="input-grid-row-item" [style.width]="columnWidth[0]+'%'">
+							<span class="emp-title">{{'additionalEmploymentInfo.employementInfo.label' | translate }} {{i+1}}</span>
+						</box>
+
+						<box class="input-grid-row-item button-delete" [style.width]="columnWidth[3]+'%'">
+							<box [style.width]="gridWidth+'%'" class="grid-actions" (click)="deleteAddedCountry(i)">
+								<button type="button" class="delete-icon">{{'additionalEmploymentInfo.delete.label' | translate }}</button>
+							</box>
+						</box>
+					</box>
+
+
+					<app-emp-status-control formControlName="empstatus"
+						label="{{'additionalEmploymentInfo.empstatus.label' | translate }}"
+						placeholder="{{'additionalEmploymentInfo.empstatus.placeholder' | translate }}"
+						[actionPublisher]="actionMap$[i].get('empstatus')"></app-emp-status-control>
+
+
+					<app-name-control [actionPublisher]="actionMap$[i].get('companyName')" formControlName="companyName"
+						label="{{'additionalEmploymentInfo.companyName.label' | translate }}"
+						placeholder="{{'additionalEmploymentInfo.companyName.placeholder' | translate }}"></app-name-control>
+
+
+					<app-name-control [actionPublisher]="actionMap$[i].get('position')" formControlName="position"
+						label="{{'additionalEmploymentInfo.position.label' | translate }}"
+						placeholder="{{'additionalEmploymentInfo.position.placeholder' | translate }}"></app-name-control>
+
+
+					<app-amount-currency-control class="col-sm-12 col-md-6 col-lg-6"
+						[actionPublisher]="actionMap$[i].get('monthlyIncome')"
+						label="{{'additionalEmploymentInfo.monthlyIncome.label' | translate }}" formControlName="monthlyIncome"
+						[CurrencyList]="state.monthlyIncome.CurrencyList"
+						[initCurrency]="state.monthlyIncome.initCurrency"
+						[isCurrEditable]="state.monthlyIncome.isCurrEditable"></app-amount-currency-control>
+				</box>
+			</ng-container>
+		</ng-container>
+	</box>
+
+	<box [style.width]="gridWidth+'%'" class="input-grid-title grid-actions center-align"
+		[ngClass]="{'add-co-app': addEmploymentRadio}" (click)="addMoreCountry()">
+		<button type="button" class="btn-link add-new">{{'additionalEmploymentInfo.addMoreEmploymentInfo.label' | translate }}</button>
+	</box>
+	<box class="input-grid-title text-info">{{'additionalEmploymentInfo.addEmploymentInfo.label' | translate }}
+	</box>
+</form>

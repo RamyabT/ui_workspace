@@ -1,0 +1,5 @@
+ 
+ "RETAILPPDISPUTE" : {
+ "servicePath": ["entry-shell","prepaidcard", "retail-ppcard-dispute-form"],
+ "queryParams": {}
+ }

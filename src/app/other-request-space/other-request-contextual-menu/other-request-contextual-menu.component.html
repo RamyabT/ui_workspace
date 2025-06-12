@@ -1,0 +1,18 @@
+<form name="otherRequestForm">
+    <box class="entry-form">
+        <box class="entry-form-field-group col-12 dep-list-group">
+            <ul class="dep-list other-request-list">
+                <ng-container *ngIf="state.otherRequestList">
+                    <ng-container *ngFor="let request of state.otherRequestList">
+                        <li [ngClass]="{'active': _helper.activeMenu == request.serviceCode}" class="dep-list-item request-list-item" (click)="_helper.openLink(request)">
+                            <box class="list-body request-type-info">
+                                <span class="request-type">{{ 'otherRequestTypeServiceDesc.' + request.serviceCode + '.name' | translate }}</span>
+                                <span class="request-type-desc">{{ 'otherRequestTypeServiceDesc.' + request.serviceCode + '.desc' | translate }}</span>
+                            </box>
+                        </li>
+                    </ng-container>
+                </ng-container>
+            </ul>
+        </box>
+    </box>
+</form>

@@ -1,0 +1,192 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="BasicDetailsForm">
+	<box class="wallet-form">
+		<box class="entry-form-field-group">
+			<box class="display-field-group">
+				<box class="accordion-header">
+					<box class="accordion-title">{{'BasicDetailsForm.personalInformation.label' | translate }}
+					</box>
+					<box class="toggle-accordion">
+						<button (click)="_helper.personalInfoToggleAccordion()" type="button"
+							aria-label="quick action trigger" class="arrow"
+							[ngClass]="{ 'rotate-up': state.accordionToggle, 'rotate-down': !state.accordionToggle }">
+
+						</button>
+					</box>
+				</box>
+				<box class="entry-form-field-group grid col-12"
+					[ngClass]="{ 'basic-dtl-pre-up': !state.accordionToggle, 'basic-dtl-pre-down': state.accordionToggle }">
+					<app-name-control class="col-sm-12 col-md-6 col-lg-6"
+						[actionPublisher]="actionMap$.get('firstName')"
+						label="{{'BasicDetailsForm.firstName.label' | translate }}"
+						formControlName="firstName"></app-name-control>
+
+
+					<app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('lastName')"
+						label="{{'BasicDetailsForm.lastName.label' | translate }}"
+						formControlName="lastName"></app-name-control>
+
+
+					<app-mobile-number-control class="col-sm-12 col-md-6 col-lg-6"
+						[actionPublisher]="actionMap$.get('mobileNumber')"
+						label="{{'BasicDetailsForm.mobileNumber.label' | translate }}"
+						formControlName="mobileNumber"></app-mobile-number-control>
+
+					<app-email-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('email')"
+						label="{{'BasicDetailsForm.email.label' | translate }}"
+						formControlName="email"></app-email-control>
+
+					<app-date-of-birth-control class="col-sm-12 col-md-6 col-lg-6"
+						[actionPublisher]="actionMap$.get('dob')" label="{{'BasicDetailsForm.dob.label' | translate }}"
+						formControlName="dob"></app-date-of-birth-control>
+
+
+
+					<app-name-control class="col-sm-12 col-md-6 col-lg-6"
+						[actionPublisher]="actionMap$.get('addressLine1')"
+						label="{{'BasicDetailsForm.addressLine1.label' | translate }}"
+						formControlName="addressLine1"></app-name-control>
+
+
+					<app-name-control class="col-sm-12 col-md-6 col-lg-6"
+						[actionPublisher]="actionMap$.get('addressLine2')"
+						label="{{'BasicDetailsForm.addressLine2.label' | translate }}"
+						formControlName="addressLine2"></app-name-control>
+
+
+
+					<app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('state')"
+						label="{{'BasicDetailsForm.state.label' | translate }}"
+						formControlName="state"></app-name-control>
+
+
+					<app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('city')"
+						label="{{'BasicDetailsForm.city.label' | translate }}"
+						formControlName="city"></app-name-control>
+
+
+					<app-zipcode-list-control class="col-sm-12 col-md-6 col-lg-6"
+						[actionPublisher]="actionMap$.get('zipcode')"
+						label="{{'BasicDetailsForm.zipcode.label' | translate }}"
+						formControlName="zipcode"></app-zipcode-list-control>
+
+				</box>
+			</box>
+
+		</box>
+		<box class="entry-form-field-group grid col-12">
+			<box class="accordion-header">
+				<box class="accordion-title">{{'BasicDetailsForm.employmentDetails.label' | translate }}
+				</box>
+				<box class="toggle-accordion">
+					<button (click)="_helper.empInfoToggleAccordion()" type="button" aria-label="quick action trigger"
+						class="arrow"
+						[ngClass]="{ 'rotate-up': state.empInfoaccordionToggle, 'rotate-down': !state.empInfoaccordionToggle }">
+
+					</button>
+				</box>
+			</box>
+			<box class="entry-form-field-group grid col-12"
+				[ngClass]="{ 'basic-dtl-up': !state.empInfoaccordionToggle, 'basic-dtl-down': state.empInfoaccordionToggle }">
+
+				<app-emp-status-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('empstatus')"
+					label="{{'BasicDetailsForm.empstatus.label' | translate }}"
+					formControlName="empstatus"></app-emp-status-control>
+
+				<app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('empName')"
+					label="{{'BasicDetailsForm.empName.label' | translate }}"
+					formControlName="empName"></app-name-control>
+
+				<app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('empPosition')"
+					label="{{'BasicDetailsForm.empPosition.label' | translate }}"
+					formControlName="empPosition"></app-name-control>
+
+				<app-amount-currency-control class="col-sm-12 col-md-6 col-lg-6"
+					[actionPublisher]="actionMap$.get('monthlyIncome')"
+					label="{{'BasicDetailsForm.monthlyIncome.label' | translate }}"
+					formControlName="monthlyIncome"></app-amount-currency-control>
+
+
+				<app-name-control class="col-sm-12 col-md-6 col-lg-6"
+					[actionPublisher]="actionMap$.get('empaddressLine1')"
+					label="{{'BasicDetailsForm.empaddressLine1.label' | translate }}"
+					formControlName="empaddressLine1"></app-name-control>
+
+
+				<app-name-control class="col-sm-12 col-md-6 col-lg-6"
+					[actionPublisher]="actionMap$.get('empaddressLine2')"
+					label="{{'BasicDetailsForm.empaddressLine2.label' | translate }}"
+					formControlName="empaddressLine2"></app-name-control>
+
+				<app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('empstate')"
+					label="{{'BasicDetailsForm.empstate.label' | translate }}"
+					formControlName="empstate"></app-name-control>
+
+
+				<app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('empcity')"
+					label="{{'BasicDetailsForm.empcity.label' | translate }}"
+					formControlName="empcity"></app-name-control>
+
+
+				<app-zipcode-list-control class="col-sm-12 col-md-6 col-lg-6"
+					[actionPublisher]="actionMap$.get('empzipcode')"
+					label="{{'BasicDetailsForm.empzipcode.label' | translate }}"
+					formControlName="empzipcode"></app-zipcode-list-control>
+
+			</box>
+
+		</box>
+
+		<box class="entry-form-field-group">
+			<box class="basic-dtl entry-form-field-group grid col-12">
+				<box class="expense-title">{{'BasicDetailsForm.expenses.label' | translate }}
+				</box>
+
+				<app-amount-currency-control class="col-sm-12 col-md-6 col-lg-6"
+					[actionPublisher]="actionMap$.get('otherLoanEMI')"
+					label="{{'BasicDetailsForm.otherLoanEMI.label' | translate }}" formControlName="otherLoanEMI"
+					(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.otherLoanEMI.CurrencyList"
+					[isCurrEditable]="state.otherLoanEMI.isCurrEditable"
+					[initCurrency]="state.otherLoanEMI.initCurrency" [changePublisher]="formChangePublisher$"
+					[amountInWords]="state.otherLoanEMI.amountInWords"></app-amount-currency-control>
+
+				<app-amount-currency-control class="col-sm-12 col-md-6 col-lg-6"
+					[actionPublisher]="actionMap$.get('monthlyExpenses')"
+					label="{{'BasicDetailsForm.monthlyExpenses.label' | translate }}" formControlName="monthlyExpenses"
+					(commonControlEvent)="handleControlEvent($event)"
+					[CurrencyList]="state.monthlyExpenses.CurrencyList"
+					[isCurrEditable]="state.monthlyExpenses.isCurrEditable"
+					[initCurrency]="state.monthlyExpenses.initCurrency" [changePublisher]="formChangePublisher$"
+					[amountInWords]="state.monthlyExpenses.amountInWords"></app-amount-currency-control>
+
+				<app-amount-currency-control class="col-sm-12 col-md-6 col-lg-6"
+					[ngClass]="{'loan-seg-app': _helper.loanSeg}"
+					[actionPublisher]="actionMap$.get('annualPropertyTax')"
+					label="{{'BasicDetailsForm.annualPropertyTax.label' | translate }}"
+					formControlName="annualPropertyTax" (commonControlEvent)="handleControlEvent($event)"
+					[CurrencyList]="state.annualPropertyTax.CurrencyList"
+					[isCurrEditable]="state.annualPropertyTax.isCurrEditable"
+					[initCurrency]="state.annualPropertyTax.initCurrency" [changePublisher]="formChangePublisher$"
+					[amountInWords]="state.annualPropertyTax.amountInWords"></app-amount-currency-control>
+
+				<app-amount-currency-control class="col-sm-12 col-md-6 col-lg-6"
+					[actionPublisher]="actionMap$.get('monthlyCondominiumFees')"
+					[ngClass]="{'loan-seg-app': _helper.loanSeg}"
+					label="{{'BasicDetailsForm.monthlyCondominiumFees.label' | translate }}"
+					formControlName="monthlyCondominiumFees" (commonControlEvent)="handleControlEvent($event)"
+					[CurrencyList]="state.monthlyCondominiumFees.CurrencyList"
+					[initCurrency]="state.monthlyCondominiumFees.initCurrency"
+					[isCurrEditable]="state.monthlyCondominiumFees.isCurrEditable"
+					[changePublisher]="formChangePublisher$"
+					[amountInWords]="state.monthlyCondominiumFees.amountInWords"></app-amount-currency-control>
+			</box>
+
+		</box>
+
+		<box class="entry-form-field-group">
+			<app-additional-employmentInfo class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('additionalEmploymentInfo')" label="additionalEmploymentInfo"
+				formControlName="additionalEmploymentInfo"></app-additional-employmentInfo>
+		</box>
+
+	</box>
+</form>

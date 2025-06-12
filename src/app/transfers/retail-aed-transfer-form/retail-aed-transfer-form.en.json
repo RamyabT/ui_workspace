@@ -1,0 +1,79 @@
+"RetailAedTransferForm":{
+"title":"RetailAedTransferForm",
+		 "sourceAccount": {
+		  "label":"Debit Account" ,
+		  "placeholder": "Debit Account"
+		  } ,
+		 "beneficiaryId": {
+		  "label":"Beneficiary Account Number" ,
+		  "placeholder": "Beneficiary Account Number"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Payment Amount" ,
+		  "placeholder": "Payment Amount"
+		  } ,
+		 "scheduleType": {
+		  "label":"Payment Option" ,
+		  "placeholder": "Payment Option"
+		  } ,
+		 "paymentDate": {
+		  "label":"Payment Date" ,
+		  "placeholder": "Payment Date"
+		  } ,
+		 "purpose": {
+		  "label":"Purpose" ,
+		  "placeholder": "Purpose"
+		  } ,
+		 "chargesBorneBy": {
+		  "label":"Charges Borne By" ,
+		  "placeholder": "Charges Borne By"
+		  } ,
+		 "beneficiaryAdvice": {
+		  "label":"Beneficiary Advice" ,
+		  "placeholder": "Beneficiary Advice"
+		  } ,
+		 "beneficiaryEmail": {
+		  "label":"Email ID" ,
+		  "placeholder": "Email ID"
+		  } ,
+		 "paymentDetails": {
+		  "label":"Payment Details" ,
+		  "placeholder": "Payment Details"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } ,
+		 "debitAmount": {
+		  "label":"Debit Amount" ,
+		  "placeholder": "Debit Amount"
+		  } ,
+		 "debitCurrency": {
+		  "label":"Debit Currency " ,
+		  "placeholder": "Debit Currency "
+		  } ,
+		 "creditCurrency": {
+		  "label":"Credit Currency " ,
+		  "placeholder": "Credit Currency "
+		  } ,
+		 "creditAmount": {
+		  "label":"Credit Amount" ,
+		  "placeholder": "Credit Amount"
+		  } ,
+		 "rateApplied": {
+		  "label":"Rate Applied" ,
+		  "placeholder": "Rate Applied"
+		  } ,
+		 "baseRateApplied": {
+		  "label":"Base Rate Applied" ,
+		  "placeholder": "Base Rate Applied"
+		  } ,
+		 "endDate": {
+		  "label":"End Date" ,
+		  "placeholder": "End Date"
+		  } 
+}

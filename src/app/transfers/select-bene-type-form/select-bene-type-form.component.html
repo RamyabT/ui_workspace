@@ -1,0 +1,12 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailChequeBookRequest">
+    <box class="entry-form">
+        <box class="grid entry-form-field-group col-12 col-lg-12">
+            <box class="grid transaction-container">
+                <box class="transactions-stmt-grid-wrapper col-12">
+                    <app-retail-select-bene-ro-grid
+                        [actionPublisher]="actionMap$.get('selectBeneTypeGrid')"></app-retail-select-bene-ro-grid>
+                </box>
+            </box>
+        </box>
+    </box>
+</form>

@@ -1,0 +1,30 @@
+"RetailDebitCardSetPinForm": {
+	"title": "Set Pin",
+	"inventoryNumber": {
+		"label": "Inventory Number",
+		"placeholder": "Inventory Number"
+	},
+	"cardReference": {
+		"label": "Debit Card Number",
+		"placeholder": "Debit Card Number"
+	},
+	"newPin": {
+		"label": "Enter PIN",
+		"placeholder": "Enter PIN"
+	},
+	"reenteredPin": {
+		"label": "Confirm PIN",
+		"placeholder": "Confirm PIN"
+	},
+	"remarks": {
+		"label": "Remarks",
+		"placeholder": "Remarks"
+	},
+	"termsFlag": {
+		"label": "Terms & Conditions",
+		"placeholder": "Terms & Conditions"
+	},
+	"FieldId_2": {
+		"text": "<div style='color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;'><span style='color: #ce9178;'>Disclaimer: Lorem Ipsum content needs to be shared by the team</span></div>"
+	}
+}

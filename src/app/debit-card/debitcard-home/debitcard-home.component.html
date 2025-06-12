@@ -1,0 +1,17 @@
+<box class="casa-home-container">
+    <ng-container>
+        
+        <app-debitcard-spending-summary [chartData]="chartData" (spendDate)="getAccountsInsights($event)"></app-debitcard-spending-summary>
+    </ng-container>
+
+    <box class="widget upcoming-payments">
+        <header>
+            <span class="widget-title">{{ 'WIDGIT_TITLES.recentTransactions' | translate }}</span>
+            <!-- <button type="button" class="link arrow-button" (click)="onClickViewTransaction()">{{ 'WIDGIT_TITLES.viewTransactionHistory' | translate }}</button> -->
+        </header>
+    
+        <box class="widget-body upcomingPaymentsTmplt">
+            <app-retail-dc-transaction-summary-form></app-retail-dc-transaction-summary-form>
+        </box>
+    </box>
+</box>

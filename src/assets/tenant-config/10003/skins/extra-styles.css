@@ -1,0 +1,90 @@
+.system-ico-button.add-new {
+    border: none;
+}
+
+.casaAccountDtlListTmplt,
+.depositAccountDtlListTmplt,
+.loanAccountDtlListTmplt,
+.debitcardDtlListTmplt,
+.creditcardDtlListTmplt,
+.prepaidcardDtlListTmplt {
+    .ng-template-select {
+        --controlIconClr: #FFFFFF;
+
+        mat-select-trigger * {
+            color: #FFF !important;
+        }
+    }
+
+    .mat-focus-indicator:hover .mat-option-text *,
+    .mat-selected.mat-active * {
+        color: #FFF !important;
+
+        .info-item {
+            &::before {
+                background-color: var(--color) !important;
+            }
+        }
+    }
+
+    .mat-select {
+        .mat-select-trigger {
+            .info-item {
+                &::before {
+                    background-color: var(--color) !important;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .login-layout{
+        header{
+            img{
+                filter: brightness(0) invert(1);
+            }
+        }
+    }
+}
+
+/* Table & Desktop screens styles */
+@media screen and (min-width: 769px) {
+    #depAppBody{
+        .prelogin-layout{
+            header{
+                img{
+                    filter: brightness(0) invert(1);
+                }
+            }
+        }
+
+        .prelogin-header{
+            background-color: #FFFFFF;
+        }
+
+        .welcome-banner-wrapper {
+            background: var(--welcomeBanner) no-repeat right transparent;
+            background-size: auto 100%;
+            width: 50%;
+            background-size: cover;
+        }
+        .welcome-container-inner {
+            .welcome-note-container {
+                margin-left: 50%;
+
+                .welcome-title {
+                    width: 50%;
+                    color: #FFFFFF;
+                }
+            }
+        }
+
+        banner-ads {
+            .ad-item{
+                height: 280px !important;
+            }
+        }
+        
+    }
+}

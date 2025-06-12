@@ -1,0 +1,5 @@
+ 
+ "addressdetail" : {
+ "servicePath": ["entry-shell","foundation", "address-detail-form"],
+ "queryParams": {}
+ }

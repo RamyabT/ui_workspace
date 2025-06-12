@@ -1,0 +1,133 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailInstaPayForm">
+
+	<box class="entry-form">
+		<box class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('transferSummary')" >
+			<box class="grid entry-form-field-group">
+
+				<box class="field-item col-sm-12 col-md-6 col-lg-12"
+					>
+					<box class="info-box">
+						<fpx-label label="{{'TransferSummaryForm.tranDet' | translate}}"></fpx-label>
+						<box class="info-field">
+							<fpx-display-text class="info-field-label" [innerHTML]="'TransferSummaryForm.refnumber' | translate"
+								[literals]="commonFormInput"></fpx-display-text>
+							<fpx-display-text class="info-field-value" [innerHTML]="state.transferSummary.paymentId"
+								[literals]="commonFormInput"></fpx-display-text>
+						</box>
+						<box class="info-field">
+							<fpx-display-text class="info-field-label" [innerHTML]="'TransferSummaryForm.status' | translate"
+								[literals]="commonFormInput"></fpx-display-text>
+							<fpx-display-text class="info-field-value" [innerHTML]="state.transferSummary.paymentStatus"
+								[literals]="commonFormInput"></fpx-display-text>
+						</box>
+					</box>
+				</box>
+			</box>
+		</box>
+		<app-account-list-template-control class="col-sm-12 col-md-6 col-lg-12"
+			[actionPublisher]="actionMap$.get('sourceAccount')" formControlName="sourceAccount"
+			(commonControlEvent)="handleControlEvent($event)"
+			label="{{'RetailInstaPayForm.sourceAccount.label' | translate }}"
+			placeholder="{{'RetailInstaPayForm.sourceAccount.placeholder' | translate }}"></app-account-list-template-control>
+
+		<box class="col-sm-12 col-md-6 col-lg-12 grid entry-form-field-group">
+			<app-confirm-domestic-acccount-number-control appBlockCopyPaste class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('iban')" label="{{'RetailInstaPayForm.iban.label' | translate }}"
+				formControlName="iban" [visiblityChange]="state.visibilityChange"
+				></app-confirm-domestic-acccount-number-control>
+
+			<app-instapay-iban-control appBlockCopyPaste class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('confirmIban')"
+				label="{{'RetailInstaPayForm.confirmIban.label' | translate }}" formControlName="confirmIban"
+				(commonControlEvent)="handleControlEvent($event)" 
+				[changePublisher]="formChangePublisher$"></app-instapay-iban-control>
+		</box>
+
+		<box class="grid entry-form-field-group display-controls-container" #bankDetails
+			[actionPublisher]="actionMap$.get('bankDetails')">
+			<app-bene-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('beneficiaryName')"
+				label="{{'RetailInstaPayForm.beneficiaryName.label' | translate }}"
+				formControlName="beneficiaryName"></app-bene-name-control>
+
+
+			<app-bank-code-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('bankCode')"
+				label="{{'RetailInstaPayForm.bankCode.label' | translate }}"
+				formControlName="bankCode"></app-bank-code-control>
+
+
+			<app-branches-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('branchCode')"
+				label="{{'RetailInstaPayForm.branchCode.label' | translate }}"
+				formControlName="branchCode"></app-branches-control>
+
+
+			<app-routing-code-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('routingCode')"
+				label="{{'RetailInstaPayForm.routingCode.label' | translate }}"
+				formControlName="routingCode"></app-routing-code-control>
+
+
+			<app-address-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('branchAddress')"
+				label="{{'RetailInstaPayForm.branchAddress.label' | translate }}"
+				formControlName="branchAddress"></app-address-control>
+		</box>
+
+
+		<box class="grid entry-form-field-group">
+
+			<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('paymentAmount')"
+				label="{{'RetailInstaPayForm.paymentAmount.label' | translate }}"
+				formControlName="paymentAmount" (commonControlEvent)="handleControlEvent($event)"
+				[CurrencyList]="state.paymentAmount.CurrencyList" [isCurrEditable]="state.paymentAmount.isCurrEditable"
+				[defaultFetch]="state.paymentAmount.defaultFetch" [initCurrency]="state.paymentAmount.initCurrency"
+				[amountInWords]="state.paymentAmount.amountInWords" [changePublisher]="formChangePublisher$"
+				[dependencyField]="['fromCurrencyVariable','toCurrencyVariable','accountBalanceVariable']"></app-payment-amount-control>
+
+
+
+				<box class="field-item col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('paymentSummary')">
+					<box class="info-box">
+						<fpx-label label="{{'FX_RATES.title' | translate}}"></fpx-label>
+						<box class="info-field">
+							<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.dAmount' | translate"
+								[literals]="commonFormInput"></fpx-display-text>
+							<fpx-display-text class="info-field-value" [innerHTML]="state.paymentSummary.debitAmount"
+								[literals]="commonFormInput"></fpx-display-text>
+						</box>
+						<box class="info-field">
+							<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.cAmount' | translate"
+								[literals]="commonFormInput"></fpx-display-text>
+							<fpx-display-text class="info-field-value" [innerHTML]="state.paymentSummary.creditAmount"
+								[literals]="commonFormInput"></fpx-display-text>
+						</box>
+						<box class="info-field">
+							<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.exRate' | translate"
+								[literals]="commonFormInput"></fpx-display-text>
+							<fpx-display-text class="info-field-value" [innerHTML]="state.paymentSummary.exchangeRate"
+								[literals]="commonFormInput"></fpx-display-text>
+						</box>
+					</box>
+				</box>
+
+				
+			<app-insta-purpose-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('purpose')"
+				label="{{'RetailInstaPayForm.purpose.label' | translate }}"
+				formControlName="purpose"></app-insta-purpose-list-control>
+
+
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('remarks')"
+				label="{{'RetailInstaPayForm.remarks.label' | translate }}"
+				formControlName="remarks"></app-remarks-control>
+		</box>
+
+		<box id="disclaimer-box" class="col-md-4 grid  disclaimer-box  " [actionPublisher]="actionMap$.get('disclaimer-box')">
+
+
+			<app-terms-control class="col-md-4" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'RetailInstaPayForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+				placeholder="{{'RetailInstaPayForm.termsFlag.placeholder' | translate }}"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+		</box>
+	</box>
+</form>

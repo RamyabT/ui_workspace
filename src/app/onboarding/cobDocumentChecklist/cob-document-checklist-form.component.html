@@ -1,0 +1,28 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" class="entry-form" autocomplete="off" formName="documentChecklist">
+	<box class="form-body grid">
+		<box class="entry-form-field-group col-12 grid">
+			<div class="dc-image">
+				<img src="./assets/images/rcob/document-checklist.svg" alt="">
+			</div>
+			<div class="dc-pre-request-header">
+
+				<fpx-display-text class="col-md-12  FieldId_4 "
+					[innerHTML]="'documentChecklist.FieldId_4.text' | translate"
+					[literals]="commonFormInput"></fpx-display-text>
+				<app-cob-documentchecklist-ro-grid class="col-md-12 dc-pre-request-document"
+					(commonRoGridEvent)="handleControlEvent($event)" [actionPublisher]="actionMap$.get('FieldId_12')"
+					label="CobDocumentChecklist" formControlName="FieldId_12"></app-cob-documentchecklist-ro-grid>
+			</div>
+			<box class="col-md-12 dc-note">
+				<box class="col-md-12">
+					<fpx-display-text class="col-md-12"
+						[innerHTML]="'documentChecklist.FieldId_7.label' | translate"></fpx-display-text>
+				</box>
+				<box class="col-md-12">
+					<fpx-label label="{{'documentChecklist.FieldId_10.label' | translate }}"
+						class="col-md-4  notes"></fpx-label>
+				</box>
+			</box>
+		</box>
+	</box>
+</form>

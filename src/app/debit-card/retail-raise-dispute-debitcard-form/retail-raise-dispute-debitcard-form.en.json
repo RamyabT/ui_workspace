@@ -1,0 +1,54 @@
+"raisedisputedebitcard":{
+"title":"Retail Raised Disputed Debitcard",
+		 "cardReference": {
+		  "label":"Card Reference" ,
+		  "placeholder": "Card Reference"
+		  } ,
+		 "cardHolderName": {
+		  "label":"Card Holder Name" ,
+		  "placeholder": "Card Holder Name"
+		  } ,
+		 "cardNumber": {
+		  "label":"Card Number" ,
+		  "placeholder": "Card Number"
+		  } ,
+		 "cardType": {
+		  "label":"Card Type" ,
+		  "placeholder": "Card Type"
+		  } ,
+		 "transactionDate": {
+		  "label":"Transaction Date" ,
+		  "placeholder": "Transaction Date"
+		  } ,
+		 "transactionAmount": {
+		  "label":"Transaction Amount" ,
+		  "placeholder": "Transaction Amount"
+		  } ,
+		 "reason": {
+		  "label":"Reason" ,
+		  "placeholder": "Reason"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"I hereby agree with the terms and conditions and key facts statements." ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "disputeLetter": {
+		  "label":"Dispute Letter" ,
+		  "placeholder": "Dispute Letter"
+		  } ,
+		  "transactionReference": {
+			"label":"Transaction Reference" ,
+			"placeholder": "Transaction Reference"
+			} ,
+		 "FieldId_16": {
+		   "text":"" ""
+		 } ,
+		 "otherReason": {
+			"label":"Other Reason" ,
+			"placeholder": "Other Reason"
+			} 
+}

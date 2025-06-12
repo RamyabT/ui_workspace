@@ -1,0 +1,39 @@
+"RetailPfmModifyGoalReqForm":{
+"title":"Pfm Modify Goal Request",
+		 "goalName": {
+		  "label":"goalName" ,
+		  "placeholder": "goalName"
+		  } ,
+		 "goalAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "debitAccount": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "startDate": {
+		  "label":"End Date" ,
+		  "placeholder": "End Date"
+		  } ,
+		 "advanceDebitAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "debitAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "goalDuration": {
+		  "label":"goalDuration" ,
+		  "placeholder": "goalDuration"
+		  } ,
+		 "frequency": {
+		  "label":"Frequency" ,
+		  "placeholder": "Frequency"
+		  } ,
+		 "accruedAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } 
+}

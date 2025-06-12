@@ -1,0 +1,56 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailChequeStatusInquiryForm">
+
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-lg-12">
+			<app-account-number-list-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('accountNumber')"
+			label="{{'RetailChequeStatusInquiryForm.accountNumber.label' | translate }}" formControlName="accountNumber"
+			placeholder="{{'RetailChequeStatusInquiryForm.accountNumber.placeholder' | translate }}"></app-account-number-list-control>
+
+
+		<app-inquiry-type class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('inquiryType')"
+			label="{{'RetailChequeStatusInquiryForm.inquiryType.label' | translate }}" formControlName="inquiryType"
+			placeholder="{{'RetailChequeStatusInquiryForm.inquiryType.placeholder' | translate }}"></app-inquiry-type>
+
+
+		<app-cheque-number-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('chequeNumber')"
+			label="{{'RetailChequeStatusInquiryForm.chequeNumber.label' | translate }}" formControlName="chequeNumber"
+			placeholder="{{'RetailChequeStatusInquiryForm.chequeNumber.placeholder' | translate }}"></app-cheque-number-control>
+
+
+		<app-cheque-number-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('fromChequeNumber')"
+			label="{{'RetailChequeStatusInquiryForm.fromChequeNumber.label' | translate }}"
+			formControlName="fromChequeNumber"
+			placeholder="{{'RetailChequeStatusInquiryForm.fromChequeNumber.placeholder' | translate }}"></app-cheque-number-control>
+
+
+		<app-cheque-number-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('toChequeNumber')"
+			label="{{'RetailChequeStatusInquiryForm.toChequeNumber.label' | translate }}"
+			formControlName="toChequeNumber"
+			placeholder="{{'RetailChequeStatusInquiryForm.toChequeNumber.placeholder' | translate }}"></app-cheque-number-control>
+
+
+		<app-issue-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('fromDate')"
+			label="{{'RetailChequeStatusInquiryForm.fromDate.label' | translate }}" formControlName="fromDate"
+			placeholder="{{'RetailChequeStatusInquiryForm.fromDate.placeholder' | translate }}"
+			[minDate]="state.fromDate.minDate" [maxDate]="state.fromDate.maxDate"></app-issue-date-control>
+
+
+		<app-issue-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('toDate')"
+			label="{{'RetailChequeStatusInquiryForm.toDate.label' | translate }}" formControlName="toDate"
+			placeholder="{{'RetailChequeStatusInquiryForm.toDate.placeholder' | translate }}"
+			[minDate]="state.toDate.minDate" [maxDate]="state.toDate.maxDate"></app-issue-date-control>
+
+
+		<app-cheque-status-list-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('chequeStatus')"
+			label="{{'RetailChequeStatusInquiryForm.chequeStatus.label' | translate }}" formControlName="chequeStatus"
+			placeholder="{{'RetailChequeStatusInquiryForm.chequeStatus.placeholder' | translate }}"></app-cheque-status-list-control>
+		</box>
+		
+	</box>
+
+</form>

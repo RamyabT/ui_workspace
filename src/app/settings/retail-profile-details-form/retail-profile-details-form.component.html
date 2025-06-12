@@ -1,0 +1,31 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailProfileDetailsForm" >
+	   
+	<box class="entry-form">
+		
+		 
+			 <app-profile-mobile-number-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('mobileNumber')"     label="{{'RetailProfileDetailsForm.mobileNumber.label' | translate }}"   formControlName="mobileNumber" 
+  ></app-profile-mobile-number-control>
+		
+		 
+			 <app-email-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('email')"     label="{{'RetailProfileDetailsForm.email.label' | translate }}"   formControlName="email" 
+  ></app-email-control>
+		
+		 
+			 <app-address-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('residentialAddress')"     label="{{'RetailProfileDetailsForm.residentialAddress.label' | translate }}"   formControlName="residentialAddress" 
+  ></app-address-control>
+		
+		 
+			 <app-address-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('correspondenceAddress')"     label="{{'RetailProfileDetailsForm.correspondenceAddress.label' | translate }}"   formControlName="correspondenceAddress" 
+  ></app-address-control>
+
+  <app-profile-doc-upload-control
+  class="col-sm-12 col-md-12 col-lg-12" 
+  label="{{'RetailProfileDetailsForm.customerinfologdetails.label' | translate }}" 
+   [actionPublisher]="actionMap$.get('customerinfologdetails')"
+  formControlName="customerinfologdetails" [extensions]="state.customerinfologdetails.extensions"
+  [maxSize]="state.customerinfologdetails.maxSize" [isMultiFileUpload]="false">
+   </app-profile-doc-upload-control>
+
+	</box> 
+   </form>
+   

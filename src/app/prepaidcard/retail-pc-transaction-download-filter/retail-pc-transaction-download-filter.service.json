@@ -1,0 +1,5 @@
+ 
+ "RETAILDCTRANSACTIONSUMMARY" : {
+ "servicePath": ["entry-shell","debitcard", "RetailDcTransactionDownloadFilter"],
+ "queryParams": {}
+ }

@@ -1,0 +1,43 @@
+"RetailFilterTransaction":{
+"title":"RetailFilterTransaction",
+		 "transactionPeriod": {
+		  "label":"Transaction Period" ,
+		  "placeholder": "Transaction Period"
+		  } ,
+		  "transactionType": {
+			"label":"Transaction Type" ,
+			"placeholder": "Transaction Type"
+			} ,
+		 "beneficiaryName": {
+		  "label":"Beneficiary Name" ,
+		  "placeholder": "Beneficiary Name"
+		  } ,
+		 "transactionReference": {
+		  "label":"Reference Number" ,
+		  "placeholder": "Reference Number"
+		  } ,
+		  "beneficiaryBank": {
+			"label":"Beneficiary Bank" ,
+			"placeholder": "Beneficiary Bank"
+			} ,
+		   "paymentAmount": {
+			"label":"Amount" ,
+			"placeholder": "Amount"
+			} ,
+		 "fromDate": {
+		  "label":"From Date" ,
+		  "placeholder": "From Date"
+		  } ,
+		 "toDate": {
+		  "label":"To Date" ,
+		  "placeholder": "To Date"
+		  } ,
+		  "transferType": {
+			"label":"Transfer Type" ,
+			"placeholder": "Transfer Type"
+			} ,
+		  "allpurpose": {
+			"label":"AllpurposeListControl" ,
+			"placeholder": "AllpurposeListControl"
+			} ,
+}

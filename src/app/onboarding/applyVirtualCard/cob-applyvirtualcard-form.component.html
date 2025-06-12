@@ -1,0 +1,49 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="applyVirtualCard">
+
+	<box class="entry-form">
+		<box class="entry-form-field-group col-12 grid">
+
+
+			<app-name-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('cardholdername')"
+				label="{{'applyVirtualCard.cardholdername.label' | translate }}" formControlName="cardholdername"
+				placeholder="{{'applyVirtualCard.cardholdername.placeholder' | translate }}"></app-name-control>
+
+
+			<app-amount-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('cardspendlimit')"
+				label="{{'applyVirtualCard.cardspendlimit.label' | translate }}" formControlName="cardspendlimit"
+				placeholder="{{'applyVirtualCard.cardspendlimit.placeholder' | translate }}"
+				[CurrencyList]="state.charges.CurrencyList" [isCurrEditable]="state.charges.isCurrEditable"
+				[defaultFetch]="state.charges.defaultFetch" [initCurrency]="state.charges.initCurrency"
+				[amountInWords]="state.charges.amountInWords"></app-amount-control>
+
+
+			<app-expiry-month-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('creditcardexpirymonth')"
+				label="{{'applyVirtualCard.creditcardexpirymonth.label' | translate }}"
+				formControlName="creditcardexpirymonth"></app-expiry-month-list-control>
+
+
+			<app-cc-expiry-year-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('creditcardexpiryyear')"
+				label="{{'applyVirtualCard.creditcardexpiryyear.label' | translate }}"
+				formControlName="creditcardexpiryyear"></app-cc-expiry-year-list-control>
+
+
+			<app-charges-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('charges')"
+				label="{{'applyVirtualCard.charges.label' | translate }}" formControlName="charges"
+				placeholder="{{'applyVirtualCard.charges.placeholder' | translate }}"
+				[CurrencyList]="state.charges.CurrencyList" [isCurrEditable]="state.charges.isCurrEditable"
+				[defaultFetch]="state.charges.defaultFetch" [initCurrency]="state.charges.initCurrency"
+				[amountInWords]="state.charges.amountInWords"> ></app-charges-control>
+			<box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-12 grid main-group disclaimer-box">
+
+
+				<app-terms-control class="col-md-6  " [actionPublisher]="actionMap$.get('addtowallet')"
+					label="{{'applyVirtualCard.addtowallet.label' | translate }}" formControlName="addtowallet"
+					[textPosition]="state.addtowallet.textPosition"
+					[ckValues]="state.addtowallet.ckValues"></app-terms-control>
+			</box>
+		</box>
+	</box>
+</form>

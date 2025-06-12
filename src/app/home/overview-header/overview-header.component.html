@@ -1,0 +1,71 @@
+<box class="overview-header-inner">
+
+    <ng-container *ngIf="device.isMobile()">
+        <header>
+            <button type="button" class="brand">
+                <img [src]="skinManager.getAssetFolderPath() + 'skins/images/brand/header-logo.svg'" alt="logo" />
+            </button>
+            <!-- <box class="user-profile">
+                <box class="profile-pic">
+                    <img src="./assets/images/default-user.png" alt="user" />
+                </box>
+                <box class="welcome-txt">
+                    <span class="hello-txt">{{ helloText | translate }},</span>
+                    <span class="guest-name">{{guestName}}</span>
+                </box>
+            </box> -->
+            <box class="header-tool-bar">
+                <box class="header-tool">
+                    <!-- <button type="button" class="btn-notification">
+                        <span class="has-notification">&nbsp;</span>
+                        <img src="./assets/images/layouts/main-header/bell.svg" alt="notification" />
+                    </button> -->
+                    <ng-container *ngIf="userAuth?.getCIFAccounts && userAuth.getCIFAccounts.length">
+                        <button type="button" class="account-swap" (click)="swapAccount()">
+                            <box class="acc-detail">
+                                <span class="cif-number">{{ customerCode }}</span>
+                            </box>
+                            <img src="./assets/images/icons/account_swap.svg" alt="Account" />
+                        </button>
+                    </ng-container>
+                </box>
+                <box class="user-profile">
+                    <button class="profile-pic" (click)="toggleProfile()">
+                        <img src="{{userAuth.getProfilePicture()}}" alt="Banker" />
+                    </button>
+                </box>
+                <box class="userprofile-panel" *ngIf="_customerService?.showUserProfile">
+                    <app-user-profile></app-user-profile>
+                </box>
+                <box class="user-account-overlay" *ngIf="_customerService?.showUserProfile" (click)="toggleProfile()">
+                </box>
+            </box>
+        </header>
+    </ng-container>
+    
+    <ng-container *ngIf="device.isMobile()">
+        <box class="user-profile">
+            <box class="welcome-txt">
+                <span class="hello-txt">{{ helloText | translate }}{{userFullName?', ':''}} {{userFullName}}</span>
+                <span class="privacy-filter" [ngClass]="privacyToggle ? 'privacy-on':'privacy-off'"
+                 (click)="togglePrivacy()">
+                </span>
+            </box>
+        </box>
+            <balance-sheet></balance-sheet>
+    </ng-container>
+    <ng-container *ngIf="!device.isMobile()">
+        <box class="widget balance-sheet">
+            <header>
+                <span class="widget-title">{{ 'OVERVIEW.balanceSheetTtl' | translate }}</span>
+            </header>
+            <balance-sheet></balance-sheet>
+        </box>
+    </ng-container>
+    
+    <portfolio-summary #summaryContainer [accountSummary]="accountSummary" [cardSummary]="cardSummary"></portfolio-summary>
+</box>
+
+<ng-container *ngIf="device.isMobile()">
+    <box class="expander" [ngClass]="{'expanted':_showSummary}" (click)="toggleCardView()"></box>
+</ng-container>

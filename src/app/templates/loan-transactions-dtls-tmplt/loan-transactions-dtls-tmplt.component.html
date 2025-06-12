@@ -1,0 +1,43 @@
+<ng-container *ngIf="selectedData.NoData;  else loanTransactionsDtlsListTmplt">
+    <span class="NoData">
+        {{ 'RetailCasaTransactionDtlsRoGrid.noData' | translate }}
+    </span>
+</ng-container>
+<ng-template #loanTransactionsDtlsListTmplt>
+    <box class="transaction-list-item">
+        <ng-container *ngIf="selectedData.rowGroupTitle; else loanTransactionDtlsRowData">
+            <box class="row-group-title">{{ selectedData.rowGroupTitle | date : "dd MMM yyyy" }}</box>
+        </ng-container>
+        <ng-template #loanTransactionDtlsRowData>
+            <box class="transaction-list-item-inner">
+                <box class="transaction-icon-wrapper">
+                    <box class="transaction-icon">
+                        <img src="./assets/{{getTransactionIcon()}}" alt="{{ selectedData.transactionCategory }}" />
+                    </box>
+                </box>
+                <box class="transaction-info">
+                    <box class="transaction-primary-info">
+                        <span class="trx-type">{{ selectedData.transactionDescription }}</span>
+                        <!-- <span class="trx-desc">
+                            {{ selectedData.transactionReference }}
+                        </span> -->
+                    </box>
+                    <box class="transaction-secondary-info">
+                        <span class="amount trx-amount" 
+                            [ngClass]="{
+                                'credit' : selectedData.debitCreditFlag == 'C', 
+                                'debit' : selectedData.debitCreditFlag == 'D'
+                            }">
+                            {{selectedData.transactionAmount | currency : selectedData.transactionCurrency: ''}}
+                            <em>{{selectedData.transactionCurrency | currencyCode}}</em>
+                            <span *ngIf="selectedData.debitCreditFlag == 'D'">-</span>
+                        </span>
+                        <span class="amount">{{selectedData.balance | currency : selectedData.transactionCurrency: ''}}
+                            <em>{{selectedData.transactionCurrency | currencyCode}}</em></span>
+                    </box>
+                </box>
+            </box>
+        </ng-template>
+
+    </box>
+</ng-template>

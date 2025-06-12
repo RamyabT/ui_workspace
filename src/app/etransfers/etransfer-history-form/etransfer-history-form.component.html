@@ -1,0 +1,44 @@
+<box class="grid transaction-container">
+    <box class="transactions-stmt-grid-wrapper col-12">
+        <ng-container *ngIf="state.isDataReceived; else loader">
+            <ng-container *ngIf="state.gridData && state.gridData?.length; else noTransfers">
+                <box *ngIf="!state.viewAll" class="casa-transactions-grid-header">
+                    <span class="title">{{ 'ETransferHistoryForm.title' | translate }}</span>
+                    <box class="tool-bar">
+                        <fpx-button btnType="button" btnClass="system-ico-button no-text filter" label="filter"
+                            (onClick)="_helper.filter()"></fpx-button>
+                        <fpx-button btnType="button" btnClass="system-ico-button no-text download" label="download"
+                            (onClick)="_helper.onDownloadClick()"></fpx-button>
+                    </box>
+                    <box>
+                        <button type="button" class="btn-secondary see-all"  (click)="_helper.viewAllTransfers()">
+                            <span class="txt">{{ 'ETransferHistoryForm.seeAll' | translate }}</span>
+                        </button>
+                    </box>
+                </box>
+                <box *ngIf="state.viewAll" class="nav-search-control">
+                    <span class="ico ico-nav-search"></span>
+                    <input type="text"
+                        placeholder="Search by name, email, or mobile number" />
+                </box>
+            </ng-container>
+        </ng-container>
+        <app-etransfer-history-ro-grid [actionPublisher]="actionMap$.get('etransferHistoryGrid')"
+            (commonRoGridEvent)="_helper.handleETransfersHistoryGridEvent($event)"></app-etransfer-history-ro-grid>
+
+    </box>
+</box>
+
+<ng-template #loader>
+    <box class="loading"></box>
+</ng-template>
+
+<ng-template #noTransfers>
+    <box class="no-result-view">
+        <box class="no-result-image-wrapper">
+            <img class="no-result-image" src="./assets/tenant-config/10001/skins/images/illustration/no-schedule-transfer.svg" alt="">
+        </box>
+        <box class="no-result-title">{{ 'ETransferHistoryForm.noTransferTitle' | translate }}</box>
+        <box class="no-result-desc">{{ 'ETransferHistoryForm.noTransferDesc' | translate }}</box>
+    </box>
+</ng-template>

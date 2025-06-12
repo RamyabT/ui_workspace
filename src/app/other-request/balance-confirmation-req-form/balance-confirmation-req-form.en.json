@@ -1,0 +1,39 @@
+"BalanceConfirmationReq":{
+"title":"BalanceConfirmationReq",
+		 "letterFor": {
+		  "label":"Balance Confirmation Letter For" ,
+		  "placeholder": "Balance Confirmation Letter For"
+		  } ,
+		 "date": {
+		  "label":"Date" ,
+		  "placeholder": "Date"
+		  } ,
+		 "deliveryOption": {
+		  "label":"Delivery" ,
+		  "placeholder": "Delivery"
+		  } ,
+		 "emailId": {
+		  "label":" Email" ,
+		  "placeholder": " Email"
+		  } ,
+		 "branch": {
+		  "label":"Select Branch" ,
+		  "placeholder": "Select Branch"
+		  } ,
+		 "chargesAmount": {
+		  "label":"Charges" ,
+		  "placeholder": "Charges"
+		  } ,
+		 "acknowledgement": {
+		  "label":"Acknowledgement" ,
+		  "placeholder": "Acknowledgement"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "balanceConfirmationDetails": {
+		  "label":"Attachments for the template" ,
+		  "placeholder": "Attachments for the template"
+		  } 
+}

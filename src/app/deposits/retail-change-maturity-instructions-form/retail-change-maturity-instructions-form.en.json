@@ -1,0 +1,43 @@
+"RetailChangeMaturityInstructionsForm":{
+"title":"Change Maturity Instruction",
+		 "accountNumber": {
+		  "label":"Deposit Account " ,
+		  "placeholder": "Deposit Account "
+		  } ,
+		 "depositDetailsTitleLbl": {
+		  "label":"Deposit Details" ,
+		  "placeholder": "Deposit Details"
+		  } ,
+		 "FieldId_1": {
+		   "text":"Deposit Amount: ${depositAmount}"
+		 } ,
+		 "maturityAmountDisplay": {
+		   "text":"Maturity Amount: ${maturityAmount}"
+		 } ,
+		 "maturityDateDisplay": {
+		   "text":"Maturity Date: ${maturityDate}"
+		 } ,
+		 "depositDurationDisplay": {
+		   "text":"Deposit Duration: ${depositDuration}"
+		 } ,
+		 "maturityInstruction": {
+		  "label":"MaturityInstructions" ,
+		  "placeholder": "MaturityInstructions"
+		  } ,
+		 "creditAccountNumber": {
+		  "label":"Credit Account Number" ,
+		  "placeholder": "Credit Account Number"
+		  } ,
+		 "charity": {
+		  "label":"Charity" ,
+		  "placeholder": " "
+		  } ,
+		 "charityPercentage": {
+		  "label":"Bonus Interest (%)" ,
+		  "placeholder": " "
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Placeholder"
+		  } 
+}

@@ -1,0 +1,791 @@
+{
+    "CORPACCOUNTSCA": [
+        {
+            "id": "CORPACCOUNT",
+            "name": "View Details"
+        },
+        {
+            "id": "CORPTRANSUMMARY",
+            "name": "Transaction Summary"
+        },
+        {
+            "id": "CORPACCNICKNAME",
+            "name": "Manage Nickname"
+        },
+        {
+            "id": "CORPESTMTREQ",
+            "name": "E-Statement"
+        },
+        {
+            "id": "CORPCHQBKREQ~ADD",
+            "name": "Cheque book request"
+        },
+        {
+            "id": "CORPCHQSTATUS",
+            "name": "Cheque Status Inquiry"
+        },
+        {
+            "id": "CORPVIEWPDC",
+            "name": "View PDC Cheque"
+        }
+    ],
+    "CORPACCOUNTSSA": [
+        {
+            "id": "CORPACCOUNT",
+            "name": "View Details"
+        },
+        {
+            "id": "CORPTRANSUMMARY",
+            "name": "Transaction Summary"
+        },
+        {
+            "id": "CORPACCNICKNAME",
+            "name": "Manage Nickname"
+        },
+        {
+            "id": "CORPESTMTREQ",
+            "name": "E-Statement"
+        }
+    ],
+    "CORPDEPSUMMARY": [
+        {
+            "id": "CORPDEPDETAIL~VIEW",
+            "name": "View Deposit Details"
+        },
+        {
+            "id": "CORPCHNGMATURITYINSTR~ADD",
+            "name": "Change Maturity Instructions"
+        }
+    ],
+    "CORPDEPSUMMARY_CHECKER": [
+        {
+            "id": "CORPDEPDETAIL~VIEW",
+            "name": "View Deposit Details"
+        }
+    ],
+    "CORPTRANSUMMARY": [
+        {
+            "id": "CORPTRANCHQ~VIEW",
+            "name": "View Clearing Instrument"
+        },
+        {
+            "id": "CORPVIEWSWIFT",
+            "name": "View Swift"
+        }
+    ],
+    "CORPCHQSTATUS": [
+        {
+            "id": "CORPTRANCHQ~VIEW",
+            "name": "View Cheque Details"
+        }
+    ],
+    "CORPVIEWPDC": [
+        {
+            "id": "CORPTRANCHQ~VIEW",
+            "name": "View Cheque Details"
+        }
+    ],
+    "CORPDCSUMMARY": [
+        {
+            "id": "CORPDCBLOCK~ADD",
+            "name": "Block Card"
+        },
+        {
+            "id": "CORPDCTRANSACTION~VIEW",
+            "name": "Transaction Summary"
+        },
+        {
+            "id": "CORPDCREPLACE~ADD",
+            "name": "Replace Card"
+        },
+        {
+            "id": "CORPDCDETAILS~VIEW",
+            "name": "View Debit Card Details"
+        },
+        {
+            "id": "CORPDCCHANGEPIN~ADD",
+            "name": "Create/Change Pin"
+        },
+        {
+            "id": "CORPDCLIMITS~ADD",
+            "name": "Manage Services"
+        }
+    ],
+    "CORPDCINACTIVESUMMARY": [
+        {
+            "id": "CORPDCACTIVECARD~ADD",
+            "name": "Activate Debit Card"
+        }
+    ],
+    "CORPDCBLOCKSUMMARY": [
+        {
+            "id": "CORPDCTRANSACTION~VIEW",
+            "name": "Transaction Summary"
+        },
+        {
+            "id": "CORPDCUNBLOCK~ADD",
+            "name": "Unblock Card"
+        },
+        {
+            "id": "CORPDCREPLACE~ADD",
+            "name": "Replace Card"
+        }
+    ],
+     "CORPDCBLOCKPSUMMARY":[
+        {
+            "id": "CORPDCTRANSACTION~VIEW",
+            "name": "Transaction Summary"
+        }
+     ],
+
+    "CORPSCHOAT": [
+        {
+            "id": "CORPTRANOAT~V",
+            "name": "View Details"
+        },
+        {
+            "id": "CORPTRANOAT~M",
+            "name": "Modify Transaction"
+        },
+        {
+            "id": "CORPTRANOAT~D",
+            "name": "Stop Transaction"
+        }
+    ],
+    "CORPPCSUMMARY":[
+    {
+        "id": "CORPPCDETAILS~VIEW",
+        "name":"Prepaidcard Details"
+    },
+    {
+        "id":"CORPPCBLOCK~ADD",
+        "name":"Prepaidcard Block"
+    },
+    {
+        "id":"CORPPCTRANSACTION~VIEW",
+        "name":"PrepaidCard Transaction Summary"
+    },
+    {
+        "id":"CORPPCTOPUP~ADD",
+        "name":"Prepaidcard Topup"
+    },
+    {
+        "id":"CORPPCMULTIWALETTRANSFER~ADD",
+        "name":"Prepaidcard Multi Currency Walet Transfer"
+    },
+    {
+        "id":"CORPPCMANAGESERVICES~ADD",
+        "name":"Prepaidcard Manage Services"
+    },
+    {
+        "id":"CORPPCCHANGEPIN~ADD",
+        "name":"Prepaidcard Change Pin"
+    }
+    ],
+    "CORPPCINACTIVESUMMARY":[
+        {
+            "id":"CORPPCACTIVATE~ADD",
+            "name":"Prepaidcard Activate"
+        }
+    ],
+    "CORPPCBLOCKSUMMARY":[
+        {
+            "id":"CORPPCTRANSACTION~VIEW",
+            "name":"PrepaidCard Transaction Summary"
+        },
+        {
+            "id":"CORPPCUNBLOCK~ADD",
+            "name":"PrepaidCard Unblock"
+        }
+    ],
+    "CORPPCBLOCKPSUMMARY":[
+        {
+            "id":"CORPPCTRANSACTION~VIEW",
+            "name":"PrepaidCard Transaction Summary"
+        }
+    ],
+    "CORPSCHOATCANCELLED": [
+        {
+            "id": "CORPTRANOAT~V",
+            "name": "View Details"
+        }
+    ],
+    "CORPSCHINTBT": [
+        {
+            "id": "CORPTRANINTBT~V",
+            "name": "View Details"
+        },
+        {
+            "id": "CORPTRANINTBT~M",
+            "name": "Modify Transaction"
+        },
+        {
+            "id": "CORPTRANINTBT~D",
+            "name": "Stop Transaction"
+        }
+    ],
+    "CORPSCHINTBTCANCELLED": [
+        {
+            "id": "CORPTRANINTBT~V",
+            "name": "View Within Bank"
+        }
+    ],
+    "CORPSCHDOM": [
+        {
+            "id": "CORPTRANDOMESTIC~V",
+            "name": "View Details"
+        },
+        {
+            "id": "CORPTRANDOMESTIC~M",
+            "name": "Modify Transaction"
+        },
+        {
+            "id": "CORPTRANDOMESTIC~D",
+            "name": "Stop Transaction"
+        }
+    ],
+    "CORPSCHCBAED": [
+        {
+            "id": "CORPTRANCBAED~V",
+            "name": "View Details"
+        },
+        {
+            "id": "CORPTRANCBAED~M",
+            "name": "Modify Transaction"
+        },
+        {
+            "id": "CORPTRANCBAED~D",
+            "name": "Stop Transaction"
+        }
+    ],
+    "CORPSCHDOMCANCELLED": [
+        {
+            "id": "CORPTRANDOMESTIC~V",
+            "name": "View Domestic Transfer"
+        }
+    ],
+    "CORPSCHCC": [
+        {
+            "id": "CORPTRANCC~V",
+            "name": "View Details"
+        },
+        {
+            "id": "CORPTRANCC~M",
+            "name": "Modify Transaction"
+        },
+        {
+            "id": "CORPTRANCC~D",
+            "name": "Stop Transaction"
+        }
+    ],
+    "CORPSCHCCCANCELLED": [
+        {
+            "id": "CORPTRANCC~V",
+            "name": "View CC Transfer"
+        }
+    ],
+    "CORPSCHSWIFT": [
+        {
+            "id": "CORPTRANSWIFT~V",
+            "name": "View Details"
+        },
+        {
+            "id": "CORPTRANSWIFT~M",
+            "name": "Modify Transaction"
+        },
+        {
+            "id": "CORPTRANSWIFT~D",
+            "name": "Stop Transaction"
+        }
+    ],
+    "CORPSCHSWIFTCANCELLED": [
+        {
+            "id": "CORPTRANSWIFT~V",
+            "name": "View International Transfer"
+        }
+    ],
+    "CORPTRANSFERS": [
+        {
+            "id": "CORPPENDINGPAYMENTS~V",
+            "name": "View Details"
+        }
+    ],
+    "CORPBENECC": [
+        {
+            "id": "CORPBENECC~V",
+            "name": "View CC Beneficiary Details"
+        },
+        {
+            "id": "CORPBENECCDELETE~D",
+            "name": "Delete Credit Card Beneficiary"
+        }
+    ],
+    "CORPBENEDOMESTIC": [
+        {
+            "id": "CORPBENEDOMESTIC~V",
+            "name": "View Domestic Beneficiary Details"
+        },
+        {
+            "id": "CORPBENEDOMESTICDELETE~D",
+            "name": "Delete Domestic Beneficiary"
+        }
+    ],
+    "CORPBENEINTERNAL": [
+        {
+            "id": "CORPBENEINTERNAL~V",
+            "name": "View Within Bank Beneficiary Details"
+        },
+        {
+            "id": "CORPBENEINTERNALDELETE~D",
+            "name": "Delete Within Bank Beneficiary"
+        }
+    ],
+    "CORPBENEINTL": [
+        {
+            "id": "CORPBENEINTL~V",
+            "name": "View International Beneficiary Details"
+        },
+        {
+            "id": "CORPBENEINTLDELETE~D",
+            "name": "Delete International Beneficiary"
+        }
+    ],
+    "CORPBENECBAED": [
+        {
+            "id": "CORPBENECBAED~V",
+            "name": "View Cross Border AED Beneficiary Details"
+        },
+        {
+            "id": "CORPBENECBAEDDELETE~D",
+            "name": "Delete Cross Border AED Beneficiary"
+        }
+    ],
+    "CORPDCTRANSACTION": [
+        {
+            "id": "CORPDCDISPUTE~ADD",
+            "name": "Raise Dispute"
+        }
+    ],
+    "CORPCCTRANSACTION": [
+        {
+            "id": "CORPCCDISPUTE~ADD",
+            "name": "Raise Dispute Credit Card"
+        }
+    ],
+    "CORPCCSUMMARY": [
+        {
+            "id": "CORPCCBLOCK~ADD",
+            "name": "Block Credit Card"
+        },
+        {
+            "id": "CORPCCTRANSACTION~VIEW",
+            "name": "Transaction Summary"
+        },
+        {
+            "id": "CCREPLACEMENT~ADD",
+            "name": "Replace Credit Card"
+        },
+        {
+            "id": "CORPCCCHANGEPIN~ADD",
+            "name": "Set/Change Pin Credit Card"
+        },
+        {
+            "id": "CORPCCDETAILS~VIEW",
+            "name": "Credit Card Details"
+        },
+        {
+            "id": "CORPCCLIMITS~ADD",
+            "name": "Manage Limit Credit Card"
+        },
+        {
+            "id": "CORPCCLIMITCHANGE~ADD",
+            "name": "Request for Credit card limit change"
+        },
+        {
+            "id": "CORPCCBILLPAYMENT~ADD",
+            "name": "Pay Credit Card Bill"
+        }
+    ],
+    "CORPCCBLOCKSUMMARY": [
+        {
+            "id": "CORPCCTRANSACTION~VIEW",
+            "name": "Transaction Summary"
+        },
+        {
+            "id": "CORPCCUNBLOCK~ADD",
+            "name": "UnBlock Credit Card"
+        },
+        {
+            "id": "CCREPLACEMENT~ADD",
+            "name": "Replace Credit Card"
+        }
+    ],
+    "CORPCCBLOCKPSUMMARY":[
+        {
+            "id": "CORPCCTRANSACTION~VIEW",
+            "name": "Transaction Summary"
+        }
+     ],
+    "CORPCCINACTIVESUMMARY": [
+        {
+            "id": "CORPCCACTIVATION~ADD",
+            "name": "Activate Credit Card"
+        }
+    ],
+    "CORPSCHDOMVIEW": [
+        {
+            "id": "CORPTRANDOMESTIC~V",
+            "name": "View Domestic Transfer"
+        },
+        {
+            "id": "RECALL",
+            "name": "Recall Transaction"
+        },
+        {
+            "id": "DELETE",
+            "name": "Stop Transaction"
+        }
+    ],
+    "CORPTRANDOMESTICVIEW": [
+        {
+            "id": "CORPTRANDOMESTIC~V",
+            "name": "View Domestic Transfer"
+        },
+        {
+            "id": "RECALL",
+            "name": "Recall Transaction"
+        },
+        {
+            "id": "DELETE",
+            "name": "Stop Transaction"
+        }
+    ],
+    "CORPTRANCCVIEW": [
+        {
+            "id": "CORPTRANCC~V",
+            "name": "View Transfer"
+        },
+        {
+            "id": "RECALL",
+            "name": "Recall Transaction"
+        },
+        {
+            "id": "DELETE",
+            "name": "Stop Transaction"
+        }
+    ],
+    "CORPSCHCCVIEW": [
+        {
+            "id": "CORPSCHCC~V",
+            "name": "View Transfer"
+        },
+        {
+            "id": "RECALL",
+            "name": "Recall Transaction"
+        },
+        {
+            "id": "DELETE",
+            "name": "Stop Transaction"
+        }
+    ],
+    "CORPTRANINTBTVIEW": [
+        {
+            "id": "CORPTRANINTBT~V",
+            "name": "View Transfer"
+        },
+        {
+            "id": "RECALL",
+            "name": "Recall Transaction"
+        },
+        {
+            "id": "DELETE",
+            "name": "Stop Transaction"
+        }
+    ],
+    "CORPSCHINTBTVIEW": [
+        {
+            "id": "CORPSCHINTBT~V",
+            "name": "View Transfer"
+        },
+        {
+            "id": "RECALL",
+            "name": "Recall Transaction"
+        },
+        {
+            "id": "DELETE",
+            "name": "Stop Transaction"
+        }
+    ],
+    "CORPSCHOATVIEW": [
+        {
+            "id": "CORPSCHOAT~V",
+            "name": "View Transfer"
+        },
+        {
+            "id": "RECALL",
+            "name": "Recall Transaction"
+        },
+        {
+            "id": "DELETE",
+            "name": "Stop Transaction"
+        }
+    ],
+    "CORPTRANOATVIEW": [
+        {
+            "id": "CORPTRANOAT~V",
+            "name": "View Transfer"
+        },
+        {
+            "id": "RECALL",
+            "name": "Recall Transaction"
+        },
+        {
+            "id": "DELETE",
+            "name": "Stop Transaction"
+        }
+    ],
+    "CORPTRANCBAEDVIEW": [
+        {
+            "id": "CORPTRANCBAED~V",
+            "name": "View Transfer"
+        },
+        {
+            "id": "RECALL",
+            "name": "Recall Transaction"
+        },
+        {
+            "id": "DELETE",
+            "name": "Stop Transaction"
+        }
+    ],
+    "CORPSCHCBAEDVIEW": [
+        {
+            "id": "CORPSCHCBAED~V",
+            "name": "View Transfer"
+        },
+        {
+            "id": "RECALL",
+            "name": "Recall Transaction"
+        },
+        {
+            "id": "DELETE",
+            "name": "Stop Transaction"
+        }
+    ],
+    "CORPTRANSWIFTVIEW": [
+        {
+            "id": "CORPTANSWIFT~V",
+            "name": "View Transfer"
+        },
+        {
+            "id": "RECALL",
+            "name": "Recall Transaction"
+        },
+        {
+            "id": "DELETE",
+            "name": "Stop Transaction"
+        }
+    ],
+    "CORPSCHCSWIFTVIEW": [
+        {
+            "id": "CORPSCHCSWIFT~V",
+            "name": "View Transfer"
+        },
+        {
+            "id": "RECALL",
+            "name": "Recall Transaction"
+        },
+        {
+            "id": "DELETE",
+            "name": "Stop Transaction"
+        }
+    ],
+    "COMPLETEDPAYMENTS": [
+        {
+            "id": "VIEW",
+            "name": "View Details"
+        },
+        {
+            "id": "Copy",
+            "name": "Copy Transaction"
+        }
+    ],
+    "BILLERHISTORY": [
+        {
+            "id": "WORKFLOW",
+            "name": "Work Flow Details"
+        }
+    ],
+    "PENDINGPAYMENTS_S0": [
+        {
+            "id": "VIEW",
+            "name": "View Details"
+        },
+        {
+            "id": "RECALL",
+            "name": "Recall Transaction"
+        },
+        {
+            "id": "DELETE",
+            "name": "Stop Transaction"
+        }
+    ],
+    "PENDINGPAYMENTS_S1": [
+        {
+            "id": "VIEW",
+            "name": "View Details"
+        }
+    ],
+    "PENDINGPAYMENTS_S3": [
+        {
+            "id": "VIEW",
+            "name": "View Details"
+        },
+        {
+            "id": "REPAIR",
+            "name": "Repair Transfer"
+        }
+    ],
+    "REJECTEDPAYMENTS": [
+        {
+            "id": "VIEW",
+            "name": "View Details"
+        }
+    ],
+    "CORPLOANSUMMARY": [
+        {
+            "id": "CORPLOANDETAILS~VIEW",
+            "name": "View Loan Details"
+        },
+        {
+            "id": "CORPLOANREPAYMENTSCHEDULE~VIEW",
+            "name": "Loan Repayment Schedule"
+        },
+        {
+            "id": "CORPLOANDISBURSEMENTSCH~VIEW",
+            "name": "Loan Disbursement Schedule"
+        },
+        {
+            "id": "CORPLOANTRANSACTIONSUMMARY",
+            "name": "Loan Transaction Summary"
+        }
+    ],
+    "CORPSAVEDBILLER": [
+        {
+            "id": "CORPSINGLEPAYMENT~PAY",
+            "name": "Pay Bill"
+        },
+        {
+            "id": "CORPBILLERACCOUNT~VIEW",
+            "name": "View Biller"
+        },
+        {
+            "id": "CORPDELETEBILLER~DELETE",
+            "name": "Delete Biller"
+        }
+    ],
+    "BILLSUMMARYROGRID": [
+        {
+            "id": "CORPSINGLEPAYMENT~VIEW",
+            "name": "View Details"
+        }
+    ],
+    "SMARTPAYALLOWEDBILLSUMMARYROGRID": [
+        {
+            "id": "CORPSINGLEPAYMENT~VIEW",
+            "name": "View Details"
+        },
+        {
+            "id": "CORPSINGLEPAYMENT~PAYMENT",
+            "name": "Copy Transaction"
+        }
+    ],
+    "CORPIMPLCSUMMARY": [
+        {
+            "id": "CORPIMPLCDETAILS~VIEW",
+            "name": "View Details"
+        }
+    ],
+    "CORPEXPLCSUMMARY": [
+        {
+            "id": "CORPEXPLCDETAILS~VIEW",
+            "name": "View Details"
+        }
+    ],
+    "EMPLOYEEINFOROGRID": [
+        {
+            "id": "CORPEMPLOYEEFILEUPLOAD~VIEW",
+            "name": "View Employee Details"
+        }
+    ],
+    "SALARYFILEINFOROGRID": [
+        {
+            "id": "CORPSALARYFILEUPLOAD~VIEW",
+            "name": "View Salary Details"
+        }
+    ],
+    "CORPISSUEDBANK": [
+        {
+            "id": "CORPISSUEDBANKDETAILS~VIEW",
+            "name": "View Details"
+        }
+    ],
+    "CORPADVISEDSUMMARY": [
+        {
+            "id": "CORPADVISEDDETAILS~VIEW",
+            "name": "View Details"
+        }
+    ],
+    "CORPIMPBILLSUM": [
+        {
+            "id": "CORPIMPBILLDTLS~VIEW",
+            "name": "View Details"
+        }
+    ],
+    "CORPEXPBILLSUM": [
+        {
+            "id": "CORPEXPBILLDTLS~VIEW",
+            "name": "View Details"
+        }
+    ],
+    "SALARYFILEUPLOADROGRID": [
+        {
+            "id": "CORPSALARYFILEUPLOAD~VIEW",
+            "name": "View Salary Details"
+        }
+    ],
+    "EMPLOYEEFILEUPLOADROGRID":[
+        {
+            "id": "CORPEMPLOYEEFILEUPLOAD~VIEW",
+            "name": "View Employee Details"
+        }
+    ],
+    "COMPLETEDSCHPAYMENTS": [
+        {
+            "id": "VIEW",
+            "name": "View Details"
+        }
+    ],
+    "CORPSERVICEREQUESTLOG_S0":[
+        {
+            "id": "DELETE",
+            "name": "Delete service request"
+        },
+        {
+            "id":"VIEW",
+            "name":"View Details"
+        }
+    ],
+    "CORPSERVICEREQUESTLOG_S1":[
+        {
+            "id":"VIEW",
+            "name":"View Details"
+        }
+    ],
+    "CORPSALARYFILEDTLS_F":[
+        {
+            "id": "F",
+            "name": "View Error Status"
+        }
+    ]
+}

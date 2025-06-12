@@ -1,0 +1,5 @@
+ 
+ "RETAILMANAGELIMITS" : {
+ "servicePath": ["entry-shell","accounts", "retail-manage-service-limits-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,32 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="InvestmentTransactionSummaryFilter" >
+	  
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-sm-12 col-md-12 col-lg-12">
+		<app-range-type-control class="col-sm-12 col-md-12 col-lg-12"
+		[actionPublisher]="actionMap$.get('rangeType')"
+		label="{{'InvestmentTransactionSummaryFilter.rangeType.label' | translate }}" formControlName="rangeType"
+		placeholder="{{'InvestmentTransactionSummaryFilter.rangeType.placeholder' | translate }}">
+	</app-range-type-control>
+	      
+			  <app-request-date-control  class="col-sm-6 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('fromDate')"     label="{{'InvestmentTransactionSummaryFilter.fromDate.label' | translate }}"   formControlName="fromDate" 
+   [minDate]="state.fromDate.minDate"   [maxDate]="state.fromDate.maxDate"  ></app-request-date-control>
+	
+	<app-request-date-control  class="col-sm-6 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('toDate')"     label="{{'InvestmentTransactionSummaryFilter.toDate.label' | translate }}"   formControlName="toDate" 
+	[minDate]="state.toDate.minDate"   [maxDate]="state.toDate.maxDate"  ></app-request-date-control>
+
+      <app-product-category-control class="col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('productCode')"
+label="{{'InvestmentTransactionSummaryFilter.productCode.label' | translate }}" formControlName="productCode"
+placeholder="{{'InvestmentTransactionSummaryFilter.productCode.placeholder' | translate }}"></app-product-category-control>
+
+<box class="form-action-container">
+	<fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('download')" label="{{ 'InvestmentTransactionSummaryFilter.reset.label' | translate }}"
+		btnClass=" btn-secondary" [buttonMode]="'button'"
+		(onClick)="_helper.onResetClick(null)"></fpx-button>
+	<fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('view')" label="{{ 'InvestmentTransactionSummaryFilter.view.label' | translate }}"
+		btnClass=" btn-primary" [buttonMode]="'button'" [disable]="formGroup.invalid"
+		(onClick)="_helper.onViewClick(null)"></fpx-button>
+</box>
+</box>
+</box> 
+</form>
+	

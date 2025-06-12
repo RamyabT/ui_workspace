@@ -1,0 +1,21 @@
+<box class="login-layout">
+  <box class="container-bg"></box>
+  <header>
+    <ng-container *ngIf="_device.isMobile()">
+      <img [src]="skinManager.getAssetFolderPath() + 'skins/images/brand/logo-login-m.svg'" alt="screen busy" />
+    </ng-container>
+    <ng-container *ngIf="!_device.isMobile()">
+      <img [src]="skinManager.getAssetFolderPath() + 'skins/images/brand/bank-logo-m.svg'" alt="bank logo" />
+    </ng-container>
+  </header>
+  <box class="login-main">
+    <ng-container *ngIf="!_device.isMobile()">
+      <box class="welcome-banner-wrapper"></box>
+    </ng-container>
+
+    <box class="login-container">
+      <router-outlet></router-outlet>
+    </box>
+  </box>
+
+</box>

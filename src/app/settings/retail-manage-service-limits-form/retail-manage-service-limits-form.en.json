@@ -1,0 +1,23 @@
+"ManageServiceLimits":{
+"title":"managetransactionlimits",
+		 "instaPay": {
+		  "label":"InstaPay" ,
+		  "placeholder": "InstaPay"
+		  } ,
+		 "oatTransfer": {
+		  "label":"Own Account Transfer" ,
+		  "placeholder": "Own Account Transfer"
+		  } ,
+		 "withinBankTransfer": {
+		  "label":"Within Bank Transfer" ,
+		  "placeholder": "Within Bank Transfer"
+		  } ,
+		 "domesticTransfer": {
+		  "label":"Domestic Transfer" ,
+		  "placeholder": "Domestic Transfer"
+		  } ,
+		 "internationalTransfer": {
+		  "label":"International Transfer" ,
+		  "placeholder": "International Transfer"
+		  } 
+}

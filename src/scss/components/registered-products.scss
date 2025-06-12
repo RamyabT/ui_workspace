@@ -1,0 +1,117 @@
+#depAppBody {
+
+  /*
+  app-retail-rp-contract-info-form,
+  app-retail-rp-successorinfo-form {
+    fpx-tab-group {
+      .fpx-horizontal-tab {
+        gap: 20px;
+
+        .fpx-tab-header-container {
+          border-bottom: none;
+
+          .fpx-tab-list {
+            .fpx-step-header {
+              pointer-events: none;
+            }
+
+            .fpx-step-h-line {
+              margin-top: 22px;
+            }
+          }
+        }
+      }
+
+      fpx-tab {
+        .fpx-tab-content {
+          overflow: hidden;
+        }
+
+        fpx-accordion-group {
+          >.group {
+            gap: 20px;
+
+            fpx-accordion {
+              border-bottom: 1px solid #E0E0E0;
+              padding: 0;
+              border-radius: 0;
+
+              fpx-panel {
+                .fpx-accordion-content {
+                  margin-bottom: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  */
+
+  app-retail-rp-contract-info-form {
+    .label-with-arrow {
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
+      gap: 4px; // Adjusts spacing between arrow and text
+
+      .up-arrow {
+        font-size: 18px; // Adjust size as needed
+        line-height: 1;
+
+        &::after {
+          content: '';
+          width: var(--systemIconSize);
+          height: var(--systemIconSize);
+          display: inline-block;
+          background-color: var(--secondary500);
+          mask: url("../../assets/images/icons/up-arrow.svg") no-repeat center;
+          -webkit-mask: url("../../assets/images/icons/up-arrow.svg") no-repeat center;
+          mask-size: 15px;
+          -webkit-mask-size: 15px;
+        }
+      }
+
+      .link-text {
+        font-weight: 500;
+      }
+    }
+  }
+
+  .rp-product-selection+.cdk-global-overlay-wrapper {
+    .dep-info-popup {
+      .mat-dialog-container {
+        .fpx-pop-up-wrapper {
+          .fpx-pop-up-header {
+            flex: 0 0 auto;
+            .fpx-pop-up__close {
+              display: none;
+            }
+          }
+          .fpx-pop-up-content {
+            flex: 1 1 auto;
+            min-height: unset;
+            background-color: var(--popUpBgClr);
+          }
+        }
+      }
+    }
+  }
+}
+
+app-retail-rp-successorinfo-form {
+  form {
+    .kf-header {
+      .kf-title {
+        color: var(--baseTxtClr);;
+        font-size: 16px;
+      }
+
+      .kf-description {
+        color: var(--baseTxtClr);;
+      }
+    }
+  }
+}

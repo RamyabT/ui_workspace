@@ -1,0 +1,5 @@
+ 
+ "RETAILTAXSTMT" : {
+ "servicePath": ["entry-shell","servicerequest", "retail-tax-statement-req"],
+ "queryParams": {}
+ }

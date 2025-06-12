@@ -1,0 +1,31 @@
+"retailActivePrepaidCard":{
+"title":"Retail Active Prepaid Card",
+		 "cardRefNumber": {
+		  "label":"Prepaid Card Ref Number" ,
+		  "placeholder": "Prepaid Card Ref Number"
+		  } ,
+		 "cardNumber": {
+		  "label":"Prepaid Card Number" ,
+		  "placeholder": "Prepaid Card Number"
+		  } ,
+		 "expiryYear": {
+		  "label":"Expiry Year" ,
+		  "placeholder": "Expiry Year"
+		  } ,
+		 "expiryMonth": {
+		  "label":"Expiry Month" ,
+		  "placeholder": "Expiry Month"
+		  } ,
+		 "cvv": {
+		  "label":"CVV" ,
+		  "placeholder": "CVV"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Placeholder"
+		  } 
+}

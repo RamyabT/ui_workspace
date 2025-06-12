@@ -1,0 +1,52 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="PfmGoalsRequestForm" >
+	  
+	<box class="entry-form">
+	     
+	     <box class="grid entry-form-field-group">
+	      
+			  <app-name-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('goalName')"     label="{{'PfmGoalsRequestForm.goalName.label' | translate }}"   formControlName="goalName" 
+   ></app-name-control>
+	     
+   <app-account-number-list-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('debitAccount')"     label="{{'PfmGoalsRequestForm.debitAccount.label' | translate }}"   formControlName="debitAccount" 
+   ></app-account-number-list-control>
+
+   <app-request-date-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('startDate')"     label="{{'PfmGoalsRequestForm.startDate.label' | translate }}"   formControlName="startDate" 
+   [minDate]="state.startDate.minDate"   [maxDate]="state.startDate.maxDate"  ></app-request-date-control>
+
+
+   
+			  <app-amount-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('goalAmount')"     label="{{'PfmGoalsRequestForm.goalAmount.label' | translate }}"   formControlName="goalAmount" 
+   [CurrencyList]="state.goalAmount.CurrencyList" [isCurrEditable]="state.goalAmount.isCurrEditable"  [defaultFetch]="state.goalAmount.defaultFetch" [initCurrency]="state.goalAmount.initCurrency" [amountInWords]="state.goalAmount.amountInWords">  ></app-amount-control>
+	     
+	      
+	      
+			  <app-amount-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('advanceDebitAmount')"     label="{{'PfmGoalsRequestForm.advanceDebitAmount.label' | translate }}"   formControlName="advanceDebitAmount" 
+   [CurrencyList]="state.advanceDebitAmount.CurrencyList" [isCurrEditable]="state.advanceDebitAmount.isCurrEditable"  [defaultFetch]="state.advanceDebitAmount.defaultFetch" [initCurrency]="state.advanceDebitAmount.initCurrency" [amountInWords]="state.advanceDebitAmount.amountInWords">  ></app-amount-control>
+	     
+<!-- 	      
+			  <app-amount-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('debitAmount')"     label="{{'PfmGoalsRequestForm.debitAmount.label' | translate }}"   formControlName="debitAmount" 
+   [CurrencyList]="state.debitAmount.CurrencyList" [isCurrEditable]="state.debitAmount.isCurrEditable"  [defaultFetch]="state.debitAmount.defaultFetch" [initCurrency]="state.debitAmount.initCurrency" [amountInWords]="state.debitAmount.amountInWords">  ></app-amount-control> -->
+	     
+	      
+			  <app-frequency-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('frequency')"     label="{{'PfmGoalsRequestForm.frequency.label' | translate }}"   formControlName="frequency" 
+     ></app-frequency-control>
+
+     	      
+     <app-goal-duration-form-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('goalDuration')"     label="{{'PfmGoalsRequestForm.goalDuration.label' | translate }}"   formControlName="goalDuration" 
+     ></app-goal-duration-form-control>
+
+
+     <app-amount-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('debitAmount')"     label="{{'PfmGoalsRequestForm.debitAmount.label' | translate }}"   formControlName="debitAmount" 
+   [CurrencyList]="state.debitAmount.CurrencyList" [isCurrEditable]="state.debitAmount.isCurrEditable"  [defaultFetch]="state.debitAmount.defaultFetch" [initCurrency]="state.debitAmount.initCurrency" [amountInWords]="state.debitAmount.amountInWords">  ></app-amount-control>
+
+	     
+<!-- 	      
+			  <app-status-list-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('status')"     label="{{'PfmGoalsRequestForm.status.label' | translate }}"   formControlName="status" 
+     ></app-status-list-control> -->
+	     
+	      
+			 
+	   </box> 
+   </box>
+</form>
+	

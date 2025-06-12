@@ -1,0 +1,5 @@
+ 
+ "RETAILACCNICKNAME" : {
+ "servicePath": ["entry-shell","accounts", "retail-account-nickname-form"],
+ "queryParams": {}
+ }

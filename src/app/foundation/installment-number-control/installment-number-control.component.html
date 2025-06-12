@@ -1,0 +1,29 @@
+<div class="fpx-form-control" [ngClass]="{
+	'fpx-focus' : formControl && isFocused,
+	'fpx-valid' : formControl && formControl.touched && formControl.valid,
+	'fpx-invalid' : formControl && formControl.touched && formControl.invalid,
+	'fpx-disabled' : formControl && formControl.disabled
+	}">
+	<fpx-label [ngClass]="formAnchorDirective.formName +'_' + formControlName + '_label'  " *ngIf="label"
+		[control]="formControl" #fpxLabel [label]="label"></fpx-label>
+
+	<div class="fpx-field-content">
+		<button type="button" class="icon minus-btn-icon" [disabled]="this.isDecrementDisabled" (click)="decrement()">
+
+		</button>
+
+		<div class="stepper-input">
+			<input type="number" class="stepper-input-value" formControlName="formControlName"
+				[formControl]="formControl" [fpxPattern]="PATTERN" (focus)="onfocus()" (blur)="onblurInput($event)"
+				[max]="max" [id]="formAnchorDirective.formName + '_' + formControlName + '_input'" matInput
+				fpxNumberInput [placeholder]="placeholder" [value]="currentValue" (input)="onInputChange($event)" />
+			<!-- <span *ngIf="this.currentValue" class="text">times</span> -->
+		</div>
+		<button type="button" class="icon plus-btn-icon" [disabled]="this.isIncrementDisabled" (click)="increment()">
+		</button>
+	</div>
+
+	<mat-error *ngIf="formControl && formControl.touched">
+		{{ errorCode }}
+	</mat-error>
+</div>

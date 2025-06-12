@@ -1,0 +1,4278 @@
+{
+  "RETAILLOGIN": {
+    "servicePath": [
+      "login-space",
+      "entry-shell",
+      "login",
+      "retail-login"
+    ],
+    "reviewRequired": 0,
+    "processAware": 0,
+    "headerNavRequired": 1,
+    "headerNavService": "PRELOGINSPACE"
+  },
+  "RETAILLOGINAUTH": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "prelogin",
+      "retail-login"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "LOGINSPACE"
+  },
+  "RETAILCHILDINFO": {
+    "servicePath": [
+      "fb-space",
+      "entry-shell",
+      "fb",
+      "fb-add-child-account"
+    ],
+    "failureResultPath": [
+      "fb-space",
+      "display-shell",
+      "fb",
+      "failure-result"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "FBSPACE"
+  },
+  "RETAILACCOUNT": {
+    "servicePath": [
+      "accounts-space",
+      "display-shell",
+      "accounts",
+      "retail-account-details-form"
+    ]
+  },
+  "RETAILSTOPCHEQUE": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "retail-stop-cheque-request-form"
+    ],
+    "reviewRequired": 1,
+    "headerNavRequired": 1,
+    "processAware": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILSTOPCHEQUESUMMARY": {
+    "servicePath": [
+      "accounts-space",
+      "display-shell",
+      "accounts",
+      "retail-stopcheque-display-grid"
+    ],
+    "headerNavRequired": 1,
+    "reviewRequired": 0,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILSTOPCHEQUEREV": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "retail-revoke-stop-cheque"
+    ],
+    "reviewRequired": 0,
+    "headerNavRequired": 1,
+    "processAware": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILCHQBKREQ": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "retail-cheque-book-request"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILCHQDEPOSIT": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "retail-chqd-deposit-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "VERIFYTFA": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "foundation",
+      "verify-tfa"
+    ],
+    "processAware": 1
+  },
+  "APPLYVIRTUALCARD": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "apply-virtual-card-form"
+    ],
+    "processAware": 1
+  },
+  "employmentInfo": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "employmentinfo-form"
+    ],
+    "processAware": 1
+  },
+  "ACCOUNTSSPACE": {
+    "servicePath": [
+      "accounts-space"
+    ]
+  },
+  "RETAILCASATRANDTLSFILTER": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "retailcasatrandtlsfilterform"
+    ]
+  },
+  "RETAILCASATRANDTLS": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "retail-casatransaction-stmt-ro-grid"
+    ]
+  },
+  "OBRESUMEAPP": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "resume-back"
+    ],
+    "processAware": 1
+  },
+  "COBAPPLYVIRTUALCARD": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-virtual-card-form"
+    ],
+    "ErrorEnd": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "processAware": 1
+  },
+  "COBLOADMONEY": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-load-money"
+    ],
+    "ErrorEnd": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "processAware": 1
+  },
+  "COBADDITIONALINFO": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-Additional-info-form"
+    ],
+    "ErrorEnd": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "processAware": 1
+  },
+  "COBADDITIONALDOCUMENT": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "additional-document"
+    ],
+    "ErrorEnd": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "processAware": 1
+  },
+  "CASAONBOARDING": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-applicant-form"
+    ],
+    "ErrorEnd": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "processAware": 1
+  },
+  "OBVERIFYTFA": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "verify-tfa"
+    ],
+    "ErrorEnd": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "processAware": 1
+  },
+  "RETAILCOBFATCACONFIRMATION": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "fatca-confirmation-form"
+    ],
+    "ErrorEnd": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "processAware": 1
+  },
+  "RETAILNATIONALIDSCAN": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "photo-id-match"
+    ],
+    "ErrorEnd": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "processAware": 1
+  },
+  "RETAILDOCUMENTCHECKLIST": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "document-checklist"
+    ],
+    "processAware": 1
+  },
+  "COBTAXDETAILS": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-tax-details-form"
+    ],
+    "ErrorEnd": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "processAware": 1
+  },
+  "RETAILEMIRATESIDSCAN": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "emirates-id-match"
+    ],
+    "processAware": 1
+  },
+  "RETAILPASSPORTSCAN": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "national-id-match"
+    ],
+    "processAware": 1
+  },
+  "RETAILADDITIONALPASSPORTSCAN": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "national-id-match"
+    ],
+    "processAware": 1
+  },
+  "RETAILCOBTAXDETAILS": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-tax-details-form"
+    ],
+    "ErrorEnd": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "processAware": 1
+  },
+  "RETAILINITIATEATRANSFER": {
+    "servicePath": [
+      "transfers-space",
+      "display-shell",
+      "transfers",
+      "initiate-a-transfers"
+    ],
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE"
+  },
+  "RETAILADDRESSINFO": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-applicant-address-info"
+    ],
+    "ErrorEnd": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "processAware": 1
+  },
+  "RETAILEMPLOYMENTINFO": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-employment-info-form"
+    ],
+    "ErrorEnd": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "processAware": 1
+  },
+  "RETAILFATCAINFO": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-fatca-Info-form"
+    ],
+    "processAware": 1
+  },
+  "RETAILLIVENESSCHECK": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-liveness-check"
+    ],
+    "ErrorEnd": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "processAware": 1
+  },
+  "RETAILUPLOADSIGNATURE": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-applicant-signature-form"
+    ],
+    "ErrorEnd": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "processAware": 1
+  },
+  "RETAILAPPLICANTPROFILE": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-applicantprofile-form"
+    ],
+    "ErrorEnd": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "processAware": 1
+  },
+  "RETAILACCNICKNAME": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "retail-account-nickname-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILADDNICKNAME": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "retail-account-nickname-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILDELNICKNAME": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "retail-account-nickname-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILDDREQ": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "retail-dd-request-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILCHNGMATURITYINSTR": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "deposits",
+      "retail-change-maturity-instructions-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILOPENNEWDEPOSIT": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "deposits",
+      "retail-deposit-request-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILOPENNEWCASA": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "retail-open-new-casa-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ],
+    "queryParams": {}
+  },
+  "RETAILOPENNEWSA": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "retail-open-new-casa-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ],
+    "queryParams": {}
+  },
+  "cobaddressinfo": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "foundation",
+      "retail-address-details-form"
+    ],
+    "queryParams": {}
+  },
+  "RETAILESTMTREQ": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "retail-estmt-request-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILVIEWCASATRANSACTION": {
+    "servicePath": [
+      "accounts-space",
+      "display-shell",
+      "accounts",
+      "view-transactions"
+    ]
+  },
+  "RETAILINQCHQSTATUS": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "retail-cheque-status-inquiry-form"
+    ],
+    "reviewRequired": 0,
+    "processAware": 0,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE"
+  },
+  "RETAILINQPDCCHQSTATUS": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "view-pdc-cheques-form"
+    ],
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE"
+  },
+  "maturityinstruction": {
+    "servicePath": [
+      "entry-shell",
+      "deposits",
+      "retail-change-maturity-instructions-form"
+    ],
+    "queryParams": {}
+  },
+  "RETAILCASADETAILS": {
+    "servicePath": [
+      "accounts-space",
+      "display-shell",
+      "accounts",
+      "retail-account-details-form"
+    ]
+  },
+  "RETAILBENEINTERNAL": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-bene-internal-form"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSSPACE"
+  },
+  "RETAILBENEINTL": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-bene-International-req-form"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSSPACE"
+  },
+  "RETAILTRANINTBT": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-within-bank-transfer-form"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE"
+  },
+  "RETAILSCHINTBT": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-within-bank-transfer-form"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE"
+  },
+  "RETAILBENEDOMESTIC": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-bene-dom-req"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSSPACE"
+  },
+  "RETAILTRANSWIFT": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-international-transfer-form"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE"
+  },
+  "RETAILSCHSWIFT": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-international-transfer-form"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE"
+  },
+  "RETAILTRANCBAED": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-aed-transfer-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE"
+  },
+  "RETAILBENECC": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-bene-cc-req-form"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSSPACE"
+  },
+  "RETAILTRANDOMESTIC": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-domestic-transfer"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE",
+    "queryParams": {}
+  },
+  "RETAILSCHDOM": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-domestic-transfer"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE",
+    "queryParams": {}
+  },
+  "RETAILTRANCC": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-cc-transfer-form"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE",
+    "queryParams": {}
+  },
+  "RETAILSCHCC": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-domestic-transfer"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE",
+    "queryParams": {}
+  },
+  "RETAILBENECBAED": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-beneaedreq-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSSPACE"
+  },
+  "retail-cc-bill-payment": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "retail-cc-bill-payment"
+    ]
+  },
+  "RETAILTRANOAT": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-own-account-transfer-form"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE"
+  },
+  "RETAILTRANADDBENE": {
+    "servicePath": [
+      "transfers-space",
+      "display-shell",
+      "transfers",
+      "select-bene-type"
+    ],
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE"
+  },
+  "RETAILMANAGEBENE": {
+    "servicePath": [
+      "transfers-space",
+      "display-shell",
+      "transfers",
+      "manage-bene"
+    ],
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE"
+  },
+  "REATILCCBILLPAYENT": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "retail-cc-bill-payment"
+    ],
+    "headerNavService": "TRANSFERSPACE",
+    "queryParams": {}
+  },
+  "RETAILAPPLYDEBITCARD": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "retail-apply-debit-card"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1
+  },
+  "RETAILSCHOAT": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-own-account-transfer-form"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE"
+  },
+  "RETAILDCDETAILS": {
+    "servicePath": [
+      "cards-space",
+      "display-shell",
+      "debit-card",
+      "retail-debitcard-details-form"
+    ]
+  },
+  "RETAILDCLIMITS": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "retail-debitcard-limit-request"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "failure-result"
+    ]
+  },
+  "RETAILDCCANCEL": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "retail-dc-cancel-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE"
+  },
+  "RETAILDCBLOCK": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "retail-dc-block-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "failure-result"
+    ]
+  },
+  "RETAILDCRAISEDISPUTE": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "retail-dc-raise-dipute-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "failure-result"
+    ]
+  },
+  "RETAILDCREPLACE": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "retail-dc-replacement-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "failure-result"
+    ]
+  },
+  "RETAILDCCHANGEPIN": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "retail-dc-change-pin-request"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "failure-result"
+    ]
+  },
+  "RETAILDCUNBLOCK": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "retail-dc-unblock-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "failure-result"
+    ]
+  },
+  "RETAILDCFLASH": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "retail-dc-flash-card-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE"
+  },
+  "RETAILDCACTIVATECARD": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "retail-activate-dc-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "failure-result"
+    ]
+  },
+  "RETAILCCACTIVATION": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "retail-cc-activation-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "failure-result"
+    ]
+  },
+  "RETAILCCBILLPAYMENT": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "retail-cc-bill-payment"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "failure-result"
+    ]
+  },
+  "RETAILCCBLOCK": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "retail-cc-block-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "failure-result"
+    ]
+  },
+  "RETAILCCREPLACE": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "retail-cc-replace-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "failure-result"
+    ]
+  },
+  "RETAILCCUNBLOCK": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "retail-cc-unblocked-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "failure-result"
+    ]
+  },
+  "RETAILCCCANCEL": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "retail-cc-cancel-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE"
+  },
+  "RETAILCCPINREQ": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "retail-cc-change-pin-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "failure-result"
+    ]
+  },
+  "RETAILCCTRANSACTION": {
+    "servicePath": [
+      "cards-space",
+      "display-shell",
+      "credit-cards",
+      "retail-cc-transcation-summary-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE"
+  },
+  "RETAILCCLIMITS": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "retail-cc-limit-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "failure-result"
+    ]
+  },
+  "RETAILFLASHDEBITCARD": {
+    "servicePath": [
+      "cards-space",
+      "display-shell",
+      "debit-card",
+      "retail-debitcard-details-form"
+    ],
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "queryParams": {}
+  },
+  "RETAILFORGOTPASSWORD": {
+    "servicePath": [
+      "login-space",
+      "entry-shell",
+      "login",
+      "retail-forgot-password-form"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "LOGINSPACE"
+  },
+  "RETAILKILLPREVSESSION": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "prelogin",
+      "retail-kill-previous-session"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "PRELOGINSPACE"
+  },
+  "RETAILOVERRIDEMPIN": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "prelogin",
+      "retail-overide-mpin"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "PRELOGINSPACE"
+  },
+  "PRELOGINTFA": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "prelogin",
+      "retail-kill-previous-session"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "PRELOGINSPACE"
+  },
+  "RETAILMAP": {
+    "servicePath": [
+      "prelogin-space",
+      "display-shell",
+      "prelogin",
+      "google-map"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "PRELOGINSPACE"
+  },
+  "RETAILMAPBRANCH": {
+    "servicePath": [
+      "prelogin-space",
+      "display-shell",
+      "prelogin",
+      "googlemap-branch"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "PRELOGINSPACE"
+  },
+  "RETAILCHANGEPASSWORD": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "login",
+      "retail-change-password-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "PRELOGINSPACE"
+  },
+  "RETAILRESETPASSWORD": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "login",
+      "retail-reset-password-form"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "LOGINSPACE",
+    "successResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "login",
+      "login-confirmation-receipt"
+    ],
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "login",
+      "login-confirmation-receipt"
+    ]
+  },
+  "RETAILSELFREG": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "login",
+      "retail-customer-verification-form"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "LOGINSPACE"
+  },
+  "RETAILMIGRATEDUSER": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "login",
+      "retail-customer-verification-form"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "PRELOGINSPACE"
+  },
+  "RETAILFORGOTUSERNAME": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "login",
+      "retail-customer-verification-form"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "LOGINSPACE"
+  },
+  "RETAILUNLOCKUSER": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "login",
+      "retail-customer-verification-form"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "LOGINSPACE"
+  },
+  "RETAILLOANCLOSURE": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "loans",
+      "retail-loan-closure-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILDCTRANSACTIONDTLS": {
+    "servicePath": [
+      "cards-space",
+      "display-shell",
+      "debit-card",
+      "retail-dc-transaction-summary"
+    ]
+  },
+  "RETAILDCTRANSACTIONSUMMARY": {
+    "servicePath": [
+      "cards-space",
+      "display-shell",
+      "debit-card",
+      "retail-dc-transaction-summary"
+    ]
+  },
+  "RETAILLOANDETAILS": {
+    "servicePath": [
+      "accounts-space",
+      "display-shell",
+      "loans",
+      "retail-loan-details-form"
+    ]
+  },
+  "RETAILLOANCURRENTINTERESTINFO": {
+    "servicePath": [
+      "accounts-space",
+      "display-shell",
+      "loans",
+      "retail-current-interest-info-form"
+    ]
+  },
+  "RETAILLOANPAYMENTINFO": {
+    "servicePath": [
+      "accounts-space",
+      "display-shell",
+      "loans",
+      "retail-loan-payment-info-form"
+    ]
+  },
+  "RETAILCHANGEPRODUCT": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "retail-change-product-req-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILLOANREPAYMENT": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "loans",
+      "retail-loan-repayment-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILLOANREPAYMENTSCHEDULE": {
+    "servicePath": [
+      "accounts-space",
+      "display-shell",
+      "loans",
+      "retail-loan-details-schedule-form"
+    ]
+  },
+  "RETAILLOANDISBURSALSCHEDULE": {
+    "servicePath": [
+      "accounts-space",
+      "display-shell",
+      "loans",
+      "retail-loan-disbursal-details-form"
+    ]
+  },
+  "RETAILLOANMODIFICATION": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "loans",
+      "retail-loan-modification"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILTRANINSTA": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-insta-pay-transfer-form"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE",
+    "queryParams": {}
+  },
+  "NPSSSPACE": {
+    "servicePath": [
+      "npss-space"
+    ]
+  },
+  "RETAILSTNGCHANGEPASSWORD": {
+    "servicePath": [
+      "settings-space",
+      "entry-shell",
+      "settings",
+      "retail-change-password-form"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1
+  },
+  "RETAILCHANGEMPIN": {
+    "servicePath": [
+      "settings-space",
+      "entry-shell",
+      "settings",
+      "retail-change-mpin-form"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1
+  },
+  "RETAILNPSSENROLL": {
+    "servicePath": [
+      "npss-space",
+      "entry-shell",
+      "npss",
+      "npss-customer-enrollment"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1
+  },
+  "NPSSMANAGEACCOUNTS": {
+    "servicePath": [
+      "npss-space",
+      "entry-shell",
+      "npss",
+      "npss-manage-accounts"
+    ]
+  },
+  "RETAILNPSSPROXY": {
+    "servicePath": [
+      "npss-space",
+      "entry-shell",
+      "npss",
+      "retail-npss-proxy"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE"
+  },
+  "RETAILCUSTOMERUNREGISTER": {
+    "servicePath": [
+      "npss-space",
+      "entry-shell",
+      "npss",
+      "retail-customer-unregistration"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE"
+  },
+  "RETAILINVALIDATENPSS": {
+    "servicePath": [
+      "npss-space",
+      "entry-shell",
+      "npss",
+      "retail-invalidate-npss"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE"
+  },
+  "RETAILCUSTOMERACTIVATION": {
+    "servicePath": [
+      "npss-space",
+      "entry-shell",
+      "npss",
+      "retail-customer-activation"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE"
+  },
+  "DCCURRENTPINVALIDATION": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "dc-verify-pin-validation-form"
+    ],
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE"
+  },
+  "SELECTBENETYPE": {
+    "servicePath": [
+      "transfers-space",
+      "display-shell",
+      "transfers",
+      "select-bene-type"
+    ]
+  },
+  "RETAILDCSETPIN": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "debit-card",
+      "retail-debit-card-set-pin-form"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE"
+  },
+  "fatcaConfirmation": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "fatca-confirmation-form"
+    ],
+    "ErrorEnd": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-failure-result"
+    ],
+    "processAware": 1
+  },
+  "prefMailingAddress": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "pref-mailing-address-form"
+    ],
+    "processAware": 1
+  },
+  "NFC": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "cob-nfc-form"
+    ],
+    "processAware": 1
+  },
+  "RETAILNPSSSENDMONEY": {
+    "servicePath": [
+      "npss-space",
+      "entry-shell",
+      "npss",
+      "retail-send-amount-confirmation"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1
+  },
+  "RETAILSENDMONEYSTART": {
+    "servicePath": [
+      "npss-space",
+      "entry-shell",
+      "npss",
+      "retail-npss-send-money"
+    ],
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE"
+  },
+  "RETAILREQUESTMONEY": {
+    "servicePath": [
+      "npss-space",
+      "entry-shell",
+      "npss",
+      "retail-npss-request-money"
+    ],
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE"
+  },
+  "RETAILNPSSREQUESTMONEY": {
+    "servicePath": [
+      "npss-space",
+      "entry-shell",
+      "npss",
+      "retail-request-money-confirmation"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1
+  },
+  "NPSSSENDCONTACT": {
+    "servicePath": [
+      "npss-space",
+      "display-shell",
+      "npss",
+      "npss-send-money-contact"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1
+  },
+  "NPSSREQUESTCONTACT": {
+    "servicePath": [
+      "npss-space",
+      "display-shell",
+      "npss",
+      "npss-request-money-contact"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1
+  },
+  "RETAILSERVICEADHOCREQ": {
+    "servicePath": [
+      "service-request-space",
+      "entry-shell",
+      "service-request",
+      "create-service-request"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SERVICEREQUESTSPACE"
+  },
+  "RETAILSERVICEREQUESTLOG": {
+    "servicePath": [
+      "service-request-space"
+    ],
+    "headerNavRequired": 1,
+    "headerNavService": "SERVICEREQUESTSPACE"
+  },
+  "RETAILSERVICETRACKER": {
+    "servicePath": [
+      "service-request-space",
+      "display-shell",
+      "service-request",
+      "service-request-tracker"
+    ],
+    "headerNavRequired": 1,
+    "headerNavService": "SERVICEREQUESTSPACE"
+  },
+  "PAYMENTSSPACE": {
+    "servicePath": [
+      "payments-space"
+    ]
+  },
+  "RETAILBILLPAYMENTS": {
+    "servicePath": [
+      "payments-space"
+    ]
+  },
+  "RETAILBILLERLISTGOGRID": {
+    "servicePath": [
+      "payments-space",
+      "entry-shell",
+      "payments",
+      "retail-biller-list-ro-grid"
+    ],
+    "headerNavRequired": 1,
+    "headerNavService": "PAYMENTSSPACE"
+  },
+  "RETAILSAVEDBILLER": {
+    "servicePath": [
+      "payments-space",
+      "entry-shell",
+      "payments",
+      "retail-saved-biller-list-ro-grid"
+    ],
+    "headerNavRequired": 1,
+    "headerNavService": "PAYMENTSSPACE"
+  },
+  "RETAILBILLERACCOUNT": {
+    "servicePath": [
+      "payments-space",
+      "entry-shell",
+      "payments",
+      "retail-add-biller-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "failureResultPath": [
+      "payments-space",
+      "entry-shell",
+      "payments",
+      "failure-result"
+    ]
+  },
+  "RETAILCATEGORYGROUPBILLER": {
+    "servicePath": [
+      "payments-space",
+      "entry-shell",
+      "payments",
+      "app-retail-biller-category-ro-grid-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1
+  },
+  "RETAILSINGLEPAYMENT": {
+    "servicePath": [
+      "payments-space",
+      "entry-shell",
+      "payments",
+      "retail-single-bill-payment-form"
+    ],
+    "failureResultPath": [
+      "payments-space",
+      "entry-shell",
+      "payments",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "PAYMENTSSPACE"
+  },
+  "RETAILCCLIMITCHANGE": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "retail-cc-limit-change-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "failure-result"
+    ]
+  },
+  "RETAILCCDETAILS": {
+    "servicePath": [
+      "cards-space",
+      "display-shell",
+      "credit-cards",
+      "retail-cc-details-form"
+    ],
+    "reviewRequired": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE"
+  },
+  "RETAILPREPAIDWALLETTRAN": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "retail-prepaid-wallet-transfer-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "failure-result"
+    ]
+  },
+  "REGISTERDEVICE": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "register-device"
+    ],
+    "processAware": 1,
+    "reviewRequired": 0
+  },
+  "ENABLEBIOMETRIC": {
+    "processAware": 1
+  },
+  "RETAILPCTOPUP": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "retail-prepaid-topup-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "failure-result"
+    ]
+  },
+  "RETAILNPSSLOGIN": {
+    "servicePath": [
+      "login-space",
+      "entry-shell",
+      "login",
+      "npsslogin"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "PRELOGINSPACE"
+  },
+  "RETAILCCRAISEDISPUTE": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "retail-cc-raise-dispute-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "failure-result"
+    ]
+  },
+  "RETAILADHOCACCSTMT": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "retail-adhoc-accStmtReq-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SERVICEREQUESTSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "HOME": {
+    "servicePath": [
+      "home"
+    ]
+  },
+  "RETAILIBANLETTER": {
+    "servicePath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "retail-iban-letter-req-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SERVICEREQUESTSPACE",
+    "failureResultPath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "failure-result"
+    ]
+  },
+  "RETAILTAXSTMT": {
+    "servicePath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "retail-tax-statement-req"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SERVICEREQUESTSPACE",
+    "failureResultPath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "failure-result"
+    ]
+  },
+  "RETAILLIABILITY": {
+    "servicePath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "retail-liability-letter-form"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SERVICEREQUESTSPACE",
+    "reviewRequired": 1,
+    "failureResultPath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "failure-result"
+    ]
+  },
+  "RETAILNOLIABILITY": {
+    "servicePath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "retail-no-liability-letter-form"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SERVICEREQUESTSPACE",
+    "reviewRequired": 1,
+    "failureResultPath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "failure-result"
+    ]
+  },
+  "home": {
+    "servicePath": [
+      "home"
+    ]
+  },
+  "EDOCUMENTS": {
+    "servicePath": [
+      "edocument-space"
+    ]
+  },
+  "MOBEDOCUMENTS": {
+    "servicePath": [
+      "edocument-space"
+    ]
+  },
+  "OTHERREQUEST": {
+    "servicePath": [
+      "other-request-space"
+    ]
+  },
+  "RETAILPREPAIDBLOCK": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "retail-prepaid-card-block-form"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "failure-result"
+    ]
+  },
+  "RETAILPCUNBLOCK": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "retail-pc-unblock-form"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "failure-result"
+    ]
+  },
+  "RETAILPPDISPUTE": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "retail-pc-raise-dispute-form"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "reviewRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "failure-result"
+    ]
+  },
+  "RETAILPCDETAILS": {
+    "servicePath": [
+      "cards-space",
+      "display-shell",
+      "prepaidcard",
+      "retail-pc-details-form"
+    ],
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE"
+  },
+  "RETAILPPACTIVATION": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "retail-pc-activate-form"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "failure-result"
+    ]
+  },
+  "RETAILPCSUMMARY": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "retail-pc-summary-form"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE"
+  },
+  "RETAILFLASHPREPAIDCARD": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "retail-pc-flash-details-form"
+    ],
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "failure-result"
+    ]
+  },
+  "RETAILPCTRANSACTION": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "retail-pc-transaction-details-form"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE"
+  },
+  "RETAILPCTRANSACTIONHISTORY": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "retail-pc-transaction-summary-form"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE"
+  },
+  "RETAILPREPAIDCHANGEPIN": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "retail-prepaid-change-pin"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "failure-result"
+    ]
+  },
+  "RETAILPCLIMITS": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "retail-pc-change-limit-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "prepaidcard",
+      "failure-result"
+    ]
+  },
+  "RETAILSPLITQRCODE": {
+    "servicePath": [
+      "npss-space",
+      "entry-shell",
+      "npss",
+      "split-bills-qrcode"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1
+  },
+  "RETAILSPLITBILLS": {
+    "servicePath": [
+      "npss-space",
+      "display-shell",
+      "npss",
+      "split-bills-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1
+  },
+  "RETAILAPPLYCREDITCARD": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "retail-apply-credit-card"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "failure-result"
+    ]
+  },
+  "SETTINGSSPACE": {
+    "servicePath": [
+      "settings-space"
+    ]
+  },
+  "RETAILCUSTOMERINFOLOG": {
+    "servicePath": [
+      "settings-space",
+      "display-shell",
+      "settings",
+      "profile-details"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SETTINGSSPACE",
+    "failureResultPath": [
+      "settings-space",
+      "entry-shell",
+      "settings",
+      "failure-result"
+    ]
+  },
+  "RETAILMANAGEALERTS": {
+    "servicePath": [
+      "settings-space",
+      "display-shell",
+      "settings",
+      "retail-manage-alerts-form"
+    ],
+    "headerNavService": "SETTINGSSPACE"
+  },
+  "RETAILVIEWMYPROFILE": {
+    "servicePath": [
+      "settings-space",
+      "display-shell",
+      "settings",
+      "my-profile"
+    ],
+    "queryParams": {
+      "mode": "V"
+    }
+  },
+  "MANAGEAUTHDEVICE": {
+    "servicePath": [
+      "settings-space",
+      "display-shell",
+      "settings",
+      "manage-authenticated-device-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SETTINGSSPACE"
+  },
+  "RETAILMANAGEUSERALERTS": {
+    "servicePath": [
+      "settings-space",
+      "display-shell",
+      "settings",
+      "retail-user-alert-template"
+    ]
+  },
+  "RETAILCCFLASH": {
+    "servicePath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "retail-cc-flash-request-form"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+      "cards-space",
+      "entry-shell",
+      "credit-cards",
+      "failure-result"
+    ]
+  },
+  "RETAILSRVREQBALCONFIRM": {
+    "servicePath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "balance-confirmation-req-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SERVICEREQUESTSPACE",
+    "failureResultPath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "failure-result"
+    ]
+  },
+   "RETAILNOTIFYGOINGOVERSEAS": {
+    "servicePath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "notifygoingoverseas"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SERVICEREQUESTSPACE",
+    "failureResultPath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "failure-result"
+    ]
+  },
+    "RETAILVIEWFXRATES": {
+    "servicePath": [
+      "settings-space",
+      "display-shell",
+      "settings",
+      "retail-fx-rates-form"
+    ]
+  },
+  "RETAILDELETEBILLER": {
+    "servicePath": [
+      "payments-space",
+      "entry-shell",
+      "payments",
+      "retail-delete-add-biller-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "failureResultPath": [
+      "payments-space",
+      "entry-shell",
+      "payments",
+      "failure-result"
+    ]
+  },
+  "RETAILVIEWBILLER": {
+    "servicePath": [
+      "payments-space",
+      "entry-shell",
+      "payments",
+      "retail-view-biller-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "failureResultPath": [
+      "payments-space",
+      "entry-shell",
+      "payments",
+      "failure-result"
+    ]
+  },
+  "ARETAILTRANSWIFT": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-international-transfer-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE"
+  },
+  "ARETAILTRANDOMESTIC": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-domestic-transfer"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE",
+    "queryParams": {}
+  },
+  "RETAILPFMGOALSREQ": {
+    "servicePath": [
+      "pfm-space",
+      "entry-shell",
+      "pfm",
+      "retail-pfm-goals-request-form"
+    ],
+    "failureResultPath": [
+      "pfm-space",
+      "entry-shell",
+      "pfm",
+      "failure-result"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "RETAILPFMTRANSACTION"
+  },
+  "RETAILMODIFYPFMGOALSREQ": {
+    "servicePath": [
+      "pfm-space",
+      "entry-shell",
+      "pfm",
+      "retail-pfm-goals-modify-request-form"
+    ],
+    "failureResultPath": [
+      "pfm-space",
+      "entry-shell",
+      "pfm",
+      "failure-result"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "RETAILPFMTRANSACTION"
+  },
+  "RETAILPFMBUDGETREQ": {
+    "servicePath": [
+      "pfm-space",
+      "entry-shell",
+      "pfm",
+      "retail-pfm-budget-request-form"
+    ],
+    "failureResultPath": [
+      "pfm-space",
+      "entry-shell",
+      "pfm",
+      "failure-result"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "RETAILPFMTRANSACTION"
+  },
+  "ARETAILTRANCC": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-cc-transfer-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE",
+    "queryParams": {}
+  },
+  "RETAILSPLITREQTOPAY": {
+    "servicePath": [
+      "npss-space",
+      "entry-shell",
+      "npss",
+      "split-bills-qrcode"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1
+  },
+  "ARETAILTRANOAT": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-own-account-transfer-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE"
+  },
+  "RETAILSCANQR": {
+    "servicePath": [
+      "npss-space",
+      "entry-shell",
+      "npss",
+      "scan-qr"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1
+  },
+  "ARETAILTRANINTBT": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-within-bank-transfer-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE"
+  },
+  "RETAILSCANANDPAY": {
+    "servicePath": [
+      "npss-space",
+      "entry-shell",
+      "npss",
+      "scan-and-pay"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1
+  },
+  "RETAILAPPROVEREQ": {
+    "servicePath": [
+      "npss-space",
+      "entry-shell",
+      "npss",
+      "retail-approve-request"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1
+  },
+  "RETAILMANAGELIMITS": {
+    "servicePath": [
+      "settings-space",
+      "entry-shell",
+      "settings",
+      "retail-manage-service-limits-form"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "settings-space",
+      "entry-shell",
+      "settings",
+      "failure-result"
+    ]
+  },
+  "RETAILADDMEMBERSCONTACT": {
+    "servicePath": [
+      "npss-space",
+      "entry-shell",
+      "npss",
+      "retail-add-members-contact"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1
+  },
+  "RETAILNPSSSPLITBILLRTP": {
+    "servicePath": [
+      "npss-space",
+      "entry-shell",
+      "npss",
+      "retail-bill-split-type"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1
+  },
+  "RETAILENABLEBIOMETRIC": {
+    "servicePath": [
+      "settings-space",
+      "entry-shell",
+      "settings",
+      "retail-manage-biometric-form"
+    ]
+  },
+  "RETAILPRELOGIN": {
+    "servicePath": [
+      "login-space",
+      "entry-shell",
+      "login",
+      "login-form"
+    ]
+  },
+
+  "RETAILPLNEWTOBANK": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "product-selection"
+    ]
+  },
+  "RETAILPLLOGIN": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "product-selection"
+    ]
+  },
+  "RETAILSELFREGISTER": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "login",
+      "retail-customer-verification-form"
+    ]
+  },
+  "RETAILPLATMFINDER": {
+    "servicePath": [
+      "prelogin-space",
+      "display-shell",
+      "prelogin",
+      "atm-finder"
+    ]
+  },
+  "RETAILPLOFFERS": {
+    "servicePath": [
+      "prelogin-space",
+      "display-shell",
+      "prelogin",
+      "offers"
+    ]
+  },
+  "RETAILPLCONTACTS": {
+    "servicePath": [
+      "prelogin-space",
+      "display-shell",
+      "prelogin",
+      "contact-bank"
+    ]
+  },
+  "RETAILPLAPPLYCARD": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "product-selection"
+    ]
+  },
+  "RETAILPLBRANCHFINDER": {
+    "servicePath": [
+      "prelogin-space",
+      "display-shell",
+      "prelogin",
+      "branch-finder"
+    ]
+  },
+  "RETAILPLVIDEOS": {
+    "servicePath": [
+      "prelogin-space",
+      "display-shell",
+      "prelogin",
+      "promotions"
+    ]
+  },
+  "RETAILPLRESUMEAPPLICATION": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "resume-back"
+    ]
+  },
+  "RETAILPLFAQ": {
+    "servicePath": [
+      "prelogin-space",
+      "display-shell",
+      "prelogin",
+      "faqs"
+    ]
+  },
+  "RETAILPLTIPS": {
+    "servicePath": [
+      "prelogin-space",
+      "display-shell",
+      "prelogin",
+      "security-tips"
+    ]
+  },
+  "RETAILPLLOCKCARD": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "product-selection"
+    ]
+  },
+  "RETAILPLTERMS": {
+    "servicePath": [
+      "prelogin-space",
+      "display-shell",
+      "prelogin",
+      "terms-and-conditions"
+    ]
+  },
+  "ADDITIONALINFORMATION": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "Additional_information-form"
+    ],
+    "processAware": 1
+  },
+  "RETAILUPDATEDOC": {
+    "servicePath": [
+      "settings-space",
+      "entry-shell",
+      "settings",
+      "retail-update-profile-doc-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SETTINGSSPACE",
+    "failureResultPath": [
+      "settings-space",
+      "entry-shell",
+      "settings",
+      "failure-result"
+    ]
+  },
+  "LOGINREADTERMSANDCONDITIONS": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "login",
+      "login-read-terms-and-conditions"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "PRELOGINSPACE"
+  },
+  "MANAGEBIOMETRIC": {
+    "servicePath": [
+      "settings-space",
+      "entry-shell",
+      "settings",
+      "retail-manage-biometric-form"
+    ],
+    "processAware": 1
+  },
+  "RETAILFORCEUPDATEDOC": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "staging",
+      "update-document-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "failureResultPath": [
+      "prelogin-space",
+      "entry-shell",
+      "staging",
+      "failure-result"
+    ]
+  },
+  "RETAILSCHFTS": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-domestic-transfer"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE",
+    "queryParams": {}
+  },
+  "RETAILTRANFTS": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-domestic-transfer"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE",
+    "queryParams": {}
+  },
+  "ARETAILTRANFTS": {
+    "servicePath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "retail-domestic-transfer"
+    ],
+    "failureResultPath": [
+      "transfers-space",
+      "entry-shell",
+      "transfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "TRANSFERSPACE",
+    "queryParams": {}
+  },
+  "RETAILMPINLOGIN": {
+    "processAware": 1
+  },
+  "TOOLSSPACE": {
+    "servicePath": [
+      "tools-space"
+    ],
+    "headerNavRequired": 1
+  },
+  "RETAILDEPOSITCALCULATOR": {
+    "servicePath": [
+      "tools-space",
+      "entry-shell",
+      "tools-calculator",
+      "retail-deposit-calculator"
+    ],
+    "failureResultPath": [
+      "tools-space",
+      "entry-shell",
+      "tools-calculator",
+      "confirmation-receipt"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1
+  },
+  "RETAILLOANCALCULATOR": {
+    "servicePath": [
+      "tools-space",
+      "entry-shell",
+      "tools-calculator",
+      "retail-loan-calculator"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1
+  },
+  "RETAILLOANCLOSURESIMULATION": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "loans",
+      "loan-closure-simulation"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE"
+  },
+  "REACHUS": {
+    "servicePath": [
+      "display-shell",
+      "home",
+      "reach-us"
+    ],
+    "processAware": 1
+  },
+  "RETAILMOBACCOUNTS": {
+    "servicePath": [
+      "accounts-space"
+    ]
+  },
+  "RETAILMOBTRANSFERS": {
+    "servicePath": [
+      "transfers-space"
+    ]
+  },
+  "RETAILTRANSFERS": {
+    "servicePath": [
+      "transfers-space"
+    ]
+  },
+  "RETAILMOBHOME": {
+    "servicePath": [
+      "home"
+    ]
+  },
+  "RETAILHOME": {
+    "servicePath": [
+      "home"
+    ]
+  },
+  "OBVIRTUALCARDSELECTION": {
+    "servicePath": [
+      "prelogin-space",
+      "entry-shell",
+      "onboarding",
+      "virtualcard-selection"
+    ],
+    "processAware": 1
+  },
+  "RETAILETRANSFERS": {
+    "servicePath": [
+      "etransfers-space"
+    ]
+  },
+  "RETAILACCOUNTS": {
+    "servicePath": [
+      "accounts-space"
+    ]
+  },
+  "RETAILCARDS": {
+    "servicePath": [
+      "cards-space"
+    ]
+  },
+  "ETRANSFERSENDMONEY": {
+    "servicePath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "retail-etransfer-form"
+    ],
+    "failureResultPath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "RETAILETRANSFERS"
+  },
+  "ETRANSFERREQUESTMONEY": {
+    "servicePath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "retail-etransfer-request-money-form"
+    ],
+    "failureResultPath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "RETAILETRANSFERS"
+  },
+  "RETAILETRANSFERAUTODEPOSIT": {
+    "servicePath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "retail-etransferautodepositlog-form"
+    ],
+    "failureResultPath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "RETAILETRANSFERS"
+  },
+  "GETETRFAUTODEPOSIT": {
+    "servicePath": [
+      "etransfers-space",
+      "display-shell",
+      "etransfers",
+      "etransfer-manage-autodeposit"
+    ],
+    "failureResultPath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "RETAILETRANSFERS"
+  },
+  "RETAILBUSINESSDDREQINFO": {
+    "servicePath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "business-dd-req-info-form"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SERVICEREQUESTSPACE",
+    "failureResultPath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "failure-result"
+    ]
+  },
+  "RETAILBUSINESSDDREQ": {
+    "servicePath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "business-dd-req-form"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SERVICEREQUESTSPACE",
+    "failureResultPath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "failure-result"
+    ]
+  },
+  "RETAILINDIVIDUALDDREQ": {
+    "servicePath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "individual-dd-req-form"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SERVICEREQUESTSPACE",
+    "failureResultPath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "failure-result"
+    ]
+  },
+  "RETAILINDIVIDUALDDREQINFO": {
+    "servicePath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "individual-dd-req-info-form"
+    ],
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SERVICEREQUESTSPACE",
+    "failureResultPath": [
+      "other-request-space",
+      "entry-shell",
+      "other-request",
+      "failure-result"
+    ]
+  },
+  "RETAILETRANSFERMANAGECONTACT": {
+    "servicePath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "retail-etransfercontactlog-form"
+    ],
+    "failureResultPath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "RETAILETRANSFERS"
+  },
+  "RETAILMANAGEETRANSFERCONTACT": {
+    "servicePath": [
+      "etransfers-space",
+      "display-shell",
+      "etransfers",
+      "retail-manage-etransfercontactlog-form"
+    ],
+    "failureResultPath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "RETAILETRANSFERS"
+  },
+  "RETAILETRANSFERREGISTRATION": {
+    "servicePath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "retail-etransfer-customer-form"
+    ],
+    "failureResultPath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "RETAILETRANSFERS"
+  },
+  "ETRANSFERFULFILLREQUESTMONEY": {
+    "servicePath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "retail-etransfer-fulfill-request-money"
+    ],
+    "failureResultPath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "RETAILETRANSFERS"
+  },
+  "ETRANSFERRECEIVEMONEY": {
+    "servicePath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "retail-etransfer-receive-money-form"
+    ],
+    "failureResultPath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "RETAILETRANSFERS"
+  },
+  "ETRANSFERRECLAIMMONEY": {
+    "servicePath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "retail-etransfer-reclaim-money-form"
+    ],
+    "failureResultPath": [
+      "etransfers-space",
+      "entry-shell",
+      "etransfers",
+      "failure-result"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "RETAILETRANSFERS"
+  },
+  "RETAILDELEGATEUSER": {
+    "servicePath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "retail-userrestrictionreq-form"
+    ],
+    "failureResultPath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SMBSPACE"
+  },
+  "RETAILCASADELEGATE": {
+    "servicePath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "retail-usercasarestrictionreq-form"
+    ],
+    "failureResultPath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SMBSPACE"
+  },
+  "RETAILDEPDELEGATE": {
+    "servicePath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "retail-userdeprestrictionreq-form"
+    ],
+    "failureResultPath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SMBSPACE"
+  },
+  "RETAILLOANDELEGATE": {
+    "servicePath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "retail-userloanrestrictionreq-form"
+    ],
+    "failureResultPath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SMBSPACE"
+  },
+  "RETAILCCDELEGATE": {
+    "servicePath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "retail-userccrestrictionreq-form"
+    ],
+    "failureResultPath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SMBSPACE"
+  },
+  "RETAILDCDELEGATE": {
+    "servicePath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "retail-userdcrestrictionreq-form"
+    ],
+    "failureResultPath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SMBSPACE"
+  },
+  "RETAILPCDELEGATE": {
+    "servicePath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "retail-userpcrestrictionreq-form"
+    ],
+    "failureResultPath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SMBSPACE"
+  },
+  "RETAILSETPERMISSIONS": {
+    "servicePath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "retail-setpermissions-form"
+    ],
+    "failureResultPath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SMBSPACE"
+  },
+  "RETAILDELEGATESPACE": {
+    "servicePath": [
+      "smb-delegat-space"
+    ]
+  },
+  "RETAILDELEUSER": {
+    "servicePath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "retail-userrestrictionreq-form"
+    ],
+    "failureResultPath": [
+      "smb-delegat-space",
+      "entry-shell",
+      "smb",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "SMBSPACE"
+  },
+  "RETAILTRANMANAGEMENT": {
+    "servicePath": [
+      "smb-transaction-management-space"
+    ]
+  },
+  "RETAILTRANMANAGEMENTFORM": {
+    "servicePath": [
+      "smb-transaction-management-space",
+      "display-shell",
+      "smb",
+      "retail-transaction-management-form"
+    ],
+    "headerNavRequired": 1,
+    "headerNavService": "SMBDELEGATSPACE"
+  },
+  "SMBDELEGATSPACE": {
+    "path": [
+      "smb-delegat-space"
+    ]
+  },
+  "CHECKERWF": {
+    "processAware": 1
+  },
+  "RETAILDEPOSIT": {
+    "servicePath": [
+      "accounts-space",
+      "display-shell",
+      "deposits",
+      "retail-deposit-details-form"
+    ],
+    "headerNavRequired": 0
+  },
+  "RETAILINVESTMENTTRANSUMMARY": {
+    "servicePath": [
+      "accounts-space",
+      "display-shell",
+      "deposits",
+      "view-transactions"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILINVESTMENTHOLDINGS": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "deposits",
+      "retail-investment-holding-summary-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILRPCONTRIBUTION": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "deposits",
+      "retail-rp-contribution-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILLINKINVESTMENT": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "deposits",
+      "retail-linked-investment-req-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "ACCOUNTSSPACE",
+    "failureResultPath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "failure-result"
+    ]
+  },
+  "RETAILRPCONTRACTINFO": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "deposits",
+      "registeredproducts",
+      "retail-rp-contractinfo-form"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1
+  },
+  "RETAILRPEXISTINGCONTRACTINFO": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "deposits",
+      "registeredproducts",
+      "retail-rp-open-sa"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1
+  },
+  "RETAILRPOPENTERMDEPOSIT": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "deposits",
+      "registeredproducts",
+      "retail-rp-open-td"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1
+  },
+  "RETAILRPNCTFSA": {
+    "processAware": 1
+  },
+  "RETAILRPNCRRSP": {
+    "processAware": 1
+  },
+  "RETAILRPNCFHSA": {
+    "processAware": 1
+  },
+  "RETAILRPECTFSA": {
+    "processAware": 1
+  },
+  "RETAILRPECRRSP": {
+    "processAware": 1
+  },
+  "RETAILRPECFHSA": {
+    "processAware": 1
+  },
+  "RETAILRPECTDTFSA": {
+    "processAware": 1
+  },
+  "RETAILRPECTDRRSP": {
+    "processAware": 1
+  },
+  "RETAILRETAILRPECTDFHSA": {
+    "processAware": 1
+  },
+  "RETAILPFMTRANCATMAPPING": {
+    "servicePath": [
+      "pfm-space",
+      "entry-shell",
+      "pfm",
+      "pfm-transactions-form"
+    ],
+    "failureResultPath": [
+      "pfm-space",
+      "entry-shell",
+      "pfm",
+      "failure-result"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "RETAILPFMTRANCATMAPPING"
+  },
+  "RETAILPFMTRANCATMAPMODIFY": {
+    "servicePath": [
+      "pfm-space",
+      "entry-shell",
+      "pfm",
+      "pfm-transaction-modify-form"
+    ],
+    "failureResultPath": [
+      "pfm-space",
+      "entry-shell",
+      "pfm",
+      "failure-result"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "RETAILPFMTRANCATMAPMODIFY"
+  },
+  "RETAILSCHSINGLEPAYMENT": {
+    "servicePath": [
+      "payments-space",
+      "entry-shell",
+      "payments",
+      "retail-single-bill-payment-form"
+    ],
+    "failureResultPath": [
+      "payments-space",
+      "entry-shell",
+      "payments",
+      "failure-result"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "PAYMENTSSPACE"
+  },
+  "RETAILMODIFYPFMBUDGET": {
+    "servicePath": [
+      "pfm-space",
+      "entry-shell",
+      "pfm",
+      "pfm-budget-modify-form"
+    ],
+    "failureResultPath": [
+      "pfm-space",
+      "entry-shell",
+      "pfm",
+      "failure-result"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "RETAILMODIFYPFMBUDGET"
+  },
+  "RETAILPFMTRACKGOAL": {
+    "servicePath": [
+      "pfm-space",
+      "display-shell",
+      "pfm",
+      "retail-track-goals-form"
+    ]
+  },
+  "RETAILPFMTRACKBUDGET": {
+    "servicePath": [
+      "pfm-space",
+      "display-shell",
+      "pfm",
+      "retail-track-budget-form"
+    ]
+  },
+  "RETAILPFMADDBUDGET": {
+    "servicePath": [
+      "pfm-space",
+      "entry-shell",
+      "pfm",
+      "retail-pfm-budget-request-form"
+    ]
+  },
+  "RETAILPFMADDGOAL": {
+    "servicePath": [
+      "pfm-space",
+      "entry-shell",
+      "pfm",
+      "retail-pfm-goals-request-form"
+    ]
+  },
+  "RETAILMODIFYPFMBUDGET": {
+    "servicePath": [
+      "pfm-space",
+      "entry-shell",
+      "pfm",
+      "pfm-budget-modify-form"
+    ],
+    "failureResultPath": [
+      "pfm-space",
+      "entry-shell",
+      "pfm",
+      "failure-result"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "RETAILMODIFYPFMBUDGET"
+  },
+  "RETAILPFMTRANHISTORY": {
+    "servicePath": [
+      "pfm-space",
+      "display-shell",
+      "pfm",
+      "pfm-transaction-history"
+    ]
+  },
+  "RETAILPFM": {
+    "servicePath": [
+      "pfm-space"
+    ]
+  },
+  "RETAILMOBCHQDEPOSIT": {
+    "servicePath": [
+      "accounts-space",
+      "entry-shell",
+      "accounts",
+      "retail-chqd-deposit-form"
+    ]
+  },
+  "ACCOUNTSUMMARY": {
+    "servicePath": [
+      "accounts-space"
+    ],
+    "queryParams": {
+      "selecetedIndex": 0
+    }
+  },
+  "LOANSUMMARY": {
+    "servicePath": [
+      "accounts-space"
+    ],
+    "queryParams": {
+      "selecetedIndex": 2
+    }
+  },
+  "DEPOSITSUMMARY": {
+    "servicePath": [
+      "accounts-space"
+    ],
+    "queryParams": {
+      "selecetedIndex": 1
+    }
+  },
+  "DCSUMMARY": {
+    "servicePath": [
+      "cards-space"
+    ],
+    "queryParams": {
+      "selecetedIndex": 0
+    }
+  },
+  "CCSUMMARY": {
+    "servicePath": [
+      "cards-space"
+    ],
+    "queryParams": {
+      "selecetedIndex": 1
+    }
+  },
+  "PCSUMMARY": {
+    "servicePath": [
+      "cards-space"
+    ],
+    "queryParams": {
+      "selecetedIndex": 2
+    }
+  },
+  "RETAILTRANSUMMARY": {
+    "servicePath": [
+      "transfers-space"
+    ]
+  },
+  "RETAILGOALINFO": {
+    "servicePath": [
+      "fb-space",
+      "entry-shell",
+      "fb",
+      "retail-add-goal"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "FBSPACE",
+    "failureResultPath": [
+      "fb-space",
+      "entry-shell",
+      "fb",
+      "failure-result"
+    ]
+  },
+  "RETAILSETTINGS": {
+    "servicePath": [
+      "settings-space"
+    ]
+  },
+  "RETAILOTHERREQUEST": {
+    "servicePath": [
+      "other-request-space"
+    ]
+  },
+  "RETAILFAMILYBANKING": {
+    "servicePath": [
+      "fb-space"
+    ]
+  },
+  "RETAILSERVICEREQUEST": {
+    "servicePath": [
+      "service-request-space"
+    ]
+  },
+  "COBSTAGING": {
+    "servicePath": [
+      "login-space",
+      "entry-shell",
+      "cob-staging-form"
+    ],
+    "processAware": 1
+  },
+  "RETAILSELECTMULTIBILLPAYMENT": {
+    "servicePath": [
+      "payments-space",
+      "display-shell",
+      "payments",
+      "retail-multi-bills-list-input-grid"
+    ]
+  },
+  "RETAILMULTIBILLPAYMENT": {
+    "servicePath": [
+      "payments-space",
+      "entry-shell",
+      "payments",
+      "retail-multi-bill-payment-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "PAYMENTSSPACE"
+  }, "RETAILTASKINFO": {
+    "servicePath": [
+      "fb-space",
+      "entry-shell",
+      "fb",
+      "retail-add-task-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "FBSPACE",
+    "failureResultPath": [
+      "fb-space",
+      "entry-shell",
+      "fb",
+      "failure-result"
+    ]
+  },
+  "RETAILFBCHILDDASHBOARD": {
+    "servicePath": [
+      "fb-space",
+      "display-shell",
+      "fb",
+      "fb-children-home"
+    ]
+  },
+  "RETAILMEMBERALLOWANCE": {
+    "servicePath": [
+      "fb-space",
+       "display-shell",
+       "fb",
+      "manage-member-allowance"
+    ]
+  },
+  "RETAILFBCHILDDASHBOARDDESKTOP": {
+    "servicePath": [
+      "fb-space",
+       "fb",
+      "fb-children-home"
+    ]
+  }, 
+  "RETAILFBVIEWGOAL": {
+    "servicePath": [
+      "fb-space",
+       "display-shell",
+       "fb",
+      "member-view-goals"
+    ]
+  },
+  "RETAILFBVIEWCHORE": {
+    "servicePath": [
+      "fb-space",
+       "display-shell",
+       "fb",
+      "member-view-chores"
+    ]
+  },
+  "RETAILCBAED": {
+    "servicePath": [
+      "mailbox-space",
+      "display-shell",
+      "mailbox",
+      "inbox"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1
+  },
+  "RETAILMAILBOX": {
+    "servicePath": [
+      "home"
+    ]
+  },
+  "RETAILWALLETADDMONEY": {
+      "servicePath": [
+         "wallet-space",
+         "entry-shell",
+         "wallet",
+         "retail-wallet-add-money-form"
+      ],
+      "reviewRequired": 1,
+      "processAware": 1
+   },
+   "RETAILWALLET": {
+     "servicePath": [
+       "wallet-space"
+     ]
+   },
+   "RETAILWALLETWITHDRAWMONEY": {
+    "servicePath": [
+      "wallet-space",
+      "entry-shell",
+      "wallet",
+      "retail-wallet-withdraw-money-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1
+  },
+    "RETAILSCANWALLETQR":{
+    "servicePath":[
+     "wallet-space",
+      "display-shell",
+      "wallet",
+      "scan-wallet-qr"
+  ]
+  },
+  "RETAILWALLETTRANSFER":{
+    "servicePath":[
+      "wallet-space",
+      "entry-shell",
+      "wallet",
+      "retail-wallet-transfer"
+  ],
+  "reviewRequired": 1,
+  "processAware": 1
+  },
+ 
+  "RETAILWALLETDETAILS": {
+"servicePath": [
+     "wallet-space",
+     "display-shell",
+     "wallet",
+     "wallet-detail-form"
+   ],
+   "reviewRequired": 1,
+   "processAware": 1
+},
+"RETAILWALLETREQMONEY" : {
+ "servicePath": [
+   "wallet-space",
+   "entry-shell",
+   "wallet",
+   "retail-wallet-req-money"
+ ],
+ "reviewRequired": 1,
+ "processAware": 1
+},
+"RETAILFAMILYPAYMENT" : {
+  "servicePath": [
+    "fb-space",
+    "entry-shell",
+    "fb",
+    "family-payment"
+  ],
+  "reviewRequired": 1,
+  "processAware": 1
+  },
+  "RETAILSCHFAMILYPAYMENT":{
+    "servicePath": [
+    "fb-space",
+    "entry-shell",
+    "fb",
+    "family-payment"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1
+  },
+  "RETAILSCHFAMILYPAYMENTREQ":{
+    "servicePath": [
+      "fb-space",
+      "entry-shell",
+      "fb",
+      "family-payment"
+      ],
+      "failureResultPath": [
+        "fb-space",
+        "entry-shell",
+        "fb",
+        "failure-result"
+      ],
+      "reviewRequired": 1,
+      "processAware": 1,
+      "headerNavRequired": 1,
+      "headerNavService": "FBSPACE"
+  },
+  "RETAILWALLETREG": {
+    "servicePath": [
+      "wallet-space",
+        "entry-shell",
+        "wallet",
+      "wallet-reg-form"
+    ],
+    "reviewRequired": 0,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+    "wallet-space",
+        "entry-shell",
+        "wallet",
+      "failure-result"
+    ]
+  },
+  "RETAILWALLETLIMIT": {
+    "servicePath": [
+      "wallet-space",
+        "entry-shell",
+        "wallet",
+      "wallet-transaction-limits-form"
+    ],
+    "reviewRequired": 1,
+    "processAware": 1,
+    "headerNavRequired": 1,
+    "headerNavService": "CARDSSPACE",
+    "failureResultPath": [
+    "wallet-space",
+        "entry-shell",
+        "wallet",
+      "failure-result"
+    ]
+  },
+  "RETAILINSURANCE": {
+     "servicePath": [
+       "insurance-space"
+     ]
+   },
+   "RETAILINSURANCEDETAILS": {
+    "servicePath": [
+      "insurance-space",
+      "display-shell",
+      "insurance",
+      "retail-insurance-details-form"
+    ],
+    "reviewRequired": 0,
+    "processAware": 0
+  },
+    "RETAILPAYINSURANCE":{
+    "servicePath": [
+      "insurance-space",
+      "entry-shell",
+      "insurance",
+      "retail-pay-insurance"
+  ],
+    "reviewRequired": 1,
+    "processAware": 1
+} 
+ 
+}

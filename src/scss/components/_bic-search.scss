@@ -1,0 +1,36 @@
+.branch-search-result {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    min-height: 300px;
+    max-height: 300px;
+    overflow: hidden;
+
+    @include not-small-screen {
+        max-height: unset;
+    }
+
+    .search-group {
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+
+    .bic-branch-list {
+        flex: 1;
+        height: 100%;
+        overflow: auto;
+    }
+}
+
+.search-bic-btn {
+    .tool-bar {
+        justify-content: flex-end;
+    }
+}
+
+app-wallet-select-contact-ro-grid {
+    .scroll-wrapper.select-contact-list-tmplt {
+        overflow-y: scroll;
+        height: 230px;
+    }
+}

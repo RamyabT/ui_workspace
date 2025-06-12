@@ -1,0 +1,129 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailRPContractInfoForm">
+
+	<fpx-tab-group class="steeper-group-container" [tabGroupData]="_helper.getTabData('tabGroup')"
+		(selectedTabChange)="_helper.setCurrentActiveTab($event)">
+		<fpx-tab [tabData]="_helper.getTabData('holderInfoTab')"
+			[disabled]="formGroup.value | fpxTabNestedValidity : _helper.getTabInfo('holderInfoTab')"
+			[completed]="(_helper.getTabValidity(0))">
+			<box class="tab-content-wrapper">
+
+				<box class="accordion-group">
+					<fpx-accordion-group class="col-sm-12 col-md-6 col-lg-12"
+						[accordionGroupData]="_helper.getTabData('contactInfoAccordionConfig')">
+						<fpx-accordion [accordionData]="_helper.getTabData('contactInfoAccordion')">
+							<box class="entry-form">
+								<box class="grid entry-form">
+
+									<app-name-control class="col-sm-12 col-md-6 col-lg-6"
+										[actionPublisher]="actionMap$.get('firstName')"
+										label="{{'RetailRPContractInfoForm.firstName.label' | translate }}"
+										formControlName="firstName"></app-name-control>
+
+
+									<app-name-control class="col-sm-12 col-md-6 col-lg-6"
+										[actionPublisher]="actionMap$.get('lastName')"
+										label="{{'RetailRPContractInfoForm.lastName.label' | translate }}"
+										formControlName="lastName"></app-name-control>
+
+
+									<app-date-of-birth-control class="col-sm-12 col-md-6 col-lg-6"
+										[actionPublisher]="actionMap$.get('dob')"
+										label="{{'RetailRPContractInfoForm.dob.label' | translate }}"
+										formControlName="dob" [minDate]="state.dob.minDate"
+										[maxDate]="state.dob.maxDate"></app-date-of-birth-control>
+
+
+									<app-email-control class="col-sm-12 col-md-6 col-lg-6"
+										[actionPublisher]="actionMap$.get('emailAddress')"
+										label="{{'RetailRPContractInfoForm.emailAddress.label' | translate }}"
+										formControlName="emailAddress"></app-email-control>
+
+
+									<app-mobile-number-control class="col-sm-12 col-md-6 col-lg-6"
+										[actionPublisher]="actionMap$.get('mobileNumber')"
+										label="{{'RetailRPContractInfoForm.mobileNumber.label' | translate }}"
+										formControlName="mobileNumber"></app-mobile-number-control>
+								</box>
+							</box>
+						</fpx-accordion>
+						<span class="seperator"></span>
+					</fpx-accordion-group>
+					<fpx-accordion-group class="col-sm-12 col-md-6 col-lg-12"
+						[accordionGroupData]="_helper.getTabData('addressInfoAccordionConfig')">
+						<fpx-accordion [accordionData]="_helper.getTabData('addressInfoAccordion')">
+							<box class="entry-form">
+								<app-retail-rp-addressinfo-form class="col-md-12 "
+									(commonFormEvent)="handleControlEvent($event)"
+									[actionPublisher]="actionMap$.get('rpaddress')" label="RetailRPAddressInfo"
+									formControlName="rpaddress"></app-retail-rp-addressinfo-form>
+							</box>
+						</fpx-accordion>
+						<span class="seperator"></span>
+					</fpx-accordion-group>
+				</box>
+
+				<box class="entry-form">
+					<box class="grid entry-form-field-group">
+						<app-rp-contactmethod-control class="col-sm-12 col-md-6 col-lg-12"
+							[actionPublisher]="actionMap$.get('rpContactMethod')"
+							label="{{'RetailRPContractInfoForm.rpContactMethod.label' | translate }}"
+							formControlName="rpContactMethod"></app-rp-contactmethod-control>
+
+						<app-sin-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('sin')"
+							label="{{'RetailRPContractInfoForm.sin.label' | translate }}"
+							formControlName="sin"></app-sin-control>
+
+						<app-terms-control class="col-sm-12 col-md-6 col-lg-12"
+							[actionPublisher]="actionMap$.get('sinUsageConsent')"
+							label="{{'RetailRPContractInfo.sinUsageConsent.label' | translate }}"
+							formControlName="sinUsageConsent" [textPosition]="state.sinUsageConsent.textPosition"
+							[ckValues]="state.sinUsageConsent.ckValues"></app-terms-control>
+					</box>
+				</box>
+
+			</box>
+
+		</fpx-tab>
+		<fpx-tab [tabData]="_helper.getTabData('productInfoTab')"
+			[disabled]="formGroup.value | fpxTabNestedValidity : _helper.getTabInfo('productInfoTab')"
+			[completed]="(_helper.getTabValidity(1))">
+			<app-retail-rp-contract-accountinfo class="col-md-12 " (commonFormEvent)="handleControlEvent($event)"
+				[actionPublisher]="actionMap$.get('rpaccount')" label="RetailRPAccountInfo"
+				formControlName="rpaccount"></app-retail-rp-contract-accountinfo>
+		</fpx-tab>
+		<fpx-tab [tabData]="_helper.getTabData('beneficiaryInfoTab')"
+			[disabled]="formGroup.value | fpxTabNestedValidity : _helper.getTabInfo('beneficiaryInfoTab')"
+			[completed]="_helper.getTabValidity(2)">
+			<app-retail-rp-successorinfo-form class="col-md-12 " (commonFormEvent)="handleControlEvent($event)"
+				[actionPublisher]="actionMap$.get('rpsuccessor')" label="RetailRPSuccessorinfo"
+				formControlName="rpsuccessor"></app-retail-rp-successorinfo-form>
+		</fpx-tab>
+		<fpx-tab [tabData]="_helper.getTabData('trustDeclarationTab')"
+			[disabled]="formGroup.value | fpxTabNestedValidity : _helper.getTabInfo('trustDeclarationTab')"
+			[completed]="_helper.getTabValidity(3)">
+
+			<box class="entry-form">
+				<box class="entry-form-field-group grid col-12">
+					<div class="kf-header col-sm-12 col-md-6 col-lg-12">
+						<div class="kf-description" [innerHTML]="'RetailRPContractInfoForm.description' | translate">
+							<div class="kf-title">{{ 'RetailRPContractInfoForm.text1' | translate }}</div>
+						</div>
+					</div>
+
+					<div class="link label-with-arrow">
+						<span class="up-arrow"></span>
+						<span class="link-text">{{ 'RetailRPContractInfoForm.declarationLink.label' | translate
+							}}</span>
+					</div>
+
+					<app-terms-control class="col-sm-12 col-md-6 col-lg-12"
+						[actionPublisher]="actionMap$.get('trustAgreedFlag')"
+						label="{{'RetailRPContractInfoForm.trustAgreedFlag.label' | translate }}"
+						formControlName="trustAgreedFlag" [textPosition]="state.trustAgreedFlag.textPosition"
+						[ckValues]="state.trustAgreedFlag.ckValues"></app-terms-control>
+				</box>
+			</box>
+		</fpx-tab>
+	</fpx-tab-group>
+
+</form>

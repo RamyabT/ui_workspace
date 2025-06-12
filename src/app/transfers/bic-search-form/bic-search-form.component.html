@@ -1,0 +1,34 @@
+<form formName="bicSearchForm" [autocomplete]="'off'" (ngSubmit)="submit()" [formGroup]="formGroup">
+    <box class="entry-form col-12">
+        <box class="entry-form-field-group grid">
+            <app-bene-bank-country-list-control class="col-sm-12 col-md-6 col-lg-12"
+                [changePublisher]="formChangePublisher$" [actionPublisher]="actionMap$.get('country')"
+                label="{{'bicSearchForm.country.label' | translate }}"
+                placeholder="{{'bicSearchForm.country.placeholder' | translate }}"
+                formControlName="country"></app-bene-bank-country-list-control>
+
+            <app-bene-bank-name-list-control class="col-sm-12 col-md-6 col-lg-12"
+                [actionPublisher]="actionMap$.get('bankName')" label="{{'bicSearchForm.bankName.label' | translate }}"
+                placeholder="{{'bicSearchForm.bankName.placeholder' | translate }}"
+                [changePublisher]="formChangePublisher$" [dependencyField]="['country']"
+                formControlName="bankName"></app-bene-bank-name-list-control>
+
+
+            <box class="branch-search-result grid">
+                <ng-container *ngIf="state.doShowBicBranchList">
+                    <box class="fpx-form-control search-group col-sm-12 col-lg-12">
+                        <input mat-input type="text" formControlName="searchBicCode"
+                            [placeholder]="'bicSearchForm.searchBicCode.placeholder' | translate"
+                            class="fpx-field-content search-bar col-sm-12 col-12" />
+                    </box>
+                    <box class="bic-branch-list">
+                        <app-bic-dtls-ro-grid [actionPublisher]="actionMap$.get('bicBranchRoGrid')"
+                            (commonRoGridEvent)="_helper.bicBranchRoGridEvent($event)"></app-bic-dtls-ro-grid>
+                    </box>
+                </ng-container>
+
+            </box>
+        </box>
+
+    </box>
+</form>

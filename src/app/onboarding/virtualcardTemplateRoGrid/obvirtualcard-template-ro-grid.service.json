@@ -1,0 +1,5 @@
+ 
+ "OBVIRTUALCARDTEMPLATE" : {
+ "servicePath": ["display-shell","onboarding", "virtualcardTemplateRoGrid"],
+ "queryParams": {}
+ }

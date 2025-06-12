@@ -1,0 +1,43 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailContactBankForm">
+
+	<box class="entry-form contact-bank">
+		<box class="contact-header">
+			<img src="./assets/images/prelogin/contact-us.svg" alt="contact-us-image" class="contact-us">
+		</box>
+		<box class="contact-content">
+			<box class="address">
+				<img src="./assets/images/prelogin/location-pin.svg" alt="bank-address">
+				<span class="bank-address">{{state.bankContact.address}}</span>
+			</box>
+			<box class="email">
+				<img src="./assets/images/prelogin/email.svg" alt="bank-email">
+				<!-- <a [href]="state.bankContact.emailId" class="bank-website">{{state.bankContact.emailId}}</a> -->
+				<a [href]="'mailto:' + state.bankContact.emailId" class="bank-website">{{state.bankContact.emailId}}</a>
+			</box>
+			<box class="website">
+				<img src="./assets/images/prelogin/web.svg" alt="bank-email">
+				<span class="bank-website" (click)="_helper.navToWebsite()">{{state.bankContact.website}}</span>
+			</box>
+
+			<box class="info-field">
+				<fpx-display-text class="info-field-label" [innerHTML]="'RetailContactBankForm.fax' | translate"></fpx-display-text>
+				<fpx-display-text class="info-field-value" [innerHTML]="state.bankContact.faxNumber"></fpx-display-text>
+			</box>
+			<box class="email">
+				<fpx-display-text class="info-field-label" [innerHTML]="'RetailContactBankForm.call' | translate"></fpx-display-text>
+				<!-- <fpx-display-text class="info-field-value" [innerHTML]="state.bankContact.callcentr"></fpx-display-text> -->
+				<a [href]="'tel:' + state.bankContact.callcentr" class="info-field-value">{{state.bankContact.mobileNumber}}</a>
+			</box>
+		</box>
+		<box class="contact-footer">
+			<box class="footer-content">
+				<span class="content">Stay with Us!</span>
+			</box>
+			<box class="social-media-contacts">
+				<!-- <img src="./assets/images/prelogin/Instagram.svg" alt="instagram contact" class="bank-instagram" (click)="_helper.navToInsta()"> -->
+				<img src="./assets/images/prelogin/Linkedin.svg" alt="linkedin contact" class="bank-linkedin" (click)="_helper.navToLinkedIn()">
+				<img src="./assets/images/prelogin/Facebook.svg" alt="facebook contact" class="bank-facebook" (click)="_helper.navToFacebook()">
+			</box>
+		</box>
+	</box>
+</form>

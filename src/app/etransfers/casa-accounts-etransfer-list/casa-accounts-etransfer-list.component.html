@@ -1,0 +1,50 @@
+<!-- <ng-container> -->
+    <!-- <box *ngIf="_device.isMobile()">
+        <h2> Deposit To </h2>
+    </box> -->
+
+    <!-- <box>
+
+    </box>
+</ng-container> -->
+
+
+
+<ng-container>
+  <!-- <div class="popup-header">
+    <h2>Deposit To</h2>
+    
+  </div> -->
+
+  <div class="portfolio-summary">
+    <ul class="portfolio-summary-list">
+      <ng-container *ngFor="let panel of portfolioData">
+        <li *ngIf="panel.showHeader">
+          <div class="product-type-panel">
+            <h3 class="header">{{ panel.category }}</h3>
+            <div class="list-item-content">
+              <ul class="card-wrapper">
+                <li *ngFor="let account of panel.data" (click)="selectAccount(account)" class="auto-account-card" [ngClass]="{'selected': account === data}">
+                  <div class="auto-account-details">
+                    <span class="auto-account-type">{{ account.productDesc || 'Current Account' }}</span>
+                    <span class="auto-account-number">{{ account.accountNumber }}</span>
+                  </div>
+                  <div class="balance-details">
+                    <span class="balance">{{ account.currentBalance | currency }}</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+
+  <box class="alert-footer">
+    <div class="btn-container">
+        <button type="button" class="btn-secondary" (click)="onDecline()"> {{ "Close" }} </button>
+        <button type="button" class="btn-primary" (click)="onAccept()" [disabled]="!isSaveEnabled"> {{ "Save Changes" }} </button>
+</div>
+</box>
+</ng-container>

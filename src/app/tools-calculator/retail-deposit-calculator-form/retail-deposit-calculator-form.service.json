@@ -1,0 +1,5 @@
+ 
+ "RETAILDEPOSITCALCULATOR" : {
+ "servicePath": ["entry-shell","deposits", "retail-deposit-calculator-form"],
+ "queryParams": {}
+ }

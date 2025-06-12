@@ -1,0 +1,31 @@
+"retailcasatrandtlsfilterform":{
+"title":"retailcasatrandtlsfilterform",
+		 "transactionReference": {
+		  "label":"Transaction Reference" ,
+		  "placeholder": "Transaction Reference"
+		  } ,
+		 "debitAccountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "transactionType": {
+		  "label":"Transaction Type" ,
+		  "placeholder": "Transaction Type"
+		  } ,
+		 "transactionCurrency": {
+		  "label":"Transaction Currency" ,
+		  "placeholder": "Transaction Currency"
+		  } ,
+		 "availableBalance": {
+		  "label":"Available Balance" ,
+		  "placeholder": "Available Balance"
+		  } ,
+		 "download": {
+		  "label":"Download" ,
+		  "placeholder": "Download"
+		  } ,
+		 "view": {
+		  "label":"View" ,
+		  "placeholder": "View"
+		  } 
+}

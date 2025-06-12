@@ -1,0 +1,24 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailChangeMpinForm">
+
+	<box class="entry-form">
+		<box class="entry-form-field-group grid">
+			<fpx-pin [size]="state.pinSize" class="col-sm-12 col-md-12 col-lg-12"
+				[actionPublisher]="actionMap$.get('currentMpin')"
+				label="{{'RetailChangeMpinForm.currentMpin.label' | translate }}"
+				formControlName="currentMpin"></fpx-pin>
+
+			<ng-container *ngIf="!state.confirmPINStatus">
+				<mat-error>{{ 'RetailChangeMpinForm.invalidCurrentMpin' | translate }}</mat-error>
+			</ng-container>
+
+			<fpx-pin [size]="state.pinSize" class="col-sm-12 col-md-12 col-lg-12"
+				[actionPublisher]="actionMap$.get('newMpin')"
+				label="{{'RetailChangeMpinForm.newMpin.label' | translate }}" formControlName="newMpin"></fpx-pin>
+
+			<fpx-pin [size]="state.pinSize" class="col-sm-12 col-md-12 col-lg-12"
+				[actionPublisher]="actionMap$.get('confirmMpin')"
+				label="{{'RetailChangeMpinForm.confirmMpin.label' | translate }}"
+				formControlName="confirmMpin"></fpx-pin>
+		</box>
+	</box>
+</form>

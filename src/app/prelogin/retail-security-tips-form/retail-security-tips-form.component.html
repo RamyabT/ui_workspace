@@ -1,0 +1,19 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailSecurityTipsForm">
+
+	<box class="entry-form">
+		<dl class="accordion-wrapper">
+			<box class="accordion-item" *ngFor="let item of state.securityTips  let i=index" class="{{'accordion_'+i}}">
+				<dt class="label" (click)="_helper.toggle(i)" [ngClass]="item.isToggle? 'show':'hidden' ">
+					<span class="label-item">
+						{{item.inventoryNo.description}}
+					</span>
+				</dt>
+				<dd class="value" [ngClass]="item.isToggle? 'show':'hidden' ">{{item.inventoryNo.details}}</dd>
+			</box>
+		</dl>
+		<!-- <box class="scroll-btn">
+			<fpx-button [btnClass]="'btn-secondary'" label="Scroll to Top"
+				(onClick)="_helper.scrollToTop()"></fpx-button>
+		</box> -->
+	</box>
+</form>

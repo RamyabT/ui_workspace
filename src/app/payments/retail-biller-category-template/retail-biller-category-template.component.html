@@ -1,0 +1,18 @@
+
+<div class="biller-category-container" >
+<ng-container *ngFor="let itemss of selectedData.data">
+    <div class="biller-category-item" (click)="navToBiller($event,itemss)" >
+        <div class="biller-category-icon ">
+          <ng-container *ngIf="itemss?.billercatIcon; else noPhoto">
+            <span class="{{itemss.categoryCode}}"></span>
+            <!-- <img [src]="'./assets/images/billers/'+itemss?.billercatIcon" /> -->
+        </ng-container>
+        <ng-template #noPhoto>
+            <img [src]="'./assets/images/billers/'+itemss?.billerId?.category?.billercatIcon" />
+        </ng-template>
+        </div>
+        <div  class="biller-category-name">
+          {{itemss?.shortDescription}}</div>
+      </div>
+</ng-container>
+</div>

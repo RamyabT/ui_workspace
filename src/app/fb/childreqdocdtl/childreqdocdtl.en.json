@@ -1,0 +1,31 @@
+"childreqdocdtl":{
+"title":"childreqdocdtl",
+		 "inventoryNumber": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } ,
+		 "sInventoryNumber": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } ,
+		 "mode": {
+		  "label":"Operation Mode" ,
+		  "placeholder": "Operation Mode"
+		  } ,
+		 "docInvNumber": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } ,
+		 "tenantId": {
+		  "label":"TenantId" ,
+		  "placeholder": "TenantId"
+		  } ,
+		 "fileName": {
+		  "label":"File Name" ,
+		  "placeholder": "File Name"
+		  } ,
+		 "serialNo": {
+		  "label":"DetailSerial" ,
+		  "placeholder": "DetailSerial"
+		  } 
+}

@@ -1,0 +1,50 @@
+<form [formGroup]="formGroup" autocomplete="off" (ngSubmit)="submit()" formName="CobNfcForm">
+
+	<box class="entry-form">
+
+		<ng-container *ngIf="nfcScannotcompleted">
+			<box class="dc-pre-request-header">Let us scan your Emirates ID chip.</box>
+			<box class="nfc-overlay begin-nfc" style="display: none;">
+				<box class="circle_all">
+					<box class="circle_A">Behind here</box>
+					<box class="circle_B"></box>
+					<box class="circle_C"></box>
+					<box class="circle_D"></box>
+					<box class="circle_E"></box>
+				</box>
+			</box>
+			<box class="dc-image">
+				<img src="./assets/images/rcob/nfc_animate2.gif" alt="">
+			</box>
+			<box class="dc-note" *ngIf="scanId">
+				<b>Ready to scan</b>
+				<ol>
+					<li>Place your Emirates ID on back of your phone as shown above.</li>
+					<li>Ensure you place hold the chip.</li>
+					<li>Click Proceed once your ready.</li>
+				</ol>
+			</box>
+			<box class="dc-note" *ngIf="!scanId">
+				<b>{{status}}</b>
+			</box>
+
+			<div class="form-footer-actions">
+				<button type="submit" class="btn-tertiary" (click)="submit()"> Skip </button>
+				<button type="button" class="btn-primary" (click)="proceed()" *ngIf="proceedId"> Proceed </button>
+			</div>
+		</ng-container>
+
+	</box>
+		<ng-container *ngIf="nfcScancompleted">
+			<box class="entry-form">
+				<box class="entry-form-field-group col-12 grid">
+			<app-nfc-confirmation-form></app-nfc-confirmation-form>
+			<div class="form-footer-actions">
+				<button type="submit" class="btn-primary">{{'OnBoarding.proceedbtn' | translate }}</button>
+			</div>
+				</box>
+				</box>
+		</ng-container>
+	
+
+</form>

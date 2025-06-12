@@ -1,0 +1,59 @@
+"RetailAccountDetailsForm":{
+"title":"Account Details",
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "depositAmount": {
+		  "label":"Deposit Amount " ,
+		  "placeholder": "Deposit Amount "
+		  } ,
+		 "depositType": {
+		  "label":"Deposit Type" ,
+		  "placeholder": "Deposit Type"
+		  } ,
+		 "depositTerm": {
+		  "label":"Deposit Term" ,
+		  "placeholder": "Deposit Term"
+		  } ,
+		 "interestRate": {
+		  "label":"Rate of Interest (P.A.)" ,
+		  "placeholder": "Rate of Interest (P.A.)"
+		  } ,
+		 "openDate": {
+		  "label":"Deposit Date " ,
+		  "placeholder": "Deposit Date "
+		  } ,
+		 "maturityDate": {
+		  "label":"Maturity Date" ,
+		  "placeholder": "Maturity Date"
+		  } ,
+		 "maturityAmount": {
+		  "label":"Maturity Amount" ,
+		  "placeholder": "Maturity Amount"
+		  } ,
+		 "maturityInstructions": {
+		  "label":"Maturity Instruction" ,
+		  "placeholder": "Maturity Instruction"
+		  } ,
+		 "interestFrequency": {
+		  "label":"Interest Payment Frequency" ,
+		  "placeholder": "Interest Payment Frequency"
+		  } ,
+		 "depositCurrency": {
+		  "label":"Transaction Currency" ,
+		  "placeholder": "Transaction Currency"
+		  } ,
+		 "debitAccountNumber": {
+		  "label":"Debit Account Number" ,
+		  "placeholder": "Debit Account Number"
+		  } ,
+		 "creditAccountNumber": {
+		  "label":"Credit Card Number" ,
+		  "placeholder": "Credit Card Number"
+		  } ,
+		 "downloadDepositDetails": {
+		  "label":"Download Deposit Details" ,
+		  "placeholder": "Download Deposit Details"
+		  } 
+}

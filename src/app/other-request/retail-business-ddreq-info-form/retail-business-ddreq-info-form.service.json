@@ -1,0 +1,5 @@
+ 
+ "RETAILBUSINESSDDREQINFO" : {
+ "servicePath": ["entry-shell","servicerequest", "retail-business-ddreq-info-form"],
+ "queryParams": {}
+ }

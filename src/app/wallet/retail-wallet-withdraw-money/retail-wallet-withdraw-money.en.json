@@ -1,0 +1,19 @@
+"RetailWalletWithDrawMoneyForm":{
+"title":"RetailWalletWithDrawMoneyForm",
+		 "isBalanceTransfer": {
+		  "label":"enabledflag" ,
+		  "placeholder": "enabledflag"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "toAccount": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "chargesAmount": {
+		  "label":"Charges" ,
+		  "placeholder": "Charges"
+		  } 
+}

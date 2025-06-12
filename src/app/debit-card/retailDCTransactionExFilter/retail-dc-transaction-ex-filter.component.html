@@ -1,0 +1,44 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailDcTransactionExFilter">
+
+	<box class="entry-form">
+		<box class="grid entry-form-field-group">
+
+			<app-transaction-range-type-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('transactionRangeType')"
+				label="{{'RetailDcTransactionExFilter.transactionRangeType.label' | translate }}"
+				formControlName="transactionRangeType"></app-transaction-range-type-control>
+			<app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('fromDate')"
+				label="{{'RetailDcTransactionExFilter.fromDate.label' | translate }}" formControlName="fromDate"
+				[minDate]="state.fromDate.minDate" [maxDate]="state.fromDate.maxDate"></app-request-date-control>
+
+
+			<app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('toDate')"
+				label="{{'RetailDcTransactionExFilter.toDate.label' | translate }}" formControlName="toDate"
+				[minDate]="state.toDate.minDate" [maxDate]="state.toDate.maxDate"></app-request-date-control>
+
+
+			<fpx-display-text id="FieldId_5" class="col-sm-12 col-md-12 col-lg-12  FieldId_5"
+				[innerHTML]="'RetailDcTransactionExFilter.FieldId_5.text' | translate"
+				[literals]="commonFormInput"></fpx-display-text>
+
+
+			<fpx-amount class="col-sm-6 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('minAmount')"
+				label="{{'RetailDcTransactionExFilter.minAmount.label' | translate }}" formControlName="minAmount"
+				></fpx-amount>
+
+
+			<fpx-amount class="col-sm-6 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('maximumAmount')"
+				label="{{'RetailDcTransactionExFilter.maximumAmount.label' | translate }}"
+				formControlName="maximumAmount"
+				></fpx-amount>
+			<box class="form-action-container">
+				<fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('download')" label="{{'DEFAULT.reset' | translate }}"
+					btnClass=" btn-secondary" [buttonMode]="'button'"
+					(onClick)="retailDcTransactionExFilterHelper.onResetClick(null)"></fpx-button>
+				<fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('view')" label="{{'DEFAULT.view' | translate }}"
+					btnClass=" btn-primary" [buttonMode]="'button'"
+					(onClick)="retailDcTransactionExFilterHelper.onViewClick(null)" [disable]="formGroup.invalid"></fpx-button>
+			</box>
+		</box>
+	</box>
+</form>

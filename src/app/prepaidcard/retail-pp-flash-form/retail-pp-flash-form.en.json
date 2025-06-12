@@ -1,0 +1,31 @@
+"RetailFlashPrepaidCardRequestForm":{
+"title":"RetailFlashPrepaidCardRequest",
+		 "inventoryNumber": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } ,
+		 "cardReference": {
+		  "label":"Prepaid Card" ,
+		  "placeholder": "Prepaid Card"
+		  } ,
+		 "cardNumber": {
+		  "label":"Card Number" ,
+		  "placeholder": "Card Number"
+		  } ,
+		 "cardHolderName": {
+		  "label":"Bank Name" ,
+		  "placeholder": "Bank Name"
+		  } ,
+		 "cvv": {
+		  "label":"CVV" ,
+		  "placeholder": "CVV"
+		  } ,
+		 "validThru": {
+		  "label":"Valid Till" ,
+		  "placeholder": "Valid Till"
+		  } ,
+		 "status": {
+		  "label":"Status" ,
+		  "placeholder": "Status"
+		  } 
+}

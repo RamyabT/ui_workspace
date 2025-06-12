@@ -1,0 +1,22 @@
+ext.cdvMinSdkVersion = 30
+ext.cdvTargetSdkVersion = 34
+cordovaConfig.BUNDLE_ID = 'com.intellect.dep.sit'
+cordovaConfig.APP_NAME = 'DEP Retail SIT'
+// Add this section to modify the app name
+android {
+    applicationVariants.all { variant ->
+        variant.mergeResourcesProvider.configure { mergeResourcesTask ->
+            mergeResourcesTask.doLast {
+                def stringsFile = new File("${mergeResourcesTask.outputDir}/values/strings.xml")
+                if (stringsFile.exists()) {
+                    def content = stringsFile.getText('UTF-8')
+                    content = content.replaceAll('<string name="app_name">.*?</string>', "<string name=\"app_name\">${cordovaConfig.APP_NAME}</string>")
+                    stringsFile.write(content, 'UTF-8')
+                    println "App name updated to '${cordovaConfig.APP_NAME}' in strings.xml"
+                } else {
+                    println "strings.xml not found at ${stringsFile.path}"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,938 @@
+{
+  "DEFAULT": {
+    "pattern": "قيمة غير صحيحة",
+    "required": "هذا حقل إلزامي",
+    "insufficient_balance_error": "الرصيد غير كافٍ في حسابك",
+    "Invalid_Customer_Code": "لا توجد معلومات متاحة",
+    "accountnumber_exists_error": "رقم حساب المستفيد موجود بالفعل",
+    "nickname_exists_error": "هذا اللقب موجود بالفعل",
+    "creditcardnumber_exists_error": "رقم البطاقة الإئتمانية موجود بالفعل",
+    "invalid_bic": "الرمز التعريفي للبنك غير صحيح",
+    "iban_exists_error": "رقم الآيبان موجود بالفعل",
+    "zero_value_error": "الرجاء إدخال المبلغ لمتابعة المعاملة",
+    "installment_error": "عدد الأقساط المدخل مكتمل بالفعل، يرجى إدخال عدد أكبر من هذا العدد",
+    "same_account_error": "يجب ألّا يكون حساب الخصم وحساب الإيداعِ متطابقين",
+    "username_invalid":"لقد أدخلت اسم مستخدم غير صحيح، يرجى المحاولة مرة أخرى",
+    "userpassword_invalid": "لقد أدخلت اسم مستخدم غير صحيح، يرجى المحاولة مرة أخرى",
+    "verificationFailed":"فشلت الجلسة",
+    "invalid_cus_data": "التفاصيل غير متطابقة، يرجى المحاولة مرة أخرى"
+  },
+  "formControlsForm": {
+    "textBox1": {
+      "required": "Text value required"
+    }
+  },
+  "RetailAccountNicknameForm": {
+    "nickName": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "الرجاء إدخال الإسم بالأحرف  الإنجليزية",
+      "nickname_exists_error": "لقب الحساب موجود بالفعل"
+    }
+  },
+  "RetailDDRequestForm": {
+    "amount": {
+      "insufficient_balance_error": "الرصيد غير كافٍ في حسابك"
+    },
+    "beneficiaryID": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid Beneficiary Details(Accept alphaNumeric)"
+    },
+    "beneficiaryName": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid Beneficiary Details (only alphabets)"
+    },
+    "payableAt": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid city name"
+    },
+    "remarks": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid remarks"
+    }
+  },
+  "RetailOpenNewCasaForm": {
+    "remarks": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid remarks"
+    },
+    "accountName": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Only alphabets are allowed and space are allowed"
+    },
+    "initialDepositAmount": {
+      "insufficient_balance_error": "الرصيد غير كافي",
+      "maximumAmount": "رصيد غير كافٍ",
+      "minimumAmount": "Amount is less than the minimum balance required"
+    }
+  },
+  "ApplicantsForm": {
+    "fullName": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid full name"
+    },
+    "middleName": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid middle name"
+    },
+    "lastName": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid last name"
+    },
+    "mobileNum": {
+      "minlength": "Please enter atleast 10 numbers",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Enter only numbers",
+      "mobileDedupe": "Entered mobile number already exists"
+    },
+    "emailAddress": {
+      "pattern": "Please enter valid email address",
+      "emailDedupe": "Entered email address already exists"
+    }
+  },
+  "CobApplicantProfileForm": {
+    "userName": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid user name",
+      "Existing_User": "Please enter a new User ID as this one is not available"
+    },
+    "confirmPassword": {
+      "passwordval": "كلمة المرور المدخلة غير متطابقة"
+    },
+    "password": {
+      "passwd": "Password didn't match the credientials"
+    }
+  },
+  "RetailChangeMaturityInstructionsForm": {
+    "maturityInstruction": {
+      "maturityInstructionError": "Maturity instruction already present"
+    }
+  },
+  "AddressDetailForm": {
+    "addressLine1": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid address"
+    },
+    "addressLine2": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid address"
+    },
+    "cityText": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid city"
+    },
+    "areaName": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid area name"
+    },
+    "street": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid street name"
+    },
+    "nearestLandmark": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid nearest landmark"
+    },
+    "locationName": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid location name"
+    },
+    "zipCode": {
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid PO BOX"
+    }
+  },
+  "COBApplicantAddressInfo": {
+    "AddressDetailForm": {
+      "addressLine1": {
+        "minlength": "الرجاء إدخال 3 حروف على الأقل",
+        "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+        "pattern": "Please enter valid address"
+      },
+      "addressLine2": {
+        "minlength": "الرجاء إدخال 3 حروف على الأقل",
+        "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+        "pattern": "Please enter valid address"
+      }
+    },
+    "communicationAddressInv": {
+      "addressLine1": {
+        "minlength": "الرجاء إدخال 3 حروف على الأقل",
+        "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+        "pattern": "Please enter valid address"
+      },
+      "addressLine2": {
+        "minlength": "الرجاء إدخال 3 حروف على الأقل",
+        "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+        "pattern": "Please enter valid address"
+      },
+      "cityText": {
+        "minlength": "الرجاء إدخال 3 حروف على الأقل",
+        "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+        "pattern": "Please enter valid city"
+      }
+    },
+    "permenantAddressInv": {
+      "addressLine1": {
+        "minlength": "الرجاء إدخال 3 حروف على الأقل",
+        "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+        "pattern": "Please enter valid address"
+      },
+      "addressLine2": {
+        "minlength": "الرجاء إدخال 3 حروف على الأقل",
+        "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+        "pattern": "Please enter valid address"
+      },
+      "cityText": {
+        "minlength": "الرجاء إدخال 3 حروف على الأقل",
+        "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+        "pattern": "Please enter valid city"
+      }
+    }
+  },
+  "COBEmploymentInfoForm": {
+    "companyName": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid company name"
+    },
+    "areaName": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid area name"
+    },
+    "street": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid street name"
+    },
+    "nearestLandmark": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid nearest landmark"
+    },
+    "locationName": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid location name"
+    },
+    "zipCode": {
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter PO BOX"
+    },
+    "buildingName": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid building name"
+    },
+    "empPositionOrDesignation": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid Position"
+    },
+    "empWorkExpDetails": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid work experience details"
+    },
+    "lastEmployersName": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid last employers name"
+    },
+    "empAddressOfLastYear": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid address of last year"
+    },
+    "companyaddressInv": {
+      "addressLine1": {
+        "minlength": "الرجاء إدخال 3 حروف على الأقل",
+        "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+        "pattern": "Please enter valid address"
+      },
+      "addressLine2": {
+        "minlength": "الرجاء إدخال 3 حروف على الأقل",
+        "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+        "pattern": "Please enter valid address"
+      },
+      "cityText": {
+        "minlength": "الرجاء إدخال 3 حروف على الأقل",
+        "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+        "pattern": "Please enter valid city"
+      }
+    },
+    "monthlyIncome": {
+      "IncomevalmaxError": "Your monthly income is comes under maximum amount exceeded",
+      "IncomevalminError": "Your monthly income is comes under mininum amount"
+    }
+  },
+  "RetailDepositRequestForm": {
+    "depositAmount": {
+      "insufficient_balance_error": "رصيد غير كافٍ",
+      "minAmount": "يجب أن يكون المبلغ بين ${minAmount} و${maxAmount}",
+      "maxAmount": "يجب أن يكون المبلغ بين ${minAmount} و${maxAmount} ",
+      "required": "يرجى إدخال قيم في جميع الحقول الإلزامية",
+      "exchange_rate_fetch_error":"حدث خطأ في استرجاع المعلومات، يرجى المحاولة مرة أخرى لاحقًا."
+    },
+    "tenorInMonths": {
+      "minTenorError": "Please enter minimum tenor",
+      "maxTenorError": "tenor exceeded for the product",
+      "requried": "Please enter values to all the mandatory fields",
+      "pattern": "Please enter numeric values"
+    }
+  },
+  "RetailEstmtRequestForm": {
+    "email": {
+      "Email_Error": "نظرا لأن عنوان بريدك الإلكتروني غير مسجل لدى البنك ، فلا يمكنك الاستفادة من هذه الخدمة"
+    }
+  },
+  "RetailChequeBookRequest": {
+    "remarks": {
+      "pattern": "قيمة غير صحيحة",
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "Maximium length Exceed"
+    }
+  },
+  "COBFatcaInfoForm": {
+    "cityOfBirth": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid city Name"
+    },
+    "taxPayerId": {
+      "minlength": "Please enter minimum six characters",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid Tax ID"
+    },
+    "countryOfTax": {
+      "checkcountry": "Please choose valid country"
+    }
+  },
+  "RetailPdcChequeForm": {
+    "chequeNumber": {
+      "minlength": "يرجى إدخال عدد الأحرف المطلوب على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid pattern"
+    }
+  },
+  "RetailChequeStatusInquiryForm": {
+    "chequeNumber": {
+      "minlength": "يرجى إدخال عدد الأحرف المطلوب على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح"
+    },
+    "toChequeNumber": {
+      "minlength": "يرجى إدخال عدد الأحرف المطلوب على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح"
+    },
+    "fromChequeNumber": {
+      "minlength": "يرجى إدخال عدد الأحرف المطلوب على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح"
+    }
+  },
+  "retailcasatrandtlsDownloadfilterform": {
+    "toDate": {
+      "TO_DATE_MAX_ERROR": "To Date should not be greater than From Date"
+    }
+  },
+  "RetailBeneInternalForm":{
+    "beneNickName":{
+      "pattern" :"قيمة غير صحيحة",
+      "minlength":"Please enter minimum 8 digit",
+      "maxlength":"تم تجاوز الحد الأقصى لعدد الحروف المسموح"
+     
+    },
+    "remarks":{
+      "pattern" :"Please Enter Valid Remarks"
+      },
+    
+    "accountNumber":{
+      "pattern":"Only Numeric is allowed",
+      "minlength":"Please enter minimum 8 digit",
+      "maxlength":"تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "error":"Self account  registration restricted"
+    },
+    "confirmAccountNumber":{
+      "nameError":"Account number does not match",
+      "fetchError":"Account number does not exist",
+      "minlength":"Please enter minimum 8 digit",
+      "maxlength":"تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "resFetchError":"New Account Number for this user",
+      "selfAccError":"Own Account Registration is restricted"
+    },
+    "nickName": {
+      "minlength": "Please enter more than 3 characters"
+    }
+  },
+  "RetailBeneDomReq": {
+    "beneNickName": {
+      "pattern": "قيمة غير صحيحة",
+      "minlength": "Please enter minimum 8 digit",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح"
+    },
+    "accountNumber": {
+      "minlength": "Please enter minimum 8 digit",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "error": "Self account  registration restricted"
+    },
+    "confirmAccountNumber": {
+      "nameError": "Account Numbers are not matching",
+      "fetchError": "IBAN does not exist",
+      "minlength": "Please enter minimum 8 digit",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح"
+    },
+    "nickName": {
+      "minlength": "Please enter more than 3 characters"
+    }
+  },
+  "RetailBeneInternationalReqForm": {
+    "accountNumber": {
+      "minlength": "Please Enter Valid Account Number",
+      "maxlength": "Please Enter Valid Account Number",
+      "errorMsg": "Beneficiary Already Registered",
+      "pattern": "قيمة غير صحيحة"
+    },
+    "beneNickName": {
+      "nameError": "Nick Name Already Exist",
+      "minlength": "Please enter valid Nick Name",
+      "pattern": "قيمة غير صحيحة"
+    },
+    "bic": {
+      "bicInvalid": "Invalid BIC Code",
+      "resNullError":"Invalid BIC",
+      "minlength":"Please Enter Valid BIC"
+    },
+    "iban": {
+      "IBANERROR": "Invalid IBAN",
+      "DEPERR4010": "Beneficiary Already Registered",
+      "minlength": "Please enter valid IBAN Number",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح for IBAN",
+      "pattern": "قيمة غير صحيحة"
+    },
+    "confirmIban": {
+      "nameError": "IBAN does not match"
+    },
+    "addressLine1": {
+      "minlength": "Please enter valid Address",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "قيمة غير صحيحة"
+    },
+    "addressLine2": {
+      "minlength": "Please enter valid Address",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "قيمة غير صحيحة"
+    },
+    "beneName": {
+      "minlength": "Please enter valid Name",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "قيمة غير صحيحة"
+    },
+    "city": {
+      "minlength": "Please enter valid City",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "قيمة غير صحيحة"
+    },
+    "conAccNumber": {
+      "minlength": "Please enter valid Account Number",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "قيمة غير صحيحة",
+      "accMisMatch": "Entered Account Number is not same"
+    },
+    "nickName": {
+      "minlength": "Please enter more than 3 characters"
+    }
+  },
+  "RetailBeneCCReqForm": {
+    "beneNickName": {
+      "nameError": "Nick Name Already Exist"
+    },
+    "creditCardNumber": {
+      "nameError": "Credit Card number is already registered",
+      "minlength": "Please Enter Valid Credit Card Number",
+      "maxLength": "Please Enter Valid Credit Card Number"
+    },
+    "confirmCreditCardNumber": {
+      "nameError": "Credit Card number does not match"
+    },
+    "nickName": {
+      "pattern": "Only Alphanumeric is allowed",
+      "minlength": "Please enter more than 3 characters"
+    },
+    "bic": {
+      "minlength": "Please Enter valid BIC",
+      "resNullError":"Invalid BIC"
+    }
+  },
+  "RetailTestLoginForm": {
+      "username": {
+          "user_invalid": "${user_invalid}",
+          "username_locked": "${username_locked}"
+      },
+      "password": {
+      "user_invalid": " اسم المتسخدم / كلمة المرور غير صحيحة",
+      "userpassword_invalid": " اسم المتسخدم / كلمة المرور غير صحيحة",
+      "usermap_invalid":"${usermap_invalid}",
+      "userblock":"${userblock}"
+    }
+  },
+  "RetailResetPasswordForm": {
+    "confirmPassword": {
+      "passwordval": "كلمة المرور المدخلة غير متطابقة"
+    },
+    "newPassword": {
+      "passwd": "الرجاء إدخال كلمة مرور مطابقة لسياسة كلمة المرور الخاصة بالبنك"
+    }
+  },
+  "RetailChangePasswordForm": {
+    "confirmPassword": {
+      "passwordval": "كلمة المرور المدخلة غير متطابقة"
+    },
+    "confirmPass":{
+      "passwordval": "لقد أدخلت اسم مستخدم غير صحيح، يرجى المحاولة مرة أخرى"
+    },
+    "newPassword": {
+      "passwd": "الرجاء إدخال كلمة مرور مطابقة لسياسة كلمة المرور الخاصة بالبنك"
+    }
+  },
+  "RetailDcActivateCardForm": {
+    "cardName": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Only Alphabets"
+    },
+    "cvv": {
+      "DEPERR5003": "Please Enter Valid Card Details"
+    },
+    "remarks": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح"
+    }
+  },
+  "RetailCCActivationForm": {
+    "cardHolderName": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Only Alphabets"
+    },
+    "cvv": {
+      "DEPERR5003": "Please Enter Valid Card Details"
+    },
+    "remarks": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح"
+    }
+  },
+  "RetailLoanModification": {
+    "deferralAmtError": {
+      "deferralAmtError": "Entered amount is greater than overdue amount"
+    },
+    "remarks": {
+      "minlength": "يرجى إدخال عدد الأحرف المطلوب على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid reason"
+    }
+  },
+  "RetailInstaPayForm": {
+    "confirmIban": {
+      "confirmIbanError": "Entered IBAN is not matched"
+    }
+  },
+  "dcpinrequest": {
+    "confirmPin": {
+      "DEPERR900015": "رقم التعريف الشخصي الذي تم إدخاله غير مطابق",
+      "pattern": "Please enter valid PIN"
+    },
+    "reenteredPin":{
+      "reenteredPinerr":"رقم التعريف الشخصي الذي تم إدخاله غير مطابق",
+      "pattern": "Please enter valid PIN"
+    },
+    "pin": {
+      "pinError": "Please enter new PIN not match with previous PINs",
+      "pattern": "Please enter valid PIN"
+    },
+    "remarks":{
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid Remarks"
+    }
+  },
+  "RetailNPSSProxyForm": {
+    "email": {
+      "emailError": "Email already registered",
+      "NoEmail": "Email not available"
+    }
+  },
+  "RetailLoanClosureForm": {
+    "debitAccount": {
+      "insufficient_balance_error": "الرصيد غير كافي"
+    },
+    "remarks":{
+      "minlength":"يرجى إدخال عدد الأحرف المطلوب على الأقل",
+      "maxlength":"تم تجاوز الحد الأقصى لعدد الحروف المسموح"
+    }
+  },
+  "DCVerifyPinValidationForm": {
+    "confirmPin": {
+    "DEPERR900015":"Please Enter Valid PIN",
+    "pattern": "Please enter valid PIN"
+    },
+    "pin":{
+      "DEPERR900017":"Please enter correct PIN",
+      "pattern": "Please enter valid PIN"
+    }
+  },
+  "RetailWithinBankTransferFormComponent": {
+    "scheduleHandler.paymentFrequency": {
+      "frequencyErrors": " The number of installments completed is xx, please enter a value above xx"
+    }
+  },
+  "verifyTfa": {
+    "otp": {
+      "minlength": "يرجى إدخال كلمة مرور لمرة واحدة (OTP) صالحة",
+      "required": " ",
+      "pattern": "يرجى إدخال كلمة مرور لمرة واحدة (OTP) صالحة"
+    }
+  },
+  "RetailDcTransactionExFilter":{
+    "maximumAmount":{
+      "maxAmmountERR": "Maximium Amount Can't less then Min Amount"
+    }
+  },
+   "RetailForgotPasswordForm": {
+    "accountNumber": {
+      "minlength": "Please Enter Valid  digit Account Number",
+      "maxlength": "Please Enter Valid 10 digit Account Number",
+      "pattern": "قيمة غير صحيحة"
+    },
+    "debitcardNumber": {
+      "minlength": "Please Enter Valid 16 digit Card Number",
+      "maxlength": "Please Enter Valid 16 digit Card Number",
+      "pattern": "قيمة غير صحيحة"
+    },
+    "pin":{
+      "pattern":"Enter Valid 4 digit pin",
+      "user_exists": "${user_exists}",
+      "invalid_user_data":"${invalid_user_data}",
+      "invalid_data": "Based on the policy of the bank.You are unable to register for online banking. Please contact Customer Care Centre for further assistance.",
+      "invalid_cus_data": "التفاصيل غير متطابقة، يرجى المحاولة مرة أخرى",
+      "usermap_invalid":"${usermap_invalid}",
+      "userblock":"${userblock}"
+    }
+    },
+    "RetailCustomerVerificationForm": {
+      "accountNumber": {
+        "minlength": "Please Enter Valid digit Account Number",
+        "maxlength": "Please Enter Valid 10 digit Account Number",
+        "pattern": "قيمة غير صحيحة"
+      },
+        "debitcardNumber": {
+          "minlength": "Please Enter Valid 16 digit Card Number",
+          "maxlength": "Please Enter Valid 16 digit Card Number",
+          "pattern": "قيمة غير صحيحة"
+        },
+        "pin":{
+          "pattern":"Enter Valid 4 digit pin",
+          "user_exists": "${user_exists}",
+          "invalid_user_data":"${invalid_user_data}",
+          "invalid_data": "Based on the policy of the bank.You are unable to register for online banking. Please contact Customer Care Centre for further assistance.",
+      "invalid_cus_data": "التفاصيل غير متطابقة، يرجى المحاولة مرة أخرى"
+
+        }
+      },
+        "RetailDebitCardSetPinForm":{
+    "reenteredPin":{
+      "reenteredPinerr":"Confirm PIN does not match"
+    }
+  },
+  "NPSSSendMoney":{
+    "transactionAmount":{
+      "maxError":"رصيد غير كافٍ"
+    },
+    "email":{
+      "notRegistered":"Customer not Registered"
+    },
+    "mobileNumber":{
+      "notRegistered":"Customer not Registered"
+    }
+  },
+  "RetailNpssRequestMoney":{
+    "transactionAmount":{
+      "maxError":"رصيد غير كافٍ"
+    },
+    "email":{
+      "notRegistered":"Customer not Registered"
+    },
+    "mobileNumber":{
+      "notRegistered":"Customer not Registered"
+    }
+  },
+  "retaildcreplacement":{
+    "otherReason":{
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Remarks"
+    }
+  },  "RetailPrepaidWalletTransferForm":{
+    "fromCurrency":{
+      "fromcurrency_err":"From currency and To currency should not be same"
+    },
+    "toCurrency":{
+      "tocurrency_err":"From currency and To currency should not be same"
+    },
+    "remarks":{
+      "minlength":"يرجى إدخال عدد الأحرف المطلوب على الأقل",
+      "maxlength":"تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter Min 3 to Max 100 characters"
+    }
+  },
+  "raisedisputedebitcard":{
+    "remarks":{
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Remarks"
+    }
+  },
+  "registerDeviceForm": {
+    "confirmMpin": {
+      "not_match": "Confirm MPIN not Matched",
+      "minlength": " "
+    },
+    "mpin": {
+      "minlength": " "
+    }
+  },
+  "RetailPrepaidTopUpForm": {
+    "amount":{
+      "insufficient_balance_error": "الرصيد غير كافي"
+    }
+  },
+  "RetailCCBillPaymentForm": {
+    "amount":{
+      "insufficient_balance_error": "الرصيد غير كافي",
+      "amount_err":"لا يوجد مبالغ مستحقة",
+      "amount_err1":"There is no outstanding amount",
+      "max_amount_err":"Amount should be less than Total Due Amount",
+      "min_amount_err":"Amount should be greater than Minimum Due Amount"
+    },
+    "otherAmount":{
+      "insufficient_balance_error": "الرصيد غير كافي",
+      "max_amount_err":"Amount should be less than Total Due Amount",
+      "min_amount_err":"Amount should be greater than Minimum Due Amount"
+    },
+    "remarks": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "pattern": "Please enter valid Remarks",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح"
+    }
+  },
+   "RetailPrepaidChanfePin": {
+    "confirmPin": {
+      "DEPERR900017": "رقم التعريف الشخصي الذي تم إدخاله غير مطابق",
+      "pattern": "Please enter valid PIN"
+    },
+    "reenteredPin":{
+      "reenteredPinerr":"رقم التعريف الشخصي الذي تم إدخاله غير مطابق",
+      "pattern": "Please enter valid PIN"
+    },
+    "pin": {
+      "pinError": "Current PIN & New PIN should not be Same",
+      "pattern": "Please enter valid PIN"
+    },
+    "remarks":{
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid Remarks"
+    }
+  },
+  "retailActivePrepaidCard":{
+    "cardName": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Only Alphabets"
+    },
+    "cvv": {
+      "DEPERR5007": "Please Enter Valid Card Details"
+    },
+    "remarks": {
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح"
+    }
+  },
+    "RetailSingleBillPaymentForm":{
+    "paymentAmount":{
+      "minAmount":"يرجى إدخال الحد الأدنى ${minAmount}",
+      "maxAmount":"المبلغ الذي تم إدخاله يجب أن يكون أقل من ${maxAmount}",
+      "multiplesErr":"المبلغ الذي تم إدخاله يجب أن يكون من مضاعفات الرقم ${multiplesErr} فقط",
+      "insufficient_balance_error": "لا يوجد رصيد كافٍ لإجراء هذه الدفعة"
+    },
+    "remarks": {
+      "minlength": "يرجى إدخال ثلاثة أحرف على الأقل",
+      "maxlength": "Maximum Length Exceeded"
+    }
+  },
+  "RetailOwnAccountTransferForm": {
+    "sourceAccount": {
+      "singleAccountError": "لا تتوفر لديك حسابات اخرى",
+      "invalidAccountErr":"Invalid account number.Please select valid account"
+    },
+    "paymentAmount": {
+      "beneNullError":"Please Select Credit Account",
+      "sourceAccNullError":"Please Select Debit Account"
+    },
+    "remarks": {
+      "minlength": "Please enter minimum three characters",
+      "maxlength": "Maximum Length Exceeded",
+      "pattern": "Please enter valid remarks"
+    
+    }
+  },
+  "RetailTaxStatementReq":{
+    "taxRegistrationNumber":{
+      "minlength": "Tax Number should be 15 digits",
+      "maxlength": "Tax Number should be 15 digits",
+      "pattern": "Invalid tax number "
+    }
+  },
+  "RetailNoLiabilityLetter":{
+    "email":{
+      "Email_Error": "Your communication information is unavailable."
+    } 
+  },
+  "RetailLiabilityLetterForm":{
+    "email":{
+      "Email_Error": "Your communication information is unavailable."
+    } 
+  },
+  "RetailAdhocAccStmtReqForm":{
+    "emailId":{
+      "Email_Error": "Your communication information is unavailable."
+    } 
+  },
+  "RetailIBANLetterReqForm":{
+    "emailId":{
+      "Email_Error": "Your communication information is unavailable."
+    } 
+  },
+  "RetailCCPinrequestForm": {
+    "confirmPin": {
+      "DEPERR900017": "Entered PIN is not matching",
+      "pattern": "Please enter valid PIN"
+    },
+    "reEnterNewPin": {
+      "reenteredPinerr": "Confirm PIN not Matched",
+      "pattern": "Please enter valid PIN"
+    },
+    "pin": {
+      "pinError": "Your Current PIN and New PIN should not match",
+      "pattern": "Please enter valid PIN"
+    },
+    "remarks":{
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid Remarks"
+    }
+  },
+  "retailcreditcardblock":{
+    "remarks":{
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid Remarks"
+    }
+  },
+  "retailccunblocked":{
+    "remarks":{
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "تم تجاوز الحد الأقصى لعدد الحروف المسموح",
+      "pattern": "Please enter valid Remarks"
+    },
+    "unBlockOtherReason":{
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Reason"
+    }
+  },
+   "retaildcunblock":{
+    "remarks":{
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Remarks"
+    },
+    "unBlockOtherReason":{
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Remarks"
+    }
+  },
+  "RetailChangeMpinForm":{
+    "currentMpin":{
+     "pattern":"Enter 4 numbers"
+    },
+    "newMpin":{
+      "pattern":"Enter 4 numbers"
+     },
+  "confirmMpin":{
+    "passwordval": "لقد أدخلت اسم مستخدم غير صحيح، يرجى المحاولة مرة أخرى",
+    "pattern":"Enter 4 numbers"
+  
+  }
+  },
+  "NPSSLOGIN":{
+    "password":{
+      "verificationFailed":"User is not verified"
+    }
+
+  },
+  "mpinLoginForm": {
+    "mpin": {
+      "minlength": " "
+    }
+  },
+  "RetailCcLimitChangeForm":{
+    "limitChange":{
+      "limitChangeERR":"الرجاء إدخال قيمة جديدة لحد بطاقة الإئتمان للمتابعة",
+      "maxlength":"الرجاء إدخال المبلغ ضمن الحدود المسموح بها",
+      "minlength":"الرجاء إدخال المبلغ ضمن الحدود المسموح بها",
+      "pattern":"الرجاء إدخال المبلغ ضمن الحدود المسموح بها",
+      "min": "الرجاء إدخال المبلغ ضمن الحدود المسموح بها",
+      "max": "الرجاء إدخال المبلغ ضمن الحدود المسموح بها"
+    },
+    "limitChangeFlag":{
+      "maxlength":"الرجاء إدخال المبلغ ضمن الحدود المسموح بها",
+      "pattern":"الرجاء إدخال المبلغ ضمن الحدود المسموح بها"
+    }
+    
+  },
+   "retailpcunblock":{
+    "remarks":{
+      "minlength": "الرجاء إدخال 3 حروف على الأقل",
+      "maxlength": "Maximum Length 100 Exceeded",
+      "pattern": "Please enter valid Remarks"
+    },
+     "unblkOtherReason":{
+      "pattern": "Please enter valid reason"
+    }
+  },
+  "RetailAddBillerForm":{
+    "nickName":{
+      "pattern":"Please Enter a Valid Nickname"
+    }
+    
+  }
+}

@@ -1,0 +1,15 @@
+"RetailMembershipAccountDetailsForm":{
+"title":"Account Details",
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "productName": {
+		  "label":"Product Name" ,
+		  "placeholder": "Product Name"
+		  } ,
+		 "availableBalance": {
+		  "label":"Available Balance" ,
+		  "placeholder": "Available Balance"
+		  } 
+}

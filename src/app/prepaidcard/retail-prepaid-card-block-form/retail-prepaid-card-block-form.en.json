@@ -1,0 +1,24 @@
+{
+"RetailPrepaidBlockForm":{
+"title":"PrepaidcardBlocked",
+		 "cardRefNumber": {
+		  "label":"Prepaid Card " ,
+		  "placeholder": "Prepaid Card "
+		  } ,
+		 "blockReason": {
+		  "label":"Reason" ,
+		  "placeholder": "Reason"
+		  } ,
+		 "charges": {
+		  "label":"charges" ,
+		  "placeholder": "charges"
+		  },
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsAndCondition": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } 
+}}

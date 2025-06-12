@@ -1,0 +1,39 @@
+"RetailNoLiabilityLetter":{
+"title":"No Liability Letter",
+		 "date": {
+		  "label":"Date" ,
+		  "placeholder": "Date"
+		  } ,
+		 "addressedTo": {
+		  "label":"Addressed To" ,
+		  "placeholder": "Addressed To"
+		  } ,
+		 "deliveryOption": {
+		  "label":"Delivery Option" ,
+		  "placeholder": "Delivery Option"
+		  } ,
+		  "email": {
+            "label":" Email Id" ,
+            "placeholder": ""
+            } ,
+            "deliveryBranch": {
+                "label":"Delivery Branch" ,
+                "placeholder": ""
+                } ,
+		 "chargesAmount": {
+		  "label":"Charges Amount" ,
+		  "placeholder": "Charges Amount"
+		  } ,
+		 "Reason": {
+		  "label":"Reason" ,
+		  "placeholder": "Reason"
+		  } ,
+		 "otherReason": {
+		  "label":"Other Reason" ,
+		  "placeholder": "Other Reason"
+		  } ,
+		 "termsFlag": {
+		  "label":"Kindly issue me a No Liability Letter" ,
+		  "placeholder": "Placeholder"
+		  } 
+}

@@ -1,0 +1,31 @@
+"RetailCCActivationForm":{
+"title":"retailccactivation",
+		 "cardReference": {
+		  "label":"Credit Card Number" ,
+		  "placeholder": "Credit Card Number"
+		  } ,
+		 "expiryMonth": {
+		  "label":"Expiry Month" ,
+		  "placeholder": "Expiry Month"
+		  } ,
+		 "expiryYear": {
+		  "label":"Expiry Year" ,
+		  "placeholder": "Expiry Year"
+		  } ,
+		 "cvv": {
+		  "label":"CVV" ,
+		  "placeholder": "CVV"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		  "cardHolderName": {
+		   "label":"Card Holder Name" ,
+		   "placeholder": "Card Holder Name"
+		   } ,
+		 "termsandconditions": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } 
+}

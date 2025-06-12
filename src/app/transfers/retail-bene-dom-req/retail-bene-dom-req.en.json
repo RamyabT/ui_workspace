@@ -1,0 +1,67 @@
+"RetailBeneDomReq":{
+"title":"Domestic Beneficiary",
+		 "nickName": {
+		  "label":"Beneficiary Nickname" ,
+		  "placeholder": "Beneficiary Nickname"
+		  } ,
+		 "accountNumber": {
+		  "label":"IBAN Number" ,
+		  "placeholder": "IBAN Number"
+		  } ,
+		  "confirmAccountNumber": {
+			"label":"Confirm IBAN Number" ,
+			"placeholder": "Confirm IBAN Number"
+			} ,
+		 "routingCode": {
+		  "label":"BIC Code" ,
+		  "placeholder": "BIC Code"
+		  } ,
+		 "bankCode": {
+		  "label":"Bank Name " ,
+		  "placeholder": "Bank Name"
+		  } ,
+		 "branchCode": {
+		  "label":"Bank Branch" ,
+		  "placeholder": "Bank Branch"
+		  } ,
+		 "bankAddress": {
+		  "label":"Bank Address" ,
+		  "placeholder": "Bank Address"
+		  } ,
+		 "addressLine1": {
+		  "label":"Beneficiary Address Line 1" ,
+		  "placeholder": "Beneficiary Address Line 1"
+		  } ,
+		 "addressLine2": {
+		  "label":"Beneficiary Address Line 2" ,
+		  "placeholder": "Beneficiary Address Line 2"
+		  } ,
+		 "city": {
+		  "label":"City" ,
+		  "placeholder": "City"
+		  } ,
+		 "country": {
+		  "label":"Country" ,
+		  "placeholder": "Country"
+		  } ,
+		  "beneficiaryName": {
+			"label":"Beneficiary Name" ,
+			"placeholder": "Beneficiary Name"
+			} ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"I hereby agree with the terms and conditions and key facts statements." ,
+		  "placeholder": "I hereby agree with the terms and conditions and key facts statements."
+		  } ,
+		  "isFavourite": {
+			"label":"Mark as Favourite" ,
+			"placeholder": "Mark as Favourite"
+			} ,
+		 "isFavourite": {
+		  "label":" is Favourite" ,
+		  "placeholder": " is Favourite"
+		  } 
+}

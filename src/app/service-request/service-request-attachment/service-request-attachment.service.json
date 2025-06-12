@@ -1,0 +1,5 @@
+ 
+ "servicerequestattachment" : {
+ "servicePath": ["entry-shell","servicerequest", "service-request-attachment"],
+ "queryParams": {}
+ }

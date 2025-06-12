@@ -1,0 +1,15 @@
+<box class="budget-product-card-carousel insurance-home">
+    <ngx-slick-carousel class="budget-product-carousel" #slickModal="slick-carousel" [config]="slideConfig"
+        (afterChange)="onCardChanged($event)">
+        <ng-container *ngIf="summary?.length">
+            <ng-container *ngFor="let item of summary">
+                <box ngxSlickItem class="slide" [style.width.px]="slideWidth">
+                    <box class="insurance-card">
+                        <app-insurance-summary-card  class="col-12" [insuranceItem]="item" context="form" [contextmenuBtn]="true">
+                        </app-insurance-summary-card>
+                    </box>
+                </box>
+            </ng-container>
+        </ng-container>
+    </ngx-slick-carousel>
+</box>

@@ -1,0 +1,37 @@
+<box class="home-layout">
+    <ng-container *ngIf="device.isMobile(); else spaceContainer">
+        <box>
+            <portfolio-header></portfolio-header>
+        </box>
+        <box>
+            <portfolio-summary></portfolio-summary>
+        </box>
+        <box>
+            <aside-bar></aside-bar>
+        </box>
+    </ng-container>
+    <ng-template #spaceContainer>
+        <box class="space-container">
+            <box class="space-summary">
+                <aside-bar></aside-bar>
+            </box>
+            <box class="space-content">
+                <box>
+                    <home-module-header></home-module-header>
+                </box>
+                <box *ngIf="showAds" class="ads-banner">
+                    <box *ngIf="showClosebtn" class="close-btn-container">
+                        <button type="button" class="btn-container log-out-btn" (click)="close()" aria-label="Close">
+                            <span class="icon close-btn-icon"></span>
+                        </button>
+                    </box>
+                    <banner-ads (afterAdsFetch)="receivedData($event)" [serviceCode]="serviceCode"></banner-ads>
+                </box>
+                <box>
+                    <portfolio-summary></portfolio-summary>
+                </box>
+            </box>
+        </box>
+    </ng-template>
+
+</box>

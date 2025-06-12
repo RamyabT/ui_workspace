@@ -1,0 +1,47 @@
+ 
+	<!-- <fpx-text-box  class="fpx-form-control"
+		 [controlName]="formControlName"  #fpxControl 
+		 [placeholder]="placeholder" [label]="label"    [maxlength]="maxLength"        >
+	 </fpx-text-box> -->
+
+
+	  
+	<!-- <fpx-number  class="fpx-form-control"
+		 [controlName]="formControlName"  #fpxControl 
+		 [placeholder]="placeholder" [label]="label"    [max]="maxLength"        >
+	</fpx-number> -->
+<!-- <fpx-text-box  class="fpx-form-control"
+	[controlName]="formControlName"  #fpxControl 
+	[placeholder]="placeholder" [label]="label" [maxlength]="maxLength" inputType="tel" >
+</fpx-text-box> -->
+
+<div class="fpx-form-control" [ngClass]="{
+	'fpx-focus' : formControl && isFocused,
+	'fpx-valid' : formControl && formControl.touched && formControl.valid,
+	'fpx-invalid' : formControl && formControl.touched && formControl.invalid,
+	'fpx-disabled' : formControl && formControl.disabled
+	}">
+	<fpx-label [ngClass]="formAnchorDirective.formName +'_' + formControlName + '_label'  " *ngIf="label" [control]="formControl" #fpxLabel [label]="label"></fpx-label>
+
+	<div class="fpx-field-content">
+		<input type="tel" 
+			class="fpx-form-control" 
+			#fpxInput 
+			formControlName="formControlName"
+			[formControl]="formControl"
+			[titleCase]="TITLECASE" [fpxUpperCase]="wordsInUpperCase"
+      		[fpxPattern]="PATTERN"
+			[ngClass]="{ 'input-available': formControl && formControl.value }" (focus)="onfocus()"
+			(blur)="onblur()" autocomplete="off" autocapitalize="off" autocorrent="false" spelcheck="false"
+			[id]="formAnchorDirective.formName + '_' + formControlName + '_input'"
+			matInput fpxNumberInput [maxlength]="maxLength"
+			[placeholder]="placeholder" />
+		<!-- <fpx-placeholder *ngIf="placeholder" class="placeholder" [id]="formAnchorDirective.formName + '_' + formControlName + '_placeholder'">
+		{{ placeholder }}
+		</fpx-placeholder> -->
+	</div>
+
+	<mat-error *ngIf="formControl && formControl.touched">
+		{{ errorCode }}
+	  </mat-error>
+</div>

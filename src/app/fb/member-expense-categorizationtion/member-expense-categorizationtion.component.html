@@ -1,0 +1,27 @@
+<box class="expense-categories">
+    <box class="widget-container col-sm-12 col-md-12 col-lg-12">
+        <box class="widget-body">
+            <ng-container *ngIf="state.expenses && state.expenses.length">
+                <div class="chart-container">
+                    <app-member-expense-donut-chart [chartData]="state.expenses"></app-member-expense-donut-chart>
+                </div>
+                <ng-container *ngIf="state.showLegends">
+                    <box class="chart-tool-bar">
+                        <box class="legends-wrapper grid">
+                            <ng-container *ngFor="let item of state.expenses">
+                                <box class="legend-item col-sm-6">
+                                    <span class="legend-category {{item.icon}}" [ngStyle]="{'--categoryColor': item.iconTheme }"></span>
+                                    <span class="legend-desc">{{item.description}} - {{item.spendPercentage}}%</span>
+                                </box>
+                            </ng-container>
+                        </box>
+                    </box>
+                </ng-container>
+            </ng-container>
+        </box>
+        <box class="widget-action" (click)="_helper.toggleLegends()">
+            <span *ngIf="state.showLegends">Hide Details</span>
+            <span *ngIf="!state.showLegends">Show Details</span>
+        </box>
+    </box>
+</box>

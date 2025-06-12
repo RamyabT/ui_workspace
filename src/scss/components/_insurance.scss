@@ -1,0 +1,484 @@
+#depAppBody {
+
+  .module-home {
+    &.insurance-home {
+      .module-home-bg {
+        height: 294px;
+      }
+    }
+  }
+
+  app-insurance-container-space,
+  app-retail-insurance-details-form {
+
+    .insurance-home {
+      @media screen and (min-width: 769px) {
+        .space-container .space-content {
+          gap: 0px;
+        }
+      }
+      .actions-list {
+        .icon-wrapper {
+          &:is(.RETAILINSURANCE)::before {
+            mask-image: url("../../assets/insurance/insurance.svg");
+            -webkit-mask-image: url("../../assets/insurance/insurance.svg");
+            mask-size: 48px;
+          }
+        }
+      }
+      .actions-list .icon-wrapper:is(.RETAILINSURANCEDETAILS)::before {
+        mask-image: url("../../assets/insurance/insurance.svg");
+        -webkit-mask-image: url("../../assets/insurance/insurance.svg");
+        mask-size: 48px;
+      }
+      .actions-list .icon-wrapper:is(.RETAILINSURANCENOMINEEDTLS)::before {
+        mask-image: url("../../assets/insurance/manage-nominee.svg");
+        -webkit-mask-image: url("../../assets/insurance/manage-nominee.svg");
+      }
+      .actions-list .icon-wrapper:is(.RETAILPAYINSURANCE)::before {
+        mask-image: url("../../assets/insurance/pay-insurance.svg");
+        -webkit-mask-image: url("../../assets/insurance/pay-insurance.svg");
+      }
+
+      .no-member-container {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        box-shadow: 0px 0px 30px 0px #00000017;
+        border: 0.5px solid var(--neutral500);
+        border-radius: 12px;
+        justify-content: space-between;
+        background: var(--neutral50);
+        margin: 16px;
+        height: 131px;
+
+        .add-member-container {
+          @include b2-regular;
+          display: flex;
+          flex-direction: column;
+          color: var(--baseTxtClr);
+          padding: 12px 0px 12px 12px;
+          gap: 10px;
+        }
+      }
+
+      .insurance-card-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 16px;
+        border-radius: 16px;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+
+        .row {
+          display: flex;
+          gap: 16px;
+
+          .col-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+          }
+        }
+
+
+        &.large {
+          height: 218px;
+          width: 162px;
+          flex: 1;
+        }
+
+        &.small {
+          height: 103px;
+          width: 162px;
+        }
+
+        @include small-screen {
+          &.default {
+            height: 116px;
+            width: 344px;
+          }
+        }
+
+        @include not-small-screen {
+          &.default {
+            height: 116px;
+            width: 334px;
+          }
+        }
+
+        h3 {
+          margin-bottom: 8px;
+          font-size: 1.1rem;
+        }
+
+        ul {
+          padding-left: 16px;
+          margin: 0 0 10px;
+        }
+
+        li {
+          list-style: disc;
+          @include b4-regular;
+          margin-bottom: 4px;
+        }
+
+        a {
+          color: #fff;
+          text-decoration: underline;
+          font-weight: bold;
+        }
+
+        &.vehicle {
+          background-image: url("../../assets/insurance/vehicle.png"), url("../../assets/insurance/vehiclebg.svg"), linear-gradient(135deg, #004996, #0279E7);
+          background-repeat: no-repeat !important;
+          background-position: right bottom !important;
+        }
+
+        &.life {
+          background-image: url("../../assets/insurance/life.png"), url("../../assets/insurance/lifebg.svg"), linear-gradient(to right, #E0BA21, #FF716B);
+          background-repeat: no-repeat !important;
+          background-position: right bottom !important;
+        }
+
+        &.home {
+          background-image: url("../../assets/insurance/home.png"), url("../../assets/insurance/homebg.svg"), linear-gradient(135deg, #FF6F71, #D483FF);
+          background-repeat: no-repeat !important;
+          background-position: right bottom !important;
+        }
+
+        &.travel {
+          background-image: url("../../assets/insurance/travel.png"), url("../../assets/insurance/travelbg.svg"), linear-gradient(135deg, #06322D, #27BEB7);
+          background-repeat: no-repeat !important;
+          background-position: right bottom !important;
+        }
+
+      }
+
+      .text-container {
+        @include b1-regular;
+      }
+
+      .title {
+        @include s4-medium;
+      }
+
+      .header {
+        @include s3-medium;
+        padding: 16px 24px;
+   // border-bottom: 1px solid var(--neutral200);
+      }
+
+      .label {
+        font-size: 16px;
+        font-weight: var(--fontWeightMedium);
+        line-height: 20px;
+      }
+
+      .insurance-ad-banner {
+        display: flex;
+        justify-content: space-around;
+        padding: 9px 0;
+      }
+
+      .insurance-ad-banner1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .insurance-ad-banner2 {
+        display: flex;
+        padding: 0 9px;
+      }
+
+      .insurance-summary-wrapper {
+        margin-bottom: 16px;
+      }
+
+      .insurance-summary-card-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px;
+      }
+
+      .insurance-card {
+        display: grid;
+        gap: 10px;
+        padding: 17px;
+      }
+
+      .insurance-summary-card {
+        border-radius: 12px;
+        padding: 16px;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .mat-radio-button.default .mat-radio-container .mat-radio-outer-circle {
+        border-color: var(--neutral500);
+        border-width: 1px;
+        background: var(--neutral50);
+      }
+
+      .mat-radio-button.default.mat-radio-checked .mat-radio-container .mat-radio-outer-circle {
+        border-color: var(--radioOnBdrClr);
+        background-color: var(--radioOnBg);
+      }
+
+      .no-member-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .title {
+        @include s4-medium;
+        align-self: flex-start;
+        margin-bottom: 16px;
+      }
+
+      .insurance-image {
+        max-width: 200px;
+        height: auto;
+        margin-bottom: 16px;
+      }
+
+      app-insurance-summary-card .insurance-summary-wrapper .insurance-summary-card {
+        .activeStatus {
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          background-color: var(--successClr);
+          border-radius: 50%;
+          margin-right: 6px;
+          vertical-align: middle;
+        }
+
+        .inactiveStatus {
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          background-color: var(--errorColor);
+          border-radius: 50%;
+          margin-right: 6px;
+          vertical-align: middle;
+        }
+
+        &.vehicle {
+          background-image: url("../../assets/insurance/vehicle.png"), url("../../assets/insurance/vehiclebg.svg"), url("../../assets/insurance/insurance-bg.png"), linear-gradient(135deg, #004996, #0279E7);
+          background-repeat: no-repeat, no-repeat, no-repeat, no-repeat !important;
+          background-position: right bottom, right bottom, center center, center center !important;
+          background-size: auto, auto, cover, cover;
+        }
+
+        &.life {
+          background-image: url("../../assets/insurance/life.png"), url("../../assets/insurance/lifebg.svg"), url("../../assets/insurance/insurance-bg.png"), linear-gradient(to right, #E0BA21, #FF716B);
+          background-repeat: no-repeat, no-repeat, no-repeat, no-repeat !important;
+          background-position: right bottom, right bottom, center center, center center !important;
+          background-size: auto, auto, cover, cover;
+        }
+
+        &.travel {
+          background-image: url("../../assets/insurance/travel.png"), url("../../assets/insurance/travelbg.svg"), url("../../assets/insurance/insurance-bg.png"), linear-gradient(135deg, #06322D, #27BEB7);
+          background-repeat: no-repeat, no-repeat, no-repeat, no-repeat !important;
+          background-position: right bottom, right bottom, center center, center center !important;
+          background-size: auto, auto, cover, cover;
+        }
+
+        &.home {
+          background-image: url("../../assets/insurance/home.png"), url("../../assets/insurance/homebg.svg"), url("../../assets/insurance/insurance-bg.png"), linear-gradient(135deg, #FF6F71, #D483FF);
+          background-repeat: no-repeat, no-repeat, no-repeat, no-repeat !important;
+          background-position: right bottom, right bottom, center center, center center !important;
+          background-size: auto, auto, cover, cover;
+        }
+
+
+        .policy-title {
+          @include s4-medium;
+          font-size: 14px;
+          font-weight: bold;
+        }
+
+        .policy-number {
+          @include s4-medium;
+          font-size: 18px;
+          font-weight: bold;
+        }
+
+        .policy-term,
+        .expiry-date {
+          font-size: 14px;
+          @include s4-medium;
+        }
+
+        .quick-actions-toggle {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+        }
+
+        .insurance-arrow {
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          &::before {
+            content: " ";
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            background-color: var(--neutral50);
+          }
+
+          &.rotate-down {
+            width: 24px;
+            height: 24px;
+            margin: 0;
+            mask: url("../../assets/images/overview/expander-arrow.svg") no-repeat center;
+            -webkit-mask: url("../../assets/images/overview/expander-arrow.svg") no-repeat center;
+            mask-size: 16px;
+            -webkit-mask-size: 16px;
+          }
+
+          &.rotate-up {
+            width: 24px;
+            height: 24px;
+            margin: 0;
+            mask: url("../../assets/images/overview/expander-arrow.svg") no-repeat center;
+            -webkit-mask: url("../../assets/images/overview/expander-arrow.svg") no-repeat center;
+            mask-size: 16px;
+            -webkit-mask-size: 16px;
+            transform: rotate(180deg) !important;
+          }
+        }
+
+        .insurance-summary-list-actions {
+          background: var(--neutral50);
+          border-radius: 0 0 12px 12px;
+          padding: 3px;
+          display: flex;
+          justify-content: space-around;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.08);
+          height: 82px;
+        }
+
+        // .actions-list {
+        //   display: flex;
+        //   justify-content: space-around;
+        //   padding: 0;
+        //   list-style: none;
+        // }
+
+        .list-group-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          font-size: 12px;
+          text-align: center;
+          cursor: pointer;
+        }
+
+        .icon-wrapper {
+          width: 32px;
+          height: 32px;
+          background-size: cover;
+          margin-bottom: 4px;
+        }
+
+        .text {
+          color: hsl(0, 0%, 20%);
+        }
+
+        .description {
+          font-size: 14px;
+          color: #555;
+          margin: 0;
+        }
+
+        .share-info {
+          mask: url("../../assets/images/icons/share.svg") no-repeat center;
+          -webkit-mask: url("../../assets/images/icons/share.svg") no-repeat center;
+          background: #FFF;
+        }
+
+        .contextual-menu-trigger {
+          position: absolute;
+          left: calc(50% - 12px);
+          bottom: 2px;
+          width: 24px;
+          height: 24px;
+          background-color: var(--baseTxtClr);
+          mask: url(../../assets/wallet/loan-context-menu-trigger.svg) no-repeat center;
+          -webkit-mask: url(../../assets/wallet/loan-context-menu-trigger.svg) no-repeat center;
+          mask-size: 18px;
+          -webkit-mask-size: 18px;
+          bottom: 4px;
+          margin: auto;
+          z-index: 3;
+        }
+      }
+
+      // .insurance-summary-card.has-context-menu:after {
+      //   content: " ";
+      //   position: absolute;
+      //   bottom: 1px;
+      //   width: 98px;
+      //   height: 18px;
+      //   left: 0;
+      //   right: 0;
+      //   margin: 0 auto;
+      //   background-color: var(--tertiaryAqua500);
+      //   mask: url(../../assets/wallet/expander.svg) no-repeat center 100%;
+      //   -webkit-mask: url(../../assets/wallet/expander.svg) no-repeat center 100%;
+      //   mask-size: 98px;
+      //   -webkit-mask-size: 98px;
+      //   z-index: 2;
+      // }
+
+      .display-fields-container .display-field {
+        width: 100%;
+      }
+
+    }
+  }
+
+  app-retail-pay-insurance {
+    .policy-link {
+      margin: 10px;
+      color: #12486B;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      width: 100%;
+
+      &::before {
+        content: '';
+        background: url(../../assets/images/rcob/open-link.svg) no-repeat 50% 50% transparent !important;
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        margin-right: 12px;
+      }
+    }
+
+    .policy-title {
+      color: var(--baseTxtClr);
+      @include s3-medium;
+    }
+  }
+
+
+}

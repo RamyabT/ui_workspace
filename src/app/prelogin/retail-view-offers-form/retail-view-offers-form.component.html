@@ -1,0 +1,15 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailViewOffersForm">
+
+	<box class="entry-form">
+		<ngx-slick-carousel class="casa-carousel" #slickModal="slick-carousel" (init)="_helper.slickInit($event)"
+			[config]="state.slideConfig">
+			<box ngxSlickItem *ngFor="let image of state.offerImages | keyvalue" class="slide">
+				<img [src]="image.value" class="offer-image" alt="slidingImage">
+			</box>
+		</ngx-slick-carousel>
+		<fpx-button [btnClass]="state.enablePrevious?'previous-btn enablePrevious':'previous-btn disablePrevious'"
+			(onClick)="_helper.previous()"></fpx-button>
+		<fpx-button [btnClass]="state.enableNext?'next-btn enableNext':'next-btn disableNext'"
+			(onClick)="_helper.next()"></fpx-button>
+	</box>
+</form>

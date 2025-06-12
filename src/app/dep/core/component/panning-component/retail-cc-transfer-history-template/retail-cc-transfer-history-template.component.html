@@ -1,0 +1,69 @@
+<div class="task-item" id="row_data_{{ index }}" [ngClass]="{'task-completed':selectedData.status == '3'}">
+    <div *ngIf="_device.isMobile()" class="task-action task-action-left">
+        <ng-container *ngIf="selectedData.status != '3'; else addBadge">
+            <button type="button" class="button-task-action system-ico-button button-delete">
+                <span>Delete</span>
+            </button>
+        </ng-container>
+        <ng-template #addBadge>
+            <button type="button" class="button-task-action" clickable>
+                <span class="button-icon"><img src="./assets/images/icons/circle-question.svg"
+                        alt="assign badge" /></span>
+                <span>Assign<br />Badge</span>
+            </button>
+        </ng-template>
+    </div>
+
+    <div class="task-detail-item" (swipeleft)="_device.isMobile()?swipeLeftHandler($event):null"
+        (swiperight)="_device.isMobile()?swipeRightHandler($event):null"
+        (panstart)="_device.isMobile()?panStartHandler($event):null"
+        (panend)="_device.isMobile()?panEndHandler($event):null"
+        (panleft)="_device.isMobile()?panLeftHandler($event):null"
+        (panright)="_device.isMobile()?panRightHandler($event):null"
+        (touchstart)="_device.isMobile()?touchStartHandler($event):null" (click)="onClickRowData(selectedData)">
+        <box class="transaction-list-item-inner">
+            <box class="transaction-icon-wrapper">
+                <box class="transaction-icon">
+                    <span class="icon-wrapper" [ngClass]="{
+                        'icon-cc-transaction-credit' : selectedData.transType == 'C',
+                        'icon-cc-transaction-debit' : selectedData.transType == 'D'}"></span>
+                </box>
+            </box>
+            <box class="transaction-info">
+                <box class="transaction-primary-info">
+                    <span class=" merchant-name">{{selectedData.merchantName !== null ? selectedData.merchantName :
+                        "&nbsp;"}}</span>
+                    <span class="card-holder-name">{{selectedData.cardHolderName !== null ? selectedData.cardHolderName
+                        : selectedData.transactionDescription}}</span>
+                </box>
+                <box class="transaction-secondary-info">
+                    <span class="amount" [ngClass]="{
+                    'credit' : selectedData.transType == 'C',
+                    'debit' : selectedData.transType == 'D'
+                }">{{selectedData.transactionAmount | currency : selectedData.transactionCurrency: ''}}
+                        <em>{{selectedData.transactionCurrency | currencyCode}}</em></span>
+                </box>
+            </box>
+        </box>
+    </div>
+
+    <!--  <div class="task-action task-action-right"> -->
+    <!-- <button  *ngIf="!_device.isMobile()" type="button" class="button-task-action system-ico-button button-delete">
+            <img src="./assets/images/icons/delete.svg" alt="repeat" />
+            <span>Delete</span>
+        </button>
+        <button type="button" class="button-task-action system-ico-button button-edit" clickable (click)="editRowData(selectedData)">
+            <img src="./assets/images/icons/repeat.svg" alt="repeat" />
+            <span>Edit</span>
+        </button> -->
+    <!-- <button type="button" class="button-task-action system-ico-button button-raisedispute" clickable
+            (click)="editRaiseDispute(selectedData)">
+            <img src="./assets/images/icons/raisedispute.svg" alt="share" />
+            <span>Raise Dispute</span>
+            <span class="widget-title">{{ 'raisedisputePrepaidCard.label' | translate }}</span>
+        </button> -->
+    <!--</div> -->
+
+    <!-- <div class="seperator-line"></div> -->
+
+</div>

@@ -1,0 +1,26 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailDebitCardLimitRequest">
+
+	<box class="widget quick-link quick-actions-inner contextual-actions">
+		<header>
+			<!-- <span class="widget-title">Quick Actions</span> -->
+			<span class="widget-title">{{ 'WIDGIT_TITLES.casaQuickActionsLbl' | translate }}</span>
+			<button class="system-ico-button no-text edit" type="button" (click)="_helper.customizeQuickLinks()"><span>Edit</span></button>
+		</header>
+		<box class="widget-body actions-body context-menu-body">
+			<ng-container *ngIf="_helper.quickLinks">
+				<ul class="actions-list grid">
+					<ng-container *ngFor="let item of _helper.quickLinks">
+						<li (click)="_helper.openLink(item)">
+							<!-- <span class="icon-wrapper">
+								<img [src]="'./assets/images/quick-links/' + item.icon + '.svg'" [alt]="item.id" />
+							</span>
+							<span class="text" [innerHTML]="item.name"></span> -->
+							<span class="icon-wrapper {{ item.serviceCode }}"></span>
+							<span class="text" [innerHTML]="item.serviceDesc || item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span>
+						</li>
+					</ng-container>
+				</ul>
+			</ng-container>
+		</box>
+	</box>
+</form>

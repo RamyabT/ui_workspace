@@ -1,0 +1,72 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailFilterTransaction">
+  <box class="entry-form">
+    <box class="grid entry-form-field-group">
+      <app-range-type-control class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('transactionPeriod')" label="{{
+          'RetailFilterTransaction.transactionPeriod.label' | translate
+        }}" formControlName="transactionPeriod"></app-range-type-control>
+
+      <app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('fromDate')"
+        label="{{ 'RetailFilterTransaction.fromDate.label' | translate }}" formControlName="fromDate"
+        [minDate]="state.fromDate.minDate" [maxDate]="state.fromDate.maxDate"></app-request-date-control>
+
+      <app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('toDate')"
+        label="{{ 'RetailFilterTransaction.toDate.label' | translate }}" formControlName="toDate"
+        [minDate]="state.toDate.minDate" [maxDate]="state.toDate.maxDate"></app-request-date-control>
+
+      <!-- <app-debit-credit-flag-cotrol
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('transactionType')"
+        label="{{
+          'RetailFilterTransaction.transactionType.label' | translate
+        }}"
+        formControlName="transType"
+      >
+      </app-debit-credit-flag-cotrol> -->
+
+      <app-beneficiary-name-control class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('beneficiaryName')" label="{{
+          'RetailFilterTransaction.beneficiaryName.label' | translate
+        }}" formControlName="beneficiaryName"></app-beneficiary-name-control>
+
+      <app-transaction-ref-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('transactionReference')"
+        label="{{
+          'RetailFilterTransaction.transactionReference.label' | translate
+        }}"
+        formControlName="transactionReference"
+      ></app-transaction-ref-control>
+
+      <!-- <app-bene-bank-name-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('beneficiaryBank')"
+        label="{{
+          'RetailFilterTransaction.beneficiaryBank.label' | translate
+        }}"
+        formControlName="beneficiaryBank"
+      >
+      </app-bene-bank-name-control> -->
+
+      <app-tran-amount-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('paymentAmount')"
+        label="{{ 'RetailFilterTransaction.paymentAmount.label' | translate }}" formControlName="paymentAmount">
+      </app-tran-amount-control>
+
+      <app-transfers-type-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('transferType')"
+        label="{{'RetailFilterTransaction.transferType.label' | translate }}" formControlName="transferType">
+      </app-transfers-type-control>
+
+      <!-- <app-allpurpose-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('purpose')"
+        label="{{'RetailFilterTransaction.purpose.label' | translate }}" formControlName="purpose">
+      </app-allpurpose-list-control> -->
+      <box class="form-action-container">
+        <fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('reset')"
+          label="{{'DEFAULT.reset' | translate }}" btnClass=" btn-secondary" [buttonMode]="'button'"
+          (onClick)="retailFilterTransactionHelper.onResetClick(null)"></fpx-button>
+        <fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('view')" label="{{'DEFAULT.view' | translate }}"
+          btnClass=" btn-primary" [buttonMode]="'button'" [disable]="!formGroup.valid"
+          (onClick)="retailFilterTransactionHelper.onViewClick(null)"></fpx-button>
+      </box>
+    </box>
+  </box>
+</form>

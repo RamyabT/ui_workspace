@@ -1,0 +1,5 @@
+ 
+ "applicantaddressinfo" : {
+ "servicePath": ["entry-shell","onboarding", "cob-applicant-address-info"],
+ "queryParams": {}
+ }

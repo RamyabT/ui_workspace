@@ -1,0 +1,31 @@
+"RetailPdcChequeDisplayGrid":{
+"title":"View PDC Cheque",
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": ""
+		  } ,
+		 "chequeNumber": {
+		  "label":"PDC Cheque Number" ,
+		  "placeholder": ""
+		  } ,
+		 "chequePostedDate": {
+		  "label":"Cheque Deposit Date" ,
+		  "placeholder": ""
+		  } ,
+		 "amount": {
+		  "label":"PDC Amount" ,
+		  "placeholder": ""
+		  } ,
+		 "branchCode": {
+		  "label":"Branch Name" ,
+		  "placeholder": ""
+		  } ,
+		 "bankCode": {
+		  "label":"Bank Name" ,
+		  "placeholder": ""
+		  } ,
+		 "status": {
+		  "label":"Status" ,
+		  "placeholder": ""
+		  } 
+}

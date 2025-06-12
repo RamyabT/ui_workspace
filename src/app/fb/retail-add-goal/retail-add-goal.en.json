@@ -1,0 +1,27 @@
+"RetailAddGoal":{
+"title":"Form",
+		 "goalname": {
+		  "label":"Goal Name" ,
+		  "placeholder": "Goal Name"
+		  } ,
+		 "childAcc": {
+		  "label":"Child Account" ,
+		  "placeholder": "Child Account"
+		  } ,
+		 "targetAmt": {
+		  "label":"Target Amount" ,
+		  "placeholder": "Target Amount"
+		  } ,
+		 "dueDt": {
+		  "label":"Due Date" ,
+		  "placeholder": "Due Date"
+		  } ,
+		 "initialContribution": {
+		  "label":"Initial Contribution" ,
+		  "placeholder": "Initial Contribution"
+		  } ,
+		 "debitAcc": {
+		  "label":"Debit Account" ,
+		  "placeholder": "Debit Account"
+		  } 
+}

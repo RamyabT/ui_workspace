@@ -1,0 +1,51 @@
+"AdditionalInformation":{
+"title":"additionalInformation",
+		 "accountNumber": {
+		  "label":"accountNumber" ,
+		  "placeholder": "accountNumber"
+		  } ,
+		 "bankName": {
+		  "label":"bankName" ,
+		  "placeholder": "bankName"
+		  } ,
+		 "otherIncome": {
+		  "label":"prefAnnualIncome" ,
+		  "placeholder": "prefAnnualIncome"
+		  } ,
+		 "cashDeposit": {
+		  "label":"prefAnnualIncome" ,
+		  "placeholder": "prefAnnualIncome"
+		  } ,
+		 "localForeignInward": {
+		  "label":"prefAnnualIncome" ,
+		  "placeholder": "prefAnnualIncome"
+		  } ,
+		 "outwardClearing": {
+		  "label":"prefAnnualIncome" ,
+		  "placeholder": "prefAnnualIncome"
+		  } ,
+		 "avgCashWithdraw": {
+		  "label":"prefAnnualIncome" ,
+		  "placeholder": "prefAnnualIncome"
+		  } ,
+		 "localForeignOutward": {
+		  "label":"prefAnnualIncome" ,
+		  "placeholder": "prefAnnualIncome"
+		  } ,
+		 "InwardClearing": {
+		  "label":"prefAnnualIncome" ,
+		  "placeholder": "prefAnnualIncome"
+		  } ,
+		 "applicantId": {
+		  "label":"ApplicantId" ,
+		  "placeholder": "ApplicantId"
+		  } ,
+		 "yearResidence": {
+		  "label":"yearResidence" ,
+		  "placeholder": "yearResidence"
+		  } ,
+		 "monthResidence": {
+		  "label":"monthResidence" ,
+		  "placeholder": "monthResidence"
+		  } 
+}

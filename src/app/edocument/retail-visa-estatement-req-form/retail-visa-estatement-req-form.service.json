@@ -1,0 +1,5 @@
+ 
+ "RETAILCCSTATEMENT" : {
+ "servicePath": ["entry-shell","edocuments", "retail-visa-estatement-req-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,30 @@
+"retailDownloadTransactionForm":{
+"title":"RetailDownloadTransaction",
+		 "transactionPeriod": {
+		  "label":"Transaction Period" ,
+		  "placeholder": "Transaction Period"
+		  } ,
+		 "fromDate": {
+		  "label":"From Date" ,
+		  "placeholder": "From Date"
+		  } ,
+		 "toDate": {
+		  "label":"To Date" ,
+		  "placeholder": "To Date"
+		  } ,
+		 "beneficiaryName": {
+		  "label":"Beneficiary Name" ,
+		  "placeholder": "Beneficiary Name"
+		  } ,
+		 "transactionReference": {
+		  "label":"Reference Number" ,
+		  "placeholder": "Reference Number"
+		  } ,
+		  "transferType": {
+			"label":"Transfer Type" ,
+			"placeholder": "Transfer Type"
+			} ,
+		  "downloadFileFormat": {
+			"label": "File Format"
+		 }
+}

@@ -1,0 +1,5 @@
+ 
+ "RETAILPCTOPUP" : {
+ "servicePath": ["entry-shell","prepaidcard", "retail-prepaid-topup-form"],
+ "queryParams": {}
+ }

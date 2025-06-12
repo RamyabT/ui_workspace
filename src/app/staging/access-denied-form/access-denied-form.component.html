@@ -1,0 +1,18 @@
+<box class="access-denied-alert">
+    <box class="alert-body">
+        <box class="alert-icon-wrapper">
+            <img src="./assets/images/icons/alert.svg" alt="warning" />
+        </box>
+        <box class="alert-content">
+            <ng-container *ngIf="statusCode">
+                <fpx-display-text class="message" [innerHtml]="'APP_ACCESS_DENIED.' + statusCode + '.message' | translate"></fpx-display-text>
+                <fpx-display-text class="description" [innerHtml]="'APP_ACCESS_DENIED.' + statusCode + '.description' | translate"></fpx-display-text>
+            </ng-container>
+        </box>
+    </box>
+    <box class="alert-footer">
+        <button *ngIf="skip" type="button" class="tertiary" (click)="skipRequest()">{{ 'APP_ACCESS_DENIED.skip' | translate }}</button>
+        <button *ngIf="close" type="button" class="primary" (click)="closeRequest()">{{ 'APP_ACCESS_DENIED.close' | translate }}</button>
+        <button *ngIf="update" type="button" class="primary" (click)="updateRequest()">{{ 'APP_ACCESS_DENIED.update' | translate }}</button>
+    </box>
+</box>

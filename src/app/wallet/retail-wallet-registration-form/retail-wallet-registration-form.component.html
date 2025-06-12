@@ -1,0 +1,113 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailWalletRegistrationForm" >
+	<box class="wallet-form">
+		<box class="entry-form-field-group">
+
+	     
+			<box class="display-field-group">
+
+				  
+			  <box class="accordion-header">
+				<box class="accordion-title">Personal Information
+				</box>
+				<box class="toggle-accordion">
+					<button (click)="_helper.personalInfoToggleAccordion()" type="button" aria-label="quick action trigger" class="arrow"
+						[ngClass]="{ 'rotate-up': state.accordionToggle, 'rotate-down': !state.accordionToggle }">
+
+					</button>
+				</box>
+			</box>
+			<box [ngClass]="{ 'basic-dtl-up': !state.accordionToggle, 'basic-dtl-down': state.accordionToggle }">
+			<app-name-control  class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('firstName')"     label="{{'RetailWalletRegistrationForm.firstName.label' | translate }}"   formControlName="firstName" 
+					></app-name-control>
+
+
+					<app-name-control  class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('lastName')"     label="{{'RetailWalletRegistrationForm.lastName.label' | translate }}"   formControlName="lastName" 
+					></app-name-control>
+
+
+					<app-mobile-number-control  class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('mobileNumber')"     label="{{'RetailWalletRegistrationForm.mobileNumber.label' | translate }}"   formControlName="mobileNumber" 
+					></app-mobile-number-control>
+					
+					<app-email-control  class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('email')"     label="{{'RetailWalletRegistrationForm.email.label' | translate }}"   formControlName="email" 
+					></app-email-control>
+
+					<app-date-of-birth-control  class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('dob')"     label="{{'RetailWalletRegistrationForm.dob.label' | translate }}"   formControlName="dob" 
+					></app-date-of-birth-control>
+
+					<app-name-control  class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('addressLine1')"     label="{{'RetailWalletRegistrationForm.addressLine1.label' | translate }}"   formControlName="addressLine1" 
+					></app-name-control>
+					
+                     
+					<app-name-control  class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('addressLine2')"     label="{{'RetailWalletRegistrationForm.addressLine2.label' | translate }}"   formControlName="addressLine2" 
+					></app-name-control>
+
+
+					
+					<app-name-control  class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('state')"     label="{{'RetailWalletRegistrationForm.state.label' | translate }}"   formControlName="state" 
+					></app-name-control>
+
+					
+					<app-name-control class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('city')"     label="{{'RetailWalletRegistrationForm.city.label' | translate }}"   formControlName="city" 
+					></app-name-control>
+
+					
+					<app-zipcode-list-control  class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('zipcode')"     label="{{'RetailWalletRegistrationForm.zipcode.label' | translate }}"   formControlName="zipcode" 
+					></app-zipcode-list-control>
+
+
+			</box>
+		
+		</box> 
+	</box>
+		<box class="entry-form-field-group">
+
+
+			<box class="accordion-header">
+				<box class="accordion-title">Employment Details
+				</box>
+				<box class="toggle-accordion">
+					<button (click)="_helper.empInfoToggleAccordion()" type="button" aria-label="quick action trigger" class="arrow"
+						[ngClass]="{ 'rotate-up': state.empInfoaccordionToggle, 'rotate-down': !state.empInfoaccordionToggle }">
+
+					</button>
+				</box>
+			</box>
+			<box [ngClass]="{ 'basic-dtls-up': !state.empInfoaccordionToggle, 'basic-dtls-down': state.empInfoaccordionToggle }">
+				
+            <app-name-control  class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('empName')"     label="{{'RetailWalletRegistrationForm.empName.label' | translate }}"   formControlName="empName" 
+			></app-name-control>
+
+			<app-name-control  class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('empstatus')"     label="{{'RetailWalletRegistrationForm.empstatus.label' | translate }}"   formControlName="empstatus" 
+			></app-name-control>
+
+			<app-name-control  class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('empPosition')"     label="{{'RetailWalletRegistrationForm.empPosition.label' | translate }}"   formControlName="empPosition" 
+			></app-name-control>
+			
+			<app-id-number-control class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('monthlyIncome')"     label="{{'RetailWalletRegistrationForm.monthlyIncome.label' | translate }}"   formControlName="monthlyIncome" 
+			></app-id-number-control>
+
+			<app-name-control  class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('empaddressLine1')"     label="{{'RetailWalletRegistrationForm.empaddressLine1.label' | translate }}"   formControlName="empaddressLine1" 
+			></app-name-control>
+			
+			 
+			<app-name-control  class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('empaddressLine2')"     label="{{'RetailWalletRegistrationForm.empaddressLine2.label' | translate }}"   formControlName="empaddressLine2" 
+			></app-name-control>
+
+
+			
+			<app-name-control  class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('empstate')"     label="{{'RetailWalletRegistrationForm.empstate.label' | translate }}"   formControlName="empstate" 
+			></app-name-control>
+
+			
+			<app-name-control class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('empcity')"     label="{{'RetailWalletRegistrationForm.empcity.label' | translate }}"   formControlName="empcity" 
+			></app-name-control>
+
+			
+			<app-zipcode-list-control  class="col-sm-12 col-md-4 col-lg-6"   [actionPublisher]="actionMap$.get('empzipcode')"     label="{{'RetailWalletRegistrationForm.empzipcode.label' | translate }}"   formControlName="empzipcode" 
+			></app-zipcode-list-control>
+		</box>
+
+		</box>
+	</box>
+</form>
+	

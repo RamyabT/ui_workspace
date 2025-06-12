@@ -1,0 +1,31 @@
+"RetailScheduleBillPaymentsForm":{
+"title":"Schedule Bills",
+		 "sourceAccount": {
+		  "label":"Pay From" ,
+		  "placeholder": "Pay From"
+		  } ,
+		 "beneficiaryName": {
+		  "label":"Payee Name" ,
+		  "placeholder": "Payee Name"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Amount To Be Paid" ,
+		  "placeholder": "Amount To Be Paid"
+		  } ,
+		 "paymentDate": {
+		  "label":"Payment Date" ,
+		  "placeholder": "Payment Date"
+		  } ,
+		 "paymentFrequency": {
+		  "label":"Frequency" ,
+		  "placeholder": "Frequency"
+		  } ,
+		 "numberOfPayments": {
+		  "label":"Number Of Payments" ,
+		  "placeholder": "Number Of Payments"
+		  } ,
+		 "endDate": {
+		  "label":"End Date" ,
+		  "placeholder": "End Date"
+		  } 
+}

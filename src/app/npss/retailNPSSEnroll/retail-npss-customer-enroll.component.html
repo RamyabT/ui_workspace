@@ -1,0 +1,27 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailCustomerEnrollment">
+
+	<box class="entry-form">
+		<box class="entry-form-field-group col-12 grid">
+			<ng-container *ngIf="!state.npssNoData">
+			<fpx-display-text class="form-sub-heading"
+				[innerHTML]="'RetailCustomerEnrollment.gridTitle' | translate"></fpx-display-text>
+			</ng-container>
+			<app-retail-savings-account-ro-grid class="col-md-12" 
+				[gridCommonInput]="state.gridCommonInput"
+				[actionPublisher]="actionMap$.get('savingsAccountsList')" label="RetailSavingsAccount"
+				(commonRoGridEvent)="_helper.handleSARoGridEvent($event)"></app-retail-savings-account-ro-grid>
+				<ng-container *ngIf="state.npssNoData">
+					<fpx-display-text class="form-sub-heading"
+				[innerHTML]="'RetailCustomerEnrollment.npssNoData' | translate"></fpx-display-text>
+				</ng-container>
+
+		</box>
+
+		<box id="disclaimerBox" class="col-md-12 grid  disclaimer-box  ">
+			<app-terms-control class="col-md-4" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'RetailCustomerEnrollment.termsFlag.label' | translate }}" formControlName="termsFlag"
+				placeholder="{{'RetailCustomerEnrollment.termsFlag.placeholder' | translate }}"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+		</box>
+	</box>
+</form>

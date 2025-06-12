@@ -1,0 +1,47 @@
+<box class="stop-cheque-details-container">
+
+    <box class="stop-cheque-details-wrapper">
+
+        <box *ngIf="selectedData.rowGroupTitle" class="date-container" (click)="onDateClick($event)">
+            <span class="date">{{selectedData.rowGroupTitle | date : "dd MMM YYYY"}}</span>
+        </box>
+
+        <box *ngIf="!selectedData.rowGroupTitle" class="date-name-btn-container">
+
+            <box class="bill-details-container">
+                <box class="bill-icon-container">
+                    <span class="icon bill-icon"></span>
+                </box>
+
+                <box class="date-name-wrapper">
+                    <!-- <box class="stop-date">{{selectedData?.paymentDate | date : "dd MMM YYYY"}}</box> -->
+                    <box class="payee-name">
+                        <span class="name">{{selectedData?.beneficiaryName}}</span>
+                        <!-- <span class="account-no">Rogers Communications</span> -->
+                        <box class="amount-schedule-type-container">
+                            <span class="payment-amount">
+                                <em>{{ selectedData?.paymentCurrency
+                                    |
+                                    currencyCode }}</em>
+                                {{selectedData?.paymentAmount | currency :
+                                selectedData.paymentCurrency :
+                                ''}}
+                            </span>
+                            <span class="divider"></span>
+                            <span class="schedule-type">
+                                {{decodeScheduleType(selectedData?.scheduleType)}}
+                            </span>
+                        </box>
+                    </box>
+                </box>
+            </box>
+
+            <box class="revoke-btn-container">
+                <button>
+                    <span class="icon revoke-btn-icon"></span>
+
+                </button>
+            </box>
+        </box>
+    </box>
+</box>

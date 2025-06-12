@@ -1,0 +1,154 @@
+<!-- <ng-container *ngIf="device.isMobile() else portfolioSummaryDesktop"> -->
+<box class="portfolio-summary">
+    <ul class="portfolio-summary-list acc-list">
+        <ng-container *ngFor="let panel of portfolioData; let i = index">
+            <li *ngIf="panel.showPanel != false" [ngClass]="{'accordian-open-start': panel.accordianOpened}"
+                [class]="'accordion accordion-item-' + i">
+                <div class="product-type-panel">
+                    <box [ngClass]="{ 'no-account-view': !panel.hasAccount, 'error-view': panel.hasError }" (click)="toggleAccordion(i)"
+                        class="list-item-header panel-header">
+                        <box [ngClass]="'header-title ' + panel.type">
+                            <span [ngClass]="'panel-title ' + panel.type">{{ panel.category | translate }}</span>
+                        </box>
+                        <box class="header-details">
+                            <!-- <box class="balace-details">
+
+                                <span *ngIf="panel.total?.totalUSD?.accountCurrency" class="total-balance amount"> {{
+                                    panel.total?.totalUSD?.amount | currency : panel.total?.totalUSD?.accountCurrency :
+                                    '' }} <em>{{ panel.total?.totalUSD?.accountCurrency | currencyCode }}</em></span>
+
+                                <span class="total-balance amount"> {{ panel.total?.totalCAD | currency :
+                                    _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                                        }}</em></span>
+                            </box> -->
+                            <box class="panel-actions">
+                                <box class="panel-header-links">
+                                    <span *ngIf="i==1" class="total-balance amount"> {{ getAbsoluteValue(panel.total?.totalCAD ? panel.total?.totalCAD : 0)
+                                        | currency :
+                                        _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                                            }}</em>
+                                       {{checkNegativeValue(panel.total?.totalCAD ? panel.total?.totalCAD : 0)}}</span>
+                                    <span *ngIf="i==2" class="total-balance amount"> {{ getAbsoluteValue(panel.total?.totalCAD ? panel.total?.totalCAD : 0)
+                                        | currency :
+                                        _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                                            }}</em>{{checkLoanTotalAmount(panel.total?.totalCAD ? panel.total?.totalCAD : 0)}}</span>
+                                    <span *ngIf="!(i==1 || i==2)" class="total-balance amount"> {{ getAbsoluteValue(panel.total?.totalCAD ? panel.total?.totalCAD : 0) | currency :
+                                        _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                                            }}</em>{{checkNegativeValue(panel.total?.totalCAD ? panel.total?.totalCAD : 0)}}</span>
+                                    <!-- <ng-container *ngIf="panel.type == 'banking'">
+                                        <button class="action new-account" (click)="newAccount($event)">
+                                            <span class="lbl"
+                                                [innerHTML]="'accountsPanel.newAccount' | translate"></span>
+                                        </button>
+                                    </ng-container>
+                                    <ng-container *ngIf="panel.type == 'cards'">
+                                        <button class="action new-account" (click)="newCreditCard($event)">
+                                            <span class="lbl"
+                                                [innerHTML]="'cardsPanel.applyNewCard' | translate"></span>
+                                        </button>
+                                    </ng-container>
+                                    <ng-container *ngIf="panel.type == 'deposits'">
+                                        <button class="action link-account">
+                                            <span class="lbl"
+                                                [innerHTML]="'depositsPanel.linkAccount' | translate"></span>
+                                        </button>
+                                        <button class="action new-account" (click)="newDeposit($event)">
+                                            <span class="lbl"
+                                                [innerHTML]="'depositsPanel.newAccount' | translate"></span>
+                                        </button>
+                                    </ng-container>
+                                    <ng-container *ngIf="panel.type == 'loans'">
+                                        <button class="action new-account" (click)="newLoan($event)">
+                                            <span class="lbl" [innerHTML]="'loansPanel.newLoan' | translate"></span>
+                                        </button>
+                                    </ng-container> -->
+                                </box>
+                                <span class="total-balance count">
+                                    <box class="total-count">
+                                        {{ panel.data?.length }}
+                                    </box>
+                                    <box class="btn-toggle">
+                                        <button type="button" class="btn-icon btn-accordion-toggle"
+                                            aria-label="Toggle panel"></button>
+                                    </box>
+                                </span>
+                            </box>
+                        </box>
+
+                    </box>
+
+                  
+
+                    <span *ngIf="device.isMobile()">
+                        <span *ngIf="!panel.accordianOpened" class="close-total-balance"><span>{{ 'accountsPanel.'+ panel.type +'.total' | translate }}</span>
+                        <span *ngIf="i==1" class="total-balance amount"> {{ getAbsoluteValue(panel.total?.totalCAD ? panel.total?.totalCAD : 0) | currency : _appConfig.baseCurrency : '' }}
+                            <em>{{ _appConfig.baseCurrency | currencyCode }}</em>
+                            {{checkNegativeValue(panel.total?.totalCAD ? panel.total?.totalCAD : 0)}}</span>
+                        <span *ngIf="i==2" class="total-balance amount"> {{ getAbsoluteValue(panel.total?.totalCAD ? panel.total?.totalCAD : 0) | currency : _appConfig.baseCurrency : '' }}
+                            <em>{{ _appConfig.baseCurrency | currencyCode }}</em>
+                            {{checkLoanTotalAmount(panel.total?.totalCAD ? panel.total?.totalCAD : 0)}}</span>
+                        <span *ngIf="!(i==1|| i==2)" class="total-balance amount"> {{ getAbsoluteValue(panel.total?.totalCAD ? panel.total?.totalCAD : 0) | currency : _appConfig.baseCurrency : '' }}
+                            <em>{{ _appConfig.baseCurrency | currencyCode }}</em>
+                            {{checkNegativeValue(panel.total?.totalCAD ? panel.total?.totalCAD : 0)}}</span>
+                        </span>
+                    </span>
+
+
+
+                    <div class="list-item-content">
+                        <ng-container *ngIf="panel.type == 'banking'">
+
+                            <app-accounts-panel
+                                (onAccountsDataReceived)="onAccountDataReceivedHandler($event)"></app-accounts-panel>
+
+                        </ng-container>
+                        <ng-container *ngIf="panel.type == 'cards'">
+                            <app-cards-panel
+                                (onCardsDataReceived)="onCardsDataReceivedHandler($event)"></app-cards-panel>
+                        </ng-container>
+                        <ng-container *ngIf="panel.type == 'loans'">
+                            <app-loans-panel
+                                (onLoansDataReceived)="onLoansDataReceivedHandler($event)"></app-loans-panel>
+                        </ng-container>
+                        <ng-container *ngIf="panel.type == 'deposits'">
+                            <app-deposits-panel
+                                (onDepositsDataReceived)="onDepositsDataReceivedHandler($event)"></app-deposits-panel>
+                        </ng-container>
+                        <ng-container *ngIf="panel.type == 'membership'">
+                            <app-membership-panel
+                                (onMemebershipsDataReceived)="onMemebershipsDataReceivedHandler($event)"></app-membership-panel>
+                        </ng-container>
+                    </div>
+                </div>
+            </li>
+            <ng-container *ngIf="device.isMobile() && panel.showPanel != false">
+                <li class="line-separator"></li>
+            </ng-container>
+        </ng-container>
+    </ul>
+</box>
+<!-- </ng-container>
+<ng-template #portfolioSummaryDesktop>
+    <ul>
+        <ng-container *ngFor="let panel of portfolioData; let i = index">
+            <li *ngIf="panel.showPanel != false">
+                <ng-container *ngIf="panel.type == 'banking'">
+                    <app-accounts-panel></app-accounts-panel>
+                </ng-container>
+                <ng-container *ngIf="panel.type == 'cards'">
+                    <app-cards-panel></app-cards-panel>
+                </ng-container>
+                <ng-container *ngIf="panel.type == 'deposits'">
+                    <app-deposits-panel></app-deposits-panel>
+                </ng-container>
+                <ng-container *ngIf="panel.type == 'loans'">
+                    <app-loans-panel></app-loans-panel>
+                </ng-container>
+                <ng-container *ngIf="panel.type == 'membership'">
+                    <app-membership-panel (onMemebershipsDataReceived)="onMemebershipsDataReceivedHandler($event)"></app-membership-panel>
+                </ng-container>
+            </li>
+        </ng-container>
+    </ul>
+    
+</ng-template> -->

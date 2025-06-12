@@ -1,0 +1,85 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailManageEtransferContactlogForm">
+	<box *ngIf="!_helper._device.isMobile()" class="view-scheduled-bills-form">
+        <box class="back-wrapper">
+            <box class="back-btn" (click)="_helper.backToeTransfers()">
+                <span class="ico ico-back"></span>
+                <span class="back-text font-14-20">{{'RetailManageEtransferContactlog.header.backToeTransfers' | translate}}</span>
+            </box>
+
+            <!-- <box class="schedule-bill-btn add-contact-btn">
+                <button class="btn-primary" (click)="_helper.addContact()">
+                    <span class="add-payee-text">{{'RetailManageEtransferContactlog.header.addContact' | translate}}</span>
+                </button>
+            </box> -->
+        </box>
+
+
+        <box class="schedule-bill-form">
+            <box class="schedule-bill-form-header">
+                {{'RetailManageEtransferContactlog.header.sendMoney' | translate}}
+            </box>
+			<!-- <box class="one-time-contact"><span (click)="_helper.OneOffSendMoney()">One-time contact</span></box> -->
+        </box>
+    </box>
+	<box class="entry-form view-scheduled-bills-form list-view">
+		<box class="grid entry-form-field-group col-sm-12 col-md-12 col-lg-12 ">
+			<ng-container *ngIf="this.state.isDataReceived;else loader">
+				<!-- <box *ngIf="_helper._device.isMobile()" class="one-time-contact"><span (click)="_helper.OneOffSendMoney()">One-time contact</span></box> -->
+				<ng-container *ngIf="_helper.totalRowCount>0; else noData">
+					<box class="contacts-wrapper">
+						<span>Contacts</span>
+						<button *ngIf="_helper._device.isMobile()" class="nav-btn add-contact-btn" type="button" (click)="_helper.addContact()">
+						</button>
+						<box *ngIf="!_helper._device.isMobile()" class="schedule-bill-btn plus-circle-btn">
+							<button class="btn-primary" (click)="_helper.addContact()">
+								<span class="add-payee-text">{{'RetailManageEtransferContactlog.header.addContact' | translate}}</span>
+							</button>
+						</box>
+					</box>
+					<hr *ngIf="_helper._device.isMobile()">
+					<box class="nav-search-control">
+						<span class="ico ico-nav-search"></span>
+						<input type="text" formControlName="searchText"
+							placeholder="Search by name, email or mobile number." />
+					</box>
+					<ng-container [ngTemplateOutlet]="noResultData" *ngIf="this.state.searchDataFound<1"></ng-container>
+				</ng-container>
+			</ng-container>
+			<app-retail-etransfercontactlog-template class="col-sm-12 col-md-12 col-lg-12"
+				(commonRoGridEvent)="_helper.contactListRoGridEvent($event)"
+				[actionPublisher]="actionMap$.get('contactList')"></app-retail-etransfercontactlog-template>
+		</box>
+
+	</box>
+</form>
+
+<ng-template #noData>
+	<box class="no-result-view">
+		<box class="contact-img">
+			<span class="contact-img-wrapper"></span>
+		</box>
+		<box class="no-result-title">No contacts</box>
+		<box class="no-result-desc">Add an Interac e-Transfer® contact to start sending and requesting money.</box>
+		<box class="btn-wrapper">
+			<button class="primary" (click)="_helper.addContact()">Add Contact</button>
+			<span class="icon contact-btn-icon"></span>
+		</box>
+	</box>
+</ng-template>
+
+<ng-template #noResultData>
+	<box class="no-result-view">
+		<box class="contact-img">
+			<span class="contact-img-wrapper"></span>
+		</box>
+		<box class="no-result-title">Contact not found</box>
+		<box class="no-result-desc">Add an Interac e-Transfer® contact to start sending and requesting money.</box>
+		<box class="btn-wrapper">
+			<button class="primary" (click)="_helper.addContact()">Add contact</button>
+			<span class="icon contact-btn-icon"></span>
+		</box>
+	</box>
+</ng-template>
+<ng-template #loader>
+	<box class="loading"></box>
+</ng-template>

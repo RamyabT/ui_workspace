@@ -1,0 +1,22 @@
+"retailccCancelform":{
+"title":"Retail Credit Card  Cancel",
+		 "cardRefNumber": {
+		  "label":"Credit Card " ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "reason": {
+		  "label":"Reason" ,
+		  "placeholder": "Reason"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "terms": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "FieldId_5": {
+		   "text":"Sample Text"
+		 } 
+}

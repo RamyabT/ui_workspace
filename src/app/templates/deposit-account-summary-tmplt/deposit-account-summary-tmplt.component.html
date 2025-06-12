@@ -1,0 +1,105 @@
+<box class="deposit-account">
+  <box class="deposit-account-inner">
+    <box class="deposit-details">
+      <ng-container [ngSwitch]="selectedData.accountType">
+        <ng-container *ngSwitchCase="'aviso'">
+          <box class="deposit-primary-info">
+            <box class="deposit-type">
+              <span class="icon-wrapper"></span>
+            </box>
+            <box class="account-details">
+              <span class="account">{{selectedData.accountNumber}} - {{selectedData.accountName}} </span>
+              <span>
+                <span class="lbl">{{ 'DEPOSITACCOUNTLISTGRID.totalMarketValue' | translate }} <em>:</em></span>
+                <span class="val">{{ selectedData.totalMarketValue | currency :
+                  selectedData.accountCurrency : '' }} {{selectedData.accountCurrency}} </span>
+              </span>
+            </box>
+
+          </box>
+          <box class="quick-actions-toggle">
+            <button (click)="toggleContextActions(selectedData.accountType+index)" aria-label="quick action trigger"
+              class="arrow"
+              [ngClass]="{ 'rotate-up': toggleActions, 'rotate-down': !toggleActions }">
+            </button>
+          </box>
+        </ng-container>
+        <ng-container *ngSwitchCase="'registeredproducts'">
+          <box class="deposit-primary-info">
+            <box class="deposit-type">
+              <span class="icon-wrapper"></span>
+            </box>
+            <box class="account-details">
+
+              <span class="account">{{selectedData.accountNumber}} - {{selectedData.accountName}}</span>
+              <span>
+                <span class="lbl">{{ 'DEPOSITACCOUNTLISTGRID.interestRate' | translate }}</span>
+                <span class="val">{{selectedData?.interestRate+'%'}}</span>
+              </span>
+              <span>
+                <span class="lbl">{{ 'DEPOSITACCOUNTLISTGRID.principalAmount' | translate }} <em>:</em></span>
+                <span class="val">{{ selectedData.principalAmount | currency :
+                  selectedData.accountCurrency : '' }}  {{selectedData.accountCurrency}}</span>
+              </span>
+
+            </box>
+          </box>
+          <box class="quick-actions-toggle">
+            <button (click)="toggleContextActions(selectedData.accountType+index)" aria-label="quick actions tigger"
+              class="arrow"
+              [ngClass]="{ 
+                'rotate-up': toggleActions, 
+                'rotate-down': !toggleActions }">
+            </button>
+          </box>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <box class="deposit-primary-info">
+            <box class="deposit-type">
+              <span class="icon-wrapper"></span>
+            </box>
+            <box class="account-details">
+              <span class="account">{{selectedData.accountNumber}} | {{selectedData.productDescription}}</span>
+              <box class="deposit-additional-info">
+                <span>
+                  <span class="lbl">{{ 'DEPOSITACCOUNTLISTGRID.depositTerm' | translate }}</span>
+                  <span class="val">{{selectedData.depositTerm}}</span>
+                </span>
+                <span>
+                  <span class="lbl">{{ 'DEPOSITACCOUNTLISTGRID.depositAmount' | translate }}</span>
+                  <span class="val">{{ selectedData.depositAmount | currency :
+                    selectedData.accountCurrency : '' }}  {{selectedData.accountCurrency}}</span>
+                </span>
+                <span>
+                  <span class="lbl">{{ 'DEPOSITACCOUNTLISTGRID.depositDate' | translate }}</span>
+                  <span class="val">{{ selectedData.openDate | date : "dd MMM yyyy" }}</span>
+                </span>
+                <span>
+                  <span class="lbl">{{ 'DEPOSITACCOUNTLISTGRID.maturityDate' | translate }}</span>
+                  <span class="val">{{ selectedData.maturityDate | date : "dd MMM yyyy" }}</span>
+                </span>
+                <span>
+                  <span class="lbl">{{ 'DEPOSITACCOUNTLISTGRID.maturityAmount' | translate }}</span>
+                  <span class="val">{{ selectedData.maturityAmount | currency :
+                    selectedData.accountCurrency : '' }} {{selectedData.accountCurrency}}</span>
+                </span>
+                <span>
+                  <span class="lbl">{{ 'DEPOSITACCOUNTLISTGRID.interestRate' | translate }}</span>
+                  <span class="val">{{selectedData?.interestRate+'%'}}</span>
+                </span>
+              </box>
+            </box>
+          </box>
+        </ng-container>
+      </ng-container>
+    </box>
+
+  </box>
+  <ng-container *ngIf="selectedData.accountType == 'aviso' || selectedData.accountType == 'registeredproducts'">
+    <ng-container *ngIf="toggleActions">
+      <box class="deposit-summary-list-actions">
+        <app-deposit-quick-actions [accountType]="selectedData.accountType" [accountNumber]="selectedData.accountNumber"></app-deposit-quick-actions>
+      </box>
+    </ng-container>
+  </ng-container>
+</box>

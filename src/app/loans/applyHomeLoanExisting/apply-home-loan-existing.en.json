@@ -1,0 +1,79 @@
+"applyHomeLoan":{
+"title":"applyloan",
+		 "serviceCode": {
+		  "label":"Service Code" ,
+		  "placeholder": "Service Code"
+		  } ,
+		 "tenantId": {
+		  "label":"TenantId" ,
+		  "placeholder": "TenantId"
+		  } ,
+		 "applicantId": {
+		  "label":"ApplicantId" ,
+		  "placeholder": "ApplicantId"
+		  } ,
+		 "firstName": {
+		  "label":"First Name" ,
+		  "placeholder": "First Name"
+		  } ,
+		 "lastName": {
+		  "label":"Last Name" ,
+		  "placeholder": "Last Name"
+		  } ,
+		 "mobileNumber": {
+		  "label":"Mobile Number" ,
+		  "placeholder": "Mobile Number"
+		  } ,
+		 "dob": {
+		  "label":"Date of Birth" ,
+		  "placeholder": "Date of Birth"
+		  } ,
+		 "emailAddress": {
+		  "label":"Email ID" ,
+		  "placeholder": "Email ID"
+		  } ,
+		 "propertyCost": {
+		  "label":"Transaction Amount" ,
+		  "placeholder": "Transaction Amount"
+		  } ,
+		 "currency": {
+		  "label":"Currency" ,
+		  "placeholder": "Currency"
+		  } ,
+		 "downPayment": {
+		  "label":"Transaction Amount" ,
+		  "placeholder": "Transaction Amount"
+		  } ,
+		 "loanAmount": {
+		  "label":"Transaction Amount" ,
+		  "placeholder": "Transaction Amount"
+		  } ,
+		 "tenor": {
+		  "label":"Additional Tenor" ,
+		  "placeholder": "Additional Tenor"
+		  } ,
+		 "interestRate": {
+		  "label":"Transaction Amount" ,
+		  "placeholder": "Transaction Amount"
+		  } ,
+		 "emi": {
+		  "label":"Transaction Amount" ,
+		  "placeholder": "Transaction Amount"
+		  } ,
+		 "interestAmount": {
+		  "label":"Transaction Amount" ,
+		  "placeholder": "Transaction Amount"
+		  } ,
+		 "repaymentAmount": {
+		  "label":"Transaction Amount" ,
+		  "placeholder": "Transaction Amount"
+		  } ,
+		 "productselection": {
+		  "label":"productselection" ,
+		  "placeholder": "productselection"
+		  } ,
+		 "employmentInfo": {
+		  "label":"universityName" ,
+		  "placeholder": "universityName"
+		  } ,
+}

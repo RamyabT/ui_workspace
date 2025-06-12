@@ -1,0 +1,30 @@
+<form [formGroup]="formGroup" [ngClass]="{'read-more-view': this.readMore}" (ngSubmit)="submit()" autocomplete="off"
+	class="custom-forms">
+
+	<box class="product-selection-wrapper">
+
+		<ng-container *ngIf="state.segments && state.segments.length">
+			<box class="field-set">
+				<div class="product-segment">
+					<div *ngFor="let segment of state.segments; let i=index">
+						<div class="segment" [ngClass]="{'active':i == state.activeSegmentIndex}"
+							(click)="_helper.onClickSegment(i)">{{segment.segmentCode}}</div>
+					</div>
+				</div>
+				<app-retail-product-selection-control
+					[segmentCode]="state.segments[state.activeSegmentIndex].segmentCode" [readMore]="readMore"
+					(emitChanges)="emitChanges()" (emitReadMore)="emitReadMore()" ngTemplateName=""
+					class="col-sm-12 col-lg-12 col-md-12"
+					formControlName="productId"></app-retail-product-selection-control>
+			</box>
+		</ng-container>
+
+		<div class="form-footer-actions">
+			<button type="button" class="btn-tertiary back-btn" (click)="_helper.onBackClick()"> {{'OnBoarding.backbtn'
+				| translate }} </button>
+			<button type="submit" class="btn-primary apply-btn" [disabled]="!formGroup.valid"
+				(click)="submit()">{{'OnBoarding.applybtn' | translate }} </button>
+		</div>
+	</box>
+
+</form>

@@ -1,0 +1,5 @@
+ 
+ "RETAILPCTRANSACTION" : {
+ "servicePath": ["entry-shell","prepaidcard", "retail-pc-transactiondtls-form"],
+ "queryParams": {}
+ }

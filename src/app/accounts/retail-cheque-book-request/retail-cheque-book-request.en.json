@@ -1,0 +1,63 @@
+"RetailChequeBookRequest":{
+"title":"Cheque Book Request",
+		 "accountNumber": {
+		  "label":"Select Account" ,
+		  "placeholder": "Select Account"
+		  } ,
+		 "noOfChequeBooks": {
+		  "label":"No. of Cheque Books" ,
+		  "placeholder": "No. of Cheque Books"
+		  } ,
+		 "noOfLeaves": {
+		  "label":"How many cheques would you like to order? " ,
+		  "placeholder": "How many cheques would you like to order? "
+		  } ,
+		 "chequeStartNumber": {
+		  "label":"Cheque Start Number" ,
+		  "placeholder": "Cheque Start Number"
+		  } ,
+		 "firstName": {
+		  "label":"First Name" ,
+		  "placeholder": "First Name"
+		  } ,
+		 "lastName": {
+		  "label":"Last Name" ,
+		  "placeholder": "Last Name"
+		  } ,
+		 "phoneNumber": {
+		  "label":"Phone Number" ,
+		  "placeholder": "Phone Number"
+		  } ,
+		 "isCardUpdateRequired": {
+		  "label":"Do you want to send updated information to Visa?" ,
+		  "placeholder": "Do you want to send updated information to Visa?"
+		  } ,
+		 "cardFourDigits": {
+		  "label":"Enter Last 4 digits of Visa card" ,
+		  "placeholder": "Enter Last 4 digits of Visa card"
+		  } ,
+		 "isPhoneNumberRequired": {
+		  "label":"Do you want to include your phone number on the cheque?" ,
+		  "placeholder": "Do you want to include your phone number on the cheque?"
+		  } ,
+		 "deliveryOption": {
+		  "label":"Delivery Option" ,
+		  "placeholder": "Delivery Option"
+		  } ,
+		 "deliveryBranch": {
+		  "label":"Select Branch" ,
+		  "placeholder": "Select Branch"
+		  } ,
+		 "chargesAmount": {
+		  "label":"Charges Amount" ,
+		  "placeholder": "Charges Amount"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"I am aware that there may be a service charge (see cheque pricing) for cheques ordered for each account, depending on the type of account." ,
+		  "placeholder": "I am aware that there may be a service charge (see cheque pricing) for cheques ordered for each account, depending on the type of account."
+		  } 
+}

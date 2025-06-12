@@ -1,0 +1,5 @@
+<label [attr.for]="_deviceDetector.isHybrid() ? null : id" (click)="_deviceDetector.isHybrid() ? openGallery() : null">
+    <span class="img-ico"><img src="./assets/images/upload-file.svg" alt="document" /></span>
+    <span class="button-txt">{{ label }}</span>
+</label>
+<input type="file" [id]="id" [accept]="acceptFiles" (change)="onFileSelect($event)" />

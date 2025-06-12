@@ -1,0 +1,39 @@
+"RetailChequeStatusInquiryForm":{
+"title":"Inquiry Cheque Status",
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "inquiryType": {
+		  "label":"Inquiry Type" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "chequeNumber": {
+		  "label":"ChequeNumber" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "fromChequeNumber": {
+		  "label":"From Cheque Number" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "toChequeNumber": {
+		  "label":"To Cheque Number" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "fromDate": {
+		  "label":"From Date" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "toDate": {
+		  "label":"To Date" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "chequeStatus": {
+		  "label":"Cheque Status" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "search": {
+		  "label":"Search" ,
+		  "placeholder": "Search"
+		  } ,
+}

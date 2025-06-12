@@ -1,0 +1,5 @@
+ 
+ "RETAILINDIVIDUALDDREQ" : {
+ "servicePath": ["entry-shell","servicerequest", "retail-Individual-ddreq-form"],
+ "queryParams": {}
+ }

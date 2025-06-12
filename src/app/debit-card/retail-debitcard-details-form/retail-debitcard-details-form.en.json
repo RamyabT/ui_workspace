@@ -1,0 +1,31 @@
+"retaildebitcardform":{
+"title":"Debit Card Details",
+		 "cardReference": {
+		  "label":"Debit Card Number" ,
+		  "placeholder": "Debit Card Number"
+		  } ,
+		 "cardType": {
+		  "label":"Card Type" ,
+		  "placeholder": "Card Type"
+		  } ,
+		 "status": {
+		  "label":"Status" ,
+		  "placeholder": "Status"
+		  } ,
+		 "validThru": {
+		  "label":"Valid Till" ,
+		  "placeholder": "Valid Till"
+		  } ,
+		  "validFrom": {
+			"label":"Valid From" ,
+			"placeholder": "Valid From"
+			} ,
+		 "branchDesc": {
+		  "label":"Issue Branch" ,
+		  "placeholder": "Issue Branch"
+		  } ,
+		  "cardRefNumber": {
+			"label": "Debit Card Reference Number",
+			"placeholder": "Debit Card Reference Number"
+		 },
+}

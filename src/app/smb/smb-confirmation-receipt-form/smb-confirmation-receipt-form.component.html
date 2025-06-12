@@ -1,0 +1,100 @@
+<ng-container>
+    <box
+        class="smb-confirmation-receipt-inner confirmation-receipt-inner success {{ result?.statusCode?.toLowerCase() }}">
+        <box class="confirmation-body">
+
+            <ng-container *ngIf="result.statusCode == 'failure'; else success">
+                <box class="status-container">
+                    <box class="status-ico-wrapper">
+                        <span class="status-ico"></span>
+                    </box>
+                    <span class="confirmation-message">
+                        {{ 'paymentsConfirmationReceipt.defaultErrorMessage' | translate }}</span>
+                </box>
+
+                <box class="message-container">
+                    <span class="confirmation-description">{{ 'paymentsConfirmationReceipt.defaultErrorDescription' |
+                        translate }}</span>
+                </box>
+            </ng-container>
+
+            <ng-template #success>
+                <box class="status-container">
+                    <box class="status-ico-wrapper">
+                        <span class="status-ico"></span>
+                    </box>
+                    <span class="confirmation-description">{{ resultMessage |
+                        translate }}</span>
+                    <span class="confirmation-message">{{resultSet | translate }}</span>
+                </box>
+
+                <box class="message-container">
+                    <span class="confirmation-description">
+                        <ng-container *ngIf="result?.resultPayload?.errorMessage; else noError">
+                            {{ result?.resultPayload?.errorMessage }}
+                        </ng-container>
+                        <ng-template #noError>
+                        <!-- <ng-container *ngIf="result?.resultPayload?.operationMode=='A'">  -->
+
+                        {{description}}
+
+                        <!-- </ng-container> -->
+                        <!-- <ng-container *ngIf="result?.resultPayload?.operationMode=='M'">
+                        <ng-template #modifyDesc>
+                            {{ modifydescription }}
+                        </ng-template>
+                    </ng-container>
+                    <ng-container *ngIf="result?.resultPayload?.operationMode=='D'">
+                        <ng-template #delDesc>
+                            {{ deletedescription }}
+                        </ng-template>
+                    </ng-container> -->
+                        </ng-template>
+
+                    </span>
+                </box>
+            </ng-template>
+
+            <ng-container *ngIf="result?.additionalInfo && result?.additionalInfo.length && _requestServiceCode != 'RETAILDELEGATEUSER'">
+                <hr />
+                <box class="additional-details-container">
+                    <ng-container *ngFor="let detail of result?.additionalInfo">
+                        <ng-container *ngIf="detail.value">
+                            <ng-container *ngIf="detail.value != 'spacer'; else spacer">
+                                <box class="details">
+                                    <span class="detail-lbl">{{ detail.label|translate }}</span>
+                                    <span class="detail-val">
+                                        <ng-container [ngSwitch]="detail.format">
+                                            <ng-container *ngSwitchCase="'date'">
+                                                {{ detail.value | date : "dd MMM YYYY, hh:mm:ss" }}
+                                            </ng-container>
+                                            <ng-container *ngSwitchDefault>
+                                                {{ detail.value }}
+                                            </ng-container>
+                                        </ng-container>
+
+                                    </span>
+                                </box>
+                            </ng-container>
+                            <ng-template #spacer>
+                                <div class="space-bar"></div>
+                            </ng-template>
+                        </ng-container>
+                    </ng-container>
+
+                </box>
+            </ng-container>
+        </box>
+
+        <box class="confirmation-footer">
+            <button type="button" class="secondary" (click)="gotoHome()"><span>{{
+                    'smbConfirmationReceiptForm.home' | translate }}</span></button>
+            <ng-container *ngIf="_requestServiceCode != 'RETAILDELEGATEUSER' && result?.resultPayload?.requestPayload?.operationMode == 'A'">
+                <button type="button" class="primary" (click)="gotoSetPermissions()"><span>{{
+                        'smbConfirmationReceiptForm.setpermissions' | translate }}</span></button>
+            </ng-container>
+
+        </box>
+    </box>
+
+</ng-container>

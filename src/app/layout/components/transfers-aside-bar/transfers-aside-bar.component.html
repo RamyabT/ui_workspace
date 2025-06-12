@@ -1,0 +1,39 @@
+<box class="aside-bar-inner"
+    [ngClass]="{'aside-bar-expand' : expandAsideBar, 'show-widget': showWidget, 'hide-widget': !showWidget}">
+    <box class="widget-list">
+        <ul>
+            <li>
+                <box class="widget-nav collapse-state-widget-icon" (click)="toggleAsideBar()">
+                    <span class="widget-nav-ico-wrapper widget-nav-offers"></span>
+                </box>
+                <ng-container *ngIf="expandAsideBar && bannersList else loader">
+                    <ng-container *ngIf="bannersList.length > 0">
+                        <box class="widget-nav" (click)="toggleAsideBar()">
+                            <span class="widget-nav-ico-wrapper widget-nav-offers"></span>
+                            <span class="widget-nav-name">{{ 'ASIDE_BAR.WIDGET_TITLES.offers' | translate }}</span>
+                        </box>
+                        <box class="">
+                            <banner-ads [serviceCode]="serviceCode"></banner-ads>
+                        </box>
+                    </ng-container>
+                </ng-container>
+                
+            </li>
+        </ul>
+
+    </box>
+
+    <!-- <hr class="seperator" /> -->
+
+    <box class="widget-additionals">
+        <fpx-button buttonType="button" class="add-widget" label="Add Widgets"></fpx-button>
+    </box>
+
+</box>
+
+<fpx-button buttoType="button" class="btn-expand-aside-bar" label="expand aside bar" (onClick)="toggleAsideBar()"></fpx-button>
+
+<div class="aside-bar-overlay" *ngIf="expandAsideBar" (click)="toggleAsideBar()"></div>
+<ng-template #loader>
+    <box *ngIf="expandAsideBar" class="table-spinner"></box>
+</ng-template>

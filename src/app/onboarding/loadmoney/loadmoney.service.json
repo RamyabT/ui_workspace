@@ -1,0 +1,5 @@
+ 
+ "CASAONBOARDING" : {
+ "servicePath": ["entry-shell","pfm", "loadmoney"],
+ "queryParams": {}
+ }

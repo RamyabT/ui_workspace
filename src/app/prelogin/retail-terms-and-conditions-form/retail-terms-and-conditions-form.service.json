@@ -1,0 +1,5 @@
+ 
+ "RETAILTERMSANDCONDITIONS" : {
+ "servicePath": ["entry-shell","prelogin", "retail-terms-and-conditions-form"],
+ "queryParams": {}
+ }

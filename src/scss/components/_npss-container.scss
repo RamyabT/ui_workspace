@@ -1,0 +1,325 @@
+.npss-home{
+    .module-home-bg
+    {
+        height: 294px;
+        border-radius: 0 0 32px 32px;
+    }
+
+    .recent-transactions-container{
+        padding: 0 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        @include not-small-screen {
+            padding: 30px 0 10px;
+        }
+
+        .title{
+            @include s2-medium;
+            color: var(--neutral50);
+            @include not-small-screen {
+                color: var(--baseTxtClr);
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding-bottom: 4px;
+                &::before {
+                    content: '';
+                    background: url(../../assets/images/icons/fav-icon.svg) no-repeat 50% 50% transparent !important;
+                    width: 20px;
+                    height: 20px;
+                    display: inline-block;
+                }
+            }
+        }
+
+        .no-transactions{
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            justify-content: space-between;
+
+            .no-transactions-inner{
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+
+                .no-transaction-ttl{
+                    @include b2-regular;
+                    color: var(--neutral50);
+                    @include not-small-screen {
+                        color: var(--baseTxtClr);
+                    }
+                }
+                .no-transaction-desc{
+                    @include b4-regular;
+                    color: var(--neutral50);
+                    padding-bottom: 4px;
+                    @include not-small-screen {
+                        color: var(--bodyTxtClr);
+                    }
+                }
+            }
+        }
+    }
+
+    .module-container{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 20px;
+    }
+
+    .npss-activate{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 0 16px;
+
+        .npss-activate-img-wrapper{
+            text-align: center;
+        }
+        .npss-activate-details{
+            text-align: center;
+        }
+        .btn-container{
+            justify-content: center;
+        }
+    }
+
+    .npss-actions{
+        .actions-body {
+            ul.actions-list {
+                flex-wrap: wrap;
+
+                .icon-wrapper{
+                    &:is(.npss-scan-and-pay)::after {
+                        mask-image: url("../../assets/images/quick-links/npss/scan-pay.svg");
+                        -webkit-mask-image: url("../../assets/images/quick-links/npss/scan-pay.svg");
+                    }
+                    &:is(.npss-send-money)::after {
+                        mask-image: url("../../assets/images/quick-links/npss/send-money.svg");
+                        -webkit-mask-image: url("../../assets/images/quick-links/npss/send-money.svg");
+                    }
+                    &:is(.npss-request-money)::after {
+                        mask-image: url("../../assets/images/quick-links/npss/request-money.svg");
+                        -webkit-mask-image: url("../../assets/images/quick-links/npss/request-money.svg");
+                    }
+                    &:is(.npss-deactivate-account)::after {
+                        mask-image: url("../../assets/images/quick-links/npss/deactivate-account.svg");
+                        -webkit-mask-image: url("../../assets/images/quick-links/npss/deactivate-account.svg");
+                    }
+                    &:is(.npss-unenroll-account)::after {
+                        mask-image: url("../../assets/images/quick-links/npss/delete-account.svg");
+                        -webkit-mask-image: url("../../assets/images/quick-links/npss/delete-account.svg");
+                    }
+                    &:is(.npss-manage-account)::after {
+                        mask-image: url("../../assets/images/quick-links/npss/manage-account.svg");
+                        -webkit-mask-image: url("../../assets/images/quick-links/npss/manage-account.svg");
+                    }
+                    &:is(.npss-set-proxy)::after {
+                        mask-image: url("../../assets/images/quick-links/npss/set-proxy.svg");
+                        -webkit-mask-image: url("../../assets/images/quick-links/npss/set-proxy.svg");
+                    }
+                }
+            }
+        }
+    }
+    .space-content.hide-close-btn {
+        .shell-header {
+            .nav-btn {
+                display: block;
+            }
+        }
+    }
+}
+
+.activate-npss,
+.deactivate-npss{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .image-wrapper{
+        text-align: center;
+    }
+    .message{
+        @include b1-regular;
+        color: var(--baseTxtClr);
+    }
+}
+
+.bene-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
+    .bene-initial{
+        @include s3-medium;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid var(--baseBdrClr);
+        text-align: center;
+        text-transform: uppercase;
+        color: var(--neutral50);
+        background-color: var(--secondary500);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bene-primary-info{
+        @include b2-regular;
+        color: var(--bodyTxtClr);
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap:0;
+    }
+}
+#depAppBody{
+    .npss-money-transfers-amount-control{
+        .fpx-curr-amount{
+            .fpx-form-control{
+                fpx-label{
+                    margin: 0;
+                }
+    
+                .fpx-field-content{
+                    border: none;
+    
+                    .amount-field-wrapper{
+                        gap: 4px;
+                        justify-content: center;
+    
+                        .currency-code-wrapper{
+                            background: transparent;
+                            padding: 0;
+    
+                            .mat-select-value-text{
+                                @include h1-bold;
+                                color: #35393C;
+                            }
+                            .mat-select-trigger{
+                                height: auto;
+                            }
+                            .mat-select-arrow-wrapper{
+                                display: none;
+                            }
+                        }
+                        .amount-input{
+                            padding: 0;
+                            width: 70px;
+                            input{
+                                @include h1-bold;
+                                color: #35393C;
+                                text-align: left !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .npss-money-transfers-remarks-control{
+        .fpx-form-control{
+            .fpx-field-content{
+                background-color: #D4EAFF;
+                border: none;
+    
+                input{
+                    text-align: center;
+                }
+    
+                .placeholder{
+                    width: 100%;
+                    justify-content: center;
+                    color: var(--bodyTxtClr);
+                    opacity: 0.4;
+                }
+            }
+        }
+    }
+}
+
+
+.debit-account-details{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 30%;
+    @include not-small-screen {
+        margin-top: 70px;
+    }
+
+    .debit-account{
+        display: flex;
+        flex-direction: row;
+        gap:10px;
+        align-items: flex-start;
+        padding: 10px 12px;
+        border-radius: 16px;
+        border: 1px solid var(--neutral500);
+
+        .account-icon{
+            width: 24px;
+            height: 24px;
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+        .account-info{
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            color: var(--baseTxtClr);
+
+            .primary-info{
+                @include b1-regular;
+            }
+            .secondary-info{
+                @include b4-regular;
+            }
+        }
+    }
+}
+
+app-split-bills-qrcode,app-retail-approve-request{
+    .name{
+        display:flex;
+        flex-direction: column;
+    }
+}
+
+html:not(.small-screen) {
+    app-retail-npss-send-money,
+    app-retail-npss-request-money {
+        .header {
+            @include s2-bold;
+        }
+    }
+    app-retail-send-amount-confirmation,
+    app-retail-request-money-confirmation {
+        .fpx-form-control {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+app-retail-add-members-contact{
+    .select-contact-ro-grid{
+        max-height: 400px;
+        overflow: auto;
+    }
+}
+
+app-retail-bill-split-type{
+    .split-type-footer{
+        display:flex;
+        flex-direction: column;
+    }
+}
+

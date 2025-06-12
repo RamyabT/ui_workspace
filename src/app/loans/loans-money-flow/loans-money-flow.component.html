@@ -1,0 +1,37 @@
+<box class="widget money-flow loan-money-flow">
+    
+
+    <box class="widget-body">
+        <box class="chart-tool-bar">
+            <header>
+                <span class="widget-title">{{ 'WIDGIT_TITLES.loanMoneyFlowLbl' | translate }}</span>
+            </header>
+            <box class="chart-month-options">
+                <mat-radio-group class="chicletsRadio" value="6M">
+                    <mat-radio-button value="6M">6M</mat-radio-button>
+                    <mat-radio-button value="3M">3M</mat-radio-button>
+                    <mat-radio-button value="1W">1W</mat-radio-button>
+               </mat-radio-group>
+            </box>
+        </box>
+        <box class="money-flow-data legends">
+            <box class="money-item expenses">
+                <span class="icon-wrapper"></span>
+                <box class="info">
+                    <span class="lbl">{{ 'MONEY_FLOW.principal' | translate }}</span>
+                    <span class="amount">{{ 3000 | currency : _appConfig.baseCurrency : '' }} <em>{{_appConfig.baseCurrency}}</em></span>
+                </box>
+            </box>
+            <span class="seperator"></span>
+            <box class="money-item income">
+                <span class="icon-wrapper"></span>
+                <box class="info">
+                    <span class="lbl">{{ 'MONEY_FLOW.interest' | translate }}</span>
+                    <span class="amount">{{ 10000 | currency : _appConfig.baseCurrency : '' }} <em>{{_appConfig.baseCurrency}}</em></span>
+                </box>
+            </box>
+        </box>
+        <div class="chart-contents" #chartContainer></div>
+    </box>
+    
+</box>

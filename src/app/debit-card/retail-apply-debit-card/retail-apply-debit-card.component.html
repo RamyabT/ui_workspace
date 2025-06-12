@@ -1,0 +1,85 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailApplyDebitCard" >
+	   
+	 <box class="entry-form">
+	     
+		<app-account-list-template-control class="col-sm-12 col-md-6 col-lg-6"
+		[actionPublisher]="actionMap$.get('accountNumber')"
+		formControlName="accountNumber" (commonControlEvent)="handleControlEvent($event)"
+		label="{{'RetailApplyDebitCard.accountNumber.label' | translate }}"></app-account-list-template-control>
+		<box class="grid entry-form-field-group"> 
+	      
+			  <!-- <app-account-number-list-control  class="col-sm-12 col-md-6 col-lg-6"    [actionPublisher]="actionMap$.get('accountNumber')"     label="{{'RetailApplyDebitCard.accountNumber.label' | translate }}"   formControlName="accountNumber" 
+     ></app-account-number-list-control>  -->
+	     
+	      
+			  <app-dcCardType  class="col-sm-12 col-md-6 col-lg-6"     [actionPublisher]="actionMap$.get('dcCardType')"     label="{{'RetailApplyDebitCard.dcCardType.label' | translate }}"   formControlName="dcCardType" 
+     ></app-dcCardType>
+	     
+	      
+			 
+			  <app-acc-delivery-options-control  class="col-sm-12 col-md-6 col-lg-6"     [actionPublisher]="actionMap$.get('deliveryOption')"  (commonControlEvent)="handleControlEvent($event)"   label="{{'RetailApplyDebitCard.deliveryOption.label' | translate }}"   formControlName="deliveryOption" 
+     ></app-acc-delivery-options-control>
+
+	 <app-branches-list-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('branches')"     label="{{'RetailApplyDebitCard.branches.label' | translate }}"   formControlName="branches" 
+     ></app-branches-list-control> 
+	     
+	 <box class="field-item col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('addressInfo')">
+		<fpx-label label="Address Details"></fpx-label>
+		<box class="info-box">
+			<box class="info-field">
+				<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.buildingDetails"
+					[literals]="commonFormInput"></fpx-display-text>
+			</box>
+			<box class="info-field">
+				<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.cityDetails"
+					[literals]="commonFormInput"></fpx-display-text>
+			</box>
+			<box class="info-field">
+				<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.stateDetails"
+					[literals]="commonFormInput"></fpx-display-text>
+			</box>
+			<box class="info-field">
+				<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.countryDetails"
+					[literals]="commonFormInput"></fpx-display-text>
+			</box>
+			<box class="info-field">
+				<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.pinCode"
+					[literals]="commonFormInput"></fpx-display-text>
+			</box>
+			<box class="info-field">
+				<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.mobile"
+					[literals]="commonFormInput"></fpx-display-text>
+			</box>
+		</box>
+	</box>
+	
+	<!-- <app-charges-control  class="col-sm-12 col-md-6 col-lg-6"    [actionPublisher]="actionMap$.get('charges')"     label="{{'RetailApplyDebitCard.charges.label' | translate }}"   formControlName="charges" 
+	[CurrencyList]="state.charges.CurrencyList" [isCurrEditable]="state.charges.isCurrEditable"  [defaultFetch]="state.charges.defaultFetch" [initCurrency]="state.charges.initCurrency" [amountInWords]="state.charges.amountInWords">  ></app-charges-control>
+		   -->
+	<!-- <app-payment-amount-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('charges')"     label="{{'RetailApplyDebitCard.charges.label' | translate }}"   formControlName="charges"  placeholder="{{'RetailApplyDebitCard.charges.placeholder' | translate }}"
+	[CurrencyList]="state.charges.CurrencyList" [isCurrEditable]="state.charges.isCurrEditable"  [defaultFetch]="state.charges.defaultFetch" [initCurrency]="state.charges.initCurrency" [amountInWords]="state.charges.amountInWords">  >
+ </app-payment-amount-control>	    -->
+	      
+			  <app-remarks-control  class="col-sm-12 col-md-6 col-lg-6"     [actionPublisher]="actionMap$.get('remarks')"     label="{{'RetailApplyDebitCard.remarks.label' | translate }}"   formControlName="remarks" 
+   ></app-remarks-control>
+	      <!-- <app-cobaddressinfo-form class="col-md-4" (commonFormEvent)="handleControlEvent($event)"  [actionPublisher]="actionMap$.get('addressInfo')"   label="cobaddressinfo"  formControlName="addressInfo" 
+ ></app-cobaddressinfo-form>
+	      -->
+	      
+			  <!-- <app-auth-person-name-control  class="col-md-4"   [actionPublisher]="actionMap$.get('authPersonName')"     label="{{'RetailApplyDebitCard.authPersonName.label' | translate }}"   formControlName="authPersonName" 
+   ></app-auth-person-name-control>
+	     
+	      
+			  <app-auth-person-id-control  class="col-md-4"   [actionPublisher]="actionMap$.get('authPersonId')"     label="{{'RetailApplyDebitCard.authPersonId.label' | translate }}"   formControlName="authPersonId" 
+   ></app-auth-person-id-control> -->
+   <box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-6 grid main-group disclaimer-box">
+
+	<app-terms-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('termsFlag')"
+		label="{{'RetailApplyDebitCard.termsFlag.label' | translate }}" formControlName="termsFlag"
+		[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+
+</box>
+	</box> 
+	 </box>  
+	</form>
+	

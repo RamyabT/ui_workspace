@@ -1,0 +1,53 @@
+<box class="module-home pfm-home" #spaceHome>
+    <ng-container *ngIf="_device.isMobile(); else spaceContainer">
+        <box class="module-home-bg" [style.top.px]="moduleHeaderTop"></box>
+        <box class="module-home-inner">
+            <fpx-display-text class="module-title" innerHTML="{{'PFMCONTAINER.title' | translate}}"></fpx-display-text>
+
+            <box class="networth-section">
+                <app-pfm-networth></app-pfm-networth>
+            </box>
+            <box class="budget-carousel-section">
+                <app-finance-summary-board-carousel></app-finance-summary-board-carousel>
+            </box>
+            <box class="cash-flow-section">
+                <app-cash-flow></app-cash-flow>
+            </box>
+			  <box class="expense-categories-section">
+                <app-expense-categories-carousel></app-expense-categories-carousel>
+            </box>
+            <box class="assets-breakdown-section">
+                <app-assets-breakdown-widget></app-assets-breakdown-widget>
+            </box>
+            <box class="upcoming-payments-widget-container">
+                <app-upcoming-payments-widget></app-upcoming-payments-widget>
+            </box>
+            <box class="offers-widget">
+                <banner-ads [serviceCode]="'RETAILDASHBOARD'"></banner-ads>
+            </box>
+        </box>
+
+    </ng-container>
+
+    <ng-template #spaceContainer>
+        <box class="space-container">
+            <box class="space-summary">
+                <box class="networth-section">
+                    <app-pfm-networth></app-pfm-networth>
+                </box>
+                <box class="budget-widget-selection">
+                    <app-finance-summary-board [cardData]="budgetSummary"></app-finance-summary-board>
+                </box>
+                <box class="goals-widget-section">
+                    <app-finance-summary-board [cardData]="goalSummary"></app-finance-summary-board>
+                </box>
+                <box class="offers-widget">
+                    <banner-ads [serviceCode]="'RETAILDASHBOARD'"></banner-ads>
+                </box>
+            </box>
+            <box class="space-content pfm-content">
+                <router-outlet></router-outlet>
+            </box>
+        </box>
+    </ng-template>
+</box>

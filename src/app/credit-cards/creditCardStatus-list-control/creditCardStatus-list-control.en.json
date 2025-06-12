@@ -1,0 +1,6 @@
+"creditCardStatus-list-control":{
+	"Active":"Active", 
+	"Cancelled":"Cancelled", 
+	"InActive":"InActive", 
+	"Blocked":"Blocked" 
+}

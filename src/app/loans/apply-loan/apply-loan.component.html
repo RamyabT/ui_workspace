@@ -1,0 +1,97 @@
+<box [ngClass]="{'module-home accounts-home' : _device.isMobile()}">
+
+  <box *ngIf="_device.isMobile()" class="module-home-header">
+    <button type="button" class="system-ico-button btn-back no-text" name="back"
+      (click)="goBack()"><span>Back</span></button>
+    <h2 class="module-title">{{ 'SPACE_HEADER.backToHome' | translate }}</h2>
+  </box>
+
+  <box [ngClass]="{'apply-loan-container' : _device.isMobile()}">
+    <box class="header-container">
+      <span class="title">
+        {{'ApplyLoan.header' | translate}} <span class="suffix-text">{{'ApplyLoan.headerSuffix' | translate}} </span>
+      </span>
+
+    <span class="desc">
+      {{'ApplyLoan.headerDesc' | translate}}
+    </span>
+
+
+      <box class="apply-btn">
+        <button type="button" (click)="applyNewLoan()" class="btn-primary">{{'ApplyLoan.applyLoanBtn' | translate}}</button>
+      </box>
+    </box>
+
+  <box class="line-separator"></box>
+
+  <box class="content-container">
+    <box class="how-to-apply-content">
+      <span class="title">
+        {{'ApplyLoan.howtoApply' | translate}} </span>
+
+      <box class="apply-steps-container">
+        <box class="step">
+          <span class="sub-title">{{'ApplyLoan.applySteps.step1' | translate}}</span>
+          <span class="sub-desc">{{'ApplyLoan.applySteps.step1Desc' | translate}}</span>
+        </box>
+        <box class="step">
+          <span class="sub-title">{{'ApplyLoan.applySteps.step2' | translate}}</span>
+          <span class="sub-desc">{{'ApplyLoan.applySteps.step2Desc' | translate}}</span>
+        </box>
+        <box class="step">
+          <span class="sub-title">{{'ApplyLoan.applySteps.step3' | translate}}</span>
+          <span class="sub-desc">{{'ApplyLoan.applySteps.step3Desc' | translate}}</span>
+        </box>
+      </box>
+    </box>
+
+    <box class="line-separator"></box>
+
+    <box class="details-content">
+      <span class="title">
+        {{'ApplyLoan.detailsHeader' | translate}}
+      </span>
+
+      <box class="apply-steps-container">
+        <box class="step">
+          <span class="detail" [innerHtml]="'ApplyLoan.detail1' | translate">
+          </span>
+        </box>
+        <box class="step">
+          <span class="detail" [innerHtml]="'ApplyLoan.detail2' | translate">
+          </span>
+        </box>
+        <box class="step">
+          <span class="detail" [innerHtml]="'ApplyLoan.detail3' | translate">
+          </span>
+        </box>
+        <box class="step">
+          <span class="detail" [innerHtml]="'ApplyLoan.detail4' | translate">
+          </span>
+        </box>
+        <box class="step">
+          <span class="detail" [innerHtml]="'ApplyLoan.detail5' | translate">
+          </span>
+        </box>
+      </box>
+    </box>
+
+  </box>
+
+  <box class="line-separator"></box>
+
+    <box class="footer-container">
+      <box class="disclaimer-content">
+        <span class="title">
+          {{'ApplyLoan.disclaimerText' | translate}}
+        </span>
+        <ul>
+          <li>{{'ApplyLoan.disclaimer.one' | translate}}</li>
+          <li>{{'ApplyLoan.disclaimer.two' | translate}}</li>
+          <li>{{'ApplyLoan.disclaimer.three' | translate}}</li>
+          <li>{{'ApplyLoan.disclaimer.four' | translate}}</li>
+        </ul>
+      </box>
+    </box>
+  </box>
+</box>

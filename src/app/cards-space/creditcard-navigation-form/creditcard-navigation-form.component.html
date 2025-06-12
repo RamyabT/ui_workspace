@@ -1,0 +1,6 @@
+<form [formGroup]="formGroup" autocomplete="off" formName="casa-navigation-form" class="casa-navigation-form">
+    <box class="entry-form">
+        <app-creditcard-dtl-list-control class="col-12 casaAccountDtlListTmplt" [allCreditCards]="state.creditcards" [cardData]="state.currentCard" (onClickingViewAll)="_helper.openCreditCardList()" formControlName="cardRefNumber"></app-creditcard-dtl-list-control>
+        <app-creditcard-context-menu class="col-12 widget quick-link" [cardData]="state.currentCard" ></app-creditcard-context-menu>
+    </box>
+</form>

@@ -1,0 +1,21 @@
+<box class="ui-alert-richtext-content-container">
+    <box class="modal-content-wrapper">
+        <box class="modal-header">
+            <box *ngIf="iconClass" class="modal-icon {{iconClass}}"></box>
+            <box *ngIf="title" class="modal-title">{{ title | translate }}</box>
+            <box *ngIf="showResolvedSubtitle" class="modal-description">{{ subtitle }}</box>
+        </box>
+        <box class="modal-body">
+            <box *ngIf="messageHtml" class="modal-description" [innerHTML]="messageHtml"></box>
+        </box>
+    </box>
+    <box class="modal-footer">
+        <box class="btn-container">
+            <button *ngIf="enableSecondaryButton" type="button" class="btn-secondary"
+                (click)="onClickSecondaryButton()"> {{ secondaryButtonLabel | translate }} </button>
+            <button *ngIf="enablePrimaryButton" type="button" class="btn-primary"
+                (click)="onClickPrimaryButton()"> {{
+                primaryButtonLabel | translate }} </button>
+        </box>
+    </box>
+</box>

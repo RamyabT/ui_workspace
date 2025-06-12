@@ -1,0 +1,5 @@
+ 
+ "RETAILSAVEDBILLERROGRIDFORM" : {
+ "servicePath": ["entry-shell","payments", "retail-saved-biller-ro-grid-form"],
+ "queryParams": {}
+ }

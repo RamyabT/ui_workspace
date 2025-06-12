@@ -1,0 +1,59 @@
+"RetailLoanModification":{
+"title":"Request for EMI Deferment",
+		 "loanAccountNumber": {
+		  "label":"Select Loan Account" ,
+		  "placeholder": ""
+		  } ,
+		 "loanModificationType": {
+		  "label":"Loan Modification Type" ,
+		  "placeholder": "loan Modification Type"
+		  } ,
+		 "additionalLoanAmt": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "additionalLoanTenorUnit": {
+		  "label":"Tenor Unit" ,
+		  "placeholder": "Tenor Unit"
+		  } ,
+		 "additionalLoanTenor": {
+		  "label":"Additional Tenor" ,
+		  "placeholder": "Additional Tenor"
+		  } ,
+		 "deferralAmt": {
+		  "label":"Deferral Amount" ,
+		  "placeholder": "Deferral Amount"
+		  } ,
+		 "currentInstDate": {
+		  "label":"Start Date" ,
+		  "placeholder": "Start Date"
+		  } ,
+		 "propInstDate": {
+		  "label":"From Date" ,
+		  "placeholder": "From Date"
+		  } ,
+		 "remarks": {
+		  "label":"Reason for Deferment" ,
+		  "placeholder": "Reason for Deferment"
+		  } ,
+		 "termsFlag": {
+		  "label":"By continuing you confirm and acknowledge the applicable terms and conditions" ,
+		  "placeholder": "By continuing you confirm and acknowledge the applicable terms and conditions"
+		  } ,
+		 "fileUpload": {
+		  "label":"File Upload" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		  "loanNoOfInstallments":{
+			"label":"No of Installments to be Deferred",
+			"placeholder":"No of Installments to be Deferred"
+		  },
+		  "purposeOfDeferment":{
+			"label":"Purpose Of Deferment",
+			"placeholder":"Purpose Of Deferment"
+		  },
+		  "otherReason":{
+			"label":"Please Specify",
+			"placeholder":"Please Specify"
+		  }
+}

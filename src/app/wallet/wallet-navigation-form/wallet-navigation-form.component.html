@@ -1,0 +1,7 @@
+<form [formGroup]="formGroup" autocomplete="off" formName="wallet-navigation-form" class="casa-navigation-form">
+<box class="entry-form">
+         <app-wallet-account-dtl-list-control class="col-12"  [selectableDataList]="state.walletAccounts" formControlName="walletAccountNumber"></app-wallet-account-dtl-list-control>
+ 
+        <!-- <app-casa-context-menu [resetActiveMenu]="state.resetActiveMenu" class="col-12 widget quick-link" [highlightMenu]="highlightMenu" [accountNumber]="state.accountNumber" ></app-casa-context-menu> -->
+    </box>
+</form>

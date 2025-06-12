@@ -1,0 +1,36 @@
+ <!-- <box class="account">
+  <span class="account-selector">
+    <mat-checkbox [value]="selectedData.documentchecklist" 
+      [checked]="selectedData.docDesc"
+      
+      [disabled]="selectedData.isPrimary"></mat-checkbox>
+  </span>
+  <box class="account-info">
+    <span class="account-type">{{ selectedData.docDesc }}</span>
+   
+  </box>
+    <ng-container *ngIf="selectedData.selected && !selectedData.isPrimary">
+    <box class="additional-info">
+      <button class="link" (click)="setAsDefault($event)"><span>{{ 'SavingsAccountListRoTmpltComponent.setAsDefaultBtnLbl' | translate }}</span></button>
+    </box>
+  </ng-container>
+  <ng-container *ngIf="selectedData.isPrimary">
+    <box class="is-primary-acc">{{ 'SavingsAccountListRoTmpltComponent.defaultAccountLbl' | translate }}</box>
+  </ng-container> 
+ </box>   -->
+
+<!-- <div>test word</div> -->
+
+
+<box class="document-checklist dc-pre-request-document" >
+  <ul>
+    <ng-container *ngFor="let document of selectedData.documents; index as i">
+      <li class="document-info">
+        <span class="document-index">{{ i + 1 }}</span>
+        <span class="document-description">{{ document?.docCode?.docDesc }}</span>
+      </li>
+    </ng-container>
+  </ul>
+</box>
+
+

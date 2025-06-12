@@ -1,0 +1,53 @@
+<box *ngIf="cardData.status && cardData.productDesc" class="summary-card debitcard" [ngClass]="{
+    'show-flash-card-btn':showFlashCardBtn,
+    'form-view':formView,
+    'show-name': showName,
+    'has-context-menu': contextmenuBtn
+    }"
+    [class]="cardData.status.toLowerCase()+ ' '+cardData.cardType.toLowerCase() +' '+cardData.productDesc.split(' ').join('').toLowerCase()">
+    <box class="card">
+        <box class="debit-logo"></box>
+        <box class="debitcard-title">
+            <span class="title">{{cardData.productDesc}}</span>
+        </box>
+        <box class="debitcard-name">
+            <span class="name">{{cardData.cardHolderName}}</span>
+        </box>
+        <ng-container *ngIf="displayCardNumber==true;else maskedCardNumber">
+        <box class="debitcard-number">
+            <span class="number">{{cardData.actualCardNumber}}</span>
+        </box>
+    </ng-container>
+
+    <ng-template #maskedCardNumber>
+        <box class="debitcard-number">
+            <span class="number">{{cardData.cardNumber}}</span>
+        </box>
+    </ng-template>
+        <!-- <box class="debitcard-limit">
+            <span class="lbl">{{'DEBITCARD.limit' | translate }}</span>
+            <span class="val">{{cardData.availableBalance}}</span>
+        </box> -->
+        <box class="debitcard-footer">
+            <box class="debitcard-footer-primary">
+                <span class="valid">{{'DEBITCARD.valid' | translate }}</span>
+                <span class="date">{{cardData.validThru}}</span>
+            </box>
+            <box class="debitcard-footer-secondary">
+                <box class="debitcard-expiry">
+                    <span class="cvv">{{'DEBITCARD.cvv' | translate }}</span>
+                    <span class="pin">{{cardData.cvv?cardData.cvv:'***'}}</span>
+                    <!-- <span class="pin">***</span> -->
+                </box>
+                <box class="card-status">
+                    <span class="status-type" label="Active">{{cardData.status}}</span>
+                </box>
+            </box>
+        </box>
+    </box>
+    <box *ngIf="showFlashCardBtn" class="flash-card" [ngClass]="{'start-timer': startTimer}">
+        <button type="button" *ngIf="!startTimer" class="flash-card-button btn-secondary" (click)="onClickFlashCard()">{{'DEBITCARD.flash' | translate }}</button>
+        <box type="button" *ngIf="startTimer" class="flash-card-button">{{'DEBITCARD.hideIn' | translate }} {{this.timer}}s</box>
+    </box>
+    <button *ngIf="contextmenuBtn" type="button" class="contextual-menu-trigger" (click)="notifyContextMenuClick()"><span>{{'DEBITCARD.contextualMenu' | translate }}</span></button>
+</box>

@@ -1,0 +1,238 @@
+<form class="single-bill-payment-form" [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off"
+	formName="RetailSingleBillPaymentForm">
+
+	<box class="entry-form"
+		[ngClass]="{'desktop-entry-form-single-bill-payment': !_helper.deviceDetectorService.isMobile()}">
+
+		<box class="grid entry-form-field-group col-md-12 col-lg-12 col-sm-12"
+			[ngClass]="{'review-entry-form-field-group': state.reviewMode}">
+			<ng-container *ngIf="state.action === 'VIEW'">
+				<box class="field-item col-sm-12 col-md-6 col-lg-12">
+					<fpx-label label="{{'TransferSummaryForm.tranDet' | translate}}"></fpx-label>
+					<box class="info-box">
+
+						<box class="info-field">
+							<fpx-display-text class="info-field-label"
+								[innerHTML]="'TransferSummaryForm.refnumber' | translate"
+								[literals]="commonFormInput"></fpx-display-text>
+							<fpx-display-text class="info-field-value" [innerHTML]="state.paymentSummaryDetail.tranRef"
+								[literals]="commonFormInput"></fpx-display-text>
+						</box>
+						<box class="info-field">
+							<fpx-display-text class="info-field-label"
+								[innerHTML]="'TransferSummaryForm.status' | translate"
+								[literals]="commonFormInput"></fpx-display-text>
+							<fpx-display-text class="info-field-value" [innerHTML]="state.paymentSummaryDetail.status"
+								[literals]="commonFormInput"></fpx-display-text>
+						</box>
+					</box>
+				</box>
+			</ng-container>
+
+
+			<box class="payments-disclaimer-wrapper" *ngIf="!state.reviewMode">
+				<box class="transfer-form-disclaimer-wrapper">
+					<span class="disclaimer-icon"></span>
+					<span class="disclaimer-text">
+						{{ _helper.disclaimerText | translate }}
+					</span>
+				</box>
+
+				<box *ngIf="_helper.hideCOBDisclaimer" class="transfer-form-disclaimer-wrapper cob-disclaimer-wrapper">
+					<span class="disclaimer-icon"></span>
+					<span class="disclaimer-text" [innerHTML]="_helper.COBDisclaimerText | translate">
+						<!-- {{ _helper.COBDisclaimerText | translate }} -->
+					</span>
+				</box>
+			</box>
+
+			<box class="pay-from-wrapper">
+				<span class="pay-from-label">{{'RetailSingleBillPaymentForm.payFromLabel' | translate}}</span>
+
+				<box class="account-card-validation-wrapper">
+					<box class="account-card" [ngClass]="{'disable-selection': _helper.hideFromAccountChangeBtn}"
+						(click)="!_helper.hideFromAccountChangeBtn && _helper.openAccountModal()">
+						<box class="account-header-wrapper">
+							<box class="account-header">
+								<h2>{{state.selectedAccount?.accountNickname || state.selectedAccount?.productDesc}}
+								</h2>
+								<p>{{state.selectedAccount?.accountTypeDesc || state.selectedAccount?.accountType}}
+
+								<span class="line-separator"></span>
+
+									{{state.selectedAccount?.accountNumber | accountNumberTrim}}
+								</p>
+							</box>
+							<box *ngIf="!_helper.hideFromAccountChangeBtn" class="view-account-icon-wrapper">
+								<span class="view-account-icon"></span>
+							</box>
+						</box>
+						<box class="account-status">
+							<span *ngIf=" state.selectedAccount?.ownership?.toLowerCase() == 'joint'" class="joint">{{
+								'CASASUMMARYCARD.joint' | translate }}</span>
+							<span *ngIf="state.selectedAccount?.accountStatus?.toLowerCase() == 'dormant'"
+								class="dormant">{{'CASASUMMARYCARD.dormant' | translate }}</span>
+						</box>
+						<box class="account-details">
+							<p [ngClass]="{'show-default-account': state.selectedAccount?.preferredAccount}"
+								class="default-account-checkbox">
+								<mat-checkbox [checked]=" state.selectedAccount.preferredAccount">
+								</mat-checkbox>
+								{{'billpaymentLabels.defaultAccount' | translate}}
+							</p>
+
+							<p class="balance amount">
+								{{_helper.getAbsoluteValue(state.selectedAccount?.availableBalance) | currency :
+								state.selectedAccount?.accountCurrency : '' }} <em>{{
+									state.selectedAccount?.accountCurrency
+									|
+									currencyCode }}</em>
+									{{_helper.checkNegativeValue(state.selectedAccount?.availableBalance)}}
+									</p>
+						</box>
+					</box>
+					<mat-error *ngIf="_helper.showInsufficientBalanceError" class="insufficient-balance-error">
+						{{'billpaymentLabels.insufficientBalanceError' | translate}}
+					</mat-error>
+				</box>
+			</box>
+
+			<box class="review-form-container">
+				<box class="review-title">
+					<span class="review-title-text">{{'reviewForm.title' | translate}}</span>
+					<!-- <span *ngIf="!_helper.deviceDetectorService.isMobile()"
+						class="review-text">{{'billpaymentLabels.billPayReviewLabel' | translate}}</span> -->
+				</box>
+
+
+				<box class="review-info">
+					<box class="payee-name">
+						<span class="label">{{'billpaymentLabels.payee' | translate}}</span>
+						<span class="value">{{state.selectedBillerAccount?.nickName ||
+							state.selectedBillerAccount?.billerId?.name}}</span>
+					</box>
+					<box class="payee-name">
+						<span class="label">{{'billpaymentLabels.accountNumber' | translate}}</span>
+						<span class="value">{{state.selectedBillerAccount?.billerCreditAccount}}</span>
+					</box>
+					<box class="payee-name">
+						<span class="label">{{'billpaymentLabels.payFrom' | translate}}</span>
+						<span class="value"> {{state.selectedAccount?.accountNickname?
+							state.selectedAccount.accountNickname : state.selectedAccount.productDesc }}
+						</span>
+					</box>
+					<box class="payee-name">
+						<span class="label">{{'billpaymentLabels.amount' | translate}}</span>
+						<span class="value">
+							<em>{{formGroup.get('paymentAmount')?.value?.currencyCode|
+								currencyCode}}</em>{{formGroup.get('paymentAmount')?.value?.amount | currency :
+							formGroup.get('paymentAmount')?.value?.currencyCode : '' }}
+						</span>
+					</box>
+					<box *ngIf="state.reviewMode" class="payee-name">
+						<span class="label">{{'billpaymentLabels.paymentDate' | translate}}</span>
+						<span class="value">{{formGroup.get('paymentDate')?.value | date:'dd MMM yyyy'}}
+						</span>
+					</box>
+				</box>
+			</box>
+
+			<box class="pay-to-wrapper">
+				<span *ngIf="!_helper.deviceDetectorService.isMobile()" class="pay-to-label"
+					[ngClass]="{'review-pay-to-label': state.reviewMode}">{{'RetailSingleBillPaymentForm.payToLabel' |
+					translate}}</span>
+
+				<box class="bill-payment-form-container">
+					<box class="payee-information">
+
+						<box class="payee-name-wrapper">
+							<span class="payee-name">
+								{{state.selectedBillerAccount?.nickName || state.selectedBillerAccount?.billerId?.name
+								}}
+							</span>
+							<span *ngIf="state.selectedBillerAccount?.nickName" class="payee-type">
+								{{state.selectedBillerAccount?.billerId?.name}}
+							</span>
+						</box>
+						<span class="payee-information-divider"></span>
+						<box class="payee-act-number">
+							<span class="payee-act-number-label">
+								{{'billpaymentLabels.accountNumber' | translate}}
+							</span>
+							<span class="payee-act-number-value">
+								{{state.selectedBillerAccount?.billerCreditAccount}}
+							</span>
+						</box>
+					</box>
+
+
+					<box class="payment-amount-validation-wrapper">
+						<app-payment-amount-control class="col-lg-12 col-sm-12 col-md-12"
+							[actionPublisher]="actionMap$.get('paymentAmount')" label="{{
+						'RetailSingleBillPaymentForm.paymentAmount.label' | translate
+						}}" formControlName="paymentAmount" [CurrencyList]="state.paymentAmount.CurrencyList"
+						[isCurrEditable]="state.paymentAmount.isCurrEditable"
+						[defaultFetch]="state.paymentAmount.defaultFetch"
+						[initCurrency]="state.paymentAmount.initCurrency"
+						[amountInWords]="state.paymentAmount.amountInWords"
+						(commonControlEvent)="handleControlEvent($event)" [changePublisher]="formChangePublisher$"
+						[dependencyField]="[
+						'fromCurrencyVariable',
+						'toCurrencyVariable',
+						'availableBalanceVariable',
+						'scheduleTypeVar'
+						]">
+						</app-payment-amount-control>
+						<mat-error *ngIf="_helper.showMandatoryError" class="insufficient-balance-error">
+							{{'billpaymentLabels.mandatoryError' | translate}}
+						</mat-error>
+					</box>
+
+					<app-payment-date-control class="col-lg-12 col-sm-12 col-md-12"
+						[actionPublisher]="actionMap$.get('paymentDate')"
+						(commonControlEvent)="handleControlEvent($event)"
+						label="{{'RetailSingleBillPaymentForm.paymentDate.label' | translate }}"
+						formControlName="paymentDate" [minDate]="state.paymentDate.minDate"
+						[maxDate]="state.paymentDate.maxDate"></app-payment-date-control>
+
+
+					<app-statement-mode-control class="col-md-4  " [actionPublisher]="actionMap$.get('action')"
+						label="Recurring" formControlName="action"></app-statement-mode-control>
+
+
+					<!-- <box class="input-grid-row-item col-lg-12 col-sm-12"
+						[actionPublisher]="actionMap$.get('paymentFrequency_column')">
+						<app-frequency-control class="col-sm-12 col-md-6 col-lg-12"
+							[actionPublisher]="actionMap$.get('paymentFrequency')"
+							label="{{'RetailMultiBillRequestInputGrid.paymentFrequency.label' | translate }}"
+							formControlName="paymentFrequency"></app-frequency-control>
+					</box>
+
+					<box class="ends-on-after-wrapper col-lg-12 col-sm-12"
+						[ngClass]="{'review-ends-on-after-wrapper': state.reviewMode}">
+						<box class="input-grid-row-item col-lg-6 col-sm-12"
+							[actionPublisher]="actionMap$.get('numberOfPayments_column')">
+							<app-installment-number-control class="col-sm-12 col-md-6 col-lg-12"
+								[actionPublisher]="actionMap$.get('numberOfPayments')"
+								label="{{'RetailMultiBillRequestInputGrid.numberOfPayments.label' | translate }}"
+								formControlName="numberOfPayments"></app-installment-number-control>
+						</box>
+
+						<box class="input-grid-row-item col-lg-6 col-sm-12"
+							[actionPublisher]="actionMap$.get('paymentEndDate_column')">
+							<app-end-date-control class="col-sm-12 col-md-6 col-lg-12"
+								[actionPublisher]="actionMap$.get('paymentEndDate')"
+								label="{{'RetailMultiBillRequestInputGrid.paymentEndDate.label' | translate }}"
+								formControlName="paymentEndDate" [minDate]="state.paymentEndDate.minDate"
+								[maxDate]="state.paymentEndDate.maxDate"></app-end-date-control>
+						</box>
+					</box> -->
+				</box>
+			</box>
+		</box>
+
+		<!-- <app-tranRef-control class="col-lg-12 col-sm-12 col-md-12" [actionPublisher]="actionMap$.get('tranRef')"
+			label="{{'RetailSingleBillPaymentForm.tranRef.label' | translate }}"
+			formControlName="tranRef"></app-tranRef-control> -->
+	</box>
+</form>

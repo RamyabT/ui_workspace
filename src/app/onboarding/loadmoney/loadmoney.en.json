@@ -1,0 +1,47 @@
+"loadmoney":{
+"title":"loadmoney",
+		 "loadMoneyType": {
+		  "label":"LoadMoneyType" ,
+		  "placeholder": "LoadMoneyType"
+		  } ,
+		 "nameOnCard": {
+		  "label":"Card Holder Name" ,
+		  "placeholder": "customerName"
+		  } ,
+		 "cardNumber": {
+		  "label":"cardNumber" ,
+		  "placeholder": "cardNumber"
+		  } ,
+		 "cvv": {
+		  "label":"CVV" ,
+		  "placeholder": "CVV"
+		  } ,
+		 "cardexpirymonth": {
+		  "label":"creditcardexpirymonth" ,
+		  "placeholder": "creditcardexpirymonth"
+		  } ,
+		 "cardexpiryyear": {
+		  "label":"Expiry Year" ,
+		  "placeholder": "Expiry Year"
+		  } ,
+		 "loadMoneyMethod": {
+		  "label":"LoadMoneyMethod" ,
+		  "placeholder": "LoadMoneyMethod"
+		  } ,
+		 "virtualPaymentAddress": {
+		  "label":"VPA" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "iSOCodeList": {
+		  "label":"ISO Code List" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "mobileNumber": {
+		  "label":"Mobile Number" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "amount": {
+		  "label":"Amount" ,
+		  "placeholder": "Placeholder"
+		  } 
+}

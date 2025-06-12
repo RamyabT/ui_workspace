@@ -1,0 +1,35 @@
+"RetailWalletTransactionLimitForm":{
+"title":"wallettranlimit",
+		 "scanPayFlag": {
+		  "label":"walletServiceFlag" ,
+		  "placeholder": "walletServiceFlag"
+		  } ,
+		 "scanPayLimit": {
+		  "label":"walletServiceAmount" ,
+		  "placeholder": "walletServiceAmount"
+		  } ,
+		 "scanPayMinLimit": {
+		  "label":"walletServiceAmount" ,
+		  "placeholder": "walletServiceAmount"
+		  } ,
+		 "scanPayMaxLimit": {
+		  "label":"walletServiceAmount" ,
+		  "placeholder": "walletServiceAmount"
+		  } ,
+		 "onlinePurchaseFlag": {
+		  "label":"walletServiceFlag" ,
+		  "placeholder": "walletServiceFlag"
+		  } ,
+		 "onlinePurchaseLimit": {
+		  "label":"walletServiceAmount" ,
+		  "placeholder": "walletServiceAmount"
+		  } ,
+		 "onlinePurchaseMinLimit": {
+		  "label":"walletServiceAmount" ,
+		  "placeholder": "walletServiceAmount"
+		  } ,
+		 "onlinePurchaseMaxLimit": {
+		  "label":"walletServiceAmount" ,
+		  "placeholder": "walletServiceAmount"
+		  } 
+}

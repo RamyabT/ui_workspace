@@ -1,0 +1,35 @@
+"RetailCreditCardsSummaryRoGrid":{
+"title":"Credit Cards Summary",
+		 "creditCardNumber": {
+		  "label":"Card Number" ,
+		  "placeholder": "Card Number"
+		  } ,
+		 "cardType": {
+		  "label":"Card Type" ,
+		  "placeholder": "Card Type"
+		  } ,
+		 "status": {
+		  "label":"Status" ,
+		  "placeholder": "Status"
+		  } ,
+		 "productDesc": {
+		  "label":"Description" ,
+		  "placeholder": "Description"
+		  } ,
+		 "branchDesc": {
+		  "label":"Issue Branch" ,
+		  "placeholder": "Issue Branch"
+		  } ,
+		 "cardRefNumber": {
+		  "label":"Card Ref Number #" ,
+		  "placeholder": "Card Ref Number #"
+		  } ,
+		 "validThru": {
+		  "label":"Valid Till" ,
+		  "placeholder": "Valid Till"
+		  } ,
+		 "issueDate": {
+		  "label":"Issue Date" ,
+		  "placeholder": "Issue Date"
+		  } 
+}

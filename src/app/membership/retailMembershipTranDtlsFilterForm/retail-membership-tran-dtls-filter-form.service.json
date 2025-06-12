@@ -1,0 +1,5 @@
+ 
+ "RETAILMEMBERSHIPTRANDTLSFILTER" : {
+ "servicePath": ["entry-shell","membership", "RetailMembershipTranDtlsFilterForm"],
+ "queryParams": {}
+ }

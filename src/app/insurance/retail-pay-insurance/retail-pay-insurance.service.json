@@ -1,0 +1,5 @@
+ 
+ "RETAILPAYINSURANCE" : {
+ "servicePath": ["entry-shell","insurance", "retail-pay-insurance"],
+ "queryParams": {}
+ }

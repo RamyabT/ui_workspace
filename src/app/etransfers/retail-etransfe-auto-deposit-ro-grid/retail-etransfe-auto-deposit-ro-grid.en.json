@@ -1,0 +1,15 @@
+"RetailEtransferAutoDepositRoGrid":{
+"title":"Manage Auto Deposit",
+		 "emailID": {
+		  "label":" Email" ,
+		  "placeholder": " Email"
+		  } ,
+		 "depositAccount": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "depositAccountName": {
+		  "label":"Account Holder Name" ,
+		  "placeholder": "Account Holder Name"
+		  } 
+}

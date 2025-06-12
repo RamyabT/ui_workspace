@@ -1,0 +1,70 @@
+<box class="widget spend-summary">
+    <header>
+        <span class="widget-title">{{ 'WIDGIT_TITLES.spendSummary' | translate }}</span>
+        <box class="tool-bar">
+            <mat-select value="category" class="default-select">
+                <mat-option value="category">By Category</mat-option>
+                <mat-option value="flow">By Flow</mat-option>
+            </mat-select>
+        </box>
+        <!-- <button type="button" class="link arrow-button">{{ 'BUTTONS.viewAll' | translate }}</button> -->
+    </header>
+    <box class="widget-body">
+        <box class="spend-summary-chart-inner">
+            <box *ngIf="!_device.isMobile() && chartData" class="spend-summary-chart-header">
+                <box class="primary-info">
+                    <span class="lbl">Total Spending</span>
+                    <span class="amount">{{ (chartData[0]?.category)? (this.totalSummary | currency) :'0.00 '+ chartData[0]?.currency  }}</span>
+                </box>
+                <box class="secondary-info">
+                    <span class="tip">20% less then last week</span>
+                </box>
+            </box>
+            <box class="spend-summary-chart-body">
+                <box class="spend-chart">
+                    <box class="chart-container" #chartContainer></box>
+                    <box *ngIf="_device.isMobile() && chartData?.[0]?.category" class="total-summary">
+                        <span class="lbl">Total</span>
+                        <span class="val">{{this.totalSummary | currency : chartData[0]?.currency : ''}}</span>
+                    </box>
+                    <box class="chart-nav">
+                        <box class="category">
+                            <div 
+                                (click)="prevDisable ? null : getPreviousSpendDetails()"
+                                class="prev"
+                                [ngClass]="{'disabled': prevDisable}"
+                                [style.--arrow-icon]="'url(./assets/images/icons/arrow' + (prevDisable ? '-disabled' : '') + '.svg)'">
+                            </div>                    
+                            <span class="category-name">{{ currentSpendDate | date: 'MMM yyyy'}}</span>
+                            <div 
+                                (click)="nextDisable ? null : getNextSpendDetails()"
+                                class="next"
+                                [ngClass]="{'disabled': nextDisable}"
+                                [style.--arrowDisable-icon]="'url(./assets/images/icons/arrow' + (nextDisable ? '-disabled' : '') + '.svg)'">
+                            </div>
+                        </box>
+                    </box>
+                </box>
+                <!-- <box class="month-navigations">
+                    <box class="category">
+                        <span class="category-name">Feb 2024</span>
+                    </box>
+                </box> -->
+
+                <box *ngIf="!_device.isMobile()" class="spend-chart-legends">
+                    <ng-container *ngIf="chartData">
+                        <ul>
+                            <ng-container *ngFor="let item of chartData; index as i">
+                                <li *ngIf="item.category">
+                                    <span class="category-color" [style.backgroundColor]="colorsArray[i]"></span>
+                                    <span class="category-name">{{ 'SPENDANALYSIS.' + item.category | translate }}</span>
+                                    <span class="amount">{{ item.value | currency : item.currency : '' }} <em>{{ item.currencycode }}</em></span>
+                                </li>
+                            </ng-container>
+                        </ul>
+                    </ng-container>
+                </box>
+            </box>
+        </box>
+    </box>
+</box>

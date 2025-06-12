@@ -1,0 +1,252 @@
+:root{
+    --skin: "prospera";
+    /* Base */
+    --baseFontFamily: "Helvetica Neue";
+
+    --color: #FFFFFF;
+    --themeBgClr: #F6F6F6;
+    --primaryClr: #003C71;
+    --primary500: #003C71;
+    --primary200: #CCE1E6;
+    --primaryDark: #003C71;
+    --primary50: #F6FFFE;
+    --secondaryClr: #F15C6C;
+    --secondary500: #F15C6C;
+    --secondary200: #E7EDF0;
+    --tertiaryAqua500: #A8F3EE;
+    --tertiary500: #F15C6C;
+    --tertiary300: #D5F7F4;
+    --neutral900: #2D2D2D;
+    --neutral700: #575757;
+    --neutral600: #818181;
+    --neutral500: #ABABAB;
+    --neutral300: #C0C0C0;
+    --neutral200: #E0E0E0;
+    --neutral100: #F9F9F9;
+    --neutral50: #FFFFFF;
+    --neutralMedium2: #9A9A9A;
+    --neutralGray3: #7D808D;
+    
+    --errorClr: #E02020;
+    --successClr: #23A26D;
+    --warningClr: #E6B001;
+    --infoClr: #0063A3;
+    
+    --baseTxtClr: var(--neutral900, #2D2D2D);
+    --bodyTxtClr: var(--neutral700, #575757);
+    --baseBdrClr: #939598;
+
+    --systemIconClr: var(--secondaryClr, #FF8926);
+    --domainIconClr: var(--secondaryClr, #FF8926);
+    --systemIconWrapperBg: var(--neutral50, #FFFFFF);
+    --controlIconClr: var(--primaryClr, #12486B);
+    --systemIconSize: 24px;
+
+    /* Font weights */
+    --fontWeightLight: 300;
+    --fontWeightRegular: 400;
+    --fontWeightMedium: 500;
+    --fontWeightSemiBold: 600;
+    --fontWeightBold: 700;
+    --fontWeightExtraBold: 900;
+
+    /* Header bar*/
+    --headerBarBgClr: var(--neutral50, #FFFFFF);
+    --headerBarNavGapX: 16px;
+    --headerCtrlBdrClr: var(--primary500, #016B83);
+    --headerTxtClr: var(--baseTxtClr);
+    --headerBtnBdrClr: var(--primary500, #016B83);
+    --headerBtnTxtClr: var(--baseTxtClr);
+    --headerSeperatorClr: var(--primary500, #016B83);
+    --headerSearchTxtPlaceholderClr: var(--neutral700, #575757);
+    --notificationIndicatorBgClr: #EF5425;
+    --userAccountPanelBgClr: #FFF;
+
+    /* Menu bar */
+    --menuWidthClosed: 84px;
+    --menuWidthExpand: 286px;
+    --menuBarBgClr: var(--primaryClr);
+    --mainMenuSeperatorClr: var(--neutral900, #2D2D2D);
+    --mainMenuTxtClr: #FFF;
+    --mainMenuActiveTxtClr: #FFF;
+    --mainMenuActiveBgClr: var(--secondaryClr);
+    --mainMenuHoverBgClr: var(--secondaryClr, #12486B);
+    --childMenuTxtClr: var(--neutral900, #2D2D2D);
+    --childMenuPanelBgClr: #FFF;
+    --childMenuArrowClr: var(--primary500, #016B83);
+    --childMenuHoverBgClr: #DCEDF9;
+    --menuOverlayClr: var(--neutral900, #2D2D2D);
+    --menuOverlayOpacity: 0.3;
+    --navSearchBdrClr: var(--baseBdrClr);
+    --navSearchTxtBgClr: #091527;
+    --navSearchTxtClr: #FFF;
+    --navSearchTxtPlaceholderClr: var(--neutral500, #ABABAB);
+
+    --mainMenuTxtClrMob: var(--neutral600, #818181);
+    --mainMenuIcoClrMob: var(--neutral600, #818181);
+    --mainMenuTxtActiveClrMob: var(--secondary500, #12486B);
+    --mainMenuIcoActiveClrMob: var(--secondary500, #12486B);
+    --homeMenuActiveBgMob: var(--secondary500, #12486B);
+    --homeMenuIcoActiveMob: var(--neutral50, #FFFFFF);
+
+    --footerBgClr: #FFF;
+    --footerTxtClr: var(--neutral700, #575757);
+
+    /* App Footer */
+    --footerBgClr: #FFF;
+    --footerTxtClr: var(--neutral700, #575757);
+
+    /* Quick actions */
+    --quicklinksTitleClr: var(--neutral700, #575757);
+    --quicklinksTxtClr: var(--neutral700, #575757);
+    --quicklinksIcoBg: var(--neutral50, #FFFFFF);
+    --quicklinksIcoBdr: 1px solid var(--secondary500, #12486B);
+    --quicklinksIcoBdrRadius: 50%;
+    --quicklinksIcoClr: var(--tertiary500, #FF8926);
+    --quickActionsTxtClr: var(--neutral700);
+    --quickActionsActiveBdrClr: #939598;
+    --quickActionsActiveBgClr: var(--primary50);
+
+    /* Fields */
+    --formTitleClr:var(--neutral900, #2D2D2D);
+    --inputBdrClr: var(--neutral500, #ABABAB);
+    --inputBdr: 1px solid var(--inputBdrClr);
+    --inputBdrRadius: 16px;
+    --inputMinHeight: 44px;
+    --inputBgClr: var(--neutral50, #FFFFFF);
+    --inputPadding: 8px 12px;
+    --inputLblClr: var(--neutral700, #575757);
+    --inputLblSize: 14px;
+    --inputLblHeight: 22px;
+    --inputLblWeight: var(--fontWeightMedium, 500);
+    --inputTxtClr: var(--neutral900, #2D2D2D);
+    --inputTxtSize: 16px;
+    --inputTxtLineHeight: 23px;
+    --inputTxtWeight: var(--fontWeightRegular, 400);
+    --placeholderClr: var(--neutral500, #ABABAB);
+    --placeholderSize: 16px;
+    --placeholderHeight: 23px;
+    --placeholderWeight: var(--fontWeightRegular, 400);
+    --fldLblGap: 12px;
+    --fldErrorClr: var(--errorClr, #E02020);
+    --inputInValidBdr: 1px solid var(--errorClr, #E02020);
+    --inputFocusBdr: 1px solid var(--primaryClr, #12486B);
+    --radioGroupHSpace: 20px;
+    --radioBdrClr: var(--primaryClr, #12486B);
+    --radioBdr: 1px solid var(--radioBdrClr);
+    --radioBg: #FFF;
+    --radioOnBg: var(--primaryClr, #12486B);
+    --radioOnBdrClr: var(--primaryClr, #12486B);
+    --radioTikClr: #FFF;
+    --radioWidth: 20px;
+    --radioHeight: 20px;
+    --inputDisabledBg: var(--primary50, #F6FFFE);
+    --inputDisabledBdrClr: var(--neutral500, #ABABAB);
+    --inputDisabledTxtClr: var(--neutral500, #ABABAB);
+    --inputDisabledIcoClr: var(--neutralMedium2, #9A9A9A);
+    --checkboxBdr: 1px solid var(--primaryClr, #12486B);
+    --checkboxBg: #FFFFFF;
+    --checkboxOnBg: var(--primaryClr, #12486B);
+    --checkboxOnBdr: 1px solid var(--primaryClr, #12486B);
+    --checkboxTikClr: #FFF;
+    --checkboxBdrRadius: 4px;
+    --checkboxWidth: 20px;
+    --checkboxHeight: 20px;
+    --highlightClr: var(--primaryClr, #12486B);
+    --highlightTxtClr: var(--neutral50, #FFFFFF);
+    --controlIcoWidth: 20px;
+    --controlIcoHeight: 20px;
+    --controlIcoSize: 20px;
+    --readonlyTxtClr: var(--neutral900, #2D2D2D);
+    --readonlyInputBg: var(--primary50, #F6FFFE);
+    --readonlyInputBdrClr: var(--neutral500, #ABABAB);
+    --readonlyInputTxtClr: var(--neutral500, #ABABAB);
+    --readonlyInputIcoClr: var(--neutralMedium2, #9A9A9A);
+
+    --reviewFrmFldBdrClr: var(--neutral200, #E0E0E0);
+
+    --infoBoxBg: var(--primary50, #F6FFFE);
+    --infoBoxBdr: 1px solid var(--inputBdrClr);
+
+    --dropdownTxtClr: var(--neutral900, #2D2D2D);
+    --dropdownPanelRadius: 14px;
+    --dropdownPanelPadding: 0;
+    --dropdownPanelOptionPadding: 12px 0;
+    --dropdownPanelOptionBdr: 1px solid var(--neutral100, #F9F9F9);
+    --dropdownOptionSelectBg: var(--primary200, #CCE1E6);
+    --dropdownOptionSelectClr: var(--neutral900, #2D2D2D);
+    --tmpltDropdownOptionSelectBg: var(--primaryClr, #D5F7F4);
+
+    /* Buttons */
+    --btnDisabledClr: var(--neutral500, #ABABAB);
+    --btnDisabledBg: var(--neutral100, #F9F9F9);
+    --btnBdrRadius: 24px;
+    --btnFontSize: 16px;
+    --btnPaddingMob: 10px 12px;
+    --btnLineHeightMob: 24px;
+    --btnPadding: 8px 12px;
+    --btnLineHeight: 18px;
+
+    --btnPrimaryClr: #FFF;
+    --btnPrimaryBg: var(--primaryClr, #12486B);
+    --btnPrimaryBdr: 1px solid var(--primaryClr, #002027);
+    --btnPrimaryDisabledBg: var(--btnDisabledBg);
+    --btnPrimaryDisabledClr: var(--btnDisabledClr);
+    --btnPrimaryDisabledBdr: none;
+
+    --btnSecondaryClr: var(--btnPrimaryBg);
+    --btnSecondaryBg: transparent;
+    --btnSecondaryBdr: 1px solid var(--btnPrimaryBg);
+    --btnSecondaryDisabledBg: transparent;
+    --btnSecondaryDisabledClr: var(--btnDisabledClr);
+    --btnSecondaryDisabledBdr: 1px solid var(--btnDisabledClr);
+
+    --btnTertiaryClr: var(--btnPrimaryBg);
+    --btnTertiaryBg: transparent;
+    --btnTertiaryBdr: none;
+    --btnTertiaryDisabledBg: transparent;
+    --btnTertiaryDisabledClr: var(--btnDisabledClr);
+    --btnTertiaryDisabledBdr: none;
+
+    --gridToolBarBtnBg: #F9F9F9;
+
+    /* Tab bar style */
+    --tabBarBg: var(--neutral50, #FFFFFF);
+    --tabBarTabTxtClr: var(--neutral900, #2D2D2D);
+    --tabBarTabActiveBg: var(--secondary500, #12486B);
+    --tabBarTabActiveTxtClr: var(--neutral50, #FFFFFF);
+
+    --spaceSummaryWidth: 332px;
+
+    /* Template dropdown style vars */
+    --dropDownTmpltCtrlBg: var(--primaryClr, #A8F3EE);
+
+    /* Widget style var */
+    --widgetBgClr: var(--neutral50, #FFFFFF);
+    --widgetBdrRadius: 8px;
+    --widgetPadding: 16px;
+    --widgetBodyPaddingMob: 0 16px;
+    --wgtTtlClr: var(--neutral700, #575757);
+    --wgtTtlIcoWidth: 24px;
+    --wgtTtlIcoHeight: 24px;
+    --wgtTtlIcoSize: 24px;
+    --wgtIcoWidth: 22px;
+    --wgtIcoHeight: 22px;
+    --wgtIcoSize: 20px;
+
+    /* Toast style var */
+    --toastBgClr: var(--neutral50, #FFFFFF);
+    --toastMessageClr: var(--neutral900, #2D2D2D);
+
+    /* Chart style var */
+    --chart-line-clr: #23A26D;
+    --chart-lg-start-clr: #23A26D;
+    --chart-lg-stop-clr: var(--primary50, #F6FFFE);
+
+    /* Welcome screen */
+    --preloginHeaderBgClr: #FFFFFF;
+    --welcomeScreenBgClr: #003C71f0;
+
+    /* Images */
+    --welcomeBanner: url('./images/banners/welcome-banner.png');
+}

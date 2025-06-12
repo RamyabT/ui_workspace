@@ -1,0 +1,79 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="formControlsForm">
+    <box class="entry-form">
+        <box class="entry-form-field-group grid">
+            <fpx-text-box class="col-sm-12 col-md-6 col-lg-4" [actionPublisher]="actionMap$.get('textBox1')"
+                label="{{'formControlsForm.textBox1.label' | translate }}"
+                placeholder="{{'formControlsForm.textBox1.placeholder' | translate }}"
+                formControlName="textBox1"></fpx-text-box>
+
+            <fpx-text-box class="col-sm-12 col-md-6 col-lg-4" [actionPublisher]="actionMap$.get('textBox2')"
+                label="{{'formControlsForm.textBox2.label' | translate }}"
+                placeholder="{{'formControlsForm.textBox2.placeholder' | translate }}"
+                formControlName="textBox2"></fpx-text-box>
+
+            <fpx-selectable-dropdown class="col-sm-12 col-md-6 col-lg-4" [actionPublisher]="actionMap$.get('dropdown1')"
+                label="{{'formControlsForm.dropdown1.label' | translate }}"
+                placeholder="{{'formControlsForm.dropdown1.placeholder' | translate }}" formControlName="dropdown1"
+                [selectableList$]="state.sampleDataList$"></fpx-selectable-dropdown>
+
+            <fpx-searchable-dropdown class="col-sm-12 col-md-6 col-lg-4"
+                [actionPublisher]="actionMap$.get('searchableDropdown1')"
+                label="{{'formControlsForm.searchableDropdown1.label' | translate }}"
+                placeholder="{{'formControlsForm.searchableDropdown1.placeholder' | translate }}"
+                formControlName="searchableDropdown1"
+                [selectableList$]="state.sampleDataList$"></fpx-searchable-dropdown>
+
+            <fpx-date class="col-sm-12 col-md-6 col-lg-4" [actionPublisher]="actionMap$.get('date1')"
+                label="{{'formControlsForm.date1.label' | translate }}"
+                placeholder="{{'formControlsForm.date1.placeholder' | translate }}" formControlName="date1"></fpx-date>
+
+
+            <fpx-radio-button class="col-sm-12 col-md-6 col-lg-4" [actionPublisher]="actionMap$.get('radio1')"
+                label="{{'formControlsForm.radio1.label' | translate }}"
+                placeholder="{{'formControlsForm.radio1.placeholder' | translate }}" formControlName="radio1"
+                [selectableList$]="state.sampleRadioList$"></fpx-radio-button>
+
+            <box class="col-sm-12 col-md-6 col-lg-4 fpx-form-control">
+                <fpx-label class="col-sm-12 col-md-12 col-lg-12"
+                    label="{{'formControlsForm.checkbox.label' | translate }}"></fpx-label>
+                <fpx-checkbox class="col-sm-12 col-md-6 col-lg-4" [actionPublisher]="actionMap$.get('checkbox1')"
+                    label="{{'formControlsForm.checkbox1.label' | translate }}"
+                    placeholder="{{'formControlsForm.checkbox1.placeholder' | translate }}"
+                    formControlName="checkbox1"></fpx-checkbox>
+
+                <fpx-checkbox class="col-sm-12 col-md-6 col-lg-4" [actionPublisher]="actionMap$.get('checkbox2')"
+                    label="{{'formControlsForm.checkbox2.label' | translate }}"
+                    placeholder="{{'formControlsForm.checkbox2.placeholder' | translate }}"
+                    formControlName="checkbox2"></fpx-checkbox>
+            </box>
+
+            <box class="field-item col-sm-12 col-md-6 col-lg-4">
+                <fpx-label label="Info box"></fpx-label>
+                <box class="info-box">
+                    <fpx-display-text [innerHtml]="'Info text content'"></fpx-display-text>
+                </box>
+            </box>
+
+            <fpx-switch label="Toggle switch" formControlName="toggleSwitch"></fpx-switch>
+
+            <box>
+                <fpx-display-text class="field-set-title" [innerHTML]="'Button Style'"></fpx-display-text>
+                <box class="grid">
+                    <fpx-button btnClass="primary" label="Primary"></fpx-button>
+                    <fpx-button btnClass="secondary" label="Secondary"></fpx-button>
+                    <fpx-button btnClass="tertiary" label="Tertiary"></fpx-button>
+                    <button type="button" class="primary" disabled>Primary</button>
+                    <button type="button" class="secondary" disabled>Secondary</button>
+                    <button type="button" class="tertiary" disabled>Tertiary</button>
+                </box>
+            </box>
+
+            <box class="grid">
+                <fpx-radio-button class="col-sm-12 col-md-6 col-lg-4" [actionPublisher]="actionMap$.get('radio2')"
+                    label="{{'formControlsForm.radio2.label' | translate }}"
+                    placeholder="{{'formControlsForm.radio2.placeholder' | translate }}" formControlName="radio2"
+                    [selectableList$]="state.chicletsRadioList$" ngTemplateName="chicletsRadio"></fpx-radio-button>
+            </box>
+        </box>
+    </box>
+</form>

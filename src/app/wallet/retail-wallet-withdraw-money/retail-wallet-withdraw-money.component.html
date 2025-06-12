@@ -1,0 +1,132 @@
+<form
+  [formGroup]="formGroup"
+  (ngSubmit)="submit()"
+  autocomplete="off"
+  formName="RetailWalletWithDrawMoneyForm"
+>
+  <box class="entry-form">
+    <box class="grid entry-form-field-group col-12">
+      <app-wallet-account-number-dropdown-control
+        class="col-sm-12 col-md-6 col-lg-12"
+        [actionPublisher]="actionMap$.get('walletAccount')"
+        label="{{
+          'RetailWalletWithDrawMoneyForm.walletAccount.label' | translate
+        }}"
+		placeholder="{{ 'RetailWalletWithDrawMoneyForm.walletAccount.placeholder' | translate }}"
+
+        formControlName="walletAccount"
+        (commonControlEvent)="handleControlEvent($event)"
+      >
+      </app-wallet-account-number-dropdown-control>
+
+      <app-account-list-template-control
+        class="col-sm-12 col-md-6 col-lg-12"
+        [actionPublisher]="actionMap$.get('toAccount')"
+        formControlName="toAccount"
+        label="{{
+          'RetailWalletWithDrawMoneyForm.toAccount.label' | translate
+        }}"
+		placeholder="{{ 'RetailWalletWithDrawMoneyForm.toAccount.placeholder' | translate }}"
+        (commonControlEvent)="handleControlEvent($event)"
+      >
+      </app-account-list-template-control>
+
+      <fpx-checkbox
+        [textPosition]="state.isBalanceTransfer.textPosition"
+        class="col-sm-12 col-md-12 col-lg-12"
+        [actionPublisher]="actionMap$.get('isBalanceTransfer')"
+        (commonControlEvent)="handleControlEvent($event)"
+        label="{{
+          'RetailWalletWithDrawMoneyForm.isBalanceTransfer.label' | translate
+        }}"
+        formControlName="isBalanceTransfer"
+        [ckValues]="state.isBalanceTransfer.ckValues"
+      >
+      </fpx-checkbox>
+
+	  <app-payment-amount-control class="col-sm-12 col-md-6 col-lg-12"
+	  [actionPublisher]="actionMap$.get('paymentAmount')"
+	  label="{{
+		'RetailWalletWithDrawMoneyForm.paymentAmount.label' | translate
+	  }}"
+	  placeholder="{{ 'RetailWalletWithDrawMoneyForm.paymentAmount.placeholder' | translate }}"
+	  formControlName="paymentAmount" (commonControlEvent)="handleControlEvent($event)"
+	  [CurrencyList]="state.paymentAmount.CurrencyList" [isCurrEditable]="state.paymentAmount.isCurrEditable"
+	  [defaultFetch]="state.paymentAmount.defaultFetch" [initCurrency]="state.paymentAmount.initCurrency"
+	  [amountInWords]="state.paymentAmount.amountInWords" [changePublisher]="formChangePublisher$"
+	  [dependencyField]="['fromCurrencyVariable','toCurrencyVariable','accountBalanceVariable']">
+  </app-payment-amount-control>
+		<box class="field-item col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('exchangeDetails')">
+			<fpx-label label="{{'FX_RATES.title' | translate}}"></fpx-label>
+			<box class="info-box">
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.dAmount' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.debitAmount"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.cAmount' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.creditAmount"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.exRate' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.exchangeRate"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+			</box>
+		</box>
+		<app-charges-borne-control class="col-sm-12 col-md-6 col-lg-6"
+		[actionPublisher]="actionMap$.get('chargesBorneBy')"
+		label="{{'RetailWalletWithDrawMoneyForm.chargesBorneBy.label' | translate }}"
+		formControlName="chargesBorneBy" [changePublisher]="formChangePublisher$"
+		(commonControlEvent)="handleControlEvent($event)"
+		[dependencyField]="['paymentAmountVariable',
+			 'fromCurrencyVariable',
+			 'serviceCodeVariable',
+			 'fromAccountVariable',
+			 'toAccountVariable',
+			 'accountBalanceVariable']"></app-charges-borne-control>
+      <app-charges-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('chargesAmount')"
+        label="{{
+          'RetailWalletWithDrawMoneyForm.chargesAmount.label' | translate
+        }}"
+        formControlName="chargesAmount"
+        (commonControlEvent)="handleControlEvent($event)"
+        [CurrencyList]="state.chargesAmount.CurrencyList"
+        [isCurrEditable]="state.chargesAmount.isCurrEditable"
+        [defaultFetch]="state.chargesAmount.defaultFetch"
+        [initCurrency]="state.chargesAmount.initCurrency"
+        [amountInWords]="state.chargesAmount.amountInWords"
+        [changePublisher]="formChangePublisher$"
+      ></app-charges-control>
+      <fpx-display-text
+        class="info-field-label"
+        [innerHTML]="
+          'RetailWalletWithDrawMoneyForm.charges'
+            | translate : { charges: state.charges }
+        "
+        [literals]="commonFormInput"
+      ></fpx-display-text>
+    </box>
+
+	<box id="disclaimer-box" class="col-md-12 grid disclaimer-box">
+        <app-terms-control
+          class="col-sm-12 col-md-12 col-lg-12"
+          [actionPublisher]="actionMap$.get('termsFlag')"
+          label="{{
+            'RetailWalletWithDrawMoneyForm.termsFlag.label' | translate
+          }}"
+          formControlName="termsFlag"
+          [textPosition]="state.termsFlag.textPosition"
+          [ckValues]="state.termsFlag.ckValues"
+        >
+        </app-terms-control>
+      </box>
+  </box>
+</form>

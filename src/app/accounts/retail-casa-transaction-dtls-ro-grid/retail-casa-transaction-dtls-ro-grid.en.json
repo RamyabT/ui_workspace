@@ -1,0 +1,23 @@
+"RetailCasaTransactionDtlsRoGrid":{
+"title":"casatransactiondtls",
+		 "transactionDate": {
+		  "label":"Paid Date" ,
+		  "placeholder": "Paid Date"
+		  } ,
+		 "transactionAmount": {
+		  "label":"Cheque Amount" ,
+		  "placeholder": "Cheque Amount"
+		  } ,
+		 "transactionReference": {
+		  "label":"TransactionRef" ,
+		  "placeholder": "TransactionRef"
+		  } ,
+		 "transactionDescription": {
+		  "label":"Description" ,
+		  "placeholder": "Description"
+		  } ,
+		 "balance": {
+		  "label":"Cheque Amount" ,
+		  "placeholder": "Cheque Amount"
+		  } 
+}

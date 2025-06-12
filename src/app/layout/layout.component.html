@@ -1,0 +1,45 @@
+<box role="main" class="layout">
+    <ng-container *ngIf="deviceMgr.isMobile() else desktopLayout">
+        <main-header *ngIf="!deviceMgr.isMobile()"></main-header>
+
+        <box class="container" id="mainContainer">
+            <box class="content">
+                <ng-content></ng-content>
+                <router-outlet></router-outlet>
+            </box>
+        </box>
+
+        <box class="side-menu" *ngIf="activeSpaceInfoService.footerMenuRequired">
+            <menu-bar></menu-bar>
+        </box>
+        
+        <main-footer ></main-footer>
+    </ng-container>
+    <ng-template #desktopLayout>
+        <box class="desktop-layout-wrapper">
+            <box class="header-wrapper">
+                <main-header></main-header>
+            </box>
+            <box class="section-wrapper">
+                <box class="section-inner">
+                    <box class="side-menu" *ngIf="activeSpaceInfoService.footerMenuRequired">
+                        <menu-bar></menu-bar>
+                    </box>
+                    <box class="main-content">
+                        <box class="container" id="mainContainer">
+                            <box class="content">
+                                <ng-content></ng-content>
+                                <router-outlet></router-outlet>
+                            </box>
+                        </box>
+                        <box class="footer">
+                            <main-footer ></main-footer>
+                        </box>
+                    </box>
+                </box>
+            </box>
+        </box>
+        
+    </ng-template>
+
+</box>

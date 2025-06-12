@@ -1,0 +1,21 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailMultiBillRequestForm">
+	<box [ngClass]="{'multi-bill-form': _helper.multiBillPaymentCount > 1}">
+		<box class="payee-numbers" *ngIf="_helper.multiBillPaymentCount > 1">{{_helper.multiBillPaymentCount}} Payees Selected</box>
+		<box class="entry-form">
+			<box class="custom-control pay-form col-lg-12">
+				<span class="label">{{ 'RetailMultiBillRequestReviewGrid.payFrom.label' | translate }}</span>
+				<span class="value" [innerHTML]="_helper.payFrom"></span>
+			</box>
+			<app-retail-multi-bill-request-review-grid class="col-lg-12 col-md-12"
+				(commonGridEvent)="handleControlEvent($event)" [actionPublisher]="actionMap$.get('multibillrequestdetail')"
+				label="RetailMultiBillRequestreviewGrid"
+				formControlName="multibillrequestdetail"></app-retail-multi-bill-request-review-grid>
+		</box>
+		<box class="total-container">
+			<span class="label">{{ 'RetailMultiBillRequestReviewGrid.total' | translate }}</span>
+			<span class="value amount review-form">
+				<em>{{ appConstant.baseCurrency | currencyCode }}</em> {{_helper.totalAmount | currency : appConstant.baseCurrency : '' }} 
+			</span>
+		</box>
+	</box>
+</form>

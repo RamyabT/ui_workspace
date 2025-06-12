@@ -1,0 +1,28 @@
+<form formName="registerDeviceForm" [autocomplete]="'off'" (ngSubmit)="submit()" [formGroup]="formGroup">
+    <!-- <box class="entry-form">
+        <box class="register-device-form col-12">
+            <fpx-display-text class="form-heading" [innerHTML]="'registerDeviceForm.formHeading' | translate"></fpx-display-text>
+            <box class="register-device-illustration">
+                <img src="./assets/illustrations/shield-with-lock.svg" alt="register mpin" />
+            </box>
+            <box class="field-group">
+                <fpx-pin [size]="state.pinSize" 
+                    [showPinOption]="false" 
+                    [label]="'registerDeviceForm.mpin.label' | translate" 
+                    formControlName="mpin" #fpxControl
+                    [actionPublisher]="actionMap$.get('mpin')"></fpx-pin>
+                <fpx-pin [size]="state.pinSize" 
+                    [showPinOption]="false" 
+                    [label]="'registerDeviceForm.confirmMpin.label' | translate" 
+                    formControlName="confirmMpin" #fpxControl
+                    [actionPublisher]="actionMap$.get('confirmMpin')"></fpx-pin>
+                
+            </box>
+        </box>
+        <ng-container *ngIf="state?.errorMessage">
+            <mat-error class="error">
+                <span>{{ state.errorMessage }}</span>
+            </mat-error>
+        </ng-container>
+    </box> -->
+</form>

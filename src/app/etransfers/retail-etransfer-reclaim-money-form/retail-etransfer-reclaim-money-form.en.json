@@ -1,0 +1,19 @@
+"RetailEtransferReclaimMoneyForm":{
+"title":"RetailEtransferReclaimMoney",
+		 "contactId": {
+		  "label":"Recipient Name" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Requested Amount" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "paymentStatus": {
+		  "label":"Status" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "sourceAccount": {
+		  "label":"Credit to" ,
+		  "placeholder": "Credit to"
+		  } 
+}

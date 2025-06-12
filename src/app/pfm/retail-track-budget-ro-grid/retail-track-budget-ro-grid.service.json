@@ -1,0 +1,5 @@
+ 
+ "RETAILPFMBUDGET" : {
+ "servicePath": ["display-shell","pfm", "retail-track-budget-ro-grid-form"],
+ "queryParams": {}
+ }

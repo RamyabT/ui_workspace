@@ -1,0 +1,5 @@
+ 
+ "RETAILDCSETPIN" : {
+ "servicePath": ["entry-shell","debitcard", "retail-debit-card-set-pin-form"],
+ "queryParams": {}
+ }

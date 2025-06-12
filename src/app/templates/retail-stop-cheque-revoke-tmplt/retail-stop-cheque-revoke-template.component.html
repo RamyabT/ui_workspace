@@ -1,0 +1,22 @@
+<div class="task-item" id="row_data_{{ index }}">
+    <div class="task-detail-item">
+        <box *ngIf="!_device.isMobile()" class="transaction-list-item-inner">
+            <box class="transaction-icon-wrapper">
+                <box class="transaction-icon">
+                        <div class="name-first-letter">
+                            <span><img src="./assets/images/quick-menu/stop.svg" alt="Stop cheque"></span>
+                        </div>
+                </box>
+            </box>
+            <box class="status payment-status">
+                <box class="amount">Cheque #{{selectedData?.chequeNumber}}</box>
+                <span class="amount" *ngIf="selectedData?.chequeAmount">
+                    {{selectedData?.chequeAmount | currency : selectedData.currency : '' }}
+                    <em>{{'$' | currencyCode }}</em>
+                </span>
+            </box>
+        </box>
+
+    </div>
+    <div class="seperator-line"></div>
+</div>

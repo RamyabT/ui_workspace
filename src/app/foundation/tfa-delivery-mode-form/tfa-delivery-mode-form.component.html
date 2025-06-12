@@ -1,0 +1,15 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="tfaDeliveryMode">
+    <box class="entry-form">
+        <box class="tfa-delivery-mode">
+            <app-tfa-channels-control 
+                [label]="'tfaDeliveryMode.deliveryMode.text' | translate" 
+                formControlName="deliveryMode" 
+                [changePublisher]="formChangePublisher$"
+                [dependencyField]="['reqRef']"></app-tfa-channels-control>
+        </box>
+        <box class="form-action-container" *ngIf="state.isPopup">
+            <button type="submit" class="primary" [disabled]="formGroup.invalid">Next</button>
+        </box>
+        
+    </box>
+</form>

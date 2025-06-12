@@ -1,0 +1,31 @@
+"RetailPfmBudgetReqForm":{
+"title":"Pfm Budget Request",
+		 "categoryCode": {
+		  "label":"pfmcategory" ,
+		  "placeholder": "pfmcategory"
+		  } ,
+		 "subCategoryCode": {
+		  "label":"SubCategory" ,
+		  "placeholder": "SubCategory"
+		  } ,
+		 "currencyCode": {
+		  "label":"Currency" ,
+		  "placeholder": "Currency"
+		  } ,
+		 "budgetAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "startDate": {
+		  "label":"End Date" ,
+		  "placeholder": "End Date"
+		  } ,
+		 "endDate": {
+		  "label":"End Date" ,
+		  "placeholder": "End Date"
+		  } ,
+		 "budgetFrequency": {
+		  "label":"Frequency" ,
+		  "placeholder": "Frequency"
+		  } 
+}

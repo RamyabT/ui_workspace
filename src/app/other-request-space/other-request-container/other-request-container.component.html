@@ -1,0 +1,23 @@
+<box class="module-home service-request-home" #spaceHome>
+    <ng-container *ngIf="_device.isMobile(); else spaceContainer">
+        <box class="module-home-bg" [style.top.px]="moduleHeaderTop" ></box>
+        <box class="module-home-inner">
+            <fpx-display-text class="module-title" innerHTML="{{'otherRequestForm.title' | translate}}"></fpx-display-text>
+            <box class="service-request-tracker-wrapper">
+                <app-other-request-contextual-menu></app-other-request-contextual-menu>
+            </box>
+        </box>
+    </ng-container>
+    <ng-template #spaceContainer>
+        <box class="space-container">
+            <box class="space-summary">
+                <box class="service-request-tracker-wrapper">
+                    <app-other-request-contextual-menu></app-other-request-contextual-menu>
+                </box>
+            </box>
+            <box class="space-content">
+                <router-outlet></router-outlet>
+            </box>
+        </box>
+    </ng-template>
+</box>

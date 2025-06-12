@@ -1,0 +1,5 @@
+ 
+ "RETAILNPSSSENDMONEY" : {
+ "servicePath": ["entry-shell","transfers", "retail-npss-send-money"],
+ "queryParams": {}
+ }

@@ -1,0 +1,7 @@
+"InvestmentHoldingsForm":{
+"title":"investmentHoldingsForm",
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } 
+}

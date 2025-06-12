@@ -1,0 +1,5 @@
+{
+    "title": "Vancity - Be a financial force for change.",
+    "landingPath": "login",
+    "redirectOnAuthFailure": ["login"]
+}

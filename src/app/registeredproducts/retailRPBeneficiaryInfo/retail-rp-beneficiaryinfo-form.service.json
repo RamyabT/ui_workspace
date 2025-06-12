@@ -1,0 +1,5 @@
+ 
+ "RETAILRPBENEFICIARYINFO" : {
+ "servicePath": ["entry-shell","registeredproducts", "RetailRPBeneficiaryInfo"],
+ "queryParams": {}
+ }

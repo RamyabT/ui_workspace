@@ -1,0 +1,58 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailEtransferCustomerForm">
+	<box class="entry-form desktop-entry-form">
+		<box class="grid entry-form-field-group col-lg-12">
+			<box class="payee-info-header col-sm-12">
+				<box *ngIf="state.reviewMode" class="payee-info-header">
+					<span class="review-header review-title">{{'reviewForm.title' | translate}}</span>
+					<!-- <span *ngIf="!_helper._device.isMobile()" class="review-text">{{'reviewForm.text' | translate}}</span> -->
+				</box>
+				<ng-container *ngIf="_helper.isDisabled">
+					<box class="intro-container col-sm-12 col-lg-12">
+						<span class="interac-logo"><img src="./assets/interac/interac-create-profile.svg"
+								alt="interac trade mark" /></span>
+						<fpx-display-text class="header" *ngIf="!_helper.isEdit"
+							innerHTML="{{'RetailEtransferCustomerForm.header' | translate}}"></fpx-display-text>
+						<fpx-display-text class="header" *ngIf="_helper.isEdit"
+							innerHTML="{{'RetailEtransferCustomerForm.header1' | translate}}"></fpx-display-text>
+					</box>
+				</ng-container>
+			</box>
+			<box class="biller-group col-sm-12">
+				<box class="col-sm-12 col-md-6 col-lg-12 name-tooltip-wrapper">
+					<app-name-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('firstName')"
+					label="{{'RetailEtransferCustomerForm.firstName.label' | translate }}"
+					formControlName="firstName"></app-name-control>
+					<ng-container *ngIf="_helper.isDisabled">
+						<button type="button" class="btn-container" (click)="_helper.onPopup()">
+							<span class="icon hint-btn-icon"></span>
+						</button>
+					</ng-container>
+				</box>
+				
+				<app-notification-preference class="col-sm-12 col-md-6 col-lg-12"
+					[actionPublisher]="actionMap$.get('notificationType')"
+					label="{{'RetailEtransferCustomerForm.notificationType.label' | translate }}"
+					formControlName="notificationType" [changePublisher]="formChangePublisher$" [dependencyField]="['serviceCode']"></app-notification-preference>
+	
+				<app-email-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('email')"
+					label="{{'RetailEtransferCustomerForm.email.label' | translate }}"
+					placeholder="{{'RetailEtransferCustomerForm.email.placeholder' | translate }}"
+					formControlName="email"></app-email-control>
+	
+	
+				<app-mobile-number-control class="col-sm-12 col-md-6 col-lg-12"
+					[actionPublisher]="actionMap$.get('phoneNumber')"
+					label="{{'RetailEtransferCustomerForm.phoneNumber.label' | translate }}"
+					placeholder="{{'RetailEtransferCustomerForm.phoneNumber.placeholder' | translate }}"
+					formControlName="phoneNumber"></app-mobile-number-control>
+	
+				<app-preferred-language-list-control class="col-sm-12 col-md-6 col-lg-12"
+					[actionPublisher]="actionMap$.get('preferredLanguage')"
+					label="{{'RetailEtransferCustomerForm.preferredLanguage.label' | translate }}"
+					formControlName="preferredLanguage"></app-preferred-language-list-control>
+			</box>
+			
+
+		</box>
+	</box>
+</form>

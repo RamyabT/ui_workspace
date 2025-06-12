@@ -1,0 +1,69 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="LoanDocumentUploadForm">
+    <box class="entry-form">
+        <box class="entry-form-field-group grid col-12">
+            <box class="alerts-header-title">{{'LoanDocumentUploadForm.proofofIncome.label' | translate }}</box>
+            <app-Image-upload-control class="col-sm-12 col-md-6 col-lg-6"
+                [actionPublisher]="actionMap$.get('salarySlip')"
+                label="{{'LoanDocumentUploadForm.salarySlip.label' | translate }}" formControlName="salarySlip"
+                [minSize]="state.profileImage.minSize" [maxSize]="state.profileImage.maxSize"
+                [extensions]="state.profileImage.extensions"></app-Image-upload-control>
+
+            <app-Image-upload-control class="col-sm-12 col-md-6 col-lg-6"
+                [actionPublisher]="actionMap$.get('bankStatement')"
+                label="{{'LoanDocumentUploadForm.bankStatement.label' | translate }}" formControlName="bankStatement"
+                [minSize]="state.profileImage.minSize" [maxSize]="state.profileImage.maxSize"
+                [extensions]="state.profileImage.extensions"></app-Image-upload-control>
+
+            <box class="form-loan entry-form-field-group grid col-12" [ngClass]="{'loan-seg-app': _helper.homeloanSeg}">
+                <box class="alerts-header-title">{{'LoanDocumentUploadForm.propertyRelated.label' | translate }}</box>
+
+                <app-Image-upload-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('allotmentLetter')"
+                    label="{{'LoanDocumentUploadForm.allotmentLetter.label' | translate }}"
+                    formControlName="allotmentLetter" [minSize]="state.profileImage.minSize"
+                    [maxSize]="state.profileImage.maxSize"
+                    [extensions]="state.profileImage.extensions"></app-Image-upload-control>
+
+                <app-Image-upload-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('buyerAggrement')"
+                    label="{{'LoanDocumentUploadForm.buyerAggrement.label' | translate }}"
+                    formControlName="buyerAggrement" [minSize]="state.profileImage.minSize"
+                    [maxSize]="state.profileImage.maxSize"
+                    [extensions]="state.profileImage.extensions"></app-Image-upload-control>
+            </box>
+
+            <box class="form-loan entry-form-field-group grid col-12" [ngClass]="{'loan-seg-app': _helper.vehicleloanSeg}">
+                <box class="alerts-header-title">Vehicle Related</box>
+
+                <app-Image-upload-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('invoiceFromDealer')" label="Proforma Invoice from the dealer"
+                    formControlName="invoiceFromDealer" [minSize]="state.profileImage.minSize"
+                    [maxSize]="state.profileImage.maxSize"
+                    [extensions]="state.profileImage.extensions"></app-Image-upload-control>
+
+                <app-Image-upload-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('vehicleRegCertificate')" label="Vehicle Registration Certificate"
+                    formControlName="vehicleRegCertificate" [minSize]="state.profileImage.minSize"
+                    [maxSize]="state.profileImage.maxSize"
+                    [extensions]="state.profileImage.extensions"></app-Image-upload-control>
+
+                <box class="alerts-header-title">Dealer Related</box>
+
+                <app-Image-upload-control class="col-sm-12 col-md-6 col-lg-6"
+                    [actionPublisher]="actionMap$.get('dealerInvoiceorQuote')" label="Dealer Invoice or Quote"
+                    formControlName="dealerInvoiceorQuote" [minSize]="state.profileImage.minSize"
+                    [maxSize]="state.profileImage.maxSize"
+                    [extensions]="state.profileImage.extensions"></app-Image-upload-control>
+            </box>
+
+            <box class="form-loan entry-form-field-group grid col-12" [ngClass]="{'loan-seg-app': !_helper.vehicleloanSeg}">
+            <box class="alerts-header-title" [ngClass]="{'loan-title':_helper.coApplData}">
+                {{'LoanDocumentUploadForm.coApplicant.label' | translate }}</box>
+            <app-supporting-docs class="col-sm-12 col-md-6 col-lg-6"
+                [actionPublisher]="actionMap$.get('coApplicantfile')" label="coApplicantfile"
+                formControlName="coApplicantfile"></app-supporting-docs>
+            </box>
+
+        </box>
+    </box>
+</form>

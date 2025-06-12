@@ -1,0 +1,19 @@
+"RetailEtransferCustomerForm":{
+"title":"Create e-Transfer Profile",
+		 "firstName": {
+		  "label":"Name" ,
+		  "placeholder": "Name"
+		  } ,
+		 "email": {
+		  "label":"Email ID" ,
+		  "placeholder": "Email ID"
+		  } ,
+		 "phoneNumber": {
+		  "label":"Mobile Phone Number" ,
+		  "placeholder": "Mobile Phone Number"
+		  } ,
+		 "notificationType": {
+		  "label":"Receive Notices By" ,
+		  "placeholder": "Receive Notices By"
+		  } 
+}

@@ -1,0 +1,5 @@
+ 
+ "RETAILRPCONTRIBUTION" : {
+ "servicePath": ["entry-shell","deposits", "retail-rp-contributionreq-form"],
+ "queryParams": {}
+ }

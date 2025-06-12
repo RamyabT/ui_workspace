@@ -1,0 +1,19 @@
+<box class="casa-home-container">
+    <div>
+        <app-prepaidcard-spending-summary
+                [chartData]="chartData" [prepaidcardDetails]="this.prepaidcardDetails"
+                (currencyChange)="getAccountsInsights($event)"
+                (spendDate)="getAccountsInsights($event)"></app-prepaidcard-spending-summary>
+    </div>
+
+    <box class="widget upcoming-payments">
+        <header>
+            <span class="widget-title">{{ 'WIDGIT_TITLES.recentTransactions' | translate }}</span>
+            <!-- <button type="button" class="link arrow-button" (click)="onClickViewTransaction()">{{ 'WIDGIT_TITLES.viewTransactionHistory' | translate }}</button> -->
+        </header>
+    
+        <box class="widget-body upcomingPaymentsTmplt">
+            <app-retail-pc-transactiondtls-form></app-retail-pc-transactiondtls-form>
+        </box>
+    </box>
+</box>

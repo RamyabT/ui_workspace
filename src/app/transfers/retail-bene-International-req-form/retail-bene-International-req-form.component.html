@@ -1,0 +1,188 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailBeneInternationalReqForm">
+
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-12">
+
+			<app-currency-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('currency')"
+				label="{{'RetailBeneInternationalReqForm.currency.label' | translate }}"
+				formControlName="currency"></app-currency-list-control>
+
+
+			<app-country-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('bankCountry')"
+				label="{{'RetailBeneInternationalReqForm.bankCountry.label' | translate }}"
+				formControlName="bankCountry"
+				(commonControlEvent)="handleControlEvent($event)"></app-country-list-control>
+
+
+			<app-bene-account-type class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('beneAccType')"
+				label="{{'RetailBeneInternationalReqForm.beneAccType.label' | translate }}"
+				formControlName="beneAccType"></app-bene-account-type>
+		</box>
+
+		<box class="grid entry-form-field-group col-12">
+
+			<app-confirm-domestic-acccount-number-control appBlockCopyPaste class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('iban')"
+				label="{{'RetailBeneInternationalReqForm.iban.label' | translate }}" formControlName="iban"
+				[changePublisher]="formChangePublisher$" (commonControlEvent)="handleControlEvent($event)"
+				[dependencyField]="['serviceCodeVaribale']" [visiblityChange]="state.visibilityChange"
+				[autoComplete]="state.autoComplete"></app-confirm-domestic-acccount-number-control>
+
+			<app-international-iban-control appBlockCopyPaste class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('confirmIban')"
+				label="{{'RetailBeneInternationalReqForm.confirmIban.label' | translate }}"
+				[changePublisher]="formChangePublisher$" (commonControlEvent)="handleControlEvent($event)"
+				[dependencyField]="['serviceCodeVaribale']"
+				formControlName="confirmIban"></app-international-iban-control>
+
+			<app-confirm-account-number-control appBlockCopyPaste appBlockCopyPaste class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('accountNumber')"
+				label="{{'RetailBeneInternationalReqForm.accountNumber.label' | translate }}"
+				formControlName="accountNumber" [visiblityChange]="state.visibilityChange"
+				(commonControlEvent)="handleControlEvent($event)" [dependencyField]="['serviceCodeVaribale']"
+				[changePublisher]="formChangePublisher$"
+				[autoComplete]="state.autoComplete"></app-confirm-account-number-control>
+
+
+			<app-international-account-number-control appBlockCopyPaste appBlockCopyPaste
+				class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('conAccNumber')"
+				label="{{'RetailBeneInternationalReqForm.conAccNumber.label' | translate }}"
+				formControlName="conAccNumber" (commonControlEvent)="handleControlEvent($event)"
+				[dependencyField]="['serviceCodeVaribale']"
+				[changePublisher]="formChangePublisher$"></app-international-account-number-control>
+
+
+			<app-bene-name-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('beneficiaryName')"
+				label="{{'RetailBeneInternationalReqForm.beneficiaryName.label' | translate }}"
+				formControlName="beneficiaryName"></app-bene-name-control>
+
+			<box class="col-sm-12 col-md-6 col-lg-6">
+				<app-international-bic-code-control appBlockCopyPaste class="col-sm-12 col-md-12 col-lg-12 uppercase"
+					[actionPublisher]="actionMap$.get('bic')"
+					label="{{'RetailBeneInternationalReqForm.bic.label' | translate }}"
+					(commonControlEvent)="handleControlEvent($event)" [changePublisher]="formChangePublisher$"
+					formControlName="bic"
+					[dependencyField]="['isValidationRequiredVar']"></app-international-bic-code-control>
+
+				<fpx-button class="col-sm-12 col-md-12 col-lg-12 search-bic-btn" btnClass="link" btnType="button"
+					[actionPublisher]="actionMap$.get('beneBicSearchBtn')"
+					[label]="'RetailBeneInternationalReqForm.searchBeneBankBIC' | translate"
+					(onClick)="_helper.searchBankBic()"></fpx-button>
+			</box>
+
+			<app-ifsc-code-control class="col-sm-12 col-md-6 col-lg-6" appBlockCopyPaste
+				[actionPublisher]="actionMap$.get('ifscCode')"
+				label="{{'RetailBeneInternationalReqForm.ifscCode.label' | translate }}"
+				(commonControlEvent)="handleControlEvent($event)" [changePublisher]="formChangePublisher$"
+				formControlName="ifscCode"></app-ifsc-code-control>
+
+			<app-bene-additional-bic-control class="col-sm-12 col-md-6 col-lg-6" appBlockCopyPaste
+				[actionPublisher]="actionMap$.get('additionalBic')"
+				label="{{'RetailBeneInternationalReqForm.additionalBic.label' | translate }}"
+				(commonControlEvent)="handleControlEvent($event)" [changePublisher]="formChangePublisher$"
+				formControlName="additionalBic"></app-bene-additional-bic-control>
+
+			<box class="col-sm-12 col-md-6 col-lg-6">
+				<app-domestic-bic-control class="col-sm-12 col-md-12 col-lg-12 uppercase" appBlockCopyPaste
+					[actionPublisher]="actionMap$.get('intermediaryBic')"
+					label="{{'RetailBeneInternationalReqForm.intermediaryBank.label' | translate }}"
+					(commonControlEvent)="handleControlEvent($event)" [changePublisher]="formChangePublisher$"
+					formControlName="intermediaryBic"></app-domestic-bic-control>
+
+				<fpx-button class="col-sm-12 col-md-12 col-lg-12 search-bic-btn" btnClass="link" btnType="button"
+					[actionPublisher]="actionMap$.get('intermediaryBicSearchBtn')"
+					[label]="'RetailBeneInternationalReqForm.searchIntermediaryBankBIC' | translate"
+					(onClick)="_helper.searchBankBic(true)"></fpx-button>
+			</box>
+
+		</box>
+
+
+		<box class="grid entry-form-field-group col-12" #bankDetails [actionPublisher]="actionMap$.get('bankDetails')">
+
+			<app-bank-code-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('bankDescription')"
+				label="{{'RetailBeneInternationalReqForm.bankDescription.label' | translate }}"
+				formControlName="bankDescription"></app-bank-code-control>
+
+
+			<!-- <app-branches-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('branchDescription')"
+				label="{{'RetailBeneInternationalReqForm.branchDescription.label' | translate }}"
+				formControlName="branchDescription"></app-branches-control> -->
+
+
+			<app-address-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('bankAddress')"
+				label="{{'RetailBeneInternationalReqForm.bankAddress.label' | translate }}"
+				formControlName="bankAddress"></app-address-control>
+
+		</box>
+
+
+		<box class="grid entry-form-field-group" #beneDetails [actionPublisher]="actionMap$.get('beneDetails')">
+			<app-bene-nickname-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('nickName')"
+				label="{{'RetailBeneInternationalReqForm.nickName.label' | translate }}"
+				formControlName="nickName"></app-bene-nickname-control>
+
+			<!-- <app-is-favourite-control class="col-sm-12 col-md-12 col-lg-12"
+				[actionPublisher]="actionMap$.get('isFavourite')"
+				label="{{'RetailBeneInternalForm.isFavourite.label' | translate }}" formControlName="isFavourite"
+				placeholder="{{'RetailBeneInternalForm.isFavourite.placeholder' | translate }}"
+				[textPosition]="state.isFavourite.textPosition"
+				[ckValues]="state.isFavourite.ckValues"></app-is-favourite-control> -->
+
+
+
+
+			<app-address-area-line-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('addressLine1')"
+				label="{{'RetailBeneInternationalReqForm.addressLine1.label' | translate }}"
+				formControlName="addressLine1"></app-address-area-line-control>
+
+
+			<app-address-area-line-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('addressLine2')"
+				label="{{'RetailBeneInternationalReqForm.addressLine2.label' | translate }}"
+				formControlName="addressLine2"></app-address-area-line-control>
+
+
+			<app-city-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('city')"
+				label="{{'RetailBeneInternationalReqForm.city.label' | translate }}"
+				formControlName="city"></app-city-control>
+
+
+
+			<app-country-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('beneCountry')"
+				label="{{'RetailBeneInternationalReqForm.beneCountry.label' | translate }}"
+				formControlName="beneCountry"></app-country-list-control>
+
+
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('remarks')"
+				label="{{'RetailBeneInternationalReqForm.remarks.label' | translate }}"
+				formControlName="remarks"></app-remarks-control>
+		</box>
+
+
+
+		<box class="group disclaimer-box col-sm-12 col-md-12 col-lg-12" #termsDetails
+			[actionPublisher]="actionMap$.get('termsDetails')">
+
+
+
+			<app-terms-control class="col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'RetailBeneInternationalReqForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+
+			<!-- <fpx-display-text class="disclaimer-txt" -->
+			<!-- [innerHTML]="'Disclaimer: Lorem Ipsum content needs to be shared by the team'"></fpx-display-text> -->
+
+
+		</box>
+
+	</box>
+</form>

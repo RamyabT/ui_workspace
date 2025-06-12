@@ -1,0 +1,33 @@
+<box class="confirmation-receipt-inner failure {{ result?.statusCode?.toLowerCase() }}">
+    <box class="confirmation-body">
+        <box class="status-container">
+            <box class="status-ico-wrapper">
+                <span class="status-ico"></span>
+            </box>
+            <span class="confirmation-message">
+                <ng-container *ngIf="result?.requestPayload?.errorCode; else noErrorTtl">
+                    {{ result?.requestPayload?.errorCode }}
+                </ng-container>
+                <ng-template #noErrorTtl>
+                    {{ _requestServiceCode + '.' + _requestStatus + ".message" | translate }}
+                </ng-template>
+            </span>
+        </box>
+        <box class="message-container">
+            <span class="confirmation-description">
+                <ng-container *ngIf="result?.requestPayload?.errorCode; else noErrorMsg">
+                    {{ result?.requestPayload?.errorMessage }}
+                </ng-container>
+                <ng-template #noErrorMsg>
+                    {{ _requestServiceCode + '.' + _requestStatus + ".description" | translate }}
+                </ng-template>
+            </span>
+        </box>
+    </box>
+
+    <!-- <box class="confirmation-footer">
+
+            <button type="button" class="primary" (click)="gotoHome()"><span>{{"NpssFailure.menu"|
+                    translate}}</span></button>
+        </box> -->
+</box>

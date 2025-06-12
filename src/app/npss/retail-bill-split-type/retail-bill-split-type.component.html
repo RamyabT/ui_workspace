@@ -1,0 +1,37 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="BillSplitType">
+  <box class="entry-form">
+    <box class="grid entry-form-field-group col-12">
+      <box class="bene-details">
+        <box class="bene-initial">
+          <img src="./assets/images/icons/group-member.svg" alt="group-pic" />
+        </box>
+        <box class="bene-primary-info">
+          <box class="name">
+            Bill Amount</box>
+        </box>
+
+        <box class="amount-details grid">
+          <app-payment-amount-control class="col-sm-12 col-md-12 col-lg-12 npss-money-transfers-amount-control"
+            [actionPublisher]="actionMap$.get('transactionAmount')"
+            placeholder="{{ 'NPSSSendMoney.paymentAmount.placeholder' | translate }}" formControlName="transactionAmount"
+            (commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.transactionAmount.CurrencyList"
+            [isCurrEditable]="state.transactionAmount.isCurrEditable"
+            [defaultFetch]="state.transactionAmount.defaultFetch" [initCurrency]="state.transactionAmount.initCurrency"
+            [amountInWords]="state.transactionAmount.amountInWords" [changePublisher]="formChangePublisher$">
+          </app-payment-amount-control>
+        </box>
+        <app-retail-split-type-control class="col-sm-12 col-md-12 col-lg-12" formControlName="splitTypeControl" 
+        [actionPublisher]="actionMap$.get('splitTypeControl')" label="{{ 'Splittype.title' | translate }}"
+        ></app-retail-split-type-control>
+
+        <app-retail-bill-split-type-ro-grid [splitType]="formGroup.get('splitTypeControl')?.value"  [actionPublisher]="actionMap$.get('billSplitType')" class="col-md-13 col-sm-12 col-lg-12" ></app-retail-bill-split-type-ro-grid>
+
+        <box class="split-type-footer">
+          <span>{{ 'remAmount.title' | translate }} : {{state.balanceAmount}}</span>
+          <span class="mat-error" *ngIf="state.errorSet">Exceeds split amount</span>
+        </box>
+      </box>
+    </box>
+  </box>
+
+</form>

@@ -1,0 +1,5 @@
+ 
+ "RETAILLOANREPAYMENT" : {
+ "servicePath": ["entry-shell","loans", "retail-loan-repayment-form"],
+ "queryParams": {}
+ }

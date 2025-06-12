@@ -1,0 +1,92 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailCCReplacementForm">
+
+	<!-- <box class="entry-form">
+	    <box class="grid entry-form-field-group"> 
+	      
+			  <app-active-cc-list-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('cardReference')"     label="{{'RetailCCReplacementForm.cardReference.label' | translate }}"   formControlName="cardReference" 
+     ></app-active-cc-list-control>
+	      -->
+
+	<box class="entry-form">
+		<ng-container *ngIf="state.cardData && device.isMobile()">
+			<creditcard class="col-12" [cardData]="state.cardData" [formView]="true"></creditcard>
+		</ng-container>
+		<box class="grid entry-form-field-group col-sm-12 col-md-6 col-lg-12">
+
+			<app-reason-list-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('reason')"     label="{{'RetailCCReplacementForm.reason.label' | translate }}"   formControlName="reason" 
+	   ></app-reason-list-control>
+
+	   <app-remarks-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('otherReason')"     label="{{'RetailDebitCardBlockForm.otherReason.label' | translate }}"   formControlName="otherReason" 
+	   ></app-remarks-control>
+
+			<app-acc-delivery-options-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('deliveryOption')"
+				label="{{'RetailCCReplacementForm.deliveryOption.label' | translate }}" formControlName="deliveryOption"
+				(commonControlEvent)="handleControlEvent($event)"></app-acc-delivery-options-control>
+
+
+			<app-branches-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('dlvryBranch')"
+				label="{{'RetailCCReplacementForm.dlvryBranch.label' | translate }}"
+				formControlName="dlvryBranch"></app-branches-list-control>
+
+			<!-- 			 
+	      <app-corp-address-details-form class="col-md-12" (commonFormEvent)="handleControlEvent($event)"  [actionPublisher]="actionMap$.get('AddressInfo')"   label="Addressinfo"  formControlName="AddressInfo" 
+ ></app-corp-address-details-form> -->
+
+ <box class="field-item col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('addressInfo')">
+	<box class="info-box">
+		<fpx-label label="{{'RetailCCReplacementForm.contactNumber.label' | translate }}"></fpx-label>
+		<box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.mobile"
+				[literals]="commonFormInput"></fpx-display-text>
+		</box>
+	</box>
+</box>
+<box class="field-item col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('addressInfo')">
+	<box class="info-box">
+		<fpx-label label="{{'RetailCCReplacementForm.registerAddress.label' | translate }}"></fpx-label>
+		<box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.buildingDetails"
+				[literals]="commonFormInput"></fpx-display-text>
+		</box>
+		<box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.cityDetails"
+				[literals]="commonFormInput"></fpx-display-text>
+		</box>
+		<box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.stateDetails"
+				[literals]="commonFormInput"></fpx-display-text>
+		</box>
+		<box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.countryDetails"
+				[literals]="commonFormInput"></fpx-display-text>
+		</box>
+		<box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.pinCode"
+				[literals]="commonFormInput"></fpx-display-text>
+		</box>
+	</box>
+</box>
+			<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('charges')"
+				placeholder="{{'RetailCCReplacementForm.charges.placeholder' | translate }}"
+				label="{{'RetailCCReplacementForm.charges.label' | translate }}" formControlName="charges"
+				[CurrencyList]="state.charges.CurrencyList" [isCurrEditable]="state.charges.isCurrEditable"
+				[defaultFetch]="state.charges.defaultFetch" [initCurrency]="state.charges.initCurrency"
+				[amountInWords]="state.charges.amountInWords"> ></app-payment-amount-control>
+
+			<box id="000_8" class="col-sm-12 col-md-6 col-lg-12 grid  main-group  ">
+				<app-remarks-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('remarks')"
+					label="{{'RetailCCReplacementForm.remarks.label' | translate }}"
+					formControlName="remarks"></app-remarks-control>
+			</box>
+		</box>
+
+		<box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-12 grid main-group disclaimer-box">
+			<app-terms-control class="col-md-4 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'RetailCCReplacementForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+		</box>
+	</box>
+</form>

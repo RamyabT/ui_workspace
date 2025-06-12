@@ -1,0 +1,79 @@
+"employmentInfo":{
+"title":"employmentInfo",
+		 "employmentType": {
+		  "label":"Employment Type" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "subemptype": {
+		  "label":"Subemployment Type" ,
+		  "placeholder": "Subemployment Type"
+		  } ,
+		 "empstatus": {
+		  "label":"Employment status" ,
+		  "placeholder": "Employment status"
+		  } ,
+		 "companyName": {
+		  "label":"Company Name" ,
+		  "placeholder": "company Name"
+		  } ,
+		 "company_Code": {
+		  "label":"Employer Name" ,
+		  "placeholder": "company Code"
+		  } ,
+		 "occupationType": {
+		  "label":"Occupation Type" ,
+		  "placeholder": "occupation Type"
+		  } ,
+		 "industryCode": {
+		  "label":"Company Code" ,
+		  "placeholder": "industry Code"
+		  } ,
+		 "position": {
+		  "label":"Position" ,
+		  "placeholder": "position"
+		  } ,
+		 "designation": {
+		  "label":"Designation" ,
+		  "placeholder": "designation"
+		  } ,
+		 "department": {
+		  "label":"Department" ,
+		  "placeholder": "department"
+		  } ,
+		 "natureofbus": {
+		  "label":"Nature of Business" ,
+		  "placeholder": "natureofbus"
+		  } ,
+		 "empsoi": {
+		  "label":"Source of income" ,
+		  "placeholder": "empsoi"
+		  } ,
+		 "userDefinedField1": {
+		  "label":"UDF1" ,
+		  "placeholder": "UDF1"
+		  } ,
+		 "userDefinedField2": {
+		  "label":"UDF2" ,
+		  "placeholder": "UDF2"
+		  } ,
+		 "userDefinedField4": {
+		  "label":"UDF4" ,
+		  "placeholder": "UDF4"
+		  } ,
+		 "userDefinedField3": {
+		  "label":"UDF3" ,
+		  "placeholder": "UDF3"
+		  } ,
+		 "userDefinedField5": {
+		  "label":"UDF5" ,
+		  "placeholder": "UDF5"
+		  },
+		  "annualIncome": {
+			"label":"Annual Income" ,
+			"placeholder": "Annual Income"
+			},
+			"addressdetail": {
+				"label":"Company Address" ,
+				"placeholder": "Company Address"
+				} 
+}

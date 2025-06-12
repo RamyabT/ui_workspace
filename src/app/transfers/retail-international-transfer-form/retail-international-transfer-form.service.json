@@ -1,0 +1,5 @@
+ 
+ "RETAILTRANSWIFT" : {
+ "servicePath": ["entry-shell","transfers", "retail-international-transfer-form"],
+ "queryParams": {}
+ }

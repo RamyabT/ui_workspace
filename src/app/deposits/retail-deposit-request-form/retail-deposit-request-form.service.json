@@ -1,0 +1,5 @@
+ 
+ "RETAILOPENNEWDEPOSIT" : {
+ "servicePath": ["entry-shell","deposits", "retail-deposit-request-form"],
+ "queryParams": {}
+ }

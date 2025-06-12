@@ -1,0 +1,328 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailPCChangeLimitForm">
+
+	<box class="entry-form">
+		<ng-container *ngIf="state.cardData && device.isMobile()">
+			<prepaidcard class="col-12" [cardData]="state.cardData" [formView]="true"></prepaidcard>
+		</ng-container>
+		<box class="module-tab-container col-sm-12 col-lg-12">
+			<mat-tab-group
+			  [(selectedIndex)]="_helper.activeTabIndex"
+			  (selectedTabChange)="_helper.onTabChanged($event)"
+			>
+			  <mat-tab
+				label="{{ 'CCLIMIT.domestic' | translate }}"
+			  >
+				<!-- <ng-template matTabContent> -->
+					<box class="entry-form grid entry-form-field-group col-sm-12">
+						<box class="slider-field">
+							<app-pc-service-flag-control class="col-md-4" [actionPublisher]="actionMap$.get('atmFlag')"
+								label="{{'RetailPCChangeLimitForm.atmFlag.label' | translate }}" formControlName="atmFlag"
+								[ckValues]="state.serviceFlag.ckValues"></app-pc-service-flag-control>
+							<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-6"
+								[actionPublisher]="actionMap$.get('atmLimit')"
+								label="{{'RetailPCChangeLimitForm.atmLimit.label' | translate }}" formControlName="atmLimit"
+								[min]="state.atmLimit.min" [max]="state.atmLimit.max" [step]="state.atmLimit.step"
+								[currencyCode]="state.atmLimit.currencyCode"></app-dc-amount-slider>
+							<hr>
+						</box>
+						<box class="slider-field">
+							<app-pc-service-flag-control class="col-md-4"
+								[actionPublisher]="actionMap$.get('onlinePurchaseFlag')"
+								label="{{'RetailPCChangeLimitForm.onlinePurchaseFlag.label' | translate }}"
+								formControlName="onlinePurchaseFlag"
+								[ckValues]="state.serviceFlag.ckValues"></app-pc-service-flag-control>
+							<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-6"
+								[actionPublisher]="actionMap$.get('onlinePurchaseLimit')"
+								label="{{'RetailPCChangeLimitForm.onlinePurchaseLimit.label' | translate }}"
+								formControlName="onlinePurchaseLimit" [min]="state.onlinePurchaseLimit.min"
+								[max]="state.onlinePurchaseLimit.max" [step]="state.onlinePurchaseLimit.step"
+								[currencyCode]="state.onlinePurchaseLimit.currencyCode"></app-dc-amount-slider>
+							<hr>
+						</box>
+						<box class="slider-field">
+							<app-pc-service-flag-control class="col-md-4"
+								[actionPublisher]="actionMap$.get('contactlessPurchaseFlag')"
+								label="{{'RetailPCChangeLimitForm.contactlessPurchaseFlag.label' | translate }}"
+								formControlName="contactlessPurchaseFlag"
+								[ckValues]="state.serviceFlag.ckValues"></app-pc-service-flag-control>
+							<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-6"
+								[actionPublisher]="actionMap$.get('contactlessPurchaseLimit')"
+								label="{{'RetailPCChangeLimitForm.contactlessPurchaseLimit.label' | translate }}"
+								formControlName="contactlessPurchaseLimit" [min]="state.contactlessPurchaseLimit.min"
+								[max]="state.contactlessPurchaseLimit.max" [step]="state.contactlessPurchaseLimit.step"
+								[currencyCode]="state.contactlessPurchaseLimit.currencyCode"></app-dc-amount-slider>
+							<hr>
+						</box>
+						<box class="slider-field">
+							<app-pc-service-flag-control class="col-md-4" [actionPublisher]="actionMap$.get('posPayFlag')"
+								label="{{'RetailPCChangeLimitForm.posPayFlag.label' | translate }}"
+								formControlName="posPayFlag"
+								[ckValues]="state.serviceFlag.ckValues"></app-pc-service-flag-control>
+							<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-6"
+								[actionPublisher]="actionMap$.get('posPayLimit')"
+								label="{{'RetailPCChangeLimitForm.posPayLimit.label' | translate }}"
+								formControlName="posPayLimit" [min]="state.posPayLimit.min" [max]="state.posPayLimit.max"
+								[step]="state.posPayLimit.step"
+								[currencyCode]="state.posPayLimit.currencyCode"></app-dc-amount-slider>
+							<hr>
+						</box>
+					</box>
+				
+				<!-- </ng-template> -->
+			  </mat-tab>
+			  <mat-tab label="{{ 'CCLIMIT.international' | translate }}">
+			<!-- <ng-template matTabContent> -->
+					<box class="entry-form grid entry-form-field-group col-sm-12">
+						<box class="slider-field">
+							<app-pc-service-flag-control class="col-md-4" [actionPublisher]="actionMap$.get('intlAtmFlag')"
+								label="{{'RetailPCChangeLimitForm.intlAtmFlag.label' | translate }}"
+								formControlName="intlAtmFlag"
+								[ckValues]="state.serviceFlag.ckValues"></app-pc-service-flag-control>
+							<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-6"
+								[actionPublisher]="actionMap$.get('intlAtmLimit')"
+								label="{{'RetailPCChangeLimitForm.intlAtmLimit.label' | translate }}"
+								formControlName="intlAtmLimit" [min]="state.intlAtmLimit.min" [max]="state.intlAtmLimit.max"
+								[step]="state.intlAtmLimit.step"
+								[currencyCode]="state.intlAtmLimit.currencyCode"></app-dc-amount-slider>
+							<hr>
+						</box>
+	
+						<box class="slider-field">
+							<app-pc-service-flag-control class="col-md-4"
+								[actionPublisher]="actionMap$.get('intlOnlinePurchaseFlag')"
+								label="{{'RetailPCChangeLimitForm.intlOnlinePurchaseFlag.label' | translate }}"
+								formControlName="intlOnlinePurchaseFlag"
+								[ckValues]="state.serviceFlag.ckValues"></app-pc-service-flag-control>
+							<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-6"
+								[actionPublisher]="actionMap$.get('intlOnlinePurchaseLimit')"
+								label="{{'RetailPCChangeLimitForm.intlOnlinePurchaseLimit.label' | translate }}"
+								formControlName="intlOnlinePurchaseLimit" [min]="state.intlOnlinePurchaseLimit.min"
+								[max]="state.intlOnlinePurchaseLimit.max" [step]="state.intlOnlinePurchaseLimit.step"
+								[currencyCode]="state.intlOnlinePurchaseLimit.currencyCode"></app-dc-amount-slider>
+							<hr>
+						</box>
+						<box class="slider-field">
+							<app-pc-service-flag-control class="col-md-4"
+								[actionPublisher]="actionMap$.get('intlContactlessPurchaseFlag')"
+								label="{{'RetailPCChangeLimitForm.intlContactlessPurchaseFlag.label' | translate }}"
+								formControlName="intlContactlessPurchaseFlag"
+								[ckValues]="state.serviceFlag.ckValues"></app-pc-service-flag-control>
+							<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-6"
+								[actionPublisher]="actionMap$.get('intlContactlessPurchaseLimit')"
+								label="{{'RetailPCChangeLimitForm.intlContactlessPurchaseLimit.label' | translate }}"
+								formControlName="intlContactlessPurchaseLimit"
+								[min]="state.intlContactlessPurchaseLimit.min"
+								[max]="state.intlContactlessPurchaseLimit.max"
+								[step]="state.intlContactlessPurchaseLimit.step"
+								[currencyCode]="state.intlContactlessPurchaseLimit.currencyCode"></app-dc-amount-slider>
+							<hr>
+						</box>
+	
+						<box class="slider-field">
+							<app-pc-service-flag-control class="col-md-4"
+								[actionPublisher]="actionMap$.get('intlPosPayFlag')"
+								label="{{'RetailPCChangeLimitForm.intlPosPayFlag.label' | translate }}"
+								formControlName="intlPosPayFlag"
+								[ckValues]="state.serviceFlag.ckValues"></app-pc-service-flag-control>
+							<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-6"
+								[actionPublisher]="actionMap$.get('intlPosPayLimit')"
+								label="{{'RetailPCChangeLimitForm.intlPosPayLimit.label' | translate }}"
+								formControlName="intlPosPayLimit" [min]="state.intlPosPayLimit.min"
+								[max]="state.intlPosPayLimit.max" [step]="state.intlPosPayLimit.step"
+								[currencyCode]="state.intlPosPayLimit.currencyCode"></app-dc-amount-slider>
+							<hr>
+						</box>
+					</box>
+				 
+				<!-- </ng-template> -->
+			  </mat-tab>
+			  <mat-tab
+		  label="{{ 'CCLIMIT.regional' | translate }}"
+		>
+		  <ng-template matTabContent>
+			<box class="grid entry-form-field-group col-sm-12">
+				<box class="fpx-form-control search-group col-sm-12 col-lg-12">
+					<input mat-input type="text" formControlName="searchText" placeholder="Search"
+						class="fpx-field-content search-bar col-sm-12 col-12" />
+				</box>
+				<mat-accordion *ngIf="this.state.continent!.length > 0" multi="true">
+					<mat-expansion-panel #accordianContainer
+						*ngFor="let continentDescription of this.state.continent; let i = index"
+						[expanded]="state.step === i">
+						<mat-expansion-panel-header>
+							<mat-panel-title>
+								<p [innerHTML]="continentDescription"></p>
+							</mat-panel-title>
+						</mat-expansion-panel-header>
+						<div *ngFor="let country of this.state.limitCountriesObj[continentDescription]; let i = index"
+							class="content">
+							<mat-checkbox class="example-margin" (change)="_helper.onClickCountryCheckbox(country)"
+								[checked]='country.enabled == "1" ?true: false'>{{country.countryDescription}}</mat-checkbox>
+						</div>
+					</mat-expansion-panel>
+				</mat-accordion>
+			</box>
+		  </ng-template>
+		</mat-tab>
+			</mat-tab-group>
+		  </box>
+		<!-- <fpx-accordion-group class="col-sm-12">
+			<fpx-accordion class="grid entry-form-field-group" [title]="_helper.tabDetails[0].name">
+				<box class="entry-form col-sm-12">
+					<box class="slider-field">
+						<app-pc-service-flag-control class="col-md-4" [actionPublisher]="actionMap$.get('atmFlag')"
+							label="{{'RetailPCChangeLimitForm.atmFlag.label' | translate }}" formControlName="atmFlag"
+							[ckValues]="state.serviceFlag.ckValues"></app-pc-service-flag-control>
+						<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-6"
+							[actionPublisher]="actionMap$.get('atmLimit')"
+							label="{{'RetailPCChangeLimitForm.atmLimit.label' | translate }}" formControlName="atmLimit"
+							[min]="state.atmLimit.min" [max]="state.atmLimit.max" [step]="state.atmLimit.step"
+							[currencyCode]="state.atmLimit.currencyCode"></app-dc-amount-slider>
+						<hr>
+					</box>
+					<box class="slider-field">
+						<app-pc-service-flag-control class="col-md-4"
+							[actionPublisher]="actionMap$.get('onlinePurchaseFlag')"
+							label="{{'RetailPCChangeLimitForm.onlinePurchaseFlag.label' | translate }}"
+							formControlName="onlinePurchaseFlag"
+							[ckValues]="state.serviceFlag.ckValues"></app-pc-service-flag-control>
+						<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-6"
+							[actionPublisher]="actionMap$.get('onlinePurchaseLimit')"
+							label="{{'RetailPCChangeLimitForm.onlinePurchaseLimit.label' | translate }}"
+							formControlName="onlinePurchaseLimit" [min]="state.onlinePurchaseLimit.min"
+							[max]="state.onlinePurchaseLimit.max" [step]="state.onlinePurchaseLimit.step"
+							[currencyCode]="state.onlinePurchaseLimit.currencyCode"></app-dc-amount-slider>
+						<hr>
+					</box>
+					<box class="slider-field">
+						<app-pc-service-flag-control class="col-md-4"
+							[actionPublisher]="actionMap$.get('contactlessPurchaseFlag')"
+							label="{{'RetailPCChangeLimitForm.contactlessPurchaseFlag.label' | translate }}"
+							formControlName="contactlessPurchaseFlag"
+							[ckValues]="state.serviceFlag.ckValues"></app-pc-service-flag-control>
+						<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-6"
+							[actionPublisher]="actionMap$.get('contactlessPurchaseLimit')"
+							label="{{'RetailPCChangeLimitForm.contactlessPurchaseLimit.label' | translate }}"
+							formControlName="contactlessPurchaseLimit" [min]="state.contactlessPurchaseLimit.min"
+							[max]="state.contactlessPurchaseLimit.max" [step]="state.contactlessPurchaseLimit.step"
+							[currencyCode]="state.contactlessPurchaseLimit.currencyCode"></app-dc-amount-slider>
+						<hr>
+					</box>
+					<box class="slider-field">
+						<app-pc-service-flag-control class="col-md-4" [actionPublisher]="actionMap$.get('posPayFlag')"
+							label="{{'RetailPCChangeLimitForm.posPayFlag.label' | translate }}"
+							formControlName="posPayFlag"
+							[ckValues]="state.serviceFlag.ckValues"></app-pc-service-flag-control>
+						<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-6"
+							[actionPublisher]="actionMap$.get('posPayLimit')"
+							label="{{'RetailPCChangeLimitForm.posPayLimit.label' | translate }}"
+							formControlName="posPayLimit" [min]="state.posPayLimit.min" [max]="state.posPayLimit.max"
+							[step]="state.posPayLimit.step"
+							[currencyCode]="state.posPayLimit.currencyCode"></app-dc-amount-slider>
+						<hr>
+					</box>
+				</box>
+			</fpx-accordion>
+			<fpx-accordion class="grid entry-form-field-group" [title]="_helper.tabDetails[1].name">
+				<box class="entry-form col-sm-12">
+					<box class="slider-field">
+						<app-pc-service-flag-control class="col-md-4" [actionPublisher]="actionMap$.get('intlAtmFlag')"
+							label="{{'RetailPCChangeLimitForm.intlAtmFlag.label' | translate }}"
+							formControlName="intlAtmFlag"
+							[ckValues]="state.serviceFlag.ckValues"></app-pc-service-flag-control>
+						<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-6"
+							[actionPublisher]="actionMap$.get('intlAtmLimit')"
+							label="{{'RetailPCChangeLimitForm.intlAtmLimit.label' | translate }}"
+							formControlName="intlAtmLimit" [min]="state.intlAtmLimit.min" [max]="state.intlAtmLimit.max"
+							[step]="state.intlAtmLimit.step"
+							[currencyCode]="state.intlAtmLimit.currencyCode"></app-dc-amount-slider>
+						<hr>
+					</box>
+
+					<box class="slider-field">
+						<app-pc-service-flag-control class="col-md-4"
+							[actionPublisher]="actionMap$.get('intlOnlinePurchaseFlag')"
+							label="{{'RetailPCChangeLimitForm.intlOnlinePurchaseFlag.label' | translate }}"
+							formControlName="intlOnlinePurchaseFlag"
+							[ckValues]="state.serviceFlag.ckValues"></app-pc-service-flag-control>
+						<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-6"
+							[actionPublisher]="actionMap$.get('intlOnlinePurchaseLimit')"
+							label="{{'RetailPCChangeLimitForm.intlOnlinePurchaseLimit.label' | translate }}"
+							formControlName="intlOnlinePurchaseLimit" [min]="state.intlOnlinePurchaseLimit.min"
+							[max]="state.intlOnlinePurchaseLimit.max" [step]="state.intlOnlinePurchaseLimit.step"
+							[currencyCode]="state.intlOnlinePurchaseLimit.currencyCode"></app-dc-amount-slider>
+						<hr>
+					</box>
+					<box class="slider-field">
+						<app-pc-service-flag-control class="col-md-4"
+							[actionPublisher]="actionMap$.get('intlContactlessPurchaseFlag')"
+							label="{{'RetailPCChangeLimitForm.intlContactlessPurchaseFlag.label' | translate }}"
+							formControlName="intlContactlessPurchaseFlag"
+							[ckValues]="state.serviceFlag.ckValues"></app-pc-service-flag-control>
+						<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-6"
+							[actionPublisher]="actionMap$.get('intlContactlessPurchaseLimit')"
+							label="{{'RetailPCChangeLimitForm.intlContactlessPurchaseLimit.label' | translate }}"
+							formControlName="intlContactlessPurchaseLimit"
+							[min]="state.intlContactlessPurchaseLimit.min"
+							[max]="state.intlContactlessPurchaseLimit.max"
+							[step]="state.intlContactlessPurchaseLimit.step"
+							[currencyCode]="state.intlContactlessPurchaseLimit.currencyCode"></app-dc-amount-slider>
+						<hr>
+					</box>
+
+					<box class="slider-field">
+						<app-pc-service-flag-control class="col-md-4"
+							[actionPublisher]="actionMap$.get('intlPosPayFlag')"
+							label="{{'RetailPCChangeLimitForm.intlPosPayFlag.label' | translate }}"
+							formControlName="intlPosPayFlag"
+							[ckValues]="state.serviceFlag.ckValues"></app-pc-service-flag-control>
+						<app-dc-amount-slider class="col-sm-12 col-md-6 col-lg-6"
+							[actionPublisher]="actionMap$.get('intlPosPayLimit')"
+							label="{{'RetailPCChangeLimitForm.intlPosPayLimit.label' | translate }}"
+							formControlName="intlPosPayLimit" [min]="state.intlPosPayLimit.min"
+							[max]="state.intlPosPayLimit.max" [step]="state.intlPosPayLimit.step"
+							[currencyCode]="state.intlPosPayLimit.currencyCode"></app-dc-amount-slider>
+						<hr>
+					</box>
+				</box>
+			</fpx-accordion>
+			<fpx-accordion class="grid entry-form-field-group" [title]="_helper.tabDetails[2].name">
+				<box class="col-sm-12">
+					<box class="fpx-form-control search-group col-sm-12 col-lg-12">
+						<input mat-input type="text" formControlName="searchText" placeholder="Search"
+							class="fpx-field-content search-bar col-sm-12 col-12" />
+					</box>
+					<mat-accordion *ngIf="this.state.continent!.length > 0" multi="true">
+						<mat-expansion-panel #accordianContainer
+							*ngFor="let continentDescription of this.state.continent; let i = index"
+							[expanded]="state.step === i">
+							<mat-expansion-panel-header>
+								<mat-panel-title>
+									<p [innerHTML]="continentDescription"></p>
+								</mat-panel-title>
+							</mat-expansion-panel-header>
+							<div *ngFor="let country of this.state.limitCountriesObj[continentDescription]; let i = index"
+								class="content">
+								<mat-checkbox class="example-margin" (change)="_helper.onClickCountryCheckbox(country)"
+									[checked]='country.enabled == "1" ?true: false'>{{country.countryDescription}}</mat-checkbox>
+							</div>
+						</mat-expansion-panel>
+					</mat-accordion>
+				</box>
+			</fpx-accordion>
+		</fpx-accordion-group> -->
+
+		<app-remarks-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('remarks')"
+			label="{{'RetailPCChangeLimitForm.remarks.label' | translate }}"
+			formControlName="remarks"></app-remarks-control>
+
+		<box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-6 grid main-group disclaimer-box">
+
+			<app-terms-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'RetailDebitCardBlockForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+
+		</box>
+	</box>
+
+</form>

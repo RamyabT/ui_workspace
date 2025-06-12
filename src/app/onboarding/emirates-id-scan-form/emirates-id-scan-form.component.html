@@ -1,0 +1,62 @@
+<form formName="cobPhotoIdMatch" [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off"
+    [ngClass]="{'pre-photoidscan': !state.photoIdScanCompleted}">
+    <box class="entry-form">
+        <ng-container *ngIf="!state.photoIdScanCompleted">
+            <div class="title">{{'EmiratesIdScanForm.title' | translate }}</div>
+            <div class="dc-image">
+                <img src="./assets/images/rcob/scan-id-image.png" alt="scan document">
+            </div>
+            <div class="dc-note">
+                {{'EmiratesIdScanForm.note' | translate }}
+            </div>
+            <div class="form-footer-actions">
+                <ng-container *ngIf="_helper._deviceDetectorService.isDesktop()">
+                    <button type="button" class="btn-tertiary">{{'OnBoarding.backbtn' | translate }}</button>
+                </ng-container>
+                <button type="button" class="btn-primary" (click)="_helper.triggerPhotoIdMatch()">{{'OnBoarding.proceedbtn' | translate }}</button>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="state.photoIdScanCompleted">
+            <box class="entry-form-field-group grid col-sm-12 col-md-12 col-lg-12">
+                <span *ngIf="_helper._appConfig.getData('processId')" class="arn-number">{{'OnBoarding.arn' | translate }}{{_helper._appConfig.getData('processId')}}</span>
+
+                <div class="title col-sm-12 col-md-12 col-lg-12">{{'EmiratesIdScanForm.completedTitle' | translate }}
+                </div>
+
+                <box class="document-images col-sm-12 col-md-12 col-lg-12">
+                    <ng-container *ngFor="let image of state.documentImages; let i=index">
+                        <div class="image-group">
+                            <img [src]="'data:image/png;base64,' + image" alt="" />
+                            <div class="img-desc" [innerHTML]="i == 0?'Front view':'Back view'"></div>
+                        </div>
+                    </ng-container>
+                </box>
+
+                <box class="document-data col-sm-12 col-md-12 col-lg-12">
+                    <ng-container *ngFor="let group of state.documentData?.userConfirmedValues?.groups">
+                        <ng-container *ngFor="let field of group.fields">
+                            <box class="ocr-field col-sm-12 col-md-6 col-lg-6" *ngIf="field.value">
+                                <span class="lbl">{{ this._helper.insertSpace(field.fieldKey) }}</span>
+                                <span class="val">{{ field.value }}</span>
+                            </box>
+                        </ng-container>
+                    </ng-container>
+                </box>
+
+            </box>
+
+            <div class="form-footer-actions">
+                <button type="button" class="btn-tertiary" (click)="_helper.triggerPhotoIdMatch()">{{'OnBoarding.rescanbtn' | translate }}</button>
+                <button type="submit" class="btn-primary" [disabled]="formGroup.invalid">{{'OnBoarding.submitbtn' | translate }}</button>
+            </div>
+        </ng-container>
+
+        <div *ngIf="state.photoIdScanCompleted" class="terms-and-condition">
+            <app-terms-condition-control class="col-sm-12 col-lg-12 col-md-12" formControlName="flag">
+                <span (click)="onClickTermsCondition()">{{'EmiratesIdScanForm.termsandconditions' | translate }}</span>
+            </app-terms-condition-control>
+        </div>
+
+    </box>
+</form>

@@ -1,0 +1,57 @@
+<ng-container *ngIf="_device.isMobile(); else desktopMenu">
+    <box class="widget quick-actions-inner context-menu-wrapper interac-context-menu">
+        <header>
+            <span class="widget-title">{{ 'WIDGIT_TITLES.etransfersContextMenuTitle' | translate }}</span>
+        </header>
+
+        <box class="actions-body">
+            <ng-container *ngIf="quickLinks">
+                <ul class="actions-list grid transfers-quick-links" [ngClass]="{ 'show-more' : doShowMoreQuickActions }">
+                    <ng-container *ngFor="let menu of quickLinks">
+                        <li [class]="'ql-' + menu.serviceCode" [ngClass]="{'active': _activeMenu == menu.serviceCode}" (click)="openContextMenu(menu)">
+                            <span class="icon-wrapper"></span>
+                            <span class="text" [innerHTML]="menu.serviceDescription || menu.name"></span>
+                        </li>
+                    </ng-container>
+                </ul>
+            </ng-container>
+
+            <ng-container *ngIf="!_device.isMobile() && quickLinks && quickLinks.length > 5">
+                <button type="button" class="expander" (click)="toggleMoreQuickActions()"><span>show more</span></button>
+            </ng-container>
+        </box>
+    </box>
+</ng-container>
+<ng-template #desktopMenu>
+    <box class="widget" #contextMenuWrapper>
+        <box class="context-menu-body tab" *ngIf="quickLinks?.length > 0; else quickActionsLoader">
+            <box class="actions-list">
+                <box class="tab slide" 
+                *ngFor="let item of quickLinks" (click)="openLink(item)">
+                <box class="item">
+                    <span class="icon-wrapper {{ item.serviceCode }}"></span>
+                    <span class="text"
+                    [innerHTML]="item.serviceDescription"></span>
+                </box>
+                </box>
+            </box>
+        </box>
+    </box>
+</ng-template>
+<box class="quick-action-menu-overlay" *ngIf="doShowMoreQuickActions" (click)="hideMoreQuickActions($event)"></box>
+
+<ng-template #quickActionsLoader>
+    <box class="quick-actions-loader">
+      <ul>
+        <li>
+          <span class="icon">&nbsp;</span>
+        </li>
+        <li>
+          <span class="icon">&nbsp;</span>
+        </li>
+        <li>
+          <span class="icon">&nbsp;</span>
+        </li>
+      </ul>
+    </box>
+</ng-template>

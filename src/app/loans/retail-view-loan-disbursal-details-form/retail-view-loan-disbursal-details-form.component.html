@@ -1,0 +1,14 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailViewLoanDisbursalDetailsForm">
+	<box class="entry-form">
+		<box class="grid entry-form-field-group grid entry-form-field-group col-md-13 col-sm-12 col-lg-12">
+			<!-- <box class="year-header">
+                <img src="./assets/images/icons/previous.svg">
+				<span class="year">2023</span>
+				<img src="./assets/images/icons/next.svg">
+			</box> -->
+			<app-retail-loan-disbursal-schedule-ro-grid class="col-md-13 col-sm-12 col-lg-12" (commonRoGridEvent)="handleControlEvent($event)"
+				[actionPublisher]="actionMap$.get('disbursmentSchedule')" label="RetailLoanDisbursalScheduleROGrid"
+				></app-retail-loan-disbursal-schedule-ro-grid>
+		</box>
+	</box>
+</form>

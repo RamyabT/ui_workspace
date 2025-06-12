@@ -1,0 +1,5 @@
+ 
+ "employmentInfo" : {
+ "servicePath": ["entry-shell","pfm", "employmentInfo"],
+ "queryParams": {}
+ }

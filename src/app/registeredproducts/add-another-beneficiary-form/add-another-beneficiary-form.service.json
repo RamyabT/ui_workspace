@@ -1,0 +1,5 @@
+ 
+ "rpcontractinfoBenificiary" : {
+ "servicePath": ["entry-shell","registeredproducts", "add-another-beneficiary-form"],
+ "queryParams": {}
+ }

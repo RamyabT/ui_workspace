@@ -1,0 +1,5 @@
+ 
+ "OBVIRTUALCARDSELECTION" : {
+ "servicePath": ["entry-shell","onboarding", "obVirtualcardSelection"],
+ "queryParams": {}
+ }

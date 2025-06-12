@@ -1,0 +1,103 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="retaildcreplacement">
+
+	<box class="entry-form">
+		<ng-container *ngIf="state.cardData && device.isMobile()">
+			<debitcard class="col-12" [cardData]="state.cardData" [formView]="true"></debitcard>
+		</ng-container>
+		<box class="grid entry-form-field-group">
+
+			<!--  <app-active-dc-list-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('cardReference')"     label="{{'retaildcreplacement.cardReference.label' | translate }}"   formControlName="cardReference" 
+     ></app-active-dc-list-control>  -->
+
+
+			<app-dc-reason-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('reason')"
+				label="{{'retaildcreplacement.reason.label' | translate }}"
+				formControlName="reason"></app-dc-reason-list-control>
+
+			<app-dispute-remarks-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('otherReason')"
+				label="{{'retaildcreplacement.otherReason.label' | translate }}" formControlName="otherReason">
+			</app-dispute-remarks-control>
+			<app-acc-delivery-options-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('deliveryOption')"
+				label="{{'retaildcreplacement.deliveryOption.label' | translate }}" formControlName="deliveryOption"
+				(commonControlEvent)="handleControlEvent($event)"></app-acc-delivery-options-control>
+
+
+			<app-branches-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('dlvryBranch')"
+				label="{{'retaildcreplacement.dlvryBranch.label' | translate }}"
+				formControlName="dlvryBranch"></app-branches-list-control>
+
+
+			<!-- <app-auth-person-name-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('authPersonName')"     label="{{'retaildcreplacement.authPersonName.label' | translate }}"   formControlName="authPersonName" 
+   ></app-auth-person-name-control>
+	     
+      
+			  <app-auth-person-id-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('authPersonId')"     label="{{'retaildcreplacement.authPersonId.label' | translate }}"   formControlName="authPersonId" 
+   ></app-auth-person-id-control> 
+	       -->
+			<!-- <app-corp-address-details-form class="col-sm-12" (commonFormEvent)="handleControlEvent($event)"  [actionPublisher]="actionMap$.get('addressInfo')"   label="cobaddressinfo"  formControlName="addressInfo" 
+		   ></app-corp-address-details-form>  -->
+
+			<box class="field-item col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('addressInfo')">
+				<box class="info-box">
+					<fpx-label label="{{'retaildcreplacement.contactNumber.label' | translate }}"></fpx-label>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.mobile"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+				</box>
+			</box>
+			<box class="field-item col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('addressInfo')">
+				<box class="info-box">
+					<fpx-label label="{{'retaildcreplacement.registerAddress.label' | translate }}"></fpx-label>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.buildingDetails"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.cityDetails"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.stateDetails"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.countryDetails"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.pinCode"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+				</box>
+			</box>
+
+
+			<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('charges')"
+				label="{{'retaildcreplacement.charges.label' | translate }}" formControlName="charges"
+				placeholder="{{'retaildcreplacement.charges.placeholder' | translate }}"
+				[CurrencyList]="state.charges.CurrencyList" [isCurrEditable]="state.charges.isCurrEditable"
+				[defaultFetch]="state.charges.defaultFetch" [initCurrency]="state.charges.initCurrency"
+				[amountInWords]="state.charges.amountInWords"> >
+			</app-payment-amount-control>
+
+			<box id="000_8" class="col-sm-12 col-md-6 col-lg-12 grid  main-group  ">
+
+				<app-remarks-control class="col-sm-12 col-md-6 col-lg-12"
+					[actionPublisher]="actionMap$.get('remarks')"
+					label="{{'retaildcreplacement.remarks.label' | translate }}" formControlName="remarks">
+				</app-remarks-control>
+			</box>
+		</box>
+
+			<app-terms-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'retaildcreplacement.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+
+	
+	</box>
+</form>

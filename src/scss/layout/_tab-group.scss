@@ -1,0 +1,246 @@
+#depAppBody {
+
+    mat-tab-group {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        mat-tab-header {
+            border: none;
+            z-index: 0;
+
+            .mat-tab-header-pagination {
+                display: none;
+            }
+
+            .mat-tab-label-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+
+                .mat-tab-list {
+                    display: inline-block;
+                    flex-grow: 0;
+                    background-color: var(--tabBarBg);
+                    border-radius: 20px;
+                    border: 1px solid var(--tabBarBdrClr);
+
+                    .mat-tab-label {
+                        opacity: 1;
+                        height: 38px;
+                        z-index: 1;
+                        position: relative;
+                        color: var(--tabBarTabTxtClr);
+                        min-width: unset;
+                        padding: 0 16px;
+
+                        .mat-tab-label-content {
+                            @include s4-medium;
+                            color: inherit;
+                        }
+
+                        &.mat-tab-label-active {
+                            color: var(--tabBarTabActiveTxtClr);
+                        }
+                    }
+
+                    .mat-ink-bar {
+                        height: 100%;
+                        z-index: 0;
+                        background-color: var(--tabBarTabActiveBg);
+                        border-radius: 20px;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .tab-main-content {
+        padding-top: 20px;
+        display: flex;
+        gap: 28px;
+        flex-direction: column;
+    }
+
+
+    fpx-tab-group {
+        .fpx-tab-header-container {
+            border: none;
+            margin: 0;
+
+            .header-container {
+                .fpx-tab-list {
+                    .fpx-tab-labels {
+                        font-size: 14px;
+                        line-height: 22px !important;
+                        font-weight: 500;
+                        color: inherit !important;
+
+                        .fpx-tab-header {
+                            height: 33px !important;
+
+                            .fpx-tab-label {
+                                color: var(--baseTxtClr);;
+                                opacity: 1;
+                            }
+
+                            &.active {
+                                border-radius: 20px;
+                                color: #fff;
+                                background-color: #4C9C2E;
+                                border-color: transparent !important;
+
+                                &:hover {
+                                    color: #fff !important;
+                                    background-color: #4C9C2E !important;
+                                }
+
+                                .fpx-tab-label {
+                                    color: #fff !important;
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
+
+        .content-container {
+            margin-top: 16px;
+
+            fpx-tab {
+                .fpx-tab-content {
+                    padding-left: 0px !important;
+                }
+            }
+        }
+
+    }
+
+    .steeper-group-container {
+        .fpx-horizontal-tab {
+            .fpx-tab-header-container {
+                .header-container{
+                    @include not-small-screen{
+                        min-width: 85%;
+                    }
+                }
+                .fpx-tab-list {
+                    width: 100%;
+                    
+                    .fpx-step-header {
+                        .step-icon {
+                            width: 28px;
+                            height: 28px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border: var(--steeperIcoBdr);
+                            border-radius: 50%;
+                            background-color: var(--steeperIcoBg);
+
+                            .step-icon-content {
+                                color: var(--steeperIcoLblClr);
+                            }
+                        }
+
+                        .fpx-step-label {
+                            color: var(--steeperLblClr);
+                            font-weight: var(--fontWeightRegular);
+
+                            position: absolute;
+                            left: 0;
+                            min-width: 60px;
+                            text-align: center;
+                            white-space: normal;
+                        }
+
+                        &.active {
+                            .step-icon {
+                                .step-icon-content {
+                                    width: 12px;
+                                    height: 12px;
+                                    border-radius: 50%;
+                                    background-color: var(--steeperIcoActiveBg);
+
+                                    span {
+                                        display: none;
+                                    }
+                                }
+                            }
+
+                            .fpx-step-label {
+                                color: var(--steeperLblClr) !important;
+                            }
+                        }
+                    }
+
+                    .fpx-step-h-line {
+                        height: 2px;
+                        border: none;
+                        background-color: #E0E0E0;
+                        margin-top: 24px;
+                    }
+                }
+            }
+
+            .fpx-tab-content {
+                overflow: unset;
+            }
+
+            .content-container {
+                margin-top: 16px;
+                overflow: unset;
+    
+                fpx-tab {
+                    .fpx-tab-content {
+                        padding-left: 0px !important;
+                    }
+                }
+            }
+        }
+
+        .tab-content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+}
+
+html:not(.small-screen) #depAppBody {
+    mat-tab-group {
+        mat-tab-header {
+            .mat-tab-label-container {
+                .mat-tab-list {
+                    .mat-tab-label{
+                        flex: 1;
+                        min-width: unset;
+                    }
+                }
+            }
+        }
+
+        .mat-tab-body-wrapper {
+            overflow: unset;
+
+            .mat-tab-body {
+                .mat-tab-body-content {
+                    overflow: unset;
+                }
+
+                &.mat-tab-body-active {
+                    overflow: unset;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .tab-main-content {
+        padding-bottom: 0;
+    }
+}

@@ -1,0 +1,5 @@
+ 
+ "RETAILMANAGEETRANSFERRECEIVEMONEY" : {
+ "servicePath": ["entry-shell","etransfers", "RetailManageEtransferReceiveMoneyFormComponent"],
+ "queryParams": {}
+ }

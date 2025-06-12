@@ -1,0 +1,5 @@
+ 
+ "RETAILTRANOAT" : {
+ "servicePath": ["entry-shell","transfers", "retail-own-account-transfer-form"],
+ "queryParams": {}
+ }

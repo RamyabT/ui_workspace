@@ -1,0 +1,5 @@
+ 
+ "RETAILWALLETADDMONEY" : {
+ "servicePath": ["entry-shell","wallet", "retail-wallet-add-money-form"],
+ "queryParams": {}
+ }

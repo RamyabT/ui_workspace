@@ -1,0 +1,7 @@
+"RetailTrackGoalsForm":{
+"title":"RetailTrackGoalsForm",
+		 "goalName": {
+		  "label":"goalName" ,
+		  "placeholder": "goalName"
+		  } 
+}

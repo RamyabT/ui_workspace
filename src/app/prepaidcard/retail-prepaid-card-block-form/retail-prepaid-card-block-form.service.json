@@ -1,0 +1,6 @@
+ 
+{ "RETAILPREPAIDBLOCK" : {
+ "servicePath": ["entry-shell","prepaidcard", "retail-prepaid-card-block-form"],
+ "queryParams": {}
+ }
+}

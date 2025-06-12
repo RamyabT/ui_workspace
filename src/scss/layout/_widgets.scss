@@ -1,0 +1,402 @@
+.widget {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        @include small-screen {
+            padding: 0 16px;
+        }
+
+        .widget-title,
+        .title {
+            @include s2-bold;
+            color: var(--wgtTtlClr);
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            align-items: center;
+        }
+    }
+
+    .fpx-form-control {
+        .fpx-field-content {
+            padding: 4px 12px;
+            --inputBdrRadius: 24px;
+            --inputBdr: 1px solid var(--secondary500);
+            --inputMinHeight: 20px;
+            --inputTxtSize: 14px;
+            --inputTxtWeight: var(--fontWeightMedium);
+            line-height: 16px;
+        }
+    }
+
+    .widget-body {
+        background-color: var(--widgetBgClr);
+        box-shadow: 0px 0px 10px 0px #00000017;
+        border-radius: var(--widgetBdrRadius);
+        padding: var(--widgetPadding);
+
+        @include small-screen {
+            background-color: unset;
+            box-shadow: unset;
+            border-radius: unset;
+            padding: var(--widgetBodyPaddingMob);
+        }
+        .spend-summary-chart-body {
+            .spend-chart {
+                position: relative;
+                .total-summary {
+                    position: absolute;
+                    top: calc(50% - 45px);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    padding: 0 86px;
+                    .lbl {
+                        text-align: center;
+                        @include b2-regular;
+                        color: var(--bodyTxtClr);
+                    }
+                    .val {
+                        @include h2-bold;
+                        line-height: 28px;
+                    }
+                }
+            }
+        }
+
+    }
+
+    &.quick-link {
+        @include not-small-screen{
+            .widget-title {
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    width: var(--wgtTtlIcoWidth);
+                    height: var(--wgtTtlIcoHeight);
+                    background-color: var(--systemIconClr);
+                    mask: url("../../assets/images/icons/quick-actions-title.svg") no-repeat center;
+                    -webkit-mask: url("../../assets/images/icons/quick-actions-title.svg") no-repeat center;
+                    mask-size: var(--wgtTtlIcoSize);
+                    -webkit-mask-size: var(--wgtTtlIcoSize);
+                }
+            }
+        }
+    }
+
+    &.money-flow {
+        .widget-title {
+            &::before {
+                content: '';
+                display: inline-block;
+                width: var(--wgtTtlIcoWidth);
+                height: var(--wgtTtlIcoHeight);
+                background-color: var(--systemIconClr);
+                mask: url("../../assets/images/icons/money-flow.svg") no-repeat center;
+                -webkit-mask: url("../../assets/images/icons/money-flow.svg") no-repeat center;
+                mask-size: 20px;
+                -webkit-mask-size: 20px;
+            }
+        }
+    }
+
+    &.goals {
+        .widget-title {
+            &::before {
+                content: '';
+                display: inline-block;
+                width: var(--wgtTtlIcoWidth);
+                height: var(--wgtTtlIcoHeight);
+                background-color: var(--systemIconClr);
+                mask: url("../../assets/images/icons/flag.svg") no-repeat center;
+                -webkit-mask: url("../../assets/images/icons/flag.svg") no-repeat center;
+                mask-size: var(--wgtTtlIcoSize);
+                -webkit-mask-size: var(--wgtTtlIcoSize);
+            }
+        }
+    }
+
+    &.upcoming-payments{
+        .widget-title {
+            &::before {
+                content: '';
+                display: inline-block;
+                width: var(--wgtTtlIcoWidth);
+                height: var(--wgtTtlIcoHeight);
+                background-color: var(--systemIconClr);
+                mask: url("../../assets/widget/upcoming-payments.svg") no-repeat center;
+                -webkit-mask: url("../../assets/widget/upcoming-payments.svg") no-repeat center;
+                mask-size: var(--wgtTtlIcoSize);
+                -webkit-mask-size: var(--wgtTtlIcoSize);
+            }
+        }
+    }
+    &.account-details{
+        .widget-title {
+            &::before {
+                content: '';
+                display: inline-block;
+                width: var(--wgtTtlIcoWidth);
+                height: var(--wgtTtlIcoHeight);
+                background-color: var(--systemIconClr);
+                mask: url("../../assets/images/quick-links/casa.svg") no-repeat center;
+                -webkit-mask: url("../../assets/images/quick-links/casa.svg") no-repeat center;
+                mask-size: var(--wgtTtlIcoSize);
+                -webkit-mask-size: var(--wgtTtlIcoSize);
+            }
+        }
+    }
+    &.overview-upcoming-payments{
+        .widget-title {
+            &::before {
+                content: '';
+                display: inline-block;
+                width: var(--wgtTtlIcoWidth);
+                height: var(--wgtTtlIcoHeight);
+                background-color: var(--systemIconClr);
+                mask: url("../../assets/widget/overview-upcoming-payments.svg") no-repeat center;
+                -webkit-mask: url("../../assets/widget/overview-upcoming-payments.svg") no-repeat center;
+                mask-size: var(--wgtTtlIcoSize);
+                -webkit-mask-size: var(--wgtTtlIcoSize);
+            }
+        }
+    }
+
+    &.spend-summary{
+        .widget-title {
+            &::before {
+                content: '';
+                display: inline-block;
+                width: var(--wgtTtlIcoWidth);
+                height: var(--wgtTtlIcoHeight);
+                background-color: var(--systemIconClr);
+                mask: url("../../assets/images/icons/money-flow.svg") no-repeat center;
+                -webkit-mask: url("../../assets/images/icons/money-flow.svg") no-repeat center;
+                mask-size: 20px;
+                -webkit-mask-size: 20px;
+            }
+        }
+    }
+
+    &.balance-sheet{
+        .widget-title {
+            &::before {
+                content: '';
+                display: inline-block;
+                width: var(--wgtTtlIcoWidth);
+                height: var(--wgtTtlIcoHeight);
+                background-color: var(--systemIconClr);
+                mask: url("../../assets/images/icons/balance-sheet.svg") no-repeat center;
+                -webkit-mask: url("../../assets/images/icons/balance-sheet.svg") no-repeat center;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+            }
+        }
+    }
+    &.offers{
+        .widget-title {
+            &::before {
+                content: '';
+                display: inline-block;
+                width: var(--wgtTtlIcoWidth);
+                height: var(--wgtTtlIcoHeight);
+                background-color: var(--systemIconClr);
+                mask: url("../../assets/images/icons/speaker.svg") no-repeat center;
+                -webkit-mask: url("../../assets/images/icons/speaker.svg") no-repeat center;
+                mask-size: 22px;
+                -webkit-mask-size: 22px;
+            }
+        }
+    }
+    &.loan-money-flow {
+        .widget-title {
+            &::before {
+                content: unset;
+            }
+        }
+        .money-flow-data.legends {
+            justify-content: flex-start;
+            .money-item {
+                flex: unset;
+            }
+        }
+    }
+}
+
+.money-flow-data {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+
+    .seperator {
+        width: 1px;
+        background: linear-gradient(0deg, rgba(1, 107, 131, 0.2) 5.42%, var(--primary500) 48.94%, rgba(1, 107, 131, 0.2) 100%);
+    }
+
+    &.legends{
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 20px;
+
+        .money-item{
+            flex-direction: row;
+            gap: 8px;
+            .info{
+                flex-direction: column;
+                gap:0;
+                align-items: flex-start;
+            }
+            .amount{
+                white-space: nowrap;
+            }
+        }
+
+        .seperator{
+            display: none;
+            width: 1px;
+            height: unset;
+            background: linear-gradient(0deg, rgba(1, 107, 131, 0.2) 5.42%, var(--primary500) 48.94%, rgba(1, 107, 131, 0.2) 100%);
+        }
+    }
+
+    .money-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        flex: 1;
+
+        .info {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+
+            .lbl {
+                @include s4-medium;
+                color: var(--bodyTxtClr);
+            }
+        }
+        .amount {
+            @include s2-bold;
+            color: var(--bodyTxtClr);
+        }
+
+        .icon-wrapper {
+            width: var(--wgtIcoWidth);
+            height: var(--wgtIcoHeight);
+            background-color: var(--systemIconClr);
+        }
+
+        &.income {
+            .icon-wrapper {
+                mask: url("../../assets/images/icons/money-flow-income.svg") no-repeat center;
+                -webkit-mask: url("../../assets/images/icons/money-flow-income.svg") no-repeat center;
+                mask-size: var(--wgtIcoSize);
+                -webkit-mask-size: var(--wgtIcoSize);
+            }
+        }
+
+        &.expenses {
+            .icon-wrapper {
+                mask: url("../../assets/images/icons/money-flow-expenses.svg") no-repeat center;
+                -webkit-mask: url("../../assets/images/icons/money-flow-expenses.svg") no-repeat center;
+                mask-size: var(--wgtIcoSize);
+                -webkit-mask-size: var(--wgtIcoSize);
+            }
+        }
+    }
+
+    &.legends{
+        .money-item {
+            .icon-wrapper {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                align-self: flex-start;
+                margin-top: 8px;
+                mask: unset;
+                -webkit-mask: unset;
+            }
+
+            &.income{
+                .icon-wrapper {
+                    background-color: #4AAC47;
+                }
+            }
+            &.expenses{
+                .icon-wrapper {
+                    background-color: #E40021;
+                }
+            }
+        }
+    }
+}
+
+.goals {
+    .goal-list {
+        li {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            .category-name {
+                @include s3-medium;
+                color: var(--bodyTxtClr);
+                display: flex;
+                flex-direction: row;
+                gap: 8px;
+                align-items: center;
+
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    width: var(--wgtTtlIcoWidth);
+                    height: var(--wgtTtlIcoHeight);
+                    background-color: var(--systemIconClr);
+                    mask: url("../../assets/images/goal-category/food.svg") no-repeat center;
+                    -webkit-mask: url("../../assets/images/goal-category/food.svg") no-repeat center;
+                    mask-size: var(--wgtTtlIcoSize);
+                    -webkit-mask-size: var(--wgtTtlIcoSize);
+                }
+            }
+
+            .goal-progress-bar{
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                
+                .progress-points{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    .amount{
+                        @include s4-medium;
+                        color: var(--bodyTxtVariantClr);
+                    }
+                }
+                .progress-track{
+                    background-color: var(--neutral200);
+                    border-radius: 40px;
+                    height: 6px;
+                    line-height: 0;
+
+                    .fill{
+                        height: inherit;
+                        display: inline-block;
+                        border-radius: 40px;
+                        // background-color: #23A26D;
+                    }
+                }
+            }
+        }
+    }
+}

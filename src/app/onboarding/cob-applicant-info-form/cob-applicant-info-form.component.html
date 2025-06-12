@@ -1,0 +1,155 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="CobApplicantInfoForm">
+
+	<box class="entry-form">
+		<box class="grid entry-form-field-group">
+			<box id="000_1" class="col-md-12 grid  main-group  ">
+
+
+			<app-title-dropdown-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('title')"
+				label="{{'CobApplicantInfoForm.title.label' | translate }}" formControlName="title"
+				></app-title-dropdown-control>
+
+
+			<app-applicant-name-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('firstName')"
+				label="{{'CobApplicantInfoForm.firstName.label' | translate }}" formControlName="firstName"
+				placeholder="{{'CobApplicantInfoForm.firstName.placeholder' | translate }}"></app-applicant-name-control>
+
+
+			<app-applicant-name-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('middleName')"
+				label="{{'CobApplicantInfoForm.middleName.label' | translate }}" formControlName="middleName"
+				placeholder="{{'CobApplicantInfoForm.middleName.placeholder' | translate }}"></app-applicant-name-control>
+
+
+			<app-applicant-name-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('lastName')"
+				label="{{'CobApplicantInfoForm.lastName.label' | translate }}" formControlName="lastName"
+				placeholder="{{'CobApplicantInfoForm.lastName.placeholder' | translate }}"></app-applicant-name-control>
+
+
+			<app-applicant-full-name-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('fullName')"
+				label="{{'CobApplicantInfoForm.fullName.label' | translate }}"
+				placeholder="{{'CobApplicantInfoForm.fullName.placeholder' | translate }}"
+				formControlName="fullName"></app-applicant-full-name-control>
+
+
+			<app-suffix-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('suffix')"
+				label="{{'CobApplicantInfoForm.suffix.label' | translate }}"
+				formControlName="suffix"></app-suffix-control>
+
+
+			<app-applicant-dob-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('dob')"
+				label="{{'CobApplicantInfoForm.dob.label' | translate }}" formControlName="dob"
+				placeholder="{{'CobApplicantInfoForm.dob.placeholder' | translate }}" [minDate]="state.dob.minDate"
+				[maxDate]="state.dob.maxDate"></app-applicant-dob-control>
+
+
+			<app-applicant-gender-dropdown-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('gender')"
+				label="{{'CobApplicantInfoForm.gender.label' | translate }}"
+				formControlName="gender"></app-applicant-gender-dropdown-control>
+
+
+			<app-preferred-marital-status-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('maritalStatus')"
+				label="{{'CobApplicantInfoForm.maritalStatus.label' | translate }}"
+				formControlName="maritalStatus"></app-preferred-marital-status-control>
+			<box id="000_1_10" class="col-sm-12 col-md-6 col-lg-6 grid  main-group  ">
+
+
+				<app-isocode-list-control class="col-sm-4 col-md-4 col-lg-4  "
+					[actionPublisher]="actionMap$.get('iSOCodeList')"
+					label="{{'CobApplicantInfoForm.iSOCodeList.label' | translate }}"
+					formControlName="iSOCodeList"></app-isocode-list-control>
+
+
+				<app-applicant-mobile-number-control class="col-sm-8 col-md-8 col-lg-8  "
+					[actionPublisher]="actionMap$.get('mobileNumber')"
+					label="{{'CobApplicantInfoForm.mobileNumber.label' | translate }}" formControlName="mobileNumber"
+					placeholder="{{'CobApplicantInfoForm.mobileNumber.placeholder' | translate }}"></app-applicant-mobile-number-control>
+			</box>
+
+
+			<app-applicant-email-component class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('emailAddress')"
+				label="{{'CobApplicantInfoForm.emailAddress.label' | translate }}" formControlName="emailAddress"
+				placeholder="{{'CobApplicantInfoForm.emailAddress.placeholder' | translate }}"></app-applicant-email-component>
+
+
+			<app-resident-status-dropdown-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('residentstatus')"
+				label="{{'CobApplicantInfoForm.residentstatus.label' | translate }}"
+				placeholder="{{'CobApplicantInfoForm.residentstatus.placeholder' | translate }}"
+				formControlName="residentstatus"></app-resident-status-dropdown-control>
+
+
+			<app-country-dropdown-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('nationality')"
+				label="{{'CobApplicantInfoForm.nationality.label' | translate }}"
+				formControlName="nationality"></app-country-dropdown-control>
+
+
+			<!-- <app-org-channel-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('channel')"
+				label="{{'CobApplicantInfoForm.channel.label' | translate }}"
+				formControlName="channel"></app-org-channel-list-control> -->
+
+
+			<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('udf1')"
+				label="{{'CobApplicantInfoForm.udf1.label' | translate }}" formControlName="udf1"
+				placeholder="{{'CobApplicantInfoForm.udf1.placeholder' | translate }}"></app-user-defined-control>
+
+
+			<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('udf2')"
+				label="{{'CobApplicantInfoForm.udf2.label' | translate }}" formControlName="udf2"
+				placeholder="{{'CobApplicantInfoForm.udf2.placeholder' | translate }}"></app-user-defined-control>
+
+
+			<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('udf3')"
+				label="{{'CobApplicantInfoForm.udf3.label' | translate }}" formControlName="udf3"
+				placeholder="{{'CobApplicantInfoForm.udf3.placeholder' | translate }}"></app-user-defined-control>
+
+
+			<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('udf4')"
+				label="{{'CobApplicantInfoForm.udf4.label' | translate }}" formControlName="udf4"
+				placeholder="{{'CobApplicantInfoForm.udf4.placeholder' | translate }}"></app-user-defined-control>
+
+
+			<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('udf5')"
+				label="{{'CobApplicantInfoForm.udf5.label' | translate }}" formControlName="udf5"
+				placeholder="{{'CobApplicantInfoForm.udf5.placeholder' | translate }}"></app-user-defined-control>
+		</box>
+		<box id="000_2" class="col-sm-12 col-md-12 col-lg-12 grid  main-group  ">
+
+
+			<app-captcha-control class="col-sm-12 col-md-12 col-lg-6  " [actionPublisher]="actionMap$.get('captcha')"
+				label="{{'CobApplicantInfoForm.captcha.label' | translate }}"
+				formControlName="captcha"></app-captcha-control>
+			</box>
+		</box>
+		<box id="000_3" class="col-sm-12 col-md-12 col-lg-12 grid main-group disclaimer-box  ">
+
+
+			<app-terms-control class="col-sm-12 col-md-12 col-lg-12  " [actionPublisher]="actionMap$.get('terms')"
+				label="{{'CobApplicantInfoForm.terms.label' | translate }}" formControlName="terms"
+				[textPosition]="state.terms.textPosition" [ckValues]="state.terms.ckValues"></app-terms-control>
+
+
+			<app-terms-control class="col-sm-12 col-md-12 col-lg-12  " [actionPublisher]="actionMap$.get('terms2')"
+				label="{{'CobApplicantInfoForm.terms2.label' | translate }}" formControlName="terms2"
+				[textPosition]="state.terms2.textPosition" [ckValues]="state.terms2.ckValues"></app-terms-control>
+
+
+			<app-terms-control class="col-sm-12 col-md-12 col-lg-12  " [actionPublisher]="actionMap$.get('terms3')"
+				label="{{'CobApplicantInfoForm.terms3.label' | translate }}" formControlName="terms3"
+				[textPosition]="state.terms3.textPosition" [ckValues]="state.terms3.ckValues"></app-terms-control>
+		</box>
+
+
+		<app-productselection-text-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('productselection')" 
+			    label="{{'CobApplicantInfoForm.productselection.label' | translate }}" 
+				formControlName="productselection"></app-productselection-text-control>
+	</box>
+</form>

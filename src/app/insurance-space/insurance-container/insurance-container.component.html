@@ -1,0 +1,170 @@
+<box class="module-home insurance-home" #spaceHome>
+
+    <ng-container *ngIf="_device.isMobile(); else spaceContainer">
+        <ng-container *ngIf="appConstant.requiredInsuranceSpaceNavigation; else showDirectMudule">
+            <box class="module-home-bg" [style.top.px]="moduleHeaderTop"></box>
+            <box class="module-home-inner">
+                <fpx-display-text class="module-title"
+                    innerHTML="{{'INSURANCECONTAINER.title' | translate}}"></fpx-display-text>
+                <box class="module-tab-container">
+                    <mat-tab-group [(selectedIndex)]="activeTabIndex" (selectedTabChange)="onTabChanged($event)">
+                        <mat-tab label="{{ 'INSURANCECONTAINER.newInsurance' | translate}}">
+                            <ng-template matTabContent>
+                                <box class="no-member-container">
+                                    <box class="add-member-container">
+                                        <box class="text">{{'RETAILINSURANCECREATE.label' | translate}}</box>
+                                        <box class="text-container">{{'RETAILINSURANCECREATE.message' | translate}}
+                                        </box>
+                                    </box>
+                                    <box class="svg-container">
+                                        <img src="../../../assets/illustrations/no-insurance.svg" alt="No Insurance">
+                                    </box>
+                                </box>
+                                <box class="header">
+                                    <box class="label">{{ 'INSURANCECONTAINER.subtitle' | translate}}</box>
+                                </box>
+                                <box class="widget">
+                                    <box class="widget-body">
+                                        <box class="insurance-ad-banner">
+                                            <app-insurance-ads [insuranceType]="'vehicle'"
+                                                [size]="'large'"></app-insurance-ads>
+                                            <box class="insurance-ad-banner1">
+                                                <app-insurance-ads [insuranceType]="'life'"
+                                                    [size]="'small'"></app-insurance-ads>
+                                                <app-insurance-ads [insuranceType]="'travel'"
+                                                    [size]="'small'"></app-insurance-ads>
+                                            </box>
+                                        </box>
+                                        <box class="insurance-ad-banner2">
+                                            <app-insurance-ads [insuranceType]="'home'"
+                                                [size]="'default'"></app-insurance-ads>
+                                        </box>
+                                    </box>
+                                </box>
+                            </ng-template>
+
+                        </mat-tab>
+                        <mat-tab label="{{ 'INSURANCECONTAINER.activeInsurance' | translate }}">
+                            <ng-template matTabContent>
+                                <box class="insurance-card">
+                                    <ng-container *ngIf="insuranceSummary?.length">
+                                        <ng-container *ngFor="let item of insuranceSummary; let i = index">
+                                            <app-insurance-summary-card [insuranceItem]="item" [index]="i"
+                                                [isToggled]="toggledIndex === i"
+                                                (toggleRequested)="toggleContextActions(i)" context="container">
+                                            </app-insurance-summary-card>
+                                        </ng-container>
+                                    </ng-container>
+                                </box>
+                            </ng-template>
+                        </mat-tab>
+                    </mat-tab-group>
+                </box>
+            </box>
+
+        </ng-container>
+
+        <ng-template #showDirectMudule>
+
+        </ng-template>
+
+    </ng-container>
+
+    <ng-template #spaceContainer>
+        <box class="space-container">
+            <ng-container *ngIf="appConstant.requiredInsuranceSpaceNavigation">
+                <box class="space-summary">
+                    <box class="module-tab-container">
+                        <mat-tab-group [(selectedIndex)]="activeTabIndex" (selectedTabChange)="onTabChanged($event)">
+                            <mat-tab [labelClass]="'tab-newInsurance'"
+                                label="{{ 'INSURANCECONTAINER.newInsurance' | translate}}">
+                                <ng-template matTabContent>
+                                    <box class="offers-widget">
+                                        <box class="header">
+                                            <box class="label">{{ 'INSURANCECONTAINER.subtitle' | translate}}</box>
+                                        </box>
+                                        <box class="insurance-ad-banner">
+                                            <app-insurance-ads [insuranceType]="'vehicle'"
+                                                [size]="'large'"></app-insurance-ads>
+                                            <box class="insurance-ad-banner1">
+                                                <app-insurance-ads [insuranceType]="'life'"
+                                                    [size]="'small'"></app-insurance-ads>
+                                                <app-insurance-ads [insuranceType]="'travel'"
+                                                    [size]="'small'"></app-insurance-ads>
+                                            </box>
+                                        </box>
+                                        <box>
+                                            <app-insurance-ads [insuranceType]="'home'"
+                                                [size]="'default'"></app-insurance-ads>
+                                        </box>
+                                    </box>
+                                </ng-template>
+                            </mat-tab>
+
+
+                            <mat-tab [labelClass]="'tab-activeInsurance'"
+                                label="{{ 'INSURANCECONTAINER.activeInsurance' | translate }}">
+                                <ng-template matTabContent>
+                                    <ng-container *ngIf="insuranceSummary?.length">
+                                        <ng-container *ngFor="let item of insuranceSummary; let i = index">
+                                            <app-insurance-summary-card [insuranceItem]="item" [index]="i"
+                                                [isChecked]="i === 0" (checkedRequested)="checkedContextActions(i)"
+                                                context="container">
+                                            </app-insurance-summary-card>
+                                        </ng-container>
+                                    </ng-container>
+                                </ng-template>
+                            </mat-tab>
+                        </mat-tab-group>
+                    </box>
+                </box>
+            </ng-container>
+            <box class="space-content insurance-content" *ngIf="activeTabIndex === 0">
+                <box class="no-member-wrapper">
+                    <span class="title">{{ 'RETAILINSURANCE.title' | translate }}</span>
+                    <img class="insurance-image" src="../../../assets/illustrations/no-insurance.svg"
+                        alt="No Insurance" />
+                    <p class="description">
+                        {{ 'RETAILINSURANCECREATE.label' | translate }}
+                        {{ 'RETAILINSURANCECREATE.message' | translate }}
+                    </p>
+                </box>
+            </box>
+            <box class="space-content insurance-content" *ngIf="activeTabIndex === 1">
+                <ng-container *ngIf="insuranceSummary; else loader">
+                    <ng-container *ngIf="(insuranceSummary.length > 0 || showTemplate); else noRecordDesktop">
+                        <box *ngIf="insuranceSummary?.length > 0" class="navigation-form-wrapper">
+                            <ng-container [ngSwitch]="accountNavigator">
+                                <app-insurance-context-menu
+                                    class="col-md-12 col-lg-12 widget quick-link"></app-insurance-context-menu>
+                            </ng-container>
+                        </box>
+                    </ng-container>
+                    <!-- <div [hidden]="(insuranceSummary.length == 0 && !showTemplate)"> -->
+                    <router-outlet (activate)="onActivate($event)"></router-outlet>
+                    <!-- </div> -->
+                </ng-container>
+            </box>
+        </box>
+    </ng-template>
+</box>
+<ng-template #noRecordDesktop>
+    <box class="no-member-wrapper">
+        <span class="title">{{ 'RETAILINSURANCE.title' | translate }}</span>
+        <img class="insurance-image" src="../../../assets/illustrations/no-insurance.svg" alt="No Insurance" />
+        <p class="description">
+            {{ 'RETAILINSURANCECREATE.label' | translate }}
+            {{ 'RETAILINSURANCECREATE.message' | translate }}
+        </p>
+    </box>
+</ng-template>
+<ng-template #loader>
+    <box class="no-member-wrapper">
+        <span class="title">{{ 'RETAILINSURANCE.title' | translate }}</span>
+        <img class="insurance-image" src="../../../assets/illustrations/no-insurance.svg" alt="No Insurance" />
+        <p class="description">
+            {{ 'RETAILINSURANCECREATE.label' | translate }}
+            {{ 'RETAILINSURANCECREATE.message' | translate }}
+        </p>
+    </box>
+</ng-template>

@@ -1,0 +1,185 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailOpenNewCasaForm">
+
+	<box class="entry-form">
+
+		<box class="grid entry-form-field-group">
+			<app-account-type-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('accountType')"
+				label="{{'RetailOpenNewCasaForm.accountType.label' | translate }}"
+				formControlName="accountType"></app-account-type-list-control>
+
+
+			<app-casa-product-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('productCode')"
+				label="{{'RetailOpenNewCasaForm.productCode.label' | translate }}"
+				[changePublisher]="formChangePublisher$" formControlName="productCode"
+				(commonControlEvent)="handleControlEvent($event)"
+				[dependencyField]="['accountType']"></app-casa-product-list-control>
+
+
+			<app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('accountName')"
+				label="{{'RetailOpenNewCasaForm.accountName.label' | translate }}"
+				formControlName="accountName"></app-name-control>
+
+
+			<app-branches-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('openingBranch')"
+				label="{{'RetailOpenNewCasaForm.openingBranch.label' | translate }}"
+				formControlName="openingBranch"></app-branches-list-control>
+
+
+			<app-currency-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('accountCurrency')"
+				label="{{'RetailOpenNewCasaForm.accountCurrency.label' | translate }}"
+				formControlName="accountCurrency"></app-currency-list-control>
+
+			<app-account-number-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('debitAccountNumber')"
+				label="{{'RetailOpenNewCasaForm.debitAccountNumber.label' | translate }}"
+				(commonControlEvent)="handleControlEvent($event)"
+				formControlName="debitAccountNumber"></app-account-number-list-control>
+
+				<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('availableBalance')"
+				label="{{'RetailOpenNewCasaForm.availableBalance.label' | translate }}"
+				formControlName="availableBalance" [CurrencyList]="state.availableBalance.CurrencyList"
+				[isCurrEditable]="state.availableBalance.isCurrEditable"
+				[defaultFetch]="state.availableBalance.defaultFetch"
+				[initCurrency]="state.availableBalance.initCurrency"
+				[amountInWords]="state.availableBalance.amountInWords" [changePublisher]="formChangePublisher$"
+				(commonControlEvent)="handleControlEvent($event)"
+				[dependencyField]="['fromCurrencyVariable','toCurrencyVariable','availableBalanceVariable']">
+				></app-payment-amount-control>
+
+			<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('initialDepositAmount')"
+				label="{{'RetailOpenNewCasaForm.initialDepositAmount.label' | translate }}"
+				formControlName="initialDepositAmount" [CurrencyList]="state.initialDepositAmount.CurrencyList"
+				[isCurrEditable]="state.initialDepositAmount.isCurrEditable"
+				[defaultFetch]="state.initialDepositAmount.defaultFetch"
+				[initCurrency]="state.initialDepositAmount.initCurrency"
+				[amountInWords]="state.initialDepositAmount.amountInWords" [changePublisher]="formChangePublisher$"
+				(commonControlEvent)="handleControlEvent($event)"
+				[dependencyField]="['fromCurrencyVariable','toCurrencyVariable','availableBalanceVariable']">
+				></app-payment-amount-control>
+
+
+
+				<box id="exchangeDetails" [actionPublisher]="actionMap$.get('exchangeDetails')"
+				class="col-md-12 grid  field-item col-sm-12 col-md-12 col-lg-12">
+				<box class="field-item col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('exchangeDetails')">
+					<box class="info-box">
+						<fpx-label label="{{'FX_RATES.title' | translate}}"></fpx-label>
+						
+						<box class="info-field">
+							<fpx-display-text class="info-field-label" [innerHTML]="'Debit Amount: '"
+								[literals]="commonFormInput"></fpx-display-text>
+							<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.debitAmount"
+								[literals]="commonFormInput"></fpx-display-text>
+						</box>
+						<box class="info-field">
+							<fpx-display-text class="info-field-label" [innerHTML]="'Credit Amount: '"
+								[literals]="commonFormInput"></fpx-display-text>
+							<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.creditAmount"
+								[literals]="commonFormInput"></fpx-display-text>
+						</box>
+						<box class="info-field">
+							<fpx-display-text class="info-field-label" [innerHTML]="'Exchange Rate: '"
+								[literals]="commonFormInput"></fpx-display-text>
+							<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.exchangeRate"
+								[literals]="commonFormInput"></fpx-display-text>
+						</box>
+					</box>
+				</box>
+			</box>
+
+			<!-- <box class="field-item col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('exchangeDetails')">
+				<fpx-label label="{{'FX_RATES.title' | translate}}"></fpx-label>
+				<box class="info-box">
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.dAmount' | translate"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.debitAmount"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.cAmount' | translate"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.creditAmount"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.exRate' | translate"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.exchangeRate"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+				</box>
+			</box> -->
+			<app-enabled-flag-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('ischequebookreq')"
+				label="{{'RetailOpenNewCasaForm.ischequebookreq.label' | translate }}"
+				formControlName="ischequebookreq"></app-enabled-flag-control>
+
+
+			<app-acc-delivery-options-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('deliveryOption')" (commonControlEvent)="handleControlEvent($event)"
+				label="{{'RetailOpenNewCasaForm.deliveryOption.label' | translate }}"
+				formControlName="deliveryOption"></app-acc-delivery-options-control>
+			<app-branches-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('deliveryBranch')"
+				label="{{ 'RetailOpenNewCasaForm.deliveryBranch.label' | translate }}"
+				formControlName="deliveryBranch"></app-branches-list-control>
+			<box class="col-md-12 grid  main-group  " [actionPublisher]="actionMap$.get('infoNote')">
+
+			<fpx-display-text id="Note" class="col-sm-12 col-md-12 col-lg-12  Note"
+				[innerHTML]="'RetailOpenNewCasaForm.Note.text' | translate"
+				[literals]="commonFormInput"></fpx-display-text>
+		</box>
+
+			<box class="field-item col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('addressInfo')">
+				<box class="info-box">
+				<fpx-label label="{{'RetailOpenNewCasaForm.addressDetails.label' | translate}}"></fpx-label>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.buildingDetails"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.cityDetails"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.stateDetails"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.countryDetails"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="state.addressInfo.pinCode"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+				</box>
+			</box>
+
+			<app-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('chargesAmount')"
+				label="{{'RetailOpenNewCasaForm.chargesAmount.label' | translate }}" formControlName="chargesAmount"
+				[CurrencyList]="state.chargesAmount.CurrencyList" [isCurrEditable]="state.chargesAmount.isCurrEditable"
+				[defaultFetch]="state.chargesAmount.defaultFetch" [initCurrency]="state.chargesAmount.initCurrency"
+				[amountInWords]="state.chargesAmount.amountInWords">
+				></app-amount-control>
+
+
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('remarks')"
+				label="{{'RetailOpenNewCasaForm.remarks.label' | translate }}"
+				formControlName="remarks"></app-remarks-control>
+
+		</box>
+			<app-terms-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{ 'RetailOpenNewCasaForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+		
+	</box>
+</form>

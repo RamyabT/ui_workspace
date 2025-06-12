@@ -1,0 +1,47 @@
+"RetailLimitRequestControl":{
+"title":"Retailcclimitrequest",
+		 "creditCardNumber": {
+		  "label":"Credit Card Number" ,
+		  "placeholder": "Credit Card Number"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "terms": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "atmFlag": {
+		  "label":"Atm Flag" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "onlinePurchaseFlag": {
+		  "label":"online Purchase Flag" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "posPayFlag": {
+		  "label":"posPayFlag" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "intlContactlessPurchaseFlag": {
+		  "label":"intlContactlessPurchaseFlag" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "intlPosPayFlag": {
+		  "label":"intlPosPayFlag" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "intlAtmFlag": {
+		  "label":"intlAtmFlag" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "contactlessPurchaseFlag": {
+		  "label":"contactlessPurchaseFlag" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "intlOnlinePurchaseFlag": {
+		  "label":"intlOnlinePurchaseFlag" ,
+		  "placeholder": "Placeholder"
+		  } ,
+}

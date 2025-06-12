@@ -1,0 +1,123 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="cobAdditionalInformation">
+
+	<box class="entry-form">
+		<box id="_" class="col-12 grid  entry-form-field-group  ">
+
+			<app-preferred-purpose-of-account class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('purposeOfAccount')"
+				label="{{'cobAdditionalInformation.purposeOfAccount.label' | translate }}"
+				formControlName="purposeOfAccount"></app-preferred-purpose-of-account>
+
+			<app-emp-soi-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('mainSourceOfIncome')"
+				label="{{'cobAdditionalInformation.mainSourceOfIncome.label' | translate }}"
+				formControlName="mainSourceOfIncome"></app-emp-soi-list-control>
+
+			<app-branches-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('branch')"
+				label="{{'cobAdditionalInformation.branch.label' | translate }}"
+				formControlName="branch"></app-branches-list-control>
+
+			<app-preferred-mailing-address class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('mailingAddress')"
+				label="{{'cobAdditionalInformation.mailingAddress.label' | translate }}"
+				formControlName="mailingAddress"></app-preferred-mailing-address>
+
+			<app-dual-nationality-holder-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('dualNationalityHolderFlag')"
+				label="{{'cobAdditionalInformation.dualNationalityHolderFlag.label' | translate }}"
+				formControlName="dualNationalityHolderFlag"></app-dual-nationality-holder-control>
+
+
+			<app-country-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('dualNationalityHolder')"
+				label="{{'cobAdditionalInformation.dualNationalityHolder.label' | translate }}"
+				formControlName="dualNationalityHolder"></app-country-list-control>
+
+			<app-preferred-marital-status-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('maritalStatus')"
+				label="{{'cobAdditionalInformation.maritalStatus.label' | translate }}"
+				formControlName="maritalStatus"></app-preferred-marital-status-control>
+
+			<app-employment-type-list-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('occupation')"
+				label="{{'cobAdditionalInformation.occupation.label' | translate }}" 
+				formControlName="occupation"></app-employment-type-list-control>
+
+			<app-pref-Annual-income-component class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('otherIncome')"
+				label="{{'cobAdditionalInformation.otherIncome.label' | translate }}"
+				formControlName="otherIncome"></app-pref-Annual-income-component>
+
+			<app-pref-Annual-income-component class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('cashDeposit')"
+				label="{{'cobAdditionalInformation.cashDeposit.label' | translate }}"
+				formControlName="cashDeposit"></app-pref-Annual-income-component>
+
+			<app-pref-Annual-income-component class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('localForeignInward')"
+				label="{{'cobAdditionalInformation.localForeignInward.label' | translate }}"
+				formControlName="localForeignInward"></app-pref-Annual-income-component>
+
+			<app-pref-Annual-income-component class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('outwardClearing')"
+				label="{{'cobAdditionalInformation.outwardClearing.label' | translate }}"
+				formControlName="outwardClearing"></app-pref-Annual-income-component>
+
+			<app-pref-Annual-income-component class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('grossCreditTurnover')"
+				label="{{'cobAdditionalInformation.grossCreditTurnover.label' | translate }}"
+				formControlName="grossCreditTurnover"></app-pref-Annual-income-component>
+
+			<app-pref-Annual-income-component class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('avgCashWithdraw')"
+				label="{{'cobAdditionalInformation.avgCashWithdraw.label' | translate }}"
+				formControlName="avgCashWithdraw"></app-pref-Annual-income-component>
+
+			<app-pref-Annual-income-component class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('localForeignOutward')"
+				label="{{'cobAdditionalInformation.localForeignOutward.label' | translate }}"
+				formControlName="localForeignOutward"></app-pref-Annual-income-component>
+
+			<app-pref-Annual-income-component class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('InwardClearing')"
+				label="{{'cobAdditionalInformation.InwardClearing.label' | translate }}"
+				formControlName="InwardClearing"></app-pref-Annual-income-component>
+
+			<app-pref-Annual-income-component class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('grossDebitTurnover')"
+				label="{{'cobAdditionalInformation.grossDebitTurnover.label' | translate }}"
+				formControlName="grossDebitTurnover"></app-pref-Annual-income-component>
+			<!-- address -->
+			<box id="000_1_1" class="col-sm-12 col-md-12 grid  main-group  " *ngIf="_helper.isAddressRequired">
+				<app-address-detail-form class="col-12 " (commonFormEvent)="handleControlEvent($event)"
+					[actionPublisher]="actionMap$.get('address')" label="addressdetailForm"
+					formControlName="address"></app-address-detail-form>
+			</box>
+
+			<!-- <app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('UDF1')"
+				label="{{'cobAdditionalInformation.UDF1.label' | translate }}"
+				formControlName="UDF1"></app-user-defined-control>
+
+
+			<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('UDF2')"
+				label="{{'cobAdditionalInformation.UDF2.label' | translate }}"
+				formControlName="UDF2"></app-user-defined-control>
+
+
+			<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('UDF3')"
+				label="{{'cobAdditionalInformation.UDF3.label' | translate }}"
+				formControlName="UDF3"></app-user-defined-control>
+
+
+			<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('UDF4')"
+				label="{{'cobAdditionalInformation.UDF4.label' | translate }}"
+				formControlName="UDF4"></app-user-defined-control>
+
+
+			<app-user-defined-control class="col-sm-12 col-md-6 col-lg-6  " [actionPublisher]="actionMap$.get('UDF5')"
+				label="{{'cobAdditionalInformation.UDF5.label' | translate }}"
+				formControlName="UDF5"></app-user-defined-control> -->
+		</box>
+	</box>
+</form>

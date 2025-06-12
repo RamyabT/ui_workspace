@@ -1,0 +1,5 @@
+ 
+ "RETAILDCRAISEDISPUTE" : {
+ "servicePath": ["entry-shell","debitcard", "retail-raise-dispute-debitcard-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,40 @@
+<box class="widget upcoming-payments-inner">
+    <header>
+        <!-- <span class="title">Upcoming Payments</span> -->
+        <span class="widget-title">{{ 'WIDGIT_TITLES.upcomingPaymentsLbl' | translate }}</span>
+    </header>
+    <box class="widget-body upcoming-payments-body">
+        <ul class="upcoming-payments-list">
+            <li>
+                <box class="payment-due">
+                    <span class="info-ico"></span>
+                    <span class="due-days">2d</span>
+                </box>
+                <box class="payment-info">
+                    <span class="desc">ETISALAT</span>
+                    <span class="amount">{{ 110 | currency : appConfig.baseCurrency : '' }} <em>{{appConfig.baseCurrency}}</em></span>
+                </box>
+            </li>
+            <li>
+                <box class="payment-due closer">
+                    <span class="info-ico"></span>
+                    <span class="due-days">1d</span>
+                </box>
+                <box class="payment-info">
+                    <span class="desc">DEWA</span>
+                    <span class="amount">{{ 1650 | currency : appConfig.baseCurrency : '' }} <em>{{appConfig.baseCurrency}}</em></span>
+                </box>
+            </li>
+            <li>
+                <box class="payment-due">
+                    <span class="info-ico"></span>
+                    <span class="due-days">3d</span>
+                </box>
+                <box class="payment-info">
+                    <span class="desc">SALIK</span>
+                    <span class="amount">{{ 570 | currency : appConfig.baseCurrency : '' }} <em>{{appConfig.baseCurrency}}</em></span>
+                </box>
+            </li>
+        </ul>
+    </box>
+</box>

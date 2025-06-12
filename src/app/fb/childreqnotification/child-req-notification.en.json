@@ -1,0 +1,19 @@
+"childreqnotification":{
+"title":"childreqnotification",
+		 "inventoryNumber": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } ,
+		 "detailSerial": {
+		  "label":"DetailSerial" ,
+		  "placeholder": "DetailSerial"
+		  } ,
+		 "notificationpref": {
+		  "label":"notificationpref" ,
+		  "placeholder": "notificationpref"
+		  } ,
+		 "notificationEnabled": {
+		  "label":"Enabled Flag" ,
+		  "placeholder": "Enabled Flag"
+		  } 
+}

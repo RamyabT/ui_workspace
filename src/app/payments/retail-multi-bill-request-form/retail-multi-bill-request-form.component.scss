@@ -1,0 +1,63 @@
+ .total-pay-now-later-container {
+     padding: 16px 0 0;
+     border-top: 1px solid #E7E6EB;
+     display: block;
+
+     .pay-now-later-wrapper {
+         padding: 8px 0;
+         display: flex;
+         flex-direction: column;
+         gap: 4px;
+
+         .pay-now-later-item {
+             display: flex;
+             justify-content: space-between;
+
+             .pay-now-later-item-label {
+                 font-weight: 600;
+                 font-size: 12px;
+                 line-height: 16px;
+                 color: var(--moduleSecondaryTextClr);
+                 font-family: var(--secondaryFontFamily);
+             }
+
+             .pay-now-later-item-value {
+                 font-weight: 500;
+                 font-size: 16px;
+                 line-height: 20px;
+                 color: var(--modulePrimaryTextClr);
+             }
+         }
+     }
+
+     .total-pay-now-later-divider {
+         width: 100%;
+         height: 1px;
+         background: var(--modulePrimaryBorderClr);
+         margin: 8px 0;
+         display: block;
+     }
+
+     .total-wrapper {
+         display: flex;
+         justify-content: space-between;
+         height: unset;
+         align-items: center;
+         padding: 8px 0;
+
+         .total-label {
+             font-weight: 500;
+             font-size: 16px;
+             line-height: 20px;
+             color: var(--moduleSecondaryTextClr);
+             font-family: var(--secondaryFontFamily);
+         }
+
+         .total-value {
+             font-weight: 500;
+             font-size: 20px;
+             line-height: 24px;
+             color: var(--modulePrimaryTextClr);
+         }
+     }
+ }

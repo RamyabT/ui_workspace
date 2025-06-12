@@ -1,0 +1,5 @@
+ 
+ "VERIFYCUSTOMER" : {
+ "servicePath": ["entry-shell","prelogin", "retail-customer-verification-form"],
+ "queryParams": {}
+ }

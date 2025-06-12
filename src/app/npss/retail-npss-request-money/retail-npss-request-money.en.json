@@ -1,0 +1,14 @@
+"RetailNpssRequestMoney":{
+"title":"Request Money",
+		 "email": {
+		  "label":" Email" ,
+		  "placeholder": " Email"
+		  } ,
+		 "mobileNumber": {
+		  "label":"Phone Number" ,
+		  "placeholder": "Phone Number"
+		  } ,
+		 "FieldId_1": {
+		   "text":"Sample Text"
+		 } 
+}

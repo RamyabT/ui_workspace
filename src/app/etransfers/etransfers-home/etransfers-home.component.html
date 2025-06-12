@@ -1,0 +1,54 @@
+<box [ngClass]="{'view-all-form': this.state.viewAll}">
+    <box *ngIf="!_helper._device.isMobile() && this.state.viewAll" class="view-scheduled-bills-form">
+        <box class="back-wrapper">
+            <box class="back-btn" (click)="_helper.backToeTransfers()">
+                <span class="ico ico-back"></span>
+                <span class="back-text font-14-20">{{'RetailManageEtransferContactlog.header.backToeTransfers' | translate}}</span>
+            </box>
+    
+            <!-- <box class="schedule-bill-btn add-contact-btn">
+                <button class="btn-primary" (click)="_helper.addContact()">
+                    <span class="add-payee-text">{{'RetailManageEtransferContactlog.header.addContact' | translate}}</span>
+                </button>
+            </box> -->
+        </box>
+    
+    
+        <box class="schedule-bill-form">
+            <box class="schedule-bill-form-header">
+                {{'MODULE_HEADER.transferHistory' | translate}}
+            </box>
+        </box>
+    </box>
+    <box class="etransfers-home-wrapper">
+        <box *ngIf="state.viewAll" class="module-home-header">
+            <button type="button" class="nav-btn" (click)="back()">
+                <span>Close</span>
+            </button>
+            <h2 class="module-title module-title-btn">
+                    {{ 'MODULE_HEADER.transferHistory' | translate }}
+            </h2>
+        </box>
+        <box class="etransfers-home-container">
+            <mat-tab-group [(selectedIndex)]="_helper.activeTabIndex" (selectedTabChange)="_helper.onTabChanged($event)">
+                <mat-tab label="{{ 'ETRANSFERSCONTAINER.sent' | translate }}">
+                    <!-- <ng-template matTabContent> -->
+                        <etransfer-history-form *ngIf="_helper.selectedIndex === 0"></etransfer-history-form>
+                    <!-- </ng-template> -->
+                </mat-tab>
+                <mat-tab label="{{ 'ETRANSFERSCONTAINER.received' | translate }}">
+                    <!-- <ng-template matTabContent> -->
+                        <etransfer-history-form *ngIf="_helper.selectedIndex === 1"></etransfer-history-form>
+                    <!-- </ng-template> -->
+                </mat-tab>
+                <mat-tab label="{{ 'ETRANSFERSCONTAINER.requested' | translate }}">
+                    <!-- <ng-template matTabContent> -->
+                        <etransfer-history-form *ngIf="_helper.selectedIndex === 2"></etransfer-history-form>
+                    <!-- </ng-template> -->
+                </mat-tab>
+               
+            </mat-tab-group>
+        </box>
+    </box>
+</box>
+

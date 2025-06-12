@@ -1,0 +1,31 @@
+"RetailAddTaskFrom":{
+"title":"RetailAddTask",
+		 "taskName": {
+		  "label":"Chore Name" ,
+		  "placeholder": "Chore Name"
+		  } ,
+		 "childAccNo": {
+		  "label":"Assigned Child" ,
+		  "placeholder": "Assigned Child"
+		  } ,
+		 "debitAccNo": {
+		  "label":"Debit Account" ,
+		  "placeholder": "Debit Account"
+		  } ,
+		 "dueDate": {
+		  "label":"Due Date" ,
+		  "placeholder": "Due Date"
+		  } ,
+		 "rewardAmount": {
+		  "label":"Reward" ,
+		  "placeholder": "Reward"
+		  } ,
+		 "proofRequired": {
+		  "label":"Proof Requirement" ,
+		  "placeholder": "Proof Requirement"
+		  } ,
+		 "remarks": {
+		  "label":"Comments" ,
+		  "placeholder": "Comments"
+		  } 
+}

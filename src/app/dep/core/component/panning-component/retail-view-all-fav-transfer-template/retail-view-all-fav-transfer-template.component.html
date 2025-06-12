@@ -1,0 +1,53 @@
+<div class="task-item" id="row_data_{{ index }}" [ngClass]="{'task-completed':selectedData.status == '3'}">
+    
+    <div class="task-detail-item" (swipeleft)="_device.isMobile()?swipeLeftHandler($event):null" (swiperight)="_device.isMobile()?swipeRightHandler($event):null"
+    (panstart)="_device.isMobile()?panStartHandler($event):null" (panend)="_device.isMobile()?panEndHandler($event):null" (panleft)="_device.isMobile()?panLeftHandler($event):null"
+    (panright)="_device.isMobile()?panRightHandler($event):null" (touchstart)="_device.isMobile()?touchStartHandler($event):null">
+        <box class="transaction-list-item-inner">
+            <box class="transaction-icon-wrapper">
+                <box class="transaction-icon">
+                    <ng-container *ngIf="selectedData.icon; else noPhoto">
+                        <img src="./assets/transactions/{{selectedData.icon}}.svg"
+                            alt="transactionCategory" />
+                    </ng-container>
+                    <ng-template #noPhoto>
+                        <div class="name-first-letter">
+                            <span>{{selectedData.initial}}
+                            </span>
+                        </div>
+                    </ng-template>
+                </box>
+            </box>
+            <box class="transaction-info">
+                <box class="transaction-primary-info">
+                    <!-- <span class="date">Payment Date- {{selectedData.paymentDate | date : "MMM dd"}}</span> -->
+                    <span class="name">{{selectedData.beneName}}</span>
+                    <span class="accountNumber">{{selectedData.debitAccount}}</span>
+
+                </box>
+                <box class="transaction-secondary-info">
+                    <span class="amount" [ngClass]="{
+                    'credit' : selectedData.debitCreditFlag == 'C',
+                    'debit' : selectedData.debitCreditFlag == 'D'
+                }">{{selectedData.paymentAmount | currency : selectedData.paymentCurrency : '' }}
+                        <em>{{selectedData.paymentCurrency}}</em></span>
+                    <span class="paymentType">
+                        {{selectedData.serviceCodeDesc}}</span>
+                </box>
+            </box>
+        </box>
+
+    </div>
+
+    <div class="task-action task-action-right">
+        <button type="button" class="button-task-action system-ico-button button-favourite" clickable (click)="onClickUnFavourite($event, selectedData)">
+            <span>{{'REMOVE_FAV_TRANSFER_CONFIRM_DIALOG.unfavourite' | translate}}</span>
+        </button>
+        <!-- <button type="button" class="button-task-action system-ico-button button-edit" clickable (click)="viewRowData($event, selectedData)">
+            <span>View</span>
+        </button> -->
+    </div>
+
+    <div class="seperator-line"></div>
+
+</div>

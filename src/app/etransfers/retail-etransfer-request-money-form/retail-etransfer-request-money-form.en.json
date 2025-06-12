@@ -1,0 +1,63 @@
+"RetailEtransferRequestMoneyForm":{
+"title":"Request Money",
+		 "sourceAccount": {
+		  "label":"Deposit Money To" ,
+		  "placeholder": "Deposit Money To"
+		  } ,
+		 "isPreferred": {
+		  "label":"Set as default transfer account" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "contactCategory": {
+		  "label":"Request Money From" ,
+		  "placeholder": "Request Money From"
+		  } ,
+		 "contactId": {
+		  "label":"Contacts" ,
+		  "placeholder": "Contacts"
+		  } ,
+		 "contactName": {
+		  "label":"Contact Name" ,
+		  "placeholder": "Contact Name"
+		  } ,
+		 "contactEmailId": {
+		  "label":"Contact Email ID" ,
+		  "placeholder": "Contact Email ID"
+		  } ,
+		 "contactPhoneNumber": {
+		  "label":"Contact Mobile Phone number" ,
+		  "placeholder": "Contact Mobile Phone number"
+		  } ,
+		 "notificationPreference": {
+		  "label":"Notify contact by" ,
+		  "placeholder": "Notify contact by"
+		  } ,
+		 "createContact": {
+		  "label":"Save as contacts" ,
+		  "placeholder": "Save as contacts"
+		  } ,
+		 "paymentAmount": {
+		  "label":"How much do you want to request?" ,
+		  "placeholder": "How much do you want to request?"
+		  } ,
+		 "scheduleType": {
+		  "label":"Payment Option" ,
+		  "placeholder": "Payment Option"
+		  } ,
+		 "paymentDate": {
+		  "label":"Payment Date" ,
+		  "placeholder": "Payment Date"
+		  } ,
+		 "securityQuestion": {
+		  "label":"Security Question" ,
+		  "placeholder": "Security Question"
+		  } ,
+		 "securityAnswer": {
+		  "label":"Security Answer" ,
+		  "placeholder": "Security Answer"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } 
+}

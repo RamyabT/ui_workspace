@@ -1,0 +1,5 @@
+ 
+ "RETAILADHOCACCSTMT" : {
+ "servicePath": ["entry-shell","servicerequest", "retail-adhoc-accStmtReq-form"],
+ "queryParams": {}
+ }

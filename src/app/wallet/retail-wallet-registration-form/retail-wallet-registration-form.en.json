@@ -1,0 +1,79 @@
+"RetailWalletRegistrationForm":{
+"title":"walletregistration",
+		 "tenantId": {
+		  "label":"TenantId" ,
+		  "placeholder": "TenantId"
+		  } ,
+		 "inventoryNumber": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } ,
+		 "customerCode": {
+		  "label":"CIF" ,
+		  "placeholder": "CIF"
+		  } ,
+		 "walletName": {
+		  "label":"Customer Name" ,
+		  "placeholder": "Customer Name"
+		  } ,
+		 "walletType": {
+		  "label":"walletType" ,
+		  "placeholder": "walletType"
+		  } ,
+		 "walletTypeDesc": {
+		  "label":"Description" ,
+		  "placeholder": "Description"
+		  } ,
+		 "currency": {
+		  "label":"Loan Currency " ,
+		  "placeholder": "Loan Currency "
+		  } ,
+		 "country": {
+		  "label":"Country" ,
+		  "placeholder": "Country"
+		  } ,
+		 "firstName": {
+		  "label":"Customer Name" ,
+		  "placeholder": "Customer Name"
+		  } ,
+		 "lastName": {
+		  "label":"Customer Name" ,
+		  "placeholder": "Customer Name"
+		  } ,
+		 "mobileNumber": {
+		  "label":"Mobile Number" ,
+		  "placeholder": "Mobile Number"
+		  } ,
+		 "email": {
+		  "label":" Email" ,
+		  "placeholder": " Email"
+		  } ,
+		 "dob": {
+		  "label":"Dob" ,
+		  "placeholder": "Dob"
+		  } ,
+		 "empstatus": {
+		  "label":"empstatus" ,
+		  "placeholder": "empstatus"
+		  } ,
+		 "empName": {
+		  "label":"Customer Name" ,
+		  "placeholder": "Customer Name"
+		  } ,
+		 "createdBy": {
+		  "label":"Created By" ,
+		  "placeholder": "Created By"
+		  } ,
+		 "createdOn": {
+		  "label":"Cheque Date" ,
+		  "placeholder": "Cheque Date"
+		  } ,
+		 "authOn": {
+		  "label":"Cheque Date" ,
+		  "placeholder": "Cheque Date"
+		  } ,
+		 "modifiedOn": {
+		  "label":"Cheque Date" ,
+		  "placeholder": "Cheque Date"
+		  } 
+}

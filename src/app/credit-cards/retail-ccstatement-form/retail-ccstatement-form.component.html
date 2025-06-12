@@ -1,0 +1,30 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailCcstatementForm" >
+	   
+	 <box class="entry-form">
+	      
+	      
+			  <app-active-cc-list-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('cardRefNumber')"     label="{{'RetailCcstatementForm.cardRefNumber.label' | translate }}"   formControlName="cardRefNumber" 
+     ></app-active-cc-list-control>
+	      
+	      
+			  <app-request-date-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('fromDate')"     label="{{'RetailCcstatementForm.fromDate.label' | translate }}"   formControlName="fromDate" 
+   [minDate]="state.fromDate.minDate"   [maxDate]="state.fromDate.maxDate"  ></app-request-date-control>
+	      
+	      
+			  <app-request-date-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('toDate')"     label="{{'RetailCcstatementForm.toDate.label' | translate }}"   formControlName="toDate" 
+   [minDate]="state.toDate.minDate"   [maxDate]="state.toDate.maxDate"  ></app-request-date-control>
+	     
+	      
+			  <app-CCTransactions-control  class="col-md-4"   [actionPublisher]="actionMap$.get('transactionsRange')"     label="{{'RetailCcstatementForm.transactionsRange.label' | translate }}"   formControlName="transactionsRange" 
+     ></app-CCTransactions-control>
+	     
+	     
+		    	<fpx-button class="col-md-2"  [actionPublisher]="actionMap$.get('reset')"  label ="Reset" btnClass=" btn-secondary"  [buttonMode]="'button'"   ></fpx-button>
+	     
+	     
+		    	<fpx-button class="col-md-2"  [actionPublisher]="actionMap$.get('submit')"  label ="Submit" btnClass=" btn-secondary"  [buttonMode]="'button'"   ></fpx-button>
+		  <app-retail-ccstatementdetail-ro-grid class="col-md-12" (commonRoGridEvent)="handleControlEvent($event)" [actionPublisher]="actionMap$.get('ccstatementdetail')"    label="RetailCcstatementdetail"  formControlName="ccstatementdetail"
+ ></app-retail-ccstatementdetail-ro-grid>
+	 </box> 
+	</form>
+	

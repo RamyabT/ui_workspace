@@ -1,0 +1,412 @@
+#depAppBody{
+  app-retail-product-selection-control,
+  app-product-selection-control{
+    position: relative;
+    display: block;
+
+    &::before{
+        content: '';
+        // background: url(../../assets/images/rcob/product-bg-wave.svg) no-repeat;
+        width: 100%;
+        height: 200px;
+        display: block;
+        background-position: 0px 80%;
+        background-size: cover;
+        pointer-events: none;
+        position: absolute;
+        top:0;
+        left: 0;
+    }
+    
+    .slick-dots {
+        li {
+            button {
+                width: 6px;
+                height: 6px;
+                background: transparent;
+                border: 1px solid #FFF;
+                margin: 0;
+            }
+            &.slick-active button {
+                background: #FFF;
+                width: 30px;
+            }
+        }
+    }
+
+    .slick-slide{
+        padding: 0;
+        margin: 0 16px;
+        display: flex;
+        justify-content: center;
+
+        .product-card{
+            border: 4px solid transparent;
+            height: 252px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            width: 248px;
+            height: 248px;
+            transition: border 0.3s;
+        }
+
+        &.highlight{
+            .product-card{
+                border: 4px solid #FFF;
+            }
+        }
+    }
+
+    .owl-item {
+        border: 4px solid transparent;
+        height: 252px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        &.active.center.highlight {
+            border: 4px solid #FFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+    }
+
+    .product-carousel {
+        .image {
+            min-width: 230px;
+            max-width: 230px;
+            height: 230px;
+            position: relative;
+            pointer-events: none;
+            .out-line {
+                width: 278px;
+                position: absolute;
+                top: -20px;
+                right: -24px;
+            }
+            .product-image {
+                min-width: 230px;
+                max-width: 230px;
+                border-radius: 50%;
+                height: 230px;
+                z-index: 1;
+                position: relative;
+            }
+            .subtract {
+                position: absolute;
+                bottom: 0;
+                width: 192.948px;
+                height: 53.131px;
+                left: 19px;
+                z-index: 1;
+            }
+            .content {
+                position: absolute;
+                bottom: 27px;
+                text-align: center;
+                width: 100%;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 24px;
+                color: var(--baseTxtClr);;
+                z-index: 1;
+            }
+        }
+    }
+    .product-description{
+        @include b1-medium;
+        color: #FFF;
+        line-height: 24px;
+        font-weight: 400;
+        margin: 20px 24px;
+    }
+    .product-benefit-header {
+        @include s1-medium;
+        color: #FFF;
+        font-weight: 700;
+        line-height: 24px;
+        margin: 0 24px;
+        font-size: 16px;
+    }
+    ul.product-benefits {
+        list-style: inside;
+        margin: 8px 36px 20px;
+        li.product-benefit {
+            color: #FFF;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            span {
+                margin-left: -9px;
+            }
+            &::marker {
+                font-size: 20px;
+              }
+        }
+    }
+
+    .read-more-btn {
+        color: #FFF;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        text-align: center;
+        margin-top: 5px;
+    }
+    .read-more {
+        .product-card {
+            display: flex;
+            justify-content: center;
+            .image {
+                height: 156px;
+                text-align: center;
+                // display: flex;
+                // justify-content: center;
+                .out-line {
+                    display: none;
+                }
+                .product-image {
+                    min-width: 112px;
+                    border: 4px solid #FFF;
+                    height: 112px;
+                    width: 112px;
+                    border-radius: 50%;
+                    padding: 4px;
+                }
+                .subtract {
+                    display: none;
+                }
+                .content {
+                    color: #FFF;
+                    margin: 5px 0;
+                    bottom: 6px;
+                }
+            }
+        }
+    }
+}
+  app-retail-product-selection-control{
+    .slick-list{
+      overflow: hidden;
+      position: relative;
+      height: 254px;
+      .slick-track{
+        display: flex;
+        width: 100% !important;
+        position: absolute;
+        .slick-slide{
+          &.highlight{
+              .product-card{
+                  border: 4px solid var(--primary500);
+              }
+          }
+        }
+      }
+    }
+    .slick-dots{
+      li{
+        button{
+          border-color: var(--primary500);
+        }
+        &.slick-active{
+          button{
+            background-color: var(--primary500);
+          }
+        }
+      }
+    }
+    
+    
+    .read-more {
+      .product-carousel {
+          display: flex;
+          justify-content: center;
+          .image {
+              height: 156px;
+              display: flex;
+              justify-content: center;
+              .out-line {
+                  display: none;
+              }
+              .product-image {
+                  min-width: 112px;
+                  border: 4px solid #FFF;
+                  height: 112px;
+                  width: 112px;
+                  border-radius: 50%;
+                  padding: 4px;
+              }
+              .subtract {
+                  display: none;
+              }
+              .content {
+                  color: #FFF;
+                  bottom: 6px;
+              }
+          }
+      }
+  }
+  }
+}
+app-retail-product-selection-form {
+  .product-description,.product-benefit-header,.read-more-btn,.product-benefit,.content {
+    color: var(--secondary500) !important;
+  }
+  .product-segment {
+    display: flex;
+    gap: 10px;
+    overflow: scroll;
+    margin: 20px 24px 40px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .segment {
+      width: 82px;
+      height: 38px;
+      border: 1px solid #FFF;
+      padding: 8px 12px;
+      border-radius: 40px;
+      color: #FFF;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 22px;
+      text-align: center;
+
+      &.active {
+        background: #FFF;
+        color: var(--baseTxtClr);;
+      }
+    }
+  }
+
+  .read-more {
+    margin-top: 14px;
+    padding-bottom: 56px;
+  }
+
+  .read-more-view {
+    .product-segment {
+      display: none;
+    }
+  }
+}
+app-retail-product-selection-form{
+  > form {
+    min-height: unset !important;
+    padding-bottom: 0 !important;
+  }
+}
+.product-selection-wrapper {
+  position: relative;
+
+  a{
+      color: var(--neutral50);
+  }
+
+  .form-footer-actions{
+    padding: 20px 24px;
+
+    .back-btn{
+      color: var(--neutral50);
+    }
+    .apply-btn{
+      background-color: #FFFFFF;
+      color: var(--secondary500);
+
+      &:disabled{
+        color: var(--btnDisabledClr);
+      }
+    }
+  }
+}
+
+.read-more-view{
+  .product-selection-wrapper{
+    .form-footer-actions{
+      justify-content: center;
+      .back-btn{
+        display: none;
+      }
+      .apply-btn{
+        width: 100%;
+      }
+    }
+  }
+}
+.retail-product-selection {
+      background-color: #016B83 !important;
+  
+      .shell-container {
+        background-color: #016B83 !important;
+  
+        .shell-header {
+          display: none;
+        }
+  
+        .shell-content {
+          padding: 0 !important;
+  
+          &::-webkit-scrollbar {
+            display: none;
+          }
+  
+          .shell-header {
+            background: unset;
+            background-color: #016B83 !important;
+            display: block;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1;
+            position: relative;
+  
+            img {
+              width: 24px;
+              height: 24px;
+              display: inline-block;
+            }
+  
+            .shell-header__title {
+              color: var(--shellHeaderTtlClrMob) !important;
+            }
+          }
+        }
+      }
+  
+      .shell-footer {
+        background-color: #016B83 !important;
+  
+        .btn-primary {
+          background: #FFF;
+          color: #12486B;
+          font-size: 16px;
+        }
+  
+        .btn-tertiary {
+          color: #FFF;
+          font-size: 16px;
+        }
+  
+        button:is(.primary, .secondary, .tertiary, .btn-primary, .btn-secondary, .btn-tertiary):disabled:is(.primary, .btn-primary) {
+          color: #ABABAB;
+          background-color: #F9F9F9;
+          border: none;
+        }
+      }
+  
+    }
+    app-retail-rp-existing-contract-form{
+      .info-field{
+        @include s3-medium();
+      }
+    }
+  
+

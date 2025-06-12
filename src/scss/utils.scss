@@ -1,0 +1,4 @@
+@function toRem($value) {
+  $baseFontSize: #{var(--baseFontSize)};
+  @return calc($value / $baseFontSize * 1rem);
+}

@@ -1,0 +1,57 @@
+.system-ico-button.add-new {
+    border: none;
+}
+
+.casaAccountDtlListTmplt {
+    .ng-template-select {
+        --controlIconClr: #FFFFFF;
+
+        mat-select-trigger * {
+            color: #FFF !important;
+        }
+    }
+
+    .mat-focus-indicator:hover .mat-option-text *,
+    .mat-selected.mat-active * {
+        color: #FFF !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-layout{
+        header{
+            img{
+                filter: brightness(0) invert(1);
+            }
+        }
+    }
+}
+
+/* Table & Desktop screens styles */
+@media screen and (min-width: 769px) {
+    #depAppBody{
+        .prelogin-layout{
+            header{
+                img{
+                    filter: brightness(0) invert(1);
+                }
+            }
+        }
+
+        .welcome-banner-wrapper {
+            background: var(--welcomeBanner) no-repeat right transparent;
+            background-size: auto 100%;
+            width: 710px;
+        }
+        .welcome-container-inner {
+            .welcome-note-container {
+                margin-left: 710px;
+
+                .welcome-title {
+                    width: 50%;
+                    color: var(--secondaryClr);
+                }
+            }
+        }
+    }
+}

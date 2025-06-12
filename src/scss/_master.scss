@@ -1,0 +1,220 @@
+/* == == == == == == == == == == == == == == == == == == == == == == == == */
+// @author: Suresh Kumar Ramachandran, Mohan Raj
+// @id: N9X, 1G4
+// @organization: Intellect Design Arena Ltd
+// @unit: iGCB
+// @product: DEP - Retail
+// Year: 2024
+// @description: In master styles defined scroll bar, forms, lists & layout style
+/* == == == == == == == == == == == == == == == == == == == == == == == == */
+
+@import './theme/variables.scss';
+@import './layout/grid-system';
+@import './theme/fonts';
+@import './material/material-fonts';
+@import './material/material';
+
+* {
+  box-sizing: border-box;
+  font-family: var(--baseFontFamily);
+  text-rendering: geometricPrecision;
+}
+
+html,
+body {
+  background-color: var(--themeBgClr);
+  color: var(--baseTxtClr);
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-weight: var(--fontWeightRegular);
+  overscroll-behavior: none;
+}
+
+input:focus,
+select:focus,
+button:focus,
+input,
+textarea,
+select,
+button,
+a {
+  outline: none !important;
+  box-shadow: none;
+}
+
+a {
+  color: var(--linkClr);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input::-ms-reveal {
+  display: none;
+}
+input::-ms-clear {
+  display: none;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+strong {
+  font-weight: var(--fontWeightBold);
+}
+
+em {
+  font-style: normal;
+}
+
+app-root {
+  height: 100%;
+  display: block;
+}
+box {
+  display: block;
+}
+
+fpx-display-text {
+  display: inline-block;
+}
+
+[clickable] {
+  cursor: pointer;
+}
+
+/* Document scroll bar styles */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d8d8d8;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d8d8d8;
+  border-radius: 10px;
+}
+
+.mat-slide-toggle-bar {
+  z-index: 0;
+}
+
+#depAppBody {
+  .slick-slider {
+    margin-bottom: 0;
+  }
+
+  .slick-slide {
+    padding: 0 16px;
+  }
+
+  .slick-dots {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    margin-top: 12px;
+    position: static;
+
+    li {
+      width: unset;
+      height: unset;
+      margin: 0;
+
+      button {
+        margin: 0;
+        width: 4px;
+        height: 4px;
+        border-radius: 20px;
+        background-color: var(--neutral500);
+        transition: width 0.3s;
+        padding: 0;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      &.slick-active {
+        button {
+          width: 24px;
+          background-color: var(--secondary500);
+        }
+      }
+
+      &:only-child {
+        display: none;
+      }
+    }
+
+    &.disabled {
+      display: none;
+    }
+  }
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+  background-color: #2D2D2D50;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+html.small-screen {
+  height: 100vh;
+
+  body,
+  app-root {
+    height: 100vh;
+  }
+}
+
+
+@import './layout/forms';
+@import './layout/content-loader';
+@import "./layout/layout";
+@import './layout/_main-footer';
+@import './layout/buttons';
+@import './layout/ro-grid';
+@import './layout/input-grid';
+@import './layout/shell';
+@import './layout/home-layout';
+@import './layout/quick-actions';
+@import './layout/tab-group';
+@import './layout/popup';
+@import './layout/space-container';
+@import './layout/widgets';
+@import './layout/sliders';
+@import './layout/accordian';

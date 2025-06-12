@@ -1,0 +1,30 @@
+.bene-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    gap: 10px;
+
+    .name {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 400;
+
+    }
+
+    .phone-number {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 400;
+
+    }
+
+}
+.debit-account-item{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ABABAB;
+    padding: 10px;
+    gap: 8px;
+    border-radius: 16px;
+}

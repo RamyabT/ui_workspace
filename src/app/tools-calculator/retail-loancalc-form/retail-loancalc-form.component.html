@@ -1,0 +1,98 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailLoanCalcForm" >
+	  
+	<box class="entry-form">
+	     
+		<app-loan-products-list-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('loanProductType')"     label="{{'RetailLoanCalcForm.loanProductType.label' | translate }}"   formControlName="loanProductType"
+		>
+</app-loan-products-list-control>
+
+<box class="slider-field no-flag col-lg-6 col-sm-12">
+	<app-loan-amount-slider-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('loanAmount')"     label="{{'RetailLoanCalcForm.loanAmount.label' | translate }}"   formControlName="loanAmount"
+	[min] = "state.loanAmount.min"  [max] = "state.loanAmount.max"  [step] = "state.loanAmount.step" [currencyCode] = "state.loanAmount.currencyCode"  >
+	</app-loan-amount-slider-control>
+</box>
+
+	 <div class="tenure-container col-sm-12 col-md-6 col-lg-6">
+		<div class="tenure-label">
+		<span class="fpx-label">{{
+			"RetailLoanCalcForm.loantenurevalue.label" | translate
+		}}</span>
+		<div class="tenure-group">
+			<fpx-number
+			class="tenure"
+			[actionPublisher]="actionMap$.get('loantenurevalue')"
+			formControlName="loantenurevalue"
+			#fpxControl
+			[max]="_helper.tenureYMode ? 5 : 12"
+			></fpx-number>
+			<div class="btn-group">
+			<button
+				type="button"
+				(click)="_helper.setTenureYear(true)"
+				class="btn yearbtn"
+				[class]="{ active: _helper.tenureYMode }"
+			>
+				{{ "RetailLoanCalcForm.yearbtn" | translate }}
+			</button>
+			<button
+				type="button"
+				(click)="_helper.setTenureYear(false)"
+				class="btn monthbtn"
+				[class]="{ active: !_helper.tenureYMode }"
+			>
+				{{ "RetailLoanCalcForm.monthbtn" | translate }}
+			</button>
+			</div>
+		</div>
+		</div>
+		<box class="slider-field no-flag col-lg-12 col-sm-12">
+		
+			<app-tenure-slider-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('tenure')"     label="{{'RetailLoanCalcForm.tenure.label' | translate }}"   formControlName="tenure"
+		    [min]="state.tenure.min" [max] = "state.tenure.max"  [step] = "state.tenure.step" [currencyCode] = "state.tenure.currencyCode"  >
+	</app-tenure-slider-control>
+		</box>
+	</div>
+   
+
+
+<!-- <div class="tenure-container">
+	<div class="tenure-label">
+	  <span class="fpx-label">{{
+		"RetailLoanCalcForm.loantenurevalue.label" | translate
+	  }}</span>
+	  <div class="tenure-group">
+		<fpx-number
+		  class="tenure"
+		  [actionPublisher]="actionMap$.get('loantenurevalue')"
+		  formControlName="loantenurevalue"
+		  #fpxControl
+		  [max]="_helper.tenureYMode ? 5 : 12"
+		></fpx-number>
+		<div class="btn-group">
+		  <button
+			type="button"
+			(click)="_helper.setTenureYear(true)"
+			class="btn yearbtn"
+			[class]="{ active: _helper.tenureYMode }"
+		  >
+			{{ "RetailLoanCalcForm.yearbtn" | translate }}
+		  </button>
+		  <button
+			type="button"
+			(click)="_helper.setTenureYear(false)"
+			class="btn monthbtn"
+			[class]="{ active: !_helper.tenureYMode }"
+		  >
+			{{ "RetailLoanCalcForm.monthbtn" | translate }}
+		  </button>
+		</div>
+	  </div>
+	</div>
+</div> -->
+
+ 
+			  <app-request-date-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('requestDate')"     label="{{'RetailLoanCalcForm.requestDate.label' | translate }}"   formControlName="requestDate" 
+   [minDate]="state.requestDate.minDate"   [maxDate]="state.requestDate.maxDate"  ></app-request-date-control>
+	</box> 
+</form>
+	

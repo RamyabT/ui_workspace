@@ -1,0 +1,11 @@
+<box class="prelogin-layout" id="mainContainer" [ngClass]="{'onboarding': _activeSpaceInfo.isOnboardingModule }">
+    <app-prelogin-header></app-prelogin-header>
+
+    <box class="prelogin-body">
+        <box class="prelogin-body-inner">
+            <router-outlet></router-outlet>
+        </box>
+    </box>
+
+    <!-- <main-footer></main-footer> -->
+</box>

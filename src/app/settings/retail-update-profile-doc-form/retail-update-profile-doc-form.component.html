@@ -1,0 +1,82 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailUpdateProfileDocForm">
+
+	<box class="entry-form">
+		<box class="grid entry-form-field-group">
+			
+
+			<!-- <app-upload-type class="col-lg-6 col-sm-12 col-md-12" [actionPublisher]="actionMap$.get('uploadType')"
+			label="{{'RetailUpdateProfileDocForm.uploadType.label' | translate }}"
+			formControlName="uploadType"></app-upload-type> -->
+
+			<app-document-id-control class="col-lg-6 col-sm-12 col-md-12" [actionPublisher]="actionMap$.get('id')"
+				label="{{'RetailUpdateProfileDocForm.id.label' | translate }}"
+				formControlName="id"></app-document-id-control>
+
+
+			<app-id-number-control class="col-lg-6 col-sm-12 col-md-12" [actionPublisher]="actionMap$.get('idNumber')"
+				label="{{'RetailUpdateProfileDocForm.idNumber.label' | translate }}"
+				formControlName="idNumber"></app-id-number-control>
+
+			<app-request-date-control class="col-lg-6 col-sm-12 col-md-12"
+				[actionPublisher]="actionMap$.get('expiryDate')"
+				label="{{'RetailUpdateProfileDocForm.expiryDate.label' | translate }}" formControlName="expiryDate"
+				[minDate]="state.expiryDate.minDate" [maxDate]="state.expiryDate.maxDate"></app-request-date-control>
+
+			<box class="doc-upload-container col-lg-12 col-sm-12 col-md-12" [actionPublisher]="actionMap$.get('uploadProfileDocGroup')">
+				<!-- <span class="upload-label">{{'RetailUpdateProfileDocForm.attacmentLabel' | translate}}</span> -->
+				<box class=" col-lg-6 col-sm-12 col-md-12" [actionPublisher]="actionMap$.get('frontBtnGroup')">
+					<button (click)="_helper.updatePhoto('FRONT')" class="doc-upload-btn">
+						<button type="button" class="upload-icon"></button>
+						<span class="upload-txt">{{'RetailUpdateProfileDocForm.frontUploadLabel' | translate}}</span>
+					</button>
+				</box>
+
+				<box class="doc-view col-lg-6 col-sm-12 col-md-12" [actionPublisher]="actionMap$.get('frontViewImgGroup')">
+					<box class="doc-detail" >
+						<box class="doc-icon">
+							<img src="./assets/images/settings/{{state.frontDocData.icon}}" alt="doc-file" />
+						</box>
+						<div class="doc-name">{{state.frontDocData.fileName}}</div>
+					</box>
+					<box class="doc-delete-icon">
+						<button (click)="_helper.downloadDoc('FRONT')" type="button" class="button-download">
+						</button>
+						<button (click)="_helper.deleteDoc('FRONT')" type="button" class="button-delete">
+						</button>
+					</box>
+				</box>
+
+				<box class="col-lg-6 col-sm-12 col-md-12" [actionPublisher]="actionMap$.get('backBtnGroup')">
+					<button (click)="_helper.updatePhoto('BACK')" class="doc-upload-btn">
+						<button type="button" class="upload-icon"></button>
+						<span class="upload-txt">{{'RetailUpdateProfileDocForm.backUploadLabel' | translate}}</span>
+					</button>
+				</box>
+
+				<box class="doc-view col-lg-6 col-sm-12 col-md-12" [actionPublisher]="actionMap$.get('backViewImgGroup')">
+					<box class="doc-detail">
+
+						<box class="doc-icon">
+							<img src="./assets/images/settings/{{state.backDocData.icon}}" alt="doc-file" />
+						</box>
+						<div class="doc-name">{{state.backDocData.fileName}}</div>
+					</box>
+					<box class="doc-delete-icon">
+						<button (click)="_helper.downloadDoc('BACK')" type="button" class="button-download">
+						</button>
+						<button (click)="_helper.deleteDoc('BACK')" type="button" class="button-delete">
+						</button>
+					</box>
+				</box>
+			</box>
+
+			<box class="doc-upload-rule-container">
+				<ul>
+					<li>{{'RetailUpdateProfileDocForm.imgupload.label' | translate}}</li>
+					<li>{{'RetailUpdateProfileDocForm.imgsize.label' | translate}}</li>
+					<li>{{'RetailUpdateProfileDocForm.fileupload.label' | translate}}</li>
+				</ul>
+			</box>
+		</box>
+	</box>
+</form>

@@ -1,0 +1,263 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailWithinBankTransferForm"
+  class="within-form">
+  <ng-container *ngIf="!state.showErrorTemplate else apiErrorTemplate">
+  <box *ngIf="state.reviewMode" class="payee-info-header">
+    <span class="review-header review-title">{{'reviewForm.title' | translate}}</span>
+  </box>
+
+  <box class="within-bank-transfer-form-wrapper col-lg-12 col-sm-12 entry-form-field-group"
+    [ngClass]="{'add-contact-form': _helper.enableAddContact, 'edit-mode': this.state.modeVar == 'M', 'readonly-mode': this.state.modeVar == 'M', 'review-form': _helper.formMode == 'VIEW' || state.review}">
+    <box class="transfer-to-field">
+      <span class="pay-from-label">{{'RetailWithinBankTransferForm.sourceAccount.label' | translate}}</span>
+      <box class="own-account-transfer-form-container" *ngIf="!_helper.selectedTransferFromAccount">
+        <box class="account-information" (click)="_helper.openTransferFromAccountsList()">
+          <box class="exportUp-btn-container">
+            <button type="button" class="btn-container exportUp-icon" aria-label="export">
+              <span class="icon exportUp-btn-icon"></span>
+            </button>
+          </box>
+          <!-- <span class="field-box"> -->
+          <box class="account-text">
+            <box class="payee-act-number">
+              <span class="payee-name">
+                {{'RetailWithinBankTransferForm.fromAccount.title' | translate}}
+              </span>
+            </box>
+          </box>
+          <box class="right-btn-container">
+            <button type="button" class="btn-container right-icon" aria-label="right arrow">
+              <span class="icon right-btn-icon"></span>
+            </button>
+          </box>
+          <!-- </span> -->
+        </box>
+      </box>
+      <box class="account-card-validation-wrapper" *ngIf="_helper.selectedTransferFromAccount">
+        <box class="account-card" [ngClass]="{'disable-selection': _helper.hideFromAccountChangeBtn}" (click)="!_helper.hideFromAccountChangeBtn && _helper.openTransferFromAccountsList()">
+          <box class="account-header-wrapper">
+            <box class="account-header">
+              <h2>{{_helper?.selectedTransferFromAccount?.accountNickname}}</h2>
+              <p>{{_helper?.selectedTransferFromAccount?.accountTypeDesc ||
+                _helper?.selectedTransferFromAccount?.accountType }}
+
+              <span class="line-separator"></span>
+
+                {{_helper?.selectedTransferFromAccount?.accountNumber | accountNumberTrim}}
+              </p>
+            </box>
+            <box *ngIf="!_helper.hideFromAccountChangeBtn" class="view-account-icon-wrapper">
+              <span class="view-account-icon"></span>
+            </box>
+          </box>
+
+        <box class="account-details">
+          <p [ngClass]="{'show-default-account': _helper?.selectedTransferFromAccount?.preferredAccount}"
+            class="default-account">
+            {{'billpaymentLabels.defaultAccount' | translate}}</p>
+          <!-- <p class="balance amount">{{ _helper?.selectedTransferFromAccount?.availableBalance | currency :
+            _helper?.selectedTransferFromAccount?.accountCurrency : '' }} <em>{{
+              _helper?.selectedTransferFromAccount?.accountCurrency
+              |
+              currencyCode }}</em></p> -->
+
+
+
+            <ng-container
+              *ngIf="_helper?.selectedTransferFromAccount?.accountCurrency != _helper._appConfig.baseCurrency else avlBaseCurrency">
+              <box class="balance-val">
+                <box class="amount balance-amount-usd balance">
+                  <em class="usd">{{ 'SUFFIXCURRENCY' |
+                    currencyCode
+                    }}</em>{{_helper.getAbsoluteValue(_helper?.selectedTransferFromAccount?.availableBalance)
+                  |
+                  currency
+                  :
+                  _helper?.selectedTransferFromAccount?.accountCurrency : '' }}
+                  <em>{{ _helper?.selectedTransferFromAccount?.accountCurrency == 'USD' ? '$' :
+                    _helper?.selectedTransferFromAccount?.accountCurrency |
+                    currencyCode }}</em>
+                  {{_helper.checkNegativeValue(_helper?.selectedTransferFromAccount?.availableBalance)}}
+                </box>
+              </box>
+            </ng-container>
+            <ng-template #avlBaseCurrency>
+              <box class="amount balance-amount-cad balance">{{
+                _helper.getAbsoluteValue(_helper?.selectedTransferFromAccount?.availableBalance) |
+                currency
+                :
+                _helper?.selectedTransferFromAccount?.accountCurrency : '' }} <em>{{
+                  _helper?.selectedTransferFromAccount?.accountCurrency |
+                  currencyCode }}</em>
+                {{_helper.checkNegativeValue(_helper?.selectedTransferFromAccount?.availableBalance)}}
+              </box>
+            </ng-template>
+          </box>
+        </box>
+        <mat-error *ngIf="_helper.showInsufficientBalanceError" class="insufficient-balance-error">
+          {{'billpaymentLabels.insufficientBalanceError' | translate}}
+        </mat-error>
+      </box>
+     
+    </box>
+
+    <box class="transfer-to-field">
+      <span class="pay-from-label">{{'RetailWithinBankTransferForm.toAccount.label' | translate}}</span>
+      <box class="beneList-form-container">
+        <app-internal-account-number-control appNumberOnly class="col-sm-12 col-md-12 col-lg-12"
+          [actionPublisher]="actionMap$.get('accountNumber')"
+          label="{{'RetailWithinBankTransferForm.accountNo.label' | translate }}" formControlName="accountNumber"
+          [dependencyField]="['serviceCode']" placeholder="{{'RetailWithinBankTransferForm.accountNo.placeholder' | translate}}"></app-internal-account-number-control>
+
+        <app-beneficiary-name-control class="col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('recipientName')"
+          label="{{'RetailWithinBankTransferForm.recipientName.label' | translate }}"
+          formControlName="recipientName" placeholder="{{'RetailWithinBankTransferForm.recipientName.placeholder' | translate}}" ></app-beneficiary-name-control>
+
+      </box>
+
+      </box>
+
+
+    <box class="transfer-to-field review-fields">
+      <span class="pay-from-label mobile-transfer-details-label">{{'RetailOwnAccountTransferForm.transferDetails.label' | translate}}</span>
+
+      <box class="account-form-container">
+
+        <box class="display-field fpx-form-control">
+          <span class="label">{{'RetailEtransfer.sendFrom' | translate }}</span>
+          <span class="value">{{_helper?.selectedTransferFromAccount?.accountNickname}}
+          </span>
+        </box>
+
+        <box class="display-field fpx-form-control">
+          <span class="label">{{'RetailEtransfer.sendTo' | translate }}</span>
+          <span class="value">{{this.formGroup.get('confirmAccountNumber')?.value}}
+          </span>
+        </box>
+
+        <box class="display-field fpx-form-control">
+          <span class="label">{{'RetailEtransfer.recipientName' | translate }}</span>
+          <span class="value">{{this.formGroup.get('recipientName')?.value}}
+          </span>
+        </box>
+
+        <span class="amount-icon">
+          <app-payment-amount-control class="col-lg-12 col-sm-12 col-md-12 {{ state.fromCurrencyVariable }}_currency_control"
+            [actionPublisher]="actionMap$.get('paymentAmount')"
+            label="{{'RetailWithinBankTransferForm.amount.label' | translate }}" formControlName="paymentAmount"
+            (commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.paymentAmount.CurrencyList"
+            [isCurrEditable]="state.paymentAmount.isCurrEditable" [defaultFetch]="state.paymentAmount.defaultFetch"
+            [initCurrency]="state.paymentAmount.initCurrency" [amountInWords]="state.paymentAmount.amountInWords"
+            [changePublisher]="formChangePublisher$"
+            [dependencyField]="['fromCurrencyVariable','toCurrencyVariable','accountBalanceVariable','scheduleTypeVar']"></app-payment-amount-control>
+            <mat-error *ngIf="_helper.showMandatoryError" class="insufficient-balance-error">
+              {{'billpaymentLabels.mandatoryError' | translate}}
+            </mat-error>
+            <mat-error *ngIf="_helper.amountLength" class="insufficient-balance-error">
+							{{'billpaymentLabels.amountLength' | translate}}
+						</mat-error>
+          <box
+            
+            class="info-grey-btn-container" (click)="_helper.popupAmount()">
+            <button type="button" class="btn-container info-grey-icon" aria-label="info">
+              <span class="icon info-grey-btn-icon"></span>
+            </button>
+          </box>
+
+
+          <box class="display-field fpx-form-control">
+            <span class="label">{{'RetailEtransfer.paymentAmount.label' | translate }}</span>
+            <span class="value"><em>{{this.formGroup.get('paymentAmount')?.value?.currencyCode |
+                currencyCode }}</em>{{this.formGroup.get('paymentAmount')?.value?.amount | currency :
+              this.formGroup.get('paymentAmount')?.value?.currencyCode : '' }}
+              <em>{{this.formGroup.get('paymentAmount')?.value?.currencyCode === 'USD' ?
+                'USD' : ""}}</em>
+            </span>
+          </box>
+        </span>
+<!-- 
+        <box class="display-field fpx-form-control" [actionPublisher]="actionMap$.get('paymentSummary')">
+          <span class="label">{{'FX_RATES.exchangeRate' | translate }}</span>
+          <span class="value" [innerHTML]="state.paymentSummary.exchangeRate">
+          </span>
+        </box> -->
+
+        <app-payment-date-control class="col-lg-12 col-sm-12 col-md-12"
+          [actionPublisher]="actionMap$.get('paymentDate')" (commonControlEvent)="handleControlEvent($event)"
+          label="{{'RetailOwnAccountTransferForm.paymentDate.label' | translate }}" formControlName="paymentDate"
+          [minDate]="state.paymentDate.minDate" [maxDate]="state.paymentDate.maxDate"></app-payment-date-control>
+
+        <box class="input-grid-row-item col-lg-12 col-sm-12">
+          <app-frequency-control *ngIf="state.showPaymentFrequency" class="col-sm-12 col-md-6 col-lg-12"
+            [actionPublisher]="actionMap$.get('paymentFrequency')"
+            label="{{'RetailOwnAccountTransferForm.paymentFrequency.label' | translate }}"
+            formControlName="paymentFrequency"></app-frequency-control>
+        </box>
+
+        <box class="input-item col-lg-12 col-sm-12 col-md-12" [actionPublisher]="actionMap$.get('scheduleTypeWrapper')">
+          <app-statement-mode-control class="col-lg-12 col-sm-12 col-md-12"
+            [actionPublisher]="actionMap$.get('scheduleType')"
+            label="{{'RetailOwnAccountTransferForm.paymentFrequencyFlag.label' | translate }}"
+            formControlName="scheduleType"></app-statement-mode-control>
+          <span
+            *ngIf="(_helper.formMode == 'VIEW' || state.review) && this.state.showScheduleTypeValue">{{this.state.scheduleTypeValue}}</span>
+        </box>
+
+
+        <box class="schedule-handler-container" [actionPublisher]="actionMap$.get('scheduleHandler')">
+          <box class="installment-number-control-container"
+            [ngClass]="{'installment-error': state.minInstallmentError}">
+            <app-installment-number-control class="col-lg-12 col-sm-12 col-md-12"
+              [actionPublisher]="actionMap$.get('numberOfPayments')"
+              label="{{'RetailScheduleTransferHandler.numberOfPayments.label' | translate }}"
+              formControlName="numberOfPayments"></app-installment-number-control>
+            <mat-error *ngIf="state.minInstallmentError" class="insufficient-balance-error">
+              {{'billpaymentLabels.installmentError' | translate}}
+            </mat-error>
+          </box>
+
+          <app-end-date-control class="col-lg-12 col-sm-12 col-md-12" [actionPublisher]="actionMap$.get('endDate')"
+            label="{{'RetailScheduleTransferHandler.endDate.label' | translate }}" formControlName="endDate"
+            [minDate]="state.endDate.minDate" [maxDate]="state.endDate.maxDate"></app-end-date-control>
+        </box>
+
+
+        <!-- <app-retail-schedule-handler-form class="col-lg-12 col-sm-12 col-md-12"
+          (commonFormEvent)="handleControlEvent($event)" [actionPublisher]="actionMap$.get('scheduleHandler')"
+          label="RetailScheduleTransferHandler" formControlName="scheduleHandler"
+          [changePublisher]="formChangePublisher$">
+        </app-retail-schedule-handler-form> -->
+
+
+        <box class="col-lg-12 message-container">
+          <span class="message-optional" *ngIf="!state.reviewMode">{{ 'RetailWithinBankTransferForm.message.optional' |
+            translate }}</span>
+
+
+          <app-payment-message-control class="col-sm-12 col-md-12 col-lg-12"
+            [actionPublisher]="actionMap$.get('remarks')"
+            label="{{ 'RetailWithinBankTransferForm.message.label' | translate }}" formControlName="remarks"
+            placeholder="{{'RetailWithinBankTransferForm.message.placeholder' | translate}}"></app-payment-message-control>
+
+          <box>
+            <span class="review-txt" *ngIf="this.state.scheduleTypeVar == 2 || this.state.scheduleTypeVar == 3">
+              <box class="info-btn-container" (click)="_helper.popupProcessing()">
+                <button type="button" class="btn-container info-icon" aria-label="info">
+                  <span class="icon info-btn-icon"></span>
+                </button>
+              </box>
+              <p *ngIf="_helper.formMode == 'VIEW' || state.review" class="text-alert">
+                {{'reviewForm.reviewTxt' | translate}}</p>
+            </span>
+          </box>
+        </box>
+      </box>
+    </box>
+  </box>
+</ng-container>
+</form>
+
+<ng-template #apiErrorTemplate>
+	<box class="service-unavailable-template">
+		<box class="description">{{'accountsPanel.apiErrorData' | translate}}</box>
+	</box>
+</ng-template>

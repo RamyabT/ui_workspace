@@ -1,0 +1,805 @@
+<!-- Deposits Account list -->
+<ng-template let-selectedData #depositsAccountListTmplt [fpxControlTemplate]="'depositsAccountListTmplt'">
+  <box class="deposit-account">
+    <box class="deposit-account-inner">
+      <box class="deposit-type">
+        <span class="icon-wrapper"></span>
+      </box>
+      <box class="deposit-details">
+        <box class="desposit-primary-info">
+          <span class="account">{{selectedData.accountNumber}} | {{selectedData.productDescription}}</span>
+          <!-- <span>{{selectedData.noOfMonthsCompleted}} of {{selectedData.tenorInMonths == 0 || selectedData.tenorInMonths == '0' ? (selectedData.tenorInYears*12) +' Months': selectedData.tenorInMonths+' Months'}}  </span> -->
+        </box>
+        <!-- <mat-progress-bar value="{{selectedData.monthsCompletedPrecentage}}"></mat-progress-bar> -->
+        <box class="desposit-additional-info">
+          <span>
+            <span class="lbl">{{ 'DEPOSITACCOUNTLISTGRID.depositTerm' | translate }}</span>
+            <span class="val">{{selectedData.tenorInMonths == 0 || selectedData.tenorInMonths == "0" ?
+              (selectedData.tenorInYears==0?selectedData.tenorInYears:(selectedData.tenorInYears*12)):
+              selectedData.tenorInMonths}}</span>
+          </span>
+          <span>
+            <span class="lbl">{{ 'DEPOSITACCOUNTLISTGRID.depositAmount' | translate }}</span>
+            <span class="val"> {{selectedData.currency}} {{ selectedData.depositAmount | currency :
+              selectedData.currency : '' }}</span>
+          </span>
+          <span>
+            <span class="lbl">{{ 'DEPOSITACCOUNTLISTGRID.depositDate' | translate }}</span>
+            <span class="val">{{ selectedData.openDate | date : "dd MMM yyyy" }}</span>
+          </span>
+          <span>
+            <span class="lbl">{{ 'DEPOSITACCOUNTLISTGRID.maturityDate' | translate }}</span>
+            <span class="val">{{ selectedData.maturityDate | date : "dd MMM yyyy" }}</span>
+          </span>
+          <span>
+            <span class="lbl">{{ 'DEPOSITACCOUNTLISTGRID.maturityAmount' | translate }}</span>
+            <span class="val">{{selectedData.currency}} {{ selectedData.maturityAmount | currency :
+              selectedData.currency : '' }}</span>
+          </span>
+          <span>
+            <span class="lbl">{{ 'DEPOSITACCOUNTLISTGRID.interestRate' | translate }}</span>
+            <span class="val">{{selectedData?.interestRate+'%'}}</span>
+          </span>
+        </box>
+      </box>
+
+    </box>
+  </box>
+</ng-template>
+
+<!-- Casa Transactions List -->
+<ng-template let-selectedData let-i="index" #casaTransactionsDtlsListTmplt [fpxControlTemplate]="'casaTransactionsDtlsListTmplt'">
+  <box class="transaction-list-item">
+    <ng-container *ngIf="selectedData.rowGroupTitle; else scheduleTransactionDtlsRowData">
+      <box class="row-group-title">{{ selectedData.rowGroupTitle}}</box>
+    </ng-container>
+    <ng-template #scheduleTransactionDtlsRowData>
+      <app-casa-transactions-dtls-tmplt [index]="i" [selectedData]="selectedData"></app-casa-transactions-dtls-tmplt>
+    </ng-template>
+  </box>
+</ng-template>
+<!--Tax Forms List-->
+<ng-template let-selectedData #viewTaxFormsListTmplt [fpxControlTemplate]="'viewTaxFormsListTmplt'">
+  <app-view-tax-forms-tmplt [selectedData]="selectedData"></app-view-tax-forms-tmplt>
+</ng-template>
+<!---Loan Disclosure-->
+<ng-template let-selectedData #viewLoanDisclosureListTmplt [fpxControlTemplate]="'viewLoanDisclosureListTmplt'">
+  <app-view-loan-disclosure-tmplt [selectedData]="selectedData"></app-view-loan-disclosure-tmplt>
+</ng-template>
+
+<!-- Loan Transactions List -->
+<ng-template let-selectedData #loanTransactionsDtlsListTmplt [fpxControlTemplate]="'loanTransactionsDtlsListTmplt'">
+  <app-loan-transactions-dtls-tmplt [selectedData]="selectedData"></app-loan-transactions-dtls-tmplt>
+</ng-template>
+
+<!-- Cheque list -->
+<ng-template let-selectedData #chequeListTmplt [fpxControlTemplate]="'chequeListTmplt'">
+  <ng-container *ngIf="selectedData.NoData;  else chequeListTmplt" >
+    <span class="NoData">
+      {{ 'ChequeStatusResultMessage.NoData' | translate }}
+    </span>
+    </ng-container>
+  <ng-template #chequeListTmplt>
+     <box class="cheque-list-item">
+    <header>
+      <box class="cheque-number">
+        <span class="lbl">{{ 'ChequeStatusResultMessage.chequeNumber' | translate }}</span>
+        <span class="val">{{ selectedData.chequeNumber }}</span>
+      </box>
+      <box class="cheque-status status-{{selectedData.chequeStatus}}">
+        <span class="cheque-status-txt">{{ 'ChequeStatusResultMessage.status.' + selectedData.chequeStatus | translate }}</span>
+      </box>
+    </header>
+    <box class="cheque-body">
+      <box class="cheque-info">
+        <box class="detail">
+          <span class="lbl">{{ 'ChequeStatusResultMessage.depositDate' | translate }}</span>
+          <span class="val">{{ selectedData.issueDate | date : "dd MMM yy" }}</span>
+        </box>
+        <box class="detail">
+          <span class="lbl">{{ 'ChequeStatusResultMessage.chequeAmount' | translate }}</span>
+          <span class="val amount">{{ selectedData.accountCurrency}} <em>{{ selectedData.chequeAmount | currency : selectedData.accountCurrency : '' }} </em></span>
+        </box>
+        <!-- <box class="detail">
+          <span class="lbl">{{ 'ChequeStatusResultMessage.payeeName' | translate }}</span>
+          <span class="val">{{ selectedData.payeeName }}</span>
+        </box> -->
+      </box>
+      
+      <hr class="h-seperator" />
+
+      <ng-container *ngIf="selectedData.doViewCheque">
+        <ng-container *ngIf="selectedData.chequeImage; else loader">
+          <box class="cheque-image-wrapper">
+            <img [src]="selectedData.chequeImage" alt="cheque" />
+          </box>
+        </ng-container>
+      </ng-container>
+
+      <box class="cheque-action">
+        <fpx-button *ngIf="!selectedData.doViewCheque" btn-type="button" btnClass="secondary"
+          label="{{'ChequeStatusResultMessage.viewCheque' | translate}}" (onClick)="viewCheque(selectedData)"></fpx-button>
+        <fpx-button *ngIf="selectedData.chequeImage && selectedData.doViewCheque" btn-type="button" btnClass="secondary"
+          label="{{'ChequeStatusResultMessage.hideCheque' | translate}}" (onClick)="hideCheque(selectedData)"></fpx-button>
+      </box>
+
+    </box>
+    </box>
+  </ng-template>
+  <!-- <box>{{selectedData?.chequeImage}}</box>
+  <button (click)="viewCheque(selectedData)">View cheque</button> -->
+</ng-template>
+
+<!-- PDC Cheque list -->
+<ng-template let-selectedData #pdcChequeListTmplt [fpxControlTemplate]="'pdcChequeListTmplt'">
+  <ng-container *ngIf="selectedData.NoData;  else pdcChequeListTmplt" >
+    <span class="NoData">
+      {{ 'ViewPDCChequeResultsMessage.noData' | translate }}
+    </span>
+  </ng-container>
+  <ng-template #pdcChequeListTmplt>
+    <box class="cheque-list-item">
+      <header>
+        <box class="cheque-number">
+          <span class="lbl">{{ 'ViewPDCChequeResultsMessage.chequeNumber' | translate }}</span>
+          <span class="val">{{ selectedData.chequeNumber }}</span>
+        </box>
+        <box class="cheque-status status-{{selectedData.status}}">
+          <span class="cheque-status-txt">{{ 'ViewPDCChequeResultsMessage.status.' + selectedData.status | translate }}</span>
+        </box>
+      </header>
+      <box class="cheque-body">
+        <box class="cheque-info">
+          <box class="detail">
+            <span class="lbl">{{ 'ViewPDCChequeResultsMessage.chequePostedDate' | translate }}</span>
+            <span class="val">{{ selectedData.chequePostedDate | date : 'dd MMM yyyy' }}</span>
+          </box>
+          <box class="detail">
+            <span class="lbl">{{ 'ViewPDCChequeResultsMessage.chequeAmount' | translate }}</span>
+            <span class="val amount">{{ selectedData.amount | currency : selectedData.accountCurrency : '' }} <em>{{ selectedData.accountCurrency }}</em></span>
+          </box>
+          <box class="detail">
+            <span class="lbl">{{ 'ViewPDCChequeResultsMessage.nextPdcDate' | translate }}</span>
+            <span class="val">{{ selectedData.nextPdcDate | date : 'dd MMM yyyy' }}</span>
+          </box>
+          <box class="detail">
+            <span class="lbl">{{ 'ViewPDCChequeResultsMessage.branch' | translate }}</span>
+            <span class="val">{{ selectedData.branch }}</span>
+          </box>
+          <box class="detail">
+            <span class="lbl">{{ 'ViewPDCChequeResultsMessage.bank' | translate }}</span>
+            <span class="val">{{ selectedData.bank }}</span>
+          </box>
+        </box>
+        
+        <hr class="h-seperator" />
+  
+        <ng-container *ngIf="selectedData.doViewCheque">
+          <ng-container *ngIf="selectedData.chequeImage; else loader">
+            <box class="cheque-image-wrapper">
+              <img [src]="selectedData.chequeImage" alt="cheque" />
+            </box>
+          </ng-container>
+        </ng-container>
+  
+        <box class="cheque-action">
+          <fpx-button *ngIf="!selectedData.doViewCheque" btn-type="button" btnClass="secondary"
+            label="{{'ViewPDCChequeResultsMessage.viewCheque' | translate}}" (onClick)="viewCheque(selectedData)"></fpx-button>
+          <fpx-button *ngIf="selectedData.chequeImage && selectedData.doViewCheque" btn-type="button" btnClass="secondary"
+            label="{{'ViewPDCChequeResultsMessage.hideCheque' | translate}}" (onClick)="hideCheque(selectedData)"></fpx-button>
+        </box>
+  
+      </box>
+    </box>
+  </ng-template>
+
+
+</ng-template>
+
+
+<!-- Summary form -->
+<ng-template let-selectedData let-i="index" #scheduleTransactionsDtlsListTmplt [fpxControlTemplate]="'scheduleTransactionsDtlsListTmplt'">
+  <box class="transaction-list-item">
+      <ng-container *ngIf="selectedData.rowGroupTitle; else scheduleTransactionDtlsRowData">
+      <box class="row-group-title">{{ selectedData.rowGroupTitle | date : "dd MMM yyyy" }}</box>
+      </ng-container>
+      <ng-template #scheduleTransactionDtlsRowData>
+        <app-retail-schedule-payment-template [index]="i" [selectedData]="selectedData"></app-retail-schedule-payment-template>
+      </ng-template>
+  </box>
+</ng-template>
+
+<!--Transfer History form-->
+<ng-template let-selectedData let-i="index" #transferHistoryListTmplt [fpxControlTemplate]="'transferHistoryListTmplt'">
+  <box class="transaction-list-item">
+    <ng-container *ngIf="selectedData.rowGroupTitle; else scheduleTransactionDtlsRowData">
+    <box class="row-group-title">{{ selectedData.rowGroupTitle | date : "dd MMM yyyy" }}</box>
+    </ng-container>
+    <ng-template #scheduleTransactionDtlsRowData>
+      <app-retail-transfer-history-template [index]="i" [selectedData]="selectedData"></app-retail-transfer-history-template>
+    </ng-template>
+</box>
+</ng-template>
+
+<!--Select Bene Type Form-->
+<ng-template let-selectedData #beneTypeListTmplt [fpxControlTemplate]="'beneTypeListTmplt'">
+  <box class="bene-type-list-item">
+    <box class="bene-type-list-icon-wrapper">
+      <ng-container>
+      <img src="./assets/images/icons/{{selectedData.beneficiaryType}}.svg"  />
+      </ng-container>
+    </box>
+    <box class="bene-type-list-info">
+        <span class="transferType">{{selectedData.beneDescription | translate}}</span>
+        <span class="transferContent">{{selectedData.description}}</span>
+    </box>
+  </box>
+</ng-template>
+
+<!-- Favourite Tranasction List -->
+<ng-template let-selectedData let-i="index" #favouriteTransactionsDtlsListTmplt [fpxControlTemplate]="'favouriteTransactionsDtlsListTmplt'">
+  <box *ngIf="selectedData.serviceCode == 'initiate' else favTransaction" class="fav-init-transfer">
+    <box class="fav-init-transfer-icon fav-transaction-item">
+        <img src="./assets/images/transfers/plus.svg" alt="init a transaction" />
+    </box>
+    <box class="fav-init-transfer-name">{{ 'favouriteTransaction.initTransaction' | translate }}</box>
+  </box>
+  <ng-template #favTransaction>
+    <box class="fav-transaction-item">
+      <box class="fav-transaction-icon">
+        <ng-container *ngIf="selectedData.icon; else nameTemplate">
+          <img *ngIf="selectedData.icon" src="./assets/images/transfers/{{selectedData.icon}}.svg"
+            alt="transactionCategory" />
+        </ng-container>
+        <ng-template #nameTemplate>
+          <span >{{selectedData.initial}}</span>
+        </ng-template>
+      </box>
+      <box class="fav-transaction-name">
+        {{selectedData.beneName}}</box>
+      <box class="fav-transaction-amount">{{ selectedData.paymentAmount | currency : selectedData.paymentCurrency : '' }} <em>{{selectedData.paymentCurrency}}</em></box>
+    </box>
+  </ng-template>
+  
+</ng-template>
+
+<!-- Manage Bene form -->
+<ng-template let-selectedData let-i="index" #manageBeneListTmplt [fpxControlTemplate]="'manageBeneListTmplt'">
+  <app-retail-manage-beneficiary-template [index]="i" [selectedData]="selectedData"></app-retail-manage-beneficiary-template>
+</ng-template>
+
+<!-- Dc Transaction Summary form -->
+<ng-template let-selectedData let-i="index" #dcTransactionsDtlsListTmplt [fpxControlTemplate]="'dcTransactionsDtlsListTmplt'">
+  <box class="transaction-list-item">
+      <ng-container *ngIf="selectedData.rowGroupTitle; else scheduleTransactionDtlsRowData">
+      <box class="row-group-title">{{ selectedData.rowGroupTitle }}</box>
+      </ng-container>
+      <ng-template #scheduleTransactionDtlsRowData>
+        <app-retail-dc-transfer-history-template [index]="i" [selectedData]="selectedData"></app-retail-dc-transfer-history-template>
+      </ng-template>
+  </box>
+</ng-template>
+
+<!-- Cc Transaction Summary form -->
+<ng-template let-selectedData let-i="index" #ccTransactionsDtlsListTmplt [fpxControlTemplate]="'ccTransactionsDtlsListTmplt'">
+  <box class="transaction-list-item">
+      <ng-container *ngIf="selectedData.rowGroupTitle; else scheduleTransactionDtlsRowData">
+      <box class="row-group-title">{{ selectedData.rowGroupTitle }}</box>
+      </ng-container>
+      <ng-template #scheduleTransactionDtlsRowData>
+        <app-retail-cc-transfer-history-template [index]="i" [selectedData]="selectedData"></app-retail-cc-transfer-history-template>
+      </ng-template>
+  </box>
+</ng-template>
+
+<!-- Pc Transaction Summary form -->
+<ng-template let-selectedData let-i="index" #pcTransactionsDtlsListTmplt [fpxControlTemplate]="'pcTransactionsDtlsListTmplt'">
+  <box class="transaction-list-item">
+      <ng-container *ngIf="selectedData.rowGroupTitle; else scheduleTransactionDtlsRowData">
+      <box class="row-group-title">{{ selectedData.rowGroupTitle }}</box>
+      </ng-container>
+      <ng-template #scheduleTransactionDtlsRowData>
+        <app-retail-pc-transfer-history-template [index]="i" [selectedData]="selectedData"></app-retail-pc-transfer-history-template>
+      </ng-template>
+  </box>
+</ng-template>
+
+<!-- View All favourite transfer form -->
+<ng-template let-selectedData let-i="index" #viewFavTransferListTmplt [fpxControlTemplate]="'viewFavTransferListTmplt'">
+  <box class="transaction-list-item">
+      <ng-container *ngIf="selectedData.rowGroupTitle; else scheduleTransactionDtlsRowData">
+      <box class="row-group-title">{{ selectedData.rowGroupTitle | date : "dd MMM yyyy" }}</box>
+      </ng-container>
+      <ng-template #scheduleTransactionDtlsRowData>
+        <app-retail-view-all-fav-transfer-template [index]="i" [selectedData]="selectedData"></app-retail-view-all-fav-transfer-template>
+      </ng-template>
+  </box>
+</ng-template>
+
+<!-- NPSS savings account list -->
+<ng-template let-selectedData #savingsAccountRoTmplt [fpxControlTemplate]="'savingsAccountRoTmplt'">
+  <app-savings-account-list-ro-tmplt [selectedData]="selectedData"></app-savings-account-list-ro-tmplt>
+</ng-template>
+
+<!-- Content loader -->
+<ng-template #loader>
+  <box class="loading"></box>
+</ng-template>
+
+<!--Disbursement Schedule-->
+<ng-template let-selectedData let-i="index" #disburseScheduleTmplt [fpxControlTemplate]="'disburseScheduleTmplt'">
+  <box class="disburse-schedule-item">
+    <box class="disburse-schedule-info">
+      <box class="disburse-schedule-primary-info">
+          <!-- <span class="month">{{ selectedData.disbursalDate | date : "dd MMM yyyy" }}</span> -->
+          <span class="date">{{ selectedData.disbursalDate | date : "dd MMM yyyy" }} </span>
+      </box>
+      <box class="disbursal-schedule-detail">
+      <box class="disburse-schedule-secondary-info">
+        <span class="name">{{ selectedData.disbursalTo }}</span>
+        <span class="account">A/c: {{ selectedData.loanAccountNumber }}</span>
+        <span class="type">Type: {{ selectedData.disbursalType }}</span>
+        <!-- <span class="description">Standard Chartered</span> -->
+      </box>
+    <box class="disburse-schedule-tertiary-info">
+      <span class="amount">{{ selectedData.disbursalAmount  | currency : selectedData.currency : ''}}</span>
+      <span class="transfer">{{ selectedData.paymentMode }}</span>
+      <span class="disbursal-detail">{{ selectedData.disbursalStatus }}</span>
+    </box>
+  </box>
+  </box> 
+  </box>
+</ng-template>
+
+<!--Repayment Schedule-->
+<ng-template let-selectedData let-i="index" #repaymentScheduleTmplt [fpxControlTemplate]="'repaymentScheduleTmplt'">
+  <box class="repayment-schedule-item">
+    <box class="repayment-schedule-info">
+      <box class="repayment-schedule-primary-info">
+        <span class="month">{{ selectedData.repaymentDate | date: 'MMM' }} </span>
+        <span class="date">{{ selectedData.repaymentDate | date: 'dd' }}</span>
+      </box>
+      <box class="repayment-schedule-detail">
+      <box class="repayment-schedule-secondary-info">
+        <span class="emi">EMI: {{ selectedData.installmentAmount | currency : selectedData.currency : ''}}</span>
+        <span class="interest">Int: {{ selectedData.interestAmount | currency : selectedData.currency : ''}}</span>
+      </box>
+    <box class="repayment-schedule-tertiary-info">
+      <span class="principal">Principal: {{ selectedData.loanAmount | currency : selectedData.currency : ''}}</span>
+      <span class="outStanding">O/S: {{ selectedData.principalOutstandingAmount | currency : selectedData.currency : ''}}</span>
+    </box>
+  </box>
+  </box> 
+  </box>
+</ng-template>
+<!--lOAN Repayment Schedule-->
+<ng-template let-selectedData let-i="index" #loanRepaymentScheduleTmplt [fpxControlTemplate]="'loanRepaymentScheduleTmplt'">
+  <box class="repayment-schedule-item">
+    <box class="repayment-schedule-info">
+      <box class="repayment-schedule-primary-info">
+        <span class="month">{{ selectedData.nextDueDate | date: 'MMM' }} </span>
+        <span class="date">{{ selectedData.nextDueDate | date: 'dd' }}</span>
+      </box>
+      <box class="repayment-schedule-detail">
+      <box class="repayment-schedule-secondary-info">
+        <span class="emi">EMI: {{ selectedData.emi | currency : selectedData.currency : ''}}</span>
+        <span class="interest">Int: {{ selectedData.interestAmount | currency : selectedData.currency : ''}}</span>
+      </box>
+    <box class="repayment-schedule-tertiary-info">
+      <span class="principal">Principal: {{ selectedData.principalAmount | currency : selectedData.currency : ''}}</span>
+      <span class="outStanding">O/S: {{ selectedData.principalOutstanding | currency : selectedData.currency : ''}}</span>
+    </box>
+  </box>
+  </box> 
+  </box>
+</ng-template>
+<!--Contact List-->
+<ng-template let-selectedData let-i="index" #contactListTmplt [fpxControlTemplate]="'contactListTmplt'">
+  <box class="contact-summary">
+    <box class="contact-details col-lg-12">
+      <box class="logo-container">
+        <div class="logo-content">
+          {{selectedData.displayName?.charAt(0)}}
+        </div>
+      </box>
+      <box class="contact-primary-info">
+        <span class="bene-name">
+          {{selectedData.displayName}}
+        </span>
+        <span class="phone-number">
+          {{selectedData.phoneNumber}}
+        </span>
+        <!-- <span class="separator"></span> -->
+      </box>
+     </box>
+  </box>
+
+</ng-template>
+<ng-template let-selectedData let-i="index" #miniSavedBillerTmplt [fpxControlTemplate]="'miniSavedBillerTmplt'">
+  <box class="saved-biller-item" title="{{selectedData.billerId?.name}}">
+    <box class="saved-biller-icon">
+      <ng-container *ngIf="selectedData?.billerId?.billerIcon; else noPhoto">
+        <img [src]="'./assets/images/billers/'+selectedData?.billerId?.billerIcon" />
+    </ng-container>
+    <ng-template #noPhoto>
+        <img [src]="'./assets/images/billers/'+selectedData?.billerId?.category?.billercatIcon" />
+    </ng-template>
+    </box>
+    <box  class="saved-biller-name">
+      {{selectedData?.nickName}}</box>
+    <box class="saved-biller-credit-account">{{selectedData?.billerCreditAccount}}</box>
+  </box>
+</ng-template>
+
+
+<ng-template let-selectedData let-i="index" #miniBillerCategoryTmplt [fpxControlTemplate]="'miniBillerCategoryTmplt'">
+      <span  class="icon-wrapper">
+        <img [src]="'./assets/images/billers/'+selectedData?.billercatIcon" />
+      </span>
+      <!-- <span title="{{selectedData?.groupCode?.description}}" class="text">{{selectedData?.shortDescription}}</span> -->
+      <span title="{{selectedData?.groupCode?.description}}" class="text">{{ getBillerCatDesc(selectedData) }}</span>
+</ng-template>
+
+
+<ng-template let-selectedData let-i="index" #upcomingBillTmplt [fpxControlTemplate]="'upcomingBillTmplt'">
+  <box class="upcoming-main-container">
+    <box class="upcoming-left-container">
+      <box  class="icon-wrapper">
+        <ng-container *ngIf="selectedData?.billerId?.billerIcon; else noPhoto">
+            <img [src]="'./assets/images/billers/'+selectedData?.billerId?.billerIcon" />
+        </ng-container>
+        <ng-template #noPhoto>
+            <img [src]="'./assets/images/billers/'+selectedData?.billerId?.category?.billercatIcon" />
+        </ng-template>
+      </box>
+      <box  class="upcoming-detail">
+        <box *ngIf="selectedData?.date" class="due-date" [innerHTML]="selectedData?.date"></box>
+        <box class="biller-name">{{selectedData?.billerName}}</box>
+        <box class="biller-credit-account">{{selectedData?.billerCreditAccount}}</box>
+      </box>
+    </box>
+    <box class="upcoming-right-container">
+      <box class="upcoming-amount">
+        {{selectedData?.amount}}
+      </box>
+      <box class="pay-button-container">
+        <button class="link bill-pay-btn"><span>{{'PAYMENTSCONTAINER.payNowBtn' | translate}}</span></button>
+      </box>
+    </box>
+  </box>
+
+
+</ng-template>
+
+<ng-template let-selectedData let-i="index" #billHistoryTmplt [fpxControlTemplate]="'billHistoryTmplt'">
+
+  <box class="transaction-list-item">
+    <ng-container *ngIf="selectedData.rowGroupTitle; else paymentHistoryRowData">
+    <box class="row-group-title">{{ selectedData.rowGroupTitle}}</box>
+    </ng-container>
+    <ng-template #paymentHistoryRowData>
+      <app-retail-bill-history-template [index]="i" [selectedData]="selectedData"></app-retail-bill-history-template>
+    </ng-template>
+</box>
+</ng-template>
+
+<ng-template let-selectedData let-i="index" #billerListTmplt [fpxControlTemplate]="'billerListTmplt'">
+  <box class="biller-main-container">
+    <box class="biller-left-container">
+      <box  class="icon-wrapper">
+        <ng-container *ngIf="selectedData?.billerIcon; else noPhoto">
+            <img [src]="'./assets/images/billers/'+selectedData?.billerIcon" />
+        </ng-container>
+        <ng-template #noPhoto>
+          <span *ngIf="selectedData.shortName">{{(selectedData.shortName.split('
+            ')[0]?.charAt(0))+''+((selectedData.shortName.split('
+            ')[1])?(selectedData.shortName?.split(' ')[1]?.charAt(0)):'')}}</span>
+            <!-- <img [src]="'./assets/images/billers/'+selectedData?.billerId?.category?.billercatIcon" /> -->
+        </ng-template>
+      </box>
+      <box class="biller-detail">
+        <box class="biller-name">{{selectedData?.shortName}}</box>
+      </box>
+    </box>
+  </box>
+
+
+</ng-template>
+
+<ng-template let-selectedData let-i="index" #savedBillerTmplt [fpxControlTemplate]="'savedBillerTmplt'">
+<app-retail-saved-biller-template [index]="i" [selectedData]="selectedData"></app-retail-saved-biller-template>
+</ng-template>
+
+<ng-template let-selectedData let-i="index" #viewScheduledBillsTmplt [fpxControlTemplate]="'viewScheduledBillsTmplt'">
+  <app-retail-view-scheduled-bills-template [index]="i" [selectedData]="selectedData"></app-retail-view-scheduled-bills-template>
+  </ng-template>
+
+<ng-template let-selectedData let-i="index" #categoryGroupbillerListTmplt [fpxControlTemplate]="'categoryGroupbillerListTmplt'">
+
+  <box class="transaction-list-item">
+    <ng-container *ngIf="selectedData?.rowGroupTitle; else paymentHistoryRowData">
+    <box class="row-group-title">{{ selectedData?.rowGroupTitle}}</box>
+    </ng-container>
+    <ng-template #paymentHistoryRowData>
+      <app-retail-biller-category-template [index]="i" [selectedData]="selectedData"></app-retail-biller-category-template>
+    </ng-template>
+</box>
+</ng-template>
+
+<!--VIEW SERVICE REQUESTS-->
+<ng-template let-selectedData let-i="index" #viewServiceRequestTmplt [fpxControlTemplate]="'viewServiceRequestTmplt'">
+  <box class="service-request-item">
+    <box class="service-request-info">
+      <box class="service-request-primary-info">
+          <span class="date">{{ selectedData.initOn | date: 'MMM dd' }}</span>
+          <span class="desc">{{ selectedData.subject }} </span>
+          <span class="request-details">
+            <span class="category">{{ selectedData.serviceCategory?.description }}</span>
+          <span class="ref-num">Ref #:{{ selectedData.sourceReference }} </span>
+          </span>
+          <span class="status" [ngClass]="(selectedData.status).toLowerCase()">{{ selectedData.status}}</span>
+      </box>
+      <box class="service-request-secondary-info">
+        <img src="./assets/images/icons/next-arrow.svg" alt="next-arrow">
+    </box>
+  </box> 
+  </box>
+</ng-template>
+
+
+<ng-template let-selectedData let-i="index" #mailboxMessagesTmplt [fpxControlTemplate]="'mailboxMessagesTmplt'">
+  <app-view-msgs-tmplt [index]="i" [selectedData]="selectedData"></app-view-msgs-tmplt>
+</ng-template>
+
+
+
+<ng-template let-selectedData let-i="index" #manageAlertTmpl [fpxControlTemplate]="'manageAlertTmpl'">
+  <app-retail-manage-alert-template [index]="i" [selectedData]="selectedData"></app-retail-manage-alert-template>
+</ng-template>
+
+
+<ng-template let-selectedData let-i="index" #manageUserAlertTmpl [fpxControlTemplate]="'manageUserAlertTmpl'">
+  <app-retail-user-alert-template [index]="i" [selectedData]="selectedData"></app-retail-user-alert-template>  
+</ng-template>
+
+
+<ng-template let-selectedData let-i="index" #fxRatesTmpl [fpxControlTemplate]="'fxRatesTmpl'">
+  <box class="fx-rates-container">
+    <box class="rates-country-flag">
+      <span class="{{selectedData.countryLogo}}"></span>
+    </box>
+    <box class="rates-currency-container">
+      <span class="rates-currency">{{selectedData.currencyDesc | translate}}</span>
+    </box>
+    <box class="buy-rate">
+      {{selectedData.buyRate | translate}}
+    </box>
+    <box class="sell-rateg">
+      {{selectedData.sellRate | translate}}
+    </box>
+  </box>
+</ng-template>
+
+
+<ng-template let-selectedData let-i="index" #manageAuthenticatedDeviceTmpl [fpxControlTemplate]="'manageAuthenticatedDeviceTmpl'">
+  <app-retail-manage-authenticated-device-template [index]="i" [selectedData]="selectedData"></app-retail-manage-authenticated-device-template>  
+
+</ng-template>
+
+<!---Selected Contact-->
+<ng-template let-selectedData let-i="index" #selectedContactTmplt [fpxControlTemplate]="'selectedContactTmplt'">
+  <box class="display-contact">
+    <box class="display-contact-info">
+     
+      <box class="display-contact-logo">
+        <fpx-button btnClass="close-btn" buttonMode="imageButton" src='./assets/images/icons/close.svg'></fpx-button>
+        <span>{{selectedData.displayName?.charAt(0)}}</span>
+      </box>
+      <box class="display-contact-name">
+      <span class="bene-name">
+         {{selectedData.displayName}}
+      </span>
+    </box>
+    </box>
+  </box>
+</ng-template>
+
+
+<ng-template let-selectedData let-i="index" #contactsBeneListTmplt [fpxControlTemplate]="'contactsBeneListTmplt'">
+  <app-contacts-bene-list-tmplt [index]="i" [selectedData]="selectedData"></app-contacts-bene-list-tmplt>  
+</ng-template>
+
+<ng-template let-selectedData let-i="index" #selectContactListTmplt [fpxControlTemplate]="'selectContactListTmplt'">
+  <box class="contact-summary">
+    <box class="contact-details">
+      <box class="logo-container">
+        <div class="logo-content">
+          {{selectedData.displayName?.charAt(0)}}
+        </div>
+      </box>
+      <box class="contact-primary-info">
+        <span class="bene-name">
+          {{selectedData.displayName}}
+        </span>
+        <span class="phone-number">
+          {{selectedData.phoneNumber}}
+        </span>
+      </box>
+      <box *ngIf="selectedData.isSelected" class="contact-secondary-info">
+        <img src="./assets/images/icons/tick.svg" alt="tick" />
+      </box>
+     </box>
+  </box>
+</ng-template>
+
+<ng-template let-selectedData let-i="index" #profileDocTempl [fpxControlTemplate]="'profileDocTempl'">
+  <app-profile-doc-template [index]="i" [selectedData]="selectedData"></app-profile-doc-template>  
+</ng-template>
+
+<!-- BIC code grid -->
+<ng-template let-selectedData let-i="index" #bicDtlsListTmplt [fpxControlTemplate]="'bicDtlsListTmplt'">
+  <box class="bic-data-item">
+    <!-- <fpx-display-text class="bank-name" [innerHTML]="'Bank Name: Smart Bank'"></fpx-display-text> -->
+     <span class="branch-address">{{'bicDtlsListTmplt.branchName' | translate : { branchName: selectedData.branchName } }}</span>
+     <span class="branch-address">{{'bicDtlsListTmplt.bic' | translate : { bic: selectedData.bic } }}</span>
+  </box>
+</ng-template>
+
+<ng-template let-selectedData let-i="index" #nomineeDtlGirdTmplt [fpxControlTemplate]="'nomineeDtlGirdTmplt'">
+    <app-retail-nominee-dtl-template [index]="i" [selectedData]="selectedData"></app-retail-nominee-dtl-template>
+</ng-template>
+
+<!-- Schedule Bills form -->
+<ng-template let-selectedData let-i="index" #scheduleBillsDtlsListTmplt
+  [fpxControlTemplate]="'scheduleBillsDtlsListTmplt'">
+  <box class="transaction-list-item">
+    <ng-container>
+      <app-retail-schedule-bills-template class="schedule-template" [index]="i"
+        [selectedData]="selectedData"></app-retail-schedule-bills-template>
+    </ng-container>
+  </box>
+</ng-template>
+
+<!-- Schedule Transfers form -->
+<ng-template let-selectedData let-i="index" #scheduleTransfersDtlsListTmplt
+  [fpxControlTemplate]="'scheduleTransfersDtlsListTmplt'">
+  <box class="transaction-list-item">
+    <ng-container>
+      <app-retail-schedule-transfer-template class="schedule-template" [index]="i"
+        [selectedData]="selectedData"></app-retail-schedule-transfer-template>
+    </ng-container>
+  </box>
+</ng-template>
+<!--Scheduled Bill Mobile View-->
+<ng-template let-selectedData let-i="index" #viewScheduledBillsMobTmplt [fpxControlTemplate]="'viewScheduledBillsMobTmplt'">
+  <box class="transaction-list-item">
+    <ng-container>
+      <app-view-scheduled-bills-mob-tmplt  [index]="i"
+        [selectedData]="selectedData"></app-view-scheduled-bills-mob-tmplt>
+    </ng-container>
+  </box>
+</ng-template>
+<!--View Schedule Transafers Desktop View-->
+<!-- <ng-template let-selectedData let-i="index" #viewscheduleTransactionsDtlsListTmplt [fpxControlTemplate]="'viewscheduleTransactionsDtlsListTmplt'">
+  <retail-view-schedule-transfers-template [index]="i" [selectedData]="selectedData"></retail-view-schedule-transfers-template>
+  </ng-template> -->
+
+
+<ng-template let-selectedData let-i="index" #viewscheduleTransactionsDtlsListTmplt
+  [fpxControlTemplate]="'viewscheduleTransactionsDtlsListTmplt'">
+  <box class="transaction-list-item">
+    <ng-container *ngIf="selectedData.rowGroupTitle; else scheduleTransactionDtlsRowData">
+      <box class="row-group-title">{{ selectedData.rowGroupTitle}}</box>
+    </ng-container>
+    <ng-template #scheduleTransactionDtlsRowData>
+      <retail-view-schedule-transfers-template [index]="i"
+        [selectedData]="selectedData"></retail-view-schedule-transfers-template>
+    </ng-template>
+  </box>
+</ng-template>
+
+<!--View Schedule Transafers Mobile View-->
+<ng-template let-selectedData let-i="index" #viewscheduleTransfersMobTmplt [fpxControlTemplate]="'viewscheduleTransfersMobTmplt'">
+  <retail-view-schedule-transfers-mob-template [index]="i" [selectedData]="selectedData"></retail-view-schedule-transfers-mob-template>
+  </ng-template>
+<!-- Membership Transactions List -->
+<ng-template let-selectedData #MembershipTranDtlsListTmplt [fpxControlTemplate]="'MembershipTranDtlsListTmplt'">
+  <app-membership-tran-dtls-tmplt [selectedData]="selectedData"></app-membership-tran-dtls-tmplt>
+</ng-template>
+<!-- E Transfer Contact  -->
+<ng-template let-selectedData let-i="index" #etransfercontactTmplt [fpxControlTemplate]="'etransfercontactTmplt'">
+  <app-etransfercontacttmplt [index]="i" [selectedData]="selectedData"></app-etransfercontacttmplt>
+</ng-template>
+<!-- E Transfer Contact  -->
+<!-- E Transfer Auto deposit  -->
+<ng-template let-selectedData let-i="index" #eTransferAutoDepositTmplt
+  [fpxControlTemplate]="'eTransferAutoDepositTmplt'">
+  <box class="transaction-list-item">
+      <app-retail-etransfer-auto-deposit-template [index]="i"
+        [selectedData]="selectedData"></app-retail-etransfer-auto-deposit-template>
+  </box>
+</ng-template>
+
+<!-- E Transfer History  -->
+<ng-template let-selectedData let-i="index" #eTransferHistoryTmplt [fpxControlTemplate]="'eTransferHistoryTmplt'">
+  <box class="transaction-list-item">
+    <ng-container *ngIf="selectedData.rowGroupTitle; else scheduleTransactionDtlsRowData">
+      <box class="row-group-title">{{ selectedData.rowGroupTitle}}</box>
+    </ng-container>
+    <ng-template #scheduleTransactionDtlsRowData>
+      <app-etransfer-history-template [index]="i" [selectedData]="selectedData"></app-etransfer-history-template>
+    </ng-template>
+  </box>
+</ng-template>
+<!-- Favourite Etransfer Tranasction List -->
+<ng-template let-selectedData let-i="index" #favouriteETransactionsDtlsListTmplt
+  [fpxControlTemplate]="'favouriteETransactionsDtlsListTmplt'">
+  <box *ngIf="selectedData.serviceCode == 'initiate' else favTransaction" class="fav-init-transfer">
+    <box class="fav-init-transfer-icon fav-transaction-item">
+      <img src="./assets/images/transfers/plus.svg" alt="init a transaction" />
+    </box>
+    <box class="fav-init-transfer-name">{{ 'favouriteTransaction.initTransaction' | translate }}</box>
+  </box>
+  <ng-template #favTransaction>
+    <box class="fav-transaction-item">
+      <box class="fav-transaction-icon">
+        <ng-container *ngIf="selectedData.icon; else nameTemplate">
+          <img *ngIf="selectedData.icon" src="./assets/images/transfers/{{selectedData.icon}}.svg"
+            alt="transactionCategory" />
+        </ng-container>
+        <ng-template #nameTemplate>
+          <span>{{selectedData.initial}}</span>
+        </ng-template>
+      </box>
+      <box class="fav-transaction-data">
+        <box class="fav-transaction-name">
+          {{selectedData.beneName}}
+        </box>
+        <box class="fav-transaction-amount">${{ selectedData.paymentAmount | currency : selectedData.paymentCurrency : ''
+          }}</box>
+      </box>
+    </box>
+  </ng-template>
+
+</ng-template>
+<!-- View All favourite etransfer form -->
+<ng-template let-selectedData let-i="index" #viewFavETransferListTmplt
+  [fpxControlTemplate]="'viewFavETransferListTmplt'">
+      <app-retail-view-all-fav-etransfer-template [index]="i"
+        [selectedData]="selectedData"></app-retail-view-all-fav-etransfer-template>
+</ng-template>
+<!-- Retail Stop Cheque Revoke Mobile Template -->
+<ng-template let-selectedData let-i="index" #retailstopchequeTmplt [fpxControlTemplate]="'retailstopchequeTmplt'">
+  <box class="transaction-list-item">
+    <ng-container *ngIf="selectedData.rowGroupTitle; else scheduleTransactionDtlsRowData">
+      <box class="row-group-title">{{ selectedData.rowGroupTitle}}</box>
+    </ng-container>
+    <ng-template #scheduleTransactionDtlsRowData>
+      <app-retail-stop-cheque-revoke-template [index]="i" [selectedData]="selectedData"></app-retail-stop-cheque-revoke-template>
+    </ng-template>
+  </box>
+</ng-template>
+
+<!-- E Transfer Scheduled  -->
+<ng-template let-selectedData let-i="index" #eTransferScheduledTmplt [fpxControlTemplate]="'eTransferScheduledTmplt'">
+  <box class="transaction-list-item">
+    <ng-container *ngIf="selectedData.rowGroupTitle; else scheduleTransactionDtlsRowData">
+      <box class="row-group-title">{{ selectedData.rowGroupTitle}}</box>
+    </ng-container>
+    <ng-template #scheduleTransactionDtlsRowData>
+      <app-etransfer-scheduled-template [index]="i" [selectedData]="selectedData"></app-etransfer-scheduled-template>
+    </ng-template>
+  </box>
+</ng-template>
+<!-- Deposits Transactions List -->
+<ng-template let-selectedData let-i="index" #depositsTransactionsDtlsListTmplt [fpxControlTemplate]="'depositsTransactionsDtlsListTmplt'">
+  <box class="transaction-list-item">
+    <ng-container *ngIf="selectedData.rowGroupTitle; else scheduleTransactionDtlsRowData">
+      <box class="row-group-title">{{ selectedData.rowGroupTitle}}</box>
+    </ng-container>
+    <ng-template #scheduleTransactionDtlsRowData>
+      <app-deposits-transactions-dtls-tmplt [index]="i" [selectedData]="selectedData"></app-deposits-transactions-dtls-tmplt>
+    </ng-template>
+  </box>
+</ng-template>
+

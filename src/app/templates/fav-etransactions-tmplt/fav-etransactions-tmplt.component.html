@@ -1,0 +1,23 @@
+<box *ngIf="selectedData.serviceCode == 'initiate' else favTransaction" class="fav-init-transfer">
+    <box class="fav-init-transfer-icon fav-transaction-item">
+        <div class="icon-mask"></div>
+      </box> 
+    <box class="fav-init-transfer-name">{{ 'favouriteETransaction.initTransaction' | translate }}</box>
+</box>
+<ng-template #favTransaction>
+    <box class="fav-transaction-item">
+        <box class="fav-transaction-icon">
+            <ng-container *ngIf="selectedData.icon; else nameTemplate">
+                <img *ngIf="selectedData.icon" src="./assets/images/transfers/{{selectedData.icon}}.svg"
+                    alt="transactionCategory" />
+            </ng-container>
+            <ng-template #nameTemplate>
+                <span>{{selectedData.initial}}</span>
+            </ng-template>
+        </box>
+        <box class="fav-transaction-name">
+            {{selectedData.beneName}}</box>
+        <box class="fav-transaction-amount">{{ selectedData.paymentAmount | currency : selectedData.paymentCurrency : ''
+            }} <em>{{selectedData.paymentCurrency}}</em></box>
+    </box>
+</ng-template>

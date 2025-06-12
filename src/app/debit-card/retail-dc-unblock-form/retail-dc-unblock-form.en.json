@@ -1,0 +1,42 @@
+"retaildcunblock":{
+"title":"Retail Debit Card Unblock",
+		 "cardReference": {
+		  "label":" Debit Card" ,
+		  "placeholder": " Debit Card"
+		  } ,
+		 "debitcardblockreason": {
+		  "label":"Block Reason" ,
+		  "placeholder": "Block Reason"
+		  } ,
+		 "reason": {
+		  "label":"Unblock Reason" ,
+		  "placeholder": "Unblock Reason"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		  "charges":{
+			"label":"Charges",
+			"placeholder":"Charges"
+		  },
+		 "FieldId_6": {
+		   "text":"" ""
+		 } ,
+		 "blockReason":{
+			"label":"Block Reason",
+			"placeholder":"Block Reason"
+		  },
+		  "otherReason":{
+			"label":"Other Reason",
+			"placeholder":"Other Reason"
+		  },
+		  "unBlockOtherReason":{
+			"label":"Unblock Other Reason",
+			"placeholder":"Unblock Other Reason"
+		  },
+}

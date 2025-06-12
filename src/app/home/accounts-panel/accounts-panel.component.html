@@ -1,0 +1,317 @@
+<box class="product-type-panel accounts-panel">
+    <!-- <ng-container *ngIf="casaAccounts; else portfolioheaderLoader"> -->
+         <!-- <box *ngIf="!device.isMobile()" class="panel-header">
+            <box>
+                <span class="panel-title banking">{{ 'accountsPanel.title' | translate }}</span>
+            </box>
+            <box class="panel-actions"> 
+                 <button class="action change-account" (click)="onAccountChangeClick()">
+                    <span class="lbl" [innerHTML]="'accountsPanel.changeAccount' | translate"></span>
+                </button> 
+                 <button class="action new-account">
+                    <span class="lbl" [innerHTML]="'accountsPanel.newAccount' | translate"></span>
+                </button>
+            </box>
+        </box>  -->
+    <!-- </ng-container> -->
+    <ng-container *ngIf="casaAccounts; else loader">
+        <ng-container *ngIf="!casaAccountsApiFailed else apiErrorTemplate">
+            <ng-container *ngIf="casaAccounts.length > 0; else noAccount">
+                <box class="panel-body">
+                    <ul class="card-wrapper">
+                        <li *ngFor="let account of casaAccounts; let i = index" class="card"
+                            (click)="gotoAccounts(account.accountNumber)">
+                            <ng-container *ngIf="device.isMobile(); else desktopContainer">
+                                <box class="container">
+                                    <box class="account-details">
+                                        <box class="account-type productDesc">{{account.accountNickname ||
+                                            account.productDesc }}</box>
+                                        <box class="account-type">{{ account.accountTypeDesc.replace(' Account', '') }}</box>
+                                        <!-- <box *ngIf="account.ownership == 'Joint' || account.accountStatus == 'Dormant'"
+                                            class="product-additional-details">
+                                            <span class="joint"
+                                                *ngIf="account.ownership == 'Joint'">{{account.ownership}}</span>
+                                            <span class="dormant"
+                                                *ngIf="account.accountStatus == 'Dormant'">{{account.accountStatus}}</span>
+                                        </box> -->
+                                        <box class="tag-wrapper">
+                                            <span class="joint-tag"
+                                                *ngIf="account.ownership && account.ownership.toLowerCase() == 'joint'">{{
+                                                'CASASUMMARYCARD.joint' | translate }}</span>
+                        
+                        
+                                            <span class="dormant-tag"
+                                                *ngIf="account.accountStatus && account.accountStatus?.toLowerCase() == 'dormant'">{{
+                                                account.accountStatus | titlecase }}
+                                                <span class="dormant-info" (click)="openDormantInfo($event)">
+                                                    <span *ngIf="showTooltip" class="tooltip-text">{{dormantInfo | translate}}</span>
+                                                </span>
+                                            </span>
+                                        </box>
+    
+                                    </box>
+                                    <box class="account-info">
+                                        <box class="account-number">{{ account.accountNumber | accountNumberTrim }}</box>
+                                        <box class="balace-details"
+                                            [ngClass]="{ 'usd-account' : account.accountCurrency != this._appConfig.baseCurrency }">
+                                            <ng-container
+                                                *ngIf="account.accountCurrency != this._appConfig.baseCurrency else baseCurrency">
+                                                <box class="amount main-balance  usd-balance">
+                                                    <em class="usd">{{ 'SUFFIXCURRENCY' | currencyCode }}</em>
+                                                    {{ getAbsoluteValue(account.currentBalance) |
+                                                    currency : _appConfig.baseCurrency : '' }}
+                                                    <em>{{ account.accountCurrency == 'USD' ? '$' : account.accountCurrency
+                                                        | currencyCode }}</em>
+                                                    {{checkNegativeValue(account.currentBalance)}}
+                                                </box>
+                                                <!-- <box class="amount balance">
+                                                    {{ getAbsoluteValue(account.baseCurrencyCurrentBal) | currency :
+                                                    account.accountCurrency : '' }} <em>{{
+                                                        _appConfig.baseCurrency | currencyCode }}</em>
+                                                    {{checkNegativeValue(account.baseCurrencyCurrentBal)}}
+                                                </box> -->
+                                            </ng-container>
+                                            <ng-template #baseCurrency>
+                                                <box class="amount main-balance">
+                                                    {{ getAbsoluteValue(account.currentBalance) | currency :
+                                                    account.accountCurrency : '' }}
+                                                    <em>{{ account.accountCurrency | currencyCode }}</em>
+                                                    {{checkNegativeValue(account.currentBalance)}}
+                                                </box>
+                                            </ng-template>
+                                        </box>
+                                    </box>
+                                </box>
+                            </ng-container>
+                            <ng-template #desktopContainer>
+                                <box class="container">
+                                    <box class="left-section">
+                                        <box class="account-details">
+                                            <box class="product-desc">{{account.accountNickname || account.productDesc }}
+                                            </box>
+                                            <box class="product-details">
+                                                <box class="account-type accountTypeDesc">{{ account.accountTypeDesc.replace(' Account', '') }}
+                                                </box>
+                                                <box class="seperator"></box>
+                                                <box class="account-number">{{account.accountNumber | accountNumberTrim}}</box>
+                                            </box>
+                                            <!-- <box *ngIf="account.ownership == 'Joint' || account.accountStatus == 'Dormant'"
+                                                class="product-additional-details">
+                                                <span class="joint"
+                                                    *ngIf="account.ownership == 'Joint'">{{account.ownership}}</span>
+                                                <span class="dormant"
+                                                    *ngIf="account.accountStatus == 'Dormant'">{{account.accountStatus}}</span>
+                                            </box> -->
+                                            <box class="tag-wrapper">
+                                                <span class="joint-tag"
+                                                    *ngIf="account.ownership?.toLowerCase() == 'joint'">{{account.ownership |
+                                                    titlecase}}</span>
+                    
+                                                <span class="dormant-tag"
+                                                    *ngIf="account.accountStatus?.toLowerCase() == 'dormant'">{{account.accountStatus
+                                                    | titlecase }}
+                                                    <button matTooltip={{dormantInfo}} matTooltipClass="custom-tooltip dormant-info" class="dormant-info"  [attr.aria-label]="dormantInfo">
+                                                        <span class="icon-wrapper"></span>
+                                                    </button>
+                                                </span>
+                                            </box>
+                                        </box>
+                                    </box>
+                                    <box class="right-section">
+                                        <box class="balace-details"
+                                            [ngClass]="{ 'usd-account' : account.accountCurrency != this._appConfig.baseCurrency }">
+                                            <ng-container
+                                                *ngIf="account.accountCurrency != this._appConfig.baseCurrency else baseCurrency">
+                                                <box class="amount main-balance  usd-balance">
+                                                    <em class="usd">{{ 'SUFFIXCURRENCY' | currencyCode }}</em>
+                                                    {{ getAbsoluteValue(account.currentBalance) |
+                                                    currency : _appConfig.baseCurrency : '' }}
+                                                    <em>{{ account.accountCurrency == 'USD' ? '$' : account.accountCurrency
+                                                        | currencyCode }}</em>
+                                                    {{checkNegativeValue(account.currentBalance)}}
+                                                </box>
+                                                <!-- <box class="amount balance">
+                                                    {{ getAbsoluteValue(account.baseCurrencyCurrentBal) | currency :
+                                                    account.accountCurrency : '' }} <em>{{
+                                                        _appConfig.baseCurrency | currencyCode }}</em>
+                                                    {{checkNegativeValue(account.baseCurrencyCurrentBal)}}
+                                                </box> -->
+                                            </ng-container>
+                                            <ng-template #baseCurrency>
+                                                <box class="amount main-balance">
+                                                    {{ getAbsoluteValue(account.currentBalance) | currency :
+                                                    account.accountCurrency : '' }}
+                                                    <em>{{ account.accountCurrency | currencyCode }}</em>
+                                                    {{checkNegativeValue(account.currentBalance)}}
+                                                </box>
+                                            </ng-template>
+                                        </box>
+    
+                                        <box class="options" [ngClass]="{ 'open-menu-view' : account.displayContextMenu }">
+                                            <ng-container *ngFor="let item of quickMenu">
+                                                <button class="quick-menu-btn"
+                                                    (mouseenter)="showQuickMenuTooltip($event, item, account)"
+                                                    (mouseleave)="showQuickMenuTooltip($event, item, account)"
+                                                    (click)="openLink(item, $event,account)" [attr.aria-label]="item.serviceDescription"
+                                                    [ngClass]="{ 'hide-pay-bill' : ((item.serviceCode == 'RETAILMULTIBILLREQUEST' || item.serviceCode == 'RETAILETRANSFER') && account.accountCurrency == 'USD') }">
+                                                    <span class="icon-wrapper {{item.serviceCode}}"></span>
+                                                    <span *ngIf="item.showTooltip && account.showTooltip" class="lbl custom-tooltip quick-menu-tooltip">{{item.serviceDescription}}</span>
+                                                </button>
+                                            </ng-container>
+                                            <span class="more-options">
+                                                <span class="icon-wrapper more-vertical"
+                                                    [ngClass]="{ 'open-menu-view' : account.displayContextMenu }"
+                                                    (click)="displayContextMenu($event, account, i)"></span>
+                                                <!-- <img src="./assets/images/icons/more-vertical.svg" alt="more options" (click)="displayContextMenu($event, account, i)"/> -->
+                                                <box *ngIf="account.displayContextMenu" (click)="disableActions($event)" class="quick-menu" [ngStyle]="getContextQuickMenuStyle()">
+                                                    <ng-container *ngFor="let item of quickLinks?.slice(this.quickMenuLength)">
+                                                        <li (click)="openLink(item, $event,account)">
+                                                            <span class="icon-wrapper {{ item.serviceCode }}"></span>
+                                                            <box class="menu {{ item.serviceCode }}"
+                                                                [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription">
+                                                            </box>
+                                                        </li>
+                                                        <!-- <ng-container *ngFor="let key of objectKeys(quickLinksGrpObject)">
+                                                            <box class="sub-group-header">{{'CASACONTEXTMENU.' +key | translate}}</box>
+                                                            <ng-container *ngFor="let item of quickLinksGrpObject[key]">
+                                                                <li (click)="openLink(item, $event,account)">
+                                                                    <span class="icon-wrapper {{ item.serviceCode }}"></span>
+                                                                    <box class="menu {{ item.serviceCode }}"
+                                                                        [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription">
+                                                                    </box>
+                                                                </li> -->
+                                                              <!-- <box class="tab slide" [ngClass]="{ active: activeMenu == item.serviceCode }"> -->
+                                                                <!-- <box class="item" (click)="openLink(item)"> -->
+                                                                  <!-- <span class="icon-wrapper {{ item.serviceCode }}"></span> -->
+                                                                  <!-- <span class="text" -->
+                                                                    <!-- [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span> -->
+                                                                <!-- </box> -->
+                                                              <!-- </box> -->
+                                                              <hr
+                                                              *ngIf="item.serviceCode == 'RETAILACCOUNT' || item.serviceCode == 'RETAILCHANGEPRODUCT' || (item.serviceCode == 'RETAILVOIDCHEQUE' && this.currentAccount?.accountType == 'CA')" />
+                                                            </ng-container>
+                                                            
+                                                          <!-- </ng-container> -->
+                                                        
+                                                    <!-- </ng-container> -->
+                                                </box>
+                                            </span>
+                                        </box>
+                                    </box>
+                                </box>
+                            </ng-template>
+                            <box *ngIf="device.isMobile()" class="options"
+                                [ngClass]="{ 'open-menu-view' : account.displayContextMenu }">
+                                <!-- <ng-container *ngFor="let item of quickMenu">
+                                    <button matTooltip={{item.serviceDescription}} matTooltipClass="custom-tooltip" class="quick-menu-btn" (click)="openLink(item)">
+                                        <span class="icon-wrapper {{item.serviceCode}}"></span>
+                                    </button>
+                                </ng-container> -->
+    
+                                <span class="more-options">
+                                    <span class="icon-wrapper more-vertical"
+                                        [ngClass]="{ 'open-menu-view' : account.displayContextMenu }"
+                                        (click)="displayContextMenu($event, account, i)"></span>
+                                    <!-- <img src="./assets/images/icons/more-vertical.svg" alt="more options"
+                                        (click)="displayContextMenu($event, account, i)" /> -->
+                                </span>
+                            </box>
+    
+                            <!-- <box *ngIf="!device.isMobile()" class="hover-actions">
+                                <button class="hov-button" (click)="sendMoney($event)">
+                                    <span class="hov-action send-money" [innerHTML]="'accountsPanel.sendMoney' | translate"></span>
+                                </button>
+                                <button class="hov-button" (click)="payBill($event)">
+                                    <span class="hov-action pay-bill" [innerHTML]="'accountsPanel.payBill' | translate"></span>
+                                </button>
+                                <span class="more-options">
+                                    <img src="./assets/images/icons/more-vertical.svg" alt="more options" (click)="displayContextMenu($event, account)"/>
+                                </span>
+                            </box> -->
+                        </li>
+                    </ul>
+                    <box class="panel-footer">
+                        <box class="total" *ngIf="device.isMobile()">
+                            <span class="total-lbl">{{ 'accountsPanel.banking.total' | translate }}</span>
+                            <box class="balace-details">
+                                <!-- <span *ngIf="this.accountCurrency" class="total-balance amount"> {{ total?.totalUSD.amount |
+                                    currency : accountCurrency : '' }} <em>{{ accountCurrency | currencyCode }}</em></span> -->
+                                <span class="total-balance amount"> {{ getAbsoluteValue(total?.totalCAD) | currency : _appConfig.baseCurrency
+                                    : '' }}
+                                    <em>{{ _appConfig.baseCurrency | currencyCode }}</em>
+                                    {{checkNegativeValue(total?.totalCAD)}}
+                                </span>
+
+                            </box>
+                        </box>
+                    </box>
+    
+                    
+                    <box *ngIf="'RETAILOPENNEWCASA' | AccessScope" 
+                        class="panel-button-container">
+                        <button class="new-account-footer" (click)="newAccount($event)">{{'accountsPanel.newAccount' |
+                            translate}}</button>
+                    </box>
+                </box>
+            </ng-container>
+        </ng-container>
+   
+        <box *ngIf="device.isMobile()" class="panel-actions">
+            <button class="action new-account" (click)="newAccount($event)">
+                <span class="icon-wrapper new-account"></span>
+                <!-- <img src="./assets/images/icons/new-account.svg" alt="" srcset=""> -->
+                <span class="lbl" [innerHTML]="'accountsPanel.newAccount' | translate"></span>
+            </button>
+        </box>
+    </ng-container>
+</box>
+<!-- <ng-container *ngIf="isDisplayContextMenu">
+    <ng-container *ngIf="quickLinks">
+        <box class="quick-menu" [ngStyle]="getContextMenuStyle()">
+            <ng-container *ngFor="let item of quickLinks.slice(3)">
+                <li (click)="openLink(item)">
+                    <span class="icon-wrapper {{ item.serviceCode }}"></span>
+                    <box class="menu {{ item.serviceCode }}"
+                        [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription">
+                    </box>
+                </li>
+                <hr
+                    *ngIf="item.serviceCode == 'RETAILACCOUNT' || item.serviceCode == 'RETAILCHANGEPRODUCT' || (item.serviceCode == 'RETAILVOIDCHEQUE' && this.currentAccount?.accountType == 'CA')" />
+            </ng-container>
+        </box>
+    </ng-container>
+</ng-container> -->
+<!-- <box class="context-menu-overlay" (click)="closeContextMenu($event)"></box> -->
+<!-- Content loader -->
+<!-- <ng-template #portfolioheaderLoader>
+    <box class="panel-header skeleton">
+        <box class="before">
+            <box class="skeleton-loader"></box>
+        </box>
+        <box class="panel-actions">
+            <box class="skeleton-loader"></box>
+            <box class="skeleton-loader"></box>
+        </box>
+    </box>
+</ng-template> -->
+<ng-template #loader>
+    <box class="skeleton-loader portfolio-summary-loader no-panel-footer"> </box>
+</ng-template>
+<ng-template #noAccount>
+    <box class="no-data-panel no-panel-footer">
+        <box class="no-footer-panel no-account">
+            <span class="no-data-desc">{{'accountsPanel.noBankAccount' | translate}}</span>
+            <box class="panel-button-container">
+                <button class="new-account-footer" (click)="newAccount($event)">{{'accountsPanel.addAccount' |
+                    translate}}</button>
+            </box>
+        </box>
+    </box>
+</ng-template>
+<ng-template #apiErrorTemplate>
+    <box class="service-unavailable-template">
+        <box class="description">{{'accountsPanel.apiErrorData' | translate}}</box>
+    </box>
+</ng-template>
+
+<!-- <box class="user-account-overlay" *ngIf="this.isDisplayContextMenu" (click)="toggleProfile($event)"></box> -->

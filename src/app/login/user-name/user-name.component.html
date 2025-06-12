@@ -1,0 +1,10 @@
+<!-- <div class="form-field">
+  <fpx-label [control]="formControl" [label]="label"></fpx-label>
+  <div class="fpx-field-content">
+    <input [name]="formControlName" type="text" [placeholder]="placeholder" [formControl]="formControl" />
+  </div>
+</div> -->
+
+<fpx-text-box class="fpx-form-control" [controlName]="formControlName" #fpxControl [placeholder]="placeholder"
+  [label]="label" [maxlength]="maxLength">
+</fpx-text-box>

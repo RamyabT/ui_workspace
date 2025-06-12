@@ -1,0 +1,65 @@
+#depAppBody {
+
+    .rewards-home {
+            .module-home-bg {
+                min-height: 175px;
+                border-radius: 0 0 32px 32px;
+            }
+    
+            .reward-point-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+                width: 100%;
+                 padding: 28px 0 0;
+                background:
+                    url('../../assets/rewards/reward-banner-left.png') left top no-repeat,
+                    url('../../assets/rewards/reward-banner-center.png') 57% -7px no-repeat,
+                    url('../../assets/rewards/reward-banner-right.png') right top no-repeat;
+                @include b2-regular;
+    
+                .points-value {
+                    @include h2-bold;
+                }
+            }
+            .reward-button-container {
+                display: flex;
+                justify-content: space-around;
+
+                button {
+                    width: 148px;
+                    background: var(--neutral50);
+                    border: 1px solid var(--primary500);
+                    padding: 4px 0px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap:5px;
+                    border-radius: 20px;
+                    @include b3-medium;
+                    
+                    &.gift-btn::before {
+                        content:"";
+                        mask-image: url('../../assets/rewards/gift-points.svg');
+                        -webkit-mask-image: url('../../assets/rewards/gift-points.svg');
+                        width: 24px;
+                        height: 24px;
+                        background: var(--tertiary500);
+                    }
+                    &.redeem-btn::before {
+                        content:"";
+                        mask-image: url('../../assets/rewards/redeem-points.svg');
+                        -webkit-mask-image: url('../../assets/rewards/redeem-points.svg');
+                        width: 24px;
+                        height: 24px;
+                        background: var(--tertiary500);
+                    }
+                }
+            }
+            .casa-transactions-grid-header {
+                padding: 0px 16px
+            }
+        }
+
+}

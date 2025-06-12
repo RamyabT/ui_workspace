@@ -1,0 +1,49 @@
+<box>
+    <box class="member-wrapper"  [ngStyle]="{'background-color':cardData?.cardbgColor}" >
+        <box class="member-info-container">
+        <box class="member-info">
+            <ng-container *ngIf="cardData?.profileImg; else noname">
+                <box class="no-member-icon" >
+                    <img   [src]="'data:image/png;base64,'+cardData?.profileImg" alt="{{cardData?.nickname}}">
+                </box>
+            </ng-container>
+            <ng-template #noname>
+                <box class="no-member-name"  [ngStyle]="{'color':cardData?.cardbgColor}">
+                    <span> {{membernamefirstletter}}</span>
+                </box>
+            </ng-template>
+            <box class="member-info-details">
+                <box class="member-name">{{cardData?.childNickName != '' ? cardData?.childNickName : cardData?.childFullName }}</box>
+                <box class="member-amt"><em>{{ cardData?.childAccountCurrency }}</em> {{ cardData?.childAccountBalance | currency :
+                    cardData?.childAccountCurrency : '' }}</box>
+            </box>
+            
+        </box>
+        <box class="radio-btn-container"  *ngIf="!_device.isMobile()">
+            <mat-radio-button class="default" color="primary" name="childrencard" [checked]="false"  (change)="radioChange(cardData)">
+            </mat-radio-button>
+        </box>
+        </box>
+        <box class="members-actions-info">
+            <box class="action-item">{{cardData?.totalPendingTasks}}/{{cardData?.totalTasks}} {{ 'MEMBERCARD.choreslbl' | translate}}</box>
+            <box class="list-separator"></box>
+            <box class="action-item">{{cardData?.totalGoals}} {{ 'MEMBERCARD.goallbl' | translate}}</box>
+        </box>
+    
+    </box>
+    <box class="progress-bar-wrapper">
+        <box class="progress-track" [ngStyle]="{'background':cardData?.progressBg}">
+            <span class="fill" [style.width.%]="progresspercentage" [ngStyle]="{'background':cardData?.progressTrack}"></span>
+        </box>
+    </box>
+    
+</box>
+         
+
+
+
+ 
+    
+ 
+
+ 

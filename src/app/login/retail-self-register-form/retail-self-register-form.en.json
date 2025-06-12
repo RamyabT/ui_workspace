@@ -1,0 +1,15 @@
+"RetailSelfRegisterForm":{
+"title":"selfregister",
+		 "FieldId_1": {
+		  "label":"identitymode" ,
+		  "placeholder": "identitymode"
+		  } ,
+		 "FieldId_2": {
+		  "label":"ApplicantDob" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "FieldId_3": {
+		  "label":"Account Number" ,
+		  "placeholder": "Placeholder"
+		  } 
+}

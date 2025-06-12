@@ -1,0 +1,35 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="NPSSSplitBillQr">
+  <box class="entry-form">
+    <box class="grid entry-form-field-group col-12">
+
+      <box class="bene-details">
+        <box class="bene-initial">
+          <span>{{ state.senderInitial }}</span>
+        </box>
+        <box class="bene-primary-info">
+          <box class="name">
+            <span>{{state.senderName}} Send a Request for</span>
+            <span>"{{state.remarks}}"</span>
+            <span>{{state.senderMobileNumber}}</span>
+          </box>
+        </box>
+
+        <box class="amount-details grid">
+          <app-payment-amount-control class="col-sm-12 col-md-12 col-lg-12 npss-money-transfers-amount-control"
+            [actionPublisher]="actionMap$.get('transactionAmount')"
+            placeholder="{{ 'NPSSSendMoney.paymentAmount.placeholder' | translate }}" formControlName="transactionAmount"
+            (commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.transactionAmount.CurrencyList"
+            [isCurrEditable]="state.transactionAmount.isCurrEditable"
+            [defaultFetch]="state.transactionAmount.defaultFetch" [initCurrency]="state.transactionAmount.initCurrency"
+            [amountInWords]="state.transactionAmount.amountInWords" [changePublisher]="formChangePublisher$">
+          </app-payment-amount-control>
+
+  
+        </box>
+
+      </box>
+     
+    </box>
+  </box>
+
+</form>

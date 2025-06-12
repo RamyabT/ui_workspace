@@ -1,0 +1,5 @@
+ 
+ "configAccountDetails" : {
+ "servicePath": ["entry-shell","fb", "configAccountDetails"],
+ "queryParams": {}
+ }

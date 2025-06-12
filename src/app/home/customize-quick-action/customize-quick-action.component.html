@@ -1,0 +1,66 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailDebitCardLimitRequest">
+
+	<box class="entry-form">
+		<box class="entry-form-field-group col-sm-12 colmd-12 col-lg-12">
+			<box class="context-menu-body added-ql col-sm-12 col-lg-12">
+				<span class="widget-title">{{ 'CUSTOMIZE_QUICK_LINKS.addedQC' | translate }}</span>
+				<ng-container *ngIf="_helper.addedQuickLinks">
+					<ul class="actions-list grid">
+						<ng-container *ngFor="let item of _helper.addedQuickLinks">
+							<li>
+								<!-- <span class="icon-wrapper">
+									<img [src]="'./assets/images/quick-links/' + item.icon + '.svg'" [alt]="item.serviceCode" />
+								</span> -->
+								<span class="icon-wrapper {{ item.serviceCode }}"></span>
+								<box class="content">
+									<span class="text" [innerHTML]="item.serviceDescription"></span>
+									<span class="minus-icon" (click)="_helper.removeMenu(item)"></span>
+								</box>
+							</li>
+						</ng-container>
+					</ul>
+				</ng-container>
+			</box>
+	
+			<box class="context-menu-body more-ql col-sm-12 col-lg-12">
+				<span class="widget-title">{{ 'CUSTOMIZE_QUICK_LINKS.moreQC' | translate }}</span>
+				<ng-container *ngIf="_helper.moreQuickLinks">
+					<ul class="actions-list grid">
+						<ng-container *ngFor="let item of _helper.moreQuickLinks">
+							<li>
+								<!-- <span class="icon-wrapper">
+									<img [src]="'./assets/images/quick-links/' + item.serviceCode + '.svg'" [alt]="item.serviceCode" />
+								</span> -->
+								<span class="icon-wrapper {{ item.serviceCode }}"></span>
+								<box class="content">
+									<span class="text" [innerHTML]="item.serviceDesc"></span>
+									<span class="plus-icon" (click)="_helper.addMenu(item)"></span>
+								</box>
+							</li>
+						</ng-container>
+					</ul>
+				</ng-container>
+			</box>
+		</box>
+		
+	</box>
+	<box *ngIf="!_helper._device.isMobile()" class="form-action-container">
+        <fpx-button
+          class="col-xs-2"
+          [actionPublisher]="actionMap$.get('reset')"
+          label="Back"
+          btnClass=" btn-secondary"
+          [buttonMode]="'button'"
+          (onClick)="_helper.onBackClick()"
+        ></fpx-button>
+        <fpx-button
+          class="col-xs-2"
+          [actionPublisher]="actionMap$.get('view')"
+          label="Save"
+          btnClass=" btn-primary"
+          [buttonMode]="'button'"
+          (onClick)="_helper.save(undefined)"
+        ></fpx-button>
+      </box>
+
+</form>

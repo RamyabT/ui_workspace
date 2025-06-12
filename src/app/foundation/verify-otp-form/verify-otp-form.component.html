@@ -1,0 +1,46 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="verifyTfa" class="verify-otp-form">
+    <box class="entry-form">
+
+        <box class="otp-form-content">
+            <ng-container *ngIf="state?.deliveryDetails?.mobileNumber && state?.deliveryDetails?.emailId ; else defaultOtpMessage">
+                <fpx-display-text class="tfa-message" [innerHTML]="'verifyTfa.emailAndSms' | translate : ({emailId: state.deliveryDetails.emailId, mobileNumber: state.deliveryDetails.mobileNumber })"></fpx-display-text>
+            </ng-container>
+            <ng-template #defaultOtpMessage>
+            <ng-container *ngIf="state?.deliveryDetails?.mobileNumber">
+                <fpx-display-text class="tfa-message" [innerHTML]="'verifyTfa.smsMsg' | translate : ({value: state.deliveryDetails.mobileNumber})"></fpx-display-text>
+            </ng-container>
+            <ng-container *ngIf="state?.deliveryDetails?.emailId">
+                <fpx-display-text class="tfa-message" [innerHTML]="'verifyTfa.emailMsg' | translate : ({value: state.deliveryDetails.emailId})"></fpx-display-text>
+            </ng-container>
+            <ng-container *ngIf="state?.deliveryDetails?.whatsAppNumber">
+                <fpx-display-text class="tfa-message" [innerHTML]="'verifyTfa.whatsupMsg'| translate : ({value:state.deliveryDetails.whatsAppNumber})"></fpx-display-text>
+            </ng-container>
+            </ng-template>
+        </box>
+
+        <box class="otp-field">
+            <fpx-pin [size]="6" [showPinOption]="false" #otpField
+                formControlName="otp"
+                [actionPublisher]="actionMap$.get('otp')">
+            </fpx-pin>
+            <fpx-display-text class="error-txt" [innerHTML]="state.formErrorMessage | translate"></fpx-display-text>
+        </box>
+
+        <ng-container *ngIf="state.expiryInterval != -1">
+            <box class="otp-timer-sec">
+                <fpx-timer [startTimer]="state.doStartTimer" [expireSec]="state.expiryInterval" (timeout)="_helper.onTimeout()"></fpx-timer>
+            </box>
+        </ng-container>
+    
+        <box class="resend-otp-info">
+            <fpx-display-text class="" [innerHTML]="'verifyTfa.notReceiveOtpHind' | translate"></fpx-display-text>&nbsp;
+            <fpx-button [disable]="state.disableResend" btnClass="resend-otp-link" btnType="button" [label]="'verifyTfa.resendBtnLbl' | translate" (onClick)="_helper.resendOTP()"></fpx-button>
+        </box>
+        
+        <div class="form-footer-actions">
+            <button type="button" class="btn-tertiary" (click)="_helper.cancelOTP()" id="OTP_CANCEL"><span>{{'LOGIN.cancel' | translate}}</span></button>
+            <button [disabled]="formGroup.invalid" type="submit" class="btn-primary" id="OTP_SUBMIT"><span>{{'LOGIN.submit' | translate}}</span></button>
+          </div>
+        
+    </box>
+</form>

@@ -1,0 +1,59 @@
+<div class="task-item" id="row_data_{{ index }}">
+    <div *ngIf="_device.isMobile()" class="task-action task-action-left">
+        <button  (click)="deleteDevice(selectedData)" type="button" class="button-task-action system-ico-button button-delete">
+            <span>Delete</span>
+        </button>
+    </div>
+
+    <div class="task-detail-item" (swipeleft)="_device.isMobile()?swipeLeftHandler($event):null"
+        (swiperight)="_device.isMobile()?swipeRightHandler($event):null"
+        (panstart)="_device.isMobile()?panStartHandler($event):null"
+        (panend)="_device.isMobile()?panEndHandler($event):null"
+        (panleft)="_device.isMobile()?panLeftHandler($event):null"
+        (panright)="_device.isMobile()?panRightHandler($event):null"
+        (touchstart)="_device.isMobile()?touchStartHandler($event):null">
+
+        <div class="manage-auth-device-container">
+            <div class="manage-auth-details">
+                <div class="device-detail">
+                    <div class="device-img">
+                            <img  *ngIf="selectedData?.deviceType=='1'" src="./assets/images/temp-sample-mobile.png" alt="sample_image"> 
+                            <img  *ngIf="selectedData?.deviceType=='2'" src="./assets/images/temp-sample-desktop.png" alt="sample_image">                        
+                            <img  *ngIf="selectedData?.deviceType=='3'" src="./assets/images/temp-sample-mobile.png" alt="sample_image">                        
+                    </div>
+                    <div class="device-info">
+                        <span class="device-name" *ngIf="selectedData?.decodeDdeviceInfo?.Body.modelName">{{selectedData?.decodeDdeviceInfo?.Body.modelName}}</span>
+                        <!-- <span class="device-model">{{selectedData?.deviceId}}</span> -->
+                        <span class="device-version" *ngIf="selectedData?.decodeDdeviceInfo?.Body.osVersion && selectedData?.decodeDdeviceInfo?.Body.os">{{selectedData?.decodeDdeviceInfo?.Body.osVersion}}</span>
+                        <span class="device-last-login" *ngIf="selectedData?.decodeDdeviceInfo?.Body.browserName && selectedData?.decodeDdeviceInfo?.Body.browserVersion">{{selectedData?.decodeDdeviceInfo?.Body.browserName}}</span>
+                        <span class="device-last-login" *ngIf="selectedData?.lastLoginTime"> Last Login : {{selectedData?.lastLoginTime}}</span>
+
+                    </div>
+                </div>
+                <div class="device-active-status" *ngIf="selectedData?.isCurrentDevice">
+                    <button class="active-device-btn">{{"MANAGEAUTHDEVICE.activeNow" | translate}}</button>
+                </div>
+            </div>
+            <!-- <div class="manage-device-seperator-line"></div>
+            <div class="manage-auth-login-details">
+                ljdhkjhadfkj
+            </div> -->
+        </div>
+    </div>
+
+    <div class="task-action task-action-right">
+        <!-- <button (click)="deleteDevice(selectedData)" type="button" class="button-task-action system-ico-button button-delete">
+            <span>Delete</span>
+        </button> -->
+        <!-- <button type="button" class="button-task-action system-ico-button button-raisedispute" clickable
+            (click)="editRaiseDispute(selectedData)">
+            <span>Not Now?</span>
+        </button> -->
+
+        <div *ngIf="_device.isDesktop()" class="task-action task-action-left">
+            <button  (click)="deleteDevice(selectedData)" type="button" class="button-task-action system-ico-button button-delete">
+                <span>Delete</span>
+            </button>
+        </div>
+    </div>
+</div>

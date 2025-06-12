@@ -1,0 +1,43 @@
+<div [hidden]="readMore">
+  <box class="">
+    <ng-container *ngIf="!isProductsLoading; else loader"></ng-container>
+
+    <ng-container *ngIf="selectableList$ | async as selectableList">
+      <ngx-slick-carousel class="product-carousel" #slickModal="slick-carousel" [config]="slideConfig"
+        (afterChange)="onCardChanged($event)">
+        <ng-container *ngFor="let selectableData of selectableList; index as i">
+          <box ngxSlickItem class="slide" [style.width.px]="slideWidth" [id]="selectableData.id"
+            [ngClass]="{'slide-checked': formControl.value == selectableData.id}">
+            <ng-container [ngTemplateOutlet]="ngTemplateName ? getTemplate(ngTemplateName) : defaultTemplate"
+              [ngTemplateOutletContext]="{ $implicit: selectableData, slideIndex: i }">
+            </ng-container>
+          </box>
+        </ng-container>
+      </ngx-slick-carousel>
+    </ng-container>
+
+  </box>
+
+  <ng-template #defaultTemplate let-selectableData let-slideIndex="slideIndex">
+    
+    <div class="product-card" [innerHtml]="selectableData?.imageContent">
+    </div>
+  </ng-template>
+  <ng-container *ngIf="this.data">
+    <div [innerHtml]="this.data?.[this.currentIndex].shortDesc"></div>
+  </ng-container>
+
+</div>
+
+<ng-container *ngIf="this.data">
+  <div [hidden]="!readMore" class="read-more">
+    <div [innerHtml]="this.data[this.currentIndex].imageContent"></div>
+    <div [innerHtml]="this.data[this.currentIndex].detailDesc"></div>
+  </div>
+
+</ng-container>
+
+<!-- Content loader -->
+<ng-template #loader>
+  <box class="loading"></box>
+</ng-template>

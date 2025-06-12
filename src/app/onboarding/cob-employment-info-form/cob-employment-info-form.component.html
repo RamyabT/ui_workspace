@@ -1,0 +1,265 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="COBEmploymentInfoForm">
+
+	<box class="entry-form">
+		<box class="entry-form-field-group col-12 grid">
+			<span *ngIf="_helper._appConfig.getData('processId')" class="arn-number">{{'OnBoarding.arn' | translate
+				}}{{_helper._appConfig.getData('processId')}}</span>
+
+			<box id="header" class="col-md-12 grid  header  ">
+				<!-- <fpx-display-text id="title1" class="col-md-12  title"
+				[innerHTML]="'COBEmploymentInfoForm.title1.text' | translate"
+				[literals]="commonFormInput"></fpx-display-text> -->
+				<fpx-display-text *ngIf="_helper._deviceDetectorService.isDesktop()" id="hint" class="col-md-12  hint"
+					[innerHTML]="'COBEmploymentInfoForm.hint.text' | translate"
+					[literals]="commonFormInput"></fpx-display-text>
+			</box>
+			<!-- <app-emp-status-list-control class="col-sm-12 col-md-6 col-lg-6 "
+			[actionPublisher]="actionMap$.get('empstatus')"
+			label="{{'COBEmploymentInfoForm.empstatus.label' | translate }}"
+			formControlName="empstatus"></app-emp-status-list-control> -->
+
+			<!-- 
+		<app-emp-soi-list-control class="col-sm-12 col-md-6 col-lg-6 " [actionPublisher]="actionMap$.get('empsoi')"
+			label="{{'COBEmploymentInfoForm.empsoi.label' | translate }}"
+			formControlName="empsoi"></app-emp-soi-list-control> -->
+
+
+			<app-employment-type-list-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('employmentType')"
+				label="{{'COBEmploymentInfoForm.employmentType.label' | translate }}"
+				formControlName="employmentType"></app-employment-type-list-control>
+
+			<app-emp-occupation-type-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('occupationType')"
+				label="{{'COBEmploymentInfoForm.occupationType.label' | translate }}"
+				formControlName="occupationType"></app-emp-occupation-type-control>
+
+
+			<app-company-name-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('companyName')"
+				label="{{'COBEmploymentInfoForm.companyName.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.companyName.placeholder' | translate }}"
+				formControlName="companyName"></app-company-name-control>
+
+			<app-company-name-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('designation')"
+				label="{{'COBEmploymentInfoForm.designation.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.designation.placeholder' | translate }}"
+				formControlName="designation"></app-company-name-control>
+
+			<app-years-in-employment class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('workingSince')"
+				label="{{'COBEmploymentInfoForm.workingSince.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.workingSince.placeholder' | translate }}"
+				formControlName="workingSince"></app-years-in-employment>
+
+
+
+			<!-- 
+		<app-monthly-income-control class="col-sm-12 col-md-6 col-lg-6 "
+			[actionPublisher]="actionMap$.get('monthlyIncome')"
+			label="{{'COBEmploymentInfoForm.monthlyIncome.label' | translate }}" formControlName="monthlyIncome"
+			[CurrencyList]="state.monthlyIncome.CurrencyList" [actionPublisher]="actionMap$.get('monthlyIncome')"
+			[isCurrEditable]="state.monthlyIncome.isCurrEditable" [defaultFetch]="state.monthlyIncome.defaultFetch"
+			[initCurrency]="state.monthlyIncome.initCurrency" [amountInWords]="state.monthlyIncome.amountInWords">
+			></app-monthly-income-control> -->
+
+
+
+			<app-company-name-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('lastEmployersName')"
+				label="{{'COBEmploymentInfoForm.lastEmployersName.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.lastEmployersName.placeholder' | translate }}"
+				formControlName="lastEmployersName"></app-company-name-control>
+
+			<!-- <app-emp-business-types-control class="col-sm-12 col-md-6 col-lg-6 "
+			[actionPublisher]="actionMap$.get('empbusinesstypes')"
+			label="{{'COBEmploymentInfoForm.empbusinesstypes.label' | translate }}"
+			formControlName="empbusinesstypes"></app-emp-business-types-control> -->
+
+			<app-company-name-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('empNameOwnCompany')"
+				label="{{'COBEmploymentInfoForm.empNameOwnCompany.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.empNameOwnCompany.placeholder' | translate }}"
+				formControlName="empNameOwnCompany"></app-company-name-control>
+
+			<!-- <app-company-name-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('empAddressOfLastYear')"
+				label="{{'COBEmploymentInfoForm.empAddressOfLastYear.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.empAddressOfLastYear.placeholder' | translate }}"
+				formControlName="empAddressOfLastYear"></app-company-name-control> -->
+
+
+			<app-company-name-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('empWorkExpDetails')"
+				label="{{'COBEmploymentInfoForm.empWorkExpDetails.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.empWorkExpDetails.placeholder' | translate }}"
+				formControlName="empWorkExpDetails"></app-company-name-control>
+
+			<app-company-name-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('empAddressOwnCompany')"
+				label="{{'COBEmploymentInfoForm.empAddressOwnCompany.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.empAddressOwnCompany.placeholder' | translate }}"
+				formControlName="empAddressOwnCompany"></app-company-name-control>
+
+			<app-emp-types-of-entity-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('emptypesofentity')"
+				label="{{'COBEmploymentInfoForm.emptypesofentity.label' | translate }}"
+				formControlName="emptypesofentity"></app-emp-types-of-entity-control>
+
+
+			<app-percentage-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('ownershipPercent')"
+				label="{{'COBEmploymentInfoForm.ownershipPercent.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.ownershipPercent.placeholder' | translate }}"
+				formControlName="ownershipPercent"></app-percentage-control>
+
+			<app-company-name-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('empPositionAndTitle')"
+				label="{{'COBEmploymentInfoForm.empPositionAndTitle.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.empPositionAndTitle.placeholder' | translate }}"
+				formControlName="empPositionAndTitle"></app-company-name-control>
+
+			<!-- <app-company-name-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('empyearofbusiness')"
+				label="{{'COBEmploymentInfoForm.empyearofbusiness.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.empyearofbusiness.placeholder' | translate }}"
+				formControlName="empyearofbusiness"></app-company-name-control> -->
+
+			<app-years-of-business-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('empyearofbusiness')"
+				label="{{'COBEmploymentInfoForm.empyearofbusiness.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.empyearofbusiness.placeholder' | translate }}"
+				formControlName="empyearofbusiness"></app-years-of-business-control>
+
+			<app-previously-employed-control class="col-md-4" [actionPublisher]="actionMap$.get('previouslyemployed')"
+				label="{{'COBEmploymentInfoForm.previouslyemployed.label' | translate }}"
+				formControlName="previouslyemployed"></app-previously-employed-control>
+
+
+			<app-emp-dependent-name-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('dependentName')"
+				label="{{'COBEmploymentInfoForm.dependentName.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.dependentName.placeholder' | translate }}"
+				formControlName="dependentName"></app-emp-dependent-name-control>
+			<app-emp-relationship-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('emprelationship')"
+				label="{{'COBEmploymentInfoForm.emprelationship.label' | translate }}"
+				formControlName="emprelationship"></app-emp-relationship-control>
+
+			<app-id-number-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('dependentIdNumber')"
+				label="{{'COBEmploymentInfoForm.dependentIdNumber.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.dependentIdNumber.placeholder' | translate }}"
+				formControlName="dependentIdNumber"></app-id-number-control>
+
+
+
+			<!-- <app-previously-employed-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('previouslyemployed')"
+				label="{{'COBEmploymentInfoForm.previouslyemployed.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.previouslyemployed.placeholder' | translate }}"
+				formControlName="previouslyemployed"></app-previously-employed-control> -->
+
+			<app-company-name-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('universityName')"
+				label="{{'COBEmploymentInfoForm.universityName.label' | translate }}" formControlName="universityName"
+				placeholder="{{'COBEmploymentInfoForm.universityName.placeholder' | translate }}">
+			</app-company-name-control>
+			<app-company-name-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('courseName')"
+				label="{{'COBEmploymentInfoForm.courseName.label' | translate }}" formControlName="courseName"
+				placeholder="{{'COBEmploymentInfoForm.courseName.placeholder' | translate }}">
+			</app-company-name-control>
+			<app-id-number-control class="col-sm-12 col-md-6 col-lg-6  "
+				[actionPublisher]="actionMap$.get('courseDuration')"
+				label="{{'COBEmploymentInfoForm.courseDuration.label' | translate }}" formControlName="courseDuration"
+				placeholder="{{'COBEmploymentInfoForm.courseDuration.placeholder' | translate }}">
+			</app-id-number-control>
+
+
+			<app-salary-or-monthly-income-component class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('monthlyIncome')"
+				label="{{'COBEmploymentInfoForm.monthlyIncome.label' | translate }}"
+				formControlName="monthlyIncome">
+			</app-salary-or-monthly-income-component>
+
+			<app-pref-Annual-income-component class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('annualIncome')"
+				label="{{'COBEmploymentInfoForm.annualIncome.label' | translate }}"
+				formControlName="annualIncome">
+			</app-pref-Annual-income-component>
+
+			<!-- <app-company-name-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('buildingName')"
+				label="{{'COBEmploymentInfoForm.buildingName.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.buildingName.placeholder' | translate }}"
+				formControlName="buildingName"></app-company-name-control> -->
+
+			<!-- <app-street-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('street')"
+				label="{{'COBEmploymentInfoForm.street.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.street.placeholder' | translate }}"
+				formControlName="street"></app-street-control> -->
+
+			<!-- <app-company-name-control class="col-sm-12 col-md-6 col-lg-6 " [actionPublisher]="actionMap$.get('areaName')"
+			label="{{'COBEmploymentInfoForm.areaName.label' | translate }}"
+			placeholder="{{'COBEmploymentInfoForm.areaName.placeholder' | translate }}"
+			formControlName="areaName"></app-company-name-control> -->
+
+			<!-- <app-company-name-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('nearestLandmark')"
+				label="{{'COBEmploymentInfoForm.nearestLandmark.label' | translate }}"
+				placeholder="{{'COBEmploymentInfoForm.nearestLandmark.placeholder' | translate }}"
+				formControlName="nearestLandmark"></app-company-name-control> -->
+
+
+
+			<!-- 
+		<app-company-name-control class="col-sm-12 col-md-6 col-lg-6 "
+			[actionPublisher]="actionMap$.get('locationName')"
+			label="{{'COBEmploymentInfoForm.locationName.label' | translate }}"
+			placeholder="{{'COBEmploymentInfoForm.locationName.placeholder' | translate }}"
+			formControlName="locationName"></app-company-name-control> -->
+
+			<!-- <app-country-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('country')"
+				placeholder="{{'AddressDetailForm.country.placeholder' | translate }}"
+				label="{{'AddressDetailForm.country.label' | translate }}" formControlName="country">
+			</app-country-list-control> -->
+
+			<!-- <app-state-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('states')"
+				label="{{'AddressDetailForm.states.label' | translate }}" formControlName="states"
+				placeholder="{{'AddressDetailForm.states.placeholder' | translate }}"
+				[changePublisher]="formChangePublisher$" [dependencyField]="['country']">
+			</app-state-list-control> -->
+
+			<!-- <app-city-control-dropdown class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('city')"
+				label="{{'AddressDetailForm.city.label' | translate }}" formControlName="city"
+				placeholder="{{'AddressDetailForm.city.placeholder' | translate }}"
+				[changePublisher]="formChangePublisher$" [dependencyField]="['country','states']">
+			</app-city-control-dropdown> -->
+
+
+
+
+
+			<!-- <app-zipcode-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('zipCode')"
+				label="{{'AddressDetailForm.zipCode.label' | translate }}"
+				placeholder="{{'AddressDetailForm.zipCode.placeholder' | translate }}" formControlName="zipCode">
+
+			</app-zipcode-list-control> -->
+
+			<!-- <fpx-display-text id="companyAddress" class="col-sm-12 col-md-12 col-lg-12 title"
+			[innerHTML]='state.companyAddress.text' [literals]="commonFormInput"></fpx-display-text> -->
+
+			<!-- <app-address-detail-form class="col-sm-12 col-md-6 col-lg-12" (commonFormEvent)="handleControlEvent($event)"
+			[actionPublisher]="actionMap$.get('companyaddressInv')" label="addressdetailForm"
+			formControlName="companyaddressInv">
+		</app-address-detail-form> -->
+
+			<app-address-detail-form class="col-sm-12 col-md-12 col-lg-12" (commonFormEvent)="handleControlEvent($event)"
+			[actionPublisher]="actionMap$.get('addressdetail')" label="addressdetailForm"
+			formControlName="addressdetail">
+		</app-address-detail-form>
+		</box>
+	</box>
+</form>

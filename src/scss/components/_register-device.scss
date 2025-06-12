@@ -1,0 +1,35 @@
+#depAppBody{
+    app-register-device-form{
+        .entry-form{
+            background-color: transparent;
+            box-shadow: unset;
+            padding: 0;
+
+            .register-device-form{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .register-device-illustration{
+                text-align: center;
+            }
+
+            .field-group{
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+                
+                fpx-label{
+                    mat-label{
+                        justify-content: center;
+                    }
+                }
+            }
+
+            .mat-error{
+                text-align: center;
+            }
+        }
+    }
+}

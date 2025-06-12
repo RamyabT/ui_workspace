@@ -1,0 +1,5 @@
+ 
+ "RETAILDELEUSER" : {
+ "servicePath": ["entry-shell","common", "retail-delegateuserreq-form"],
+ "queryParams": {}
+ }

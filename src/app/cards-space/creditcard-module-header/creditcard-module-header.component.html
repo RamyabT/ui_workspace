@@ -1,0 +1,29 @@
+<ng-container *ngIf="_device.isMobile()">
+    <box class="module-home-header">
+        <span class="back-btn-wrapper" (click)="goToHome()">
+            <span class="back-btn-icon"></span>
+        </span>
+        <box class="form-header">
+            {{ 'RetailCreditCardDetails.creditCards' | translate }}
+        </box>
+        <span class="new-act-btn-wrapper" (click)="newAccount()">
+            <span class="new-act-icon"></span>
+        </span>
+    </box>
+</ng-container>
+
+<ng-container *ngIf="!_device.isMobile()">
+    <box class="main-header-inner">
+        <box class="back-wrapper">
+            <box class="back-btn" (click)="goToHome()">
+                <span class="ico ico-back"></span>
+                <span class="back-text font-14-20">{{ 'RetailCreditCardDetails.backButton' | translate }}</span>
+            </box>
+            <box class="new-act-btn">
+                <button class="btn-tertiary">
+                    <span class="add-payee-text">{{ 'RetailCreditCardDetails.newCard' | translate }}</span>
+                </button>
+            </box>
+        </box>
+    </box>
+</ng-container>

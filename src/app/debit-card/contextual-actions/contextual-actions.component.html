@@ -1,0 +1,19 @@
+<ng-container *ngIf="quickLinks && quickLinks.length">
+    <box class="widget quick-actions-inner">
+        <header>
+            <!-- <span class="title">Quick Actions</span> -->
+            <span class="widget-title">{{ 'WIDGIT_TITLES.casaQuickActionsLbl' | translate }}</span>
+            <!-- <button class="system-ico-button no-text edit" type="button"><span>Edit</span></button> -->
+        </header>
+        <box class="widget-body actions-body">
+            <ul class="actions-list grid">
+                <ng-container *ngFor="let item of quickLinks">
+                    <li (click)="openLink(item)" >
+                        <span class="icon-wrapper system-ico-button {{ item.serviceCode }}"></span>
+                        <span class="text" [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span>
+                    </li>
+                </ng-container>
+            </ul>
+        </box>
+    </box>
+</ng-container>

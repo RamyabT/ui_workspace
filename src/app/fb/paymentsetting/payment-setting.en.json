@@ -1,0 +1,23 @@
+"paymentsetting":{
+"title":"paymentsetting",
+		 "issueCard": {
+		  "label":"Issue Card" ,
+		  "placeholder": "Issue Card"
+		  } ,
+		 "atmlimit": {
+		  "label":"ATM Limit" ,
+		  "placeholder": "ATM Limit"
+		  } ,
+		 "contactLessPay": {
+		  "label":"Contact less Payment" ,
+		  "placeholder": "Contact less Payment"
+		  } ,
+		 "poslimit": {
+		  "label":"POS Limit" ,
+		  "placeholder": "POS Limit"
+		  } ,
+		 "tranauthlimit": {
+		  "label":"Transaction Limit" ,
+		  "placeholder": "Transaction Limit"
+		  } 
+}

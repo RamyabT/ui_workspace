@@ -1,0 +1,5 @@
+ 
+ "RETAILLOANCALCULATOR" : {
+ "servicePath": ["entry-shell","loans", "retail-loancalc-form"],
+ "queryParams": {}
+ }

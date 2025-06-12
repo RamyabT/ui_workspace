@@ -1,0 +1,58 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailScheduleBillPaymentsForm">
+
+	<box class="grid entry-form-field-group">
+
+		<box class="col-sm-12 col-md-12 col-lg-12 account-dtl">
+			<box class="col-sm-12 col-md-12 col-lg-12 label">
+				<fpx-label label="{{'RetailScheduleBillPaymentsForm.sourceAccount.label' | translate }}"></fpx-label>
+			</box>
+			<box class="col-sm-12 col-md-12 col-lg-12 field-values">
+				<span>{{this.state.productDesc }}</span>
+				<span class="separator"></span>
+				<span>{{this.state.sourceAccount }}</span>
+			</box>
+		</box>
+		<box class="col-sm-12 col-md-12 col-lg-4 bene-name">
+			<fpx-label class ="label" label="{{'RetailScheduleBillPaymentsForm.beneficiaryName.label' | translate }}"></fpx-label>
+			<span class="value">{{this.state.beneficiaryName }}</span>
+		</box>
+
+
+
+		<app-amount-currency-control class="col-sm-12 col-md-4 col-lg-4" [actionPublisher]="actionMap$.get('paymentAmount')"
+			label="{{ 'RetailScheduleBillPaymentsForm.paymentAmount.label' | translate }}" formControlName="paymentAmount" 
+			[isCurrEditable]="state.paymentAmount.isCurrEditable"
+			[defaultFetch]="state.paymentAmount.defaultFetch" [initCurrency]="state.paymentAmount.initCurrency"
+			[amountInWords]="state.paymentAmount.amountInWords"></app-amount-currency-control>
+
+
+		<app-payment-date-control class="col-sm-12 col-md-4  col-lg-4" [actionPublisher]="actionMap$.get('paymentDate')"
+			label="{{'RetailScheduleBillPaymentsForm.paymentDate.label' | translate }}" formControlName="paymentDate"
+			[minDate]="state.paymentDate.minDate" [maxDate]="state.paymentDate.maxDate"></app-payment-date-control>
+
+		<box class="input-item col-lg-4 col-sm-12">
+			<app-statement-mode-control class="col-sm-12 col-md-4 col-lg-4"
+				[actionPublisher]="actionMap$.get('scheduleType')"
+				label="{{'RetailScheduleBillPaymentsForm.scheduleType.label' | translate }}"
+				formControlName="scheduleType"></app-statement-mode-control>
+		</box>
+
+
+		<app-frequency-control class="col-sm-12 col-md-4  col-lg-4"
+			[actionPublisher]="actionMap$.get('paymentFrequency')"
+			label="{{'RetailScheduleBillPaymentsForm.paymentFrequency.label' | translate }}"
+			formControlName="paymentFrequency"></app-frequency-control>
+
+
+		<app-installment-number-control class="col-sm-12 col-md-4  col-lg-4"
+			[actionPublisher]="actionMap$.get('numberOfPayments')"
+			label="{{'RetailScheduleBillPaymentsForm.numberOfPayments.label' | translate }}"
+			formControlName="numberOfPayments"></app-installment-number-control>
+
+		<box class="display-field col-lg-4 col-sm-12">
+			<app-end-date-control class="col-sm-12 col-md-4  col-lg-4" [actionPublisher]="actionMap$.get('endDate')"
+				label="{{'RetailScheduleBillPaymentsForm.endDate.label' | translate }}" formControlName="endDate"
+				[minDate]="state.endDate.minDate" [maxDate]="state.endDate.maxDate"></app-end-date-control>
+		</box>
+	</box>
+</form>

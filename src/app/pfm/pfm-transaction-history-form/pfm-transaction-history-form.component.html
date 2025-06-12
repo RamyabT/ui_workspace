@@ -1,0 +1,25 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="PfmTransactionHistoryForm" >
+	  
+	<box class="entry-form col-sm-12 col-md-12 col-lg-12">
+		<app-pfm-transaction-summary-card [cardData]="state.spendsData"></app-pfm-transaction-summary-card>
+		<mat-tab-group
+		[(selectedIndex)]="state.activeTabIndex"
+		(selectedTabChange)="_helper.onTabChanged($event)"
+	  >
+	  <mat-tab   label="{{ 'PFMTRANHISTORY.insights' | translate }}"></mat-tab>
+		<mat-tab
+		  label="{{ 'PFMTRANHISTORY.history' | translate }}"
+		>
+		<box class="casa-transactions-grid-header">
+            <span class="title">{{ 'PFMTRANHISTORY.title' | translate }}</span>
+            <box class="tool-bar">
+                <fpx-button btnType="button" btnClass="system-ico-button no-text filter" label="filter" ></fpx-button>
+                <fpx-button btnType="button" btnClass="system-ico-button no-text download" label="download" ></fpx-button>
+            </box>
+        </box>
+		<app-pfm-transaction-history-ro-grid [actionPublisher]="actionMap$.get('pfmTranHistoryRoGrid')"></app-pfm-transaction-history-ro-grid>
+		</mat-tab>
+		</mat-tab-group>
+	</box> 
+</form>
+	

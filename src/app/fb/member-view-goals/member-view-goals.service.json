@@ -1,0 +1,4 @@
+"RETAILPFMGOALS" : {
+    "servicePath": ["entry-shell","pfm", "pfm-track-goals-form"],
+    "queryParams": {}
+    }

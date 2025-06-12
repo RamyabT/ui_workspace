@@ -1,0 +1,2694 @@
+{
+   "CORPDASHBOARD": {
+      "servicePath": [
+         "dashboard"
+      ]
+   },
+   "CORPCASACCOUNTSUMMARY": {
+      "servicePath": [
+         "accounts-space"
+      ]
+   },
+   "CORPTRANSFERSWORKFLOW": {
+      "servicePath": [
+         "workflow-space"
+      ],
+      "queryParams": {
+         "status": "transfers"
+      },
+      "activeTab": "CORPTRANSFERSWORKFLOW"
+   },
+   "CORPACCOUNTWORKFLOW": {
+      "servicePath": [
+         "workflow-space"
+      ],
+      "queryParams": {
+         "status": "Accounts"
+      },
+      "activeTab": "CORPACCOUNTWORKFLOW"
+   },
+
+   "CORPBENEWORKFLOW": {
+      "servicePath": [
+          "workflow-space"
+      ],
+      "queryParams": {
+         "status": "Beneficiary"
+      },
+      "activeTab": "CORPBENEWORKFLOW"
+   },
+   "CORPACCOUNT": {
+      "servicePath": [
+         "accounts-space",
+         "accounts",
+         "view-account-details"
+      ]
+   },
+   "CORPCHQBKREQ": {
+      "servicePath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "corp-cheque-book-request-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPMULTIACCSTMTREQ": {
+      "servicePath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "corp-multi-account-stmt-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "failure-receipt"
+      ]
+   },
+   "CORPDDREQ": {
+      "servicePath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "corp-dd-request-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPACCBALREQ": {
+      "servicePath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "corp-account-balance-req"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPSTOPCHEQUE": {
+      "servicePath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "corp-stop-cheque-request-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPSTOPCHEQUEREV": {
+      "servicePath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "corp-stop-cheque-rev-request-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPOPENNEWCASA": {
+      "servicePath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "corp-open-new-casa-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "draftRequired": 1,
+      "successResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPDEPTRANSUMMARY": {
+      "servicePath": [
+         "deposits-space",
+         "entry-shell",
+         "deposits",
+         "corp-deposit-trans-details-ro-grid"
+      ]
+   },
+   "CORPREDEEMDEPOSIT": {
+      "servicePath": [
+         "deposits-space",
+         "entry-shell",
+         "deposits",
+         "corp-redeemdeposit-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPOPENNEWDEPOSIT": {
+      "servicePath": [
+         "deposits-space",
+         "entry-shell",
+         "deposits",
+         "corp-deposit-request-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "draftRequired": 0,
+      "successResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "depositOpeningTmplt"
+   },
+   "CORPESTMTREQ": {
+      "servicePath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "corp-estmt-request-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPTRANOAT": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-own-account-transfer"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "draftRequired": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "tranOatTmplt"
+   },
+   "CORPTRANCC": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-cctransfer-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "draftRequired": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "tranCcTmplt"
+   },
+   "CORPTRANSUMMARY": {
+      "servicePath": [
+         "accounts-space",
+         "accounts",
+         "corp-transaction-summary-form"
+      ]
+   },
+   "CORPLOANTRANSACTIONSUMMARY": {
+      "servicePath": [
+         "loans-space",
+         "loans",
+         "corp-loan-transaction-summary-form"
+      ]
+   },
+   "CORPTRANREJECTED": {
+      "servicePath": [
+         "transfers-space"
+      ],
+      "queryParams": {
+         "status": "rejected"
+      },
+      "activeTab": "REJECTEDTRAN"
+   },
+   "CORPDEPSUMMARY": {
+      "servicePath": [
+         "deposits-space"
+      ]
+   },
+   "CORPDEPDETAIL": {
+      "servicePath": [
+         "deposits-space",
+         "display-shell",
+         "deposits",
+         "corp-deposit-details-form"
+      ]
+   },
+   "CORPCARDS": {
+      "servicePath": [
+         "cards-space"
+      ]
+   },
+   "CORPDCDETAILS": {
+      "servicePath": [
+         "debitcards-space",
+         "display-shell",
+         "debitcard",
+         "corp-debitcard-details-form"
+      ]
+   },
+   "CORPAPPLYDEBITCARD": {
+      "servicePath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "corp-apply-debitcard-form"
+      ],
+      "stepperRequired": 1,
+      "processAware": 1,
+      "reviewRequired": 1,
+      "successResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "foundation",
+         "failure-result"
+      ],
+      "resultSummaryTemplate": "applyDCTmplt"
+   },
+   "CORPACCNICKNAME": {
+      "servicePath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "corp-accountnickname-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPADDNICKNAME": {
+      "servicePath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "corp-accountnickname-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPDELNICKNAME": {
+      "servicePath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "corp-accountnickname-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPBENEINTL": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-bene-international-request"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "beneIntlTmplt"
+
+   },
+   "CORPTRANDOMESTIC": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-domestic-transfer"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "draftRequired": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "tranDomTmplt"
+   },
+   "CORPVIEWPDC": {
+      "servicePath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "corp-pdc-cheque-form"
+      ]
+   },
+   "CORPTRANCHQ": {
+      "servicePath": [
+         "accounts-space",
+         "display-shell",
+         "accounts",
+         "view-cheque-form"
+      ]
+   },
+   "CORPCHQSTATUS": {
+      "servicePath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "corp-cheque-status-inquiry-form"
+      ]
+   },
+   "CORPTRANINTBT": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-withinbank-transfer-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "draftRequired": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "tranIntbtTmplt"
+   },
+   "CORPSCHEDULEREP": {
+      "servicePath": [
+         "transfers-space"
+      ],
+      "queryParams": {
+         "status": "scheduled"
+      },
+      "activeTab": "SCHEDULETRAN"
+   },
+   "CORPFAVBENEFICIARIES": {
+      "servicePath": [
+         "transfers-space",
+         "display-shell",
+         "transfers",
+         "corp-favourite-beneficiaries-ro"
+      ]
+   },
+   "CORPCARDWORKFLOW": {
+      "servicePath": [
+         "debitcards-space",
+         "corp-card-workflow"
+      ]
+   },
+   "CORPDCUNBLOCK": {
+      "servicePath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "corp-dc-unblock-form"
+      ],
+      "stepperRequired": 1,
+      "processAware": 1,
+      "reviewRequired": 1,
+      "successResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "foundation",
+         "failure-result"
+      ],
+      "resultSummaryTemplate": "dcUnblockTmplt"
+   },
+   "CORPDCBLOCK": {
+      "servicePath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "corp-block-dc"
+      ],
+      "stepperRequired": 1,
+      "processAware": 1,
+      "reviewRequired": 1,
+      "successResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "foundation",
+         "failure-result"
+      ],
+      "resultSummaryTemplate": "dcBlockTmplt"
+   },
+   "CORPTRANPENDING": {
+      "servicePath": [
+         "transfers-space"
+      ],
+      "queryParams": {
+         "status": "pending"
+      },
+      "activeTab": "PENDINGTRAN"
+   },
+   "CORPPENDINGPAYMENTS": {
+      "servicePath": [
+         "payments-space",
+         "payments"
+      ],
+      "queryParams": {
+         "status": "pending"
+      },
+      "activeTab": "CORPPENDINGPAYMENTS"
+   },
+   "CORPREJECTEDPAYMENTS": {
+      "servicePath": [
+         "payments-space",
+         "payments"
+      ],
+      "queryParams": {
+         "status": "rejected"
+      },
+      "activeTab": "CORPREJECTEDPAYMENTS"
+   },
+   "CORPUPCOMINGPAYMENTS": {
+      "servicePath": [
+         "payments-space",
+         "payments"
+      ],
+      "queryParams": {
+         "status": "upcoming"
+      },
+      "activeTab": "CORPUPCOMINGPAYMENTS"
+   },
+   "CORPBENECC": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-beneccreq-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "beneCcTmplt"
+   },
+   "CORPBENEINTERNAL": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-bene-internal-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "beneIntbtTmplt"
+   },
+   "CORPBENEFICIARIES": {
+      "servicePath": [
+         "transfers-space",
+         "transfers",
+         "corp-beneficiaries-summary"
+      ]
+   },
+   "CORPTRANCOMPLETED": {
+      "servicePath": [
+         "transfers-space"
+      ],
+      "queryParams": {
+         "status": "completed"
+      },
+      "activeTab": "CORPTRANCOMPLETED"
+   },
+
+   "CORPCOMPLETEDPYMNTS": {
+      "servicePath": [
+         "payments-space"
+      ],
+      "queryParams": {
+         "status": "completed"
+      },
+      "activeTab": "COMPLETEDPAYMENTS"
+   },
+
+   
+   "CORPDCREPLACE": {
+      "servicePath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "corp-dc-replace-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "foundation",
+         "failure-result"
+      ],
+      "resultSummaryTemplate": "dcReplaceTmplt"
+   },
+   "CORPDCACTIVECARD": {
+      "servicePath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "corp-dc-activate-card-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "foundation",
+         "failure-result"
+      ]
+   },
+   "CORPDCDISPUTE": {
+      "servicePath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "corp-raise-dispute-dc-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "foundation",
+         "failure-result"
+      ],
+      "resultSummaryTemplate": "dcRaiseDisputeTmplt"
+   },
+   "CORPDCTRANSACTION": {
+      "servicePath": [
+         "debitcards-space",
+         "display-shell",
+         "debitcard",
+         "corp-dc-transaction-details"
+      ]
+   },
+   "CORPDCTRANSACTIONSUMMARY": {
+      "servicePath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "dc-transaction-summary-filter"
+      ]
+   },
+   "CORPDCCANCEL": {
+      "servicePath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "corp-cancel-dc-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "successResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "foundation",
+         "failure-result"
+      ]
+   },
+   "CORPDCCHANGEPIN": {
+      "servicePath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "corp-dcpinrequest-form"
+      ],
+      "stepperRequired": 1,
+      "processAware": 1,
+      "reviewRequired": 1,
+      "successResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "foundation",
+         "failure-result"
+      ],
+      "resultSummaryTemplate": "dcPinTmplt"
+   },
+   "CORPCCTRANSACTION": {
+      "servicePath": [
+         "creditcards-space",
+         "display-shell",
+         "creditcard",
+         "corp-cc-transaction-summary-ro-grid"
+      ]
+   },
+   "CORPCCTRANSACTIONSUMMARY": {
+      "servicePath": [
+         "creditcards-space",
+         "display-shell",
+         "creditcard",
+         "cc-transaction-summary-ex-filter"
+      ]
+   },
+   "CORPCCDISPUTE": {
+      "servicePath": [
+         "creditcards-space",
+         "entry-shell",
+         "creditcard",
+         "corp-cc-raise-dispute-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "cards-space",
+         "entry-shell",
+         "creditcard",
+         "creditcard-confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "cards-space",
+         "entry-shell",
+         "creditcard",
+         "creditcard-confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "ccDisputeTmplt"
+   },
+   "CORPCCSUMMARY": {
+      "servicePath": [
+         "creditcards-space"
+      ]
+   },
+   "CORPPCSUMMARY": {
+      "servicePath": [
+         "prepaidcard-space"
+      ]
+   },
+   "CORPCCDETAILS": {
+      "servicePath": [
+         "creditcards-space",
+         "display-shell",
+         "creditcard",
+         "corp-creditcard-details-form"
+      ]
+   },
+   "CORPPCDETAILS": {
+      "servicePath": [
+         "prepaidcard-space",
+         "display-shell",
+         "prepaidcard",
+         "corp-prepaid-details-form"
+      ]
+   },
+   "CORPCCBILLPAYMENT": {
+      "servicePath": [
+         "creditcards-space",
+         "entry-shell",
+         "creditcard",
+         "corp-cc-bill-payment-form"
+      ],
+      "stepperRequired": 1,
+      "processAware": 1,
+      "reviewRequired": 1,
+      "successResultPath": [
+         "cards-space",
+         "entry-shell",
+         "creditcard",
+         "creditcard-confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "cards-space",
+         "entry-shell",
+         "creditcard",
+         "creditcard-confirmation-receipt"
+      ]
+   },
+   "CORPCCCHANGEPIN": {
+      "servicePath": [
+         "creditcards-space",
+         "entry-shell",
+         "creditcard",
+         "corp-ccpinrequest-form"
+      ],
+      "stepperRequired": 1,
+      "processAware": 1,
+      "reviewRequired": 1,
+      "successResultPath": [
+         "cards-space",
+         "entry-shell",
+         "debitcard",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "cards-space",
+         "entry-shell",
+         "foundation",
+         "failure-result"
+      ],
+      "resultSummaryTemplate": "ccPinTmplt"
+   },
+   "CORPDCLIMITS": {
+      "servicePath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "corp-dc-manage-limits-form"
+      ],
+      "stepperRequired": 1,
+      "processAware": 1,
+      "reviewRequired": 1,
+      "successResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "debitcard",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "foundation",
+         "failure-result"
+      ],
+      "resultSummaryTemplate": "dcManageCardTmplt"
+   },
+   "CORPDCTRANSACTIONDETAILS": {
+      "servicePath": [
+         "debitcards-space",
+         "display-shell",
+         "debitcard",
+         "corp-dc-transaction-dtls-form"
+      ]
+   },
+   "CORPCCTRANSACTIONDETAILS": {
+      "servicePath": [
+         "creditcards-space",
+         "display-shell",
+         "creditcard",
+         "corp-cc-transaction-summary-dtls-form"
+      ]
+   },
+   "CORPCCBLOCK": {
+      "servicePath": [
+         "creditcards-space",
+         "entry-shell",
+         "creditcard",
+         "corp-cc-block-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "creditcards-space",
+         "entry-shell",
+         "creditcard",
+         "creditcard-confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "creditcards-space",
+         "entry-shell",
+         "foundation",
+         "failure-result"
+      ],
+      "resultSummaryTemplate": "ccBlockTmplt"
+   },
+   "CCREPLACEMENT": {
+      "servicePath": [
+         "creditcards-space",
+         "entry-shell",
+         "creditcard",
+         "corp-cc-replace-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "creditcards-space",
+         "entry-shell",
+         "creditcard",
+         "creditcard-confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "creditcards-space",
+         "entry-shell",
+         "creditcard",
+         "creditcard-confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "ccReplaceTmplt"
+   },
+   "CORPCCLIMITS": {
+      "servicePath": [
+         "creditcards-space",
+         "entry-shell",
+         "creditcard",
+         "corp-cc-limit-request"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "cards-space",
+         "entry-shell",
+         "creditcard",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "cards-space",
+         "entry-shell",
+         "foundation",
+         "failure-result"
+      ],
+      "resultSummaryTemplate": "ccManageLimitsTmplt"
+   },
+   "CORPCCSTATEMENT": {
+      "servicePath": [
+         "cards-space",
+         "entry-shell",
+         "creditcard",
+         "corp-ccstatement-form"
+      ]
+   },
+   "CORPCCLIMITCHANGE": {
+      "servicePath": [
+         "creditcards-space",
+         "entry-shell",
+         "creditcard",
+         "corp-cclimitchange-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "creditcards-space",
+         "entry-shell",
+         "creditcard",
+         "creditcard-confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "creditcards-space",
+         "entry-shell",
+         "foundation",
+         "failure-result"
+      ],
+      "resultSummaryTemplate": "ccLimitReqTmplt"
+   },
+   "CORPCCFLASH": {
+      "servicePath": [
+         "cards-space",
+         "display-shell",
+         "creditcard",
+         "corp-ccflashrequest-form"
+      ]
+   },
+   "CORPCCCANCEL": {
+      "servicePath": [
+         "cards-space",
+         "entry-shell",
+         "creditcard",
+         "corp-cc-cancel-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "successResultPath": [
+         "cards-space",
+         "entry-shell",
+         "creditcard",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "cards-space",
+         "entry-shell",
+         "creditcard",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPCCUNBLOCK": {
+      "servicePath": [
+         "creditcards-space",
+         "entry-shell",
+         "creditcard",
+         "corp-cc-unblock-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "cards-space",
+         "entry-shell",
+         "creditcard",
+         "creditcard-confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "cards-space",
+         "entry-shell",
+         "foundation",
+         "failure-result"
+      ],
+      "resultSummaryTemplate": "ccUnblockTmplt"
+   },
+   "CORPCCACTIVATION": {
+      "servicePath": [
+         "creditcards-space",
+         "entry-shell",
+         "creditcard",
+         "corp-cc-activation"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "creditcards-space",
+         "entry-shell",
+         "creditcard",
+         "creditcard-confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "creditcards-space",
+         "entry-shell",
+         "creditcard",
+         "creditcard-confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "activationccTmplt"
+   },
+   "CORPTRANCBAED": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-aedtransfer-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "draftRequired": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "tranAedTmplt"
+   },
+   "CORPCHNGMATURITYINSTR": {
+      "servicePath": [
+         "deposits-space",
+         "entry-shell",
+         "deposits",
+         "corp-changematurity-instructions-form"
+      ],
+      "stepperRequired": 1,
+      "successResultPath": [
+         "deposits-space",
+         "entry-shell",
+         "deposits",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "deposits-space",
+         "entry-shell",
+         "deposits",
+         "confirmation-receipt"
+      ],
+      "reviewRequired": 1,
+      "processAware": 1,
+      "draftRequired": 1,
+      "resultSummaryTemplate": "changeMaturityTmplt"
+   },
+   "CORPBENECBAED": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-beneaedreq-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "beneAedTmplt"
+   },
+   "pymts": {
+      "servicePath": [
+         "entry-shell",
+         "transfers",
+         "corp-schedule-handler"
+      ],
+      "queryParams": {}
+   },
+   "CORPTRANSFERSUMMARY": {
+      "servicePath": [
+         "transfers-space",
+         "transfers"
+      ]
+   },
+   "CORPTRANSWIFT": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-international-transfer-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "draftRequired": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "tranIntlTmplt"
+   },
+   "CORPTRANHISTORY": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-transfers-history-form"
+      ]
+   },
+   "CORPBENEDOMESTIC": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-bene-dom-request-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "beneDomTmplt"
+   },
+   "CORPSCHDOM": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-domestic-transfer"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "tranDomTmplt"
+   },
+   "CORPSCHOAT": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-own-account-transfer"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "tranOatTmplt"
+   },
+   "CORPSCHCC": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-cctransfer-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "tranCcTmplt"
+   },
+   "CORPSCHCBAED": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-aedtransfer-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "tranAedTmplt"
+   },
+   "CORPSCHINTBT": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-withinbank-transfer-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "tranIntbtTmplt"
+   },
+   "CORPSCHSWIFT": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-international-transfer-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "tranIntlTmplt"
+   },
+   "CORPTRANSFER": [
+      "transfers-space"
+   ],
+   "CORPLOANPREPAYMENT": {
+      "servicePath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "corp-loan-pre-closure-request-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "loanPreClosureTmplt"
+   },
+   "CORPLOANREPAYMENT": {
+      "servicePath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "corp-loan-repayment-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "loanRepaymentTmplt"
+   },
+   "CORPLOANMODIFICATION": {
+      "servicePath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "corp-loan-modification-request-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPLOANSUMMARY": {
+      "servicePath": [
+         "loans-space"
+      ]
+   },
+   "CORPAPPLYLOAN": {
+      "servicePath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "corp-apply-loan-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "draftRequired": 0,
+      "successResultPath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPLOANDRAWDOWN": {
+      "servicePath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "corp-loan-drawdown-request-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPLOANCLOSURE": {
+      "servicePath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "corp-loan-closure-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "loanClosureTmplt"
+   },
+   "CORPLOANREPAYMENTSCHEDULE": {
+      "servicePath": [
+         "loans-space",
+         "display-shell",
+         "loans",
+         "corp-loan-repayment-schedule-form"
+      ]
+   },
+   "CORPLOANDETAILS": {
+      "servicePath": [
+         "loans-space",
+         "display-shell",
+         "loans",
+         "corp-loan-details-form"
+      ]
+   },
+   "CORPLOANSTATEMENT": {
+      "servicePath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "corp-loan-stmt-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "loans-space",
+         "entry-shell",
+         "loans",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPLOANDISBURSEMENTSCH": {
+      "servicePath": [
+         "loans-space",
+         "display-shell",
+         "loans",
+         "corp-loan-disbursal-schedule-form"
+      ]
+   },
+   "CORPBILLERACCOUNT": {
+      "servicePath": [
+         "payments-space",
+         "entry-shell",
+         "payments",
+         "corp-billeraccountreq-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "payments-space",
+         "entry-shell",
+         "payments",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "payments-space",
+         "entry-shell",
+         "payments",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPDELETEBILLER": {
+      "servicePath": [
+         "payments-space",
+         "entry-shell",
+         "payments",
+         "corp-delete-billeraccountreq-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "payments-space",
+         "entry-shell",
+         "payments",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "payments-space",
+         "entry-shell",
+         "payments",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPSINGLEPAYMENT": {
+      "servicePath": [
+         "payments-space",
+         "entry-shell",
+         "payments",
+         "bp-billRequest-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "payments-space",
+         "entry-shell",
+         "payments",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "payments-space",
+         "entry-shell",
+         "payments",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPPAYMENTSSPACE": {
+      "servicePath": [
+         "payments-space",
+         "payments"
+      ]
+   },
+   "CORPBILLSUMMARY": {
+      "servicePath": [
+         "payments-space",
+         "payments"
+      ]
+   },
+   "CORPMULTIBILLPAYMENT": {
+      "servicePath": [
+         "payments-space",
+         "entry-shell",
+         "payments",
+         "multibillrequest-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "payments-space",
+         "entry-shell",
+         "payments",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "payments-space",
+         "entry-shell",
+         "payments",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPVIEWBILLER": {
+      "servicePath": [
+         "payments-space",
+         "entry-shell",
+         "payments",
+         "corp-view-billeraccountreq-form"
+      ]
+   },
+   "CORPPAYMENTSWORKFLOW": {
+      "servicePath": [
+         "workflow-space"
+     ],
+     "queryParams": {
+        "status": "BillPayments"
+     },
+     "activeTab": "CORPPAYMENTSWORKFLOW"
+   },
+   "CORPLOGIN": {
+      "servicePath": [
+         "login-space",
+         "entry-shell",
+         "login"
+      ],
+      "reviewRequired": 0,
+      "processAware": 0
+   },
+   "CORPAUTHLOGIN": {
+      "servicePath": [
+         "login-space",
+         "entry-shell",
+         "login"
+      ],
+      "reviewRequired": 1,
+      "processAware": 1,
+      "headerNavRequired": 1,
+      "headerNavService": "LOGINSPACE"
+   },
+   "CORPFORGOTPASSWORD": {
+      "servicePath": [
+         "login-space",
+         "entry-shell",
+         "login",
+         "corp-forgot-password-form"
+      ],
+      "reviewRequired": 0,
+      "processAware": 1,
+      "headerNavRequired": 1,
+      "headerNavService": "LOGINSPACE"
+   },
+   "CORPFORGOTUSERNAME": {
+      "servicePath": [
+         "login-space",
+         "entry-shell",
+         "login",
+         "corp-customer-verification-form"
+      ],
+      "reviewRequired": 0,
+      "processAware": 1,
+      "headerNavRequired": 1,
+      "headerNavService": "LOGINSPACE"
+   },
+   "CORPRESETPASSWORD": {
+      "servicePath": [
+         "login-space",
+         "entry-shell",
+         "login",
+         "corp-reset-password-form"
+      ],
+      "reviewRequired": 0,
+      "processAware": 1,
+      "headerNavRequired": 1,
+      "headerNavService": "LOGINSPACE",
+      "successResultPath": [
+         "login-space",
+         "entry-shell",
+         "login",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "login-space",
+         "entry-shell",
+         "login",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPCHANGEPASSWORD": {
+      "servicePath": [
+         "login-space",
+         "entry-shell",
+         "login",
+         "corp-change-password"
+      ],
+      "reviewRequired": 1,
+      "processAware": 1,
+      "headerNavRequired": 1,
+      "headerNavService": "LOGINSPACE",
+      "successResultPath": [
+         "login-space",
+         "entry-shell",
+         "login",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "login-space",
+         "entry-shell",
+         "login",
+         "confirmation-receipt"
+      ]
+   },
+   "PRELOGINTFA": {
+      "servicePath": [
+         "login-space",
+         "entry-shell",
+         "prelogin",
+         "corp-kill-previous-session"
+      ],
+      "reviewRequired": 1,
+      "processAware": 1,
+      "headerNavRequired": 1,
+      "headerNavService": "LOGINSPACE"
+   },
+   "CORPACCOPENING": {
+      "servicePath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "corp-account-opening-request-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "draftRequired": 0,
+      "successResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "accounts-space",
+         "entry-shell",
+         "accounts",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "accOpeningTmplt"
+   },
+   "CORPIMPLCSUMMARY": {
+      "servicePath": [
+         "tradefinance-import-services-space"
+      ]
+   },
+   "CORPEXPLCSUMMARY": {
+      "servicePath": [
+         "tradefinance-export-services-space"
+      ]
+   },
+   "CORPIMPLCDETAILS": {
+      "servicePath": [
+         "tradefinance-import-services-space",
+         "display-shell",
+         "tradefinance",
+         "view-import-lc-details-form"
+      ]
+   },
+   "ACORPTRANSWIFT": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-international-transfer-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ]
+   },
+   "ACORPTRANDOMESTIC": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-domestic-transfer"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ]
+   },
+   "ACORPTRANCC": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-cctransfer-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ]
+   },
+   "ACORPTRANOAT": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-own-account-transfer"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ]
+   },
+   "ACORPTRANINTBT": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-withinbank-transfer-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ]
+   },
+   "ACORPTRANCBAED": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-aedtransfer-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ]
+   },
+   "CORPSALARYFILEUPLOAD": {
+      "servicePath": [
+         "bulkpayments-space",
+         "entry-shell",
+         "bulkpayments",
+         "corp-salary-file-upload-form"
+      ],
+      "reviewRequired": 1,
+      "processAware": 1,
+      "stepperRequired": 1,
+      "headerNavRequired": 1,
+      "successResultPath": [
+         "bulkpayments-space",
+         "entry-shell",
+         "bulkpayments",
+         "bulkpayments-confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "bulkpayments-space",
+         "entry-shell",
+         "bulkpayments",
+         "bulkpayments-confirmation-receipt"
+      ],
+      "headerNavService": "BULKPAYMENTSSPACE",
+      "resultSummaryTemplate": "CorpSalaryFileUploadClosureTmplt"
+   },
+   "CORPSALARYTYPE2UPLOAD": {
+      "servicePath": [
+         "bulkpayments-space",
+         "entry-shell",
+         "bulkpayments",
+         "corp-salarytype2-file-upload-form"
+      ],
+      "reviewRequired": 1,
+      "processAware": 1,
+      "stepperRequired": 1,
+      "headerNavRequired": 1,
+      "successResultPath": [
+         "bulkpayments-space",
+         "entry-shell",
+         "bulkpayments",
+         "bulkpayments-confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "bulkpayments-space",
+         "entry-shell",
+         "bulkpayments",
+         "bulkpayments-confirmation-receipt"
+      ],
+      "headerNavService": "bulkpayments-space"
+   },
+   "CORPSALARYFILEDTLS": {
+      "servicePath": [
+         "bulkpayments-space",
+         "entry-shell",
+         "bulkpayments",
+         "corp-salaryfiledtls-disp-grid"
+      ],
+      "reviewRequired": 1,
+      "processAware": 1,
+      "headerNavRequired": 1,
+      "headerNavService": "bulkpayments-space"
+   },
+   "CORPEMPLOYEEFILEUPLOAD": {
+      "servicePath": [
+         "bulkpayments-space",
+         "entry-shell",
+         "bulkpayments",
+         "corp-employee-file-upload-form"
+      ],
+      "reviewRequired": 1,
+      "processAware": 1,
+      "stepperRequired": 1,
+      "headerNavRequired": 1,
+      "successResultPath": [
+         "bulkpayments-space",
+         "entry-shell",
+         "bulkpayments",
+         "bulkpayments-confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "bulkpayments-space",
+         "entry-shell",
+         "bulkpayments",
+         "bulkpayments-confirmation-receipt"
+      ],
+      "headerNavService": "bulkpayments-space"
+   },
+   "CORPEMPLOYEEFILEDTLS": {
+      "servicePath": [
+         "bulkpayments-space",
+         "entry-shell",
+         "bulkpayments",
+         "corp-employee-file-dtls-disp-grid"
+      ],
+      "reviewRequired": 1,
+      "processAware": 1,
+      "headerNavRequired": 1,
+      "headerNavService": "bulkpayments-space"
+   },
+   "CORPSERVICEREQUESTLOG": {
+      "servicePath": [
+         "servicerequest-space"
+      ]
+   },
+   "CORPSTNGCHANGEPASSWORD": {
+      "servicePath": [
+         "settings-space",
+         "entry-shell",
+         "settings",
+         "corp-change-password-form"
+      ],
+      "reviewRequired": 0,
+      "processAware": 1,
+      "stepperRequired": 0,
+      "headerNavRequired": 1,
+      "headerNavService": "SETTINGSSPACE",
+      "queryParams": {}
+   },
+   "CORPMANAGEALERTS": {
+      "servicePath": [
+         "settings-space",
+         "display-shell",
+         "settings",
+         "corp-manage-alerts-form"
+      ],
+      "queryParams": {
+         "serviceCode": "CORPMANAGEALERTS"
+      }
+   },
+   "RETAILMANAGEUSERALERTS": {
+      "servicePath": [
+         "settings-space",
+         "display-shell",
+         "settings",
+         "retail-user-alert-template"
+      ]
+   },
+   "DEPVIEWFXRATE": {
+      "servicePath": [
+         "settings-space",
+         "display-shell",
+         "settings",
+         "corp-fx-rate-form"
+      ]
+   },
+   "LOANCALCULATOR": {
+      "servicePath": [
+         "loans-space",
+         "display-shell",
+         "loans",
+         "corp-loan-calculator-form"
+      ]
+   },
+   "CORPCURRENCYCUTOFF": {
+      "servicePath": [
+         "settings-space",
+         "display-shell",
+         "settings",
+         "corp-currency-cutoff-form"
+      ]
+   },
+   "CORPTRANLIMITS": {
+      "servicePath": [
+         "settings-space",
+         "display-shell",
+         "settings",
+         "corp-transaction-limits"
+      ]
+   },
+   "CORPEXPLCDETAILS": {
+      "servicePath": [
+         "tradefinance-export-services-space",
+         "display-shell",
+         "tradefinance",
+         "view-export-lc-details-form"
+      ]
+   },
+   "CORPMANAGEPROFILE": {
+      "servicePath": [
+         "settings-space",
+         "entry-shell",
+         "settings",
+         "corp-profile-settings-form"
+      ],
+      "queryParams": {}
+   },
+   "CORPCREATESERVICEREQ": {
+      "servicePath": [
+         "servicerequest-space",
+         "entry-shell",
+         "servicerequest",
+         "confirmation-receipt"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "servicerequest-space",
+         "entry-shell",
+         "servicerequest",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "servicerequest-space",
+         "entry-shell",
+         "servicerequest",
+         "confirmation-receipt"
+      ],
+      "ServiceRequestQueue": {
+         "path": [
+            "servicerequest-space",
+            "entry-shell",
+            "servicerequest",
+            "confirmation-receipt"
+         ]
+      }
+   },
+   "CORPEMPUPLOADSUMMARY": {
+      "servicePath": [
+         "bulkpayments-employeeinfo-service-space"
+      ]
+   },
+   "CORPSALARYFILESUMMARY": {
+      "servicePath": [
+         "bulkpayments-salaryfileinfo-service-space"
+      ]
+   },
+   "CORPISSUEDBANK": {
+      "servicePath": [
+         "tradefinance-bank-guarantee-services-space"
+      ]
+   },
+   "CORPADVISEDSUMMARY": {
+      "servicePath": [
+         "tradefinance-bank-guarantee-services-space"
+      ]
+   },
+   "CORPISSUEDBANKDETAILS": {
+      "servicePath": [
+         "tradefinance-bank-guarantee-services-space",
+         "display-shell",
+         "tradefinance",
+         "issued-bank-guarantee-details"
+      ]
+   },
+   "CORPADVISEDDETAILS": {
+      "servicePath": [
+         "tradefinance-bank-guarantee-services-space",
+         "display-shell",
+         "tradefinance",
+         "advised-bank-guarantee-details"
+      ]
+   },
+   "CORPIMPBILLSUM": {
+      "servicePath": [
+         "tradefinance-import-services-space"
+      ]
+   },
+   "CORPEXPBILLSUM": {
+      "servicePath": [
+         "tradefinance-export-services-space"
+      ]
+   },
+   "CORPIMPBILLDTLS": {
+      "servicePath": [
+         "tradefinance-import-services-space",
+         "display-shell",
+         "tradefinance",
+         "corp-import-bills-dtls"
+      ]
+   },
+   "CORPEXPBILLDTLS": {
+      "servicePath": [
+         "tradefinance-export-services-space",
+         "display-shell",
+         "tradefinance",
+         "corp-export-bills-dtls-forms"
+      ]
+   },
+   "CORPCONTACTRMREQ": {
+      "servicePath": [
+         "settings-space",
+         "entry-shell",
+         "settings",
+         "corp-contact-rm-form"
+      ],
+      "reviewRequired": 1,
+      "processAware": 1,
+      "stepperRequired": 1,
+      "headerNavRequired": 1,
+      "headerNavService": "SETTINGSSPACE",
+      "queryParams": {}
+   },
+   "CORPBALCONFIRM": {
+      "servicePath": [
+         "servicerequest-space",
+         "entry-shell",
+         "servicerequest",
+         "corp-balance-confirmaton-req"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "servicerequest-space",
+         "entry-shell",
+         "servicerequest",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "servicerequest-space",
+         "entry-shell",
+         "servicerequest",
+         "confirmation-receipt"
+      ],
+      "ServiceRequestQueue": {
+         "path": [
+            "servicerequest-space",
+            "entry-shell",
+            "servicerequest",
+            "confirmation-receipt"
+         ]
+      }
+   },
+   "CORPCUSTOMERINFOLOG": {
+      "processAware": 1
+   },
+   "CHECKERWF": {
+      "processAware": 1
+   },
+   "CORPBENEDOMESTICDELETE": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-delete-bene-dom-request-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "beneDomTmplt"
+   },
+   "CORPBENECCDELETE": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-delete-beneccreq-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "beneCcTmplt"
+   },
+   "CORPBENEINTERNALDELETE": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-delete-bene-internal-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "beneIntbtTmplt"
+   },
+   "CORPBENECBAEDDELETE": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-delete-beneaedreq-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "beneAedTmplt"
+   },
+   "CORPBENEINTLDELETE": {
+      "servicePath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "corp-delete-bene-international-request"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "transfers-space",
+         "entry-shell",
+         "transfers",
+         "confirmation-receipt"
+      ],
+      "resultSummaryTemplate": "beneIntlTmplt"
+
+   },
+   "CORPACCOUNTS": {
+      "servicePath": [
+         "accounts-space"
+      ]
+   },
+   "CORPTRANSFERS": {
+      "servicePath": [
+         "transfers-space"
+      ]
+   },
+   "MAKERDECISION": {
+      "processAware": 1
+   },
+   "LOGINSPACE": {
+      "servicePath": [
+         "login-space"
+      ]
+   },
+   "CHECKERBOARD": {
+      "servicePath": [
+         "dashboard"
+      ]
+   },
+   "MAKERBOARD": {
+      "servicePath": [
+         "dashboard"
+      ]
+   },
+   "CORPPCTRANSACTION": {
+      "servicePath": [
+         "prepaidcard-space",
+         "display-shell",
+         "prepaidcard",
+         "corp-pc-transaction-ro-grid"
+      ]
+   },
+   "CORPPCACTIVATE": {
+      "servicePath": [
+         "prepaidcard-space",
+         "entry-shell",
+         "prepaidcard",
+         "corp-prepaid-card-activation"
+      ]
+   },
+   "CORPPCCHANGEPIN": {
+      "servicePath": [
+         "prepaidcard-space",
+         "entry-shell",
+         "prepaidcard",
+         "corp-pc-pin-request-form"
+      ],
+      "stepperRequired": 1,
+      "processAware": 1,
+      "reviewRequired": 1,
+      "successResultPath": [
+         "prepaidcard-space",
+         "entry-shell",
+         "prepaidcard",
+         "prepaidcard-confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "debitcards-space",
+         "entry-shell",
+         "foundation",
+         "failure-result"
+      ],
+      "resultSummaryTemplate": "pcPinTmplt"
+   },
+    "CORPPCBLOCK": {
+      "servicePath": [
+         "prepaidcard-space",
+         "entry-shell",
+         "prepaidcard",
+         "corp-pc-block-form"
+      ],
+      "stepperRequired": 1,
+      "reviewRequired": 1,
+      "processAware": 1,
+      "successResultPath": [
+         "prepaidcard-space",
+         "entry-shell",
+         "prepaidcard",
+         "prepaidcard-confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "prepaidcard-space",
+         "entry-shell",
+         "foundation",
+         "failure-result"
+      ],
+      "resultSummaryTemplate": "pcBlockTmplt"
+   },
+   
+    "CORPPCUNBLOCK": {
+      "servicePath": [
+         "prepaidcard-space",
+         "entry-shell",
+         "prepaidcard",
+         "corp-pp-unblock-form"
+      ],
+      "stepperRequired": 1,
+      "processAware": 1,
+      "reviewRequired": 1,
+      "successResultPath": [
+         "prepaidcard-space",
+         "entry-shell",
+         "prepaidcard",
+         "prepaidcard-confirmation-receipt"
+      ],
+      "failureResultPath": [
+         "prepaidcard-space",
+         "entry-shell",
+         "foundation",
+         "failure-result"
+      ],
+      "resultSummaryTemplate": "pcUnblockTmplt"
+   }
+}

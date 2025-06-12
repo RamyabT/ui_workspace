@@ -1,0 +1,106 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailAccountEStatementReqForm">
+
+	<box class="manage-btn">
+		<button class="secondary" (click)="_helper.manageStatement()">Manage eStatement</button>
+	</box>
+
+	<box class="entry-form">
+		<box id="FieldId_18" class="col-md-12 grid  entry-form-field-group col-lg-12 ">
+			<box class="download-statement-header">
+				<span class="mob-header">{{'RetailAccountEStatementReqForm.title' | translate }}</span>
+			</box>
+			<hr *ngIf="_device.isMobile()" class="header-line">
+			<box class="estatment-form-container">
+				<box class="grid">
+					<app-estmtrelationship class="col-sm-12 col-md-6 col-lg-4"
+						[actionPublisher]="actionMap$.get('relationshipNumber')"
+						label="{{'RetailAccountEStatementReqForm.relationshipNumber.label' | translate }}"
+						formControlName="relationshipNumber"
+						(commonControlEvent)="handleControlEvent($event)"></app-estmtrelationship>
+
+
+					<app-yearlist class="col-sm-12 col-md-6 col-lg-4" [actionPublisher]="actionMap$.get('year')"
+						label="{{'RetailAccountEStatementReqForm.year.label' | translate }}" formControlName="year"
+						(commonControlEvent)="handleControlEvent($event)"></app-yearlist>
+
+					<box *ngIf="_device.isMobile()" class="line-separator"></box>
+
+					<box class="view-btn col-xs-2 col-sm-12 col-md-6 col-lg-4 ">
+						<button type="button" id="viewButton" class="enabled" (click)="_helper.onView()">
+							<span>View</span>
+						</button>
+					</box>
+				</box>
+
+				<box class="grid">
+					<box class="relationship-table" *ngIf="_helper.showRelationshipDetails">
+						<box *ngIf="!_device.isMobile()" class="line-separator"></box>
+						<box class="relationship-wrapper">
+							<box class="relationship-details">
+								<table>
+									<tr class="title">
+										<th class="product-name">
+											<span>
+												{{'RetailAccountEStatementReqForm.relationship.productName' |
+												translate}}
+											</span>
+										</th>
+										<th *ngIf="_device.isMobile()">
+											<span>{{'RetailAccountEStatementReqForm.relationship.accountNumber1' |
+												translate}}</span>
+										</th>
+										<th *ngIf="!_device.isMobile()">
+											<span>{{'RetailAccountEStatementReqForm.relationship.accountNumber' |
+												translate}}</span>
+										</th>
+									</tr>
+									<tr *ngFor="let info of _helper.accounts" class="details">
+										<td class="product-desc">
+											<span>{{info.productDesc}}</span>
+										</td>
+										<td>
+											<span>{{info.accountNumber}}</span>
+										</td>
+									</tr>
+								</table>
+							</box>
+						</box>
+					</box>
+				</box>
+
+				<box *ngIf="_helper.showDocuments; else notRegisterd" class="available-statement">
+					<box class="line-separator"></box>
+					<box class="header">Available Statements</box>
+
+					<ng-container *ngFor="let account of _helper.accountDetails">
+
+						<box class="detail-wrapper">
+							<span>{{account.dateOfGeneration | date : "dd MMM yyyy"}}</span>
+
+							<!-- <box *ngIf="_device.isMobile()">
+							<button type="button" class="system-ico-button btn-close no-text"
+								(click)="_helper.onDownloadClick(this.account.statementReference)"><span>Download</span></button>
+						</box> -->
+
+							<box class="downlaod-btn-container">
+								<button type="button" class="btn-container"
+									(click)="_helper.onDownloadClick(this.account.statementReference)">
+									<span class="icon download-btn-icon"></span>
+									<span class="text-bold"><u>Download</u></span>
+								</button>
+							</box>
+						</box>
+
+						<box class="line-divider"></box>
+					</ng-container>
+				</box>
+				<ng-template #notRegisterd>
+					<box class="no-data">
+						<img src="./assets/images/transfers/no-schedule-transfer.svg" alt="no-statements">
+						<span class="primary-msg">{{'RetailAccountEStatementReqForm.noData.message' | translate}}</span>
+					</box>
+				</ng-template>
+			</box>
+		</box>
+	</box>
+</form>

@@ -1,0 +1,5 @@
+ 
+ "RETAILVIEWSCHEDULEDBILLS" : {
+ "servicePath": ["display-shell","billpayment", "retail-view-scheduled-bills-display-grid"],
+ "queryParams": {}
+ }

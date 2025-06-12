@@ -1,0 +1,100 @@
+app-othercountry-taxinfo-inputgrid ,app-addCountry-of-tax-inputgrid,app-add-another-beneficiary-form{
+	display: flex;
+    flex-direction: column-reverse;
+
+	.input-grid-title {
+		width: 100%;
+		padding: 10px 0px 10px 0;
+		border-top: 1px solid var(--baseBdrClr);
+		border-bottom: 1px solid var(--baseBdrClr);
+	}
+	.center-align{
+		display: flex;
+		justify-content: center;
+	}
+	.hint {
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 22px;
+	}
+	.input-grid {
+		border: none;
+		.input-grid-row {
+			flex-flow: column;
+			position: relative;
+			&:not(:last-child) {
+				border-bottom: unset !important
+			}
+			.input-grid-row-item {
+				display: flex;
+				flex-flow: column;
+				flex-shrink: 0;
+				flex-grow: 0;
+				padding: unset;
+				word-break: auto-phrase;
+				text-align: unset;
+				align-items: unset;
+				margin-bottom: 20px;
+				>span {
+					margin-bottom: 12px;
+				}
+				&:first-child {
+					span {
+						font-size: 16px;
+						font-weight: 500;
+						line-height: 24px;
+						text-align: left;
+						margin-bottom: unset;
+					}
+				}
+				&:not(:last-child) {
+					border-right: unset !important
+				}
+				&:last-child {
+					position: absolute;
+    				right: 0;
+					width: 25%;
+					mat-icon {
+						font-family: Helvetica Neue;
+						font-size: 16px;
+						font-weight: 500;
+						line-height: 24px;
+						color: #E02020;
+						display: flex;
+						align-items: center;
+						gap: 4px;
+						justify-content: flex-end;
+
+						
+						&::before {
+							content: '';
+							background-color: var(--errorClr);
+							// mask: url("../../../assets/images/icons/delete.svg") no-repeat 0 0 transparent;
+							// --webkit-mask: url("../../../assets/images/icons/delete.svg") no-repeat 0 0 transparent;
+							mask-image: url("../../../assets/images/icons/delete.svg");
+							-webkit-mask-image: url("../../../assets/images/icons/delete.svg");
+							mask-size: 16px;
+							--webkit-mask-size: 16px;
+							width: 16px;
+							height: 16px;
+							display: block;
+						}
+					}
+				}
+			}
+		}
+
+		& + .grid-actions{
+            margin: 20px 0;
+            padding-left: 0;
+            background: none;
+
+            button.add-new{
+                background: url(../../../assets/images/icons/plus.svg) no-repeat 24px 50% transparent;
+                background-size: 16px;
+                padding-left: 52px;
+				@include s3-medium;
+            }
+        }
+	}
+}

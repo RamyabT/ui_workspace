@@ -1,0 +1,221 @@
+<box *ngIf="!_device.isMobile()" class="dep-confirmation accounts-list-popup">
+    <box class="accounts-list-popup-header">
+        <box class="account-details">
+            <box class="accounts-list-popup-title">
+                {{'AccountsList.selectedTitle' | translate}}
+            </box>
+            <box class="selected-account-name">
+                {{selectedData?.productDesc}}
+            </box>
+            <box class="product-details">
+                <box class="account-number">{{ selectedData?.loanAccountNumber }}</box>
+                <box class="seperator"></box>
+                <box class="account-type">{{ selectedData.accountTypeDesc }}
+                    <!-- <span class="joint"
+                        *ngIf="selectedData.ownership == 'Joint'">{{selectedData.ownership}}</span> -->
+                        <!-- <span class="dormant" -->
+                        <!-- *ngIf="selectedData.accountStatus == 'Dormant'">{{selectedData.accountStatus}}</span></box> -->
+            </box>
+            <box class="close-btn-container">
+                <button type="button" class="btn-container" (click)="close()">
+                    <span class="icon close-btn-icon"></span>
+                </button>
+            </box>
+        </box>
+        <box>
+        </box>
+        </box>
+    </box>
+    <box class="accounts-list-popup-body">
+        <box class="all-accounts-label">
+            {{'AccountsList.allAccounts' | translate}}
+        </box>
+        <box class="details-container">
+            <ng-container *ngFor="let field of unselectedAccounts">
+                <box class="account-name-details-amount-wrapper" (click)="selectAccount(field)">
+                    <box class="account-name-details-wrapper">
+                        <box class="account-name">
+                            {{field?.productDesc}}
+                        </box>
+                        <box class="all-account-details">
+                            <box class="account-number">{{ field?.loanAccountNumber }}</box>
+                            <box class="seperator"></box>
+                            <box class="account-type">{{ field.accountTypeDesc }}
+                                <!-- <span class="joint"
+                                    *ngIf="field.ownership == 'Joint'">{{field.ownership}}</span><span class="dormant"
+                                    *ngIf="field.accountStatus == 'Dormant'">{{field.accountStatus}}</span> -->
+                                </box>
+                        </box>
+                    </box>
+                    <box *ngIf="field.accountCurrency !== _appConfig.baseCurrency" class="balance-wrapper">
+                        <box class="amount account-balance">
+                            {{ field.totalOutstanding | currency :
+                            field.accountCurrency : '' }} <em>{{ field.accountCurrency |
+                                currencyCode }}</em>
+                        </box>
+                        <box class="amount base-amount">
+                            {{ field.baseCurrencyAvlBal | currency :
+                            _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                                }}</em>
+                        </box>
+                    </box>
+                    <box *ngIf="field.accountCurrency == _appConfig.baseCurrency" class="balance-wrapper">
+                        <box class="amount account-balance">
+                            {{ field.totalOutstanding | currency :
+                            _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                                }}</em>
+                        </box>
+                    </box>
+                </box>
+                <box class="list-divider"></box>
+            </ng-container>
+        </box>
+    </box>
+</box>
+
+<box *ngIf="_device.isMobile()">
+    <box class="accounts-list-popup-header">
+        <button type="button" class="system-ico-button btn-close no-text" name="back"
+            (click)="close()"><span>Close</span></button>
+        <h2 class="module-title">All Accounts</h2>
+    </box>
+
+    <box class="accounts-list-popup-body">
+        <box class="details-container">
+
+            <box class="summary-card">
+                <box class="summary-card-inner">
+                    <box class="selected-account-tag">
+                        Selected Account
+                    </box>
+                    <box class="primary-details">
+                        <box class="account-details">
+                            <box class="product-name">{{ selectedData.productDesc }}
+                            </box>
+                            <box class="account-number">{{ selectedData.loanAccountNumber }}</box>
+
+                            <box class="type">
+                                {{selectedData.accountTypeDesc}}
+                                <!-- <em
+                                    *ngIf="selectedData?.ownership && selectedData.ownership.toLowerCase() == 'joint'"
+                                    class="tag ownership">{{
+                                    'CASASUMMARYCARD.joint' | translate }}</em>
+                                <em *ngIf="selectedData?.accountStatus && selectedData?.accountStatus?.toLowerCase() == 'dormant'"
+                                    class="tag dormant">{{ selectedData.accountStatus }}</em> -->
+                            </box>
+                        </box>
+
+                    </box>
+                    <box class="additional-details">
+                        <box class="additional-detail available">
+                            <span class="lbl">{{ 'CASASUMMARYCARD.available' | translate }}</span>
+
+                            <ng-container
+                                *ngIf="selectedData.accountCurrency != _appConfig.baseCurrency else avlBaseCurrency">
+                                <box class="amount usd-amount"> {{ selectedData.totalOutstanding | currency :
+                                    selectedData.accountCurrency : '' }} <em>{{ 'SUFFIXCURRENCY' |
+                                        currencyCode }}</em></box>
+                                <box class="amount cad-amount">{{ selectedData.baseCurrencyAvlBal | currency :
+                                    _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                                        }}</em></box>
+                            </ng-container>
+                            <ng-template #avlBaseCurrency>
+                                <box class="amount usd-amount">{{ selectedData.totalOutstanding | currency :
+                                    selectedData.accountCurrency : '' }} <em>{{ selectedData.accountCurrency |
+                                        currencyCode }}</em></box>
+                            </ng-template>
+                        </box>
+                        <box class="additional-detail actual">
+                            <span class="lbl">{{ 'CASASUMMARYCARD.actual' | translate }}</span>
+
+
+                            <ng-container
+                                *ngIf="selectedData.accountCurrency != _appConfig.baseCurrency else curBaseCurrency">
+                                <box class="amount usd-amount"> {{ selectedData.totalOutstanding | currency :
+                                    selectedData.accountCurrency : '' }} <em>{{ 'SUFFIXCURRENCY' |
+                                        currencyCode }}</em></box>
+                                <box class="amount cad-amount">{{ selectedData.baseCurrencyAvlBal | currency :
+                                    _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                                        }}</em></box>
+                            </ng-container>
+                            <ng-template #curBaseCurrency>
+                                <box class="amount usd-amount">{{ selectedData.totalOutstanding | currency :
+                                    selectedData.accountCurrency : '' }} <em>{{ selectedData.accountCurrency |
+                                        currencyCode }}</em></box>
+                            </ng-template>
+
+
+                        </box>
+                    </box>
+                </box>
+
+            </box>
+            <ng-container *ngFor="let field of unselectedAccounts">
+                <box class="summary-card" (click)="selectAccount(field)">
+                    <box class="summary-card-inner">
+                        <box class="primary-details">
+                            <box class="account-details">
+                                <box class="product-name">{{ field.productDesc }}</box>
+                                <box class="account-number">{{ field.loanAccountNumber }}</box>
+
+                                <box class="type">
+                                    {{field.accountTypeDesc}}
+                                    <!-- <em
+                                        *ngIf="field?.ownership && field.ownership.toLowerCase() == 'joint'"
+                                        class="tag ownership">{{
+                                        'CASASUMMARYCARD.joint' | translate }}</em>
+                                    <em *ngIf="field?.accountStatus && field?.accountStatus?.toLowerCase() == 'dormant'"
+                                        class="tag dormant">{{ field.accountStatus }}</em> -->
+                                </box>
+                            </box>
+
+                        </box>
+                        <box class="additional-details">
+                            <box class="additional-detail available">
+                                <span class="lbl">{{ 'CASASUMMARYCARD.available' | translate }}</span>
+
+                                <ng-container
+                                    *ngIf="field.accountCurrency != _appConfig.baseCurrency else avlBaseCurrencyUnselectedLists">
+                                    <box class="amount usd-amount"> {{ field.totalOutstanding | currency :
+                                        field.accountCurrency : '' }} <em>{{ 'SUFFIXCURRENCY' |
+                                            currencyCode }}</em></box>
+                                    <box class="amount cad-amount">{{ field.baseCurrencyAvlBal | currency :
+                                        _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                                            }}</em></box>
+                                </ng-container>
+                                <ng-template #avlBaseCurrencyUnselectedLists>
+                                    <box class="amount usd-amount">{{ field.totalOutstanding | currency :
+                                        field.accountCurrency : '' }} <em>{{ field.accountCurrency |
+                                            currencyCode }}</em></box>
+                                </ng-template>
+
+                            </box>
+                            <box class="additional-detail actual">
+                                <span class="lbl">{{ 'CASASUMMARYCARD.actual' | translate }}</span>
+
+                                <ng-container
+                                    *ngIf="field.accountCurrency != _appConfig.baseCurrency else curBaseCurrencyUnselectedLists">
+                                    <box class="amount usd-amount"> {{ field.totalOutstanding | currency :
+                                        field.accountCurrency : '' }} <em>{{ 'SUFFIXCURRENCY' |
+                                            currencyCode }}</em></box>
+                                    <box class="amount cad-amount">{{ field.baseCurrencyAvlBal | currency :
+                                        _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                                            }}</em></box>
+                                </ng-container>
+                                <ng-template #curBaseCurrencyUnselectedLists>
+                                    <box class="amount usd-amount">{{ field.totalOutstanding | currency :
+                                        field.accountCurrency : '' }} <em>{{ field.accountCurrency |
+                                            currencyCode }}</em></box>
+                                </ng-template>
+
+                            </box>
+                        </box>
+                    </box>
+
+                </box>
+            </ng-container>
+
+        </box>
+    </box>
+
+</box>

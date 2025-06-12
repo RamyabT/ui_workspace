@@ -1,0 +1,59 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="applyVehicleLoan">
+
+	<fpx-tab-group class="steeper-group-container" [tabGroupData]="_helper.getTabData('tabGroup')"
+		(selectedTabChange)="_helper.setCurrentActiveTab($event)">
+
+		<fpx-tab [tabData]="_helper.getTabData('basicInfoTab')"
+			[disabled]="formGroup.value | fpxTabNestedValidity : _helper.getTabInfo('basicInfoTab')"
+			[completed]="(_helper.getTabValidity(0))">
+
+			<app-basic-details-form class="col-sm-12 col-md-6 col-lg-6" (commonFormEvent)="handleControlEvent($event)"
+				[actionPublisher]="actionMap$.get('basicDetails')" label="basicDetails"
+				formControlName="basicDetails"></app-basic-details-form>
+
+		</fpx-tab>
+
+		<fpx-tab [tabData]="_helper.getTabData('loandetailsTab')"
+			[disabled]="formGroup.value | fpxTabNestedValidity : _helper.getTabInfo('loandetailsTab')"
+			[completed]="(_helper.getTabValidity(1))">
+
+			<app-loan-details class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('loanDetails')" label="loanDetails"
+				formControlName="loanDetails"></app-loan-details>
+
+		</fpx-tab>
+
+
+		<fpx-tab [tabData]="_helper.getTabData('coApplicantsDetailsTab')"
+			[disabled]="formGroup.value | fpxTabNestedValidity : _helper.getTabInfo('coApplicantsDetailsTab')"
+			[completed]="(_helper.getTabValidity(2))">
+
+			<box class="entry-form-field-group">
+			<app-co-applicant-control class="col-sm-12 col-md-6 col-lg-6"
+				label="{{'BasicDetailsForm.coApplicant.label' | translate }}"
+				formControlName="coApplicant"></app-co-applicant-control>
+
+			<app-co-applicants-details class="col-sm-12 col-md-6 col-lg-6" [ngClass]="{ 'co-applicants-dtls': _helper.coApplicantsDtls}"
+				[actionPublisher]="actionMap$.get('coApplicantDetails')" label="coApplicantDetails"
+				formControlName="coApplicantDetails"></app-co-applicants-details>
+			</box>
+		</fpx-tab>
+
+
+		<fpx-tab [tabData]="_helper.getTabData('documentUploadTab')"
+			[disabled]="formGroup.value | fpxTabNestedValidity : _helper.getTabInfo('documentUploadTab')"
+			[completed]="(_helper.getTabValidity(3))">
+
+			<app-loan-document-upload class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('documentUpload')" label="documentUpload"
+				formControlName="documentUpload"></app-loan-document-upload>
+
+		</fpx-tab>
+
+
+	</fpx-tab-group>
+</form>
+
+<!-- <button (click)="_helper.test()">click</button>
+
+<p>{{formGroup.value | json}}</p> -->

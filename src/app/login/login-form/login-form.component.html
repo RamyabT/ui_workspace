@@ -1,0 +1,42 @@
+<form formName="login" [autocomplete]="'off'" (ngSubmit)="submit()" [formGroup]="formGroup">
+  <div class="login-form-wrapper">
+    <span class="login-form-img"></span>
+    <h1 class="login-form-heading">{{'LOGIN.title' | translate}}</h1>
+
+    <box class="login-form">
+      <div class="field-item">
+        <app-user-name label="{{'LOGIN.username.label' | translate}}" [actionPublisher]="actionMap$.get('username')"
+          placeholder="{{'LOGIN.username.placeholder' | translate}}" formControlName="username"></app-user-name>
+        <div class="recover-link" (click)="_helper.navToForgotUsername()"><button type="button" name="forgotUserName"
+            tabindex="1">{{ 'LOGIN.forgotUsername' | translate }}</button></div>
+      </div>
+      <div errorAnchor class="field-item">
+        <app-password label="{{'LOGIN.password.label' | translate}}" [actionPublisher]="actionMap$.get('password')"
+          placeholder="{{'LOGIN.password.placeholder' | translate}}" formControlName="password"></app-password>
+        <div class="recover-link"><button type="button" name="forgotPassword" (click)="_helper.navToForgotPassword()">{{
+            'LOGIN.forgotPassword' | translate }}</button></div>
+      </div>
+      <box class="remember-me">
+        <fpx-checkbox formControlName="rememberDevice" [ckValues]="state.rememberDevice.ckValues"
+          label="{{'LOGIN.rememberMe' | translate}}"></fpx-checkbox>
+      </box>
+      <div errorAnchor class="field-item">
+        <div class="register-now"><button type="button" class="link" name="forgotPassword"
+            (click)="_helper.navToSelfRegister()">{{ 'LOGIN.registerNow' | translate }}</button></div>
+      </div>
+    </box>
+
+    <ng-container *ngIf="state?.errorMessage">
+      <mat-error class="error" style="display:block; text-align: center;">
+        <span>{{ state.errorMessage }}</span>
+      </mat-error>
+    </ng-container>
+
+    <div class="form-footer-actions">
+      <button type="button" class="btn-tertiary" (click)="_helper.gotoWelcome()"><span>{{'LOGIN.back' |
+          translate}}</span></button>
+      <button [disabled]="formGroup.invalid" type="submit" class="btn-primary"><span>{{'LOGIN.submit' |
+          translate}}</span></button>
+    </div>
+  </div>
+</form>

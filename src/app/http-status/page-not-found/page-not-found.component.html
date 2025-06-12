@@ -1,0 +1,26 @@
+<form formName="PageNotFoundForm" [autocomplete]="'off'" [formGroup]="formGroup" class="pagenotfound">
+    <box class="header-wrapper">
+        <box class="main-header-inner">
+            <box class="header-inner-wrapper">
+                <ng-container >
+                    <button type="button" class="brand">
+                        <img src="./assets/images/brand/header-logo.svg" alt="bank" />
+                    </button>
+                </ng-container> 
+            </box>
+        </box>
+    </box>
+    <box class="page-not-found-box">
+        <box class="page-not-found-wrapper">
+        <box class="page-not-found-image"></box> 
+        </box>    
+        <box class="content">
+            <span class="label-tag">{{'PageNotFoundForm.label' | translate}}</span>
+            <div class="label">{{'PageNotFoundForm.message' | translate}}
+                <div>{{'PageNotFoundForm.messageSecond' | translate}}</div>
+            </div>
+            <button class="button" (click)="_helper.goToHome()">{{'PageNotFoundForm.button' | translate}}</button>
+        </box>
+</box>
+</form>
+

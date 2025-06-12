@@ -1,0 +1,15 @@
+"ServiceRequestAttachmentForm":{
+"title":"ServiceRequestAttachment",
+		 "serviceRequestNumber": {
+		  "label":"Service Request Number" ,
+		  "placeholder": "Service Request Number"
+		  } ,
+		 "messageContent": {
+		  "label":"MessageContent" ,
+		  "placeholder": "MessageContent"
+		  } ,
+		 "servicereqcommentsattachement": {
+		  "label":"servicereqcommentsattachement" ,
+		  "placeholder": "servicereqcommentsattachement"
+		  } 
+}

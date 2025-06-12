@@ -1,0 +1,14 @@
+ 
+// #depAppBody .ro-grid-container .table-container .table-layout .table-cover .table-body .fpx-ro-grid-row {
+//     background-color: var(--elementSecondaryBgClr) !important;
+// }
+
+fpx-ro-grid {
+    font-family: 'inter' !important;
+    background-color: var(--elementSecondaryBgClr) !important;
+
+    span {
+        font-family: 'inter' !important;
+        background-color: var(--elementSecondaryBgClr) !important;
+    }
+}

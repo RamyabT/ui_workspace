@@ -1,0 +1,110 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailWalletTransferForm">
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-12">
+			<ng-container *ngIf="!state.payeeDetailsAvailable && !state.fulfillRequestDetails">
+				<box class="col-sm-12 col-md-6 col-lg-6 phonebook-wrapper">
+					<app-mobile-number-control class="col-sm-12 col-md-6 col-lg-6 "
+						[actionPublisher]="actionMap$.get('contactPhoneNumber')"
+						label="{{'RetailWalletTransferForm.contactPhoneNumber.label' | translate }}"
+						formControlName="contactPhoneNumber"></app-mobile-number-control>
+					<fpx-button class="col-sm-12 col-md-12 col-lg-12 select-contact"
+						btnClass="system-ico-button no-text phone-book" btnType="button"
+						(onClick)="_helper.searchMobileNumber()"
+						[actionPublisher]="actionMap$.get('selectContact')"></fpx-button>
+				</box>
+			</ng-container>
+			<box class="bene-details">
+				<ng-container *ngIf="state.senderInitial">
+					<box class="bene-initial">
+						<span>{{ state.senderInitial }}</span>
+					</box>
+					<box class="bene-primary-info">
+						<box class="name">
+							<ng-container *ngIf="state.routeService=='DECLINEWALLETREQUEST'; else defaultPay">
+								<span>Declining Request from {{state.senderName}}</span>
+							</ng-container>
+							<ng-template #defaultPay>
+								<span>Paying to {{state.senderName}}</span>
+							</ng-template>
+						</box>
+					</box>
+				</ng-container>
+
+				<box class="amount-details grid">
+					<app-payment-amount-control
+						class="col-sm-12 col-md-12 col-lg-12 wallet-money-transfer-amount-control"
+						[actionPublisher]="actionMap$.get('paymentAmount')"
+						placeholder="{{ 'RetailWalletTransferForm.paymentAmount.placeholder' | translate }}"
+						formControlName="paymentAmount" (commonControlEvent)="handleControlEvent($event)"
+						[CurrencyList]="state.paymentAmount.CurrencyList"
+						[isCurrEditable]="state.paymentAmount.isCurrEditable"
+						[defaultFetch]="state.paymentAmount.defaultFetch"
+						[initCurrency]="state.paymentAmount.initCurrency"
+						[amountInWords]="state.paymentAmount.amountInWords" [changePublisher]="formChangePublisher$"
+						[dependencyField]="['fromCurrencyVariable','toCurrencyVariable','accountBalanceVariable']">
+					</app-payment-amount-control>
+					<app-npss-remarks-control class="col-sm-12 col-md-12 col-lg-12 npss-money-transfers-remarks-control"
+					placeholder="{{ 'NPSSSendMoney.remarks.placeholder' | translate }}" [actionPublisher]="actionMap$.get('remarks')"
+					formControlName="remarks">
+				</app-npss-remarks-control>
+				</box>
+			</box>
+			<app-wallet-account-number-dropdown-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('sourceWalletAccount')"
+				label="{{'RetailWalletTransferForm.sourceWalletAccount.label' | translate }}"
+				placeholder="{{'RetailWalletTransferForm.sourceWalletAccount.placeholder' | translate }}"
+				formControlName="sourceWalletAccount" (commonControlEvent)="handleControlEvent($event)"
+				[changePublisher]="formChangePublisher$">
+			</app-wallet-account-number-dropdown-control>
+
+			<box class="field-item col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('exchangeDetails')">
+				<fpx-label label="{{'FX_RATES.title' | translate}}"></fpx-label>
+				<box class="info-box">
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.dAmount' | translate"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.debitAmount"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.cAmount' | translate"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.creditAmount"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.exRate' | translate"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.exchangeRate"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+				</box>
+			</box>
+			<app-charges-borne-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('chargesBorneBy')"
+				label="{{'RetailDomesticTransferForm.chargesBorneBy.label' | translate }}"
+				formControlName="chargesBorneBy" [changePublisher]="formChangePublisher$"
+				(commonControlEvent)="handleControlEvent($event)" [dependencyField]="['paymentAmountVariable',
+					'fromCurrencyVariable',
+					'serviceCodeVariable',
+					'fromAccountVariable',
+					'toAccountVariable',
+					'accountBalanceVariable']"></app-charges-borne-control>
+			<app-charges-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('chargesAmount')"
+				label="{{'RetailDomesticTransferForm.chargesAmount.label' | translate }}"
+				formControlName="chargesAmount" (commonControlEvent)="handleControlEvent($event)"
+				[CurrencyList]="state.chargesAmount.CurrencyList" [isCurrEditable]="state.chargesAmount.isCurrEditable"
+				[defaultFetch]="state.chargesAmount.defaultFetch" [initCurrency]="state.chargesAmount.initCurrency"
+				[amountInWords]="state.chargesAmount.amountInWords"
+				[changePublisher]="formChangePublisher$"></app-charges-control>
+			<fpx-display-text class="info-field-label"
+				[innerHTML]="'RetailWalletTransferForm.charges' | translate :{charges:state.charges}"
+				[literals]="commonFormInput"></fpx-display-text>
+		</box>
+		<box id="disclaimer-box" class="col-md-12 grid  disclaimer-box  ">
+			<app-terms-control class="col-sm-12 col-md-12 col-lg-12  " [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'RetailWalletTransferForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+		</box>
+	</box>
+</form>

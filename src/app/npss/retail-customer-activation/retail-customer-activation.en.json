@@ -1,0 +1,7 @@
+"RetailCustomerActivation":{
+"title":"Customer Activation",
+		 "termsFlag": {
+		  "label":"I hereby agree and give my consent to activate my account for Aani Payment Services." ,
+		  "placeholder": "I hereby agree and give my consent to activate my account for Aani Payment Services."
+		  } 
+}

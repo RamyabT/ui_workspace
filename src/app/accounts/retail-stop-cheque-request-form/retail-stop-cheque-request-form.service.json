@@ -1,0 +1,5 @@
+ 
+ "RETAILSTOPCHEQUE" : {
+ "servicePath": ["entry-shell","accounts", "retail-stop-cheque-request-form"],
+ "queryParams": {}
+ }

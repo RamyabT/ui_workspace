@@ -1,0 +1,54 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailRPSuccessorinfo">
+
+	<box class="entry-form">
+
+		<box class="entry-form-field-group grid col-12">
+			<fpx-display-text id="header1" class="col-sm-12 col-md-12 col-lg-12 title"
+				[innerHTML]="'RetailRPSuccessorinfo.header1.text' | translate"
+				[literals]="commonFormInput"></fpx-display-text>
+			<div class="kf-header col-sm-12 col-md-6 col-lg-12">
+				<div class="kf-description" [innerHTML]="'RetailRPSuccessorinfo.description' | translate">
+					<div class="kf-title">{{ 'RetailRPSuccessorinfo.header2' | translate }}</div>
+				</div>
+			</div>
+			<fpx-display-text id="header2" class="col-sm-12 col-md-12 col-lg-12 title"
+				[innerHTML]="'RetailRPSuccessorinfo.header2.text' | translate"
+				[literals]="commonFormInput"></fpx-display-text>
+
+			<app-terms-control class="col-sm-12 col-md-12 col-lg-12 "
+				[actionPublisher]="actionMap$.get('successorElectConsent')"
+				label="{{'RetailRPSuccessorinfo.successorElectConsent.label' | translate }}"
+				formControlName="successorElectConsent" [textPosition]="state.successorElectConsent.textPosition"
+				[ckValues]="state.successorElectConsent.ckValues"></app-terms-control>
+
+
+			<app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('firstName')"
+				label="{{'RetailRPSuccessorinfo.firstName.label' | translate }}"
+				formControlName="firstName"></app-name-control>
+
+
+			<app-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('lastName')"
+				label="{{'RetailRPSuccessorinfo.lastName.label' | translate }}"
+				formControlName="lastName"></app-name-control>
+
+			<app-relationship-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('relationship')"
+				label="{{'RetailRPSuccessorinfo.relationship.label' | translate }}"
+				formControlName="relationshiplist"></app-relationship-control>
+
+
+			<app-terms-control class="col-sm-12 col-md-12 col-lg-12"
+				[actionPublisher]="actionMap$.get('beneElectConsent')"
+				label="{{'RetailRPSuccessorinfo.beneElectConsent.label' | translate }}"
+				formControlName="beneElectConsent" [textPosition]="state.beneElectConsent.textPosition"
+				[ckValues]="state.beneElectConsent.ckValues"></app-terms-control>
+			
+			<app-add-another-beneficiary-form class="col-sm-12 col-md-12 col-lg-12"
+				(commonGridEvent)="handleControlEvent($event)"
+				[actionPublisher]="actionMap$.get('rpcontractbeneficiaryinfo')" label="addAnotherBeneficiary"
+				formControlName="rpcontractbeneficiaryinfo"></app-add-another-beneficiary-form>
+		</box>
+
+
+	</box>
+</form>

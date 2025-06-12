@@ -1,0 +1,5 @@
+ 
+ "RETAILREGWALLET" : {
+ "servicePath": ["entry-shell","wallet", "wallet-reg-form"],
+ "queryParams": {}
+ }

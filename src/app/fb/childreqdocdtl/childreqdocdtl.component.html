@@ -1,0 +1,17 @@
+<form [formGroup]="formGroup" formName="childreqdocdtl">
+	<ng-container formArrayName="formArray">
+		<ng-container *ngFor="let control of formArray.controls; let i = index; let last = last"
+			formGroupName="{{ i }}">
+			<box class="input-grid-row docdtl">
+				<box class="input-grid-row-item" [style.width]="columnWidth[0]+'%'"  [actionPublisher]="actionGridMap$.get('docInvNumber_column_header')" >
+					<span>{{'childreqdocdtl.docInvNumber.label' | translate }}</span>
+				</box>
+				<box class="input-grid-row-item" [actionPublisher]="actionMap$[i].get('docInvNumber')"
+					[style.width]="columnWidth[0]+'%'">
+					<app-Image-upload-control [actionPublisher]="actionMap$[i].get('docInvNumber')"
+						formControlName="docInvNumber"></app-Image-upload-control>
+				</box>
+			</box>
+		</ng-container>
+	</ng-container>
+</form>

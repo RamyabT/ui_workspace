@@ -1,0 +1,5 @@
+ 
+ "RETAILINVESTMENTTRANSUMMARY" : {
+ "servicePath": ["display-shell","deposits", "investment-transaction-summary-grid"],
+ "queryParams": {}
+ }

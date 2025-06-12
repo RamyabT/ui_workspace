@@ -1,0 +1,54 @@
+@media (max-width: 768px) {
+    .brand {
+        width: 156px;
+    }
+
+    .login-layout {
+        header {
+            img {
+                width: 156px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 769px) {
+    #depAppBody {
+        
+        balance-sheet {
+            background: radial-gradient(circle at top right, #008d91, #173147);
+        }
+
+        .welcome-banner-wrapper {
+            background: url('./images/banners/welcome-banner.png') no-repeat 0 0 transparent;
+            background-size: auto 100%;
+        }
+
+        .bank-logo {
+            img {
+                height: 46px;
+            }
+        }
+
+        .login-layout {
+            header {
+                img {
+                    height: 46px;
+                }
+            }
+        }
+
+        .prelogin-header {
+            img {
+                height: 46px;
+                filter: brightness(0) invert(1);
+            }
+        }
+
+        .shell-content {
+            .shell-footer {
+                margin-top: 0 !important;
+            }
+        }
+    }
+}

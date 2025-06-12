@@ -1,0 +1,5 @@
+ 
+ "RETAILWALLETREQUESTMONEY" : {
+ "servicePath": ["entry-shell","wallet", "fulfill-request-approval-form"],
+ "queryParams": {}
+ }

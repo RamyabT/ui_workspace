@@ -1,0 +1,5 @@
+ 
+ "ETRANSFERFULFILLREQUESTMONEY" : {
+ "servicePath": ["entry-shell","etransfers", "retail-etransfer-fulfill-request-money-form"],
+ "queryParams": {}
+ }

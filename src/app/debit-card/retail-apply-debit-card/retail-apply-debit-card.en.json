@@ -1,0 +1,39 @@
+"RetailApplyDebitCard":{
+"title":"Debit Card Request",
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "dcCardType": {
+		  "label":"Card Type" ,
+		  "placeholder": "Card Type"
+		  } ,
+		 "charges": {
+		  "label":"Charges" ,
+		  "placeholder": "Charges"
+		  } ,
+		 "deliveryOption": {
+		  "label":"Delivery Option" ,
+		  "placeholder": "Delivery Option"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "authPersonName": {
+		  "label":"Auth Person Name" ,
+		  "placeholder": "Auth Person Name"
+		  } ,
+		  "branches": {
+			"label":"Delivery Branch" ,
+			"placeholder": "Delivery Branch"
+			} ,
+		 "authPersonId": {
+		  "label":"Auth Person Id" ,
+		  "placeholder": "Auth Person Id"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } 
+}

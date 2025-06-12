@@ -1,0 +1,99 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="COBFatcaInfoForm">
+
+	<box class="entry-form">
+		<!-- <span  class="arn-number">ARN : 34567244543</span> -->
+		<box class="entry-form-field-group col-12 grid">
+			<span *ngIf="_helper._appConfig.getData('processId')" class="arn-number">{{'OnBoarding.arn' | translate
+				}}{{_helper._appConfig.getData('processId')}}</span>
+			<box id="header" class="col-md-12 grid  header  ">
+				<fpx-display-text id="taxDetails" class="title" [innerHTML]="'COBFatcaInfoForm.title1.text' | translate"
+					[literals]="commonFormInput"></fpx-display-text>
+				<fpx-display-text *ngIf="_helper._deviceDetectorService.isDesktop()" id="taxDetails1" class="hint"
+					[innerHTML]="'COBFatcaInfoForm.hint.text' | translate"
+					[literals]="commonFormInput"></fpx-display-text>
+			</box>
+			<!-- <app-enabled-flag-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('usResident')"
+			label="{{'COBFatcaInfoForm.usResident.label' | translate }}"
+			formControlName="usResident"></app-enabled-flag-control> -->
+
+
+			<app-country-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('countryOfBirth')"
+				label="{{'COBFatcaInfoForm.countryOfBirth.label' | translate }}"
+				formControlName="countryOfBirth"></app-country-list-control>
+
+
+			<app-city-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('cityOfBirth')"
+				label="{{'COBFatcaInfoForm.cityOfBirth.label' | translate }}"
+				formControlName="cityOfBirth"></app-city-control>
+
+
+			<app-country-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('countryOfTax')"
+				label="{{'COBFatcaInfoForm.countryOfTax.label' | translate }}"
+				formControlName="countryOfTax"></app-country-list-control>
+
+			<!-- <app-enabled-flag-control class="col-sm-12 col-md-6 col-lg-12"
+			[actionPublisher]="actionMap$.get('taxPayerIdAvailable')"
+			label="{{'COBFatcaInfoForm.taxPayerIdAvailable.label' | translate }}"
+			formControlName="taxPayerIdAvailable"></app-enabled-flag-control> -->
+
+			<app-casa-enabled-flag class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('taxPayerIdAvailable')"
+				label="{{'COBFatcaInfoForm.taxPayerIdAvailable.label' | translate }}"
+				formControlName="taxPayerIdAvailable"></app-casa-enabled-flag>
+
+			<app-tax-payer-id-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('taxPayerId')"
+				label="{{'COBFatcaInfoForm.taxPayerId.label' | translate }}"
+				formControlName="taxPayerId"></app-tax-payer-id-control>
+
+			<app-reason-for-no-tin-control class="col-sm-12 col-md-6 col-lg-6 "
+				[actionPublisher]="actionMap$.get('reasonForNoTin')"
+				label="{{'COBFatcaInfoForm.reasonForNoTin.label' | translate }}"
+				formControlName="reasonForNoTin"></app-reason-for-no-tin-control>
+
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-6 " [actionPublisher]="actionMap$.get('remarks')"
+				label="{{'COBFatcaInfoForm.remarks.label' | translate }}"
+				placeholder="{{'COBFatcaInfoForm.remarks.placeholder' | translate }}"
+				formControlName="remarks"></app-remarks-control>
+
+
+
+
+			<!-- 
+		<app-enabled-flag-control class="col-sm-12 col-md-6 col-lg-12"
+			[actionPublisher]="actionMap$.get('otherResidentJurisdictionsFlag')"
+			label="{{'COBFatcaInfoForm.otherResidentJurisdictionsFlag.label' | translate }}"
+			formControlName="otherResidentJurisdictionsFlag"></app-enabled-flag-control>
+
+		<app-enabled-flag-control class="col-sm-12 col-md-6 col-lg-12"
+			[actionPublisher]="actionMap$.get('investmentSchemaFlag')"
+			label="{{'COBFatcaInfoForm.investmentSchemaFlag.label' | translate }}"
+			formControlName="investmentSchemaFlag"></app-enabled-flag-control> -->
+
+			<app-casa-enabled-flag class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('otherResidentJurisdictionsFlag')"
+				label="{{'COBFatcaInfoForm.otherResidentJurisdictionsFlag.label' | translate }}"
+				formControlName="otherResidentJurisdictionsFlag"></app-casa-enabled-flag>
+
+			<app-casa-enabled-flag class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('investmentSchemaFlag')"
+				label="{{'COBFatcaInfoForm.investmentSchemaFlag.label' | translate }}"
+				formControlName="investmentSchemaFlag"></app-casa-enabled-flag>
+
+			<fpx-display-text [actionPublisher]="actionMap$.get('othercountrytaxinfo')"
+				formControlName="othercountrytaxinfo" class="info-field-label"
+				[innerHTML]="'COBFatcaInfoForm.HeadlblcountryOfTax.label' | translate"></fpx-display-text>
+
+			<!-- <app-country-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('countryofTaxResidency')"
+			label="{{'COBFatcaInfoForm.countryofTaxResidency.label' | translate }}"
+			formControlName="countryofTaxResidency"></app-country-list-control> -->
+
+			<app-othercountry-taxinfo-inputgrid class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('othercountrytaxinfo')" label="othercountrytaxinfoinputgrid"
+				formControlName="othercountrytaxinfo"></app-othercountry-taxinfo-inputgrid>
+
+		</box>
+	</box>
+</form>

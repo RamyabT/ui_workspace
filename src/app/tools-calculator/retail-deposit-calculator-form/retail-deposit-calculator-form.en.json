@@ -1,0 +1,23 @@
+"RetailDepositCalculatorForm":{
+"title":"RetailDepositCalculator",
+		 "depositProducts": {
+		  "label":"Deposit Type" ,
+		  "placeholder": "Deposit Type"
+		  } ,
+		 "amount": {
+		  "label":"Deposit Amount" ,
+		  "placeholder": "Deposit Amount"
+		  } ,
+		 "tenure": {
+		  "label":"Tenor" ,
+		  "placeholder": "Tenor"
+		  } ,
+		 "interestRate": {
+		  "label":"Interest Rate" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "interestpaymentfrequency": {
+		  "label":"Interest Payment Frequency" ,
+		  "placeholder": "Interest Payment Frequency"
+		  } 
+}

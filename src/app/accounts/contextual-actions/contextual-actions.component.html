@@ -1,0 +1,69 @@
+<ng-container *ngIf="_device.isMobile(); else desktopMenu">
+    <ng-container *ngIf="quickActionsList && quickActionsList.length; else quickActionsLoader">
+        <box class="widget quick-actions-inner contextual-actions">
+            <header>
+                <span class="widget-title">{{ 'WIDGIT_TITLES.casaQuickActionsLbl' | translate }}</span>
+            </header>
+            <box class="actions-body">
+                <ul class="actions-list grid">
+                    <ng-container *ngFor="let item of quickActionsList">
+                        <li (click)="openLink(item)" >
+                            <span class="icon-wrapper {{ item.serviceCode }}"></span>
+                            <span class="text" [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span>
+                        </li>
+                    </ng-container>
+                    <ng-container *ngIf="this.showMore">
+                        <li (click)="showMoreActions()" >
+                            <span class="icon-wrapper more"></span>
+                            <span class="text" [innerHTML]="'quickActions.more' | translate"></span>
+                        </li>
+                    </ng-container>
+                </ul>
+            </box>
+        </box>
+    </ng-container>
+</ng-container>
+<ng-template #desktopMenu>
+    <box class="context-menu-body" *ngIf="quickActionsList?.length > 0; else quickActionsLoader">
+      <box class="actions-list">
+        <!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"> -->
+          <box class="tab slide" [ngClass]="{ active: activeMenu == item.serviceCode }"
+            [ngClass]="{'no-access-scope':!this.showMore }"
+              *ngFor="let item of quickActionsList">
+            <box class="item" (click)="openLink(item)">
+              <span class="icon-wrapper {{ item.serviceCode }}"></span>
+              <span class="text"
+                [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span>
+            </box>
+          </box>
+          <box class="tab slide" *ngIf="this.showMore">
+            <box class="item" (click)="showMoreActions()">
+              <span class="icon-wrapper more"></span>
+              <span class="text"
+              [innerHTML]="'quickActions.more' | translate"></span>
+            </box>
+          </box>
+        <!-- </ngx-slick-carousel> -->
+      </box>
+    </box>
+  </ng-template>
+
+
+<ng-template #quickActionsLoader>
+    <box class="quick-actions-loader" [ngClass]="{'show-accounts-loader': showAccountsLoader}">
+        <ul>
+            <li>
+                <span class="icon">&nbsp;</span>
+                <span class="text">&nbsp;</span>
+            </li>
+            <li>
+                <span class="icon">&nbsp;</span>
+                <span class="text">&nbsp;</span>
+            </li>
+            <li>
+                <span class="icon">&nbsp;</span>
+                <span class="text">&nbsp;</span>
+            </li>
+        </ul>
+    </box>
+</ng-template>

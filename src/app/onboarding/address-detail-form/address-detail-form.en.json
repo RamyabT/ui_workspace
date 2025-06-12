@@ -1,0 +1,39 @@
+"AddressDetailForm":{
+"title":"addressdetailForm",
+		 "buildingId": {
+		  "label":"Building Id" ,
+		  "placeholder": "Building Id"
+		  } ,
+		 "buildingName": {
+		  "label":"Building Name" ,
+		  "placeholder": "Building Name"
+		  } ,
+		 "street": {
+		  "label":"Street" ,
+		  "placeholder": "Street"
+		  } ,
+		 "mobileNumber": {
+		  "label":"ApplicantMobile" ,
+		  "placeholder": "ApplicantMobile"
+		  } ,
+		 "email": {
+		  "label":" Email " ,
+		  "placeholder": " Email "
+		  } ,
+		 "country": {
+		  "label":"Country" ,
+		  "placeholder": "Country"
+		  } ,
+		 "cityText": {
+		  "label":"City" ,
+		  "placeholder": "City"
+		  } ,
+		 "states": {
+		  "label":"State" ,
+		  "placeholder": "State"
+		  } ,
+		 "zipCode": {
+		  "label":"Zip Code" ,
+		  "placeholder": "Zip Code"
+		  } 
+}

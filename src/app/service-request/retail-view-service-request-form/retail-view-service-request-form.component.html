@@ -1,0 +1,43 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailBeneaedreqForm">
+
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-12">
+			<div class="request-segment">
+				<box *ngIf="_helper.tabsLoaded; else tabLoader" class="segments">
+					<div *ngFor="let segment of _helper.segments; let i=index">
+						<div class="segment" [ngClass]="{'active':i == _helper.activeSegmentIndex}"
+							(click)="_helper.onClickSegment(i, segment)">{{segment.type | translate}}
+							({{segment.count}})
+						</div>
+					</div>
+				</box>
+				<ng-template #tabLoader>
+					<box class="skeleton-loader mailbox-tab-loader">
+					</box>
+				</ng-template>
+			</div>
+			<ng-container *ngIf="_helper.showMessages; else noMessageContainer">
+				<app-retail-view-service-request-ro-grid class="col-md-13 col-sm-12 col-lg-12"
+					(commonRoGridEvent)="_helper.serviceRequestRoGridEvent($event)"
+					[actionPublisher]="actionMap$.get('serviceRequest')"
+					label="RetailViewServiceRequestRoGrid"></app-retail-view-service-request-ro-grid>
+
+				<ng-container *ngIf="!_helper.offersLoaded && !_helper.device.isMobile()">
+					<box class="skeleton-loader mailbox-grid-loader">
+					</box>
+				</ng-container>
+			</ng-container>
+
+			<!-- <box *ngIf="_helper.device.isMobile()" class="create">
+				<img src="./assets/images/service-request/create.svg" class="create-btn" alt="create"
+					(click)="_helper.navToCreateRequest()">
+			</box> -->
+		</box>
+	</box>
+	<ng-template #noMessageContainer>
+		<box class="tab-content">
+			<img src="./assets/images/icons/no-msgs.gif">
+			<span>No Messages Yet</span>
+		</box>
+	</ng-template>
+</form>

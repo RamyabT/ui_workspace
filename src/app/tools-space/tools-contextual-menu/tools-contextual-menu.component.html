@@ -1,0 +1,19 @@
+<form name="toolsForm">
+    <box class="entry-form">
+        <box class="entry-form-field-group col-12 dep-list-group">
+            <ul class="dep-list other-request-list">
+                <ng-container *ngIf="_helper.toolsList && _helper.toolsList.length">
+                    <ng-container *ngFor="let request of _helper.toolsList">
+                        <li class="dep-list-item request-list-item" (click)="_helper.openLink(request)">
+                            <box class="list-body request-type-info">
+                                <span class="request-type">{{ 'TOOLSANDCALCULATOR.' + request.serviceCode + '.name' | translate }}</span>
+                                <span class="request-type-desc">{{ 'TOOLSANDCALCULATOR.' + request.serviceCode + '.desc' | translate }}</span>
+                            </box>
+                        </li>
+                    </ng-container>
+                </ng-container>
+            </ul>
+        </box>
+    </box>
+</form>
+

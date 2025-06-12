@@ -1,0 +1,5 @@
+ 
+ "CHEQUEDEPOSIT" : {
+ "servicePath": ["entry-shell","accounts", "retail-chqd-deposit-form"],
+ "queryParams": {}
+ }

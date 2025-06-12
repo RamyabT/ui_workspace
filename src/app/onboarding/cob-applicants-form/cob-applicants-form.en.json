@@ -1,0 +1,31 @@
+"ApplicantsForm":{
+"title":"Basic Information",
+		 "applicantId": {
+		  "label":"Applicant Id" ,
+		  "placeholder": "Applicant Id"
+		  } ,
+		 "firstName": {
+		  "label":"Enter Full Name" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "mobileNum": {
+		  "label":"Mobile number" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "emailAddress": {
+		  "label":"Enter email address" ,
+		  "placeholder": "Enter email address"
+		  } ,
+		 "otp": {
+		  "label":"Verify through" ,
+		  "placeholder": "Verify through"
+		  } ,
+		 "productSegment": {
+		  "label":"Product Segment" ,
+		  "placeholder": "Product Segment"
+		  } ,
+		 "productCode": {
+		  "label":"Product Id" ,
+		  "placeholder": "Product Id"
+		  } 
+}

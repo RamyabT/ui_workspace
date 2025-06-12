@@ -1,0 +1,14 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailMigratedUser" >
+    <box class="dep-confirmation">
+            <box class="alert-description">{{ 'RetailMigratedUser.sessionActiveMsg' | translate }}</box>
+            <box class="alert-footer">
+                <div class="btn-container">
+                    <button type="submit" class="btn-tertiary" (click)="_helper.cancelEvent()">{{
+                        'RetailMigratedUser.cancelBtnLbl' | translate }}</button>
+                    <button type="submit" class="primary"  (click)="_helper.submitEvent()">{{
+                        'RetailMigratedUser.submitBtnLbl' | translate }}</button>
+                </div>
+            </box>
+        </box>
+</form>
+

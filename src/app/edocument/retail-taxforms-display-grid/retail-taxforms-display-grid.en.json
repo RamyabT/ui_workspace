@@ -1,0 +1,11 @@
+"RetailTaxformsDisplayGrid":{
+"title":"Tax Forms",
+		 "taxformName": {
+		  "label":"Tax Form" ,
+		  "placeholder": "Tax Form"
+		  } ,
+		 "dateOfGeneration": {
+		  "label":"Date of Generation" ,
+		  "placeholder": "Date of Generation"
+		  } 
+}

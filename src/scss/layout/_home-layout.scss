@@ -1,0 +1,706 @@
+.home-layout,
+.service-request-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 28px;
+  overflow: auto;
+
+  @include small-screen {
+    padding-bottom: max(env(safe-area-inset-bottom) + 120px, 120px);
+  }
+
+  overview-header,
+  portfolio-header {
+    display: block;
+    width: 100%;
+    position: relative;
+    padding-bottom: 18px;
+
+    .overview-header-inner,
+    .portfolio-header-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+
+      @include small-screen {
+        padding: 48px 16px 0;
+        border-radius: 0px 0px 24px 24px;
+        background: url(../../assets/images/main-header-bg.svg) no-repeat -750px -90px
+          var(--primary500);
+        background-size: 1253px;
+        background-attachment: scroll;
+        overflow: hidden;
+      }
+
+      header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .header-tool-bar {
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          .account-swap {
+            display: flex;
+            border-radius: 20px;
+            align-items: center;
+            gap: 8px;
+            border: 0.5px solid var(--secondaryClr);
+            padding: 3px 15px;
+            background-color: var(--color);
+            .acc-detail{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                .cif-number, .account-name{
+                    @include b4-regular;
+                    color: #0066A5;
+                }
+            }
+            img{
+              @include small-screen {
+                height: 18px;
+              }
+            }
+        }
+
+          .user-profile {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            button {
+              width: inherit;
+              height: inherit;
+              padding: 0;
+            }
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+      .user-profile {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        position: relative;
+        // z-index: 3;
+
+        .profile-pic {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .welcome-txt {
+          display: flex;
+          // flex-direction: column;
+          color: var(--neutral50);
+
+          .hello-txt {
+            @include b2-regular;
+            text-transform: capitalize;
+          }
+
+          .guest-name {
+            @include s3-medium;
+            text-transform: capitalize;
+          }
+        }
+      }
+
+      portfolio-summary {
+        padding-bottom: 12px;
+
+        .slick-dots {
+          li:not(.slick-active) {
+            button {
+              background-color: var(--tertiary300) !important;
+            }
+          }
+        }
+      }
+    }
+
+    .expander {
+      cursor: pointer;
+      position: absolute;
+      left: calc(50% - 49px);
+      bottom: 2px;
+      width: 98px;
+      height: 18px;
+      background: url(../../assets/images/overview/expander.svg) no-repeat
+        center transparent;
+
+      &:after {
+        content: " ";
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        background-color: var(--neutral50);
+        mask: url("../../assets/images/overview/expander-arrow.svg") no-repeat
+          center;
+        -webkit-mask: url("../../assets/images/overview/expander-arrow.svg")
+          no-repeat center;
+        mask-size: 16px;
+        -webkit-mask-size: 16px;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 2px;
+        margin: auto;
+      }
+
+      &.summary-loading:after {
+        mask: url("../../assets/svg/Spin34px.svg") no-repeat center;
+        -webkit-mask: url("../../assets/svg/Spin34px.svg") no-repeat center;
+        mask-size: 22px;
+        -webkit-mask-size: 22px;
+        bottom: 2px;
+      }
+
+      &.expanted:after {
+        transform: rotateZ(180deg);
+      }
+    }
+  }
+
+  .home-quick-actions-widget {
+    width: 100%;
+  }
+
+  .upcoming-payments-widget {
+    .widget-body {
+      padding: 0;
+    }
+
+    .upcoming-payments-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      padding: 0 16px;
+      gap: 24px;
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-bottom: 12px;
+
+      li {
+        flex-grow: 0;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1px solid var(--primary500);
+        background: var(--neutral50);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex: 36% 0 0;
+
+        .payment-due {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+
+          .info-ico {
+            width: 24px;
+            height: 24px;
+            background-color: var(--domainIconClr);
+            mask: url("../../assets/images/icons/info.svg") no-repeat center;
+            -webkit-mask: url("../../assets/images/icons/info.svg") no-repeat
+              center;
+            mask-size: 24px;
+            -webkit-mask-size: 24px;
+          }
+
+          .due-days {
+            display: flex;
+            flex-direction: row;
+            gap: 4px;
+            align-items: center;
+
+            &:after {
+              content: " ";
+              width: 16px;
+              height: 16px;
+              background-color: var(--secondary500);
+              mask: url("../../assets/images/icons/clock.svg") no-repeat center;
+              -webkit-mask: url("../../assets/images/icons/clock.svg") no-repeat
+                center;
+              mask-size: 16px;
+              -webkit-mask-size: 16px;
+            }
+          }
+
+          &.closer {
+            .due-days {
+              color: var(--errorClr);
+            }
+          }
+        }
+
+        .payment-info {
+          span {
+            display: block;
+          }
+
+          .dec {
+            @include s4-medium;
+            color: var(--neutral700);
+          }
+
+          .amount {
+            @include s2-bold;
+            color: var(--neutral700);
+          }
+        }
+      }
+
+      &::-webkit-scrollbar {
+        height: 4px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: var(--neutral500);
+        border-radius: 20px;
+        max-width: 40px !important;
+        margin-left: 40vw;
+        margin-right: 40vw;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--secondary500);
+        border-radius: 20px;
+      }
+    }
+  }
+
+  .spend-summary-chart-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .spend-summary-chart-header {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+
+      .primary-info {
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+        line-height: 28px;
+
+        .lbl {
+          font-weight: var(--fontWeightMedium);
+          color: var(--neutral700);
+        }
+        .amount {
+          font-weight: var(--fontWeightBold);
+          color: var(--neutral900);
+        }
+      }
+      .secondary-info {
+        .tip {
+          background-color: #ffd7b6;
+          border-radius: 15px;
+          padding: 3px 6px;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+
+          @include b4-regular;
+          color: #b95f13;
+
+          &::before {
+            content: "";
+            width: 14px;
+            height: 14px;
+            background: url(../../assets/images/icons/info.svg) no-repeat 0 50%;
+            background-size: 14px;
+            display: inline-block;
+          }
+        }
+      }
+    }
+    .spend-summary-chart-body {
+      display: flex;
+      gap: 20px;
+      .spend-chart {
+        flex-basis: 60%;
+      }
+      .spend-chart-legends {
+        flex-basis: 40%;
+        align-self: center;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          li {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--baseBdrClr);
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            align-items: center;
+            color: var(--neutral500);
+
+            .category-color {
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              display: inline-block;
+            }
+            .category-name {
+              @include s4-medium;
+            }
+            .amount {
+              @include s2-bold;
+              flex-grow: 1;
+              text-align: end;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+#depAppBody {
+    .home-layout {
+        .fav-transfers-widget {
+            margin-bottom: 0px;
+            app-favourite-transaction {
+              .fav-tran-group {
+                gap: 20px;
+                height: unset;
+                padding: 0 20px;
+                @include not-small-screen {
+                  padding: 0;
+                }
+                .fav-tran-header {
+                  .title {
+                    color: #575757;
+                  }
+                  @include small-screen {
+                    .arrow-button::after {
+                      content: none;
+                    }
+                  }
+                }
+                .fav-transfers-sec {
+                  box-shadow: 0px 0px 30px 0px #00000017;
+                  background-color: #fff;
+                  padding: 20px;
+                  border-radius: 20px;
+                  display: flex;
+                  justify-content: center;
+                  &.result-view {
+                    box-shadow: unset;
+                    background-color: unset;
+                    padding: unset;
+                  }
+                  @include not-small-screen {
+                    padding: 40px;
+                    border-radius: 8px;
+                    &.result-view {
+                      box-shadow: 0px 0px 30px 0px #00000017;
+                      background-color: #fff;
+                      padding: 20px;
+                    }
+                  }
+                  @include small-screen {
+                    .fav-transaction-name,
+                    .fav-transaction-amount,
+                    .fav-init-transfer-name {
+                      color: #2d2d2d;
+                    }
+                  }
+                  .no-fav-tran-group {
+                    align-items: center;
+                    .no-fav-tran-image {
+                      position: unset;
+                      width: 150px;
+                    }
+                    .no-fav-tran,
+                    .no-fav-tran-add-btn {
+                      display: none;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        
+          .widget.overview-upcoming-payments.schedule-form {
+            .widget-title::before {
+              mask: url("../../assets/images/icons/schedule-transfer.svg") no-repeat
+                center;
+              -webkit-mask: url("../../assets/images/icons/schedule-transfer.svg")
+                no-repeat center;
+            }
+            .casa-transactions-grid-header {
+              display: none;
+            }
+          }
+    }
+  
+}
+
+.service-request-layout {
+  overflow: unset;
+  height: unset;
+}
+
+balance-sheet {
+  @include not-small-screen {
+    border-radius: 12px;
+    background: radial-gradient(circle at top right, #008d91, #173147);
+    padding: 20px 12px;
+  }
+
+  .networth {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    .lbl {
+      @include b2-regular;
+      color: var(--tertiary300);
+    }
+
+    .networth-data {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      align-items: center;
+
+      .amount {
+        @include h3-medium;
+        color: var(--neutral50);
+
+        em {
+          @include s1-medium;
+        }
+      }
+
+      .score {
+        @include s4-medium;
+
+        &.postive {
+          color: #87e451;
+        }
+
+        &.negative {
+          color: var(--errorClr);
+        }
+      }
+    }
+  }
+
+  .balance-sheet-inner {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    > * {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .balance-ico {
+        width: 24px;
+        height: 24px;
+        img {
+          width: 100%;
+        }
+      }
+
+      .balance-info {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        color: var(--neutral50);
+        align-items: center;
+
+        .balance-lbl {
+          @include b2-regular;
+        }
+      }
+      .amount {
+        @include s3-medium;
+        display: flex;
+        gap: 4px;
+        color: var(--neutral50);
+      }
+    }
+
+    .seperator {
+      flex-grow: 0;
+      width: 1px;
+      background-color: #{var(--neutral50)}40;
+
+      @include not-small-screen {
+        background-color: #107780;
+      }
+    }
+  }
+}
+
+app-customize-quick-action {
+  .entry-form {
+    flex-direction: column;
+    padding: 0 8px 4px;
+    @include not-small-screen {
+      padding: 20px 36px;
+    }
+    .widget-title {
+      padding: 10px 0 16px;
+      display: block;
+      @include s3-medium;
+      color: #575757;
+    }
+    ul.actions-list.grid {
+      flex-direction: column;
+      width: 100%;
+      gap: 15px;
+      li {
+        border: 1px solid #016b83;
+        border-radius: 16px;
+        padding: 6px 20px 6px 16px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background-color: #ffffff;
+        flex-direction: row;
+        .content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          .text {
+            width: unset;
+          }
+        }
+      }
+    }
+    .added-ql {
+      ul.actions-list.grid {
+        li .content .minus-icon {
+          height: 20px;
+          &::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background: url(../../assets/images/icons/minus-circle.svg)
+              no-repeat 0 50%;
+            background-size: 20px;
+            display: inline-block;
+          }
+        }
+      }
+    }
+    .more-ql {
+      ul.actions-list.grid {
+        li .content .plus-icon {
+          height: 20px;
+          &::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background: url(../../assets/images/icons/plus-circle.svg) no-repeat
+              0 50%;
+            background-size: 20px;
+            display: inline-block;
+          }
+        }
+      }
+    }
+    .context-menu-body {
+      padding: 0;
+      .actions-list .icon-wrapper {
+        background-color: #fff;
+        &::after {
+          background-color: #ff8926;
+        }
+      }
+    }
+  }
+}
+
+app-retail-user-restrictions-form {
+  .entry-form {
+    padding: 14px 20px;
+
+    .user-data-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .user-data {
+        cursor: pointer;
+        display: flex;
+        padding-top: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #E0E0E0;
+        justify-content: space-between;
+        align-items: center;
+
+        .user-datails {
+          display: flex;
+          flex-direction: column;
+
+          .cif-number {
+            @include s4-medium;
+            color: #2D2D2D;
+
+          }
+
+          .account-name {
+            @include b4-regular;
+            color: #575757;
+
+          }
+        }
+
+        &.is-linked-account {
+          .user-data-checkbox {
+            background: #23A26D;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+
+            .tick {
+              width: 21px;
+              height: 21px;
+              background-color: #fff;
+              mask: url("../../assets/images/icons/tick.svg") no-repeat center;
+              -webkit-mask: url("../../assets/images/icons/tick.svg") no-repeat center;
+              mask-size: 21px;
+              -webkit-mask-size: 21px;
+              position: absolute;
+              top: 4px;
+              left: 3px;
+            }
+
+          }
+        }
+      }
+    }
+
+  }
+}

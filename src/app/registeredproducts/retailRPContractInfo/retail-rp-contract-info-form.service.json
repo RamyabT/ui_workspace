@@ -1,0 +1,5 @@
+ 
+ "RETAILRPCONTRACTINFO" : {
+ "servicePath": ["entry-shell","registeredproducts", "RetailRPContractInfo"],
+ "queryParams": {}
+ }

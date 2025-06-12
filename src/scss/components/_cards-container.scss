@@ -1,0 +1,501 @@
+debitcard-tab-container,
+creditcard-tab-container,
+prepaidcard-tab-container,
+app-retail-cc-pin-request {
+    .mat-error{
+        text-align: center
+    }
+    .action-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0 16px;
+        .action-button {
+            border: 1px solid var(--primary500);
+            background-color: var(--neutral50);
+            border-radius: 8px;
+            width: 160px;
+            height: 40px;
+            @include b3-medium;
+            color: var(--bodyTxtClr);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            
+            &::before {
+                content: '';
+                width: 24px;
+                height: 24px;
+                display: inline-block;
+            }
+            &.feature {
+                &::before {
+                    background: url(../../assets/images/icons/feature-icon.svg) no-repeat 50% 50% transparent !important;
+                }
+            }
+            &.detail {
+                &::before {
+                    background: url(../../assets/images/icons/detail-icon.svg) no-repeat 50% 50% transparent !important;
+                }
+            }
+            
+        }
+    }
+    .card-info-tmplt {
+        padding: 0 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        align-items: center;
+        text-align: center;
+        .header {
+            @include s2-bold;
+            color: var(--baseTxtClr);
+        }
+        .description {
+            @include s2-medium;
+            color: var(--primaryClr);
+            font-weight: var(--fontWeightRegular);
+        }
+        .card-info-btn {
+            width: 163px;
+            height: 44px;
+            @include s3-medium;
+            color: var(--neutral50);
+            background-color: #12486B;
+            border-radius: 20px;
+            margin-top: 16px;
+        }
+    }
+    .card-usage {
+        box-shadow: 0px 0px 30px 0px #00000017;
+        background-color: var(--neutral50);
+        border-radius: 12px;
+        padding: 14px 17px 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 16px;
+        @include not-small-screen {
+            margin: 0;
+        }
+        .goal-list {
+            li {
+                gap: 8px;
+            }
+        }
+        .category-name {
+            justify-content: space-between;
+            &:before {
+                content: none !important;
+            }
+            .total-outstanding-labl {
+                @include b2-regular;
+                line-height: 18px;
+                font-weight: var(--fontWeightBold);
+            }
+        }
+        .pay {
+            background-color: #12486B;
+            border-radius: 24px;
+            width: 65px;
+            height: 24px;
+            color: var(--neutral50);
+        }
+        .goal-progress-bar {
+            gap: 8px !important;
+            .spend {
+                .total-outstanding-amount {
+                    @include h4-bold;
+                    font-weight: 500;
+                    line-height: 24px;
+                    .available-limit {
+                        @include s4-medium;
+                        line-height: 18px;
+                        color: var(--neutral500);
+                        margin-left: 8px;
+                    }
+                }
+            }
+            
+            .progress-track {
+                .fill {
+                    background-color: #12486B;
+                }
+            }
+            .limit {
+                justify-content: space-between;
+                display: flex;
+                .available-limit {
+                    @include s4-medium;
+                    line-height: 18px;
+                    color: var(--neutral500);
+                }
+                .paybill-date {
+                    @include b4-medium;
+                    font-weight: 400;
+                    color: #000000;
+                }
+            }
+        }
+    }
+    .total-limit-summary {
+        box-shadow: 0px 0px 30px 0px #00000017;
+        background-color: var(--neutral50);
+        border-radius: 12px;
+        padding: 14px 17px 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 16px;
+        .limit {
+            display: flex;
+            flex-direction: column;
+            .total-outstanding-labl {
+                @include s2-medium;
+                line-height: 20px;
+                font-weight: 400;
+            }
+            .total-outstanding-amount {
+                @include h1-bold;
+                line-height: 32px;
+            }
+            .available-limit {
+                @include s4-medium;
+                line-height: 18px;
+                color: var(--neutral500);
+                margin-top: 7px;
+            }
+        }
+        .due-date-group {
+            background-color: #12486B;
+            border-radius: 10px;
+            width: 97px;
+            height: 55px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .paybill-label {
+                @include s2-bold;
+                color: var(--neutral50);
+                line-height: 20px;
+            }
+            .paybill-date {
+                @include b3-medium;
+                color: var(--neutral50);
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+app-retail-debitcard-details-form {
+    .linkedAccount {
+        @include s3-medium;
+        color: var(--bodyTxtClr);
+    }
+}
+app-retail-debitcard-flash-details-form {
+    .linkedAccount {
+        @include s3-medium;
+        color: var(--bodyTxtClr);
+    }
+}
+
+app-retail-dc-change-pin-request,
+app-retail-cc-pin-request,
+app-retail-prepaid-change-pin {
+    .mat-error{
+        text-align: center
+    }
+    .change-pin-desc {
+        @include b2-regular;
+        color: var(--primaryClr);
+        width: 85%;
+        text-align: center;
+        @include not-small-screen {
+            text-align: left;
+        }
+    }
+    .otp-display {
+        justify-content: center;
+    }
+    .forgot-mpin {
+        @include s3-medium;
+        color: var(--secondary500);
+        text-align: end;
+    }
+    .spacer {
+        margin: 0;
+        width: 100%;
+        border: 1px solid #E0E0E0;
+    }
+    .entry-form {
+        @include not-small-screen {
+            justify-content: center;
+            .grid.entry-form-field-group {
+                width: 33%;
+            }
+        }
+    }
+}
+
+app-retail-dc-transaction-dtls-ro-grid,
+app-retail-pc-transaction-dtls-ro-grid {
+    form {
+        margin: 0 -16px;
+        @include not-small-screen{
+            margin: 0px;
+        }
+    }
+}
+app-retail-cc-transaction-summary {
+    .entry-form {
+        @include not-small-screen {
+            margin: 0 -16px;
+        }
+        .total-spend {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .primary-info {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 1px 17px 0px 17px;
+
+                .spend-label {
+                    font-weight: 500;
+                    font-size: 16px;
+                    color: var(--baseTxtClr);
+                }
+
+                .spend-amount {
+                    font-weight: 500;
+                    font-size: 16px;
+                    color: var(--baseTxtClr);
+                }
+            }
+
+            .secondary-info {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 4px 17px;
+
+                .cycle-date {
+                    color: #59656D;
+                }
+            }
+        }
+    }
+}
+app-retail-cc-limit-request-form,
+app-retail-pc-change-limit-form {
+    .mat-tab-body-wrapper {
+        box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.09);
+        @include not-small-screen {
+            box-shadow: unset;
+        }
+    }
+    .mat-tab-list {
+        flex-grow: 1 !important;
+        @include not-small-screen {
+            flex-grow: 0 !important;
+        }
+        .mat-tab-labels {
+            .mat-tab-label {
+                flex: 1;
+                padding: 0;
+            }
+        }
+    }
+    
+}
+app-cc-verify-pin-validation-form,
+app-pc-verify-pin-validation-form,
+app-dc-verify-pin-validation-form {
+    .mat-error {
+        text-align: center;
+    }
+    .entry-form {
+        justify-content: center;
+        @include not-small-screen{
+            flex-direction: column;
+            align-content: center;
+        }
+        .title {
+            @include s4-medium;
+            color: var(--bodyTxtVariantClr);
+            text-align: center;
+        }
+
+        app-cc-verify-pin-validation-form,
+        app-pc-verify-pin-validation-form,
+        app-dc-verify-pin-validation-form,
+        app-retail-dc-change-pin-request,
+        app-retail-cc-pin-request,
+        app-retail-prepaid-change-pin,
+        app-retail-debit-card-set-pin-form {
+            app-dc-pin-control {
+                .fpx-form-control fpx-label mat-label {
+                    justify-content: center;
+                }
+            }
+        }
+        app-retail-customer-verification-form,
+        app-retail-forgot-password-form{
+            app-dc-pin-control {
+                .fpx-form-control fpx-label mat-label {
+                    justify-content: none;
+                }
+            }  
+        }
+    }
+    
+}
+
+#depAppBody app-pc-card-balance-info {
+    header {
+        @include s3-medium;
+        color: var(--neutral50);
+    }
+}
+
+app-debitcard-home,
+app-creditcard-home,
+app-prepaidcard-home {
+        .spend-summary-chart-inner{
+            display: flex;
+            flex-direction: column;
+            // gap: 20px;
+            .spend-summary-chart-header{
+                display: flex;
+                gap:20px;
+                justify-content: space-between;
+
+                .primary-info{
+                    display: flex;
+                    flex-direction: column;
+                    font-size: 16px;
+                    line-height: 28px;
+
+                    .lbl{
+                        font-weight: var(--fontWeightMedium);
+                        color: var(--bodyTxtClr);
+                    }
+                    .amount{
+                        font-weight: var(--fontWeightBold);
+                        color: var(--baseTxtClr);
+                    }
+                }
+                .secondary-info{
+                    .tip{
+                        background-color: #FFD7B6;
+                        border-radius: 15px;
+                        padding: 3px 6px;
+                        display: flex;
+                        align-items: center;
+                        gap: 4px;
+
+                        @include b4-regular;
+                        color: #B95F13;
+
+                        &::before{
+                            content: '';
+                            width: 14px;
+                            height: 14px;
+                            background: url(../../assets/images/icons/info.svg) no-repeat 0 50%;
+                            background-size: 14px;
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+            .spend-summary-chart-body{
+                display: flex;
+                gap: 20px;
+                .spend-chart{
+                    flex-basis: 60%;
+                }
+                .spend-chart-legends{
+                    flex-basis: 40%;
+                    align-self: center;
+
+                    ul{
+                        display: flex;
+                        flex-direction: column;
+                        li{
+                            padding: 10px 12px;
+                            border-bottom: 1px solid var(--baseBdrClr);
+                            display: flex;
+                            flex-direction: row;
+                            gap: 12px;
+                            align-items: center;
+                            color: var(--neutral500);
+
+                            .category-color{
+                                width: 12px;
+                                height: 12px;
+                                border-radius: 50%;
+                                display: inline-block;
+                            }
+                            .category-name{
+                                @include s4-medium;
+                            }
+                            .amount{
+                                @include s2-bold;
+                                flex-grow: 1;
+                                text-align: end;
+                                color: var(--neutral500);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .upcoming-payments {
+            .upcomingPaymentsTmplt {
+                padding: 0 16px;
+                .casa-transactions-grid-header {
+                    display: none !important;
+                }
+            }
+        }
+}
+app-cc-verify-pin-validation-form,
+app-pc-verify-pin-validation-form,
+app-dc-verify-pin-validation-form,
+app-retail-dc-change-pin-request,
+app-retail-cc-pin-request,
+app-retail-prepaid-change-pin,
+app-retail-debit-card-set-pin-form{
+app-dc-pin-control {
+    @include not-small-screen {
+        mat-label {
+            justify-content: center;
+        }
+    }
+}
+}
+
+app-creditcard-home {
+    app-retail-cc-transaction-summary {
+        .entry-form {
+            margin: 0;
+        }
+        .mat-tab-body {
+            background-color: var(--tabContainerBodyBg);
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.0901960784);
+            border-radius: 8px;
+            padding: 16px;
+        }
+    }
+}
+
+

@@ -1,0 +1,5 @@
+ 
+ "RETAILCHNGMATURITYINSTR" : {
+ "servicePath": ["entry-shell","deposits", "retail-change-maturity-instructions-form"],
+ "queryParams": {}
+ }

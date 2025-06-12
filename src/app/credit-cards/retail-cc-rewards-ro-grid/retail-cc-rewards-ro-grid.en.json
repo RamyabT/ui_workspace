@@ -1,0 +1,11 @@
+"ccRewardsInfo": {
+	"title": "Rewards",
+	"rewardDescription": {
+		"label": "Description",
+		"placeholder": "Description"
+	},
+	"rewardId": {
+		"label": "Product Category",
+		"placeholder": "Product Category"
+	}
+}

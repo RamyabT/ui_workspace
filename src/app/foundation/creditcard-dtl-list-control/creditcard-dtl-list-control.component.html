@@ -1,0 +1,86 @@
+<ng-container *ngIf="cardData">
+    <box class="account-information">
+        <box *ngIf="allCreditCards.length > 1" class="all-accounts-btn all-accounts-btn-cc" (click)="viewAll()">
+            <span class="all-accounts-text font-14-20">{{ 'RetailCreditCardDetails.allCards' | translate }}</span>
+        </box>
+
+        <box class="acc-primary-information">
+            <box class="account-type-number-section">
+                <box class="acc-dtl-balance-section">
+                    <box class="acc-type-number-wrapper">
+                        <span class="acc-type">{{cardData.productDesc }}</span>
+
+                        <box class="product-details">
+                            <box class="account-number">{{ cardData.creditCardNumber | creditCardNumberMask }}</box>
+                        </box>
+                    </box>
+
+                    <box class="balance-wrapper">
+                        <box class="balance-details">
+                            <box class="balance-tooltip">
+                                <span class="balance-label">{{ 'RetailCreditCardDetails.currentBalance' | translate }}</span>
+                                <box class="tag-wrapper">
+                                    <span class="dormant-tag">
+                                        <span class="dormant-info" (mouseenter)="showCurrentBalanceDesktop($event)"
+                                        (mouseleave)="showCurrentBalanceDesktop($event)">
+                                            <span *ngIf="currentBalanceToolTip" class="tooltip-text">{{ 'RetailCreditCardDetails.currentBalanceTooltip' | translate }}</span>
+                                        </span> 
+                                    </span>
+                                </box>
+                            </box>
+                            <box class="amount balance-amount-cad">{{ getAbsoluteValue(cardData.outstandingAmount) | currency }}</box>
+                        </box>
+                        <box class="balance-details">
+                            <box class="balance-tooltip">
+                                <span class="balance-label">{{ 'RetailCreditCardDetails.availableCredit' | translate }}</span>
+                                <box class="tag-wrapper">
+                                    <span class="dormant-tag"> 
+                                        <span class="dormant-info" (mouseenter)="showAvailableCreditToolTipDesktop($event)"
+                                        (mouseleave)="showAvailableCreditToolTipDesktop($event)">
+                                            <span *ngIf="availableCreditToolTip" class="tooltip-text">{{ 'RetailCreditCardDetails.availableCreditTooltip' | translate }}</span>
+                                        </span> 
+                                    </span>
+                                </box>
+                            </box>
+                            <box class="amount balance-amount-cad">{{ getAbsoluteValue(cardData.availableCreditLimit) | currency }}</box>
+                        </box>
+                        <box class="balance-details">
+                            <box class="balance-tooltip">
+                                <span class="balance-label">{{ 'RetailCreditCardDetails.statementBalance' | translate }}</span>
+                                <box class="tag-wrapper">
+                                    <span class="dormant-tag"> 
+                                        <span class="dormant-info" (mouseenter)="showStatementBalanceToolTipDesktop($event)"
+                                        (mouseleave)="showStatementBalanceToolTipDesktop($event)">
+                                            <span *ngIf="statementBalanceToolTip" class="tooltip-text">{{ 'RetailCreditCardDetails.statementBalanceTooltip' | translate }}</span>
+                                        </span> 
+                                    </span>
+                                </box>
+                            </box>
+                            <box class="amount balance-amount-cad">{{ getAbsoluteValue(cardData.lastStatementBalance) | currency }}</box>
+                        </box>
+                    </box>
+
+                    <box class="balance-wrapper bottom">
+                        <box class="balance-details">
+                            <box class="balance-tooltip">
+                                <span class="balance-label">{{ 'RetailCreditCardDetails.statementDueDate' | translate }}</span>
+                            </box>
+                            <box *ngIf="cardData.dueDate; else noValue" class="amount balance-amount-cad">{{ cardData.dueDate | date: 'dd MMM yyyy' }}</box>
+                        </box>
+                        <box class="balance-details" [ngClass]="{ 'no-rewards': !cardData.rewardPointsClosingBal }">
+                            <ng-container *ngIf="cardData.rewardPointsClosingBal">
+                                <box class="balance-tooltip">
+                                    <span class="balance-label">{{ 'RetailCreditCardDetails.rewardsPointsBalance' | translate }}</span>
+                                </box>
+                                <box class="amount balance-amount-cad">{{ cardData.rewardPointsClosingBal}}</box>
+                            </ng-container>
+                        </box>
+                        <box class="balance-details"></box>
+                    </box>
+                </box>
+            </box>
+        </box>
+    </box>
+</ng-container>
+
+<ng-template #noValue>-</ng-template>

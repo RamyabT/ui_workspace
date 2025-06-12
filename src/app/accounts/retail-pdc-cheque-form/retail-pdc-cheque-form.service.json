@@ -1,0 +1,5 @@
+ 
+ "RETAILPDCCHEQUEREQ" : {
+ "servicePath": ["entry-shell","Accounts", "retail-pdc-cheque-form"],
+ "queryParams": {}
+ }

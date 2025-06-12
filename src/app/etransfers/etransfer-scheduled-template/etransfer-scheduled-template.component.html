@@ -1,0 +1,91 @@
+<div class="task-item" id="row_data_{{ index }}">
+    <ng-container *ngIf="_device.isMobile() && selectedData.status != 'S' && selectedData.serviceCode != 'ETRANSFERRECEIVEMONEY' ">
+    
+    </ng-container>
+
+    <div class="task-detail-item">
+        <box *ngIf="_device.isMobile()" class="transaction-list-item-inner">
+            <box class="transaction-icon-wrapper">
+                <box class="transaction-icon">
+                    <ng-container *ngIf="true; else noPhoto">
+                            <span class="transaction-icon-bg" [ngClass]="{ 
+                                'pending': true}"></span>
+                    </ng-container>
+                    <ng-template #noPhoto>
+                        <div class="name-first-letter">
+                            <span
+                                *ngIf="selectedData.beneficiaryName?.split(' ').length == 1">{{selectedData.beneficiaryName?.substring(0,
+                                1)}}
+                            </span>
+                            <span
+                                *ngIf="selectedData.beneficiaryName?.split(' ').length > 1 && selectedData.beneficiaryName?.split(' ').length != 1">
+                                {{selectedData.beneficiaryName?.split(" ")[0]?.charAt(0)
+                                +(selectedData.beneficiaryName?.split(" ")[1]?
+                                selectedData.beneficiaryName?.split(" ")[1]?.charAt(0): "")}}
+                            </span>
+                        </div>
+                    </ng-template>
+                </box>
+            </box>
+            <box class="transaction-info">
+                <box class="transaction-primary-info">
+                    <span class="name">{{selectedData.beneficiaryName}}</span>
+                    <box class="primary-wrapper">
+                        <span class="status"
+                        >{{decodePaymentStatus(selectedData.status)}}</span>
+                        <span class="seperator">|</span>
+                        <span class="date">{{selectedData.paymentDate | date: 'dd MMM YYYY'}}</span>
+                    </box>
+                    
+
+                </box>
+                <box class="transaction-secondary-info">
+                    <span class="amount">
+                        {{selectedData.paymentAmount | currency : selectedData.paymentCurrency : '' }}
+                        <em>{{selectedData.paymentCurrency | currencyCode }}</em>
+                        <span *ngIf="selectedData.serviceCode == 'RETAILSCHETRANSFER'">-</span>
+                    </span>
+                </box>
+            </box>
+        </box>
+        <box *ngIf="!_device.isMobile()" class="transaction-list-item-inner">
+            <box class="transaction-icon-wrapper">
+                <box class="transaction-icon">
+                    <ng-container *ngIf="true; else noPhoto">
+                            <span class="transaction-icon-bg" [ngClass]="{
+                                'pending': true}"></span>
+                    </ng-container>
+                    <ng-template #noPhoto>
+                        <div class="name-first-letter">
+                            <span
+                                *ngIf="selectedData.beneficiaryName?.split(' ').length == 1">{{selectedData.beneficiaryName?.substring(0,
+                                1)}}
+                            </span>
+                            <span
+                                *ngIf="selectedData.beneficiaryName?.split(' ').length > 1 && selectedData.beneficiaryName?.split(' ').length != 1">
+                                {{selectedData.beneficiaryName?.split(" ")[0]?.charAt(0)
+                                +(selectedData.beneficiaryName?.split(" ")[1]?
+                                selectedData.beneficiaryName?.split(" ")[1]?.charAt(0): "")}}
+                            </span>
+                        </div>
+                    </ng-template>
+                </box>
+            </box>
+            <box class="name">{{selectedData.beneficiaryName}}</box>
+            <!-- <box class="status payment-status">{{decodePaymentStatus(selectedData.status)}}</box> -->
+            <span class="amount">
+                {{selectedData.paymentAmount | currency : selectedData.paymentCurrency : '' }}
+                <em>{{selectedData.paymentCurrency | currencyCode }}</em>
+                <span *ngIf="selectedData.serviceCode == 'RETAILSCHETRANSFER'">-</span>
+            </span>
+        </box>
+
+    </div>
+
+    <ng-container *ngIf="selectedData.serviceCode != 'ETRANSFERRECEIVEMONEY'">
+        
+    </ng-container>
+
+    <div class="seperator-line"></div>
+
+</div>

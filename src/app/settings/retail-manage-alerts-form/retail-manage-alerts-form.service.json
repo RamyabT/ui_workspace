@@ -1,0 +1,5 @@
+ 
+ "RETAILMANAGEALERTS" : {
+ "servicePath": ["entry-shell","settings", "retail-manage-alerts-form"],
+ "queryParams": {}
+ }

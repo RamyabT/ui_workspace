@@ -1,0 +1,1060 @@
+#depAppBody {
+
+  .ng-template-select{
+    .mat-select-trigger{
+      height: auto;
+    }
+  }
+
+  /* account list */
+  app-account-list-template-control, app-base-currency-account-list-template-control {
+    .fpx-form-control .fpx-field-content {
+      border: unset !important;
+      height: 90px;
+      background-color: var(--reachDropDownBgColor);
+
+      .mat-select-trigger {
+        height: unset;
+
+        .mat-select-arrow-wrapper {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+
+      .account-list-item {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .primary-info {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          height: 24px;
+
+          .icon-wrapper {
+            width: 20px;
+            height: 20px;
+            img{
+              height: 20px;
+            }
+          }
+
+          .account-info {
+            @include b2-regular;
+            color: #2D2D2D;
+          }
+
+          .account-status {
+            width: 10px;
+            height: 10px;
+            background-color: #23A26D;
+            border-radius: 50%;
+            margin-left: 2px;
+          }
+        }
+
+        .secondary-info {
+          span {
+            @include b2-regular;
+            color: #2D2D2D;
+          }
+
+          .val {
+            font-weight: var(--fontWeightBold);
+          }
+        }
+      }
+    }
+  }
+
+  app-etransfer-contact-list-template-control {
+    .account-list-item {
+      .primary-info {
+        line-height: 14.32px;
+
+        .account-info {
+          font-size: 12px;
+          font-weight: 500;
+        }
+      }
+
+      .secondary-info {
+        line-height: 14.32px;
+
+        .val {
+          font-size: 12px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  app-retail-etransfer-form,app-retail-etransfer-request-money-form,app-retail-etransfer-reclaim-money-form,app-retail-etransfer-receive-money-form, app-retail-etransfer-fulfill-request-money-form {
+    .contact-details {
+      &::after {
+          content: "";
+          background-color: var(--headerBgClr);
+          width: 100%;
+          height: 200px;
+          position: absolute;
+          top: 145px;
+          left: 0;
+          right: 0;
+          z-index: -1;
+      }
+      .contact-box{
+        .contact-wrapper {
+          background: var(--controlSecondaryBgClr);
+          border-radius: 28px;
+          padding: 8px;
+          margin: 8px;
+          display: flex;
+          justify-content: flex-start;
+          gap: 16px;
+          align-items: center;
+          @include not-small-screen{
+            margin: 0;
+            border: none;
+            background: var(--controlSecondaryBgClr);
+          }
+          .icon-wrapper {
+            background-color: var(--elementPrimaryBgClr);
+            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @include not-small-screen {
+              background-color: var(--elementPrimaryBgClr);
+            }
+            .letter-icon {
+              @include s2-medium;
+              line-height: 20px;
+              color: var(--primaryBaseTxtClr);
+              flex: unset;
+              height: unset;
+              text-transform: uppercase;
+            }
+          }
+          .details {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            .name {
+              @include s3-medium;
+              line-height: 20px;
+              color: var(--primaryBaseTxtClr);
+              margin-bottom: 2px;
+            }
+            .gmail, .mobile {
+              @include b3-medium;
+              line-height: 16px;
+              color: var(--secondaryBaseTxtClr);
+              font-family: var(--secondaryFontFamily);
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+  /* active credit card list */
+  app-active-cc-list-control {
+    .fpx-form-control .fpx-field-content {
+      border: unset !important;
+      height: 90px;
+      background-color: #A8F3EE;
+      padding: 16px;
+
+      .mat-select-trigger {
+        height: unset;
+
+        .mat-select-arrow-wrapper {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+
+      .account-list-item {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .primary-info {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          height: 24px;
+
+          .icon-wrapper {
+            width: 20px;
+            height: 20px;
+          }
+
+          .account-info {
+            @include b2-regular;
+            color: #2D2D2D;
+          }
+
+          .account-status {
+            width: 10px;
+            height: 10px;
+            background-color: #23A26D;
+            border-radius: 50%;
+            margin-left: 2px;
+          }
+        }
+
+        .secondary-info {
+          span {
+            @include b2-regular;
+            color: #2D2D2D;
+          }
+
+          .val {
+            font-weight: var(--fontWeightBold);
+          }
+        }
+      }
+    }
+  }
+
+
+      .cdk-overlay-pane .mat-select-panel-wrap .fpx-select-panel.activeCreditCardListTmplt[role="listbox"] {
+        padding: 8px 12px;
+      // display: flex;
+        flex-direction: column;
+        gap: 4px;
+        transform: translateY(84px) !important;
+    
+        .mat-option {
+          padding: 12px 8px;
+          height: unset;
+          border-bottom: 1px solid #F3F3F3;
+    
+          &.mat-active {
+            border-radius: 12px;
+            background-color: #A8F3EE !important;
+            margin-bottom: 4px;
+    
+            .account-info {
+              font-size: 16px;
+              line-height: 20px !important;
+            }
+          }
+    
+          &:last-child {
+            border-bottom: none;
+          }
+    
+          .mat-option-text {
+            padding: 0;
+            border: unset;
+    
+            .account-list-item {
+              display: flex;
+              flex-direction: column;
+    
+              .primary-info {
+    
+                .icon-wrapper,
+                .account-status {
+                  display: none;
+                }
+    
+                .account-info {
+                  line-height: 18px;
+                }
+              }
+    
+              .secondary-info {
+                line-height: 18px;
+              }
+            }
+          }
+        }
+      }
+
+  .cdk-overlay-pane .mat-select-panel-wrap .fpx-select-panel.accountListTmplt[role="listbox"] {
+    padding: 8px 12px;
+  // display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transform: translateY(84px) !important;
+
+    .mat-option {
+      padding: 12px 8px;
+      height: unset;
+      border-bottom: 1px solid #F3F3F3;
+
+      &.mat-active {
+        border-radius: 12px;
+        background-color: var(--reachDropDownBgColor) !important;
+        margin-bottom: 4px;
+
+        .account-info {
+          font-size: 16px;
+          line-height: 20px !important;
+        }
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .mat-option-text {
+        padding: 0;
+        border: unset;
+
+        .account-list-item {
+          display: flex;
+          flex-direction: column;
+
+          .primary-info {
+
+            .icon-wrapper,
+            .account-status {
+              display: none;
+            }
+
+            .account-info {
+              line-height: 18px;
+            }
+          }
+
+          .secondary-info {
+            line-height: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  .cdk-overlay-pane .mat-select-panel-wrap .fpx-select-panel.etransferContactListTmplt[role="listbox"] {
+    padding: 8px 12px;
+    flex-direction: column;
+    gap: 4px;
+    transform: translateY(84px) !important;
+
+    .mat-option {
+      padding: 12px 8px;
+      height: unset;
+      border-bottom: 1px solid #F3F3F3;
+
+      &.mat-active {
+        border-radius: 12px;
+        background-color: var(--reachDropDownBgColor) !important;
+        margin-bottom: 4px;
+
+        .account-info {
+          font-size: 16px;
+          line-height: 20px !important;
+        }
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .mat-option-text {
+        padding: 0;
+        border: unset;
+
+        .account-list-item {
+          display: flex;
+          flex-direction: column;
+
+          .primary-info {
+
+            .icon-wrapper,
+            .account-status {
+              display: none;
+            }
+
+            .account-info {
+              line-height: 18px;
+            }
+          }
+
+          .secondary-info {
+            line-height: 18px;
+          }
+        }
+      }
+    }
+  }
+
+
+  /* account list */
+app-bene-internal-list-control,
+app-domestic-bene-list ,
+app-bene-international-list,
+app-benecc-list-control{
+    .fpx-form-control .fpx-field-content {
+      height: 69px;
+      padding: 10px 12px;
+
+      @include not-small-screen{
+        height: unset;
+      }
+
+      .mat-select-trigger {
+        height: unset;
+      }
+
+      .bene-list-item {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        .icon-wrapper {
+          min-width: 24px;
+          width: 24px;
+          height: 24px;
+          border: 1px solid #ababab;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .primary-info {
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          @include not-small-screen{
+            flex-direction: row;
+            align-items: center;
+            gap: 40px;
+            >span {
+              position: relative;
+              line-height: 14px !important;
+              &::after {
+                content: ' ';
+                border-right: 1px solid var(--neutral500);
+                position: absolute;
+                height: 100%;
+                right: -20px;
+              }
+              &:last-child::after {
+                content: none;
+              }
+            }
+          }
+          .bene-name {
+            @include s2-bold;
+            font-weight: var(--fontWeightRegular);
+            color: var(--neutral900);
+            @include not-small-screen{
+              font-size: 14px;
+            }
+          }
+
+          .account-number,
+          .bank-name {
+            font-size: 12px;
+            line-height: 14.32px;
+            font-weight: var(--fontWeightRegular);
+            color: var(--neutral900);
+            text-overflow: ellipsis;
+            overflow: hidden;
+            @include not-small-screen{
+              overflow: unset;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .cdk-overlay-pane .mat-select-panel-wrap .fpx-select-panel.beneListTmplt[role="listbox"] {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transform: translateY(69px) !important;
+
+    .mat-option {
+      padding: 12px 8px;
+      height: unset;
+      border-bottom: 1px solid #F3F3F3;
+      overflow: visible;
+
+      &.mat-active {
+        border-radius: 12px;
+        background-color: #CCE1E6 !important;
+        margin-bottom: 4px;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .mat-option-text {
+        padding: 0;
+        border: unset;
+
+        .bene-list-item {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+
+          .icon-wrapper {
+            min-width: 24px;
+            width: 24px;
+            height: 24px;
+            border: 1px solid #ababab;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .primary-info {
+            display: flex;
+            flex-direction: column;
+
+            .bene-name {
+              @include s4-medium;
+              line-height: 18px;
+              color: var(--neutral900);
+            }
+
+            .account-number,
+            .bank-name {
+              @include b2-regular;
+              line-height: 18px;
+              color: var(--neutral900);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .casaAccountDtlListTmplt {
+    .fpx-field-content {
+      border: none;
+      padding: 16px;
+      background-color: var(--dropDownTmpltCtrlBg);
+      box-shadow: 0px 0px 18px 0px #00000017;
+    }
+
+    .account-info {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      justify-content: space-between;
+
+      .info-item {
+        display: flex;
+        flex-direction: column;
+        line-height: 22px;
+        flex-basis: 24%;
+        overflow: hidden;
+
+        .lbl {
+          @include b2-regular;
+          color: var(--neutral700);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: flex;
+          gap: 12px;
+          align-items: center;
+
+          &.status::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+            border-radius: 50%;
+            background-color: var(--neutral300);
+          }
+
+          &.Active::after {
+            background-color: var(--successClr);
+          }
+        }
+        .amount{
+          @include s4-medium;
+          color: var(--neutral900);
+        }
+      }
+
+      .v-seperator{
+        width: 1px;
+        display: block;
+        background-color: var(--dropDownVSeperatorCrl);
+      }
+    }
+
+    &.fpx-select-panel {
+      transform: translateY(66px) !important;
+
+      .mat-option{
+        height: auto;
+
+        &:hover,
+        &.mat-selected{
+          background-color: var(--tmpltDropdownOptionSelectBg) !important;
+        }
+      }
+    }
+  }
+
+  .depositAccountDtlListTmplt {
+    .fpx-field-content {
+      border: none;
+      padding: 16px;
+      background-color: var(--dropDownTmpltCtrlBg);
+      box-shadow: 0px 0px 18px 0px #00000017;
+    }
+
+    .account-info {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      justify-content: space-between;
+
+      .info-item {
+        display: flex;
+        flex-direction: column;
+        line-height: 22px;
+        flex-basis: 24%;
+        overflow: hidden;
+
+        .lbl {
+          @include b2-regular;
+          color: var(--neutral700);
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .amount {
+          @include s4-medium;
+          color: var(--neutral900);
+        }
+      }
+
+      .v-seperator{
+        width: 1px;
+        display: block;
+        border-left: 1px solid var(--dropDownVSeperatorCrl);
+        flex-basis: 10%;
+      }
+    }
+
+    &.fpx-select-panel {
+      transform: translateY(66px) !important;
+
+      .mat-option{
+        height: auto;
+
+        &:hover,
+        &.mat-selected{
+          background-color: var(--tmpltDropdownOptionSelectBg) !important;
+        }
+      }
+    }
+  }
+
+  .loanAccountDtlListTmplt {
+    .fpx-field-content {
+      border: none;
+      padding: 16px;
+      background-color: var(--dropDownTmpltCtrlBg);
+      box-shadow: 0px 0px 18px 0px #00000017;
+    }
+
+    .account-info {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      justify-content: space-between;
+
+      .info-item {
+        display: flex;
+        flex-direction: column;
+        line-height: 22px;
+        flex-basis: 24%;
+        overflow: hidden;
+        &:first-child {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 10px;
+          .loan-account {
+            display: flex;
+            flex-direction: column;
+          }
+          &::before {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: var(--systemIconClr);
+            mask: url(../../assets/images/icons/upcoming-instalment.svg) no-repeat center;
+            -webkit-mask: url(../../assets/images/icons/upcoming-instalment.svg) no-repeat center;
+            mask-size: 22px;
+            -webkit-mask-size: 22px;
+        }
+        }
+        .lbl {
+          @include b2-regular;
+          color: var(--neutral700);
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .amount {
+          @include s4-medium;
+          color: var(--neutral900);
+        }
+      }
+
+      .v-seperator{
+        width: 1px;
+        display: block;
+        border-left: 1px solid var(--dropDownVSeperatorCrl);
+        flex-basis: 10%;
+      }
+    }
+
+    &.fpx-select-panel {
+      transform: translateY(66px) !important;
+
+      .mat-option{
+        height: auto;
+
+        &:hover,
+        &.mat-selected{
+          background-color: var(--tmpltDropdownOptionSelectBg) !important;
+        }
+      }
+    }
+  }
+
+  .debitcardDtlListTmplt,
+  .creditcardDtlListTmplt,
+  .prepaidcardDtlListTmplt {
+    .fpx-field-content {
+      border: none;
+      padding: 16px;
+      background-color: var(--dropDownTmpltCtrlBg);
+      box-shadow: 0px 0px 18px 0px #00000017;
+    }
+
+    .account-info{
+      display: flex;
+      flex-direction: row;
+      gap: 0;
+      justify-content: flex-start;
+      flex: 1;
+
+      .info-item{
+        display: flex;
+        flex-direction: column;
+        line-height: 22px;
+        width: fit-content;
+
+        .lbl{
+          @include b2-regular;
+          color: var(--neutral700);
+          &.status {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+              &::after {
+                content: '';
+                width: 10px;
+                height: 10px;  
+                border-radius: 50%;
+              }
+              &.active::after  {
+                background-color: #23A26D; 
+              }
+              &.blocked::after  {
+                background-color: #ABABAB; 
+              }
+              &.inactive::after  {
+                background-color: #FFC404; 
+              }
+              &.blocked-permanently::after  {
+                background-color: #E02020; 
+              }
+          }
+        }
+        .amount{
+          @include s4-medium;
+          color: var(--neutral900);
+        }
+      }
+
+      .v-seperator{
+        width: 1px;
+        display: block;
+        background-color: var(--dropDownVSeperatorCrl);
+        margin: 0 40px;
+      }
+    }
+
+    &.fpx-select-panel {
+      transform: translateY(66px) !important;
+
+      .mat-option{
+        height: auto;
+
+        &:hover,
+        &.mat-selected{
+          background-color: var(--tmpltDropdownOptionSelectBg) !important;
+        }
+      }
+    }
+  }
+
+  
+
+  .billerListTmplt{
+    .biller-main-container {
+
+      .biller-left-container {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+  
+        .icon-wrapper {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: #FFFFFF;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+  
+        .biller-detail {
+          display: flex;
+          flex-direction: column;
+          .biller-name{
+            @include s4-medium;
+          }
+        }
+      }
+    }
+  }
+}
+
+.billerAccountListTmplt{
+
+    .saved-biller-main-container {
+      display: flex;
+      justify-content: space-between;
+      // align-items: center;
+  
+      .saved-biller-left-container {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+  
+        .icon-wrapper {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: #FFFFFF;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+  
+        .saved-biller-detail {
+          display: flex;
+          flex-direction: column;
+          .due-date{
+            @include b4-regular;
+            .danger{
+              color: red;
+            }
+          }
+          .saved-biller-name{
+            @include s4-medium;
+            text-overflow: ellipsis;
+            max-width: 178px;
+            overflow: hidden;
+            text-wrap: nowrap;
+            text-transform: capitalize;
+
+          }
+          .saved-biller-account{
+            @include b4-regular;
+            text-overflow: ellipsis;
+            max-width: 248px;
+            overflow: hidden;
+            text-wrap: nowrap;
+          }
+        }
+      }
+      
+   .saved-biller-right-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    .saved-biller-amount {
+      @include s2-bold;
+      color: var(--neutral700);
+    }
+    .pay-button-container{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-end;
+      .bill-pay-btn{
+        @include b4-regular;
+        display: flex;
+        &::after {
+            content: '';
+            width: 16px;
+            height: 18px;          
+            margin: 0;
+            background-color: var(--secondary500);
+            mask: url(../../assets/images/layouts/controls/dropdown-arrow.svg) no-repeat center;
+            -webkit-mask: url(../../assets/images/layouts/controls/dropdown-arrow.svg) no-repeat center;
+            mask-size: 20px;
+            -webkit-mask-size: 16px;
+            display: block;
+            transform: rotate(270deg);
+        }
+      }
+    }
+
+    }
+  
+      
+  
+  }
+}
+
+  /* loanAccount list */
+  #depAppBody app-loan-account-list-template-control {
+    .fpx-form-control .fpx-field-content {
+      border: unset !important;
+      height: 90px;
+      background-color: #A8F3EE;
+      padding: 16px;
+
+      .mat-select-trigger {
+        height: unset;
+
+        .mat-select-arrow-wrapper {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+
+      .account-list-item {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .primary-info {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          height: 24px;
+
+          .icon-wrapper {
+            width: 20px;
+            height: 20px;
+          }
+
+          .account-info {
+            @include b2-regular;
+            color: #2D2D2D;
+          }
+
+          .account-status {
+            width: 10px;
+            height: 10px;
+            background-color: #23A26D;
+            border-radius: 50%;
+            margin-left: 2px;
+          }
+        }
+
+        .secondary-info {
+          span {
+            @include b2-regular;
+            color: #2D2D2D;
+          }
+
+          .val {
+            font-weight: var(--fontWeightBold);
+          }
+        }
+      }
+    }
+  }
+
+  #depAppBody .cdk-overlay-pane .mat-select-panel-wrap .fpx-select-panel.loanAccountListTmplt[role="listbox"] {
+    padding: 8px 12px;
+  // display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transform: translateY(84px) !important;
+
+    .mat-option {
+      padding: 12px 8px;
+      height: unset;
+      border-bottom: 1px solid #F3F3F3;
+
+      &.mat-active {
+        border-radius: 12px;
+        background-color: #A8F3EE !important;
+        margin-bottom: 4px;
+
+        .account-info {
+          font-size: 16px;
+          line-height: 20px !important;
+        }
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .mat-option-text {
+        padding: 0;
+        border: unset;
+
+        .account-list-item {
+          display: flex;
+          flex-direction: column;
+
+          .primary-info {
+
+            .icon-wrapper,
+            .account-status {
+              display: none;
+            }
+
+            .account-info {
+              line-height: 18px;
+            }
+          }
+
+          .secondary-info {
+            line-height: 18px;
+          }
+        }
+      }
+    }
+  }

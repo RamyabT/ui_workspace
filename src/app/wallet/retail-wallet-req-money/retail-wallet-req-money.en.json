@@ -1,0 +1,35 @@
+"RetailWalletReqMoneyForm":{
+"title":"RetailWalletReqMoneyForm",
+		 "mobileNumber": {
+		  "label":"Mobile Number" ,
+		  "placeholder": "Mobile Number"
+		  } ,
+		  "fromAccount": {
+		  "label":"From Account" ,
+		  "placeholder": "From Account"
+		  } ,
+		 "toAccount": {
+		  "label":"Request To" ,
+		  "placeholder": "Request To"
+		  } ,
+		 "amount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "charges": {
+		  "label":"Charges" ,
+		  "placeholder": "Charges"
+		  } ,
+		 "chargesCur": {
+		  "label":"Currency" ,
+		  "placeholder": "Currency"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "walletCurr": {
+		  "label":"wallet Currency" ,
+		  "placeholder": "wallet Currency"
+		  } 
+}

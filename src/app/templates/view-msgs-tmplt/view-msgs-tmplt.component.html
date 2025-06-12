@@ -1,0 +1,81 @@
+<box class="service-request-item">
+    <box class="service-request-info" [ngClass]="{'msg-read': selectedData.isRead}">
+        <box class="service-request-primary-info">
+            <box class="date-time-wrapper">
+                <span class="date">{{ selectedData.initOn | date: 'dd MMM YYYY' }}</span>
+                <span *ngIf="selectedData.serviceRequestType.code !== '3'" class="separator"></span>
+                <span *ngIf="selectedData.serviceRequestType.code !== '3'" class="time">{{ selectedData.initOn | date: 'hh:mm a' }}</span>
+            </box>
+            <box class="subject-status-wrapper">
+
+                <ng-container [ngSwitch]="selectedData.serviceRequestType.code">
+                    <ng-container *ngSwitchCase="'1'">
+                        <span class="desc">{{ selectedData.serviceSubCategory.description }}</span>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'2'">
+                        <span class="desc">{{ selectedData.subject }}</span>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'3'">
+                        <span class="desc offer-desc">{{ selectedData.message }}</span>
+                    </ng-container>
+                    <ng-container *ngSwitchDefault>
+                        <span class="desc offer-desc">{{selectedData.message}}</span>
+                    </ng-container>
+                </ng-container>
+
+                <span *ngIf="!hideElement" class="separator"></span>
+                <box *ngIf="!hideElement" class="status">
+                    <span class="status-indicator {{selectedData.status}}">
+                    </span>
+                    <span class="status-text">
+                        {{selectedData.status}}
+                    </span>
+                </box>
+            </box>
+            <span class="request-details">
+
+                <ng-container [ngSwitch]="selectedData.serviceRequestType.code">
+                    <ng-container *ngSwitchCase="'1'">
+                        <span class="category">{{ selectedData.message }}</span>
+                    </ng-container>
+
+                    <ng-container *ngSwitchCase="'2'">
+                        <span class="src-ref">Ref # :{{ selectedData.sourceReference }}</span>
+                    </ng-container>
+
+                    <ng-container *ngSwitchCase="'3'">
+                        <span class="src-ref">Ref # :{{ selectedData.sourceReference }}</span>
+                    </ng-container>
+                </ng-container>
+
+                <ng-container [ngSwitch]="selectedData.serviceRequestType.code">
+                    <ng-container *ngSwitchCase="'1'">
+                        <span class="msg-tag"> General Messages</span>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'3'">
+                        <span class="msg-tag">Offers</span>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'5'">
+                        <span class="msg-tag">Financial Reminders</span>
+                        <span *ngIf="selectedData.severityFlag == 1" class="important-icon"></span>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'6'">
+                        <span class="msg-tag">Urgent Message</span>
+                        <span *ngIf="selectedData.severityFlag == 1" class="important-icon"></span>
+                    </ng-container>
+                </ng-container>
+
+            
+
+            </span>
+            <!-- <span class="status" [ngClass]="(selectedData.status).toLowerCase()">{{ selectedData.status}}</span> -->
+        </box>
+
+
+        <box class="service-request-secondary-info">
+            <button type="button" class="btn-container">
+                <span class="icon next-btn-icon"></span>
+            </button>
+        </box>
+    </box>
+</box>

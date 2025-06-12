@@ -1,0 +1,19 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailNPSSProxyForm">
+
+	<box class="entry-form">
+		<box class="entry-form-field-group grid">
+			<fpx-display-text id="FieldId_1" [actionPublisher]="actionMap$.get('FieldId_1')"
+				class="col-sm-12 col-md-6 col-lg-12 FieldId_1" [innerHTML]="'RetailNPSSProxyForm.FieldId_1.text' | translate"
+				[literals]="commonFormInput"></fpx-display-text>
+			<fpx-display-text id="FieldId_2" [actionPublisher]="actionMap$.get('FieldId_2')"
+				class="col-sm-12 col-md-6 col-lg-12 FieldId_2" [innerHTML]="'RetailNPSSProxyForm.FieldId_2.text' | translate"
+				[literals]="commonFormInput"></fpx-display-text>
+			<app-email-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('email')"
+				label="{{'RetailNPSSProxyForm.email.label' | translate }}" formControlName="email"></app-email-control>
+			<app-terms-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'RetailNPSSProxyForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues">
+			</app-terms-control>
+		</box>
+	</box>
+</form>

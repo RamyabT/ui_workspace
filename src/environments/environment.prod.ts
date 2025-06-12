@@ -1,0 +1,23 @@
+export const environment:any = {
+  production: true,
+  baseURL: "",
+  Common: "",
+  Accounts: "",
+  Customers: "",
+  CreditCards: "",
+  DebitCards: "",
+  Cards:"",
+  PrepaidCards: "",
+  Deposits: "",
+  Payments: "",
+  Loans: "",
+  defaultContext: '',
+  WorkflowService: '',
+  IAM: '',
+  languageId: "en-us",
+  currencyFormat: 'en-US',
+  publicKey : 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDeN9Kqn2hxFMTgK28mi7aVMgup3l0Gdi/3DSUDRV56ZohGwm1KEsOtJyRzejOKzyFVnlgh7H9XOYwiU4vfhoIUNUvbNCagbNDt05n2zN6PXW9k6X26JgkIIybPRZlFnSwaR0l+AWPTOPQODz0d1qXOgvP6TIaJZFUmISfS1oYKeQIDAQAB',
+  googleMapApiURL:'',
+  googleMapVariable:'',
+  defaultTenant: '10001'
+};

@@ -1,0 +1,155 @@
+<div class="task-item" id="row_data_{{ index }}">
+    <ng-container *ngIf="_device.isMobile() && selectedData.status != 'S' && selectedData.serviceCode != 'ETRANSFERRECEIVEMONEY' ">
+        <!-- <div class="task-action task-action-left">
+            <button type="button" class="button-task-action system-ico-button button-send-remainder" clickable
+            (click)="onClickSendRemainder($event, selectedData)">
+                <span>{{ 'ETransferHistoryForm.sendRemainder' | translate }}</span>
+            </button>
+            <button type="button" class="button-task-action system-ico-button button-delete" clickable
+            (click)="onClickDelete($event, selectedData)">
+                <span class="date">{{ 'ETransferHistoryForm.cancel' | translate }}</span>
+            </button>
+        </div> -->
+    </ng-container>
+
+    <div class="task-detail-item">
+        <box *ngIf="_device.isMobile()" class="transaction-list-item-inner">
+            <box class="transaction-icon-wrapper">
+                <box class="transaction-icon">
+                    <ng-container *ngIf="selectedData.status; else noPhoto">
+                        <!-- <img src="./assets/transactions/{{selectedData.transactionCategory}}.svg"
+                            alt="transactionCategory" /> -->
+                            <span class="transaction-icon-bg" [ngClass]="{
+                                'pending': selectedData.status == 'P', 
+                                'completed': selectedData.status == 'S', 
+                                'cancelled': selectedData.status == 'C', 
+                                'declined': selectedData.status == 'D',  
+                                'expired': selectedData.status == 'E',
+                                'failed': selectedData.status == 'F',
+                                'accepted': selectedData.status == 'A',
+                                'initiated': selectedData.status == 'I' }"></span>
+                    </ng-container>
+                    <ng-template #noPhoto>
+                        <div class="name-first-letter">
+                            <span
+                                *ngIf="selectedData.beneficiaryName?.split(' ').length == 1">{{selectedData.beneficiaryName?.substring(0,
+                                1)}}
+                            </span>
+                            <span
+                                *ngIf="selectedData.beneficiaryName?.split(' ').length > 1 && selectedData.beneficiaryName?.split(' ').length != 1">
+                                {{selectedData.beneficiaryName?.split(" ")[0]?.charAt(0)
+                                +(selectedData.beneficiaryName?.split(" ")[1]?
+                                selectedData.beneficiaryName?.split(" ")[1]?.charAt(0): "")}}
+                            </span>
+                        </div>
+                    </ng-template>
+                </box>
+            </box>
+            <box class="transaction-info">
+                <box class="transaction-primary-info">
+                    <span class="name">{{selectedData.beneficiaryName}}</span>
+                    <!-- <span class="accountNumber">+{{selectedData.contactPhoneNumber }}</span>
+                    <span class="accountNumber">{{selectedData.contactEmailId }}</span> -->
+                    <box class="primary-wrapper">
+                        <span class="status"
+                        >{{decodePaymentStatus(selectedData.status)}}</span>
+                        <span class="seperator">|</span>
+                        <span class="date">{{selectedData.paymentDate | date: 'dd MMM YYYY'}}</span>
+                    </box>
+                    
+
+                </box>
+                <box class="transaction-secondary-info">
+                    <span class="amount" [ngClass]="{'credit-amount': selectedData.serviceCode == 'ETRANSFERRECEIVEMONEY'}">
+                        {{selectedData.paymentAmount | currency : selectedData.paymentCurrency : '' }}
+                        <em>{{selectedData.paymentCurrency | currencyCode }}</em>
+                        <span *ngIf="selectedData.serviceCode == 'ETRANSFERSENDMONEY'">-</span>
+                    </span>
+                </box>
+            </box>
+        </box>
+        <box *ngIf="!_device.isMobile()" class="transaction-list-item-inner">
+            <!-- <box class="date">{{selectedData.paymentDate | date: 'dd MMM YYYY'}}</box> -->
+            <box class="transaction-icon-wrapper">
+                <box class="transaction-icon">
+                    <ng-container *ngIf="selectedData.status; else noPhoto">
+                        <!-- <img src="./assets/transactions/{{selectedData.transactionCategory}}.svg"
+                            alt="transactionCategory" /> -->
+                            <span class="transaction-icon-bg" [ngClass]="{
+                                'pending': selectedData.status == 'P', 
+                                'completed': selectedData.status == 'S', 
+                                'cancelled': selectedData.status == 'C', 
+                                'declined': selectedData.status == 'D',  
+                                'expired': selectedData.status == 'E',
+                                'failed': selectedData.status == 'F',
+                                'accepted': selectedData.status == 'A',
+                                'initiated': selectedData.status == 'I' }"></span>
+                    </ng-container>
+                    <ng-template #noPhoto>
+                        <div class="name-first-letter">
+                            <span
+                                *ngIf="selectedData.beneficiaryName?.split(' ').length == 1">{{selectedData.beneficiaryName?.substring(0,
+                                1)}}
+                            </span>
+                            <span
+                                *ngIf="selectedData.beneficiaryName?.split(' ').length > 1 && selectedData.beneficiaryName?.split(' ').length != 1">
+                                {{selectedData.beneficiaryName?.split(" ")[0]?.charAt(0)
+                                +(selectedData.beneficiaryName?.split(" ")[1]?
+                                selectedData.beneficiaryName?.split(" ")[1]?.charAt(0): "")}}
+                            </span>
+                        </div>
+                    </ng-template>
+                </box>
+            </box>
+            <box class="name">{{selectedData.beneficiaryName}}</box>
+            <box class="status payment-status">{{decodePaymentStatus(selectedData.status)}}</box>
+            <span class="amount" [ngClass]="{'credit-amount': selectedData.serviceCode == 'ETRANSFERRECEIVEMONEY'}">
+                {{selectedData.paymentAmount | currency : selectedData.paymentCurrency : '' }}
+                <em>{{selectedData.paymentCurrency | currencyCode }}</em>
+                <span *ngIf="selectedData.serviceCode == 'ETRANSFERSENDMONEY'">-</span>
+            </span>
+        </box>
+
+    </div>
+
+    <ng-container *ngIf="selectedData.serviceCode != 'ETRANSFERRECEIVEMONEY'">
+        <!-- <div class="task-action task-action-right" [ngClass]="{ 'hover-action': _device.isDesktop() }">
+            <ng-container *ngIf="!_device.isDesktop()">
+                <button type="button" class="button-task-action system-ico-button button-repeat" clickable
+                (click)="onClickRepeat($event, selectedData)">
+                    <span class="date">{{ 'ETransferHistoryForm.repeat' | translate }}</span>
+                </button>
+                <button type="button" class="button-task-action system-ico-button button-favourite" clickable
+                (click)="onClickFavourite($event, selectedData)">
+                    <span>{{selectedData.isFavourite == "1"? "Unfavourite": "Favourite"}}</span>
+                </button>
+            </ng-container>
+    
+            <ng-container *ngIf="_device.isDesktop()">
+                <ng-container *ngIf="selectedData.status != 'S'">
+                    <button type="button" class="button-task-action system-ico-button button-send-remainder" clickable
+                    (click)="onClickSendRemainder($event, selectedData)">
+                        <span>{{ 'ETransferHistoryForm.sendRemainder' | translate }}</span>
+                    </button>
+                    <button type="button" class="button-task-action system-ico-button button-delete" clickable
+                    (click)="onClickDelete($event, selectedData)">
+                        <span class="date">{{ 'ETransferHistoryForm.cancel' | translate }}</span>
+                    </button>
+                </ng-container>
+                
+                <button type="button" class="button-task-action system-ico-button button-repeat" clickable
+                (click)="onClickRepeat($event, selectedData)">
+                    <span class="date">{{ 'ETransferHistoryForm.repeat' | translate }}</span>
+                </button>
+                <button type="button" class="button-task-action system-ico-button button-favourite" clickable
+                (click)="onClickFavourite($event, selectedData)">
+                    <span>{{selectedData.isFavourite == "1"? "Unfavourite": "Favourite"}}</span>
+                </button>
+            </ng-container>
+    
+        </div> -->
+    </ng-container>
+
+    <div class="seperator-line"></div>
+
+</div>

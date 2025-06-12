@@ -1,0 +1,26 @@
+"retailccunblocked":{
+"title":"Unblock Credit Card ",
+		 "cardReference": {
+		  "label":"Credit card" ,
+		  "placeholder": "Credit card"
+		  } ,
+		 "blockReason": {
+		  "label":"Block Reason" ,
+		  "placeholder": "Block Reason"
+		  } ,
+		 "unblockReason": {
+		  "label":"Credit Unblock Reason" ,
+		  "placeholder": "Credit Unblock Reason"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } 
+// 		 "FieldId_7": {
+// 		   "text":"Sample Text"
+// 		 } 
+// }

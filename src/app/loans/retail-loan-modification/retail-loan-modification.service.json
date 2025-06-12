@@ -1,0 +1,5 @@
+ 
+ "RETAILLOANMODIFICATION" : {
+ "servicePath": ["entry-shell","loans", "retail-loan-modification"],
+ "queryParams": {}
+ }

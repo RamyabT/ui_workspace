@@ -1,0 +1,5 @@
+ 
+ "RETAILPFMGOALS" : {
+ "servicePath": ["display-shell","pfm", "retail-pfm-goals-ro-grid"],
+ "queryParams": {}
+ }

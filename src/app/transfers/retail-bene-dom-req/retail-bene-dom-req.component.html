@@ -1,0 +1,97 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailBeneDomReq">
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-12">
+			<app-confirm-domestic-acccount-number-control appBlockCopyPaste class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('accountNumber')"
+				label="{{'RetailBeneDomReq.accountNumber.label' | translate }}" formControlName="accountNumber"
+				[changePublisher]="formChangePublisher$" (commonControlEvent)="handleControlEvent($event)"
+				[dependencyField]="['serviceCodeVaribale']" [visiblityChange]="state.visibilityChange"
+				[autoComplete]="state.autoComplete"></app-confirm-domestic-acccount-number-control>
+
+			<app-domestic-account-number-control appBlockCopyPaste class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('confirmAccountNumber')"
+				label="{{'RetailBeneDomReq.confirmAccountNumber.label' | translate }}"
+				formControlName="confirmAccountNumber" [changePublisher]="formChangePublisher$"
+				(commonControlEvent)="handleControlEvent($event)"
+				[dependencyField]="['serviceCodeVaribale']"></app-domestic-account-number-control>
+		</box>
+
+		<box class="grid entry-form-field-group display-controls-container" #bankDetails
+			[actionPublisher]="actionMap$.get('bankDetails')">
+			<app-bene-name-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('beneficiaryName')"
+				label="{{'RetailBeneDomReq.beneficiaryName.label' | translate }}"
+				formControlName="beneficiaryName"></app-bene-name-control>
+
+			<app-bank-code-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('bankCode')"
+				label="{{'RetailBeneDomReq.bankCode.label' | translate }}"
+				formControlName="bankCode"></app-bank-code-control>
+
+			<app-branches-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('branchCode')"
+				label="{{'RetailBeneDomReq.branchCode.label' | translate }}"
+				formControlName="branchCode"></app-branches-control>
+
+			<app-domestic-bic-control class="col-sm-12 col-md-6 col-lg-6 uppercase"
+				[actionPublisher]="actionMap$.get('routingCode')"
+				label="{{'RetailBeneDomReq.routingCode.label' | translate }}"
+				formControlName="routingCode"></app-domestic-bic-control>
+
+			<app-address-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('bankAddress')"
+				label="{{'RetailBeneDomReq.bankAddress.label' | translate }}"
+				formControlName="bankAddress"></app-address-control>
+		</box>
+		<box class="grid entry-form-field-group" #beneDetails [actionPublisher]="actionMap$.get('beneDetails')">
+			<box class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('beneFullNameElement')">
+
+				<app-bene-full-name-control class="col-sm-12 col-md-6 col-lg-6"
+					[actionPublisher]="actionMap$.get('beneFullName')"
+					label="{{'RetailBeneDomReq.beneFullName.label' | translate }}"
+					formControlName="beneFullName"></app-bene-full-name-control>
+
+				<fpx-display-text class="disclaimer-txt"
+					[innerHTML]="'RetailBeneDomReq.beneFullName.hintText' | translate" [literals]="commonFormInput"></fpx-display-text>
+
+			</box>
+			<app-bene-nickname-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('nickName')"
+				label="{{'RetailBeneDomReq.nickName.label' | translate }}" formControlName="nickName"
+				formControlName="nickName" [changePublisher]="formChangePublisher$"></app-bene-nickname-control>
+
+			<!-- <app-is-favourite-control class="col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('isFavourite')"
+			label="{{'RetailBeneInternalForm.isFavourite.label' | translate }}" formControlName="isFavourite"
+			placeholder="{{'RetailBeneInternalForm.isFavourite.placeholder' | translate }}"
+			[textPosition]="state.isFavourite.textPosition" [ckValues]="state.isFavourite.ckValues"></app-is-favourite-control> -->
+
+			<app-address-area-line-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('addressLine1')"
+				label="{{'RetailBeneDomReq.addressLine1.label' | translate }}"
+				formControlName="addressLine1"></app-address-area-line-control>
+			<app-address-area-line-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('addressLine2')"
+				label="{{'RetailBeneDomReq.addressLine2.label' | translate }}"
+				formControlName="addressLine2"></app-address-area-line-control>
+			<app-country-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('country')"
+				label="{{'RetailBeneDomReq.country.label' | translate }}"
+				formControlName="country"></app-country-list-control>
+			<app-city-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('city')"
+				label="{{'RetailBeneDomReq.city.label' | translate }}" formControlName="city"></app-city-control>
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-4" [actionPublisher]="actionMap$.get('remarks')"
+				label="{{'RetailBeneDomReq.remarks.label' | translate }}"
+				formControlName="remarks"></app-remarks-control>
+		</box>
+
+		<box class="group disclaimer-box col-sm-12 col-md-12 col-lg-12" #termsDetails
+			[actionPublisher]="actionMap$.get('termsDetails')">
+
+
+
+			<app-terms-control class="col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('terms')"
+				label="{{'RetailBeneInternalForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+				placeholder="{{'RetailBeneInternalForm.termsFlag.placeholder' | translate }}"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+			<!-- <fpx-display-text class="disclaimer-txt"
+				[innerHTML]="'Disclaimer: Lorem Ipsum content needs to be shared by the team'"></fpx-display-text> -->
+
+		</box>
+	</box>
+</form>

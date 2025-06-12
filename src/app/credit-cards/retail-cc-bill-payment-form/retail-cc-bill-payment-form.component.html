@@ -1,0 +1,98 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailCCBillPaymentForm">
+
+	<box class="entry-form">
+		<ng-container *ngIf="state.cardData && device.isMobile()">
+			<creditcard class="col-12" [cardData]="state.cardData" [formView]="true"></creditcard>
+		</ng-container>
+		<box class="grid entry-form-field-group">
+
+			<!-- <app-active-cc-list-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('cardRefNumber')"     label="{{'RetailCCBillPaymentForm.cardRefNumber.label' | translate }}"   formControlName="cardRefNumber" 
+			  (commonControlEvent)="handleControlEvent($event)"
+     ></app-active-cc-list-control> -->
+
+			<app-account-list-template-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('debitAccount')"
+				label="{{'RetailCCBillPaymentForm.debitAccount.label' | translate }}"
+				placeholder="{{'RetailCCBillPaymentForm.debitAccount.placeholder' | translate }}"
+				formControlName="debitAccount"
+				(commonControlEvent)="handleControlEvent($event)"></app-account-list-template-control>
+
+
+			<!-- <app-account-number-list-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('debitAccount')"     label="{{'RetailCCBillPaymentForm.debitAccount.label' | translate }}"   formControlName="debitAccount" 
+     ></app-account-number-list-control> -->
+
+
+			<app-payment-option-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('paymentOption')"
+				label="{{'RetailCCBillPaymentForm.paymentOption.label' | translate }}"
+				formControlName="paymentOption"></app-payment-option-control>
+
+
+			<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('amount')"
+				label="{{'RetailCCBillPaymentForm.amount.label' | translate }}" formControlName="amount"
+				(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.amount.CurrencyList"
+				[isCurrEditable]="state.amount.isCurrEditable" [defaultFetch]="state.amount.defaultFetch"
+				[initCurrency]="state.amount.initCurrency" [amountInWords]="state.amount.amountInWords"
+				[changePublisher]="formChangePublisher$"
+				[dependencyField]="['fromCurrencyVariable','toCurrencyVariable','accountBalanceVariable']"></app-payment-amount-control>
+
+				<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('otherAmount')"
+				label="{{'RetailCCBillPaymentForm.otherAmount.label' | translate }}" formControlName="otherAmount"
+				(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.otherAmount.CurrencyList"
+				[isCurrEditable]="state.otherAmount.isCurrEditable" [defaultFetch]="state.otherAmount.defaultFetch"
+				[initCurrency]="state.otherAmount.initCurrency" [amountInWords]="state.otherAmount.amountInWords"
+				[changePublisher]="formChangePublisher$"
+				[dependencyField]="['fromCurrencyVariable','toCurrencyVariable','accountBalanceVariable']"></app-payment-amount-control>
+
+			<box class="field-item col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('exchangeDetails')">
+				<fpx-label label="{{'FX_RATES.title' | translate}}"></fpx-label>
+				<box class="info-box">
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.dAmount' | translate"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.debitAmount"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.cAmount' | translate"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.creditAmount"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.exRate' | translate"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.exchangeRate"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+				</box>
+			</box>
+
+			<app-enabled-flag-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('autoPay')"
+				label="{{'RetailCCBillPaymentForm.autoPay.label' | translate }}"
+				formControlName="autoPay"></app-enabled-flag-control>
+
+
+			<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('charges')"
+				label="{{'RetailCCBillPaymentForm.charges.label' | translate }}" formControlName="charges"
+				(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.charges.CurrencyList"
+				[isCurrEditable]="state.charges.isCurrEditable" [defaultFetch]="state.charges.defaultFetch"
+				[initCurrency]="state.charges.initCurrency" [amountInWords]="state.charges.amountInWords"
+				[changePublisher]="formChangePublisher$"></app-payment-amount-control>
+
+
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('remarks')"
+				label="{{'RetailCCBillPaymentForm.remarks.label' | translate }}"
+				formControlName="remarks"></app-remarks-control>
+
+		</box>
+		<box id="disclaimer-box" class="col-md-12 col-lg-12 grid  term-box  ">
+
+			<app-terms-control class="col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'RetailCCBillPaymentForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+				placeholder="{{'RetailCCBillPaymentForm.termsFlag.placeholder' | translate }}"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+		</box>
+	</box>
+</form>

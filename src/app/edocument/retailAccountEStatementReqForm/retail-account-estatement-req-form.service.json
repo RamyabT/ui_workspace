@@ -1,0 +1,5 @@
+ 
+ "ACCOUNTESTATEMENT" : {
+ "servicePath": ["entry-shell","edocuments", "RetailAccountEStatementReqForm"],
+ "queryParams": {}
+ }

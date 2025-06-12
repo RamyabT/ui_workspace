@@ -1,0 +1,5 @@
+ 
+ "RETAILINVESTMENTHOLDINGS" : {
+ "servicePath": ["display-shell","deposits", "retail-investment-Holdings-ro-grid"],
+ "queryParams": {}
+ }

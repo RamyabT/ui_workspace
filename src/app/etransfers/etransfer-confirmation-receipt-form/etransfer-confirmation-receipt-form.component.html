@@ -1,0 +1,226 @@
+<ng-container>
+    <box
+        class="etransfer-confirmation-receipt-inner confirmation-receipt-inner success {{ result?.statusCode?.toLowerCase() }} {{ _requestStatus }}">
+        <box class="confirmation-body" [ngClass]="{'confirmation-service':enbaleFavToggle=='C'}">
+            <box class="status-container">
+                <box class="status-ico-wrapper">
+                    <span class="status-ico"></span>
+                </box>
+                <ng-container *ngIf="failedPayment">
+                    <span class="confirmation-message">{{ failedPayment | translate }}</span>
+                </ng-container>
+                <ng-container *ngIf="!failedPayment">
+                    <span class="confirmation-message"> {{ _requestServiceCode + '.' + _requestStatus + ".message" |
+                        translate }}</span>
+                </ng-container>
+            </box>
+
+            <box class="message-container">
+                <span class="confirmation-description">
+                    <ng-container *ngIf="result?.resultPayload?.errorMessage; else noError">
+                        {{ 'transfersConfirmationReceipt.defaultErrorDescription' | translate }}
+                    </ng-container>
+                    <ng-template #noError>
+                        <box *ngIf="_requestServiceCode !='RETAILETRANSFERAUTODEPOSIT'"
+                            class="confirmation-description-text">
+                            {{ _requestServiceCode + '.' + _requestStatus + ".description" | translate }}
+                        </box>
+                        <box *ngIf="_requestServiceCode =='RETAILETRANSFERAUTODEPOSIT' && _requestStatus == 'SuccessEnd'"
+                            class="confirmation-description-text">
+                            {{ _requestServiceCode + '.' + _requestStatus + ".description" | translate
+                            :({emailID:this.autoDepositDtl})}}
+                        </box>
+                        <box *ngIf="_requestServiceCode =='RETAILETRANSFERAUTODEPOSIT' && _requestStatus != 'SuccessEnd'"
+                            class="confirmation-description-text">
+                            {{ _requestServiceCode + '.' + _requestStatus + ".description" | translate }}
+                        </box>
+                        <box class="confirmation-description-refNum confirmation-description-sub-text"
+                            *ngIf="_requestServiceCode =='ETRANSFERRECEIVEMONEY' || _requestServiceCode=='ETRANSFERSENDMONEY' || _requestServiceCode=='RETAILSCHETRANSFER' ||  _requestServiceCode=='ETRANSFERREQUESTMONEY' || _requestServiceCode=='ETRANSFERRECLAIMMONEY' || _requestServiceCode=='ETRANSFERFULFILLREQUESTMONEY' || _requestServiceCode=='ETRFDCLFULFILLREQUESTMONEY' || _requestServiceCode=='ETRANSFERCANCELPAYMENT'">
+                            Reference #{{payId}}
+                        </box>
+                        <box class="confirmation-description-date confirmation-description-sub-text"
+                            *ngIf="_requestServiceCode =='RETAILETRANSFERMANAGECONTACT' || _requestServiceCode=='ETRANSFERRECEIVEMONEY' || _requestServiceCode=='ETRANSFERSENDMONEY' || _requestServiceCode=='RETAILSCHETRANSFER' || _requestServiceCode=='ETRANSFERREQUESTMONEY' || _requestServiceCode=='ETRANSFERRECLAIMMONEY' || _requestServiceCode=='ETRANSFERFULFILLREQUESTMONEY' || _requestServiceCode=='ETRFDCLFULFILLREQUESTMONEY' || _requestServiceCode=='ETRANSFERCANCELPAYMENT'">
+                            {{currentDate | date:'dd MMM yyyy'}} 
+                            <!-- - HH:mm -->
+                        </box>
+                    </ng-template>
+                </span>
+            </box>
+            <box class="confirmation-autodeposit-desc"
+                *ngIf="_requestServiceCode =='RETAILETRANSFERAUTODEPOSIT' && _requestStatus == 'SuccessEnd'">
+                <span class="note">{{ 'econfirmationReceiptForm.setUpAutoDeposit_Note' | translate }}</span>
+            </box>
+            <!-- <ng-container
+                *ngIf="result?.additionalInfo && result?.additionalInfo.length && _requestServiceCode !='RETAILETRANSFERREGISTRATION'">
+                <hr />
+                <box class="additional-details-container">
+                    <ng-container *ngFor="let detail of result?.additionalInfo">
+                        <ng-container *ngIf="detail.value">
+                            <ng-container *ngIf="detail.value != 'spacer'; else spacer">
+                                <box class="details">
+                                    <span class="detail-lbl">{{ detail.label | translate }}</span>
+                                    <span class="detail-val">
+                                        <ng-container [ngSwitch]="detail.format">
+                                            <ng-container *ngSwitchCase="'date'">-->
+                                                <!-- {{ detail.value}} -->
+
+                                                <!-- {{ detail.value | date : "dd MMM YYYY, HH:mm:ss" }}
+                                            </ng-container>
+                                            <ng-container *ngSwitchDefault>
+                                                {{ detail.value }}
+                                            </ng-container>
+                                        </ng-container>
+
+                                    </span>
+                                </box>
+                            </ng-container>
+                            <ng-template #spacer>-->
+                                <!-- <div class="space-bar"></div> -->
+                                <!--</ng-template>
+                        </ng-container>
+                    </ng-container>
+
+                </box>
+            </ng-container>-->
+        </box>
+        <!-- <box class="tool-bar">
+            <ng-container *ngIf="_requestStatus != 'ErrorEnd' && scheduleType =='0'">
+                <fpx-button btnType="button" (onClick)="onShareClick()" btnClass="system-ico-button no-text share-info" label="{{'transfersInfo.share' | translate }}"></fpx-button>
+                <div class="seprator1"></div>
+                <fpx-button btnType="button" (onClick)="onDownloadClick()" btnClass="system-ico-button no-text download" label="{{'casaTransactionInfo.download' | translate }}"></fpx-button>
+               </ng-container>
+        </box> -->
+        <box class="confirmation-footer">
+            <ng-container
+                *ngIf="(_requestServiceCode =='RETAILETRANSFERMANAGECONTACT' && _requestStatus == 'SuccessEnd_D') || (_requestServiceCode =='RETAILETRANSFERAUTODEPOSIT'); else footer">
+            </ng-container>
+            <ng-template #footer>
+                <box class="whats-next" *ngIf="_requestStatus != 'ErrorEnd'">
+                    <box class="whats-next-title">{{'econfirmationReceiptForm.whatsNext' | translate }}</box>
+                    <box class="whats-next-list">
+                        <ng-container
+                            *ngIf=" _requestServiceCode =='RETAILETRANSFERREGISTRATION' && _requestStatus != 'SuccessEnd_M'">
+
+                            <box (click)="addContactClick()" class="menu ql-ADDCONTACT"><span
+                                    class="icon-wrapper"></span><span class="text">{{
+                                    'econfirmationReceiptForm.addContact'
+                                    | translate }}</span></box>
+                            <box (click)="autoDepositClick()" class="menu ql-GETETRFAUTODEPOSIT"><span
+                                    class="icon-wrapper"></span><span class="text">{{
+                                    'econfirmationReceiptForm.autoDeposit'
+                                    | translate }}</span></box>
+                        </ng-container>
+                        <ng-container
+                            *ngIf="(_requestServiceCode =='RETAILETRANSFERREGISTRATION' && _requestStatus == 'SuccessEnd_M')  || _requestServiceCode=='ETRANSFERSENDMONEY' || _requestServiceCode=='RETAILSCHETRANSFER' ||  _requestServiceCode=='ETRANSFERREQUESTMONEY' || (_requestServiceCode =='ETRANSFERRECEIVEMONEY' && _requestStatus == 'declineSuccessEnd') || _requestServiceCode=='ETRANSFERRECLAIMMONEY'">
+                            <box (click)="sendMoney()" class="menu ql-ETRANSFERSENDMONEY"><span
+                                    class="icon-wrapper"></span><span class="text">{{
+                                    'econfirmationReceiptForm.sendMoney' |
+                                    translate }}</span></box>
+                            <box (click)="requestMoney()" class="menu ql-ETRANSFERREQUESTMONEY"><span
+                                    class="icon-wrapper"></span><span class="text">{{
+                                    'econfirmationReceiptForm.requestMoney' | translate }}</span></box>
+                        </ng-container>
+                        <ng-container
+                            *ngIf="_requestServiceCode =='RETAILETRANSFERMANAGECONTACT' && _requestStatus == 'SuccessEnd'">
+                            <box (click)="sendMoney()" class="menu ql-ETRANSFERSENDMONEY"><span
+                                    class="icon-wrapper"></span><span class="text">{{
+                                    'econfirmationReceiptForm.sendMoney' |
+                                    translate }}</span></box>
+                            <box (click)="addContactClick()" class="menu ql-INTERACADDANOTHERCONTACT"><span
+                                    class="icon-wrapper"></span><span class="text">{{
+                                    'econfirmationReceiptForm.interacAddContact' | translate }}</span></box>
+                        </ng-container>
+                        <ng-container
+                            *ngIf="_requestServiceCode =='RETAILETRANSFERMANAGECONTACT' && _requestStatus == 'SuccessEnd_M'">
+                            <box (click)="sendMoney()" class="menu ql-ETRANSFERSENDMONEY"><span
+                                    class="icon-wrapper"></span><span class="text">{{
+                                    'econfirmationReceiptForm.sendMoney' |
+                                    translate }}</span></box>
+                            <box (click)="requestMoney()" class="menu ql-ETRANSFERREQUESTMONEY"><span
+                                    class="icon-wrapper"></span><span class="text">{{
+                                    'econfirmationReceiptForm.requestMoney' | translate }}</span></box>
+                        </ng-container>
+                        <ng-container
+                            *ngIf=" _requestServiceCode =='ETRANSFERRECEIVEMONEY' && (_requestStatus == 'acceptSuccessEnd' || _requestStatus == 'SuccessEnd')">
+                            <box (click)="autoDepositClick()" class="menu ql-GETETRFAUTODEPOSIT"><span
+                                    class="icon-wrapper"></span><span class="text">{{
+                                    'econfirmationReceiptForm.autoDeposit'
+                                    | translate }}</span></box>
+                            <box (click)="requestMoney()" class="menu ql-ETRANSFERREQUESTMONEY"><span
+                                    class="icon-wrapper"></span><span class="text">{{
+                                    'econfirmationReceiptForm.requestMoney'
+                                    | translate }}</span></box>
+                        </ng-container>
+
+                        <ng-container
+                        *ngIf=" _requestServiceCode =='ETRANSFERFULFILLREQUESTMONEY' && _requestStatus == 'acceptSuccessEnd'">
+                        <box (click)="sendMoney()" class="menu ql-ETRANSFERSENDMONEY"><span
+                            class="icon-wrapper"></span><span class="text">{{
+                            'econfirmationReceiptForm.sendMoney' |
+                            translate }}</span></box>
+                    <box (click)="requestMoney()" class="menu ql-ETRANSFERREQUESTMONEY"><span
+                            class="icon-wrapper"></span><span class="text">{{
+                            'econfirmationReceiptForm.requestMoney' | translate }}</span></box>
+                    </ng-container>
+                    
+                    <ng-container
+                    *ngIf=" _requestServiceCode =='ETRFDCLFULFILLREQUESTMONEY' && _requestStatus == 'declineSuccessEnd'">
+                    <box (click)="sendMoney()" class="menu ql-ETRANSFERSENDMONEY"><span
+                        class="icon-wrapper"></span><span class="text">{{
+                        'econfirmationReceiptForm.sendMoney' |
+                        translate }}</span></box>
+                    <box (click)="requestMoney()" class="menu ql-ETRANSFERREQUESTMONEY"><span
+                        class="icon-wrapper"></span><span class="text">{{
+                        'econfirmationReceiptForm.requestMoney' | translate }}</span></box>
+
+                   </ng-container>
+                        <ng-container
+                        *ngIf=" _requestServiceCode =='ETRANSFERCANCELPAYMENT' && _requestStatus == 'SuccessEnd'">
+                        <box (click)="sendMoney()" class="menu ql-ETRANSFERSENDMONEY"><span
+                            class="icon-wrapper"></span><span class="text">{{
+                            'econfirmationReceiptForm.sendMoney' |
+                            translate }}</span></box>
+                        <box (click)="requestMoney()" class="menu ql-ETRANSFERREQUESTMONEY"><span
+                            class="icon-wrapper"></span><span class="text">{{
+                            'econfirmationReceiptForm.requestMoney' | translate }}</span></box>
+    
+                       </ng-container>
+                    </box>
+                    <box class="default-account" *ngIf="enbaleFavToggle=='C' &&  _requestServiceCode!='RETAILSCHETRANSFER'">
+                        <mat-slide-toggle  (change)="changeFavourite($event)">Save to frequent transactions</mat-slide-toggle>
+                    </box>
+                </box>
+            </ng-template>
+            <box class="button-container">
+                <!--   <ng-container *ngIf="_requestStatus != 'ErrorEnd'">
+                    <button *ngIf="scheduleType == '0'" type="button" class="secondary" [disabled]="doDisableFav" (click)="markFavourite()">
+                        <span>{{ 'transfersConfirmationReceipt.markFavourite' | translate }}</span>
+                    </button>
+    
+                     <button *ngIf="scheduleType == '1'" type="button" class="secondary" [disabled]="doDisableFav" (click)="gotoHome()">
+                        <span>{{ 'econfirmationReceiptForm.home' | translate }}</span>
+                    </button> 
+                </ng-container> -->
+                <ng-container *ngIf="_requestServiceCode !='RETAILETRANSFERAUTODEPOSIT'">
+                    <button type="button" class="btn-primary" (click)="gotoETranHome()"><span>{{
+                        'econfirmationReceiptForm.e-home' | translate }}</span></button>
+                </ng-container>
+                <ng-container *ngIf="_requestServiceCode == 'RETAILETRANSFERAUTODEPOSIT' && _requestStatus == 'SuccessEnd'">
+                    <button type="button" class="btn-primary" (click)="gotoManageAutoDeposit()"><span>{{
+                        'econfirmationReceiptForm.done' | translate }}</span></button>
+                </ng-container>
+                <ng-container *ngIf="_requestServiceCode == 'RETAILETRANSFERAUTODEPOSIT' && _requestStatus == 'SuccessEnd_D'">
+                    <button type="button" class="btn-primary" (click)="gotoETranHome()"><span>{{
+                        'econfirmationReceiptForm.e-home' | translate }}</span></button>
+                </ng-container>
+                <ng-container *ngIf="_requestServiceCode == 'RETAILETRANSFERAUTODEPOSIT' && _requestStatus != 'SuccessEnd' && _requestStatus != 'SuccessEnd_D'">
+                    <button type="button" class="btn-primary" (click)="gotoETranHome()"><span>{{
+                        'econfirmationReceiptForm.done' | translate }}</span></button>
+                </ng-container>
+
+            </box>
+            
+        </box>
+    </box>
+
+</ng-container>

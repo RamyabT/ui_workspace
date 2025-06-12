@@ -1,0 +1,8 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="ccrewards">
+
+	<box class="entry-form">
+		<app-retail-cc-rewardsandbenefits class="col-md-4 " (commonFormEvent)="handleControlEvent($event)"
+			[actionPublisher]="actionMap$.get('ccRewardBenefits')" label="ccRewardBenefits"
+			formControlName="ccRewardBenefits"></app-retail-cc-rewardsandbenefits>
+	</box>
+</form>

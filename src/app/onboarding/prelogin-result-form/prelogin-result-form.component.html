@@ -1,0 +1,50 @@
+<ng-container >
+    <box [ngClass]="'confirmation-receipt-inner success '+result?.statusCode?.toLowerCase()">
+        <box class="confirmation-body">
+            <box class="status-container">
+                <box class="status-ico-wrapper">
+                    <span class="status-ico"></span>
+                </box>
+
+                <span class="confirmation-message">{{ "preloginResultForm."+result.requestStatus+"message" | translate }}</span>
+            </box>
+
+            <box class="message-container">
+                <span class="confirmation-description">{{ "preloginResultForm."+result.requestStatus+"description" | translate }}</span>
+            </box>
+        <div class="additional-info" *ngIf="result.requestStatus=='successEnd'">
+            <div class="spacer"></div>
+
+            <box class="options">
+                <!-- <div class="option load-money">Load money</div> -->
+                <!-- <div class="option virtual-card">Virtual card</div> -->
+                <!-- <div class="option virtual-card">Setup Mpin</div> -->
+            </box>
+
+            <!-- <mat-checkbox>
+                <div class="lbl-content">
+                    Apply for debit card
+                </div>
+            </mat-checkbox> -->
+            </div>
+        </box>
+        <box class="confirmation-footer"
+        [ngClass]="{'COBLOADMONEY':isCobLoadMoney}">
+          <ng-container *ngIf="!isCobLoadMoney">
+            <button type="button" class="primary" (click)="onClickPrimaryButton()"><span>{{ "preloginResultForm."+result.requestStatus+"primary" | translate }}</span></button>
+			<!-- <button type="button" class="secondary" (click)="gotoModule('accounts-space')"><span>{{ 'preloginResultForm.download' | translate }}</span></button> -->
+            </ng-container>
+          <ng-container *ngIf="isCobLoadMoney">
+            <fpx-button
+            label="Load Money"
+            btnClass=" btn-primary" [buttonMode]="'button'"
+            (onClick)="gotoService('COBLOADMONEY')"
+           ></fpx-button>
+            <fpx-button
+            label="Apply for Virtual Card"
+            btnClass=" btn-secondary" [buttonMode]="'button'" ></fpx-button>
+            </ng-container>
+        </box>
+    </box>
+
+</ng-container>

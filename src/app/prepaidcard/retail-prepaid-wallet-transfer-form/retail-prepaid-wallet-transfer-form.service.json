@@ -1,0 +1,5 @@
+ 
+ "RETAILPREPAIDWALLETTRAN" : {
+ "servicePath": ["entry-shell","prepaidcard", "retail-prepaid-wallet-transfer-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,23 @@
+"RetailLoanRepayment":{
+"title":"Loan Repayment",
+		 "loanAccountNumber": {
+		  "label":"Loan Account" ,
+		  "placeholder": "Loan Account"
+		  } ,
+		 "debitAccountNumber": {
+		  "label":"Debit Account" ,
+		  "placeholder": "Debit Account"
+		  } ,
+		 "exchangeRate": {
+		  "label":"Exchange Rates" ,
+		  "placeholder": "Exchange Rates"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"I hereby agree with the terms and conditions and key facts statements." ,
+		  "placeholder": "I hereby agree with the terms and conditions and key facts statements."
+		  } 
+}

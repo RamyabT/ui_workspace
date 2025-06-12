@@ -1,0 +1,23 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="retailcasatrandtlsfilterform">
+	<box *ngIf="!retailSampleChequeHelper.deviceDetectorService.isMobile()" class="header">
+		<box class="title">
+			Cheque example
+		</box>
+		<box class="close-btn-container">
+			<button type="button" class="btn-container" (click)="retailSampleChequeHelper.close()">
+				<span class="icon close-btn-icon"></span>
+			</button>
+		</box>
+	</box>
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-sm-12 col-md-12 col-lg-12">
+			<img src="./assets/images/vancity-sample-cheque.png" alt="Cheque" />
+
+		</box>
+	</box>
+	<ng-container *ngIf="_helper.deviceDetectorService.isMobile()">
+        <button type="button" class="btn-popup-close" (click)="_helper.close()">
+            close
+        </button>
+    </ng-container>
+</form>

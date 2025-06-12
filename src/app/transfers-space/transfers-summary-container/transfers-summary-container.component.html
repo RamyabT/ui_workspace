@@ -1,0 +1,81 @@
+<box class="tab-container-inner">
+    <ng-container *ngIf="casaAccounts; else loader">
+        <ng-container *ngIf="casaAccounts.length; else noAccount">
+            <ng-container *ngIf="device.isMobile(); else listView">
+                <!-- <casa-summary-card-carousel [summary]="casaAccounts" (onSelectCard)="onSelectCard($event)"></casa-summary-card-carousel> -->
+            </ng-container>
+            <ng-template #listView>
+                <ul class="casa-account-list">
+                    <ng-container *ngFor="let account of casaAccounts">
+                        <li class="casa-account-list-item">
+                            <box class="casa-account">
+                                <box class="acc-primary-info">
+                                    <span class="acc-type">{{ account.accountNickname || account.accountName }}</span>
+                                    <span class="acc-number">{{ account.accountNumber }}</span>
+                                </box>
+                                <box class="acc-secondary-info">
+                                    <span class="lbl">{{ 'CASASUMMARYCARD.available' | translate }}</span>
+                                    <span class="amount">{{ account.availableBalance | currency : account.accountCurrency : ''}} <em>{{ account.accountCurrency }}</em></span>
+                                </box>
+                            </box>
+                        </li>
+                        <hr />
+                    </ng-container>
+                </ul>
+            </ng-template>
+        </ng-container>
+    </ng-container>
+
+    <box class="tab-main-content">
+        <ng-container *ngIf="device.isMobile()">
+            <!-- <box class="accounts-insights-container" *ngIf="chartData; else loader">
+                <ng-container *ngIf="chartData.length; else noInsights">
+                    <app-accounts-insights [chartData]="chartData"></app-accounts-insights>
+                </ng-container>
+            </box>
+            <ng-container *ngIf="quickMenus && quickMenus.length">
+                <contextual-actions [accountNumber]="accountNumber" [quickLinks]="quickMenus"></contextual-actions>
+            </ng-container> -->
+        </ng-container>
+
+        <!-- <ng-container *ngIf="!device.isMobile()">
+            <app-finantial-record></app-finantial-record>
+            <app-goals></app-goals>
+        </ng-container> -->
+
+        <!-- <box class="offers-widget">
+            <banner-ads [serviceCode]="'RETAILDASHBOARD'"></banner-ads>
+        </box> -->
+    </box>
+</box>
+
+<!-- Content loader -->
+<ng-template #loader>
+    <box class="loading casa-summary-loader"></box>
+</ng-template>
+
+<ng-template #noAccount>
+    <box *ngIf="_device.isMobile()" class="no-account-tmplt no-casa-tmplt">
+        <box class="left-section">
+            <span class="no-result-desc">{{ 'TRANSFERSCONTAINER.noAccounts.desc' | translate }}</span>
+            <button type="button" class="no-result-btn">{{ 'TRANSFERSCONTAINER.noAccounts.button' | translate }}</button>
+        </box>
+        <box class="right-section">
+            <img src="./assets/illustrations/no-account.svg" alt="create an account" (click)="openNewCasa()"/>
+        </box>
+    </box>
+</ng-template>
+
+<ng-template #noInsights>
+    <box class="no-insights-tmplt">
+        <box class="header">
+            <span class="name">Savings Account</span>
+        </box>
+        <box class="desc">Get 7.75% pa on your intrest on you savings account balance</box>
+        <box class="benefit-points">
+            <span class="benefit-desc">Safe and risk-free Investment</span>
+            <span class="benefit-desc">No pre-closure penalty for seniors</span>
+            <span class="benefit-desc">Monthly and Quarterly interest payouts</span>
+        </box>
+    </box>
+</ng-template>

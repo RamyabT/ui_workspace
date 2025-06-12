@@ -1,0 +1,76 @@
+<form>
+
+    <div class="form-footer-actions" *ngIf="taskName=='SuccessEnd'">
+        <ng-container >
+            <box [ngClass]="'confirmation-receipt-inner success '+result?.statusCode?.toLowerCase()">
+                <box class="confirmation-body">
+                    <box class="status-container">
+                        <box class="status-ico-wrapper">
+                            <span class="status-ico"></span>
+                        </box>
+        
+                        <span class="confirmation-message">{{ "preloginResultForm.successEndmessage" | translate }}</span>
+                    </box>
+        
+                    <box class="message-container">
+                        <span class="confirmation-description">{{ "preloginResultForm.successEnddescription" | translate }}</span>
+                    </box>
+                <div class="additional-info" *ngIf="result.requestStatus=='successEnd'">
+                    <div class="spacer"></div>
+        
+                    <box class="options">
+                        <!-- <div class="option load-money">Load money</div> -->
+                        <!-- <div class="option virtual-card">Virtual card</div> -->
+                        <!-- <div class="option virtual-card">Setup Mpin</div> -->
+                    </box>
+        
+                    <!-- <mat-checkbox>
+                        <div class="lbl-content">
+                            Apply for debit card
+                        </div>
+                    </mat-checkbox> -->
+                    </div>
+                </box>
+                <box class="confirmation-footer"
+                [ngClass]="{'COBLOADMONEY':isCobLoadMoney}">
+                  <ng-container *ngIf="taskName!='SuccessEnd'">
+                    <button type="button" class="primary" (click)="onClickPrimaryButton()"><span>{{ "preloginResultForm.successEndprimary" | translate }}</span></button>
+                    <!-- <button type="button" class="secondary" (click)="gotoModule('accounts-space')"><span>{{ 'preloginResultForm.download' | translate }}</span></button> -->
+                    </ng-container>
+                  <ng-container *ngIf="taskName=='SuccessEnd'">
+                    <fpx-button
+                    label="Load Money"
+                    btnClass=" btn-primary" [buttonMode]="'button'"
+                    (onClick)="gotoService('COBLOADMONEY')"
+                   ></fpx-button>
+                    <fpx-button
+                    label="Apply for Virtual Card"
+                    btnClass=" btn-secondary" [buttonMode]="'button'" 
+                    (onClick)="gotoService('COBAPPLYVIRTUALCARD')"></fpx-button>
+                    </ng-container>
+                </box>
+            </box>
+        
+        </ng-container>
+    </div>
+
+    <box class="entry-form" *ngIf="taskName!=='SuccessEnd'">
+        <box class="entry-form-field-group col-12 grid"  *ngIf="taskName!=='SuccessEnd'">
+            <img src="assets/images/Failed.png" class="close-img">
+            
+            <span class="errdesc">Error Message : {{errorMessage}}</span>
+            <span class="errcode">Error Code : {{errorCode}}</span>
+            <div class="close-action">Thank you for showing your interest. Our team will call you shortly for further
+                details.</div>
+        </box>
+    </box>
+
+
+    <div class="form-footer-actions" *ngIf="errorCode=='COBUSERERR001'">
+        <button type="submit" class="btn-primary" (click)="login()"><span>{{'OnBoarding.loginbtn' | translate }}</span></button>
+    </div>
+
+    <div class="form-footer-actions" *ngIf="errorCode=='COBUSERERR002'">
+        <button type="submit" class="btn-primary" (click)="navigateResumeApplication()"><span>{{'OnBoarding.navigateResumeApplication' | translate }}</span></button>
+    </div>
+</form>

@@ -1,0 +1,74 @@
+<div class="task-item" id="row_data_{{ index }}">
+    <!-- <ng-container *ngIf="_device.isMobile()">
+        <div class="task-action-left">
+
+            <button type="button" class="button-task-action system-ico-button button-delete" clickable
+                (click)="deleteBiller($event, selectedData)">
+                <span>{{'PAYMENTSCONTAINER.delete' | translate}}</span>
+            </button>
+        </div>
+    </ng-container> -->
+
+    <div class="task-detail-item" (swipeleft)="_device.isMobile()?swipeLeftHandler($event):null"
+        (swiperight)="_device.isMobile()?swipeRightHandler($event):null"
+        (panstart)="_device.isMobile()?panStartHandler($event):null"
+        (panend)="_device.isMobile()?panEndHandler($event):null"
+        (panleft)="_device.isMobile()?panLeftHandler($event):null"
+        (panright)="_device.isMobile()?panRightHandler($event):null"
+        (touchstart)="_device.isMobile()?touchStartHandler($event):null">
+        <box class="saved-biller-main-container">
+            <box class="saved-biller-left-container">
+
+                <box *ngIf="_device.isMobile()" class="saved-biller-detail">
+                    <box class="payee-icon-wrapper">
+                        <span class="payee-icon"></span>
+                    </box>
+                    <box class="name-account-wrapper">
+                        <box class="saved-biller-name">{{selectedData?.nickName || selectedData?.billerId?.name}}</box>
+                        <box *ngIf="selectedData?.nickName" class="saved-biller-account">
+                            {{selectedData?.billerId?.name}}</box>
+                    </box>
+                </box>
+
+
+                <box *ngIf="!_device.isMobile()" class="saved-biller-detail">
+                    <box class="primary-container">
+                        <box class="payee-icon-wrapper">
+                            <span class="payee-icon"></span>
+                        </box>
+                        <box class="saved-biller-name">{{selectedData?.nickName || selectedData?.billerId?.name}}</box>
+                    </box>
+                    <box class="secondary-container">
+                        <box class="name-account-wrapper">
+                            <box *ngIf="selectedData?.nickName" class="saved-biller-account">
+                                {{selectedData?.billerId?.name}}</box>
+                        </box>
+
+                        <box class="button-container">
+                            <button type="button" class="action-button button-edit" clickable
+                                (click)="desktopEditBiller($event, selectedData)">
+                                <span class="span-label">{{'PAYMENTSCONTAINER.delete' | translate}}</span>
+                            </button>
+                            <button type="button" class="action-button button-delete" clickable
+                                (click)="desktopDeleteBiller($event, selectedData)">
+                                <span class="span-label">{{'PAYMENTSCONTAINER.delete' | translate}}</span>
+                            </button>
+                        </box>
+                    </box>
+                </box>
+            </box>
+        </box>
+
+    </div>
+
+
+    <!-- <box *ngIf="_device.isMobile()" class="options" (click)="displayContextMenu($event)">
+        <img src="./assets/images/icons/grey-dots.svg" alt="more options" />
+    </box> -->
+    <box *ngIf="_device.isMobile()" class="btn-toggle">
+        <button (click)="displayContextMenu($event)" type="button" class="btn-icon btn-accordion-toggle"
+            aria-label="Toggle menu">
+            <span class="visually-hidden">Toggle menu</span>
+        </button>
+    </box>
+</div>

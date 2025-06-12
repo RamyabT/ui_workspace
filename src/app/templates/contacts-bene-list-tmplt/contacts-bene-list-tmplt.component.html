@@ -1,0 +1,35 @@
+<form
+  [formGroup]="formGroup"
+  (ngSubmit)="submit()"
+  autocomplete="off"
+  formName="ContactsBeneListTmpt"
+>
+  <box class="contacts-bene-list-summary">
+    <box class="contacts-bene-list-details">
+      <box class="contacts-bene-list-container">
+        <div class="logo-content">
+          {{ state.selectedData.displayName?.charAt(0) }}
+        </div>
+      </box>
+      <box class="contacts-bene-list-info">
+        <box class="contacts-bene-list-primary-info">
+          <span class="contacts-bene-name">
+            {{ state.selectedData.displayName }}
+          </span>
+          <span class="contacts-bene-phone-number">
+            {{ state.selectedData.phoneNumber }}
+          </span>
+        </box>
+        <box class="contacts-bene-list-secondary-info">
+          <!-- <span>{{selectedData.splitAmount}}</span> -->
+          <fpx-amount 
+            class="col-sm-2 col-md-2 col-lg-2 split-amount"
+            [actionPublisher]="actionMap$.get('splitAmount')"
+            formControlName="splitAmount"
+          ></fpx-amount>
+        </box>
+      </box>
+    </box>
+  </box>
+</form>
+

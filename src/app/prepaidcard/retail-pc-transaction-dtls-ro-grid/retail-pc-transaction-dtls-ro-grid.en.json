@@ -1,0 +1,31 @@
+"RetailPcTransactionDtlsRoGrid":{
+"title":"Prepaid Card Transaction Summary",
+		 "valueDate": {
+		  "label":"Value Date" ,
+		  "placeholder": "Value Date"
+		  } ,
+		 "transactionDate": {
+		  "label":"Transaction Date" ,
+		  "placeholder": "Transaction Date"
+		  } ,
+		 "transactionDescription": {
+		  "label":"Description" ,
+		  "placeholder": "Description"
+		  } ,
+		 "transactionReference": {
+		  "label":"Transaction Reference" ,
+		  "placeholder": "Transaction Reference"
+		  } ,
+		 "transType": {
+		  "label":"Transaction Type" ,
+		  "placeholder": "Transaction Type"
+		  } ,
+		 "transactionAmount": {
+		  "label":"Transaction Amount" ,
+		  "placeholder": "Transaction Amount"
+		  } ,
+		 "balance": {
+		  "label":"Balance Amount" ,
+		  "placeholder": "Balance Amount"
+		  } 
+}

@@ -1,0 +1,65 @@
+<box class="tab-container-inner">
+    <ng-container *ngIf="casaAccounts; else loader">
+        <ng-container *ngIf="casaAccounts.length; else noAccount">
+            <ng-container *ngIf="device.isMobile(); else listView">
+            </ng-container>
+            <ng-template #listView>
+                <ul class="casa-account-list">
+                    <ng-container *ngFor="let account of casaAccounts.slice(0,3)">
+                        <li class="casa-account-list-item">
+                            <box class="casa-account">
+                                <box class="acc-primary-info">
+                                    <span class="acc-type">{{ account.accountNickname || account.accountName }}</span>
+                                    <span class="acc-number">{{ account.accountNumber }}</span>
+                                </box>
+                                <box class="acc-secondary-info">
+                                    <span class="lbl">{{ 'CASASUMMARYCARD.available' | translate }}</span>
+                                    <span class="amount">{{ account.availableBalance | currency : account.accountCurrency : ''}} <em>{{ account.accountCurrency }}</em></span>
+                                </box>
+                            </box>
+                        </li>
+                        <hr />
+                    </ng-container>
+                </ul>
+            </ng-template>
+        </ng-container>
+    </ng-container>
+
+    <box class="tab-main-content">
+        <ng-container *ngIf="device.isMobile()">
+   
+        </ng-container>
+
+
+    </box>
+</box>
+
+<ng-template #loader>
+    <box class="loading casa-summary-loader"></box>
+</ng-template>
+
+<ng-template #noAccount>
+    <box *ngIf="_device.isMobile()" class="no-account-tmplt no-casa-tmplt">
+        <box class="left-section">
+            <span class="no-result-desc">{{ 'PAYMENTSCONTAINER.noAccounts.desc' | translate }}</span>
+            <button type="button" class="no-result-btn">{{ 'PAYMENTSCONTAINER.noAccounts.button' | translate }}</button>
+        </box>
+        <box class="right-section">
+            <img src="./assets/illustrations/no-account.svg" (click)="openNewCasa()" alt="create an account" />
+        </box>
+    </box>
+</ng-template>
+
+<ng-template #noInsights>
+    <box class="no-insights-tmplt">
+        <box class="header">
+            <span class="name">Savings Account</span>
+        </box>
+        <box class="desc">Get 7.75% pa on your intrest on you savings account balance</box>
+        <box class="benefit-points">
+            <span class="benefit-desc">Safe and risk-free Investment</span>
+            <span class="benefit-desc">No pre-closure penalty for seniors</span>
+            <span class="benefit-desc">Monthly and Quarterly interest payouts</span>
+        </box>
+    </box>
+</ng-template>

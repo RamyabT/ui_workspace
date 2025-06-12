@@ -1,0 +1,484 @@
+app-favourite-transaction {
+    .fav-tran-group {
+        padding: 12px 16px 23px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        position: relative;
+        height: 167px;
+        @include not-small-screen{
+            padding: 10px 0px 30px;
+            height: unset;
+        }
+        .no-fav-tran-image {
+            position: absolute;
+            right: 16px;
+            top: 26px;
+        }
+        .fav-tran-header {
+            display: flex;
+            justify-content: space-between;
+            color: #FFFFFF;
+            align-items: center;
+            @include not-small-screen{
+                color: var(--baseTxtClr);
+            }
+            .title {
+                @include s3-medium;
+                @include not-small-screen{
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    &::before {
+                        content: '';
+                        mask-image: url("../../assets/images/icons/fav-icon-outline.svg");
+                        -webkit-mask-image: url("../../assets/images/icons/fav-icon-outline.svg");
+                        width: 20px;
+                        height: 20px;
+                        display: inline-block;
+                        background-color: var(--systemIconClr);
+                        mask-repeat: no-repeat;
+                        -webkit-mask-repeat: no-repeat;
+                        mask-size: 20px;
+                        -webkit-mask-size: 20px;
+                    }
+                }
+            }
+            .view-all {
+                @include b2-regular;
+                @include not-small-screen{
+                    @include b3-medium;
+                    color: var(--secondary500);
+                }
+            }
+        }
+        .no-fav-tran-group {
+            display: flex;
+            flex-direction: row;
+            gap: 6px;
+            width: 100%;
+
+            .no-fav-tran {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                color: #FFFFFF;
+                flex-grow: 1;
+
+                @include not-small-screen{
+                    color: var(--neutral900);
+                }
+                .no-fav-tran-title {
+                    @include b2-regular;
+                }
+                .no-fav-tran-desc {
+                    @include b4-regular;
+                    line-height: 14.32px;
+                    color: #E0E0E0;
+                    @include not-small-screen{
+                        color: var(--neutral900);
+                    }
+                }
+            }
+            .no-fav-tran-add-btn {
+                border-radius: 24px;
+                width: 51px;
+                height: 24px;
+                background-color: #FFFFFF;
+                font-size: 12px;
+                line-height: 14px;
+                font-weight: 500;
+                @include not-small-screen{
+                    color: var(--secondary500);
+                    border: 1px solid var(--secondary500);
+                }
+            }
+
+            img{
+                height: 78px;
+            }
+        }
+    }
+}
+app-transfers-quick-actions {
+    .quick-actions-inner {
+        .actions-body {
+            
+            ul.actions-list {
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+
+.payments-list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .payments-list-item{
+        padding: 12px;
+        display: flex;
+        border-radius: 12px;
+        gap: 16px;
+        align-items: center;
+        background-color: var(--neutral50);
+        box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.0901960784);
+        cursor: pointer;
+
+        .icon-wrapper{
+            width: 40px;
+            height: 40px;
+
+            &::before{
+                content: '';
+                width: 40px;
+                height: 40px;
+                mask-size: 24px;
+                -webkit-mask-size: 24px;
+                mask-repeat: no-repeat;
+                -webkit-mask-repeat: no-repeat;
+                mask-position: center;
+                -webkit-mask-position: center;
+                background-color: var(--systemIconClr);
+                display: block;
+            }
+        }
+
+        .payment-type-info{
+            display: flex;
+            flex-direction: column;
+
+            .payment-type{
+                @include s4-medium;
+            }
+            .payment-type-desc{
+                @include b2-regular;
+            }
+        }
+    }
+}
+app-transfers-container {
+    .module-title{
+        position: relative;
+    }
+
+    .transfers-home {
+        .module-home-bg {
+            border-radius: 0px 0px 32px 32px;
+            height: 313px;
+        }
+    }
+
+    .module-home-inner{
+        gap:26px;
+    }
+
+    app-favourite-transaction {
+        .arrow-button {
+            color: #FFF;
+            @include not-small-screen {
+                color: #12486B;
+            }
+            &::before {
+                content: none;
+            }
+        }
+    }
+}
+.fav-transfers-sec{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+
+    .fav-transfers-grid-landing {
+        flex: 1;
+    }
+
+    .fav-init-transfer{
+        max-width: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+
+        .fav-transaction-item{
+            @include large-screen{
+                min-width: unset;
+            }
+        }
+        .fav-init-transfer-icon{
+            width: 48px;
+            height: 48px;
+            background-color:var(--neutral50);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--quicklinksIcoClr);
+        }
+        .fav-init-transfer-name{
+            text-align: center;
+            color: var(--neutral50);
+
+            @include not-small-screen{
+                color: var(--quicklinksIcoClr);
+            }
+        }
+    }
+
+    .fav-transaction-item{
+        @include large-screen{
+            min-width: 120px;
+        }
+    }
+}
+
+.transfers-quick-links{
+    .icon-wrapper{
+        &::before{
+            content: '';
+            width: 24px;
+            height: 24px;
+            mask-size: 20px;
+            -webkit-mask-size: 20px;
+            background-color: var(--systemIconClr);
+            mask-repeat: no-repeat;
+            -webkit-mask-repeat: no-repeat;
+            mask-position: center;
+        }
+    }
+}
+
+.ql-RETAILTRANOAT {
+    .icon-wrapper {
+        &::before {
+            mask-image: url("../../assets/images/icons/transfer-oat.svg");
+            -webkit-mask-image: url("../../assets/images/icons/transfer-oat.svg");
+        }
+    }
+}
+
+.ql-RETAILTRANDOMESTIC {
+    .icon-wrapper {
+        &::before {
+            mask-image: url(../../assets/images/quick-links/domestic-transfer.svg);
+            -webkit-mask-image: url(../../assets/images/quick-links/domestic-transfer.svg);
+        }
+    }
+}
+
+.ql-RETAILTRANINTBT {
+    .icon-wrapper {
+        &::before {
+            mask-image: url("../../assets/images/icons/transfer-wbt.svg");
+            -webkit-mask-image: url("../../assets/images/icons/transfer-wbt.svg");
+        }
+    }
+}
+.ql-RETAILTRANSWIFT{
+    .icon-wrapper{
+        &::before{
+            mask-image: url(../../assets/images/quick-links/international-transfer.svg);
+            -webkit-mask-image: url(../../assets/images/quick-links/international-transfer.svg);
+        }
+    }
+}
+.ql-RETAILTRANCC{
+    .icon-wrapper{
+        &::before{
+            mask-image: url(../../assets/images/quick-links/other-bank-credit-card.svg);
+            -webkit-mask-image: url(../../assets/images/quick-links/other-bank-credit-card.svg);
+        }
+    }
+}
+.ql-RETAILTRANINSTA{
+    .icon-wrapper{
+        &::before{
+            mask-image: url(../../assets/images/quick-links/insta-pay.svg);
+            -webkit-mask-image: url(../../assets/images/quick-links/insta-pay.svg);
+        }
+    }
+}
+.ql-SELECTBENETYPE{
+    .icon-wrapper{
+        &::before{
+            mask-image: url(../../assets/images/quick-links/add-beneficiary.svg);
+            -webkit-mask-image: url(../../assets/images/quick-links/add-beneficiary.svg);
+        }
+    }
+}
+.ql-RETAILMANAGEBENE{
+    .icon-wrapper{
+        &::before{
+            mask-image: url(../../assets/images/quick-links/view-beneficiary.svg);
+            -webkit-mask-image: url(../../assets/images/quick-links/view-beneficiary.svg);
+        }
+    }
+}
+
+app-retail-manage-bene-form,
+app-retail-manage-etransfercontactlog-form,
+app-retail-manage-favourite-transfer-form,
+app-retail-manage-favourite-etransfer-form {
+    .entry-form-field-group {
+        padding: 0;
+        padding-bottom: 20px;
+        .search-group {
+            padding: 20px 20px 0;
+            @include not-small-screen{
+                padding: 4px 0px 0;
+            }
+            .search-bar {
+                background: url(../../assets/images/icons/search-icon.svg) no-repeat;
+                background-size: 20px;
+                background-position: 96%;
+            }
+        }
+        
+        .bene-segment {
+            display: flex;
+            gap: 12px;
+            overflow: scroll;
+            padding: 0 20px;
+            width: 100%;
+            justify-content: space-between;
+            @include not-small-screen{
+                margin: 0;
+            }
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            .segments {
+                display: flex;
+                gap: 12px;
+            }
+            .segment {
+                min-width: 84px;
+                height: 25px;
+                border: 1px solid var(--secondary500);
+                padding: 4px 20px;
+                border-radius: 40px;
+                color: var(--secondary500);
+                @include s4-medium;
+                line-height: 17.09px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #FFF;
+                &.active {
+                    background: var(--secondary500);
+                    color: #FFF;
+                }
+            }
+        }
+    }
+}
+
+#depAppBody {
+    app-transfers-container {
+        [hidden] {
+            display: none !important;
+        }
+    }
+    app-transfers-home,
+    app-payments-home{
+        .mat-tab-group {
+            .mat-tab-body-wrapper {
+                .mat-tab-body {
+                    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.09);
+                    background-color: #FFF;
+                    border-radius: 20px;
+                    overflow: hidden !important;
+                    .casa-transactions-grid-header {
+                        padding: 16px 24px;
+                        border-bottom: 1px solid var(--neutral200);
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+    app-etransfers-home {
+        .mat-tab-group {
+            .mat-tab-body-wrapper {
+                .mat-tab-body {
+                   @include not-small-screen{
+                    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.09);
+                    background-color: transparent;
+                    border-radius: 20px;
+                   }
+                    overflow: hidden !important;
+                    .casa-transactions-grid-header {
+                        padding: 0px 16px;
+                        @include not-small-screen{
+                            padding: 16px 24px !important;
+                            border-bottom: 1px solid var(--neutral200);
+                        }
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+    app-transfers-container,
+    app-retail-cc-transaction-summary {
+        mat-tab-group {
+            gap: 24px;
+            mat-tab-header {
+                .mat-tab-label-container .mat-tab-list {
+                    flex-grow: 1;
+                    margin: 0 19px;
+                    @include not-small-screen{
+                        width: unset !important;
+                        flex-grow: 0;
+                    }
+                    .mat-tab-labels {
+                        // border: 1px solid #016B83;
+                        // border-radius: 20px;
+                        .mat-tab-label {
+                            flex: 1;
+                            height: 33px;
+                            padding: 0 12px;
+                            @include not-small-screen{
+                                width: 168px;
+                            }
+                        }
+                    }
+                }
+            }
+            mat-tab-body {
+                .casa-transactions-grid-header {
+                    padding: 0px 16px;
+                }
+                .mat-tab-body-content {
+                    overflow: unset;
+                }
+            }
+        }
+    }
+    .no-result-view {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-grow: 1;
+        padding: 20px 16px 42px;
+        .no-result-desc {
+            @include s4-medium;
+            padding: 20px 0 8px;
+            color: #818181;
+            width: 65%;
+            text-align: center;
+        }
+        .no-result-add-btn {
+            border-radius: 24px;
+            padding: 4px 20px;
+            height: 24px;
+            background-color: #FFFFFF;
+            font-size: 14px;
+            line-height: 14px;
+            font-weight: 500;
+            border: 1px solid var(--secondary500);
+        }
+    }
+}

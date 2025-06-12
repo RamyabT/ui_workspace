@@ -1,0 +1,28 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailLoansBreakupForm" >
+
+    <box class="chart-wrapper entry-form-field-group">
+        <box class="loans-breakup-chart">
+            <app-loans-breakup-chart></app-loans-breakup-chart>
+        </box>
+        <box class="loans-breakup-chart-details">
+            <box class="loans-amount">
+                <box class="loans-breakup-details-lbl primary-lbl">Loan Amount</box>
+                <box class="loans-breakup-details-value">{{ appConfig.baseCurrency}} {{this.state.breakupDetails.loansAmount.amount | currency :
+                    appConfig.baseCurrency : '' }}</box>
+            </box>
+            <box class="total-interest">
+                <box class="loans-breakup-details-lbl secondary-lbl">Total Interest</box>
+                <box class="loans-breakup-details-value">{{ appConfig.baseCurrency}} {{this.state.breakupDetails.totalInterest.amount | currency :
+                    appConfig.baseCurrency : '' }}</box>
+            </box>
+        </box>
+    </box>
+    <box class="loans-breakup-details-wrapper entry-form-field-group">
+        <ng-container *ngFor="let item of this.state.breakupDetails | keyvalue">
+            <box class="loans-breakup-details-item">
+                <box class="loans-breakup-details-lbl">{{item.value.lbl}}</box>
+                <box class="loans-breakup-details-value">{{item.value.amount}}</box>
+            </box>
+        </ng-container>
+    </box>
+    </form>

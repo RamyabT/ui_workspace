@@ -1,0 +1,187 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailChequeBookRequest">
+	<box class="entry-form" [ngClass]="{'view-mode': _helper.formMode == 'VIEW'}">
+		<ng-container *ngIf="!_device.isMobile() && _helper.formMode !== 'VIEW'">
+			<box id="group_disclaimer-box" class="col-sm-12 col-md-12 col-lg-12 grid main-group disclaimer-box">
+				<fpx-display-text class="col-sm-12 col-md-12 col-lg-12"
+					[innerHTML]="'RetailChequeBookRequest.disclaimer.text' | translate">
+				</fpx-display-text>
+			</box>
+		</ng-container>
+		<ng-container *ngIf="_device.isMobile()">
+			<box id="group_disclaimer-box" class="col-sm-12 col-md-12 col-lg-12 grid main-group disclaimer-box">
+
+				<box class="content" [class.show]="_helper.show" [innerHtml]="'RetailChequeBookRequest.disclaimer1.text' | translate">
+				</box>
+
+				<span [class.more]="!_helper.show" [class.less]="_helper.show"  (click)="_helper.show = !_helper.show"><span class="dots" *ngIf="!_helper.show">....</span>{{_helper.show ? 'Read Less' : 'Read More'}}</span>
+			</box>
+		</ng-container>
+
+		<box id="FieldId_18" class="col-md-12 grid  entry-form-field-group  ">
+			<app-account-number-list-control class="col-sm-12 col-md-6 col-lg-4"
+				[actionPublisher]="actionMap$.get('accountNumber')"
+				label="{{'RetailChequeBookRequest.accountNumber.label' | translate }}" formControlName="accountNumber"
+				(commonControlEvent)="handleControlEvent($event)"></app-account-number-list-control>
+
+
+			<app-cheque-books-control class="col-sm-12 col-md-6 col-md-4"
+				[actionPublisher]="actionMap$.get('noOfChequeBooks')"
+				label="{{'RetailChequeBookRequest.noOfChequeBooks.label' | translate }}"
+				formControlName="noOfChequeBooks"></app-cheque-books-control>
+
+
+			<app-cheque-book-leaves-list-control class="col-sm-12 col-md-6 col-lg-4"
+				[actionPublisher]="actionMap$.get('noOfLeaves')"
+				label="{{'RetailChequeBookRequest.noOfLeaves.label' | translate }}"
+				formControlName="noOfLeaves"></app-cheque-book-leaves-list-control>
+
+			<box class="gird col-sm-12 col-md-6 col-lg-4 display-field  amount-display-field">
+				<fpx-label label="{{'RetailChequeBookRequest.chargesAmount.label' | translate}}"></fpx-label>
+				<box class="grid col-sm-12 col-md-6 col-lg-4 display-field-content">
+					<fpx-display-text id="currency" class="col-md-12 currency"
+						[innerHTML]="state.currency | currencyCode">
+					</fpx-display-text>
+					<fpx-display-text id="chargesAmount" class="col-md-12 chargesAmount"
+						[innerHTML]="state.chargesAmount">
+					</fpx-display-text>
+				</box>
+			</box>
+
+
+			<app-cheque-start-number-control class="col-sm-12 col-md-6 col-lg-4"
+				[actionPublisher]="actionMap$.get('chequeStartNumber')"
+				label="{{'RetailChequeBookRequest.chequeStartNumber.label' | translate }}"
+				formControlName="chequeStartNumber"></app-cheque-start-number-control>
+
+			<app-enabled-flag-control class="col-am-12 col-md-6 col-lg-4"
+				[actionPublisher]="actionMap$.get('isPhoneNumberRequired')"
+				label="{{'RetailChequeBookRequest.isPhoneNumberRequired.label' | translate }}"
+				formControlName="isPhoneNumberRequired"></app-enabled-flag-control>
+
+
+			<app-acc-delivery-options-control class="col-am-12 col-md-6 col-lg-4"
+				[actionPublisher]="actionMap$.get('deliveryOption')"
+				label="{{'RetailChequeBookRequest.deliveryOption.label' | translate }}" formControlName="deliveryOption"
+				(commonControlEvent)="handleControlEvent($event)"></app-acc-delivery-options-control>
+
+
+			<app-branches-list-control class="col-sm-12 col-md-6 col-lg-4"
+				[actionPublisher]="actionMap$.get('deliveryBranch')"
+				label="{{'RetailChequeBookRequest.deliveryBranch.label' | translate }}"
+				formControlName="deliveryBranch"></app-branches-list-control>
+
+			<app-enabled-flag-control class="col-md-12" [actionPublisher]="actionMap$.get('isCardUpdateRequired')"
+				label="{{'RetailChequeBookRequest.isCardUpdateRequired.label' | translate }}"
+				formControlName="isCardUpdateRequired"></app-enabled-flag-control>
+
+			<app-card-four-digits-control class="col-sm-12 col-md-6 col-lg-4"
+				[actionPublisher]="actionMap$.get('cardFourDigits')"
+				label="{{'RetailChequeBookRequest.cardFourDigits.label' | translate }}"
+				formControlName="cardFourDigits"></app-card-four-digits-control>
+
+
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-4" [actionPublisher]="actionMap$.get('remarks')"
+				label="{{'RetailChequeBookRequest.remarks.label' | translate }}"
+				formControlName="remarks"></app-remarks-control>
+		</box>
+
+		<box class="grid info-fields col-sm-12 col-md-12 col-lg-12"
+			[ngClass]="{'remove-border': _helper.formMode == 'VIEW'}">
+			<box class="infoTitle">
+				<fpx-display-text id="verifyYourInfoTitle" class=" fieldset-title verifyYourInfoTitle"
+					[innerHTML]="'RetailChequeBookRequest.verifyYourInfoTitle.text' | translate">
+				</fpx-display-text>
+				<box *ngIf="_helper.formMode !== 'VIEW'" class="edit-btn">
+					<img src="./assets/images/icons/info-edit.svg">
+					<span class="edit-text">Edit</span>
+				</box>
+				<!-- <button type="button" class="edit-btn"></button> -->
+
+			</box>
+
+
+			<!-- <app-applicant-name-control class="col-sm-12 col-md-6 col-lg-4"
+				[actionPublisher]="actionMap$.get('firstName')"
+				label="{{'RetailChequeBookRequest.firstName.label' | translate }}" [maxlength]="firstName_maxLength"
+				formControlName="firstName"></app-applicant-name-control>
+
+			<app-applicant-name-control class="col-sm-12 col-md-6 col-lg-4"
+				[actionPublisher]="actionMap$.get('lastName')"
+				label="{{'RetailChequeBookRequest.lastName.label' | translate }}" [maxlength]="lastName_maxLength"
+				formControlName="lastName"></app-applicant-name-control>
+
+			<app-applicant-mobile-number-control class="col-sm-12 col-md-6 col-lg-4"
+				[actionPublisher]="actionMap$.get('phoneNumber')"
+				label="{{'RetailChequeBookRequest.phoneNumber.label' | translate }}"
+				formControlName="phoneNumber"></app-applicant-mobile-number-control> -->
+
+			<box class="grid fields-wrapper">
+				<box class="gird col-sm-12 col-md-6 col-lg-4 display-field">
+					<fpx-label label="{{'RetailChequeBookRequest.firstName.label' | translate}}"></fpx-label>
+					<box class="grid col-sm-12 col-md-6 col-lg-4 display-field-content">
+						<fpx-display-text id="firstName" class="col-md-12 firstName" [innerHTML]="state.firstName">
+						</fpx-display-text>
+					</box>
+				</box>
+
+				<box class="gird col-sm-12 col-md-6 col-lg-4 display-field">
+					<fpx-label label="{{'RetailChequeBookRequest.lastName.label' | translate}}"></fpx-label>
+					<box class="grid col-sm-12 col-md-6 col-lg-4 display-field-content">
+						<fpx-display-text id="lastName" class="col-md-12 city" [innerHTML]="state.lastName">
+						</fpx-display-text>
+					</box>
+				</box>
+
+				<box class="gird col-sm-12 col-md-6 col-lg-4 display-field">
+					<fpx-label label="{{'RetailChequeBookRequest.phoneNumber.label' | translate}}"></fpx-label>
+					<box class="grid col-sm-12 col-md-6 col-lg-4 display-field-content">
+						<fpx-display-text id="phoneNumber" class="col-md-12 phoneNumber"
+							[innerHTML]="state.phoneNumber">
+						</fpx-display-text>
+					</box>
+				</box>
+
+				<box class="gird col-sm-12 col-md-6 col-lg-4 display-field">
+					<fpx-label label="{{'RetailChequeBookRequest.street.label' | translate}}"></fpx-label>
+					<box class="grid col-sm-12 col-md-6 col-lg-4 display-field-content">
+						<fpx-display-text id="street" class="col-md-12 street"
+							[innerHTML]="state.addressDetails.street">
+						</fpx-display-text>
+					</box>
+				</box>
+
+				<box class="gird col-sm-12 col-md-6 col-lg-4 display-field">
+					<fpx-label label="{{'RetailChequeBookRequest.city.label' | translate}}"></fpx-label>
+					<box class="grid col-sm-12 col-md-6 col-lg-4 display-field-content">
+						<fpx-display-text id="city" class="col-md-12 city" [innerHTML]="state.addressDetails.city">
+						</fpx-display-text>
+					</box>
+				</box>
+
+				<box class="gird col-sm-12 col-md-6 col-lg-4 display-field">
+					<fpx-label label="{{'RetailChequeBookRequest.state.label' | translate}}"></fpx-label>
+					<box class="grid col-sm-12 col-md-6 col-lg-4 display-field-content">
+						<fpx-display-text id="state" class="col-md-12 state" [innerHTML]="state.addressDetails.state">
+						</fpx-display-text>
+					</box>
+				</box>
+
+				<box class="gird col-sm-12 col-md-6 col-lg-4 display-field">
+					<fpx-label label="{{'RetailChequeBookRequest.pincode.label' | translate}}"></fpx-label>
+					<box class="grid col-sm-12 col-md-6 col-lg-4 display-field-content">
+						<fpx-display-text id="pincode" class="col-md-12 pincode"
+							[innerHTML]="state.addressDetails.pincode">
+						</fpx-display-text>
+					</box>
+				</box>
+			</box>
+		</box>
+
+		<box id="termsFlag" class="col-sm-12 col-md-12 col-lg-12 grid main-group terms-box">
+			<app-terms-control class="col-md-12" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{'RetailChequeBookRequest.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+
+		</box>
+	</box>
+</form>

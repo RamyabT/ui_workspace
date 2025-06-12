@@ -1,0 +1,28 @@
+export interface AdditionalEmploymentInfo {
+        annualIncome:string, 
+        companyName:string, 
+        authOn:string, 
+        subEmploymentTypeCode:string, 
+        empsoi:any, 
+        createdOn:string, 
+        industryCode:string, 
+        occupationType:string, 
+        workingSince:number, 
+        modifiedOn:string, 
+        industryType:string, 
+        modifiedBy:string, 
+        applicantId:string, 
+        department:string, 
+        empstatus:any, 
+        monthlyIncome:number, 
+        companyCode:any, 
+        serialNumber:number, 
+        taxIdNumber:number, 
+        operatingSince:number, 
+        authBy:string, 
+        createdBy:string, 
+        tenantId:string, 
+        position:string, 
+        taxIdType:number
+  }
+  

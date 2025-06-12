@@ -1,0 +1,43 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailAddTaskFrom" >
+	  
+	<box class="entry-form">
+	     
+	      
+			  <app-task-name-control  class="col-sm-12 col-md-6 col-lg-6  "   [actionPublisher]="actionMap$.get('taskName')"     label="{{'RetailAddTaskFrom.taskName.label' | translate }}"   formControlName="taskName" 
+   ></app-task-name-control>
+	     
+	      
+			  <app-debit-acc-number  class="col-sm-12 col-md-4 col-lg-6 "   [actionPublisher]="actionMap$.get('childAccNo')"     label="{{'RetailAddTaskFrom.childAccNo.label' | translate }}"   formControlName="childAccNo" 
+     ></app-debit-acc-number>
+
+
+	 <app-goal-name-form-control  class="col-sm-12 col-md-4 col-lg-6 "   [actionPublisher]="actionMap$.get('mappedGoal')"     label="{{'RetailAddTaskFrom.mappedGoal.label' | translate }}"   formControlName="mappedGoal" 
+   >
+</app-goal-name-form-control>
+	     
+	      
+			  <app-debit-acc-number  class="col-sm-12 col-md-4 col-lg-6 "   [actionPublisher]="actionMap$.get('debitAccNo')"     label="{{'RetailAddTaskFrom.debitAccNo.label' | translate }}"   formControlName="debitAccNo" 
+     ></app-debit-acc-number>
+	     
+	      
+			  <app-request-date-control  class="col-sm-12 col-md-4 col-lg-6 "   [actionPublisher]="actionMap$.get('dueDate')"     label="{{'RetailAddTaskFrom.dueDate.label' | translate }}"   formControlName="dueDate" 
+   [maxDate]="_helper.currentDateAndTime"  ></app-request-date-control>
+	     
+	      
+			  <app-payment-amount-control  class="col-sm-12 col-md-4 col-lg-6 "   [actionPublisher]="actionMap$.get('rewardAmount')"     label="{{'RetailAddTaskFrom.rewardAmount.label' | translate }}"   formControlName="rewardAmount" 
+   [CurrencyList]="state.rewardAmount.CurrencyList" [isCurrEditable]="state.rewardAmount.isCurrEditable"  [defaultFetch]="state.rewardAmount.defaultFetch" [initCurrency]="state.rewardAmount.initCurrency" [amountInWords]="state.rewardAmount.amountInWords">  ></app-payment-amount-control>
+	     
+	      
+			  <app-account-restriction-control class="col-sm-12 col-md-4 col-lg-6 "   [actionPublisher]="actionMap$.get('proofRequired')"     label="{{'RetailAddTaskFrom.proofRequired.label' | translate }}"   formControlName="proofRequired" 
+     ></app-account-restriction-control>
+	     
+	      
+			  <app-closure-remarks-control  class="col-sm-12 col-md-4 col-lg-6 "   [actionPublisher]="actionMap$.get('remarks')"     label="{{'RetailAddTaskFrom.remarks.label' | translate }}"   formControlName="remarks" 
+   ></app-closure-remarks-control>
+
+   <fpx-multi-file-upload  class="col-sm-12 col-md-4 col-lg-6 " [actionPublisher]="actionMap$.get('supportingDocument')"     label="{{'RetailAddTaskFrom.supportingDocument.label' | translate }}"   formControlName="supportingDocument" 
+   ></fpx-multi-file-upload>
+
+	</box> 
+</form>
+	

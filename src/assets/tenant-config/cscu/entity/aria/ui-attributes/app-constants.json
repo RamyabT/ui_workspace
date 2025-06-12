@@ -1,0 +1,5 @@
+{
+    "title": "ThriveUnion - MintHaven Savings",
+    "landingPath": "welcome",
+    "redirectOnAuthFailure": ["welcome"]
+}

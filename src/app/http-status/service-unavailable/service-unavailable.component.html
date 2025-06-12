@@ -1,0 +1,34 @@
+<form formName="ServiceUnavailableForm" [autocomplete]="'off'" [formGroup]="formGroup" class="unavailable">
+    <box class="header-wrapper">
+        <box class="main-header-inner">
+            <box class="header-inner-wrapper">
+                <ng-container >
+                    <button type="button" class="brand">
+                        <img src="./assets/images/brand/header-logo.svg" alt="bank" />
+                    </button>
+                </ng-container> 
+            </box>
+        </box>
+    </box>
+<box class="serviceUnavailable-box">
+<box class="serviceUnavailable-wrapper">
+    <box class="serviceUnavailable-image"> 
+    </box>
+</box>
+<box class="content">
+    <span class="label-tag">{{'ServiceUnavailableForm.label' | translate}}</span>
+    <span class="label">{{'ServiceUnavailableForm.message' | translate}}</span>
+    <button class="button" (click)="_helper.reload()">{{'ServiceUnavailableForm.button' | translate}}</button>
+</box>
+</box>
+</form> 
+
+
+
+
+
+
+        
+
+
+

@@ -1,0 +1,29 @@
+
+<box class="widget context-menu-wrapper" #contextMenuWrapper>
+    <header>
+        <span class="header-title">{{
+            title
+        }}</span>
+    </header>
+    <box class="more-menu-actions">
+        <box class="context-menu-body">
+            <ng-container *ngIf="moreActions">
+                <ul class="actions-list grid">
+                    <ng-container *ngFor="let item of moreActions">
+                        <li (click)="openLink(item)">
+                            <span class="icon-wrapper menu-icon {{item.id}} {{item.icon}}"></span>
+                            <span class="text" [innerHTML]="item.name | translate"></span>
+                        </li>
+                    </ng-container>
+                </ul>
+            </ng-container>
+    
+        </box>
+    </box>
+    <ng-container *ngIf="_device.isMobile()">
+        <button type="button" class="btn-popup-close" (click)="closeContextMenu()">
+          close
+        </button>
+    </ng-container>
+</box>   
+

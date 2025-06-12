@@ -1,0 +1,41 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailLoanTranDtlsFilterForm">
+  <box *ngIf="!retailLoanTranDtlsFilterFormHelper.deviceDetectorService.isMobile()" class="header">
+    <box class="title">
+      Filter
+    </box>
+    <box class="close-btn-container">
+      <button type="button" class="btn-container" (click)="retailLoanTranDtlsFilterFormHelper.close()">
+        <span class="icon close-btn-icon"></span>
+      </button>
+    </box>
+  </box>
+  <box class="entry-form">
+    <box class="grid entry-form-field-group col-sm-12 col-md-12 col-lg-12">
+      <app-range-type-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('rangeType')"
+        label="{{ 'RetailLoanTranDtlsFilterForm.rangeType.label' | translate }}" formControlName="rangeType"
+        placeholder="{{
+          'RetailLoanTranDtlsFilterForm.rangeType.placeholder' | translate
+        }}"></app-range-type-control>
+
+      <box *ngIf="!retailLoanTranDtlsFilterFormHelper.deviceDetectorService.isMobile()"
+        class="col-sm-12 col-md-6 col-lg-6"></box>
+
+      <app-request-date-control class="col-sm-6 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('fromDate')"
+        label="{{ 'RetailLoanTranDtlsFilterForm.fromDate.label' | translate }}" formControlName="fromDate" placeholder="{{
+          'RetailLoanTranDtlsFilterForm.fromDate.placeholder' | translate
+        }}" [minDate]="state.fromDate.minDate" [maxDate]="state.fromDate.maxDate"></app-request-date-control>
+
+      <app-request-date-control class="col-sm-6 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('toDate')"
+        label="{{ 'RetailLoanTranDtlsFilterForm.toDate.label' | translate }}" formControlName="toDate" placeholder="{{
+          'RetailLoanTranDtlsFilterForm.toDate.placeholder' | translate
+        }}" [minDate]="state.toDate.minDate" [maxDate]="state.toDate.maxDate"></app-request-date-control>
+
+      <box class="form-action-container">
+        <fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('view')"
+          label="{{ 'retailcasatrandtlsfilterform.filter.label' | translate }}" btnClass=" btn-primary"
+          [buttonMode]="'button'" [disable]="formGroup.invalid"
+          (onClick)="retailLoanTranDtlsFilterFormHelper.onViewClick(null)"></fpx-button>
+      </box>
+    </box>
+  </box>
+</form>

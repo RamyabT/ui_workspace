@@ -1,0 +1,39 @@
+"PfmGoalsRequestForm":{
+"title":"pfmgoalsreq",
+		 "goalName": {
+		  "label":"goalName" ,
+		  "placeholder": "goalName"
+		  } ,
+		 "goalAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "debitAccount": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "advanceDebitAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "debitAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "goalDuration": {
+		  "label":"goalDuration" ,
+		  "placeholder": "goalDuration"
+		  } ,
+		 "frequency": {
+		  "label":"Frequency" ,
+		  "placeholder": "Frequency"
+		  } ,
+		 "status": {
+		  "label":"Status" ,
+		  "placeholder": "Status"
+		  } ,
+		 "accruedAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } 
+}

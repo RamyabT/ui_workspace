@@ -1,0 +1,28 @@
+<box class="dep-confirmation share-info-popup">
+    <box class="share-popup-header">
+        <box class="icon-wrapper">
+            <img src="./assets/images/icons/toast-success.svg">
+        </box>
+        <box class="title-wrapper">
+            <box class="title">
+                {{'AccountsSharingPopup.success' | translate}}
+            </box>
+            <box class="sub-title">
+                {{'AccountsSharingPopup.copyMsg' | translate}}
+            </box>
+        </box>
+        <box class="close-btn-container">
+            <button type="button" class="btn-container log-out-btn" (click)="close()">
+                <span class="icon close-btn-icon"></span>
+            </button>
+        </box>
+    </box>
+    <box class="share-popup-body">
+        <ng-container *ngFor="let field of accountInfo">
+            <box class="acount-info">
+                <span class="account-info-field-label">{{field.title | translate}}: </span>
+                <span>{{field.description}}</span>
+            </box>
+        </ng-container>
+    </box>
+</box>

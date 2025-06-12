@@ -1,0 +1,119 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="raisedisputedebitcard" >
+	   
+	 <box class="entry-form">
+			<!-- <ng-container *ngIf="state.cardData">
+				<debitcard class="col-12" [cardData]="state.cardData" [formView]="true"></debitcard>
+			</ng-container> -->
+			<box class="grid entry-form-field-group col-lg-12">
+				<box class="transaction-list-item-inner">
+					<box class="transaction-icon-wrapper">
+						<box class="transaction-icon">
+							<!-- <ng-container *ngIf="state.transferHistoryDetails?.transactionCategory; else noPhoto">
+								<img src="./assets/transactions/{{state.transferHistoryDetails?.transactionCategory}}.svg"
+									alt="transactionCategory" />
+							</ng-container> -->
+							<ng-container *ngIf="state.transferHistoryDetails?.merchantId && this._appConfig.getMerchantById(state.transferHistoryDetails?.merchantId)?.icon; else transCat">
+								<img class="icon-img" src="./assets/merchants/{{this._appConfig.getMerchantById(state.transferHistoryDetails?.merchantId)?.icon}}"
+									alt="state.transferHistoryDetails?.merchantName" />
+							</ng-container>
+							<ng-template #transCat>
+								<!-- <ng-container *ngIf="selectedData.transCat; else noPhoto"> -->
+									<img class="default-icon"  class="icon-img" src="./assets/images/icons/default-card-icon.png"
+										alt="transCat" />
+								<!-- </ng-container> -->
+							</ng-template>
+							<ng-template #noPhoto>
+								<div class="name-first-letter">
+									<span
+										*ngIf="state.transferHistoryDetails?.transactionDescription?.split(' ').length == 1">{{state.transferHistoryDetails?.transactionDescription?.substring(0,
+										1)}}
+									</span>
+									<span
+										*ngIf="state.transferHistoryDetails?.transactionDescription?.split(' ').length > 1 && state.transferHistoryDetails?.transactionDescription?.split(' ').length != 1">
+										{{state.transferHistoryDetails?.transactionDescription?.split(" ")[0]?.charAt(0)
+										+(state.transferHistoryDetails?.transactionDescription?.split(" ")[1]?
+										state.transferHistoryDetails?.transactionDescription?.split(" ")[1]?.charAt(0): "")}}
+									</span>
+								</div>
+							</ng-template>
+						</box>
+					</box>
+					<box class="transaction-info">
+						<box class="transaction-primary-info">
+							<span class="date">{{state.transferHistoryDetails?.transactionDate | date : "MMM dd"}}</span>
+							<span class="name">{{state.transferHistoryDetails?.transactionDescription}}</span>
+							<span class="accountNumber">Ref# {{state.transferHistoryDetails?.transactionReference}}</span>
+		
+						</box>
+						<box class="transaction-secondary-info">
+							<span class="amount" [ngClass]="{
+							'credit' : state.transferHistoryDetails?.transType == 'C',
+							'debit' : state.transferHistoryDetails?.transType == 'D'
+							}">
+							<em>{{state.transferHistoryDetails?.transactionCurrency}}</em> 
+							{{state.transferHistoryDetails?.transactionAmount | currency : state.transferHistoryDetails?.transactionCurrency : '' }}    
+							</span>
+							<span class="paymentType">{{state.transferHistoryDetails?.transCat}}</span>
+						</box>
+					</box>
+				</box>	
+					
+			</box>
+			
+		<box class="grid entry-form-field-group col-lg-12">
+			  <!-- <app-debit-card-list-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('cardReference')"     label="{{'raisedisputedebitcard.cardReference.label' | translate }}"   formControlName="cardReference" 
+     ></app-debit-card-list-control> -->
+	     
+	      
+			  <!-- <app-name-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('cardHolderName')"     label="{{'raisedisputedebitcard.cardHolderName.label' | translate }}"   formControlName="cardHolderName" 
+   ></app-name-control> -->
+	     
+	      
+			  <!-- <app-card-number-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('cardNumber')"     label="{{'raisedisputedebitcard.cardNumber.label' | translate }}"   formControlName="cardNumber" 
+   ></app-card-number-control> -->
+	     
+<!-- 	      
+			  <app-name-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('cardType')"     label="{{'raisedisputedebitcard.cardType.label' | translate }}"   formControlName="cardType" 
+   ></app-name-control>
+
+   <app-transaction-ref-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('transactionReference')"     label="{{'raisedisputedebitcard.transactionReference.label' | translate }}"   formControlName="transactionReference" 
+   ></app-transaction-ref-control> -->
+	     
+<!-- 	      
+			  <app-issue-date-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('transactionDate')"     label="{{'raisedisputedebitcard.transactionDate.label' | translate }}"   formControlName="transactionDate" 
+   [minDate]="state.transactionDate.minDate"   [maxDate]="state.transactionDate.maxDate"  ></app-issue-date-control>
+	     
+	      
+			  <app-payment-amount-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('transactionAmount')"     label="{{'raisedisputedebitcard.transactionAmount.label' | translate }}"   formControlName="transactionAmount" 
+   [CurrencyList]="state.transactionAmount.CurrencyList" [isCurrEditable]="state.transactionAmount.isCurrEditable"  [defaultFetch]="state.transactionAmount.defaultFetch" [initCurrency]="state.transactionAmount.initCurrency" [amountInWords]="state.transactionAmount.amountInWords">  ></app-payment-amount-control>
+	      -->
+	        <app-debit-card-number-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('cardNumber')"     label="{{'raisedisputedebitcard.cardNumber.label' | translate }}"   formControlName="cardNumber" 
+   ></app-debit-card-number-control>
+			  <app-raisedisputereason-list-control  class="col-sm-12 col-md-6 col-lg-12"   [actionPublisher]="actionMap$.get('reason')"     label="{{'raisedisputedebitcard.reason.label' | translate }}"   formControlName="reason" 
+     ></app-raisedisputereason-list-control>
+	 <app-dispute-remarks-control  class="col-sm-12 col-md-6 col-lg-12"   [actionPublisher]="actionMap$.get('otherReason')"     label="{{'raisedisputedebitcard.otherReason.label' | translate }}" placeholder="{{'raisedisputedebitcard.otherReason.placeholder'| translate }}"  formControlName="otherReason" ></app-dispute-remarks-control>
+	     
+	     
+			  <fpx-multi-file-upload  #fpxControl  class="col-sm-12 col-md-6 col-lg-12"   [actionPublisher]="actionMap$.get('supportingDocuments')"     label="{{'raisedisputedebitcard.supportingDocuments.label' | translate }}"   formControlName="supportingDocuments" [extensions]="state.supportingDocuments.extensions" [isMultiFileUpload]="false"
+			  [ngTemplateName]="'fileUploadTmplt'"></fpx-multi-file-upload>
+	     
+			<fpx-display-text class="info-field-value"
+				[innerHTML]="'raisedisputedebitcard.infoNote.text' | translate"
+				[literals]="commonFormInput"></fpx-display-text>
+	      
+			  <app-remarks-control  class="col-sm-12 col-md-6 col-lg-12"   [actionPublisher]="actionMap$.get('remarks')"     label="{{'raisedisputedebitcard.remarks.label' | translate }}" placeholder="{{'raisedisputedebitcard.remarks.placeholder'| translate }}"  formControlName="remarks" 
+   ></app-remarks-control>
+		<box  id="000_9"  class="col-md-12 grid  main-group  ">
+	     
+		</box>
+	 </box> 
+	 <box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-12 grid main-group disclaimer-box">
+
+		<app-terms-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+			label="{{'raisedisputedebitcard.termsFlag.label' | translate }}" formControlName="termsFlag"
+			[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+
+	</box>
+	 </box>
+	</form>
+	

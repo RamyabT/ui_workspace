@@ -1,0 +1,32 @@
+.session-active-content-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    .session-active-illustrator{
+        text-align: center;
+    }
+    .session-active-content{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+        padding: 0 36px;
+
+        .body-text{
+            min-height: 60px;
+        }
+    }
+
+    .form-footer-actions{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 16px 28px;
+
+        @include not-small-screen{
+            position: absolute;
+            bottom: 0;
+        }
+    }
+    
+}

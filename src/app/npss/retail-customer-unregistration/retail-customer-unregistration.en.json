@@ -1,0 +1,11 @@
+"RetailCustomerUnregistration":{
+"title":"Customer Unregistration",
+		 "termsFlag": {
+		  "label":"I hereby agree and give consent to unregister the selected account from NPSS" ,
+		  "placeholder": "I hereby agree and give consent to unregister the selected account from NPSS"
+		  } ,
+		 "FieldId_1": {
+		  "label":"Please select the below checkbox to unregister your account for NPSS" ,
+		  "placeholder": "Please select the below checkbox to unregister your account for NPSS"
+		  } 
+}

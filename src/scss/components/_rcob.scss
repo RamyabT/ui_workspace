@@ -1,0 +1,1365 @@
+.prelogin-layout {
+  .prelogin-body-inner {
+    app-cob-product-selection-form{
+      > form {
+        min-height: unset !important;
+        padding-bottom: 0 !important;
+      }
+    }
+    .product-selection-wrapper {
+      position: relative;
+
+      @include small-screen{
+        height: 100vh;
+      }
+
+      .form-footer-actions{
+        padding: 20px 24px;
+
+        .back-btn{
+          color: var(--neutral50);
+        }
+        .apply-btn{
+          background-color: #FFFFFF;
+          color: var(--secondary500);
+
+          &:disabled{
+            color: var(--btnDisabledClr);
+          }
+        }
+      }
+    }
+
+    .read-more-view{
+      .product-selection-wrapper{
+        .form-footer-actions{
+          justify-content: center;
+          .back-btn{
+            display: none;
+          }
+          // .apply-btn{
+          //   width: 100%;
+          // }
+        }
+      }
+    }
+
+    .arn-number {
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-radius: 0 20px;
+      background: #E7EDF0;
+      padding: 1px 16px;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 500;
+      color: var(--primary500);
+    }
+
+  }
+}
+
+#depAppBody{
+  .prelogin-layout {
+    &.onboarding {
+      .prelogin-body-inner {
+        .shell-content > * > form{
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+app-prelogin-container .prelogin-layout {
+  .shell-container {
+
+    app-verify-otp-form,
+    app-cob-document-checklist, app-cob-document-checklist-form,
+    app-address-detail-form,
+    app-cob-key-facts-statements-form {
+      .entry-form {
+        padding: unset;
+        background: unset;
+        box-shadow: unset;
+      }
+    }
+
+    app-cob-photo-id-match-form {
+
+      .entry-form,
+      .document-data {
+        margin-bottom: 0;
+      }
+    }
+
+
+    .pre-photoidscan,
+    .document-data {
+      padding: unset;
+      background: unset;
+      box-shadow: unset;
+    }
+
+    app-cob-product-selection-form {
+      .product-segment {
+        display: flex;
+        gap: 10px;
+        overflow: scroll;
+        margin: 10px 24px 15px;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        .segment {
+          // width: 82px;
+          height: 38px;
+          border: 1px solid #FFF;
+          padding: 8px 12px;
+          border-radius: 40px;
+          color: #FFF;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 22px;
+          text-align: center;
+
+          &.active {
+            background: #FFF;
+            color: var(--baseTxtClr);;
+          }
+        }
+      }
+
+      .read-more {
+        margin-top: 14px;
+        padding-bottom: 56px;
+      }
+
+      .read-more-view {
+        .product-segment {
+          display: none;
+        }
+      }
+    }
+
+    app-cob-applicants-form {
+      app-applicant-otp-control {
+        .indicator {
+          display: none;
+        }
+
+        .custom-indicator {
+          color: #ff0000;
+        }
+      }
+
+      .mobile-control {
+        position: relative;
+      }
+      .mobile-num{
+        display: flex;
+        gap: 12px;
+      }
+  
+
+
+
+      .countrycode-action {
+        position: absolute;
+        top: calc(56px - 8px);
+        margin-left: 10px;
+        width: 40px;
+      }
+
+
+    }
+
+    app-cob-key-facts-statements-form {
+      > form {
+        background-color: #F6FFFE;
+        padding: 40px 24px 24px;
+
+        .form-body{
+          flex: 1;
+          flex-grow: 1;
+          flex-shrink: 0;
+        }
+
+        .kf-header {
+          .kf-title {
+            color: var(--baseTxtClr);;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 24px;
+            margin-bottom: 12px;
+          }
+
+          .kf-description {
+            // @include b2-regular;
+            font-size: 14px;
+            font-weight: 400;
+
+            color: var(--baseTxtClr);;
+            line-height: 22px;
+          }
+        }
+
+        .kf-link {
+          margin: 10px;
+          color: #12486B;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+          width: 100%;
+
+          &::before {
+            content: '';
+            background: url(../../assets/images/rcob/open-link.svg) no-repeat 50% 50% transparent !important;
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            margin-right: 12px;
+          }
+        }
+        .kf-open-link {
+          margin: 0 auto;
+        }
+        .kf-terms {
+          border-radius: 12px;
+          background: #FFF;
+          box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.06);
+          padding: 20px 16px;
+          display: flex;
+          justify-content: space-between;
+          gap: 20px;
+          flex-direction: column;
+
+          .notes {
+            // @include b2-regular;
+            font-size: 14px;
+            font-weight: 400;
+
+            color: var(--baseTxtClr);;
+            line-height: 22px;
+          }
+        }
+        .btn-container {
+          justify-content: center;
+      }
+      }
+    }
+
+    app-verify-otp-form {
+      .header {
+        flex-direction: column;
+
+        .title {
+          margin-bottom: 12px;
+        }
+      }
+    }
+
+    app-cob-document-checklist, app-cob-document-checklist-form {
+      .dc-image {
+        width: 100%;
+        text-align: center;
+        margin: 30px 0 0px;
+
+        img {
+          width: 269px;
+          height: 200px;
+        }
+      }
+
+      .dc-pre-request-header {
+        color: var(--baseTxtClr);;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        font-family: Helvetica Neue;
+      }
+
+      .dc-pre-request-document {
+        margin-top: 20px;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+
+          li {
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 600;
+            color: var(--bodyTxtClr);
+
+            display: flex;
+            gap: 12px;
+
+            span:not(.document-description) {
+              border: 1.2px solid var(--baseTxtClr);;
+              border-radius: 50%;
+              width: 24px;
+              height: 24px;
+              display: block;
+              text-align: center;
+            }
+          }
+        }
+
+        .dc-categories {
+          font-weight: bold;
+          font-family: Helvetica Neue;
+          margin-bottom: 10px;
+          margin-top: 10px;
+        }
+      }
+
+      .dc-note {
+        h3 {
+          color: var(--baseTxtClr);;
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 20px;
+          margin: 0 0 12px;
+        }
+
+        .notes {
+          color: var(--baseTxtClr);;
+          font-size: 14px;
+          font-weight: 500;
+        }
+      }
+    }
+
+    app-cob-photo-id-match-form {
+      .entry-form {
+        .dc-image {
+          width: 100%;
+          text-align: center;
+
+          img {
+            width: 315px;
+            height: 315px;
+          }
+        }
+
+        .dc-note {
+          color: var(--baseTxtClr);;
+          text-align: center;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 22px;
+        }
+
+        .primary {
+          position: absolute;
+          bottom: 36px;
+          right: 24px;
+          left: 24px;
+        }
+
+        .document-images {
+          border-radius: 12px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          overflow: auto;
+          width: 100%;
+          gap: 12px;
+
+          img {
+            width: 157px;
+            height: 99px;
+            border-radius: 8px;
+            border: 1px solid #12486B;
+          }
+
+          .img-desc {
+            color: var(--bodyTxtClr);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 22px;
+            text-align: center;
+          }
+        }
+
+        .document-data {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+
+          .ocr-field {
+            display: flex;
+            flex-direction: column;
+
+            .lbl {
+              // width: 40%;
+              display: block;
+              font-weight: bold;
+              flex: 1;
+              color: var(--bodyTxtClr);
+              font-size: 14px;
+              font-weight: 500;
+              line-height: 22px;
+            }
+
+            .val {
+              color: var(--baseTxtClr);
+              font-size: 16px;
+              font-weight: bold;
+              line-height: 24px;
+              word-wrap: break-word;
+            }
+          }
+        }
+      }
+
+    }
+
+    app-cob-liveness-check-form {
+      .entry-form {
+        .title {
+          text-align: center;
+        }
+
+        .dc-image {
+          width: 100%;
+          text-align: center;
+
+          img {
+            width: 106px;
+            height: 154px;
+          }
+        }
+
+        .dc-selfie-image {
+          width: 280px;
+          height: 280px;
+          border-radius: 50%;
+          text-align: center;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+
+          img {
+            // width: 100%;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            @include not-small-screen {
+              width: 280px;
+              height: 280px;
+            }
+          }
+        }
+
+        .dc-note {
+          color: var(--baseTxtClr);;
+          text-align: center;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 22px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          margin-top: 8px;
+
+          div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .liveness-note1 {
+              width: 59px;
+              height: 89px;
+              flex-shrink: 0;
+              margin-right: 12px;
+            }
+
+            .liveness-note2 {
+              width: 71px;
+              height: 79px;
+            }
+
+            .liveness-note3 {
+              width: 50.351px;
+              height: 66px;
+              margin-right: 20px;
+            }
+          }
+        }
+      }
+    }
+
+    app-cob-applicant-signature-form {
+      .entry-form {
+        .title {
+          // width: 50%;
+        }
+
+        .upload-field-group {
+          width: 100%;
+
+          .upload-field {
+            border-radius: 10px;
+            border: 1px dashed #12486B;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            background: #FFF;
+            padding-bottom: 8px;
+
+            .upload-doc-button {
+              color: #12486B;
+              font-size: 16px;
+              font-weight: 500;
+              line-height: 24px;
+              padding: 10px 40px;
+              height: 44px;
+
+              label {
+                height: unset;
+              }
+
+              img {
+                display: none;
+              }
+
+              text-decoration: underline;
+            }
+
+            .or {
+              color: #818181;
+              font-size: 14px;
+              font-weight: 500;
+              line-height: 22px;
+            }
+
+            .secondary {
+              padding: 10px 40px;
+            }
+
+            .support-files {
+              color: #818181;
+              font-size: 14px;
+              font-weight: 500;
+              line-height: 22px;
+              text-align: center;
+            }
+          }
+
+        }
+
+        .doc-img-preview-wrapper {
+          text-align: center;
+
+          img {
+            width: 216px;
+            height: 164px;
+            border-radius: 10px;
+            border: 1px dashed #12486B;
+            background: #FFF;
+          }
+        }
+      }
+    }
+
+    app-cob-applicantprofile-form {
+      .entry-form {
+        .entry-form-field-group {
+          flex-direction: column;
+        }
+        .rule {
+          color: #818181;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 22px;
+          display: flex;
+          align-items: flex-start;
+          gap: 8px;
+
+          &:before {
+            content: " ";
+            opacity: 0;
+            width: 20px;
+            min-width: 20px;
+            height: 20px;
+            display: block;
+            background: url(../../assets/images/icons/tick.svg) no-repeat center transparent;
+          }
+
+          &.valid:before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    app-prelogin-result-form {
+      .mat-checkbox-inner-container {
+        margin-top: 0px;
+      }
+
+      .additional-info {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+      }
+    }
+
+  }
+}
+
+.cob-product-selection {
+  .prelogin-layout .prelogin-body .prelogin-body-inner {
+    background-color: #016B83 !important;
+
+    .shell-container {
+      background-color: #016B83 !important;
+
+      .shell-header {
+        display: none;
+      }
+
+      .shell-content {
+        padding: 0 !important;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        .shell-header {
+          background: unset;
+          background-color: #016B83 !important;
+          display: block;
+          min-height: 80px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          z-index: 1;
+          position: relative;
+
+          img {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+          }
+
+          .shell-header__title {
+            color: var(--shellHeaderTtlClrMob) !important;
+          }
+        }
+      }
+    }
+
+    .shell-footer {
+      background-color: #016B83 !important;
+
+      .btn-primary {
+        background: #FFF;
+        color: #12486B;
+        font-size: 16px;
+      }
+
+      .btn-tertiary {
+        color: #FFF;
+        font-size: 16px;
+      }
+
+      button:is(.primary, .secondary, .tertiary, .btn-primary, .btn-secondary, .btn-tertiary):disabled:is(.primary, .btn-primary) {
+        color: #ABABAB;
+        background-color: #F9F9F9;
+        border: none;
+      }
+    }
+
+  }
+}
+
+app-prelogin-check {
+  .custom-forms {
+    margin-bottom: 88px;
+
+    .shell-footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      right: 0;
+      padding: 0 16px 36px;
+
+      button:is(.primary, .secondary, .tertiary, .btn-primary, .btn-secondary, .btn-tertiary) {
+        padding: 10px 51px;
+      }
+    }
+  }
+}
+
+app-cob-document-checklist, app-cob-document-checklist-form {
+  .dc-pre-header {
+    color: var(--baseTxtClr);;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  .dc-pre-document {
+    margin-top: 20px;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      li {
+        color: var(--baseTxtClr);;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+        display: flex;
+        gap: 12px;
+
+        span {
+          border: 1.2px solid var(--baseTxtClr);;
+          border-radius: 50%;
+          width: 24px;
+          height: 24px;
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+app-cob-key-facts-statements-form {
+  .kfs-lbl-content {
+    position: relative;
+    margin-top: -40px;
+    margin-left: 30px;
+    line-height: 21px;
+
+  }
+
+  .action-link {
+    color: #12486B;
+
+  }
+}
+
+app-read-terms-and-conditions,
+app-additionalDocument {
+  .Accept-actions {
+    margin-left: 15px;
+    font-size: 16px;
+    margin-bottom: 14px;
+
+  }
+
+  #product-desc {
+    position: relative;
+    overflow-y: scroll;
+    width: 90%;
+    height: 330px;
+    color: black;
+    margin-left: 25px;
+    margin-top: 10px;
+    padding: 7px 0px 0px 13px;
+    background-color: beige;
+
+  }
+
+  .product-description {
+    width: 95%;
+    position: relative;
+    display: block;
+  }
+
+  .product-header {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .product-body {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .note-Txt {
+    position: relative;
+    display: flex;
+    margin-left: 18px;
+    margin-bottom: 4px;
+    width: 90%;
+  }
+}
+login-read-terms-and-conditions,
+app-additionalDocument {
+  .Accept-actions {
+    margin-left: 15px;
+    font-size: 16px;
+    margin-bottom: 14px;
+
+  }
+
+  #product-desc {
+    position: relative;
+    overflow-y: scroll;
+    width: 90%;
+    // height: 330px;
+    color: black;
+    margin-left: 25px;
+    margin-top: 10px;
+    padding: 7px 0px 0px 13px;
+    // background-color: beige;
+
+  }
+
+  .product-description {
+    width: 95%;
+    position: relative;
+    display: block;
+  }
+
+  .product-header {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .product-body {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .note-Txt {
+    position: relative;
+    display: flex;
+    margin-left: 18px;
+    margin-bottom: 4px;
+    width: 90%;
+    // margin-top: 200px;
+  }
+}
+app-read-terms-and-conditions fpx-checkbox.fpx-form-control .mat-checkbox-layout {
+  pointer-events: none;
+}
+
+app-cob-applicantprofile-form {
+  .entry-form {
+    .rule {
+      color: #818181;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+
+      &:before {
+        content: " ";
+        opacity: 0;
+        width: 20px;
+        min-width: 20px;
+        height: 20px;
+        display: block;
+        background: url(../../assets/images/icons/tick.svg) no-repeat center transparent;
+      }
+
+      &.valid:before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+app-kfs-checkbox-control fpx-checkbox.fpx-form-control .mat-checkbox-layout {
+  pointer-events: none;
+}
+
+app-applicant-mobile-number-control {
+
+  .fpx-form-control {
+    .placeholder {
+      // margin-left: 40px;
+      padding: 10px;
+    }
+
+    .fpx-field-content {
+      position: relative;
+      // padding: 0px 52px !important;
+    }
+  }
+}
+
+
+app-fatca-confirmation-form {
+  .fatca-header {
+    font-family: Helvetica Neue;
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 17px;
+    text-align: left;
+  }
+
+  .fatca-content1 {
+    position: relative;
+    color: #0087a5;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .fatca-content2 {
+    color: #0087a5;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+
+  }
+
+  .fatca-button {
+    background-color: rgb(231, 223, 223);
+    color: rgb(6, 6, 68);
+    box-shadow: 0px 0px 4px 0px rgba(99, 96, 96, 0.24) !important;
+    width: 91%;
+    height: 66px;
+    font-weight: bold;
+    border-radius: 7px;
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+
+  .fatca-link {
+    margin-top: 15px;
+    font-size: 15px;
+    line-height: 20px;
+    color: rgb(87, 69, 107);
+    font-weight: bold;
+
+
+  }
+
+  .fatca-container {
+    text-align: center;
+    font-family: Helvetica Neue;
+
+  }
+
+  .fatca-box {
+    position: relative;
+    margin-top: 5px;
+  }
+
+
+
+  .dc-pre-request-document {
+    margin-top: 20px;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      li {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 600;
+        color: var(--bodyTxtClr);
+        display: flex;
+        gap: 3px;
+
+        span {
+          width: 12px;
+          height: 24px;
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  // .dc-pre-request-document {
+  //   margin-top: 12px;
+  //   width: 100%;
+
+  //   ul {
+  //     gap: 20px;
+
+  //     li 
+  //     {
+  //       font-size: 14px;
+  //       line-height: 22px;
+  //       font-weight: 600;
+  //       color: #575757;
+  //       text-align: justify;
+  //       font-family: Helvetica Neue;
+  //     }
+  //   }
+  // }
+
+}
+
+app-fatca-rejected-form {
+  .close-img {
+    width: 86%;
+    margin: auto;
+    border-radius: 20px;
+  }
+
+  .close-action {
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+  }
+
+}
+
+app-retail-reset-password-form {
+  .entry-form {
+    .rule {
+      color: #818181;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+
+      &:before {
+        content: " ";
+        opacity: 0;
+        width: 20px;
+        min-width: 20px;
+        height: 20px;
+        display: block;
+        background: url(../../assets/images/icons/tick.svg) no-repeat center transparent;
+      }
+
+      &.valid:before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// app-retail-change-password-form {
+//   .entry-form {
+//     .rule {
+//       color: #818181;
+//       font-size: 14px;
+//       font-weight: 400;
+//       line-height: 22px;
+//       display: flex;
+//       align-items: flex-start;
+//       gap: 8px;
+
+//       &:before {
+//         content: " ";
+//         opacity: 0;
+//         width: 20px;
+//         min-width: 20px;
+//         height: 20px;
+//         display: block;
+//         background: url(../../assets/images/icons/tick.svg) no-repeat center transparent;
+//       }
+
+//       &.valid:before {
+//         opacity: 1;
+//       }
+//     }
+//   }
+// }
+
+@include not-small-screen {
+  .prelogin-layout .prelogin-body .prelogin-body-inner .shell-container .shell-content {
+
+    // app-cob-product-selection-form,
+    // app-cob-photo-id-match-form,
+    // app-cob-nfc-form,
+    // app-cob-liveness-check-form,
+    // app-cob-applicant-signature-form {
+
+    //   .entry-form,
+    //   .custom-forms {
+    //     margin-bottom: unset;
+
+    //     .shell-footer {
+    //       position: unset;
+    //       width: 100%;
+    //       margin-top: 8px;
+    //       z-index: 1;
+    //       position: relative;
+    //     }
+    //   }
+    // }
+
+    app-cob-key-facts-statements-form {
+      form {
+        .kf-terms {
+          box-shadow: none;
+        }
+      }
+    }
+
+    app-verify-otp-form {
+      .entry-form {
+        flex-direction: column;
+
+        >* {
+          width: 100%;
+        }
+
+        .otp-form-content {
+          width: 100%;
+
+          .tfa-message {
+            font-weight: 400;
+          }
+
+          &::after {
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+
+    app-cob-document-checklist, app-cob-document-checklist-form {
+      .entry-form {
+        .dc-image {
+          margin: 0 auto;
+        }
+
+        .dc-pre-request-header {
+          font-weight: 500;
+        }
+
+        .dc-pre-request-document {
+          margin-top: 12px;
+          width: 100%;
+
+          ul {
+            gap: 20px;
+
+            li {
+              font-weight: 400;
+              line-height: 24px;
+            }
+          }
+        }
+      }
+    }
+
+    app-cob-photo-id-match-form {
+      .entry-form {
+        box-shadow: unset;
+        padding: 0;
+        gap: 20px;
+        margin-bottom: 0;
+
+        .dc-image {
+          img {
+            width: 200px;
+            height: 200px;
+          }
+        }
+
+        .dc-pre-request-header {
+          font-weight: 500;
+          text-align: left;
+          margin: unset;
+        }
+
+        .document-images {
+          flex-direction: row;
+          gap: 28px;
+
+          .image-group {
+            text-align: center;
+
+            img {
+              width: 100%;
+              height: 221px;
+              border-radius: 8px;
+              border: 2.229px solid #fff;
+            }
+
+            .img-desc {
+              color: var(--bodyTxtClr);
+              font-size: 14px;
+              font-weight: 500;
+              line-height: 22px;
+            }
+          }
+        }
+
+        .document-data {
+          .ocr-field {
+            flex-direction: column;
+          }
+        }
+      }
+    }
+
+    app-cob-liveness-check-form {
+      .entry-form {
+        .dc-image {
+          margin: 0 auto;
+
+          img {
+            width: 162px;
+            height: 138px;
+          }
+        }
+
+        .title {
+          font-weight: 500;
+          text-align: left;
+          margin: unset;
+        }
+
+        .dc-note {
+          margin-top: 0;
+
+          div {
+            gap: 0px;
+
+            .liveness-note1 {
+              width: 35px;
+              height: 44px;
+              flex-shrink: 0;
+              margin-right: 19px;
+            }
+
+            .liveness-note2 {
+              width: 48px;
+              height: 45px;
+              margin-right: 6px;
+            }
+
+            .liveness-note3 {
+              width: 31.364px;
+              height: 46.941px;
+              margin: 0 19px 0 2px;
+            }
+          }
+        }
+      }
+    }
+
+    app-cob-applicant-signature-form {
+      .entry-form {
+        .upload-field-group {
+          display: flex;
+          justify-content: center;
+
+          .upload-field {
+            width: 303px;
+          }
+        }
+
+        .field-set {
+          width: 100%;
+        }
+      }
+    }
+
+    app-cob-applicantprofile-form {
+      .entry-form {
+        flex-direction: column;
+        position: relative;
+
+        .col-lg-6 {
+          width: 350px;
+        }
+
+        .profile-rule {
+          border-radius: 12px;
+          border: 1px solid #cce1e6;
+          background: #f6fffe;
+          padding: 16px 29px 16px 16px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 4px;
+          width: 350px;
+          position: absolute;
+          right: 0;
+          top: 105px;
+        }
+      }
+    }
+  }
+}
+
+app-self-declaration-flag-control .mat-radio-group-wrapper.fpx-field-content {
+  display: flex;
+  width: 100%;
+  justify-content: left;
+
+}
+
+
+#depAppBody app-fatca-confirmation-form .fpx-form-control fpx-label {
+  font-size: 13px;
+  font-weight: bold;
+  color: gray;
+  margin-top: -10px;
+}
+
+
+#depAppBody app-fatca-confirmation-form .mat-radio-group {
+  display: flex;
+  gap: 50px;
+}
+
+app-onboarding-close-form {
+  .close-img {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    flex: unset;
+  }
+
+  .errdesc {
+    font-weight: bold;
+    text-align: center;
+    font-size: larger;
+  }
+  .errcode{
+    font-weight: bold;
+    text-align: center;
+    font-size: larger;
+  }
+
+  .close-action {
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+
+  }
+
+  
+
+
+}

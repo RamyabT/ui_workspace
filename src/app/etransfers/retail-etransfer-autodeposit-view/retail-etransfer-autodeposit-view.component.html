@@ -1,0 +1,72 @@
+
+  <form>
+    <box *ngIf="!_helper._device.isMobile()" class="view-scheduled-bills-form">
+        <box class="back-wrapper">
+            <box class="back-btn" (click)="_helper.backToeTransfers()">
+                <span class="ico ico-back"></span>
+                <span class="back-text font-14-20">{{'RetailManageEtransferContactlog.header.backToeTransfers' | translate}}</span>
+            </box>
+
+            <box *ngIf="state.gridData>0 && state.gridData<5" class="schedule-bill-btn add-contact-btn add-email-btn add-autodeposit-btn">
+                <button class="btn-primary" (click)="_helper.addAutoDeposit()">
+                    <span class="add-payee-text">{{'RetailManageEtransferContactlog.header.registerAutodeposit' | translate}}</span>
+                </button>
+            </box>
+        </box>
+
+
+        <box class="schedule-bill-form">
+            <box class="schedule-bill-form-header">
+                {{'RetailManageEtransferContactlog.header.autodeposit' | translate}}
+            </box>
+        </box>
+    </box>
+  <box class="entry-form">
+		<box class="grid entry-form-field-group col-sm-12 col-md-12 col-lg-12">
+            <ng-container *ngIf="state.gridData==0; else data">
+                <!-- <span>Receive transfers automatically</span><br>
+                <span>Register up to 5 emails for Autodeposit to automatically deposit Interac 
+                    e-Transfers® into your selected account without the need to answer a security 
+                    question. </span><br>
+                    <span class="interac-logo"><img src="./assets/images/icons/setup-autodeposit.svg"
+                        alt="interac trade mark" /></span>
+                <button type="button" class="btn-primary" (click)="_helper.addAutoDeposit()">
+                    <span class="label">{{"Register an email"}}</span></button> -->
+           
+                    <box class="no-result-view ">
+                        <box class="contact-img">
+                            <img class="no-result-image" src="./assets/interac/interac-setup-autodeposit.svg" alt="">
+                        </box>
+                        <box class="no-result-title">{{'RetailEtransferautodepositView.header' | translate}}</box>
+                        <box class="no-result-desc">{{'RetailEtransferautodepositView.description' | translate}}</box>
+                        <box class="btn-wrapper" (click)="_helper.addAutoDeposit()">
+                            <span class="contact-btn-icon"></span>
+                            <span class="primary">{{'RetailEtransferautodepositView.registerAutodepositBtn.label' | translate}}</span>
+                        </box>
+                    </box> 
+            </ng-container>
+            <ng-template #data>
+                <box class="why-interac-autodeposit">
+                    <box class="grid transaction-container">
+                        <box class="transactions-stmt-grid-wrapper col-12">
+                            <ng-container *ngIf="state.isDataReceived; else loader">
+                            </ng-container>
+                            <app-retail-etransfe-auto-deposit-ro-grid [actionPublisher]="actionMap$.get('autodepositdetailsGrid')"
+                                (commonRoGridEvent)="_helper.handleETransfersAutoDepositGridEvent($event)"></app-retail-etransfe-auto-deposit-ro-grid>
+                        </box>
+                    </box>
+                </box>
+                <box *ngIf="_helper._device.isMobile()" class="interac-btn">
+                    <button type="button" class="btn-primary" [hidden]="!_helper.showRegisterAutoDeposit" (click)="_helper.addAutoDeposit()">
+                        <span class="label">{{'RetailEtransferautodepositView.registerAutodepositBtn.label' | translate}}</span></button>
+                </box>
+            
+                <ng-template #loader>
+                    <box class="loading"></box>
+                </ng-template>
+            
+            </ng-template>
+        </box>
+    </box>
+</form>
+

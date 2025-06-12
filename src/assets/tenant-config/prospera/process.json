@@ -1,0 +1,2808 @@
+{
+    "CORPCHQBKREQ": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        },
+        "ErrorEnd": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPOPENNEWCASA": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPESTMTREQ": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPBENECC": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPBENEDOMESTIC": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPBENECBAED": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPBENEINTL": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPBENEINTERNAL": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPOPENNEWDEPOSIT": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "deposits-space",
+                "entry-shell",
+                "deposits",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "deposits-space",
+                "entry-shell",
+                "deposits",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPACCNICKNAME": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "SuccessEnd": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPDELNICKNAME": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "SuccessEnd": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPADDNICKNAME": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "SuccessEnd": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPDDREQ": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPMULTIACCSTMTREQ": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPSTOPCHEQUE": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPSTOPCHEQUEREV": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPACCBALREQ": {
+        "SuccessEnd": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPCHNGMATURITYINSTR": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "deposits-space",
+                "entry-shell",
+                "deposits",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "deposits-space",
+                "entry-shell",
+                "deposits",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPTRANOAT": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPTRANDOMESTIC": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPTRANCC": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPTRANINTBT": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPTRANSWIFT": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPTRANCBAED": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPSCHDOM": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPSCHOAT": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPSCHCC": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPSCHINTBT": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPSCHAED": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPSCHSWIFT": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPSCHCBAED": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPLOANPREPAYMENT": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "loans-space",
+                "entry-shell",
+                "loans",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "loans-space",
+                "entry-shell",
+                "loans",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPLOANMODIFICATION": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "loans-space",
+                "entry-shell",
+                "loans",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "loans-space",
+                "entry-shell",
+                "loans",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPLOANREPAYMENT": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "loans-space",
+                "entry-shell",
+                "loans",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "loans-space",
+                "entry-shell",
+                "loans",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPAPPLYLOAN": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "loans-space",
+                "entry-shell",
+                "loans",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "loans-space",
+                "entry-shell",
+                "loans",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPLOANDRAWDOWN": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "loans-space",
+                "entry-shell",
+                "loans",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "loans-space",
+                "entry-shell",
+                "loans",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPLOANCLOSURE": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "loans-space",
+                "entry-shell",
+                "loans",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "loans-space",
+                "entry-shell",
+                "loans",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPLOANSTATEMENT": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "loans-space",
+                "entry-shell",
+                "loans",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "loans-space",
+                "entry-shell",
+                "loans",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPBILLERACCOUNT": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "payments-space",
+                "entry-shell",
+                "payments",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "payments-space",
+                "entry-shell",
+                "payments",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPSINGLEPAYMENT": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "payments-space",
+                "entry-shell",
+                "payments",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "payments-space",
+                "entry-shell",
+                "payments",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPMULTIBILLPAYMENT": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "payments-space",
+                "entry-shell",
+                "payments",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "payments-space",
+                "entry-shell",
+                "payments",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPLOGIN": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "KillPreviousSession": {
+            "path": [
+                "killPreviousSession"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "CheckerEnd": {
+            "path": [
+                "dashboard"
+            ]
+        },
+        "MakerEnd": {
+            "path": [
+                "dashboard"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "dashboard"
+            ],
+            "openAsPopup": 0,
+            "popupSize": "s"
+        },
+        "LoginEnd": {
+            "path": [
+                "login-space",
+                "entry-shell",
+                "login"
+            ],
+            "openAsPopup": 0,
+            "popupSize": "s"
+        },
+        "PasswordExpiry": {
+            "path": [
+                "login-space",
+                "entry-shell",
+                "login",
+                "corp-change-password"
+            ],
+            "openAsPopup": 0,
+            "popupSize": "s"
+        }
+    },
+    "CORPAUTHLOGIN": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "KillPreviousSession": {
+            "path": [
+                "killPreviousSession"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "CheckerEnd": {
+            "path": [
+                "dashboard"
+            ]
+        },
+        "MakerEnd": {
+            "path": [
+                "dashboard"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "dashboard"
+            ],
+            "openAsPopup": 0,
+            "popupSize": "s"
+        },
+        "LoginEnd": {
+            "path": [
+                "login-space",
+                "entry-shell",
+                "login"
+            ],
+            "openAsPopup": 0,
+            "popupSize": "s"
+        },
+        "PasswordExpiry": {
+            "path": [
+                "login-space",
+                "entry-shell",
+                "login",
+                "corp-change-password"
+            ],
+            "openAsPopup": 0,
+            "popupSize": "s"
+        }
+    },
+    "PRELOGINTFA": {
+        "CheckerEnd": {
+            "path": [
+                "dashboard"
+            ]
+        },
+        "MakerEnd": {
+            "path": [
+                "dashboard"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "dashboard"
+            ],
+            "openAsPopup": 0,
+            "popupSize": "s"
+        },
+        "ErrorEnd": {
+            "path": [
+                "home"
+            ],
+            "openAsPopup": 0,
+            "popupSize": "s"
+        }
+    },
+    "CORPFORGOTUSERNAME": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyEmail": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyMobile": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "SuccessEnd": {
+            "path": [
+                "login-space",
+                "entry-shell",
+                "login",
+                "confirmation-receipt"
+            ],
+            "openAsPopup": 0,
+            "popupSize": "s"
+        }
+    },
+    "CORPFORGOTPASSWORD": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyEmail": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyMobile": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ForgetPassword": {
+            "path": [
+                "login-space",
+                "entry-shell",
+                "login",
+                "corp-reset-password-form"
+            ],
+            "openAsPopup": 0,
+            "popupSize": "s"
+        },
+        "SuccessEnd": {
+            "path": [
+                "login-space",
+                "entry-shell",
+                "login",
+                "confirmation-receipt"
+            ],
+            "openAsPopup": 0,
+            "popupSize": "s"
+        }
+    },
+    "CORPRESETPASSWORD": {
+        "SuccessEnd": {
+            "path": [
+                "login-space",
+                "entry-shell",
+                "login",
+                "confirmation-receipt"
+            ],
+            "openAsPopup": 0,
+            "popupSize": "s"
+        }
+    },
+    "CORPACCOPENING": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "accounts-space",
+                "entry-shell",
+                "accounts",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPDELETEBILLER": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "payments-space",
+                "entry-shell",
+                "payments",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "payments-space",
+                "entry-shell",
+                "payments",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPSALARYFILEUPLOAD": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "bulkpayments-space",
+                "entry-shell",
+                "bulkpayments",
+                "bulkpayments-confirmation-receipt"
+            ]
+        },
+        "VerificationQueue": {
+            "path": [
+                "bulkpayments-space",
+                "entry-shell",
+                "bulkpayments",
+                "bulkpayments-confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "bulkpayments-space",
+                "entry-shell",
+                "bulkpayments",
+                "bulkpayments-confirmation-receipt"
+            ]
+        }
+    },
+    "CORPSALARYTYPE2UPLOAD": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "bulkpayments-space",
+                "entry-shell",
+                "bulkpayments",
+                "bulkpayments-confirmation-receipt"
+            ]
+        },
+        "VerificationQueue": {
+            "path": [
+                "bulkpayments-space",
+                "entry-shell",
+                "bulkpayments",
+                "bulkpayments-confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "bulkpayments-space",
+                "entry-shell",
+                "bulkpayments",
+                "bulkpayments-confirmation-receipt"
+            ]
+        }
+    },
+    "CORPEMPLOYEEFILEUPLOAD": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "bulkpayments-space",
+                "entry-shell",
+                "bulkpayments",
+                "bulkpayments-confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "bulkpayments-space",
+                "entry-shell",
+                "bulkpayments",
+                "bulkpayments-confirmation-receipt"
+            ]
+        }
+    },
+    "CORPSTNGCHANGEPASSWORD": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "SuccessEnd": {
+            "path": [
+                "settings-space",
+                "entry-shell",
+                "settings",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPCREATESERVICEREQ": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "servicerequest-space",
+                "entry-shell",
+                "servicerequest",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "servicerequest-space",
+                "entry-shell",
+                "servicerequest",
+                "confirmation-receipt"
+            ]
+        },
+        "ServiceRequestQueue": {
+            "path": [
+                "servicerequest-space",
+                "entry-shell",
+                "servicerequest",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPBALCONFIRM": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "servicerequest-space",
+                "entry-shell",
+                "servicerequest",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "servicerequest-space",
+                "entry-shell",
+                "servicerequest",
+                "confirmation-receipt"
+            ]
+        },
+        "ServiceRequestQueue": {
+            "path": [
+                "servicerequest-space",
+                "entry-shell",
+                "servicerequest",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPCONTACTRMREQ": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "SuccessEnd": {
+            "path": [
+                "settings-space",
+                "entry-shell",
+                "settings",
+                "confirmation-receipt"
+            ]
+        },
+        "ApprovalQueue": {
+            "path": [
+                "settings-space",
+                "entry-shell",
+                "settings",
+                "confirmation-receipt"
+            ]
+        },
+        "ServiceRequestQueue": {
+            "path": [
+                "settings-space",
+                "entry-shell",
+                "settings",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPMANAGEPROFILE": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "SuccessEnd": {
+            "path": [
+                "settings-space",
+                "display-shell",
+                "settings"
+            ]
+        }
+    },
+    "CORPCUSTOMERINFOLOG": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "SuccessEnd": {
+            "path": [
+                "settings-space",
+                "entry-shell",
+                "settings",
+                "confirmation-receipt"
+            ]
+        },
+        "ServiceRequestQueue": {
+            "path": [
+                "settings-space",
+                "entry-shell",
+                "settings",
+                "confirmation-receipt"
+            ]
+        },
+        "ApprovalQueue": {
+            "path": [
+                "settings-space",
+                "entry-shell",
+                "settings",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CHECKERWF": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "SuccessEnd": {
+            "path": [
+                "workflow-space",
+                "entry-shell",
+                "foundation",
+                "wf-confirmation-receipt"
+            ]
+        },
+        "ErrorEnd": {
+            "path": [
+                "workflow-space",
+                "entry-shell",
+                "foundation",
+                "wf-confirmation-receipt"
+            ]
+        },
+        "RecallSuccessEnd": {
+            "path": [
+                "PROCESSEND"
+            ]
+        },
+        "RecallErrorEnd": {
+            "path": [
+                "PROCESSEND"
+            ]
+        },
+        "StopSuccessEnd": {
+            "path": [
+                "PROCESSEND"
+            ]
+        },
+        "StopErrorEnd": {
+            "path": [
+                "PROCESSEND"
+            ]
+        }
+    },
+    "CORPBENEDOMESTICDELETE": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPBENECCDELETE": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPBENEINTERNALDELETE": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPBENECBAEDDELETE": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPBENEINTLDELETE": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "transfers-space",
+                "entry-shell",
+                "transfers",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPDCBLOCK": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "debitcards-space",
+                "entry-shell",
+                "debitcard",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "debitcards-space",
+                "entry-shell",
+                "debitcard",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPDCREPLACE": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "debitcards-space",
+                "entry-shell",
+                "debitcard",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "debitcards-space",
+                "entry-shell",
+                "debitcard",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPDCUNBLOCK": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "debitcards-space",
+                "entry-shell",
+                "debitcard",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "debitcards-space",
+                "entry-shell",
+                "debitcard",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPDCACTIVECARD": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "debitcards-space",
+                "entry-shell",
+                "debitcard",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "debitcards-space",
+                "entry-shell",
+                "debitcard",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPDCCHANGEPIN": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "debitcards-space",
+                "entry-shell",
+                "debitcard",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "debitcards-space",
+                "entry-shell",
+                "debitcard",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPDCLIMITS": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "debitcards-space",
+                "entry-shell",
+                "debitcard",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "debitcards-space",
+                "entry-shell",
+                "debitcard",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPCCUNBLOCK": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        }
+    },
+    "CORPCCLIMITS": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        }
+    },
+    "CCREPLACEMENT": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        },
+        "ServiceRequestQueue":{
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        }
+    },
+    "CORPDCDISPUTE": {
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "debitcards-space",
+                "entry-shell",
+                "debitcard",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "debitcards-space",
+                "entry-shell",
+                "debitcard",
+                "confirmation-receipt"
+            ]
+        }
+    },
+    "CORPAPPLYDEBITCARD": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "debitcards-space",
+                "entry-shell",
+                "debitcard",
+                "confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "debitcards-space",
+                "entry-shell",
+                "debitcard",
+                "confirmation-receipt"
+            ]
+        },
+        "ServiceRequestQueue":{
+            "path": [
+                "debitcards-space",
+                "entry-shell",
+                "debitcard",
+                "confirmation-receipt"
+            ]
+        }
+   },
+    "CORPCCCHANGEPIN": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        }
+    },
+    "CORPCCDISPUTE": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        }
+    },
+    "CORPCCBILLPAYMENT": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        }
+    },
+    "CORPCCBLOCK": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        }
+    },
+    "CORPPCBLOCK": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "prepaidcard-space",
+                "entry-shell",
+                "prepaidcard",
+                "prepaidcard-confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "prepaidcard-space",
+                "entry-shell",
+                "prepaidcard",
+                "prepaidcard-confirmation-receipt"
+            ]
+        }
+    },
+    "CORPCCACTIVATION": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        }
+    },
+    "CORPCCLIMITCHANGE": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "creditcards-space",
+                "entry-shell",
+                "creditcard",
+                "creditcard-confirmation-receipt"
+            ]
+        }
+    },
+    "CORPCHANGEPASSWORD":{
+        "SuccessEnd": {
+        "path": [
+            "login-space",
+            "entry-shell",
+            "login",
+            "confirmation-receipt"
+        ]
+    }
+},
+"CORPPCACTIVATE": {
+    "DeliveryModeSelection": {
+        "path": [
+            "deliveryModeSelection"
+        ],
+        "openAsPopup": 1,
+        "popupSize": "s"
+    },
+    "VerifyTFA": {
+        "path": [
+            "verifyTFA"
+        ],
+        "openAsPopup": 1,
+        "popupSize": "s"
+    },
+    "ApprovalQueue": {
+        "path": [
+            "debitcards-space",
+            "entry-shell",
+            "debitcard",
+            "confirmation-receipt"
+        ]
+    },
+    "SuccessEnd": {
+        "path": [
+            "debitcards-space",
+            "entry-shell",
+            "debitcard",
+            "confirmation-receipt"
+        ]
+    }
+},
+"CORPPCCHANGEPIN": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "prepaidcard-space",
+                "entry-shell",
+                "prepaidcard",
+                "prepaidcard-confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "prepaidcard-space",
+                "entry-shell",
+                "prepaidcard",
+                "prepaidcard-confirmation-receipt"
+            ]
+        }
+    },
+    "CORPPCUNBLOCK": {
+        "DeliveryModeSelection": {
+            "path": [
+                "deliveryModeSelection"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "VerifyTFA": {
+            "path": [
+                "verifyTFA"
+            ],
+            "openAsPopup": 1,
+            "popupSize": "s"
+        },
+        "ApprovalQueue": {
+            "path": [
+                "prepaidcard-space",
+                "entry-shell",
+                "prepaidcard",
+                "prepaidcard-confirmation-receipt"
+            ]
+        },
+        "SuccessEnd": {
+            "path": [
+                "prepaidcard-space",
+                "entry-shell",
+                "prepaidcard",
+                "prepaidcard-confirmation-receipt"
+            ]
+        }
+    }
+}

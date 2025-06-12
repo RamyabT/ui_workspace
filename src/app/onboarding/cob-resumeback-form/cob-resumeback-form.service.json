@@ -1,0 +1,5 @@
+ 
+ "CobResumebackForm" : {
+ "servicePath": ["entry-shell","onboarding", "cob-resumeback-form"],
+ "queryParams": {}
+ }

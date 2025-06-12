@@ -1,0 +1,72 @@
+{
+    "SCHEDULEDBILLPAYMENTS": [
+        {
+            "id": "delete",
+            "name": "Delete",
+            "icon": "delete",
+            "desc": "Cancel bill."
+        }
+    ],
+    "SCHEDULEDTRANSFERS": [
+        {
+            "id": "edit",
+            "name": "Edit",
+            "icon": "edit",
+            "desc": "Modify transfer details."
+        },
+        {
+            "id": "delete",
+            "name": "Delete",
+            "icon": "delete",
+            "desc": "Cancel the transfer."
+        }
+    ],
+    "RETAILSAVEDBILLER": [
+        {
+            "id": "edit",
+            "name": "Edit",
+            "icon": "edit"
+        },
+        {
+            "id": "delete",
+            "name": "Delete",
+            "icon": "delete"
+        }
+    ],
+    "RETAILMANAGEBENE": [
+        {
+            "id": "edit",
+            "name": "Edit",
+            "icon": "edit"
+        },
+        {
+            "id": "delete",
+            "name": "Delete",
+            "icon": "delete"
+        }
+    ],
+    "RETAILMULTIBILLPAYMENTS": [
+        {
+            "id": "delete",
+            "name": "Delete payee",
+            "icon": "delete"
+        },
+        {
+            "id": "edit",
+            "name": "Edit payee",
+            "icon": "edit"
+        }
+    ],
+    "RETAILTRANSFERTYPE": [
+        {
+            "id": "RETAILTRANOAT",
+            "name": "Between my accounts",
+            "icon": "own-account"
+        },
+        {
+            "id": "RETAILTRANINTBT",
+            "name": "To another member",
+            "icon": "another-account"
+        }
+    ]
+}

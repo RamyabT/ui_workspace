@@ -1,0 +1,5 @@
+ 
+ "RETAILRPCONTAINER" : {
+ "servicePath": ["entry-shell","registeredproducts", "retail-rp-container-form"],
+ "queryParams": {}
+ }

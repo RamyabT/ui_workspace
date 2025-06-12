@@ -1,0 +1,168 @@
+@use '../../layout/grid-system';
+///
+/// @example For the basic usecase use FpxModal with DepUiAlertRichtextContentComponent (src/app/dep/core/component/dep-ui-alert-richtext-content):
+///     const modal = new FpxModal();
+///     modal.setComponent(DepUiAlertRichtextContentComponent);
+///     modal.setPanelClass('ui-alert-richtext-content');
+///     modal.setBackDropClass(["dep-popup-back-drop"]);
+///     modal.setDisableClose(false);
+///     modal.setData({
+///         title: 'cardsPanel.linkAccountModal.title',
+///         messageHtml: 'cardsPanel.linkAccountModal.messageHtml',
+///         primaryButtonLabel: 'cardsPanel.linkAccountModal.primaryButtonLabel',
+///         enableSecondaryButton: true,
+///         secondaryButtonLabel: 'cardsPanel.linkAccountModal.secondaryButtonLabel',
+///         iconClass: 'icon-link-account',
+///     } as DepUiAlertRichtextContentData);
+/// 
+/// @example With your own component template, you can use mixins in this file to style your modal. (For icon class names, see/add to src/scss/theme/vancity-reusable-styles/_icon-collection.scss)
+///  Sample HTML:
+///     <box class="ui-alert-richtext-content-container my-own-classname-here">
+///         <box class="modal-content-wrapper">
+///             <box class="modal-header">
+///                 <box class="modal-icon {{iconClass}}"></box>
+///                 <box class="modal-title">modal title here</box>
+///             </box>
+///             <box class="modal-body">
+///                 <box class="modal-description" [innerHTML]="messageHtml"></box>
+///             </box>
+///         </box>
+///         <box class="modal-footer">
+///             <box class="btn-container">
+///                 <button type="button" class="btn-secondary">Cancel</button>
+///                 <button type="button" class="btn-primary">Ok</button>
+///             </box>
+///         </box>
+///     </box>
+///  Sample scss to style individual parts of the modal:
+///     .ui-alert-richtext-content-container.my-own-classname-here {
+///         @include popup.modal-container;
+///         .modal-content-wrapper {
+///             @include popup.modal-wrapper;
+///             .modal-header {
+///                 @include popup.modal-header;
+///             }
+///             .modal-body {
+///                 @include popup.modal-body;
+///             }
+///         }
+///         .modal-footer {
+///             @include popup.modal-footer;
+///         }
+///     }
+/// 
+@mixin modal {
+  min-width: 480px;
+  @include grid-system.small-screen {
+    min-width: auto;
+    max-width: 95vw !important;
+    width: auto !important;
+    position: absolute !important;
+    bottom: 35px;
+    .mat-dialog-container {
+        background-color: transparent;
+    }
+  }
+}
+@mixin modal-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    padding: 24px;
+    @include grid-system.small-screen {
+        padding: 0;
+        gap: 18px;
+    }
+}
+@mixin modal-wrapper {
+  @include grid-system.small-screen {
+    background-color: var(--themeBgClr);
+    border-radius: 20px;
+    padding: 24px 8px;
+  }
+}
+@mixin modal-header {
+    background-color: var(--themeBgClr);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+    .modal-icon {
+        @include modal-icon;
+    }
+    .modal-title {
+        @include modal-title;
+    }
+}
+@mixin modal-icon {
+    background-color: #F8F7FA;
+    border-radius: 999px;
+    display: inline-block;
+    margin-top: 24px;
+    padding: 24px;
+    height: 96px;
+    width: 96px;
+
+    &::before {
+        background-color: var(--systemIconClr);
+        width: 48px;
+        height: 48px;
+    }
+}
+@mixin modal-title {
+    color: var(--neutral900);
+    font-family: var(--baseFontFamily);
+    font-size: 20px;
+    font-weight:  500;
+    line-height: 24px;
+}
+@mixin modal-body { 
+    color: var(--smallGreyTextClr);
+    font-family: Inter, 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    min-height: 40px;
+    margin: 16px 0;
+    text-align: center;
+    @include grid-system.small-screen {
+        background-color: var(--themeBgClr);
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+}
+
+@mixin modal-footer {
+    background-color: var(--themeBgClr);
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 24px;
+    width: 100%;
+    @include grid-system.small-screen {
+        background-color: transparent;
+        margin-top: 0;
+    }
+
+    .btn-container {
+        justify-content: center;
+        @include grid-system.small-screen {
+            gap: 8px;
+        }
+        button {
+            &::only-child {
+                width: 100%;
+            }
+            @include grid-system.small-screen {
+                flex-grow: 1;
+            }
+        }
+        .btn-secondary {
+            background-color: var(--moduleBtnSecondaryBgClr);
+            @include grid-system.small-screen {
+                background-color: var(--themeBgClr);
+            }
+        }
+    }
+}

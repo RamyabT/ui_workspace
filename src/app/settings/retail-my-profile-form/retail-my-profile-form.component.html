@@ -1,0 +1,96 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailMyProfileForm">
+
+	<box class="entry-form-field-group my-profile review-form">
+		<box class="profile-header">
+			<app-profile-upload-control (onFileUpload)="_helper.updatePhoto($event)" [format_base64]="true"></app-profile-upload-control>
+			<box class="profile-details">
+				<span class="profile-name">{{state.profileName}}</span>
+				<box class="login-details">
+					<span class="last-login">{{ 'USERPROFILE.lastLogin' | translate }}  {{state.lastLogin}}</span>
+					<span class="failed-login">{{ 'USERPROFILE.lastFailedLogin' | translate }} {{state.failedLogin}}</span>
+				</box>
+			</box>
+		</box>
+		<box class="module-tab-container">
+			<mat-tab-group [(selectedIndex)]="state.activeTabIndex" (selectedTabChange)="_helper.onTabChanged($event)">
+				<mat-tab label="{{ 'RETAILVIEWMYPROFILE.details' | translate }}">
+					<ng-template matTabContent>
+						<app-retail-profile-details-form 
+						formControlName="profileDetails"
+						[actionPublisher]="actionMap$.get('profileDetails')"
+						></app-retail-profile-details-form>
+					</ng-template>
+				</mat-tab>
+				<mat-tab label="{{ 'RETAILVIEWMYPROFILE.documents' | translate }}">
+					<ng-template matTabContent>
+
+					<box class="profil-doc-container">
+						<box  [actionPublisher]="actionMap$.get('profileDocGridGroup')">
+							<app-retail-customer-document-details-ro-grid (commonRoGridEvent)="handleControlEvent($event)"></app-retail-customer-document-details-ro-grid>
+						</box>
+						<box class="empty-doc-container"  [actionPublisher]="actionMap$.get('emptyProfileDocGroup')">
+							<img src="./assets/images/settings/doc-empty.svg" alt="empty-doc" class="empty-doc">
+							<box><span class="empty-doc-text" >{{'RETAILVIEWMYPROFILE.emptyProfileDoc' | translate}}</span></box>
+						</box>
+						<box class="doc-upload-container"  [actionPublisher]="actionMap$.get('uploadProfileDocGroup')">
+							<span class="upload-label">{{'RETAILVIEWMYPROFILE.uploadLabel' | translate}}</span>
+							<button (click)="_helper.navToUploadDocScreen()" class="doc-upload-btn">
+								<button type="button" class="upload-icon" aria-label="upload"></button>
+								<span class="upload-txt">{{'RETAILVIEWMYPROFILE.uploadProfileDoc' | translate}}</span></button>
+						</box>
+					</box>
+				</ng-template>
+					<!-- <ng-template matTabContent>
+						<box class="profile-doc-list-tmpl">
+							<box class="grid-row ">
+							<box class="profile-doc-container">
+								<box class="profile-doc-left-container">
+								<box  class="icon-wrapper">
+									<ng-container *ngIf="true; else noPhoto">
+										<img [src]="'./assets/images/temp_national_id.svg'" />
+									</ng-container>
+									<ng-template #noPhoto>
+									
+									</ng-template>
+								</box>
+								<box class="profile-doc-detail">
+									<box class="profile-doc-name">National ID</box>
+									<box class="profile-doc-account">23-11-2020 12:20:42 PM</box>
+								</box>
+								</box>
+								</box>
+							</box>
+							<box class="split-bar"></box>
+							<box class="grid-row ">
+								<box class="profile-doc-container">
+									<box class="profile-doc-left-container">
+									<box  class="icon-wrapper">
+										<ng-container *ngIf="true; else noPhoto">
+											<img [src]="'./assets/images/temp_passport.svg'" />
+										</ng-container>
+										<ng-template #noPhoto>
+
+										</ng-template>
+									</box>
+									<box class="profile-doc-detail">
+										<box class="profile-doc-name">Passport</box>
+										<box class="profile-doc-account">23-11-2020 12:20:48 PM</box>
+									</box>
+									</box>
+									</box>
+							</box>
+							<box class="split-bar"></box>
+
+						</box>
+					</ng-template> -->
+				</mat-tab>
+			</mat-tab-group>
+		</box>
+	</box>
+	<box class="footer-btn"  [actionPublisher]="actionMap$.get('footerButtonContainer')">
+		<fpx-button [btnClass]="'btn-secondary'" label="Back"
+			(onClick)="_helper.backNav()"></fpx-button>
+		<fpx-button [btnClass]="'btn-primary'" label="Edit"
+			(onClick)="_helper.editProfile()"></fpx-button>
+	</box>
+</form>

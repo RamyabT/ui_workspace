@@ -1,0 +1,5 @@
+ 
+ "readtermsandconditions" : {
+ "servicePath": ["entry-shell","foundation", "read-terms-and-conditions"],
+ "queryParams": {}
+ }

@@ -1,0 +1,5 @@
+ 
+ "RETAILREPAYMENTCALCRO" : {
+ "servicePath": ["display-shell","loans", "RetailLoanRepaymentCalcRo"],
+ "queryParams": {}
+ }

@@ -1,0 +1,65 @@
+.verify-otp-form{
+
+    .entry-form{
+        flex-direction: column;
+        gap:32px;
+        align-content: center;
+        > * {
+            flex:1;
+            text-align: center;
+        }
+
+        .resend-otp-info > *{
+            display: inline-block;
+        }
+
+        .otp-form-content{
+            .tfa-message{
+                @include s4-medium;
+
+                @include not-small-screen{
+                    display: block;
+                    text-align: start;
+                }
+            }
+
+            &:after{
+                content: " ";
+                width: 178px;
+                height: 178px;
+                display: block;
+                background: url(../../assets/illustrations/verify_otp.svg) no-repeat center transparent;
+                margin: 0 auto;
+            }
+        }
+        .resend-otp-link{
+            @include link-btn;
+            font-weight: 500;
+
+            &:disabled{
+                opacity: 0.4;
+            }
+        }
+    }
+    
+    .form-footer-actions{
+        @include not-small-screen{
+            justify-content: flex-end;
+            border-top: 1px solid var(--baseBdrClr);
+            padding-top: 20px;
+        }
+    }
+
+    @include small-screen{
+        min-height: calc(100vh - 99px - 32px);
+        position: relative;
+        padding-bottom: 72px;
+        
+        .form-footer-actions{
+            position: absolute;
+            bottom: 0;
+            padding:0 0 12px;
+        }
+    }
+} 
+

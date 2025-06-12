@@ -1,0 +1,134 @@
+<box *ngIf="creditCardData">
+    <box class="aside-bar-inner aside-bar-expand show-widget">
+        <box class="widget-list">
+            <ul>
+                <li>
+                    <box class="widget-content-footer-container">
+                        <box class="widget-content">
+                            <box class="creditcard-details-form schedule-form">
+                                <box *ngIf="enableAccountDetails" class="entry-form">
+                                    <box class="display-fields-container col-12">
+                                        <box *ngIf="creditCardData.currentCard.productCode as productCode" class="credit-card-image">
+                                            <ng-container [ngSwitch]="getNormalizedProductCode(productCode)">
+                                                <img *ngSwitchCase="'classic'" src="./assets/images/vancity-credit-cards/vancity-visa-classic.png" alt="{{ creditCardData.currentCard.productDesc }}" title="{{ creditCardData.currentCard.productDesc }}" />
+                                                <img *ngSwitchCase="'gold'" src="./assets/images/vancity-credit-cards/vancity-visa-gold.png" alt="{{ creditCardData.currentCard.productDesc }}" title="{{ creditCardData.currentCard.productDesc }}" />
+                                                <img *ngSwitchCase="'infinite-privilege'" src="./assets/images/vancity-credit-cards/vancity-visa-infiniteprivilege.png" alt="{{ creditCardData.currentCard.productDesc }}" title="{{ creditCardData.currentCard.productDesc }}" />
+                                                <img *ngSwitchCase="'infinite'" src="./assets/images/vancity-credit-cards/vancity-visa-infinite.png" alt="{{ creditCardData.currentCard.productDesc }}" title="{{ creditCardData.currentCard.productDesc }}" />
+                                            </ng-container>
+                                        </box>
+
+                                        <span class="account-details header">{{ 'RetailCreditCardDetails.paymentInformation' | translate }}</span>
+
+                                        <box class="display-field">
+                                            <box class="lbl-wrapper">
+                                                <span class="lbl">{{ 'RetailCreditCardDetails.statementBalance' | translate }}</span>
+                                            </box>
+                                            <span class="val">{{ getAbsoluteValue(creditCardData.currentCard.lastStatementBalance) | currency }}</span>
+                                        </box>
+
+                                        <box class="display-field">
+                                            <box class="lbl-wrapper">
+                                                <span class="lbl">{{ 'RetailCreditCardDetails.paymentDueDate' | translate }}</span>
+                                            </box>
+                                            <span *ngIf="creditCardData.currentCard.dueDate; else noValue" class="val">{{ creditCardData.currentCard.dueDate | date: 'dd MMM yyyy' }}</span>
+                                        </box>
+
+                                        <box class="display-field">
+                                            <box class="lbl-wrapper">
+                                                <span class="lbl">{{ 'RetailCreditCardDetails.minimumPayment' | translate }}</span>
+                                            </box>
+                                            <span class="val">{{ getAbsoluteValue(creditCardData.currentCard.minPaymentDue) | currency }}</span>
+                                        </box>
+
+                                        <box class="display-field">
+                                            <box class="lbl-wrapper">
+                                                <span class="lbl">{{ 'RetailCreditCardDetails.lastPayment' | translate }}</span>
+                                            </box>
+                                            <span *ngIf="creditCardData.currentCard.lastPaymentAmount; else noValue" class="val">{{ getAbsoluteValue(creditCardData.currentCard.lastPaymentAmount) | currency }}</span>
+                                        </box>
+
+                                        <box class="display-field">
+                                            <box class="lbl-wrapper">
+                                                <span class="lbl">{{ 'RetailCreditCardDetails.lastPaymentDate' | translate }}</span>
+                                            </box>
+                                            <span *ngIf="creditCardData.currentCard.lastPaymentDate; else noValue" class="val">{{ creditCardData.currentCard.lastPaymentDate | date: 'dd MMM yyyy' }}</span>
+                                        </box>
+
+                                        <span class="account-details header">{{ 'RetailCreditCardDetails.accountSummary' | translate }}</span>
+
+                                        <box class="display-field">
+                                            <box class="lbl-wrapper">
+                                                <span class="lbl">{{ 'RetailCreditCardDetails.currentBalance' | translate }}</span>
+                                            </box>
+                                            <span class="val">{{ getAbsoluteValue(creditCardData.currentCard.outstandingAmount) | currency }}</span>
+                                        </box>
+
+                                        <box class="display-field">
+                                            <box class="lbl-wrapper">
+                                                <span class="lbl">{{ 'RetailCreditCardDetails.availableCredit' | translate }}</span>
+                                            </box>
+                                            <span class="val">{{ getAbsoluteValue(creditCardData.currentCard.availableCreditLimit) | currency }}</span>
+                                        </box>
+
+                                        <box class="display-field">
+                                            <box class="lbl-wrapper">
+                                                <span class="lbl">{{ 'RetailCreditCardDetails.pending' | translate }}</span>
+                                            </box>
+                                            <span class="val">{{ getAbsoluteValue(creditCardData.currentCard.unbilledAmount) | currency }}</span>
+                                        </box>
+
+                                        <box class="display-field">
+                                            <box class="lbl-wrapper">
+                                                <span class="lbl">{{ 'RetailCreditCardDetails.creditLimit' | translate }}</span>
+                                            </box>
+                                            <span class="val">{{ getAbsoluteValue(creditCardData.currentCard.creditLimit) | currency }}</span>
+                                        </box>
+
+                                        <ng-container *ngIf="creditCardData.currentCard.rewardPointsClosingBal">
+                                            <span class="account-details header">{{ 'RetailCreditCardDetails.rewardsAndBenefits' | translate }}</span>
+                                            <box class="display-field">
+                                                <box class="lbl-wrapper">
+                                                    <span class="lbl">{{ 'RetailCreditCardDetails.rewardsPoints' | translate }}</span>
+                                                </box>
+                                                <span class="val">{{ creditCardData.currentCard.rewardPointsClosingBal }}</span>
+                                            </box>
+                                            <box id="ccDetails-rewards-info">
+                                                <box id="ccDetails-rewards-info-icon">
+                                                    <img src="./assets/images/layouts/aside-bar/arrow-right.svg" alt="">
+                                                </box>
+                                                <box id="ccDetails-rewards-info-link">
+                                                    <button type="button" (click)="onRewardsInfoClick()">
+                                                        {{ 'RetailCreditCardDetails.rewardsInformation' | translate }}
+                                                    </button>
+                                                </box>
+                                            </box>
+                                        </ng-container>
+                                    </box>     
+                                </box>
+                                <box *ngIf="!enableAccountDetails" id="creditcard-details-rewardsandpoints">
+                                    <box class="col-12" id="rewardsandbenefits-points-container">
+                                        <box id="rewardsandbenefits-heading">
+                                            <span class="account-details header">{{ 'RetailCreditCardDetails.rewardsAndBenefits' | translate }}</span>
+                                            <img src="./assets/images/layouts/aside-bar/close.svg" (click)="onCloseRewardsPoints()" alt="">
+                                        </box>
+                                        <hr *ngIf="creditCardData.currentCard.rewardPointsClosingBal">
+                                        <box id="creditcard-reward-points-box" *ngIf="creditCardData.currentCard.rewardPointsClosingBal">
+                                            <span class="val col-12">{{ creditCardData.currentCard.rewardPointsClosingBal }}</span>
+                                            <span class="col-12">{{ 'RetailCreditCardDetails.rewardsAndBenefitsPoints' | translate }}</span>
+                                        </box>
+                                    </box>
+
+                                    <box *ngIf="enableRewardsAndBenefits" class="col-12">
+                                        <app-retail-cc-rewards></app-retail-cc-rewards>
+                                    </box>
+                                </box>
+                            </box>
+                        </box>
+                    </box>
+                </li>
+            </ul>
+        </box>
+    </box>
+</box>
+
+<ng-template #noValue>-</ng-template>

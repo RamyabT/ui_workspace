@@ -1,0 +1,45 @@
+"RetailAddBillerForm":{
+"title":"RetailAddBillerForm",
+		 "inventoryNumber": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } ,
+		 "billerId": {
+		  "label":"Select Biller" ,
+		  "placeholder": "Select Biller"
+		  } ,
+		 "nickName": {
+		  "label":"Biller Nickname" ,
+		  "placeholder": "Biller Nickname"
+		  } ,
+		 "smartPay": {
+		  "label":"Do you want to setup autopay option?" ,
+		  "placeholder": "Do you want to setup autopay option?"
+		  } ,
+		 "accountType": {
+		  "label":"Account Type" ,
+		  "placeholder": "Account Type"
+		  } ,
+		 "debitAccount": {
+		  "label":"Select Debit Account" ,
+		  "placeholder": "Select Account"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"I hereby agree with the terms and conditions and key fact statements" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "creditCardAccounts": {
+		  "label":"Select Card" ,
+		  "placeholder": "Select Card"
+		  } ,
+		 "smartPayDisclaimer": {
+		   "text":"Sample Text"
+		 } ,
+		 "termDisclaimerTxt": {
+		   "text":"Sample Text"
+		 } 
+}

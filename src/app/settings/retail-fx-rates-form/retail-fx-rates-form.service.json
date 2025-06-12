@@ -1,0 +1,5 @@
+ 
+ "RETAILFXRATESFORM" : {
+ "servicePath": ["entry-shell","settings", "retail-fx-rates-form"],
+ "queryParams": {}
+ }

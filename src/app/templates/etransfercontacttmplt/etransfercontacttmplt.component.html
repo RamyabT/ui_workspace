@@ -1,0 +1,108 @@
+<div class="task-item" id="row_data_{{ index }}" [ngClass]="{'task-completed':selectedData.status == '3'}">
+    <!-- <div *ngIf="_device.isMobile()" class="task-action task-action-left">
+        <ng-container *ngIf="selectedData.status != '3'; else addBadge">
+            <button type="button" class="button-task-action system-ico-button button-delete" clickable
+                (click)="deleteRowData($event, selectedData)">
+                <span>{{'PAYMENTSCONTAINER.delete' | translate}}</span>
+            </button>
+
+        </ng-container>
+        <ng-template #addBadge>
+            <button type="button" class="button-task-action" clickable>
+                <span class="button-icon"><img src="./assets/images/icons/circle-question.svg"
+                        alt="assign badge" /></span>
+                <span>Assign<br />Badge</span>
+            </button>
+        </ng-template>
+    </div> -->
+
+    <!-- <div class="task-detail-item" (swipeleft)="_device.isMobile()?swipeLeftHandler($event):null"
+        (swiperight)="_device.isMobile()?swipeRightHandler($event):null"
+        (panstart)="_device.isMobile()?panStartHandler($event):null"
+        (panend)="_device.isMobile()?panEndHandler($event):null"
+        (panleft)="_device.isMobile()?panLeftHandler($event):null"
+        (panright)="_device.isMobile()?panRightHandler($event):null"
+        (touchstart)="_device.isMobile()?touchStartHandler($event):null"> -->
+        <box class="transaction-list-item" (click)="onClickContact($event)">
+            <box class="transaction-list-item-inner">
+                <box class="transaction-icon-wrapper">
+                    <box class="transaction-icon">
+                        <ng-container *ngIf="selectedData.transactionCategory; else noPhoto">
+                            <img src="./assets/transactions/{{selectedData.transactionCategory}}.svg"
+                                alt="transactionCategory" />
+                        </ng-container>
+                        <ng-template #noPhoto>
+                            <div class="name-first-letter">
+                                <span
+                                    *ngIf="selectedData.beneficiaryName?.split(' ').length == 1">{{selectedData.beneficiaryName?.substring(0,
+                                    1)}}
+                                </span>
+                                <span
+                                    *ngIf="selectedData.beneficiaryName?.split(' ').length > 1 && selectedData.beneficiaryName?.split(' ').length <= 2">
+                                    {{selectedData.beneficiaryName?.split(" ")[0]?.charAt(0)
+                                    +(selectedData.beneficiaryName?.split(" ")[1]?
+                                    selectedData.beneficiaryName?.split(" ")[1]?.charAt(0): "")}}
+                                </span>
+                                <span
+                                *ngIf="selectedData.beneficiaryName?.split(' ').length > 2">
+                                {{selectedData.beneficiaryName?.split(" ")[0]?.charAt(0)
+                                +(selectedData.beneficiaryName?.split(" ")[selectedData.beneficiaryName?.split(' ').length - 1]?
+                                selectedData.beneficiaryName?.split(" ")[selectedData.beneficiaryName?.split(' ').length - 1]?.charAt(0): "")}}
+                            </span>
+                            </div>
+                        </ng-template>
+                    </box>
+                </box>
+                <box class="transaction-info">
+                    <box class="transaction-primary-info">
+                        <span class="name">{{selectedData.firstName}}</span>
+                        <box class="accountNumber accountNumber-container">
+                            <ng-container *ngIf="selectedData.notificationPreference == 'P' else emailId">
+                                <span *ngIf="selectedData.phoneNumber" class="accountNumber">{{selectedData.phoneNumber | mask : '000-000-0000'}}</span>
+                                <span *ngIf="selectedData.emailId" class="accountNumber">{{selectedData.emailId}}</span>
+                            </ng-container>
+                            <ng-template #emailId>
+                                <span *ngIf="selectedData.emailId" class="accountNumber">{{selectedData.emailId}}</span>
+                                <span *ngIf="selectedData.phoneNumber" class="accountNumber">{{selectedData.phoneNumber | mask : '000-000-0000'}}</span>
+                            </ng-template>
+                        </box>
+                    </box>
+                    <box class="transaction-secondary-info">
+                        <button type="button" class="system-ico-button button-arrow-left" (click)="updateContact(selectedData)" aria-label="arrow left">
+                        </button>
+                    </box>
+                </box>
+            </box>
+        </box>
+
+    <!-- </div> -->
+
+    <!-- <div class="task-action task-action-right">
+
+        <button *ngIf="!_device.isMobile()" type="button" class="button-task-action system-ico-button button-delete"
+            clickable (click)="deleteRowData($event, selectedData)"> -->
+            <!-- <img src="./assets/images/icons/delete.svg" alt="repeat" /> -->
+            <!-- <span>{{'RetailEtransfercontactlogForm.delete' | translate}}</span>
+        </button>
+
+        <button type="button" class="button-task-action system-ico-button button-init-transfer" clickable
+            (click)="editRowData($event, selectedData)"> -->
+            <!-- <img src="./assets/images/icons/delete.svg" alt="repeat" /> -->
+            <!-- <span>{{'RetailEtransfercontactlogForm.edit' | translate}}</span>
+        </button> -->
+        <!-- <button type="button" class="button-task-action system-ico-button button-favourite" clickable
+            (click)="onClickFavourite($event, selectedData)">
+            <img src="./assets/images/icons/favourite.svg" alt="share" />
+            <span>
+                <ng-container *ngIf="selectedData.isFavourite == '1'; else unFavBene">
+                    {{'REMOVE_FAV_TRANSFER_CONFIRM_DIALOG.unfavourite' | translate}}
+                </ng-container>
+                <ng-template #unFavBene>
+                    {{'REMOVE_FAV_TRANSFER_CONFIRM_DIALOG.favourite' | translate}}
+                </ng-template>
+                {{selectedData.isFavourite == "1"? "REMOVE_FAV_TRANSFER_CONFIRM_DIALOG.unfavourite" : "REMOVE_FAV_TRANSFER_CONFIRM_DIALOG.favourite" | translate}}
+            </span>
+        </button> -->
+    <!-- </div> -->
+
+</div>

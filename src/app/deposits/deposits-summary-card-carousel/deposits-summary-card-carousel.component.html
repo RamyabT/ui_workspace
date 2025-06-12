@@ -1,0 +1,15 @@
+<box class="summary-card-carousel">
+    <ng-container *ngIf="summary && summary.length">
+        <ngx-slick-carousel class="deposit-carousel" #slickModal="slick-carousel" 
+            [config]="slideConfig" 
+            (afterChange)="onCardChanged($event)">
+            <ng-container *ngFor="let card of summary">
+                <box ngxSlickItem class="slide" >
+                    <deposits-summary-card [cardData]="card" [contextmenuBtn]="true"></deposits-summary-card>
+                </box>
+            </ng-container>
+        </ngx-slick-carousel>
+
+    </ng-container>
+    
+</box>

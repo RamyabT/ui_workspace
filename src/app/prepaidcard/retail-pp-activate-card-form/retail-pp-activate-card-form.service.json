@@ -1,0 +1,5 @@
+ 
+ "RETAILPPACTIVATION" : {
+ "servicePath": ["entry-shell","prepaidcard", "retail-pp-activate-card-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,39 @@
+"CorpAddressDetailsForm":{
+"title":"Address Details Form",
+		 "addressType": {
+		  "label":"Address" ,
+		  "placeholder": "Address"
+		  } ,
+		 "mobileNumber": {
+		  "label":"Mobile Number" ,
+		  "placeholder": "Mobile Number"
+		  } ,
+		 "email": {
+		  "label":" Email " ,
+		  "placeholder": " Email "
+		  } ,
+		 "country": {
+		  "label":"Country" ,
+		  "placeholder": "Country"
+		  } ,
+		 "state": {
+		  "label":"State" ,
+		  "placeholder": "State"
+		  } ,
+		 "city": {
+		  "label":"City" ,
+		  "placeholder": "City"
+		  } ,
+		 "zipCode": {
+		  "label":"Zip Code" ,
+		  "placeholder": "Zip Code"
+		  } ,
+		 "buildingId": {
+		  "label":"Building Id" ,
+		  "placeholder": "Building Id"
+		  } ,
+		 "buildingName": {
+		  "label":"Building Name" ,
+		  "placeholder": "Building Name"
+		  } 
+}

@@ -1,0 +1,8 @@
+<div class="fpx-form-control">
+    <mat-checkbox [checked]="formControl.value == 1 ? true : false" (change)="onCheckBoxChange($event)"
+        [labelPosition]="textPosition" [ngClass]="{'input-available': formControl.value}">
+        <div class="lbl-content">
+            <ng-content #content></ng-content>
+        </div>
+    </mat-checkbox>
+</div>

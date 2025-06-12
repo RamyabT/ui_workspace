@@ -1,0 +1,38 @@
+<ng-container *ngIf="state.details; else detailsLoader">
+	<loan-summary-card *ngIf="_helper._device.isMobile()" [cardData]="state.details" [contextmenuBtn]="true"></loan-summary-card>
+
+	<box class="entry-form-field-group">
+		<app-disbursement-overview-chart [chartData]="_helper.spendData" [totalSummary]="_helper.totalSummary"></app-disbursement-overview-chart>
+	</box>
+	<box class="display-fields-container grid deposit-details-container">
+		<ng-container *ngFor="let field of state.fields; index as i">
+			<box class="display-field" *ngIf="state.details[field]">
+				<span class="lbl">{{ 'RetailLoanDisbursalDetailsForm.'+field+'.label' | translate }}</span>
+				<span class="val" [id]="'displayText_' + field">
+					<ng-container [ngSwitch]="state.fieldsFormat[i]">
+						<ng-container *ngSwitchCase="'date'">
+							{{ state.details[field] | date : "dd MMM yyyy" }}
+						</ng-container>
+						<ng-container *ngSwitchCase="'amount'">
+							{{ state.details[field] | currency : state.details.accountCurrency : '' }} {{ state.details.accountCurrency}}
+						</ng-container>
+						<ng-container *ngSwitchCase="'precentage'">
+							{{ state.details[field] + "%" }}
+						</ng-container>
+						<ng-container *ngSwitchDefault>
+							{{ state.details[field] }}
+						</ng-container>
+					</ng-container>
+				</span>
+			</box>
+		</ng-container>
+	</box>
+
+	<!-- <box class="display-details-container-footer">
+		<fpx-button btnClass="primary" (onClick)="_helper.onDownloadAccountsDetailsClick()" label="Download"></fpx-button>
+	</box> -->
+
+</ng-container>
+<ng-template #detailsLoader>
+	<box class="loading"></box>
+</ng-template>

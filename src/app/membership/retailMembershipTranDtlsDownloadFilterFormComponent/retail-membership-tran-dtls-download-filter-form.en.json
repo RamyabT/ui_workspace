@@ -1,0 +1,19 @@
+"retailmembershiptrandtlsdownloadfilterform":{
+"title":"RetailMemberShipTranDtlsDownloadFilterForm",
+		 "rangeType": {
+		  "label":"Transactions Period" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "fromDate": {
+		  "label":"From Date" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "toDate": {
+		  "label":"To Date" ,
+		  "placeholder": "Placeholder"
+		  } ,
+		 "downloadFileFormat": {
+		  "label":"File Format" ,
+		  "placeholder": "Placeholder"
+		  } 
+}

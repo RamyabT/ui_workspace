@@ -1,0 +1,42 @@
+.app-pay-intro-wrapper{
+    height: 100vh;
+    width: 100%;
+
+    header{
+        padding: 48px 16px 28px;
+    }
+
+    .app-pay-intro-body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 34px;
+        padding: 0 16px;
+        text-align: center;
+
+        .pay-img-wrapper{
+            text-align: center;
+            img{
+                width: 200px;
+            }
+        }
+
+        .app-pay-message{
+            @include s2-bold;
+        }
+        .app-pay-description{
+            @include b1-regular;
+        }
+    }
+
+    footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 28px;
+        padding: 0 16px;
+        left:0;
+        right:0;
+    }
+}

@@ -1,0 +1,301 @@
+#depAppBody{
+    .chart-tool-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    
+        @include small-screen{
+            padding: 20px 16px;
+        }
+    
+        .case-flow {
+            width: 124px;
+        }
+    
+        .month-options {
+            flex-basis: 60%;
+        }
+    
+        .chicletsRadio{
+            gap:8px;
+            .mat-radio-label{
+                border-color: transparent;
+            }
+        }
+    }
+}
+
+.chart-contents {
+    .x-axis {
+        path {
+            stroke: #F6FFFE;
+        }
+
+        .tick {
+            line {
+                display: none;
+            }
+
+            .tick text {
+                color: var(--neutral500);
+            }
+        }
+    }
+
+    .axis-grid{
+        &.y{
+            .tick{
+                line{
+                    stroke: var(--baseBdrClr);
+                }
+                text{
+                    display: none;
+                }
+            }
+            .domain{
+                display: none;
+            }
+        }
+    }
+}
+
+.money-flow-chart{
+    .x-axis {
+        .tick{
+            cursor: pointer;
+        }
+        path + .tick{
+            text-anchor: start;
+        }
+        .tick:last-child{
+            text-anchor: end;
+        }
+    }
+    .pinned-line{
+        stroke-dasharray: 5;
+        stroke-width: 2;
+        stroke: #000000;
+    }
+    .pinned-circle{
+        stroke-width: 1;
+        stroke: #FFFFFF;
+        fill: var(--tertiary500);
+        filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    }
+    .pinned-text{
+        @include s4-medium;
+        text-anchor: middle;
+        color: var(--secondary500);
+
+        &.last-point{
+            text-anchor: end;
+        }
+        &.first-point{
+            text-anchor: start;
+        }
+    }
+}
+
+app-prelogin-check {
+    .custom-forms {
+        display: block;
+        .image {
+            display: block;
+            text-align: center;
+            img {
+                width: 210px;
+                height: 206px;
+            }
+        }
+        .session-check-body {
+            text-align: center;
+            padding: 0 40px 8px;
+            display: block;
+            .title {
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 24px;
+            }
+            .body {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 22px;
+            }
+        }
+    }
+}
+
+app-dep-alert {
+    .dep-alert {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 16px;
+        .alert-icon {
+            background-image: url("../../assets/illustrations/confirmation-success.svg");
+            display: block;
+            width: 60px;
+            height: 60px;
+            background-size: 60px;
+            margin-top: 16px;
+        }
+        .alert-title {
+            @include s3-medium;
+            color: var(--baseTxtClr);
+        }
+        .alert-description {
+            @include b2-regular;
+            line-height: 18px;
+            color: var(--bodyTxtClr);
+            min-height: 40px;
+            text-align: center;
+        }
+        .alert-footer {
+            margin-top: 20px;
+        }
+    }
+}
+
+.no-account-tmplt {
+    background-color: var(--tertiaryAqua500);
+    padding: 16px;
+    display: flex;
+    gap: 11px;
+    align-items: center;
+    margin: 0 16px;
+    border-radius: 12px;
+    justify-content: space-between;
+    .left-section {
+        padding: 3.5px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .no-result-desc {
+            @include b2-regular;
+        }
+        .no-result-btn {
+            color: #12486B;
+            border: 1px solid #12486B;
+            width: fit-content;
+            background-color: #FFFFFF;
+            border-radius: 24px;
+            padding: 9px 14px;
+        }
+    }
+}
+
+/* --- NEED TOBE REMOVE START */
+[hidden] {
+    display: none !important;
+}
+/* --- NEED TOBE REMOVE END */
+
+box:is(.no-insights-tmplt, .no-deposits-tmplt) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid var(--primary500);
+    border-radius: 12px;
+    background: url(../../assets/images/overview/no-account-card-bg.svg) no-repeat 50% var(--neutral50);
+    background-size: cover;
+    padding: 16px;
+    margin: 0 16px;
+    &.no-cards {
+        .header {
+            &::before {
+                content: '';
+                background: url(../../assets/images/icons/no-cards.svg) no-repeat 50% 50% transparent;
+                width: 24px;
+              }
+        }
+    }
+    .header {
+        @include s4-medium;
+        color: var(--baseTxtClr);
+        padding: 3px 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        &::before {
+            content: '';
+            background: url(../../assets/images/icons/savings-icon.svg) no-repeat 50% 50% transparent;
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+          }
+    }
+    .desc {
+        @include b4-regular;
+        color: var(--baseTxtClr);
+    }
+    .benefit-points {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-between;
+        
+        .benefit-desc {
+            @include b4-regular;
+            color: var(--baseTxtClr);
+            display: flex;
+            gap: 8px;
+            flex-basis: 48%;
+            align-items: flex-start;
+
+            &::before {
+                content: '';
+                background: url(../../assets/images/icons/savings-icon.svg) no-repeat 50% 50% transparent;
+                min-width: 18px;
+                height: 18px;
+                display: inline-block;
+              }
+        }
+    }
+
+}
+
+
+.deposit-details-container {
+    --container-col-count: 12;
+    flex-flow: row wrap;
+
+    .display-field{
+        --item-col-count: 6;
+
+        &.last-row-field{
+            border-bottom: none;
+        }
+    }
+
+    @include small-screen{
+        .display-field{
+            --item-col-count: 12;
+        }
+    }
+}
+
+
+.no-data-template {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 20px 0px #0000000F;
+    background-color: var(--neutral50);
+    border-radius: 20px;
+    min-height: 637px;
+    @include small-screen{
+        box-shadow: unset;
+        background-color: unset;
+        min-height: unset;
+        padding: 16px;
+        margin: 16px;
+    }
+    .desc {
+        @include b2-regular;
+    }
+}

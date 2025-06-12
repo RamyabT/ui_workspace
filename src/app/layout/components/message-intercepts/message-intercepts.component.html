@@ -1,0 +1,18 @@
+<box class="intercept-container">
+    <box class="intercept-image">
+        <!-- <img src="./assets/images/icons/intercept-dummy.svg"> -->
+        <img [src]="'data:image/png;base64,'+interceptsData.image">
+    </box>
+
+    <box class="footer-container">
+        <box>
+            <span class="link-btn" (click)="close()">
+                Don't Show me Again
+            </span>
+        </box>
+        <box class="btn-wrapper">
+            <button class="secondary" (click)="close()">Remind Me Later</button>
+            <button class="primary" (click)="close()">Accept Now</button>
+        </box>
+    </box>
+</box>

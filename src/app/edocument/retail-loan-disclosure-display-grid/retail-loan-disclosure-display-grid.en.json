@@ -1,0 +1,11 @@
+"RetailLoanDisclosureDisplayGrid":{
+"title":"Loan Disclosure",
+		 "docName": {
+		  "label":"File Name" ,
+		  "placeholder": "File Name"
+		  } ,
+		 "dateOfGeneration": {
+		  "label":"Date Of Generation" ,
+		  "placeholder": "Date Of Generation"
+		  } 
+}

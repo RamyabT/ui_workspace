@@ -1,0 +1,24 @@
+<box class="dep-ui-modal-actions-menu-container">
+    <box *ngIf="!_device.isMobile()" class="dep-ui-modal-actions-menu-header">
+        <span class="dep-ui-modal-actions-menu-header-text">{{ heading | translate }}</span>
+        <button type="button" class="system-ico-button btn-close no-text" name="back"
+            (click)="close()"><span>{{ 'DEFAULT.close'| translate}}</span></button>
+    </box>
+
+    <box class="dep-ui-modal-actions-menu-body">
+        <ng-container *ngFor="let menuGroup of actionsMenu">
+            <ng-container *ngIf="menuGroup.menuItems.length > 0">
+                <h5 class="sub-group-header">{{ menuGroup.heading | translate }}</h5>
+                <box class="action-list">
+                    <button class="action-item" *ngFor="let item of menuGroup.menuItems" (click)="openLink(item)">
+                        <span class="icon-wrapper icon-service-{{ item.serviceCode }}"></span>
+                        <div class="text-wrapper">
+                            <span class="text" [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span>
+                            <span class="subtext" *ngIf="item?.subtext">{{item.subtext }}</span>
+                        </div>
+                    </button>
+                </box>
+            </ng-container>
+        </ng-container>
+    </box>
+</box>

@@ -1,0 +1,18 @@
+<form name="otherRequestForm">
+    <box class="entry-form">
+        <box class="entry-form-field-group col-12 dep-list-group">
+            <ul class="dep-list other-request-list">
+                <ng-container *ngIf="state.splitBillsList && state.splitBillsList.length">
+                    <ng-container *ngFor="let request of state.splitBillsList">
+                        <li class="dep-list-item request-list-item" (click)="_helper.openLink(request)">
+                            <box class="list-body request-type-info">
+                                <span class="request-type">{{ 'SplitBillsServiceDesc.' + request.serviceCode + '.name' | translate }}</span>
+                                <span class="request-type-desc">{{ 'SplitBillsServiceDesc.' + request.serviceCode + '.desc' | translate }}</span>
+                            </box>
+                        </li>
+                    </ng-container>
+                </ng-container>
+            </ul>
+        </box>
+    </box>
+</form>

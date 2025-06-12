@@ -1,0 +1,78 @@
+
+@import './scss/master.scss';
+
+/* You can add global styles to this file, and also import other style files */
+@import './scss/components/welcome';
+@import './scss/components/login';
+@import './scss/components/verify-otp';
+@import './scss/components/confirmation-receipt';
+@import './scss/components/portfolio-summary';
+@import './scss/components/cards';
+@import './scss/components/product-selection';
+@import './scss/components/prelogin-layout';
+@import './scss/templates/default-control-tmpl';
+@import './scss/templates/display-grid-tmpl';
+@import './scss/components/display-fields';
+@import './scss/components/common-components';
+@import './scss/components/transfers-container';
+@import './scss/components/panning-element';
+@import './scss/components/accounts-container';
+@import './scss/templates/dropdown-tmpl';
+@import './scss/components/cards-container';
+@import './scss/components/debitcard-container';
+@import './scss/components/npss-container';
+@import './scss/components/npss-get-start';
+@import './scss/components/onboarding/taxinfo-ro-grid';
+@import './scss/components/onboarding/onboarding';
+@import './scss/components/loans-container';
+@import './scss/components/_npss-fulfillment-queue.component';
+@import './scss/templates/file-upload-tmpl';
+@import './scss/components/payments-container';
+@import './scss/components/service-request';
+@import './scss/components/register-device';
+@import './scss/components/enable-biometric';
+@import './scss/components/session-active';
+@import './scss/components/prelogin-components';
+@import './scss/components/settings-container';
+@import './scss/components/deposit-container';
+@import './scss/components/change-mpin-form';
+@import './scss/components/access-denied-alert';
+@import './scss/components/bic-search';
+
+@import './scss/components/rcob';
+
+@import "../node_modules/flag-icons/css/flag-icons.min.css";
+@import "./scss/components/page-not-found";
+@import "./scss/components/unauthorized";
+@import "./scss/components/bad-gateway";
+@import "./scss/components/service-unavailable";
+@import "./scss/components/no-network";
+
+@import './scss/components/app-pay-intro';
+@import "./scss/components/app-version-update";
+@import "./scss/components/ssl-certificate-error";
+@import "./scss/components/tools-container";
+
+@import "./scss/components/interac";
+@import "./scss/components/delegats";
+@import "./scss/components/pfm";
+@import "./scss/components/fb";
+@import "./scss/components/wallet";
+@import "./scss/components/transaction-management";
+@import "./scss/components/workflow-history";
+@import "./scss/components/widget";
+@import "./scss/components/camera-preview";
+@import "./scss/components/welcome-board";
+
+@import './scss/theme/project';
+@import "./scss/styles-extension.scss";
+
+@import './scss/components/registered-products';
+@import './scss/components/retail-adhoc_statement';
+@import './scss/components/retail-cheque-status-inquiry-form';
+@import './scss/components/retail-pdc-cheque-form';
+@import './scss/components/_app-retail-bene-cc-req-form';
+@import './scss/components/app-transfers-container';
+@import "./scss/components/insurance";
+@import "./scss/components/rewards";
+@import './scss/components/app-retail-cc-limit-change-form';

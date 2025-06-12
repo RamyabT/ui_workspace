@@ -1,0 +1,40 @@
+<ng-container *ngIf="!this.sessionTimeout; else timeout">
+    <box class="dep-session-alert">
+        <box class="alert-body-countdown-wrapper">
+            <box class="alert-body">
+                <box class="alert-icon"></box>
+                <box class="alert-desc">
+                    <box class="alert-title">{{ "DepSessionAlert.title" | translate }}</box>
+                    <box class="alert-description">{{ "DepSessionAlert.message" | translate }}</box>
+                </box>
+            </box>
+
+            <box class="timer">{{this.countown}}</box>
+        </box>
+
+        <box class="alert-footer">
+            <div class="btn-container">
+                <button type="button" class="btn-secondary" (click)="onDecline()"> {{ cancelBtnLbl | translate }}
+                </button>
+                <button type="button" class="btn-primary" (click)="onAccept()"> {{ okBtnLbl | translate }} </button>
+            </div>
+        </box>
+    </box>
+</ng-container>
+<ng-template #timeout>
+    <box class="dep-session-timeout">
+        <box class="alert-body">
+            <box class="alert-icon"></box>
+            <box class="alert-desc">
+                <box class="alert-title">{{ "DepSessionTimeout.title" | translate }}</box>
+                <box class="alert-description">{{ "DepSessionTimeout.message" | translate }}</box>
+            </box>
+        </box>
+        <box class="alert-footer">
+            <div class="btn-container">
+                <button type="button" class="btn-primary login-btn" (click)="onLogin()"> {{ "DepSessionTimeout.login" | translate
+                    }} </button>
+            </div>
+        </box>
+    </box>
+</ng-template>

@@ -1,0 +1,18 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="investmentHoldings" >
+	<box class="grid transaction-container">
+		<ng-container *ngIf="state.cardData">
+			<app-dep-investment-summary-card class="col-12" [cardData]="state.cardData"></app-dep-investment-summary-card>
+		</ng-container>  
+		<box class="casa-transactions-grid-wrapper col-12">
+			<box class="casa-transactions-grid-header">
+				<span class="title">{{ 'InvestmentHoldingsForm.title' | translate }}</span>
+			</box>
+			<app-retail-investment-Holdings-ro-grid
+			class="col-md-13 col-sm-12 col-lg-12"
+			[actionPublisher]="actionMap$.get('InvestmentHoldingsRoGrid')"
+			label="InvestmentHoldingsRoGrid"
+		  ></app-retail-investment-Holdings-ro-grid>
+		</box>
+	</box>
+</form>
+	

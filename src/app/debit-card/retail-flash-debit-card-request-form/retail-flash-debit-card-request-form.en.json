@@ -1,0 +1,35 @@
+"RetailFlashDebitCardRequestForm":{
+"title":"Flash Debit Card",
+		 "inventoryNumber": {
+		  "label":"Inventory Number" ,
+		  "placeholder": "Inventory Number"
+		  } ,
+		 "cardReference": {
+		  "label":"Debit Card " ,
+		  "placeholder": "Debit Card "
+		  } ,
+		 "cardNumber": {
+		  "label":"Card Number" ,
+		  "placeholder": "Card Number"
+		  } ,
+		 "cardHolderName": {
+		  "label":"Card Holder Name" ,
+		  "placeholder": "Card Holder Name"
+		  } ,
+		 "cvv": {
+		  "label":"CVV" ,
+		  "placeholder": "CVV"
+		  } ,
+		 "validThru": {
+		  "label":"Valid Thru" ,
+		  "placeholder": "Valid Thru"
+		  } ,
+		 "status": {
+		  "label":"Status" ,
+		  "placeholder": "Status"
+		  } ,
+		  "validFrom": {
+			"label":"Valid From" ,
+			"placeholder": "valid From"
+			} 
+}

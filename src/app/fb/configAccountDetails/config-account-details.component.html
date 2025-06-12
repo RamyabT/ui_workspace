@@ -1,0 +1,77 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="childreqaccountdtl">
+
+
+	<!-- <fpx-tab-group [tabGroupData]="_helper.getTabData('HTab_1_HTab')" (selectedTabChange)="_helper.setCurrentActiveTab($event)"> 
+		<fpx-tab  [tabData]="_helper.getTabData('HTab_1')" > -->
+	<box class="entry-form">
+
+		<box class="entry-form-field-group grid col-12">
+
+			<!-- <app-debit-acc-number-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('debitAccNo')"
+				label="{{'childreqaccountdtl.debitAccNo.label' | translate }}"
+				formControlName="debitAccNo"></app-debit-acc-number-control> -->
+
+			<app-account-list-template-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('debitAccNo')" formControlName="debitAccNo"
+				label="{{'childreqaccountdtl.debitAccNo.label' | translate }}"
+				placeholder="{{'childreqaccountdtl.debitAccNo.placeholder' | translate }}"
+				(commonControlEvent)="handleControlEvent($event)"></app-account-list-template-control>
+
+			<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('initialBalance')"
+				label="{{'childreqaccountdtl.initialBalance.label' | translate }}" formControlName="initialBalance"
+				(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.initialBalance.CurrencyList"
+				[isCurrEditable]="state.initialBalance.isCurrEditable"
+				[defaultFetch]="state.initialBalance.defaultFetch" [initCurrency]="state.initialBalance.initCurrency"
+				[amountInWords]="state.initialBalance.amountInWords"
+				[changePublisher]="formChangePublisher$"></app-payment-amount-control>
+
+			<app-amount-currency-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('recurringAmount')"
+				label="{{'childreqaccountdtl.recurringAmount.label' | translate }}" formControlName="recurringAmount"
+				(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.recurringAmount.CurrencyList"
+				[isCurrEditable]="state.recurringAmount.isCurrEditable" [initCurrency]="state.initialBalance.initCurrency"
+				[changePublisher]="formChangePublisher$"></app-amount-currency-control>
+
+			<app-payment-frequency-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('recurringfrequency')"
+				label="{{'childreqaccountdtl.recurringfrequency.label' | translate }}" 
+				formControlName="recurringfrequency"></app-payment-frequency-list-control>
+
+
+			<app-request-date-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('startDate')"
+				label="{{'childreqaccountdtl.startDate.label' | translate }}" formControlName="startDate"
+				[minDate]="state.startDate.minDate" [maxDate]="state.startDate.maxDate"></app-request-date-control>
+
+
+			<app-no-of-installments class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('noOfInstallments')"
+				label="{{'childreqaccountdtl.noOfInstallments.label' | translate }}"
+				formControlName="noOfInstallments"></app-no-of-installments>
+
+
+			<app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('endDate')"
+				label="{{'childreqaccountdtl.endDate.label' | translate }}" formControlName="endDate"
+				[minDate]="_helper.startDate" [maxDate]="state.endDate.maxDate"></app-request-date-control>
+
+
+			<!-- <app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('dailyLimit')"
+				label="{{'childreqaccountdtl.dailyLimit.label' | translate }}" formControlName="dailyLimit"
+				[CurrencyList]="state.dailyLimit.CurrencyList" [isCurrEditable]="state.dailyLimit.isCurrEditable"
+				[defaultFetch]="state.dailyLimit.defaultFetch" [initCurrency]="state.dailyLimit.initCurrency"
+				[amountInWords]="state.dailyLimit.amountInWords"> ></app-payment-amount-control>
+
+
+			<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('trnAuthLimit')"
+				label="{{'childreqaccountdtl.trnAuthLimit.label' | translate }}" formControlName="trnAuthLimit"
+				[CurrencyList]="state.trnAuthLimit.CurrencyList" [isCurrEditable]="state.trnAuthLimit.isCurrEditable"
+				[defaultFetch]="state.trnAuthLimit.defaultFetch" [initCurrency]="state.trnAuthLimit.initCurrency"
+				[amountInWords]="state.trnAuthLimit.amountInWords"> ></app-payment-amount-control> -->
+		</box>
+	</box>
+
+
+</form>

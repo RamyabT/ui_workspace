@@ -1,0 +1,100 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="LinkInvestmentReqForm">
+
+    <box class="entry-form desktop-entry-form">
+        <box class="grid entry-form-field-group col-lg-12">
+
+          <box class="payee-info-header">
+            <box  class="payee-info-header">
+				<box *ngIf="state.reviewMode" class="payee-info-header">
+					<span class="review-header review-title">{{'reviewForm.title' | translate}}</span>
+					<!-- <span *ngIf="!_helper._device.isMobile()" class="review-text">{{'reviewForm.text' | translate}}</span> -->
+				</box>
+                <ng-container *ngIf="_helper.isDisabled">
+					<box class="intro-container col-sm-12 col-lg-12">
+                        <fpx-display-text class="header" 
+							innerHTML="{{'LinkInvestmentReqForm.header' | translate}}"></fpx-display-text>
+						<!-- <span class="interac-logo"><img src="./assets/interac/interac-create-profile.svg"
+								alt="interac trade mark" /></span>
+						<fpx-display-text class="header" *ngIf="!_helper.isEdit"
+							innerHTML="{{'RetailEtransferCustomerForm.header' | translate}}"></fpx-display-text>
+						<fpx-display-text class="header" *ngIf="_helper.isEdit"
+							innerHTML="{{'RetailEtransferCustomerForm.header1' | translate}}"></fpx-display-text> -->
+					</box>
+				</ng-container>
+					<!-- <span *ngIf="!_helper._device.isMobile()" class="review-text">{{'reviewForm.text' | translate}}</span> -->
+			</box>
+          </box>  
+            <!-- <app-customer-code-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('customerCode')"     label="{{'LinkInvestmentReqForm.customerCode.label' | translate }}"   formControlName="customerCode" 
+   ></app-customer-code-control> -->
+         <box class="biller-group col-sm-12">
+            <!-- <box class="link-account-header">Link account</box> -->
+            <!-- <box class="account-number-wrapper"> -->
+							
+			<!-- </box> -->
+             <ng-container *ngIf="_helper._device.isMobile()">
+               <box *ngIf="_helper.showAvisoMobDetails && !_helper.showQtradeMobDetails">
+                 <box class="aviso-wealth-icon">
+                           <img src="../../../assets/images/Aviso-color-logo.svg" alt="Aviso">
+                 </box>
+                 <box class="disclaimer">
+                     <box class="info-icon"></box>
+                      <box class="disclaimer-content">Vancouver City Savings Credit Union and Aviso Financial Inc. are separate legal entities. By proceeding to link your account, you acknowledge and agree that Aviso Financial Inc. will share your account information with Vancouver City Savings Credit Union, for the purpose of showing your Aviso Financial Inc. account information on your Vancouver City Savings Credit Union digital banking platforms. Your information will at all times be handled in accordance with the privacy policies of Vancouver City Savings Credit Union and Aviso Financial Inc., and applicable laws. </box>
+                 </box>
+
+               </box>
+
+               <box *ngIf="_helper.showQtradeMobDetails && !_helper.showAvisoMobDetails">
+                  <box class="qtrade-investing-icon">
+                           <img src="../assets/images/qtrade-logo.svg" alt="Qtrade">
+                  </box>
+                 <box class="disclaimer">
+                   <box class="info-icon"></box>
+                  <box class="disclaimer-content">Vancouver City Savings Credit Union and Aviso Financial Inc. are separate legal entities. By proceeding to link your account, you acknowledge and agree that Aviso Financial Inc. will share your account information with Vancouver City Savings Credit Union, for the purpose of showing your Aviso Financial Inc. account information on your Vancouver City Savings Credit Union digital banking platforms. Your information will at all times be handled in accordance with the privacy policies of Vancouver City Savings Credit Union and Aviso Financial Inc., and applicable laws. </box>
+                </box>
+              </box>
+
+             </ng-container>
+              
+
+             <app-link-account-control class="col-sm-12 col-md-6 col-lg-6"
+                [actionPublisher]="actionMap$.get('clientNumber')"
+                label="{{'LinkInvestmentReqForm.linkAccount' | translate }}"
+                
+                formControlName="linkAccount"></app-link-account-control>
+
+            <app-client-number-control class="col-sm-12 col-md-6 col-lg-6"
+                [actionPublisher]="actionMap$.get('clientNumber')"
+                label="{{'LinkInvestmentReqForm.clientNumber.label' | translate }}"
+                placeholder="{{'LinkInvestmentReqForm.clientNumber.placeholder' | translate }}"
+                formControlName="clientNumber"></app-client-number-control>
+
+            <app-last-name-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('lastName')"
+                label="{{'LinkInvestmentReqForm.lastName' | translate }}" 
+                
+                formControlName="lastName"></app-last-name-control>
+
+    <box class="col-sm-12 col-md-6 col-lg-12 name-tooltip-wrapper">
+        <app-date-of-birth-control  class="col-sm-12 col-md-6 col-lg-12"  
+         [actionPublisher]="actionMap$.get('dob')"     
+         label="{{'LinkInvestmentReqForm.dob' | translate }}"  
+         formControlName="dob" [minDate]="state.dob.minDate" 
+         [maxDate]="state.dob.maxDate"  ></app-date-of-birth-control>
+         <ng-container *ngIf="_helper.isDisabled">
+				<button type="button" class="btn-container" (click)="_helper.onPopup()">
+					<span class="icon hint-btn-icon"></span>
+				</button>
+		</ng-container>
+    </box>
+            <app-referral-code-control class="col-sm-12 col-md-6 col-lg-6"
+                [actionPublisher]="actionMap$.get('postalCode')"
+                label="{{'LinkInvestmentReqForm.postalCode' | translate }}"
+               
+                formControlName="postalCode"></app-referral-code-control>
+
+
+
+         </box>
+
+    </box>
+ </box>
+</form>

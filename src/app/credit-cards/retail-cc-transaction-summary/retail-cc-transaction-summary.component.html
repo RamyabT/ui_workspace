@@ -1,0 +1,167 @@
+<box class="entry-form">
+  <box class="grid transaction-container col-12">
+    <box class="transactions-grid-wrapper col-12">
+      <box class="transactions-layout">
+        <box class="transactions-grid-header">
+          <h2 class="h4 title">{{ 'cctransactionsummary.title' | translate }}</h2>
+          <box class="tool-bar" *ngIf="state.isDataReceived">
+            <fpx-button (onClick)="_helper.filter()" btnType="button" btnClass="system-ico-button filter" [label]="'cctransactionsummary.Filter' | translate"
+            ></fpx-button>
+            <fpx-button (onClick)="_helper.onDownloadClick(null)" btnType="button" btnClass="system-ico-button download" [label]="'cctransactionsummary.Download' | translate"
+            ></fpx-button>
+          </box>
+        </box>
+        <box class="transactions-summary col-lg-12">
+          <ul class="transactions-summary-list acc-list">
+            <li *ngIf="_helper.panelData[0].showPanel != false"
+              [ngClass]="{'accordian-open-start': _helper.panelData[0].accordianOpened}"
+              class="accordion accordion-item-0">
+              <div class="product-type-panel">
+                <box (click)="_helper.toggleAccordion(0)" class="list-item-header panel-header">
+                  <box class="header-title pending col-11">
+                    <h3 class=" h5 panel-title pending">{{ 'cctransactionsummary.pendingTransactions' | translate
+                      }}</h3>
+                  </box>
+                  <box class="header-details">
+                      <box class="btn-toggle">
+                        <button type="button" class="btn-icon btn-accordion-toggle" aria-label="Toggle panel"></button>
+                      </box>
+                  </box>
+                </box>
+                <div class="list-item-content">
+                  <box class="product-type-panel cards-panel">
+                    <box class="panel-body">
+                      <ng-container
+                        *ngIf="state.unBilledGridData && state.unBilledGridData.length; else noUnBilledTransfers">
+                      </ng-container>
+                      <app-retail-cc-transaction-summary-ro-grid class="col-md-13 col-sm-12 col-lg-12"
+                        (commonRoGridEvent)="_helper.unBilledCcTransactionRoGridEvent($event)"
+                        [actionPublisher]="actionMap$.get('unBilledCcTransactionHistory')"
+                        label="RetailCCTransactionSummaryROGrid"></app-retail-cc-transaction-summary-ro-grid>
+                    </box>
+                  </box>
+                </div>
+              </div>
+            </li>
+            <li class="line-separator"></li>
+            <li *ngIf="_helper.panelData[1].showPanel != false"
+              [ngClass]="{'accordian-open-start': _helper.panelData[1].accordianOpened}"
+              class="accordion accordion-item-1">
+              <div class="product-type-panel">
+                <box (click)="_helper.toggleAccordion(1)" class="list-item-header panel-header">
+                  <box class="header-title posted col-11">
+                    <h3 class="panel-title posted h5">{{ 'cctransactionsummary.postedTransactions' | translate }}</h3>
+                  </box>
+                  <box class="header-details">
+                    <span class="total-balance count">
+                      <box class="btn-toggle">
+                        <button type="button" class="btn-icon btn-accordion-toggle" aria-label="Toggle panel"></button>
+                      </box>
+                    </span>
+                  </box>
+                </box>
+                <div class="list-item-content">
+                  <box class="product-type-panel cards-panel">
+                    <box class="panel-body">
+                      <ng-container *ngIf="state.billedGridData && state.billedGridData.length; else noBilledTransfers">
+                      </ng-container>
+                      <app-retail-cc-transaction-summary-ro-grid class="col-md-13 col-sm-12 col-lg-12"
+                        (commonRoGridEvent)="_helper.billedCcTransactionRoGridEvent($event)"
+                        [actionPublisher]="actionMap$.get('billedCcTransactionHistory')"
+                        label="RetailCCTransactionSummaryROGrid"></app-retail-cc-transaction-summary-ro-grid>
+                    </box>
+                  </box>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </box>
+      </box>
+    </box>
+  </box>
+
+  <!--<box class="module-tab-container">
+        <mat-tab-group [(selectedIndex)]="_helper.activeTabIndex" (selectedTabChange)="_helper.onTabChanged($event)">
+          <mat-tab
+              label="{{ 'CCTABCONTAINER.unbilledTransactions' | translate }}"
+            >
+              
+                <ng-container *ngIf="state.isDataReceived; else loader">
+                 <box class="total-spend" *ngIf="state.unBilledGridData?.length">
+                  <box class="primary-info">
+                    <span class="spend-label" >
+                        {{ 'CCTABCONTAINER.unbilledSpends' | translate }}
+                    </span>
+                    <span class="spend-amount">
+                      <em>{{state.cardData?.currency}}</em>
+                      {{state.cardData?.outstandingAmount | currency : state.cardData?.currency : '' }}
+  
+                    </span>
+                  </box>
+                  <box class="secondary-info">
+                    <span class="cycle-date">
+                      {{ 'CCTABCONTAINER.billingCycle' | translate }} <em>{{state.cardData?.lastPaymentDate | date : "dd MMM"}}</em> {{ 'CCTABCONTAINER.Present' | translate }}
+                    </span>
+                    <span>&nbsp;</span>
+                  </box>
+                </box>
+
+                  <ng-container *ngIf="state.unBilledGridData && state.unBilledGridData.length; else noUnBilledTransfers">
+                  </ng-container>
+                  
+                </ng-container>
+                <app-retail-cc-transaction-summary-ro-grid
+                      class="col-md-13 col-sm-12 col-lg-12"
+                      (commonRoGridEvent)="_helper.unBilledCcTransactionRoGridEvent($event)"
+                      [actionPublisher]="actionMap$.get('unBilledCcTransactionHistory')"
+                      label="RetailManageBeneficiaryRoGrid"
+                    ></app-retail-cc-transaction-summary-ro-grid>
+                
+              
+              
+            </mat-tab>
+            <mat-tab label="{{ 'CCTABCONTAINER.billedTransactions' | translate }}">
+              
+
+                <ng-container *ngIf="state.isDataReceived; else loader">
+                  <box class="casa-transactions-grid-header">
+                    <span class="title">{{ 'DcTransactionHistory.title' | translate }}</span>
+                      <box class="tool-bar">
+                          <fpx-button btnType="button" btnClass="system-ico-button no-text filter" label="filter" (onClick)="_helper.filter()"></fpx-button>
+                          <fpx-button btnType="button" btnClass="system-ico-button no-text download" label="download" (onClick)="_helper.onDownloadClick(null)"></fpx-button>
+                      </box>
+                  </box>
+                  <ng-container *ngIf="state.billedGridData && state.billedGridData.length; else noBilledTransfers">
+                  </ng-container>
+                </ng-container>
+                <app-retail-cc-transaction-summary-ro-grid
+                      class="col-md-13 col-sm-12 col-lg-12"
+                      (commonRoGridEvent)="_helper.billedCcTransactionRoGridEvent($event)"
+                      [actionPublisher]="actionMap$.get('billedCcTransactionHistory')"
+                      label="RetailManageBeneficiaryRoGrid"
+                    ></app-retail-cc-transaction-summary-ro-grid>
+                
+              
+            </mat-tab>
+          </mat-tab-group>
+      </box> -->
+</box>
+<!-- Content loader -->
+<ng-template #loader>
+  <box class="loading"></box>
+</ng-template>
+
+
+<ng-template #noUnBilledTransfers>
+  <box class="no-result-view">
+    <box class="no-result-desc">{{ 'cctransactionsummary.pendingTransactionsEmptyState' | translate
+      }}</box>
+  </box>
+</ng-template>
+
+
+<ng-template #noBilledTransfers>
+  <box class="no-result-view">
+    <box class="no-result-desc">{{ 'cctransactionsummary.postedTransactionsEmptyState' | translate }}</box>
+  </box>
+</ng-template>

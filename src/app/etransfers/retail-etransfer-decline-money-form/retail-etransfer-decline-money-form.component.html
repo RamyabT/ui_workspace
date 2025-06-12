@@ -1,0 +1,28 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailEtransferDeclineMoneyForm">
+
+	<box class="entry-form" [ngClass]="{'desktop-entry-form': !_helper._device.isMobile()}">
+	<box class="grid entry-form-field-group col-sm-12 col-lg-12">
+		<box class="form-details-group">
+			<box class="pay-from-label" *ngIf="!_helper._device.isMobile()">
+				{{'RetailEtransferDeclineMoneyForm.depositLabel' | translate}}
+			</box>
+			<box class="detail-group">
+				<box class="auto-deposit-msg-box">
+					<box class="auto-deposit-msg-bg">
+						<span class="auto-deposit-msg-icon">
+						</span>
+					</box>
+					<box class="declineNote">
+						<span>{{'RetailEtransferDeclineMoneyForm.declineNote' | translate }}</span>
+					</box>
+				</box>
+		
+				<app-remarks-control class=" decline-reason col-sm-12 col-md-12 col-lg-12" [actionPublisher]="actionMap$.get('remarks1')"
+					label="{{'RetailEtransferDeclineMoneyForm.remarks1.label' | translate }}"
+					placeholder="{{'RetailEtransferDeclineMoneyForm.placeholder.label' | translate }}"
+					formControlName="remarks1"></app-remarks-control>
+			</box>
+		</box>
+	</box>
+	</box>
+</form>

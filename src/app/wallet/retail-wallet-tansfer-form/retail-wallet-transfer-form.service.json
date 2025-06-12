@@ -1,0 +1,5 @@
+ 
+ "RETAILWALLETTRANSFER" : {
+ "servicePath": ["entry-shell","wallet", "retail-wallet-tansfer-form"],
+ "queryParams": {}
+ }

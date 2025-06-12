@@ -1,0 +1,32 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailAddGoal" >
+	
+	  
+	<box class="entry-form">
+	     
+	      
+			  <app-goal-name-form-control  class="col-sm-12 col-md-4 col-lg-6 "   [actionPublisher]="actionMap$.get('goalname')"     label="{{'RetailAddGoal.goalname.label' | translate }}"   formControlName="goalname"  [maxlength]="30">
+   ></app-goal-name-form-control>
+
+	 <app-retail-child-account-control  class="col-sm-12 col-md-4 col-lg-6  "   [actionPublisher]="actionMap$.get('childAcc')"     label="{{'RetailAddGoal.childAcc.label' | translate }}"   formControlName="childAcc" 
+   ></app-retail-child-account-control>
+	      
+			  <app-request-date-control  class="col-sm-12 col-md-4 col-lg-6 "   [actionPublisher]="actionMap$.get('dueDt')"     label="{{'RetailAddGoal.dueDt.label' | translate }}"   formControlName="dueDt" 
+			  [minDate]="state.dueDt.minDate"   [maxDate]="state.dueDt.maxDate"  ></app-request-date-control>
+					
+			  <app-payment-amount-control  class="col-sm-12 col-md-4 col-lg-6 "   [actionPublisher]="actionMap$.get('targetAmt')"     label="{{'RetailAddGoal.targetAmt.label' | translate }}"   formControlName="targetAmt" 
+   [CurrencyList]="state.targetAmt.CurrencyList" [isCurrEditable]="state.targetAmt.isCurrEditable"  [defaultFetch]="state.targetAmt.defaultFetch" [initCurrency]="state.targetAmt.initCurrency" [amountInWords]="state.targetAmt.amountInWords">  ></app-payment-amount-control>
+	     
+	      
+	      
+			  <app-payment-amount-control  class="col-sm-12 col-md-4 col-lg-6 "   [actionPublisher]="actionMap$.get('initialContribution')"     label="{{'RetailAddGoal.initialContribution.label' | translate }}"   formControlName="initialContribution" 
+   [CurrencyList]="state.initialContribution.CurrencyList" [isCurrEditable]="state.initialContribution.isCurrEditable"  [defaultFetch]="state.initialContribution.defaultFetch" [initCurrency]="state.initialContribution.initCurrency" [amountInWords]="state.initialContribution.amountInWords">  ></app-payment-amount-control>
+	     
+	        
+			  <app-debit-acc-number  class="col-sm-12 col-md-4 col-lg-6 "   [actionPublisher]="actionMap$.get('debitAcc')"     label="{{'RetailAddGoal.debitAcc.label' | translate }}"   formControlName="debitAcc" 
+     ></app-debit-acc-number>
+
+
+
+	</box> 
+</form>
+	

@@ -1,0 +1,61 @@
+<box class="entry-form">
+	<ng-container *ngIf="state.details; else detailsLoader">
+		<!-- <casa-summary-card class="col-12" [cardData]="state.details" [contextmenuBtn]="true"></casa-summary-card> -->
+			<box *ngIf="_helper._device.isMobile()" class="product-desc">{{this.state.details.accountNickname || this.state.details.productDesc}}</box>
+			<box class="display-fields-container col-12">
+				<!-- <h5 class="account-details"> Account Details</h5> -->
+				<span class="account-details header">{{ 'RetailAccountDetailsForm.'+'accountDetails'+'.label' | translate
+				}}</span>
+				<ng-container *ngIf="!_helper.isAccountDetailsApiFailed else errorMessage">
+					<ng-container *ngFor="let field of state.fields; index as i">
+						<box class="display-field" *ngIf="state.details[field]">
+							<box class="lbl-wrapper">
+								<span class="lbl">{{ 'RetailDepositDetailsForm.'+field+'.label' | translate }}</span>
+							</box>
+							<span class="val">
+								<ng-container [ngSwitch]="state.fieldsFormat[i]">
+									<ng-container *ngSwitchCase="'date'">
+										{{ state.details[field] | date : "dd MMM yyyy" }}
+									</ng-container>
+									<ng-container *ngSwitchCase="'amount'">
+										<span class="amount">{{ _helper.getAbsoluteValue(state.details[field]) | currency : state.details.accountCurrency
+											: '' }} <em>{{state.details.accountCurrency | currencyCode}}</em></span>
+											{{_helper.checkNegativeValue(state.details[field])}}
+									</ng-container>
+									<ng-container *ngSwitchCase="'percentage'">
+										{{ state.details[field] + " %" }}
+									</ng-container>
+									<ng-container *ngSwitchDefault>
+										{{ state.details[field] }}
+									</ng-container>
+								</ng-container>
+							</span>
+						</box>
+					</ng-container>
+				</ng-container>
+			</box>
+
+			<!-- <box class="display-details-container-footer">
+			<fpx-button btnClass="primary" (onClick)="_helper.onDownloadAccountsDetailsClick()" label="Download"></fpx-button>
+		</box> -->
+		
+			<!-- <button *ngIf="!_helper.isAccountDetailsApiFailed" class="btn-wrapper" >
+				<span class="share-btn-icon"></span>
+				<span class="primary">Share</span>
+			</button> -->
+			
+		
+	</ng-container>
+
+
+<ng-template #detailsLoader>
+	<box class="loading"></box>
+</ng-template>
+
+<ng-template #errorMessage>
+	<box class="error-message service-unavailable-template">
+		<!-- <span class="error-title">{{_helper.errorTitle}}</span> -->
+		<!-- <span class="error-message-text description">{{_helper.errorMessage}}</span> -->
+	</box>
+</ng-template>
+</box>

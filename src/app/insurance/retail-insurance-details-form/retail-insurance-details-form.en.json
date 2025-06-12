@@ -1,0 +1,127 @@
+"RetailInsuranceDetailsForm": {
+	"title": "Insurance Details",
+	"insuranceType": {
+		"label": "Insurance Type",
+		"placeholder": "Insurance Type"
+	},
+	"premiumAmount": {
+		"label": "Premium Amount",
+		"placeholder": "Premium Amount"
+	},
+	"firstName": {
+		"label": "First Name",
+		"placeholder": "First Name"
+	},
+	"country": {
+		"label": "Country",
+		"placeholder": "Country"
+	},
+	"policyTerm": {
+		"label": "Policy Term",
+		"placeholder": "Policy Term"
+	},
+	"payDuration": {
+		"label": "Pay Duration",
+		"placeholder": "Pay Duration"
+	},
+	"maturityDate": {
+		"label": "Maturity Date",
+		"placeholder": "Maturity Date"
+	},
+	"mobileNumber": {
+		"label": "Mobile Number",
+		"placeholder": "Mobile Number"
+	},
+	"dueDate": {
+		"label": "Due Date",
+		"placeholder": "Due Date"
+	},
+	"policyNumber": {
+		"label": "Policy Number",
+		"placeholder": "Policy Number"
+	},
+	"customerCode": {
+		"label": "Customer Code",
+		"placeholder": "Customer Code"
+	},
+	"paymentFrequency": {
+		"label": "Payment Frequency",
+		"placeholder": "Payment Frequency"
+	},
+	"productTypeDesc": {
+		"label": "Product Type Description",
+		"placeholder": "Product Type Description"
+	},
+	"policyDuration": {
+		"label": "Policy Duration",
+		"placeholder": "Policy Duration"
+	},
+	"bonusAmount": {
+		"label": "Bonus Amount",
+		"placeholder": "Bonus Amount"
+	},
+	"maturityDate": {
+		"label": "Maturity Date",
+		"placeholder": "Maturity Date"
+	},
+	"nextDueDate": {
+		"label": "Next Due Date",
+		"placeholder": "Next Due Date"
+	},
+	"insuranceId": {
+		"label": "Insurance ID",
+		"placeholder": "Insurance ID"
+	},
+	"currency": {
+		"label": "Currency",
+		"placeholder": "Currency"
+	},
+	"insuredAmount": {
+		"label": "Insured Amount",
+		"placeholder": "Insured Amount"
+	},
+	"productType": {
+		"label": "Product Type",
+		"placeholder": "Product Type"
+	},
+	"email": {
+		"label": "Email",
+		"placeholder": "Email"
+	},
+	"totalPaidAmount": {
+		"label": "Total Paid Amount",
+		"placeholder": "Total Paid Amount"
+	},
+	"closeDate": {
+		"label": "Close Date",
+		"placeholder": "Close Date"
+	},
+	"firstName": {
+		"label": "First Name",
+		"placeholder": "First Name"
+	},
+	"dob": {
+		"label": "Date of Birth",
+		"placeholder": "Date of Birth"
+	},
+	"PolicyStatus": {
+		"label": "Policy Status",
+		"placeholder": "Policy Status"
+	},
+	"countryName": {
+		"label": "Country Name",
+		"placeholder": "Country Name"
+	},
+	"applicationCode": {
+		"label": "Application Code",
+		"placeholder": "Application Code"
+	},
+	"startDate": {
+		"label": "Start Date",
+		"placeholder": "Start Date"
+	},
+	"status": {
+		"label": "Status",
+		"placeholder": "Status"
+	}
+}

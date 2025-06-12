@@ -1,0 +1,5 @@
+ 
+ "RETAILPROMOTIONS" : {
+ "servicePath": ["entry-shell","prelogin", "retail-promotions-form"],
+ "queryParams": {}
+ }

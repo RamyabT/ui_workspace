@@ -1,0 +1,114 @@
+<ng-container *ngIf="selectedData && selectedData?.loanAccountNumber">
+    <box class="account-information">
+        <box class="acc-primary-information">
+            <box class="account-type-number-section">
+                <box class="acc-dtl-balance-section">
+                    <box class="acc-type-number-wrapper">
+                        <span class="acc-type">{{selectedData.productDesc }} </span>
+                        <!-- <span class="product-name"> {{ selectedData?.accountNumber }}</span> -->
+
+                        <box class="product-details">
+                            <box class="account-number">{{ selectedData?.loanAccountNumber }}</box>
+                            <box class="seperator"></box>
+                            <box class="account-type">{{ selectedData.accountTypeDesc }}<span class="joint"
+                                    *ngIf="selectedData.ownership == 'Joint'">{{selectedData.ownership}}</span><span
+                                    class="dormant"
+                                    *ngIf="selectedData.accountStatus == 'Dormant'">{{selectedData.accountStatus}}</span>
+                            </box>
+                        </box>
+                    </box>
+                    <box class="balance-wrapper">
+                        <box class="balance-details">
+                            <span class="balance-label">{{'LOAN_ACC_DTLS_LIST_TMPLT.originalLoanAmount' | translate}}</span>
+
+                            <ng-container
+                                *ngIf="selectedData.accountCurrency != _appConfig.baseCurrency else avlBaseCurrency">
+                                <box class="amount balance-amount-usd"> {{ selectedData.loanAmount | currency :
+                                    selectedData.accountCurrency : '' }} <em>{{ selectedData.accountCurrency |
+                                        currencyCode }}</em></box>
+                                <box class="amount balance-amount-cad">{{ selectedData.baseCurrencyAvlBal | currency :
+                                    _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                                        }}</em></box>
+                            </ng-container>
+                            <ng-template #avlBaseCurrency>
+                                <box class="amount balance-amount-cad">{{ selectedData.loanAmount | currency :
+                                    selectedData.accountCurrency : '' }} <em>{{ selectedData.accountCurrency |
+                                        currencyCode }}</em></box>
+                            </ng-template>
+
+                        </box>
+                        <box class="balance-details current-balance">
+                            <span class="balance-label">{{'LOAN_ACC_DTLS_LIST_TMPLT.currentBalance' |
+                                translate}}</span>
+
+                            <ng-container
+                                *ngIf="selectedData.accountCurrency != _appConfig.baseCurrency else curBaseCurrency">
+                                <box class="amount balance-amount-usd"> {{ selectedData.totalOutstanding | currency :
+                                    selectedData.accountCurrency : '' }} <em>{{ selectedData.accountCurrency |
+                                        currencyCode }}</em></box>
+                                <box class="amount balance-amount-cad">{{ selectedData.baseCurrencyAvlBal | currency :
+                                    _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                                        }}</em></box>
+                            </ng-container>
+                            <ng-template #curBaseCurrency>
+                                <box class="amount balance-amount-cad">{{ selectedData.totalOutstanding | currency :
+                                    selectedData.accountCurrency : '' }} <em>{{ selectedData.accountCurrency |
+                                        currencyCode }}</em></box>
+                            </ng-template>
+
+                        </box>
+                    </box>
+                </box>
+                <box class="swap-share-wrapper">
+                    <box [ngClass]="{'hide-view-all' : !showViewAll}" class="swap-act-section" (click)="viewAll()">
+                        <box class="swap-act-icon">
+                            <img src="./assets/images/icons/swap-account.svg">
+                        </box>
+                        <!-- <span class="icon swap-act-icon"></span> -->
+                        <span class="swap-act-text">
+                            {{'CASASUMMARYCARD.viewall' | translate}}
+                        </span>
+                    </box>
+
+                    <box class="share-act-section" (click)="shareInfo($event)">
+                        <box class="share-act-icon">
+                            <img src="./assets/images/icons/share-account.svg">
+                        </box>
+                        <!-- <span class="icon swap-act-icon"></span> -->
+                        <span class="share-act-text">
+                            {{'CASASUMMARYCARD.share' | translate}}
+                        </span>
+                    </box>
+                </box>
+            </box>
+        </box>
+    </box>
+</ng-container>
+<!--
+{
+    "country": "AE",
+    "accountName": "VanjimuthuUthaman",
+    "mobileNumber": "9715076540",
+    "accountType": "SBA",
+    "accountCurrency": "AED",
+    "statementFrequency": "1",
+    "customerCode": "6110104",
+    "holdBalance": 0,
+    "accountNumber": "611010478",
+    "accountTypeDesc": "Savings Account",
+    "branchDesc": "UMM AL QAIWAN",
+    "availableBalance": 49901180.15,
+    "accountStatus": "Active",
+    "branchCode": "10001",
+    "productDesc": "Savings Account",
+    "productCode": "202",
+    "BICCode": "UMMQAEAD001",
+    "actualBalance": 49901180.15,
+    "iban": "AE250420000000902001565",
+    "countryName": "United Arab Emirates",
+    "openDate": "2024-02-10 00:00:00",
+    "routingCode": "AE250420000000902001565",
+    "email": "abdul.nadhir@gmail.com",
+    "accountNickname": ""
+}
+-->

@@ -1,0 +1,15 @@
+"RetailAccountNicknameForm":{
+"title":"Manage Account Nickname",
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "nickName": {
+		  "label":"Nickname" ,
+		  "placeholder": "Nickname"
+		  } ,
+		 "clearNickname": {
+		  "label":"Clear Nickname" ,
+		  "placeholder": "Clear Nickname"
+		  } 
+}

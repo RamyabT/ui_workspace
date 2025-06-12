@@ -1,0 +1,146 @@
+<form
+  [formGroup]="formGroup"
+  (ngSubmit)="submit()"
+  autocomplete="off"
+  formName="RetailBillSummaryForm"
+>
+  <box class="entry-form col-12">
+    <box class="module-tab-container">
+    
+
+      <mat-tab-group
+        [(selectedIndex)]="state.activeTabIndex"
+        (selectedTabChange)="_helper.onTabChanged($event)"
+      >
+        <mat-tab label="{{ 'PAYMENTSCONTAINER.scheduled' | translate }}">
+          <ng-template matTabContent>
+            <!-- <app-schedule-form></app-schedule-form> -->
+
+            <box class="grid transaction-container">
+              <box class="transactions-stmt-grid-wrapper col-12">
+                <box
+                  [ngStyle]="{
+                    display:
+                      state.upcomingloader && state.upcomingData.length == 0
+                        ? 'none'
+                        : ''
+                  }"
+                >
+                <box >
+                  <button class="select-multiple-btn" (click)="_helper.selectMultipleBill()">{{'billpaymentLabels.selectMultiple' | translate}}</button>
+                </box>
+                  <app-retail-upcoming-bill-ro-grid
+                    (commonRoGridEvent)="
+                      _helper.handleUpcomingBillGridEvent($event)
+                    "
+                    [actionPublisher]="
+                      actionMap$.get('UpcomingBillPaymentRoGrid')
+                    "
+                    label="UpcomingBillPaymentRoGrid"
+                  ></app-retail-upcoming-bill-ro-grid>
+                </box>
+              </box>
+            </box>
+
+            <box *ngIf="state.upcomingloader" class="loading"></box>
+
+            <ng-container
+              *ngIf="
+                !state.upcomingloader &&
+                (!state.upcomingData || state.upcomingData.length == 0)
+              "
+            >
+              <box class="no-result-view">
+                <img
+                  class="no-result-image"
+                  src="./assets/images/transfers/no-schedule-transfer.svg"
+                  alt=""
+                />
+                <box class="no-result-desc">{{
+                  "PAYMENTSCONTAINER.noUpcomingBill" | translate
+                }}</box>
+                <button
+                  type="button"
+                  class="no-result-add-btn"
+                  clickable
+                  (click)="_helper.navToAddBiller()"
+                >
+                  {{ "PAYMENTSCONTAINER.addBillerBtn" | translate }}
+                </button>
+              </box>
+            </ng-container>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="{{ 'PAYMENTSCONTAINER.history' | translate }}">
+          <ng-template matTabContent>
+            <!-- <app-schedule-form></app-schedule-form> -->
+
+            <box class="grid transaction-container">
+              <box class="transactions-stmt-grid-wrapper col-12">
+                <box
+                  [ngStyle]="{
+                    display:
+                      state.billhistoryloader &&
+                      state.billHistoryData.length == 0
+                        ? 'none'
+                        : ''
+                  }"
+                >
+
+                <box class="casa-transactions-grid-header">
+                    <span class="title">{{ 'PAYMENTSCONTAINER.paymentHistory' | translate }}</span>
+                  <box class="tool-bar">
+                    <fpx-button
+                      btnType="button"
+                      btnClass="system-ico-button no-text filter"
+                      label="filter"
+                      [actionPublisher]="actionMap$.get('filter')"
+                      (onClick)="_helper.filter()"
+                    ></fpx-button>
+                  </box>
+                </box>
+                  <app-retail-bill-history-ro-grid
+                    (commonRoGridEvent)="
+                      _helper.handleBillHistoryGridEvent($event)
+                    "
+                    [actionPublisher]="
+                      actionMap$.get('BillPaymentHistoryRoGird')
+                    "
+                    label="BillPaymentHistoryRoGird"
+                  ></app-retail-bill-history-ro-grid>
+                </box>
+              </box>
+            </box>
+
+            <box *ngIf="state.billhistoryloader" class="loading"></box>
+
+            <ng-container
+              *ngIf="
+                !state.billhistoryloader &&
+                (!state.billHistoryData || state.billHistoryData.length == 0)
+              "
+            >
+              <box class="no-result-view">
+                <img
+                  class="no-result-image"
+                  src="./assets/images/billers/no-data-bill-history.svg"
+                  alt=""
+                />
+                <box class="no-result-desc">{{
+                  "PAYMENTSCONTAINER.noTransaction" | translate
+                }}</box>
+                <button
+                  type="button"
+                  class="no-result-add-btn"
+                  (click)="_helper.navToAddBiller()"
+                >
+                  {{ "PAYMENTSCONTAINER.addBillerBtn" | translate }}
+                </button>
+              </box>
+            </ng-container>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </box>
+  </box>
+</form>

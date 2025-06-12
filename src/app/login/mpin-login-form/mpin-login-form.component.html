@@ -1,0 +1,43 @@
+<form formName="mpinLoginForm" [autocomplete]="'off'" (ngSubmit)="submit()" [formGroup]="formGroup">
+    <box class="entry-form">
+        <box class="mpin-login-form-wrapper col-12">
+            <fpx-display-text class="login-form-heading"
+                [innerHTML]="'mpinLoginForm.welcomeMessage' | translate :({userId:state.userId})"></fpx-display-text>
+            <box class="mpin-input-form">
+                <!-- <box class="mpin-field">
+                    <fpx-pin [size]="state.pinSize" [showPinOption]="false"
+                        [label]="'mpinLoginForm.mpin.label' | translate" formControlName="mpin"
+                        [actionPublisher]="actionMap$.get('mpin')"></fpx-pin>
+                    <box class="recover-link">
+                        <button type="button" class="link" name="forgotMpin" (click)="_helper.navToForgotMpin()">{{
+                            'mpinLoginForm.forgotMpin' | translate }}</button>
+                    </box>
+                </box>
+
+                <ng-container *ngIf="state?.errorMessage">
+                    <mat-error class="error">
+                        <span>{{ state.errorMessage }}</span>
+                    </mat-error>
+                </ng-container>
+
+                <box class="seperator">{{ 'mpinLoginForm.orText' | translate }}</box> -->
+
+                <ng-container *ngIf="state.deviceAuthEnabled">
+                    <box class="biometric-login">
+                        <button type="button" class="btn-biometric-finger" (click)="_helper.doDeviceAuth()">
+                            <span>{{ 'mpinLoginForm.biometricLoginTxt' | translate }}</span>
+                            <span class="icon-wrapper">
+                                <img src="./assets/images/biometric/biometric-{{state.biometricAvailable}}.svg" alt="biometric finger" />
+                            </span>
+                        </button>
+                    </box>
+                </ng-container>
+
+                <!-- <box class="other-login-options">
+                    <button type="button" class="link" (click)="_helper.navToNormalLogin()">{{
+                        'mpinLoginForm.otherLoginBtnTxt' | translate }}</button>
+                </box> -->
+            </box>
+        </box>
+    </box>
+</form>

@@ -1,0 +1,23 @@
+"COBEmploymentInfoForm":{
+"title":"employmentInfo",
+		 "empstatus": {
+		  "label":"empstatus" ,
+		  "placeholder": "empstatus"
+		  } ,
+		 "empsoi": {
+		  "label":"empsoi" ,
+		  "placeholder": "empsoi"
+		  } ,
+		 "employmentType": {
+		  "label":"employmentType" ,
+		  "placeholder": "employmentType"
+		  } ,
+		 "monthlyIncome": {
+		  "label":"MonthlyIncome" ,
+		  "placeholder": "MonthlyIncome"
+		  } ,
+		 "companyName": {
+		  "label":"Applicant Name" ,
+		  "placeholder": "Applicant Name"
+		  } 
+}

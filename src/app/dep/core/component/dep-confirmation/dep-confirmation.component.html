@@ -1,0 +1,17 @@
+<box class="dep-confirmation">
+    <box class="icon-text-wrapper">
+        <box *ngIf="confirmationIcon" class="alert-icon {{confirmationIcon}}"><span>{{confirmationIcon}}</span></box>
+        <box *ngIf="title" class="alert-title">{{ title | translate }}</box>
+        <box *ngIf="message" class="alert-description" [innerHTML]="message | translate"></box>
+        <box *ngIf="description" class="alert-sub-description" [innerHTML]="description | translate"></box>
+    </box>
+    <box class="alert-footer" [ngClass]="{'etran-fav-close':serviceCode == 'RETAILETRANSFERFAVPAYMENTS'}">
+        <div class="btn-container">
+            <button *ngIf="this.serviceCode!='RETAILETRANSFERFAVPAYMENTS'" type="button" class="btn-secondary"
+                (click)="onDecline()"> {{ cancelBtnLbl | translate }} </button>
+            <button *ngIf="!hideOkBtn" type="button" class="btn-primary"
+                [ngClass]="{'etran-fav-close':serviceCode == 'RETAILETRANSFERFAVPAYMENTS'}" (click)="onAccept()"> {{
+                okBtnLbl | translate }} </button>
+        </div>
+    </box>
+</box>

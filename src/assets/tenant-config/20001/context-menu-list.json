@@ -1,0 +1,26 @@
+{
+    "SCHEDULEDBILLPAYMENTS": [
+        {
+            "id": "edit",
+            "name": "Edit",
+            "icon": "edit"
+        },
+        {
+            "id": "delete",
+            "name": "Delete",
+            "icon": "delete"
+        }
+    ],
+    "SCHEDULEDTRANSFERS": [
+        {
+            "id": "edit",
+            "name": "Edit",
+            "icon": "edit"
+        },
+        {
+            "id": "delete",
+            "name": "Delete",
+            "icon": "delete"
+        }
+    ]
+}

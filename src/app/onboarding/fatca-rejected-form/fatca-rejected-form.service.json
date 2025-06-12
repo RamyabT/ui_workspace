@@ -1,0 +1,5 @@
+ 
+ "fatcaRejected" : {
+ "servicePath": ["entry-shell","onboarding", "fatca-rejected-form"],
+ "queryParams": {}
+ }

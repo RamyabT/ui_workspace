@@ -1,0 +1,15 @@
+
+<router-outlet></router-outlet>
+
+<!-- Application busy loader (spinner) -->
+<ng-container *ngIf="loadingSpinner?.loading$ | async">
+    <app-screen-busy></app-screen-busy>
+</ng-container>
+
+<!-- Template components -->
+<default-form-control-template></default-form-control-template>
+<display-grid-template></display-grid-template>
+<dropdown-template></dropdown-template>
+<file-upload-template></file-upload-template>
+<radio-button-template></radio-button-template>
+<app-overlay *ngIf="doShowBestPreferViewMsg && _device.isMobile()"></app-overlay>

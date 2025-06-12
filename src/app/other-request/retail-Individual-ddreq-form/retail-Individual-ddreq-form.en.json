@@ -1,0 +1,27 @@
+"RetailIndIndividualsDDReqForm":{
+"title":"Individualsddreq",
+		 "firstName": {
+		  "label":"First Name" ,
+		  "placeholder": "First Name"
+		  } ,
+		 "lastName": {
+		  "label":"Last Name" ,
+		  "placeholder": "Last Name"
+		  } ,
+		 "dob": {
+		  "label":"Dob" ,
+		  "placeholder": "Dob"
+		  } ,
+		 "socialInsuranceNum": {
+		  "label":"Social Insurance number" ,
+		  "placeholder": "Social Insurance number"
+		  } ,
+		 "amount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "terms": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } 
+}

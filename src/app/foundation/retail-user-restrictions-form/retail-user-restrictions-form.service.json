@@ -1,0 +1,5 @@
+ 
+ "USERRESTICTIONS" : {
+ "servicePath": ["entry-shell","common", "retail-user-restrictions-form"],
+ "queryParams": {}
+ }

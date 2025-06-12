@@ -1,0 +1,5 @@
+ 
+ "RETAILTRANCBAED" : {
+ "servicePath": ["entry-shell","transfers", "retail-aed-transfer-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,39 @@
+<box class="npss-home get-start-details">
+    <ng-container *ngIf="state.npssDetails && (state.npssDetails?.status == 'NR'); else activate">
+        <box class="npss-activate">
+            <box class="npss-activate-img-wrapper">
+                <img src="./assets/illustrations/npss/npss-get-start.svg" alt="get start enroll" />
+            </box>
+            <box class="npss-activate-details">
+                <fpx-display-text class="info-field-ttl" [innerHTML]="'NpssGetStartForm.enrollHeading' | translate"></fpx-display-text>
+                <fpx-display-text class="info-field-content" [innerHTML]="'NpssGetStartForm.enrollDesc' | translate"></fpx-display-text>
+            </box>
+            <box class="btn-container">
+                <fpx-button btnClass="primary" btnType="button" [label]="'NpssGetStartForm.enrollBtnLbl' | translate" (onClick)="_helper.getStartNpss()"></fpx-button>
+            </box>
+        </box>
+    </ng-container>
+    <ng-template #activate>
+        <ng-container *ngIf="state.npssDetails && (state.npssDetails?.status == 'I'); else npssLoader">
+            <box class="npss-activate">
+                <box class="npss-activate-img-wrapper">
+                    <img src="./assets/illustrations/npss/activate-npss.svg" alt="npss activate" />
+                </box>
+                <box class="npss-activate-details">
+                    <fpx-display-text class="npss-activate-msg"
+                        innerHTML="{{ 'NPSSCONTAINER.activateDesc' | translate }}"></fpx-display-text>
+                </box>
+                <box class="btn-container">
+                    <fpx-button btnType="button" btnClass="primary"
+                        label="{{ 'NPSSCONTAINER.activateBtnTxt' | translate }}"
+                        (onClick)="_helper.activateNpss()"></fpx-button>
+                </box>
+            </box>
+        </ng-container>
+    </ng-template>
+</box>
+
+<!-- NPSS Loader -->
+<ng-template #npssLoader>
+	<box class="loading"></box>
+</ng-template>

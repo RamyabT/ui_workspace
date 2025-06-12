@@ -1,0 +1,7 @@
+"CobNfcForm":{
+"title":"nfc",
+		 "applicantId": {
+		  "label":"ApplicantId" ,
+		  "placeholder": "ApplicantId"
+		  } 
+}

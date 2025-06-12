@@ -1,0 +1,5 @@
+ 
+ "RETAILPFMBUDGET" : {
+ "servicePath": ["entry-shell","pfm", "retail-track-budget-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,228 @@
+<box class="module-home accounts-home">
+    <ng-container *ngIf="_device.isMobile(); else desktopFooter">
+        <box class="module-home-header">
+            <button type="button" class="system-ico-button btn-back no-text" name="back"
+                (click)="close()"><span>Back</span></button>
+            <box class="title-wrapper">
+                <h2 class="module-title">{{ 'MAINFOOTER.reachUs' | translate }}</h2>
+            </box>
+        </box>
+
+        <box class="module-home-body mobile-footer">
+            <box class="footer-inner">
+                <section class="contacts">
+
+                    <box class="section-header">
+                        <span>{{"MAINFOOTER.customerSupport" | translate}}</span>
+                    </box>
+
+                    <box class="phone">
+                        <a class="contact" (click)="openURL('https://www.vancity.com/contact-us/')">{{
+                            "MAINFOOTER.contactUs" | translate }}
+                            <span class="icon phone-icon"></span></a>
+                        <a class="contact" (click)="openURL('https://appointments.vancity.com/service')">{{ "MAINFOOTER.book" |
+                            translate }}
+                            <span class="icon contact-icon"></span></a>
+                        
+                    </box>
+                    <box class="phone">
+                        <a class="contact" (click)="openURL('https://www.vancity.com/contact-us/find-branch-atm/')">{{
+                            "MAINFOOTER.branch" | translate }}
+                            <span class="icon branch-icon"></span></a>
+                        <a class="contact" (click)="openURL('https://www.vancity.com/AboutVancity/News/Contacts/')">{{
+                            "MAINFOOTER.media" | translate }}
+                            <span class="icon media-icon"></span></a>   
+                    </box>
+                </section>
+
+                <!-- <section class="social-media-container">
+
+                    <box class="section-header">
+                        <span>{{"MAINFOOTER.socialMedia" | translate}}</span>
+                    </box>
+
+                    <box class="social-media">
+                        <box class="icons-container">
+                            <a (click)="openURL('https://www.facebook.com/Vancity/')">
+                               
+                                <span class="icon facebook-icon"></span>
+                            </a>
+
+
+                            <a (click)="openURL('https://www.instagram.com/vancitycu/')">
+                               
+                                <span class="icon instagram-icon"></span>
+                            </a>
+
+                            <a
+                                (click)="openURL('https://www.linkedin.com/authwall?trk=bf&trkInfo=AQHBZb2vNsYP2QAAAZG3mnoA4PUXAHzdpWhx2ilKMQLL2Wuqw5-aRlW-Gy1KaOjiQtMAtbIHGioBxoEN61UvhLmxsm1TlFZMD8nZm_KZtaU5nABrfdQMa2ySiGGIR3VqHAUkSZ4=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2F10612%2F')">
+                               
+                                <span class="icon linkedin-icon"></span>
+                            </a>
+                        </box>
+                        <box class="icons-container">
+                            <a (click)="openURL('https://twitter.com/Vancity/')">
+                               
+                                <span class="icon twitter-icon"></span>
+                            </a>
+
+                            <a (click)="openURL('https://www.youtube.com/vancitycu')">
+                               
+                                <span class="icon youtube-icon"></span>
+                            </a>
+
+                            <a (click)="openURL('https://www.tiktok.com/@vancitycu')">
+                                
+                                <span class="icon tiktok-icon"></span>
+                            </a>
+                        </box>
+                    </box>
+                </section> -->
+                <hr>
+                <section class="other-links">
+                    <!-- <p class="links">{{ "MAINFOOTER.trademark" | translate }}</p> -->
+                    <box class="links">
+                        <box class="privacy-legal-container">
+                            <a (click)="openURL('https://www.vancity.com/privacy-security/security/')">{{
+                                "MAINFOOTER.fraud" |
+                                translate }}</a>
+                            <a (click)="openURL('https://www.vancity.com/AccessibilityStatement/')">{{ "MAINFOOTER.accessibility" | translate
+                                }}</a>
+                            <a (click)="openURL('https://support.vancity.com/?utm_medium=footer-nav&utm_source=Vancity-Web')">{{ "MAINFOOTER.support" | translate
+                                }}</a>  
+                            <a (click)="openURL('https://blog.vancity.com/')">{{ "MAINFOOTER.blog" | translate
+                                }}</a>        
+                        </box>
+
+                        <box class="other-links-container">
+                            <!-- <a (click)="openURL('https://www.vancity.com/ContactUs/FindBranchATM/')">{{
+                                "MAINFOOTER.branch"
+                                |
+                                translate }}</a>
+                            <a (click)="openURL('https://www.vancity.com/privacy-security/security/')">{{
+                                "MAINFOOTER.fraud"
+                                |
+                                translate }}</a>
+                            <a (click)="openURL('https://www.vancity.com/AccessibilityStatement/')">{{
+                                "MAINFOOTER.accessibility" | translate }}</a> -->
+
+                        </box>
+                    </box>
+                </section>
+
+                 <section class="links-section-2">
+                <box class="privacy-legal-container">
+                    <a (click)="openURL('https://www.vancity.com/Tools/SiteMap/')">{{
+                        "MAINFOOTER.siteMap" |
+                        translate }}</a>
+                    <span class="line-separator"></span> 
+                     <a (click)="openURL('https://www.vancity.com/Legal/')">{{ "MAINFOOTER.legal" | translate
+                        }}</a>  
+                    <span class="line-separator"></span>   
+                    <a (click)="openURL('https://www.vancity.com/privacy-security/privacy/')">{{
+                        "MAINFOOTER.privacy" |
+                        translate }}</a>
+                   
+                   
+                </box>
+            </section>
+
+            </box>
+        </box>
+    </ng-container>
+
+    <ng-template #desktopFooter>
+        <box class="desktop-footer-container">
+            <section class="links-section-1">
+                <box class="links-container">
+                    <box class="contact-us-wrapper">
+                        <a class="contact" (click)="openURL('https://www.vancity.com/contact-us/')">{{
+                            "MAINFOOTER.contactUs" | translate }}</a>
+                        <a class="contact" (click)="openURL('https://appointments.vancity.com/service')">{{ "MAINFOOTER.book" |
+                            translate }}</a>
+                        <a (click)="openURL('https://www.vancity.com/contact-us/find-branch-atm/')">{{
+                            "MAINFOOTER.branch"
+                            |
+                            translate }}</a>
+                        <a (click)="openURL('https://www.vancity.com/AboutVancity/News/Contacts/')">{{
+                            "MAINFOOTER.media"
+                            |
+                            translate }}</a> 
+                    </box>
+                    <box class="other-links-container">
+                        
+                        <a (click)="openURL('https://www.vancity.com/privacy-security/security/')">{{
+                            "MAINFOOTER.fraud"
+                            |
+                            translate }}</a>
+                        <a (click)="openURL('https://www.vancity.com/AccessibilityStatement/')">{{
+                            "MAINFOOTER.accessibility" | translate }}</a>
+        
+                        <a (click)="openURL('https://support.vancity.com/?utm_medium=footer-nav&utm_source=Vancity-Web')">{{
+                            "MAINFOOTER.support" | translate }}</a>
+                            
+                        <a (click)="openURL('https://blog.vancity.com/')">{{
+                            "MAINFOOTER.blog" | translate }}</a>
+                    </box>
+                    
+                   <box class="app-store-icons">
+                      <box class="app-apple-store"></box>
+                      <box class="app-play-store"></box>
+                   </box>
+                </box>
+                <box class="social-media">
+                    <box class="icons-container">
+                        <a (click)="openURL('https://www.facebook.com/Vancity/')">
+                            <span class="icon facebook-icon"></span>
+                            <!-- <img src="./assets/images/icons/face-book.svg" alt="face-book"> -->
+                        </a>
+
+
+                        <a (click)="openURL('https://www.instagram.com/vancitycu/')">
+                            <span class="icon instagram-icon"></span>
+                            <!-- <img src="./assets/images/icons/instagram.svg" alt="Instagram"> -->
+                        </a>
+
+                        <a
+                            (click)="openURL('https://www.linkedin.com/authwall?trk=bf&trkInfo=AQHBZb2vNsYP2QAAAZG3mnoA4PUXAHzdpWhx2ilKMQLL2Wuqw5-aRlW-Gy1KaOjiQtMAtbIHGioBxoEN61UvhLmxsm1TlFZMD8nZm_KZtaU5nABrfdQMa2ySiGGIR3VqHAUkSZ4=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2F10612%2F')">
+                            <span class="icon linkedin-icon"></span>
+                            <!-- <img src="./assets/images/icons/indeed.svg" alt="linkedin"> -->
+                        </a>
+
+                        <a (click)="openURL('https://twitter.com/Vancity/')">
+                            <span class="icon twitter-icon"></span>
+                            <!-- <img src="./assets/images/icons/x.svg" alt="twitter"> -->
+                        </a>
+
+                        <a (click)="openURL('https://www.youtube.com/vancitycu')">
+                            <span class="icon youtube-icon"></span>
+                            <!-- <img src="./assets/images/icons/youtube.svg" alt="youtube"> -->
+                        </a>
+
+                        <a (click)="openURL('https://www.tiktok.com/@vancitycu')">
+                            <span class="icon tiktok-icon"></span>
+                            <!-- <img src="./assets/images/icons/tiktok.svg" alt="tiktok"> -->
+                        </a>
+                    </box>
+                </box>
+            </section>
+            <hr class="links-divider">
+            <section class="links-section-2">
+                <box class="privacy-legal-container">
+                    <a (click)="openURL('https://www.vancity.com/Tools/SiteMap/')">{{
+                        "MAINFOOTER.siteMap" |
+                        translate }}</a>
+                    <span class="line-separator"></span>
+                    <a (click)="openURL('https://www.vancity.com/Legal/')">{{ "MAINFOOTER.legal" | translate
+                        }}</a>   
+                    <span class="line-separator"></span>    
+                    <a (click)="openURL('https://www.vancity.com/privacy-security/privacy/')">{{
+                        "MAINFOOTER.privacy" |
+                        translate }}</a>
+                    
+                   
+                </box>
+            </section>
+        </box>
+    </ng-template>
+</box>

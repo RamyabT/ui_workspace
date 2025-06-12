@@ -1,0 +1,59 @@
+<box class="add-delegates-intro">
+    <box class="intro-container">
+        <box class="module-tab-container col-sm-12">
+            <mat-tab-group [(selectedIndex)]="_helper.activeTabIndex" (selectedTabChange)="_helper.onTabChanged($event)">
+                <mat-tab label="{{ 'SMBCONTAINER.delegateByMe' | translate }}">
+                    <box class="header">
+                        <fpx-display-text class="page-title" [innerHTML]="'addDelegatesIntroForm.title' | translate"></fpx-display-text>
+                    </box>
+                    <!-- <ng-template matTabContent> -->
+                        <ng-container *ngIf="state.isDataReceived; else loader">
+                             <ng-container *ngIf="state.addedByMeGridData && state.addedByMeGridData.length; else noAddedByMe">
+                             </ng-container>
+                        </ng-container>
+                        <app-retail-delegateuser-grid [actionPublisher]="actionMap$.get('etransferHistoryGridByMe')"
+                        (commonRoGridEvent)="_helper.addedByMeRoGridEvent($event)"
+                        ></app-retail-delegateuser-grid>
+                    <!-- </ng-template> -->
+                </mat-tab>
+                <mat-tab label="{{ 'SMBCONTAINER.delegateByOthers' | translate }}">
+                    <box class="header">
+                        <fpx-display-text class="page-title" [innerHTML]="'addDelegatesIntroForm.title' | translate"></fpx-display-text>
+                    </box>
+                    <!-- <ng-template matTabContent> -->
+                        <ng-container *ngIf="state.isDataReceived; else loader">
+                            <ng-container *ngIf="state.addedByOthersGridData && state.addedByOthersGridData.length; else noAddedByMe">
+                            </ng-container>
+                       </ng-container>
+                        <app-retail-delegateuser-grid [actionPublisher]="actionMap$.get('etransferHistoryGridByOthers')"
+                        (commonRoGridEvent)="_helper.addedByOthersRoGridEvent($event)"
+                        ></app-retail-delegateuser-grid>
+                    <!-- </ng-template> -->
+                </mat-tab>
+            </mat-tab-group>
+        </box>
+         <!-- <box class="img-wrapper">
+            <img src="./assets/delegates/add-delegates.svg" alt="add delegates" />
+        </box> -->
+        <!-- <box class="details">
+            <fpx-display-text [innerHTML]="'addDelegatesIntroForm.desc' | translate"></fpx-display-text>
+        </box>
+        <box class="btn-container">
+            <fpx-button btnClass="primary" btnType="button" [label]="'addDelegatesIntroForm.addBtnLbl' | translate" (click)="addDelegatesClickHandler()"></fpx-button>
+        </box> -->
+    </box>
+</box>
+
+<!-- Content loader -->
+<ng-template #loader>
+    <box class="loading"></box>
+  </ng-template>
+  
+<ng-template #noAddedByMe>
+    <box class="no-result-view">
+        <img class="no-result-image" src="./assets/delegates/add-delegates.svg" alt="">
+        <box class="no-result-desc">{{ 'addDelegatesIntroForm.desc' | translate }}</box>    
+        <!-- <button type="button" class="no-result-add-btn" (click)="addDelegatesClickHandler()">{{ 'ScheduleForm.initiateBtn' | translate }}</button> -->
+        <fpx-button btnClass="primary" btnType="button" [label]="'addDelegatesIntroForm.addBtnLbl' | translate" (click)="addDelegatesClickHandler()"></fpx-button>
+    </box>
+  </ng-template>

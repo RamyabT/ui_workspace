@@ -1,0 +1,27 @@
+<form formName="unauthorizedForm" [autocomplete]="'off'" [formGroup]="formGroup" class="unauthorized">
+    <box class="header-wrapper">
+        <box class="main-header-inner">
+            <box class="header-inner-wrapper">
+                <ng-container >
+                    <button type="button" class="brand">
+                        <img src="./assets/images/brand/header-logo.svg" alt="bank" />
+                    </button>
+                </ng-container> 
+            </box>
+        </box>
+    </box>
+<box class="unauthorized-box">
+<box class="unauthorized-wrapper">
+    <box class="unauthorized-image"> 
+    </box>
+</box>
+<box class="content">
+    <span class="label-tag">{{'unauthorizedForm.label' | translate}}</span>
+    <div class="label">{{'unauthorizedForm.message' | translate}}
+    <div>{{'unauthorizedForm.messageSecond' | translate}}</div>
+    </div>
+    <button class="button" (click)="_helper.openURL('https://www.vancity.com/contact-us/')">{{'unauthorizedForm.button' | translate}}</button>
+</box>
+</box>
+</form> 
+

@@ -1,0 +1,35 @@
+"RetailPCChangeLimitForm":{
+"title":"Manage Card",
+		 "atmFlag": {
+		  "label":"ATM Withdrawal" ,
+		  "placeholder": "ATM Withdrawal"
+		  } ,
+		 "onlinePurchaseFlag": {
+		  "label":"Online Purchase" ,
+		  "placeholder": "Online Purchase"
+		  } ,
+		 "contactlessPurchaseFlag": {
+		  "label":"Contactless Payments" ,
+		  "placeholder": "Contactless Payments"
+		  } ,
+		 "posPayFlag": {
+		  "label":"POS" ,
+		  "placeholder": "POS"
+		  } ,
+		 "intlAtmFlag": {
+		  "label":"ATM Withdrawal" ,
+		  "placeholder": "ATM Withdrawal"
+		  } ,
+		 "intlOnlinePurchaseFlag": {
+		  "label":"Online Purchase" ,
+		  "placeholder": "Online Purchase"
+		  } ,
+		 "intlContactlessPurchaseFlag": {
+		  "label":"Contactless Payments" ,
+		  "placeholder": "Contactless Payments"
+		  } ,
+		 "intlPosPayFlag": {
+		  "label":"POS" ,
+		  "placeholder": "POS"
+		  } 
+}

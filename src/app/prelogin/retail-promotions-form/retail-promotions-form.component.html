@@ -1,0 +1,18 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailPromotionsForm" >
+	   
+		<ngx-slick-carousel class="casa-carousel" #slickModal="slick-carousel"
+		(init)="_helper.slickInit($event)"
+		[config]="state.slideConfig">
+			 <box ngxSlickItem *ngFor="let video of state.promoVideos | keyvalue" class="slide">
+				<ng-container *ngIf="video.value.embededCode; else videoLink">
+					<div class="embeded-video-wrapper" [innerHTML]="_helper.safeHTML(video.value.embededCode)"></div>
+				</ng-container>
+				<ng-template #videoLink>
+					<video class="promotion-video" [src]="video.value.url" controls></video>
+				</ng-template>
+			</box>
+        </ngx-slick-carousel>
+		<fpx-button [btnClass]="state.enablePrevious?'previous-btn enablePrevious':'previous-btn disablePrevious'" (onClick)="_helper.previous()"></fpx-button>
+		<fpx-button [btnClass]="state.enableNext?'next-btn enableNext':'next-btn disableNext'" (onClick)="_helper.next()"></fpx-button>
+	</form>
+	

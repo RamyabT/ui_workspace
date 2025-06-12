@@ -1,0 +1,35 @@
+"addChildAccount":{
+"title":"Add Child Account",
+		 "fullName": {
+		  "label":"Full Name" ,
+		  "placeholder": "Full Name"
+		  } ,
+		 "nickName": {
+		  "label":"Account Nickname" ,
+		  "placeholder": "Account Nickname"
+		  } ,
+		 "dob": {
+		  "label":"Date of Birth" ,
+		  "placeholder": "Date of Birth"
+		  } ,
+		 "gender": {
+		  "label":"Gender" ,
+		  "placeholder": "Gender"
+		  } ,
+		 "relationship": {
+		  "label":"Relationship" ,
+		  "placeholder": "Relationship"
+		  } ,
+		 "profileImage": {
+		  "label":"Upload Image" ,
+		  "placeholder": "Upload Image"
+		  } ,
+		 "email": {
+		  "label":" Email ID" ,
+		  "placeholder": " Email ID"
+		  } ,
+		 "mobileNumber": {
+		  "label":"Mobile no." ,
+		  "placeholder": "Mobile no."
+		  } ,
+}

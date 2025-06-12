@@ -1,0 +1,31 @@
+
+.no-network {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:12px;
+  
+      .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .label-tag{
+            @include s3-medium;
+            display: flex;
+            flex-direction: column;
+            padding:8px;
+            color: var(--baseTxtClr);
+        }
+        .label {
+          @include s4-medium;
+          align-items: center;
+          text-align: center;
+          padding:8px;
+          color: var(--bodyTxtClr);
+        }
+      }
+    }
+  

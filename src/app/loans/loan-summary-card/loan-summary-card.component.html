@@ -1,0 +1,70 @@
+<box class="summary-card" [ngClass]="{'has-context-menu': contextmenuBtn}">
+    <box class="summary-card-inner">
+        <box class="primary-details">
+            <box class="account-details">
+                <box class="product-name">{{ cardData.productDesc }}</box>
+                <box class="account-number">{{ cardData.loanAccountNumber }}</box>
+
+                <box class="type">
+                    {{cardData.accountTypeDesc}}
+                    <!-- <em
+                        *ngIf="cardData?.ownership && cardData.ownership.toLowerCase() == 'joint'"
+                        class="tag ownership">{{
+                        'CASASUMMARYCARD.joint' | translate }}</em>
+                    <em *ngIf="cardData?.accountStatus && cardData?.accountStatus?.toLowerCase() == 'dormant'"
+                        class="tag dormant">{{ cardData.accountStatus }}</em> -->
+                </box>
+            </box>
+
+            <box class="share-btn-container">
+                <button type="button" class="share-container share-btn" (click)="dataShare()">
+                    <span class="icon share-btn-icon"></span>
+                </button>
+            </box>
+
+        </box>
+        <box class="additional-details">
+            <box class="additional-detail available">
+                <span class="lbl">{{ 'CASASUMMARYCARD.available' | translate }}</span>
+
+                <ng-container *ngIf="cardData.accountCurrency != _appConfig.baseCurrency else avlBaseCurrency">
+                    <box class="amount usd-amount"> {{ cardData.loanAmount | currency :
+                        cardData.accountCurrency : '' }} <em>{{ 'SUFFIXCURRENCY' |
+                            currencyCode }}</em></box>
+                    <box class="amount cad-amount">{{ cardData.baseCurrencyAvlBal | currency :
+                        _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                            }}</em></box>
+                </ng-container>
+                <ng-template #avlBaseCurrency>
+                    <box class="amount cad-amount">{{ cardData.loanAmount | currency :
+                        cardData.accountCurrency : '' }} <em>{{ cardData.accountCurrency |
+                            currencyCode }}</em></box>
+                </ng-template>
+
+
+            </box>
+            <box class="additional-detail actual">
+                <span class="lbl">{{ 'CASASUMMARYCARD.actual' | translate }}</span>
+
+                <ng-container *ngIf="cardData.accountCurrency != _appConfig.baseCurrency else curBaseCurrency">
+                    <box class="amount usd-amount"> {{ cardData.totalOutstanding | currency :
+                        cardData.accountCurrency : '' }} <em>{{ cardData.accountCurrency |
+                            currencyCode }}</em></box>
+                    <box class="amount cad-amount">{{ cardData.baseCurrencyAvlBal | currency :
+                        _appConfig.baseCurrency : '' }} <em>{{ _appConfig.baseCurrency | currencyCode
+                            }}</em></box>
+                </ng-container>
+                <ng-template #curBaseCurrency>
+                    <box class="amount cad-amount">{{ cardData.totalOutstanding | currency :
+                        cardData.accountCurrency : '' }} <em>{{ cardData.accountCurrency |
+                            currencyCode }}</em></box>
+                </ng-template>
+
+
+            </box>
+        </box>
+    </box>
+
+    <button *ngIf="contextmenuBtn" type="button" class="contextual-menu-trigger"
+        (click)="notifyContextMenuClick()"><span>contextual menu</span></button>
+</box>

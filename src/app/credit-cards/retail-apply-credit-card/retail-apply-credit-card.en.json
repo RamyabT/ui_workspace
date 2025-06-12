@@ -1,0 +1,55 @@
+"RetailApplyCreditCard":{
+	"title":"Apply for Credit Card",
+			 "accountNumber": {
+			  "label":"Account Number" ,
+			  "placeholder": "Account Number"
+			  } ,
+			 "creditcardtype": {
+			  "label":"Credit Card Type" ,
+			  "placeholder": "Credit Card Type"
+			  } ,
+			 "deliveryOption": {
+			  "label":"Delivery Option" ,
+			  "placeholder": "Delivery Option"
+			  } ,
+			 "branches": {
+			  "label":"Delivery Branch" ,
+			  "placeholder": "Delivery Branch"
+			  } ,
+			 "creditCardLimit": {
+			  "label":"Credit Card Limit" ,
+			  "placeholder": "Credit Card Limit"
+			  } ,
+			 "supplementaryCard": {
+			  "label":"Supplementary Card" ,
+			  "placeholder": "Supplementary Card"
+			  } ,
+			 "sourceOfIncome": {
+			  "label":"Source of income" ,
+			  "placeholder": "Source of income"
+			  } ,
+			 "income": {
+			  "label":"Income" ,
+			  "placeholder": "Income"
+			  } ,
+			 "lengthOfService": {
+			  "label":"Length of Service" ,
+			  "placeholder": "Length of Service"
+			  } ,
+			 "monthlyLiabilityRepayment": {
+			  "label":"Existing Monthly Liability Repayment" ,
+			  "placeholder": "Existing Monthly Liability Repayment"
+			  } ,
+			 "remarks": {
+			  "label":"Remarks" ,
+			  "placeholder": "Remarks"
+			  } ,
+			 "charges": {
+			  "label":"Charges" ,
+			  "placeholder": "Charges"
+			  } ,
+			 "termsFlag": {
+			  "label":"Terms & Conditions" ,
+			  "placeholder": "Terms & Conditions"
+			  } 
+	}

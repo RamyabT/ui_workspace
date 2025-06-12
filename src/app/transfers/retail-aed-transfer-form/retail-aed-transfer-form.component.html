@@ -1,0 +1,83 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailAedTransferForm" >
+	   
+	 <box class="entry-form">
+		<box class="grid entry-form-field-group">
+	      
+			  <app-account-number-list-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('sourceAccount')"     label="{{'RetailAedTransferForm.sourceAccount.label' | translate }}"   formControlName="sourceAccount" 
+     ></app-account-number-list-control>
+	     
+	      
+			  <app-beneaed-list-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('beneficiaryId')"     label="{{'RetailAedTransferForm.beneficiaryId.label' | translate }}"   formControlName="beneficiaryId" 
+     ></app-beneaed-list-control>
+	     
+	      
+			  <app-payment-amount-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('paymentAmount')"     label="{{'RetailAedTransferForm.paymentAmount.label' | translate }}"   formControlName="paymentAmount" 
+   [CurrencyList]="state.paymentAmount.CurrencyList" [isCurrEditable]="state.paymentAmount.isCurrEditable"  [defaultFetch]="state.paymentAmount.defaultFetch" [initCurrency]="state.paymentAmount.initCurrency" [amountInWords]="state.paymentAmount.amountInWords">  ></app-payment-amount-control>
+
+
+				
+   <box class="field-item col-sm-12 col-md-6 col-lg-4" [actionPublisher]="actionMap$.get('paymentSummary')">
+	<fpx-label label="{{'FX_RATES.title' | translate}}"></fpx-label>
+	<box class="info-box">
+
+		<box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.dAmount' | translate"
+				[literals]="commonFormInput"></fpx-display-text>
+			<fpx-display-text class="info-field-value" [innerHTML]="state.paymentSummary.debitAmount"
+				[literals]="commonFormInput"></fpx-display-text>
+		</box>
+		<box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.cAmount' | translate"
+				[literals]="commonFormInput"></fpx-display-text>
+			<fpx-display-text class="info-field-value" [innerHTML]="state.paymentSummary.creditAmount"
+				[literals]="commonFormInput"></fpx-display-text>
+		</box>
+		<box class="info-field">
+			<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.exRate' | translate"
+				[literals]="commonFormInput"></fpx-display-text>
+			<fpx-display-text class="info-field-value" [innerHTML]="state.paymentSummary.exchangeRate"
+				[literals]="commonFormInput"></fpx-display-text>
+		</box>
+	</box>
+</box>
+	     
+	      
+			  <app-schedule-type-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('scheduleType')"     label="{{'RetailAedTransferForm.scheduleType.label' | translate }}"   formControlName="scheduleType" 
+     ></app-schedule-type-control>
+	     
+	      
+			  <app-payment-date-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('paymentDate')"     label="{{'RetailAedTransferForm.paymentDate.label' | translate }}"   formControlName="paymentDate" 
+   [minDate]="state.paymentDate.minDate"   [maxDate]="state.paymentDate.maxDate"  ></app-payment-date-control>
+	     
+	      
+			  <app-aed-purpose-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('purpose')"     label="{{'RetailAedTransferForm.purpose.label' | translate }}"   formControlName="purpose" 
+     ></app-aed-purpose-control>
+	     
+	      
+			  <app-charges-borne-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('chargesBorneBy')"     label="{{'RetailAedTransferForm.chargesBorneBy.label' | translate }}"   formControlName="chargesBorneBy" 
+     ></app-charges-borne-control>
+	     
+	      
+			  <app-remarks-control  class="col-sm-12 col-md-6 col-lg-4"   [actionPublisher]="actionMap$.get('remarks')"     label="{{'RetailAedTransferForm.remarks.label' | translate }}"   formControlName="remarks" 
+   ></app-remarks-control>
+
+		</box>
+		<box
+		id="group_disclaimer-box"
+		class="col-sm-12 col-md-12 col-lg-12 grid main-group disclaimer-box"
+	  >
+	     
+   <app-terms-control
+   class="col-sm-12 col-md-6 col-lg-4"
+   label="{{
+	 'RetailAedTransferForm.termsFlag.label' | translate
+   }}"
+   formControlName="termsFlag"
+   [textPosition]="state.termsFlag.textPosition"
+   [ckValues]="state.termsFlag.ckValues"
+ ></app-terms-control>
+
+		</box>
+	 </box> 
+	</form>
+	

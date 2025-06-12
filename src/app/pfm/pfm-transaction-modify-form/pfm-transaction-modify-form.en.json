@@ -1,0 +1,31 @@
+"PfmTransactionModifyForm":{
+"title":"PFMTRANSACTIONMODIFY",
+		 "externalReferenceNumber": {
+		  "label":"Transaction reference number" ,
+		  "placeholder": "Transaction reference number"
+		  } ,
+		 "paymentDate": {
+		  "label":"Date of transaction" ,
+		  "placeholder": "Date of transaction"
+		  } ,
+		 "merchantCode": {
+		  "label":"Merchant name" ,
+		  "placeholder": "Merchant name"
+		  } ,
+		 "transactionAmount": {
+		  "label":"Transaction amount" ,
+		  "placeholder": "Transaction amount"
+		  } ,
+		 "categoryCode": {
+		  "label":"New category" ,
+		  "placeholder": "New category"
+		  } ,
+		 "transactioncategory": {
+		  "label":"Current category" ,
+		  "placeholder": "Current category"
+		  } ,
+		 "pfmSubCategory": {
+		  "label":"Sub category" ,
+		  "placeholder": "Sub category"
+		  } 
+}

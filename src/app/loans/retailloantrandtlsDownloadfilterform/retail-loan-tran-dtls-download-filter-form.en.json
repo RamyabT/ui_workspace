@@ -1,0 +1,19 @@
+"RetailLoanTranDtlsDownloadFilterForm":{
+"title":"RetailLoanTranDtlsDownloadFilterForm",
+		 "rangeType": {
+		  "label":"Transactions Period" ,
+		  "placeholder": ""
+		  } ,
+		 "fromDate": {
+		  "label":"From Date" ,
+		  "placeholder": ""
+		  } ,
+		 "toDate": {
+		  "label":"To Date" ,
+		  "placeholder": ""
+		  } ,
+		 "downloadFileFormat": {
+		  "label":"File Format" ,
+		  "placeholder": ""
+		  } 
+}

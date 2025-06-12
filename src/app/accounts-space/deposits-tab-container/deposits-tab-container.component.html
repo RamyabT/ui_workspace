@@ -1,0 +1,169 @@
+<box class="tab-container-inner">
+    <ng-container *ngIf="productsList; else loader">
+        <ng-container *ngIf="productsList && productsList.length; else noAccount">
+            <ng-container *ngIf="_deviceMgr.isMobile(); else listView">
+                <box class="carousel-view-all-wrapper">
+                    <deposits-products-card-carousel *ngIf="showCard" [summary]="productsList"
+                    (onSelectCard)="onSelectCard($event)"></deposits-products-card-carousel>
+                    <box [ngClass]="{'hide-view-all' : productsList.length == 1}" class="view-all-button-wrapper">
+                        <button type="button" class="view-btn" (click)="viewAll()">
+                            All accounts
+                        </button>
+                    </box>
+                </box>
+            </ng-container>
+
+            <ng-template #listView>
+                <ul class="deposits-product-list">
+
+                    <ng-container *ngIf="productsList && productsList.length">
+                        <ng-container *ngFor="let product of productsList">
+                            <ng-container [ngSwitch]="product?.accountType">
+                                <ng-container *ngSwitchCase="'aviso'">
+                                    <li class="deposits-product-list-item">
+                                        <box class="deposit-product">
+                                            <span class="product-trigger-wrapper">
+                                                <mat-radio-button class="default" color="primary" name="depositProduct"
+                                                    (click)="selectProduct(product)"
+                                                    [checked]="selectedProduct=='AVISO'"></mat-radio-button>
+                                            </span>
+                                            <box class="product-primary-info">
+                                                <span class="product-desc">{{ 'DEPOSITSUMMARYCARD.' + product?.productDesc | translate }}</span>
+                                                <span class="total-account">{{ product.accountDetails.length }} {{ 'DEPOSITSUMMARYCARD.depositsLbl' | translate }}</span>
+                                            </box>
+                                            <box class="product-secondary-info">
+                                                <span class="lbl">{{ 'DEPOSITSUMMARYCARD.investedAmountLbl' | translate }}</span>
+                                                <span class="amount">{{ getMarketInvestmentAmount(product) | currency : product.accountDetails[0].currency : '' }} 
+                                                    <em>{{ product.accountDetails[0].currency }}</em>
+                                                </span>
+                                            </box>
+                                        </box>
+                                    </li>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'registeredproducts'">
+                                    <li class="deposits-product-list-item">
+                                        <box class="deposit-product">
+                                            <span class="product-trigger-wrapper">
+                                                <mat-radio-button class="default" color="primary" name="depositProduct"
+                                                    (click)="selectProduct(product)"
+                                                    [checked]="selectedProduct=='REGISTERPRODUCTS'"></mat-radio-button>
+                                            </span>
+                                            <box class="product-primary-info">
+                                                <span class="product-desc">{{ 'DEPOSITSUMMARYCARD.registeredProducts' | translate }}</span>
+                                                <span class="total-account">{{ product.accountDetails.length }} {{ 'DEPOSITSUMMARYCARD.depositsLbl' | translate }}</span>
+                                            </box>
+                                            <box class="product-secondary-info">
+                                                <span class="lbl">{{ 'DEPOSITSUMMARYCARD.investedAmountLbl' | translate }}</span>
+                                                <span class="amount">{{ getInverstmentRegAmount(product) | currency : product.accountDetails[0].currency : '' }} 
+                                                    <em>{{ product.accountDetails[0].currency }}</em>
+                                                </span>
+                                            </box>
+                                        </box>
+                                    </li>
+                                </ng-container>
+                                <ng-container *ngSwitchDefault>
+                                    <li class="deposits-product-list-item">
+                                        <box class="deposit-product">
+                                            <span class="product-trigger-wrapper">
+                                                <mat-radio-button class="default" color="primary" name="depositProduct"
+                                                    (click)="selectProduct(product)"
+                                                    [checked]="selectedProduct=='TERMDEPOSIT'"></mat-radio-button>
+                                            </span>
+                                            <box class="product-primary-info">
+                                                <span class="product-desc">{{ 'DEPOSITSUMMARYCARD.FD' |
+                                                    translate }}</span>
+                                                <span class="total-account">{{ product.accountDetails.length }} {{
+                                                    'DEPOSITSUMMARYCARD.depositsLbl' | translate }}</span>
+                                            </box>
+                                            <box class="product-secondary-info">
+                                                <span class="lbl">{{ 'DEPOSITSUMMARYCARD.investedAmountLbl' | translate
+                                                    }}</span>
+                                                <span class="amount">{{ getInverstmentAmount(product) | currency : product.accountDetails[0].accountCurrency : '' }} 
+                                                    <em> {{ product.accountDetails[0].accountCurrency }}</em>
+                                                </span>
+                                            </box>
+                                        </box>
+                                    </li>
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+
+                </ul>
+            </ng-template>
+
+        </ng-container>
+    </ng-container>
+
+    <box class="tab-main-content">
+        <ng-container *ngIf="_deviceMgr.isMobile()">
+            <app-deposits-context-menu [cardData]="currentCard" [accountNumber]="accountNumber"
+            [quickLinks]="quickMenus" [showAccountsLoader]="true"></app-deposits-context-menu>
+            <!-- <app-retail-deposits-summary-ro-grid
+                [actionPublisher]="accountsSummaryList$"></app-retail-deposits-summary-ro-grid> -->
+            <!-- <ng-container *ngIf="productsList && productsList.length">
+
+            </ng-container> -->
+            <!-- <box *ngIf="accountDetails">
+                <ng-container *ngIf="accountDetails.length">
+                    <app-retail-deposits-summary-ro-grid
+                        [actionPublisher]="depositAccountsRoGrid"></app-retail-deposits-summary-ro-grid>
+                </ng-container>
+            </box> -->
+
+
+            <retail-view-investment-Holdings></retail-view-investment-Holdings>
+        </ng-container>
+
+        <ng-container *ngIf="!_deviceMgr.isMobile()">
+        </ng-container>
+
+        <!-- <box class="offers-widget">
+            <banner-ads  [serviceCode]="'RETAILDASHBOARD'" [slidesStore]="adsBannerSlids"></banner-ads>
+        </box> -->
+    </box>
+</box>
+
+<!-- Content loader -->
+<ng-template #loader>
+    <box class="loading"></box>
+</ng-template>
+
+<ng-template #noAccount>
+    <ng-container *ngIf="_deviceMgr.isMobile()">
+        <box class="no-account-tmplt no-deposit-tmplt">
+            <box class="left-section">
+                <span class="no-result-desc">No Deposits are created, Start by creating a new Deposit with Us!</span>
+                <button class="no-result-btn" (click)="openNewDeposit()">Create</button>
+            </box>
+            <box class="right-section">
+                <img src="./assets/illustrations/no-deposit.svg" alt="">
+            </box>
+        </box>
+    </ng-container>
+    <ng-container *ngIf="!_deviceMgr.isMobile()">
+        <box class="no-account-tmplt no-deposit-tmplt">
+            <box class="left-section">
+                <span class="no-result-desc">No Deposits are created, Start by creating a new Deposit with Us!</span>
+                <!-- <button class="no-result-btn" (click)="openNewDeposit()">Create</button> -->
+            </box>
+            <box class="right-section">
+                <img src="./assets/illustrations/no-deposit.svg" alt="">
+            </box>
+        </box>
+    </ng-container>
+</ng-template>
+
+<ng-template #noDeposits>
+    <box class="no-deposits-tmplt">
+        <box class="header">
+            <span class="name">Flexi Deposit</span>
+        </box>
+        <box class="desc">Get 7.75% pa on your deposit amount</box>
+        <box class="benefit-points">
+            <box class="benefit-desc">Safe and risk-free Investment</box>
+            <box class="benefit-desc">No pre-closure penalty for seniors</box>
+            <box class="benefit-desc">Monthly and Quarterly interest payouts</box>
+        </box>
+    </box>
+</ng-template>

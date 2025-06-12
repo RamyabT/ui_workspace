@@ -1,0 +1,75 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailCustomerVerificationForm">
+	<!-- <div class="login-form-wrapper">
+		<span class="login-form-img"></span>
+		<h1 class="login-form-heading">{{state.headerTitle | translate}}</h1>
+	</div> -->
+	<box class="entry-form">
+
+		<box class="entry-form-field-group grid">
+			<!-- <app-identification-mode-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('identificationMode')"
+			label="{{'RetailCustomerVerificationForm.identificationMode.label' | translate }}"
+			formControlName="identificationMode"></app-identification-mode-control> -->
+
+			<!-- <app-identification-number-control  class="col-md-6"   [actionPublisher]="actionMap$.get('identificationNumber')"     label="{{'RetailCustomerVerificationForm.identificationNumber.label' | translate }}"   formControlName="identificationNumber" 
+   ></app-identification-number-control>  -->
+
+		
+			<!-- <app-account-number-control  class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('accountNumber')"
+			label="{{'RetailCustomerVerificationForm.accountNumber.label' | translate }}"
+			formControlName="accountNumber"></app-account-number-control>
+
+		<app-customer-id-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('customerId')"
+			label="{{'RetailCustomerVerificationForm.customerId.label' | translate }}"
+			formControlName="customerId"></app-customer-id-control> -->
+
+			<app-retail-self-reg-config-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('identificationMode')"
+				label="{{'RetailCustomerVerificationForm.identificationMode.label' | translate }}"
+				formControlName="identificationMode"></app-retail-self-reg-config-control>
+			<app-account-number-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('accountNumber')"
+				label="{{'RetailCustomerVerificationForm.accountNumber.label' | translate }}"
+				formControlName="accountNumber"></app-account-number-control>
+			<app-customer-id-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('customerCif')"
+				label="{{'RetailCustomerVerificationForm.customerId.label' | translate }}"
+				placeholder="{{'RetailCustomerVerificationForm.customerId.placeholder' | translate }}"
+				formControlName="customerCif"></app-customer-id-control>
+			<app-card-number-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('debitcardNumber')"
+				label="{{'RetailCustomerVerificationForm.debitcardNumber.label' | translate }}"
+				formControlName="debitcardNumber"></app-card-number-control>
+
+			<fpx-display-text id="expiryDate" class="col-sm-12 col-md-6 col-lg-12 FieldId_4"
+			    [innerHTML]="state.expiryYearLabel"
+				[actionPublisher]="actionMap$.get('expiryDate')" [literals]="commonFormInput"></fpx-display-text>
+			<box id="FieldId_3" class="col-sm-6 col-md-6 col-lg-6 grid  ">
+				<app-expiry-month-list-control class="col-sm-12 col-md-12 col-lg-12"
+					[actionPublisher]="actionMap$.get('expiryMonth')" formControlName="expiryMonth">
+				</app-expiry-month-list-control>
+			</box>
+			<box id="FieldId_3" class="col-sm-6 col-md-6 col-lg-6 grid  ">
+				<app-cc-expiry-year-list-control class="col-sm-12 col-md-12 col-lg-12 "
+					[actionPublisher]="actionMap$.get('expiryYear')" formControlName="expiryYear">
+				</app-cc-expiry-year-list-control>
+
+			</box>
+			<app-date-of-birth-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('dob')"
+			label="{{'RetailCustomerVerificationForm.dob.label' | translate }}" formControlName="dob"
+			placeholder="{{'RetailCustomerVerificationForm.dob.placeholder' | translate }}"
+			[minDate]="state.dob.minDate" [maxDate]="state.dob.maxDate"></app-date-of-birth-control>
+
+			<app-dc-pin-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('pin')"
+				label="{{'RetailCustomerVerificationForm.pin.label' | translate }}"
+				formControlName="pin"></app-dc-pin-control>
+		</box>
+
+
+	</box>
+	<div class="form-footer-actions">
+		<button type="button" class="btn-tertiary" (click)="_helper.gotoWelcome()"><span>{{'LOGIN.back' |
+				translate}}</span></button>
+		<button [disabled]="formGroup.invalid" type="submit" class="btn-primary"><span>{{'LOGIN.submit' |
+				translate}}</span></button>
+	</div>
+</form>

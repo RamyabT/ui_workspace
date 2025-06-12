@@ -1,0 +1,5 @@
+ 
+ "RETAILVISACARDSTMTREQ" : {
+ "servicePath": ["entry-shell","edocuments", "retail-register-card-statement-form"],
+ "queryParams": {}
+ }

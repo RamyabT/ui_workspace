@@ -1,0 +1,39 @@
+{"RetailCCReplacementForm":{
+"title":"Replace Credit Card",
+		 "cardReference": {
+		  "label":"Active Credit Card " ,
+		  "placeholder": "Active Credit Card "
+		  } ,
+		 "deliveryOption": {
+		  "label":"Delivery Option" ,
+		  "placeholder": "Delivery Option"
+		  } ,
+		 "dlvryBranch": {
+		  "label":"Delivery Branch" ,
+		  "placeholder": "Branches"
+		  } ,
+		 "authPersonName": {
+		  "label":"Auth Person Name" ,
+		  "placeholder": "Auth Person Name"
+		  } ,
+		 "authPersonId": {
+		  "label":"Auth Person Id" ,
+		  "placeholder": "Auth Person Id"
+		  } ,
+		  "reason": {
+			"label":"Reason" ,
+			"placeholder": "Reason"
+			} ,
+		 "charges": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } ,
+}}

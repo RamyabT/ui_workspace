@@ -1,0 +1,10 @@
+"obvirtualcardselection":{
+"title":"Apply for Virtual Card",
+		 "isskipped": {
+		  "label":"Enabled Flag" ,
+		  "placeholder": "Enabled Flag"
+		  } ,
+		  "FieldId_2": {
+			"text":"Select your Card Design"
+		  }
+}

@@ -1,0 +1,85 @@
+<ng-container *ngIf="isPopup">
+  <button type="button" class="btn-popup-close" (click)="closeContextMenu()">
+    close
+  </button>
+</ng-container>
+
+<box class="widget context-menu-wrapper" #contextMenuWrapper>
+  <ng-container *ngIf="cardData; else defaultHeader">
+    <header>
+      <span class="header-title">{{
+        cardData.accountNickname || cardData.productDesc
+      }}</span>
+    </header>
+  </ng-container>
+
+  <ng-template #defaultHeader>
+    <header>
+      <span class="widget-title">{{
+        "WIDGIT_TITLES.casaQuickActionsLbl" | translate
+      }}</span>
+    </header>
+  </ng-template>
+
+  <ng-container *ngIf="_device.isMobile(); else desktopMenu">
+    <box class="context-menu-body" [ngClass]="{ 'menu-expand-view': doShowMoreQuickActions }">
+      <ng-container *ngIf="quickLinks; else quickActionsLoader">
+        <ul class="actions-list grid" [ngClass]="{ 'show-more': doShowMoreQuickActions }">
+          <ng-container *ngFor="let item of quickLinks">
+            <li (click)="openLink(item)" [ngClass]="{ active: activeMenu == item.serviceCode }">
+              <span class="icon-wrapper {{ item.serviceCode }}"></span>
+              <span class="text"
+                [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span>
+            </li>
+          </ng-container>
+        </ul>
+      </ng-container>
+
+      <ng-container *ngIf="
+          !isPopup &&
+          quickLinks &&
+          quickLinks.length > appConstant.contextMenuColCount
+        ">
+        <button type="button" class="expander" (click)="showMoreQuickActions()">
+          <span>show more</span>
+        </button>
+      </ng-container>
+    </box>
+  </ng-container>
+  <ng-template #desktopMenu>
+    <box class="context-menu-body" *ngIf="quickLinks?.length > 0; else quickActionsLoader"
+      [style.max-width.px]="sliderWidth">
+      <box class="actions-list">
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+          <box ngxSlickItem class="slide" [ngClass]="{ active: activeMenu == item.serviceCode }"
+            *ngFor="let item of quickLinks">
+            <box class="item" (click)="openLink(item)">
+              <span class="icon-wrapper {{ item.serviceCode }}"></span>
+              <span class="text"
+                [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span>
+            </box>
+          </box>
+        </ngx-slick-carousel>
+      </box>
+    </box>
+  </ng-template>
+</box>
+
+<ng-template #quickActionsLoader>
+  <box class="quick-actions-loader">
+    <ul>
+      <li>
+        <span class="icon">&nbsp;</span>
+        <span class="text">&nbsp;</span>
+      </li>
+      <li>
+        <span class="icon">&nbsp;</span>
+        <span class="text">&nbsp;</span>
+      </li>
+      <li>
+        <span class="icon">&nbsp;</span>
+        <span class="text">&nbsp;</span>
+      </li>
+    </ul>
+  </box>
+</ng-template>

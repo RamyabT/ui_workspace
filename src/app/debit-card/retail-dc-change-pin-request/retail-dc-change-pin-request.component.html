@@ -1,0 +1,49 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="dcpinrequest" >
+	   
+	<box class="entry-form">
+	   <ng-container *ngIf="state.cardData && device.isMobile()">
+		   <debitcard class="col-12" [cardData]="state.cardData" [formView]="true"></debitcard>
+	   </ng-container>
+	   <box class="grid entry-form-field-group">
+
+		   <!-- <app-active-dc-list-control  class="col-sm-12 col-md-6 col-lg-12"   [actionPublisher]="actionMap$.get('cardReference')"     label="{{'dcpinrequest.cardReference.label' | translate }}"   formControlName="cardReference" 
+			 (commonControlEvent)="handleControlEvent($event)"
+	></app-active-dc-list-control> -->
+
+		   <fpx-display-text class="col-sm-12 col-md-6 col-lg-12  change-pin-desc"
+			   [actionPublisher]="actionMap$.get('infoNote')"
+			   [innerHTML]="'dcpinrequest.changePinDesc.text' | translate"
+			   [literals]="commonFormInput"></fpx-display-text>
+
+
+
+		   <app-dc-pin-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('confirmPin')"
+			   label="{{'dcpinrequest.confirmPin.label' | translate }}"
+			   formControlName="confirmPin"></app-dc-pin-control>
+
+
+
+		   <fpx-display-text class="spacer" [actionPublisher]="actionMap$.get('line')"></fpx-display-text>
+
+		   <app-dc-pin-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('pin')"
+			   label="{{'dcpinrequest.pin.label' | translate  }}" formControlName="pin"></app-dc-pin-control>
+
+
+		   <app-dc-pin-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('reenteredPin')"
+			   label="{{'dcpinrequest.reenteredPin.label' | translate }}"
+			   [changePublisher]="formChangePublisher$"
+			   formControlName="reenteredPin"></app-dc-pin-control>
+
+
+		   <app-remarks-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('remarks')"
+			   label="{{'dcpinrequest.remarks.label' | translate }}" formControlName="remarks"></app-remarks-control>
+	   </box>
+	   <box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-12 grid main-group disclaimer-box">
+
+		   <app-terms-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+			   label="{{'dcpinrequest.termsFlag.label' | translate }}" formControlName="termsFlag"
+			   [textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+
+	   </box>
+   </box>
+</form>

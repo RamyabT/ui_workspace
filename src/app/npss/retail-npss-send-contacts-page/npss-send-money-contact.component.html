@@ -1,0 +1,19 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="NPSSContactViewing">
+  <box class="entry-form">
+    <box class="grid entry-form-field-group col-sm-12 col-lg-12">
+      <box class="fpx-form-control search-group col-sm-12 col-lg-12">
+        <input mat-input type="text" formControlName="searchText" placeholder="Search Contact"
+          class="fpx-field-content search-bar col-sm-12 col-lg-12" />
+      </box>
+
+      <box class="other-option">
+        <button class="add-new-button" (click)="_helper.onOtherOption()">
+          <span class="icon-wrapper"></span>
+          <span class="text">{{ "NPSSContactViewing.otherOptions.label" | translate }}</span>
+        </button>
+      </box>
+        <contact-list-ro-grid class="col-md-13 col-sm-12 col-lg-12" (commonRoGridEvent)="handleControlEvent($event)"
+          [actionPublisher]="actionMap$.get('contactList')"></contact-list-ro-grid>
+    </box>
+  </box>
+</form>

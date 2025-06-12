@@ -1,0 +1,33 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailTrackBudgetForm">
+	<box class="entry-form col-sm-12 col-md-12 col-lg-12">
+		<ng-container *ngIf="state.isDataReceived; else loader">
+			<fpx-radio-button class="col-sm-12 col-md-6 col-lg-12 segments"
+				[actionPublisher]="actionMap$.get('budgetSegments')" formControlName="budgetSegments"
+				[selectableList$]="state.budgetSegmentList$" (commonControlEvent)="handleControlEvent($event)"
+				ngTemplateName="chicletsRadio">
+			</fpx-radio-button>
+		</ng-container>
+
+		<ng-container *ngIf="state.gridData && state.gridData.length; else noTransfers">
+		</ng-container>
+		<app-retail-track-budget-ro-grid [actionPublisher]="actionMap$.get('budgetGrid')" formControlName="budgetGrid"
+			(commonRoGridEvent)="_helper.trackBudgetRoGridEvent($event)"></app-retail-track-budget-ro-grid>
+		<box class="add-budget">
+			<box class="add-btn">
+
+			</box>
+		</box>
+	</box>
+
+</form>
+
+<ng-template #noTransfers>
+	<box class="no-result-view">
+		<img class="no-result-image" src="./assets/images/transfers/no-transfer-history.svg" alt="">
+		<box class="no-result-desc">{{ 'TransferSummaryForm.budget' | translate }}</box>
+	</box>
+</ng-template>
+
+<ng-template #loader>
+	<box class="loading"></box>
+</ng-template>

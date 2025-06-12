@@ -1,0 +1,104 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailLoanClosureForm">
+	<box class="entry-form">
+		<!-- <app-loan-list-template-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('loanAccountNumber')"
+				formControlName="loanAccountNumber"
+				(commonControlEvent)="handleControlEvent($event)"></app-loan-list-template-control> -->
+
+		<box class="grid entry-form-field-group col-lg-12">
+			<app-loan-account-list-template-control  class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('loanAccountNumber')" label="{{
+          'RetailLoanClosureForm.loanAccountNumber.label' | translate
+        }}" formControlName="loanAccountNumber"
+				(commonControlEvent)="handleControlEvent($event)"></app-loan-account-list-template-control>
+
+			<app-account-list-template-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('debitAccount')"
+				label="{{ 'RetailLoanClosureForm.debitAccount.label' | translate }}" formControlName="debitAccount"
+				(commonControlEvent)="handleControlEvent($event)"></app-account-list-template-control>
+
+      <fpx-display-text id="infoNote" [actionPublisher]="actionMap$.get('infoNote')"
+        class="col-md-12 col-lg-12 infoNote" [innerHTML]="'RetailLoanClosureForm.infoNote.text' | translate"
+        [literals]="commonFormInput"></fpx-display-text>
+
+      <app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('closureDate')"
+        label="{{ 'RetailLoanClosureForm.closureDate.label' | translate }}" formControlName="closureDate"
+        [minDate]="state.closureDate.minDate" [maxDate]="state.closureDate.maxDate"></app-request-date-control>
+
+			<!-- <app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('amount')"
+				label="{{'RetailLoanClosureForm.amount.label' | translate }}" formControlName="amount"
+				(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.amount.CurrencyList"
+				[isCurrEditable]="state.amount.isCurrEditable" [defaultFetch]="state.amount.defaultFetch"
+				[initCurrency]="state.amount.initCurrency" [amountInWords]="state.amount.amountInWords"
+				[changePublisher]="formChangePublisher$"
+				[dependencyField]="['fromCurrencyVariable','toCurrencyVariable','accountBalanceVariable']"></app-payment-amount-control> -->
+
+      <box class="field-item col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('loanDetails')">
+       
+        <box class="info-box">
+			<fpx-label label="{{ 'RetailLoanModification.loanDetails.text' | translate }}"></fpx-label>
+          <box class="info-field">
+            <fpx-display-text class="info-field-label" [innerHTML]="
+			  'RetailLoanClosureForm.principalAmount.text' | translate
+			" [literals]="commonFormInput"></fpx-display-text>
+            <fpx-display-text class="info-field-value" [innerHTML]="state.loanDetails.principalAmount"
+              [literals]="commonFormInput"></fpx-display-text>
+          </box>
+          <box class="info-field">
+            <fpx-display-text class="info-field-label" [innerHTML]="
+			  'RetailLoanClosureForm.interestAmount.text' | translate
+			" [literals]="commonFormInput"></fpx-display-text>
+            <fpx-display-text class="info-field-value" [innerHTML]="state.loanDetails.interestAmount"
+              [literals]="commonFormInput"></fpx-display-text>
+          </box>
+          <box class="info-field">
+            <fpx-display-text class="info-field-label" [innerHTML]="
+			  'RetailLoanClosureForm.totalOutstanding.text' | translate
+			" [literals]="commonFormInput"></fpx-display-text>
+            <fpx-display-text class="info-field-value" [innerHTML]="state.loanDetails.totalOutstanding"
+              [literals]="commonFormInput"></fpx-display-text>
+          </box>
+          <box class="info-field">
+            <fpx-display-text class="info-field-label" [innerHTML]="
+			  'RetailLoanClosureForm.preClosureCharges.text' | translate
+			" [literals]="commonFormInput"></fpx-display-text>
+            <fpx-display-text class="info-field-value" [innerHTML]="state.loanDetails.closureCharges"
+              [literals]="commonFormInput"></fpx-display-text>
+          </box>
+        </box>
+      </box>
+
+			<!-- <box class="field-item col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('exchangeDetails')">
+				<fpx-label label="FX Details"></fpx-label>
+				<box class="info-box">
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'Debit Amount:'"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.debitAmount"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'Credit Amount: '"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.creditAmount"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="'Exhange Rate: '"
+							[literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.exchangeDetails.exchangeRate"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+				</box>
+			</box> -->
+
+			<app-loan-reason-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('remarks')"
+				label="{{ 'RetailLoanClosureForm.remarks.label' | translate }}"
+				formControlName="remarks"></app-loan-reason-control>
+		</box>
+		
+			<app-terms-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{ 'RetailLoanClosureForm.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+	</box>
+</form>

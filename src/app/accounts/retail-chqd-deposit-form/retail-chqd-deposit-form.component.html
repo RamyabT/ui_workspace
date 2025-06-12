@@ -1,0 +1,97 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailChqdDepositForm" >
+	  
+	<box class="entry-form">
+	      
+			  <!-- <app-account-number-list-control  class="col-sm-12   "   [actionPublisher]="actionMap$.get('depositAccount')"     label="{{'RetailChqdDepositForm.depositAccount.label' | translate }}"   formControlName="depositAccount"  placeholder="{{'RetailChqdDepositForm.depositAccount.placeholder' | translate }}" 
+     ></app-account-number-list-control> -->
+	      
+	<!-- account details -->
+	<div class="account-detail-wrapper fpx-form-control">
+	<fpx-label>
+		<mat-label>
+			<span class="deposit-to-label">{{'RetailChqdDepositForm.depositAccount.label' | translate}}</span>
+		</mat-label>
+	</fpx-label>
+
+	<box class="account-card-validation-wrapper cheque-deposit-account-detail">
+		<box class="account-card" (click)="_helper.openAccountSelectionModal()">
+			<box class="account-header-wrapper">
+					<box class="cheque-deposit-account-header">
+					<h2>{{state.selectedAccount?.accountNickname || state.selectedAccount?.productDesc}}
+					</h2>
+					<p>{{state.selectedAccount?.accountTypeDesc || state.selectedAccount?.accountType}}
+
+					<span class="line-separator"></span>
+
+						{{state.selectedAccount?.accountNumber | accountNumberTrim}}
+					</p>
+				</box>
+				<box class="view-account-icon-wrapper">
+					<span class="view-account-icon"></span>
+				</box>
+			</box>
+			<box class="account-details">
+				<p [ngClass]="{'show-default-account': state.isPreferredAccount}" class="default-account-checkbox">
+					<mat-checkbox [checked]="state.isPreferredAccount" [class.mat-checkbox-disabled]="false" disabled>
+					</mat-checkbox>
+					{{'RetailChqdDepositForm.defaultAccount.label' | translate}}
+				</p>
+					
+				<p class="balance amount">{{_helper.getAbsoluteValue(state.selectedAccount?.availableBalance) | currency :
+					state.selectedAccount?.accountCurrency : '' }} <em>{{
+						state.selectedAccount?.accountCurrency
+						|
+						currencyCode }}</em>
+						{{_helper.checkNegativeValue(state.selectedAccount?.availableBalance)}}
+				</p>
+			</box>
+		</box>
+	</box>
+</div>
+		 
+	<app-amount-currency-control  
+		class="col-sm-12" 
+		[actionPublisher]="actionMap$.get('chequeAmount')" 
+		label="{{'RetailChqdDepositForm.chequeAmount.label' | translate }}"   
+		formControlName="chequeAmount"  
+		placeholder="{{'RetailChqdDepositForm.chequeAmount.placeholder' | translate }}" 
+    	#amountCurrencyControlRef
+		[controlValue]="state.chequeAmount.domainControlValue"
+		[isCurrEditable]="state.chequeAmount.isCurrEditable"  
+		[defaultFetch]="state.chequeAmount.defaultFetch"
+		[initCurrency]="state.chequeAmount.initCurrency"
+		[amountInWords]="state.chequeAmount.amountInWords"
+	></app-amount-currency-control>
+
+	<app-take-picture-control 
+		(onTakePicture)="_helper.setPicture($event,'front')"
+		(onPictureReset)="_helper.resetPicture($event, 'front')"
+		[manualCameraTrigger]="true"
+		(onTriggerTakePicture)="_helper.takeFrontImage($event)"
+		formControlName="chequeImageFrontSide"
+		class="col-sm-12 col-md-12 col-lg-6"
+		takePictureBtnIcon="./assets/images/icons/face-id-circle.svg"
+		uploadedLabel="{{'RetailChqdDepositForm.chequeImageFrontSide.label' | translate }}"
+		placeholder="{{'RetailChqdDepositForm.chequeImageFrontSide.placeholder' | translate }}"
+		toolTip="front">
+	</app-take-picture-control>
+	<app-take-picture-control 
+		(onTakePicture)="_helper.setPicture($event,'back')"
+		(onPictureReset)="_helper.resetPicture($event, 'front')"
+		[manualCameraTrigger]="true"
+		(onTriggerTakePicture)="_helper.takeBackImage($event)"
+		formControlName="chequeImageBackSide"
+		takePictureBtnIcon="./assets/images/icons/face-id-square.svg"	
+		class="col-sm-12 col-md-12 col-lg-6"
+		uploadedLabel="{{'RetailChqdDepositForm.chequeImageBackSide.label' | translate }}"
+		placeholder="{{'RetailChqdDepositForm.chequeImageBackSide.placeholder' | translate }}"
+		toolTip="back">
+	</app-take-picture-control>
+
+			  
+	      
+			  <app-terms-control  class="col-md-12  "   [actionPublisher]="actionMap$.get('cbxrTerms')"     label="{{'RetailChqdDepositForm.cbxrTerms.label' | translate }}"   formControlName="cbxrTerms"  placeholder="{{'RetailChqdDepositForm.cbxrTerms.placeholder' | translate }}" 
+   [textPosition]="state.cbxrTerms.textPosition"  [ckValues]="state.cbxrTerms.ckValues" ></app-terms-control>
+	</box> 
+</form>
+	

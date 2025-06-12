@@ -1,0 +1,145 @@
+<box class="module-home wallet-home" #spaceHome>
+    <ng-container *ngIf="_device.isMobile(); else spaceContainer">
+        <box class="module-home-bg" [style.top.px]="moduleHeaderTop"></box>
+        <box class="module-home-inner fb-home-inner">
+            <fpx-display-text class="module-title" innerHTML="{{'WALLETCONTAINER.title' | translate}}"></fpx-display-text>
+            <ng-container   *ngIf="isReceivedAccounts; else loader">
+            <ng-container *ngIf="walletSummary.length > 0; else nochildren">
+                
+                <app-wallet-summary-card-carousel [summary]="walletSummary" ></app-wallet-summary-card-carousel>
+                <box class="transfers-quick-action-widget">
+                   <app-wallet-quick-action></app-wallet-quick-action>
+                </box>
+                <box class="module-tab-container">
+                    <mat-tab-group [(selectedIndex)]="activeTabIndex" (selectedTabChange)="onTabChanged($event)">
+                        <mat-tab label="{{ 'WALLETTRANSACTION.histroylbl' | translate }}">
+                            <ng-template matTabContent>
+                                  <app-wallet-transaction-summary></app-wallet-transaction-summary>
+                            </ng-template>
+                        </mat-tab>
+                        <mat-tab label="{{ 'WALLETTRANSACTION.receivedlbl' | translate }}">
+                            <ng-template matTabContent>
+                                <app-wallet-received-summary></app-wallet-received-summary>
+                            </ng-template>
+                        </mat-tab>
+                        <mat-tab label="{{ 'WALLETTRANSACTION.requestlbl' | translate }}">
+                            <ng-template matTabContent>
+                               <app-wallet-requested-summary></app-wallet-requested-summary>  
+                            </ng-template>
+                        </mat-tab>
+                    </mat-tab-group>
+                </box>
+            </ng-container>
+            </ng-container>
+            <ng-template #nochildren>
+                <box class="no-member-container">
+                    <box class="add-member-container">
+                        <box class="text">{{'RETAILWALLETCREATE.label' | translate}}</box>
+                   
+                    </box>
+                    <box class="svg-container">
+                        <img src="./assets/illustrations/no-account.svg" alt="add child">
+                    </box>
+                </box>
+                <box class="no-kid-message-container">
+                    <box class="image-container"><img src="./assets/illustrations/no-wallet.svg" alt="kids frame"></box>
+                    <box class="text-container">{{'RETAILWALLETCREATE.message' | translate}}</box>
+                    <box class="btn-container">
+                        <button type="button" class="btn-primary" (click)="walletRegistration()" >
+                            <span class="label">{{'RETAILWALLETCREATE.btnTxt' | translate}}</span>
+                        </button>
+                    </box>
+                </box>
+            </ng-template>
+
+        </box>
+    </ng-container>
+    <ng-template #spaceContainer>
+        <ng-container *ngIf="walletSummary.length > 0; else nochildren">
+            <box class="space-container">
+                <box class="space-summary">
+                    <box>
+                        <ul class="casa-account-list">
+                            <ng-container *ngFor="let account of walletSummary">
+                                <li class="casa-account-list-item">
+                                    <box class="casa-account">
+                                        <box class="acc-primary-info">
+                                            <span class="acc-type">{{ account.walletName }}</span>
+                                            <span class="acc-number">{{ account.walletAccountNumber }}</span>
+                                        </box>
+                                        <box class="acc-secondary-info">
+                                            <span class="lbl">{{ 'CASASUMMARYCARD.available' | translate }}</span>
+                                            <span class="amount">{{ account.availableBalance | currency : account.currency : ''}} <em>{{ account.currency }}</em></span>
+                                        </box>
+                                    </box>
+                                </li>
+                                <hr />
+                            </ng-container>
+                        </ul>
+                    </box>
+                </box>
+
+                <box class="space-content">
+                    <!-- <box>
+                        <app-wallet-navigation-form></app-wallet-navigation-form>
+                     </box> -->
+                    <box>
+                        <router-outlet></router-outlet>
+                    </box>
+
+                </box>
+
+
+                <!-- <box class="space-content">
+                    <box>
+                        <router-outlet></router-outlet>
+                    </box>
+
+                </box> -->
+
+            </box>
+        </ng-container>
+        <ng-template #nochildren>
+            <box class="space-container">
+                <box class="space-summary">
+                    <box class="no-member-container">
+                        <box class="add-member-container">
+                            <box class="text">{{'RETAILWALLETCREATE.label' | translate}}</box>
+                        </box>
+                        <box class="svg-container">
+                            <img src="./assets/illustrations/no-account.svg" alt="add child">
+                        </box>
+                    </box>
+                </box>
+                <box class="space-content">
+                    
+                    <box class="no-kid-message-container">
+                        <box class="header">
+                            <box class="label">{{'RETAILWALLETCREATE.title' | translate}}</box>
+                        </box>
+                        <box class="wrapper-container">
+                            <box class="image-container"><img src="./assets/illustrations/no-wallet.svg" alt="kids frame"></box>
+                            <box class="text-container">{{'RETAILWALLETCREATE.message' | translate}}</box>
+                            <box class="btn-container">
+                                <button type="button" class="get-started-btn" (click)="walletRegistration()" >
+                                    <span class="label">{{'RETAILWALLETCREATE.btnTxt' | translate}}</span>
+                                </button>
+                            </box>
+                        </box>
+                      
+                    </box>
+                 </box>
+
+            </box>
+        </ng-template>
+    </ng-template>
+
+    	   
+	   <!-- Content loader -->
+<ng-template #loader>
+    <!-- <ng-container *ngIf="!noTemplate; else noLoanDesktop"> -->
+    <box class="loading"></box>
+    <!-- </ng-container> -->
+</ng-template>
+
+</box>

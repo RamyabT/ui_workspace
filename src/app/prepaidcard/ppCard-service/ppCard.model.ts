@@ -1,0 +1,41 @@
+import { IHttpErrorPayload } from "@fpx/core"
+
+export interface  PpCard {
+       customerCode:string, 
+       cardReference:string, 
+       cardNumber:string, 
+       cardCategory:string, 
+       cardType:any, 
+       status:string, 
+       cardHolderName:string, 
+       branchDesc:string, 
+       productDesc:string, 
+       productCode:string, 
+       primaryCardAccNo:string, 
+       branchCode:string, 
+       creditLimit:number, 
+       availableCashLimit:number, 
+       minPaymentDue:number, 
+       outstandingAmount:number, 
+       lastPaymentReceived:number, 
+       lastStatementBalance:number, 
+       overdueAmount:number, 
+       unbilledAmount:number, 
+       availablePurchaseLimit:number, 
+       rate:number, 
+       accountNumber:string, 
+       currency:string, 
+       validTillYear:string, 
+       validTillMonth:string, 
+       billingAddress:string, 
+       accountType:string, 
+       issueDate:string, 
+       termsFlag:string, 
+       accountName:string, 
+       country:string, 
+       cardPin:number, 
+       email:string ,
+       avlbalance?:any
+  }
+  
+ 

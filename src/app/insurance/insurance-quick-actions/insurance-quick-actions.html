@@ -1,0 +1,39 @@
+<ng-container *ngIf="device.isMobile(); else desktopMenu">
+    <box class="widget quick-link quick-actions-inner deposit-actions">
+      <box class="widget-body actions-body context-menu-body">
+        <ng-container *ngIf="quickLinks?.length">
+          <ul class="actions-list">
+            <ng-container *ngFor="let item of quickLinks; let last = last">
+              <li (click)="openLink(item)" class="list-group-item">
+                <span class="icon-wrapper {{ item.name }}"></span>
+                <span class="text" [innerHTML]="item.serviceDescription | translate"></span>
+              </li>
+              <box *ngIf="!last" class="list-separator"></box>
+            </ng-container>
+          </ul>
+        </ng-container>
+      </box>
+    </box>
+  </ng-container>
+  
+  <ng-template #desktopMenu>
+    <box class="widget quick-actions-inner deposit-actions context-menu-wrapper">
+      <header>
+        <span class="widget-title">{{ 'WIDGIT_TITLES.insuranceQuickActionLbl' | translate }}</span>
+      </header>
+  
+      <box class="actions-body context-menu-body">
+        <ng-container *ngIf="quickLinks?.length">
+          <ul class="actions-list grid" [ngClass]="{ 'show-more': doShowMoreQuickActions }">
+            <ng-container *ngFor="let request of quickLinks">
+              <li (click)="openLink(request)" [ngClass]="{ 'active': activeMenu === request.icon }">
+                <span class="icon-wrapper {{ request.icon }}"></span>
+                <span class="text" [innerHTML]="request.serviceDescription | translate"></span>
+              </li>
+            </ng-container>
+          </ul>
+        </ng-container>
+      </box>
+    </box>
+  </ng-template>
+  

@@ -1,0 +1,20 @@
+<box class="account" (click)="restrictEvent($event)">
+  <span class="account-selector">
+    <mat-checkbox [value]="selectedData.accountNumber" 
+      [checked]="selectedData.hasEnrolled"
+      (change)="onSelectAccount($event)" 
+      [disabled]="selectedData.isPrimary"></mat-checkbox>
+  </span>
+  <box class="account-info">
+    <span class="account-type">{{ selectedData.productDesc }}</span>
+    <span class="account-iban">{{ selectedData.iban }}</span>
+  </box>
+  <ng-container *ngIf="selectedData.selected && !selectedData.isPrimary">
+    <box class="additional-info">
+      <button class="link" (click)="setAsDefault($event)"><span>{{ 'SavingsAccountListRoTmpltComponent.setAsDefaultBtnLbl' | translate }}</span></button>
+    </box>
+  </ng-container>
+  <ng-container *ngIf="selectedData.isPrimary">
+    <box class="is-primary-acc">{{ 'SavingsAccountListRoTmpltComponent.defaultAccountLbl' | translate }}</box>
+  </ng-container>
+</box>

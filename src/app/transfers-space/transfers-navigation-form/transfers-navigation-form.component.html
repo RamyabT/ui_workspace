@@ -1,0 +1,15 @@
+<form [formGroup]="formGroup" autocomplete="off" formName="casa-navigation-form" class="casa-navigation-form">
+    <box class="entry-form border-top-bottom">
+        <!-- <app-transfers-context-menu  [resetActiveMenu]="state.resetActiveMenu" class="col-12 widget quick-link"
+         [accountNumber]="state.accountNumber"></app-transfers-context-menu> -->
+        <!-- <app-casa-acc-dtl-list-tmplt [payFromLabel]="'Transfer From'" [showViewAll]="_helper.showViewAll"
+            class="casaAccountDtlListTmplt bills" [selectedData]="state.selectedAccount"
+            (onClickingViewAll)="_helper.openCasaAccountsLists()"
+            (preferredAccount)="_helper.preferredAccountChange($event)"></app-casa-acc-dtl-list-tmplt> -->
+
+        <contextual-actions class="col-lg-12" [hasAtleastOneTransferToAccount]="hasAtleastOneTransferToAccount"
+            [hasAtleastOneTransferToAccount]="hasAtleastOneTransferToAccount" [cardData]="state.selectedAccount"
+            [accountNumber]="state.accountNumber" [quickLinks]="_helper.quickMenus"></contextual-actions>
+    </box>
+</form>
+

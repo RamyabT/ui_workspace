@@ -1,0 +1,20 @@
+
+ <ng-container *ngIf="seekingResponse; else loader">
+    <fpx-display-text class="lbl" innerHTML="{{ 'BALANCESHEET.title' | translate }}"></fpx-display-text>
+    <box class="balancesheet-container">
+    <box class="balancesheet-data">
+        <!-- <span class="amount">{{ balancesheet?.totalChildBalance | currency : totalbalance.currency : '' }} <em>{{ totalbalance.currency }}</em></span> -->
+        <span class="amount">{{ cardData?.totalChildBalance | currency : _appConfig.getBaseCurrency() : '' }} {{_appConfig.getBaseCurrency()}} </span>
+    </box>
+    <box class="member-goal-details">
+        <box class="action-item"  ><span class="totalcount">{{cardData?.totalGoals}}</span><span>{{'BALANCESHEET.totalgoallbl' | translate }}</span></box>
+        <box class="list-separator"></box>
+        <box class="action-item"  ><span class="totalcount">{{cardData?.totalPendingTasks}}</span><span>{{'BALANCESHEET.pendingchoreslbl' | translate }}</span></box>
+    </box>
+    </box>
+</ng-container>
+
+
+<ng-template #loader>
+    <box class="loading"></box>
+</ng-template>

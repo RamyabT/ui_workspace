@@ -1,0 +1,23 @@
+"RetailPfmGoalsRoGrid":{
+"title":"pfmgoals",
+		 "goalName": {
+		  "label":"goalName" ,
+		  "placeholder": "goalName"
+		  } ,
+		 "goalAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "frequency": {
+		  "label":"Frequency" ,
+		  "placeholder": "Frequency"
+		  } ,
+		 "goalDuration": {
+		  "label":"goalDuration" ,
+		  "placeholder": "goalDuration"
+		  } ,
+		 "accruedAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } 
+}

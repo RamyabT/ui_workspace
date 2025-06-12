@@ -1,0 +1,60 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailRpExistingContractForm">
+  <box class="entry-form">
+    <box class="entry-form-field-group grid col-12">
+
+      <fpx-display-text class="info-field col-sm-12 col-md-12 col-lg-12" [literals]="commonFormInput"
+        [innerHTML]="'RetailRpExistingContractForm.selectedProductIdDisplay.text' | translate"></fpx-display-text>
+
+      <app-rp-plancontract-control class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('planContract')"
+        label="{{ 'RetailRpExistingContractForm.planContract.label' | translate }}" formControlName="planContract"
+        [changePublisher]="formChangePublisher$" [dependencyField]="['serviceCodeValue', 'segmentId']"
+        (commonControlEvent)="handleControlEvent($event)"></app-rp-plancontract-control>
+
+      <box id="contractDetailsGroup" [actionPublisher]="actionMap$.get('contractDetailsGroup')"
+        class="col-md-12 grid  field-item info-box col-lg-12 col-md-12 col-sm-12  ">
+        <fpx-label id="contractDetailsLbl"
+          label="{{'RetailRpExistingContractForm.contractDetailsLbl.label' | translate }}"
+          class="col-md-12 "></fpx-label>
+        <fpx-display-text id="tenureDisplay" class="col-md-12  tenureDisplay"
+          [innerHTML]="'RetailRpExistingContractForm.tenureDisplay.text' | translate"
+          [literals]="commonFormInput"></fpx-display-text>
+        <fpx-display-text id="interestRateDisplay" class="col-md-12  interestRateDisplay"
+          [innerHTML]="'RetailRpExistingContractForm.interestRateDisplay.text' | translate"
+          [literals]="commonFormInput"></fpx-display-text>
+      </box>
+
+      <app-account-number-list-control class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('fromAccount')"
+        label="{{'RetailRpExistingContractForm.fromAccount.label' | translate }}"
+        (commonControlEvent)="handleControlEvent($event)"
+        formControlName="fromAccount"></app-account-number-list-control>
+
+      <app-amount-currency-control class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('depositAmount')"
+        label="{{ 'RetailRpExistingContractForm.depositAmount.label' | translate }}" formControlName="depositAmount"
+        [CurrencyList]="state.depositAmount.CurrencyList" [isCurrEditable]="state.depositAmount.isCurrEditable"
+        [defaultFetch]="state.depositAmount.defaultFetch" [initCurrency]="state.depositAmount.initCurrency">
+      </app-amount-currency-control>
+
+      <app-retail-intended-use-control class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('intendedUse')"
+        label="{{ 'RetailRpExistingContractForm.intendedUse.label' | translate }}" formControlName="intendedUse"
+        [changePublisher]="formChangePublisher$"
+        [dependencyField]="['serviceCodeValue']"></app-retail-intended-use-control>
+
+      <app-casa-enabled-flag class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('accountUsedBy')"
+        label="{{ 'RetailRpExistingContractForm.accountUsedBy.label' | translate }}"
+        formControlName="accountUsedBy"></app-casa-enabled-flag>
+
+      <app-usresident-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('usResident')"
+        label="{{ 'RetailRpExistingContractForm.usResident.label' | translate }}"
+        formControlName="usResident"></app-usresident-control>
+
+      <app-addCountry-of-tax-inputgrid class="col-sm-12 col-md-12 col-lg-12"
+        (commonGridEvent)="handleControlEvent($event)" [actionPublisher]="actionMap$.get('addCountryOfTax')"
+        label="addCountryOfTax" formControlName="addCountryOfTax"></app-addCountry-of-tax-inputgrid>
+
+    </box>
+  </box>
+</form>

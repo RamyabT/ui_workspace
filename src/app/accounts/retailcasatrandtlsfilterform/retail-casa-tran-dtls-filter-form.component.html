@@ -1,0 +1,109 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="retailcasatrandtlsfilterform">
+	<box *ngIf="!retailcasatrandtlsfilterformHelper.deviceDetectorService.isMobile()" class="header">
+		<box class="title">
+			{{'retailcasatrandtlsfilterform.title' | translate }}
+		</box>
+		<box class="close-btn-container">
+			<button type="button" class="btn-container" (click)="retailcasatrandtlsfilterformHelper.close()">
+				<span class="icon close-btn-icon"></span>
+			</button>
+		</box>
+	</box>
+	<box class="entry-form">
+		<box class="title" *ngIf="retailcasatrandtlsfilterformHelper.deviceDetectorService.isMobile()">
+			{{'retailcasatrandtlsfilterform.title' | translate }} 
+		</box>
+		<box class="grid entry-form-field-group col-sm-12 col-md-12 col-lg-12">
+			<box class="grid group-details col-lg-12">
+				<app-range-type-control class="col-sm-12 col-md-6 col-lg-12"
+					[actionPublisher]="actionMap$.get('rangeType')"
+					label="{{'retailcasatrandtlsfilterform.rangeType.label' | translate }}" formControlName="rangeType"
+					>
+				</app-range-type-control>
+
+			<!-- <div *ngIf="!retailcasatrandtlsfilterformHelper.deviceDetectorService.isMobile()"
+				class="line"></div> -->
+
+			<app-request-date-control class="col-sm-6 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('fromDate')"
+				label="{{ 'retailcasatrandtlsfilterform.fromDate.label' | translate }}" formControlName="fromDate"
+				placeholder="{{ 'retailcasatrandtlsfilterform.fromDate.placeholder' | translate }}"
+				[minDate]="state.fromDate.minDate" [maxDate]="state.fromDate.maxDate"></app-request-date-control>
+
+			<app-request-date-control class="col-sm-6 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('toDate')"
+				label="{{ 'retailcasatrandtlsfilterform.toDate.label' | translate }}" formControlName="toDate"
+				placeholder="{{ 'retailcasatrandtlsfilterform.toDate.placeholder' | translate }}" 
+				[minDate]="state.toDate.minDate" [maxDate]="state.toDate.maxDate"></app-request-date-control>
+			</box>
+			<box *ngIf="'RETAILTRANSACTIONFILTER' | AccessScope">
+				<app-tran-acc-type-list-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('transactionCategoryId')"
+				label="{{'retailcasatrandtlsfilterform.transactionType.label' | translate }}"
+				formControlName="transactionCategoryId">
+			</app-tran-acc-type-list-control>
+			</box>
+			<box *ngIf="'RETAILTRANSACTIONFILTER' | AccessScope">
+			<app-filter-search-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('filterSearch')"
+				label="{{'retailcasatrandtlsfilterform.filterSearch.label' | translate }}"
+				formControlName="filterSearch">
+			</app-filter-search-control>
+			</box>
+			
+
+			<!-- <app-debit-credit-flag-cotrol class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('transactionType')"
+				label="{{'retailcasatrandtlsfilterform.transactionType.label' | translate }}"
+				formControlName="transType">
+			</app-debit-credit-flag-cotrol> -->
+
+			<app-description-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('transactionDescription')"
+				formControlName="transactionDescription"
+				placeholder="{{ 'retailcasatrandtlsfilterform.description.placeholder' | translate }}"
+				[maxLength]="transactionDescription_maxLength"></app-description-control>
+
+			<!-- <app-transaction-amount-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('transactionAmount')" formControlName="transactionAmount"
+				placeholder="{{ 'retailcasatrandtlsfilterform.amount.placeholder' | translate }}"></app-transaction-amount-control> -->
+
+			<app-chequeamount-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('transactionAmount')"
+				formControlName="transactionAmount" [CurrencyList]="state.transactionAmount.CurrencyList"
+				[isCurrEditable]="state.transactionAmount.isCurrEditable"
+				[defaultFetch]="state.transactionAmount.defaultFetch"
+				[initCurrency]="state.transactionAmount.initCurrency"
+				[amountInWords]="state.transactionAmount.amountInWords"> ></app-chequeamount-control>
+
+			<app-cheque-number-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('chequeNumber')"
+				
+				formControlName="chequeNumber"
+				placeholder="{{ 'retailcasatrandtlsfilterform.chequeNumber.placeholder' | translate }}"
+				[max]="chequeNumber_maxLength"></app-cheque-number-control>
+
+			<app-inventory-number-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('confirmationNumber')"
+				formControlName="confirmationNumber"
+				placeholder="{{ 'retailcasatrandtlsfilterform.confirmationNumber.placeholder' | translate }}"></app-inventory-number-control>
+			<box class="reset-dtls col-lg-12">
+				<box class="reset-icon" (click)="_helper.onClearFilterReset()">
+					<span class="reset-msg-icon">
+					</span>
+				</box>
+				<box class="reset-msg-bg" (click)="_helper.onClearFilterReset()">
+					<span>{{ 'retailcasatrandtlsfilterform.resetAllFilter.label' | translate }}</span>
+				</box>
+			</box>
+		</box>
+		<box class="form-action-container">
+			<fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('download')"
+				label="{{ 'retailcasatrandtlsfilterform.cancel.label' | translate }}" btnClass=" btn-secondary"
+				[buttonMode]="'button'"
+				(onClick)="retailcasatrandtlsfilterformHelper.close()"></fpx-button>
+			<fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('view')"
+				label="{{ 'retailcasatrandtlsfilterform.filter.label' | translate }}" btnClass=" btn-primary"
+				[buttonMode]="'button'" [disable]="formGroup.invalid"
+				(onClick)="retailcasatrandtlsfilterformHelper.onViewClick(null)"></fpx-button>
+		</box>
+	</box>
+</form>

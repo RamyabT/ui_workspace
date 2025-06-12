@@ -1,0 +1,14 @@
+<box class="expense-comparison">
+    <box class="widget-container col-sm-12 col-md-12 col-lg-12">
+        <box class="widget-body">
+            <span class="widget-title col-lg-12">{{ 'ExpenseComparison.title' | translate }}</span>
+            <app-retail-expense-comparison-ro-grid class="col-md-12 col-sm-12 col-lg-12"
+                (commonRoGridEvent)="handleControlEvent($event)"
+                [actionPublisher]="actionMap$.get('expenseComparisonRoGrid')"></app-retail-expense-comparison-ro-grid>
+        </box>
+        <box *ngIf="_helper.device.isMobile()" class="widget-action" (click)="_helper.showMoreData()">
+            <span *ngIf="state.showMore">Show Less</span>
+            <span *ngIf="!state.showMore">Show All</span>
+        </box>
+    </box>
+</box>

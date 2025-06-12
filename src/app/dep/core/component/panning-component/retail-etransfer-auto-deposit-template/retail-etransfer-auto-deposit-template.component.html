@@ -1,0 +1,63 @@
+<div class="task-item" id="row_data_{{ index }}">
+
+    <div class="task-detail-item">
+        <box class="transaction-list-item-inner">
+            <!-- <box class="transaction-icon-wrapper">
+                <box class="transaction-icon">
+                    <ng-container *ngIf="selectedData.transactionCategory; else noPhoto">
+                        <img src="./assets/transactions/{{selectedData.transactionCategory}}.svg"
+                            alt="transactionCategory" />
+                    </ng-container>
+                    <ng-template #noPhoto>
+                        <div class="name-first-letter">
+                            <span
+                                *ngIf="selectedData.depositAccountName?.split(' ').length == 1">{{selectedData.depositAccountName?.substring(0,
+                                1)}}
+                            </span>
+                            <span
+                                *ngIf="selectedData.depositAccountName?.split(' ').length > 1 && selectedData.depositAccountName?.split(' ').length != 1">
+                                {{selectedData.depositAccountName?.split(" ")[0]?.charAt(0)
+                                +(selectedData.depositAccountName?.split(" ")[1]?
+                                selectedData.depositAccountName?.split(" ")[1]?.charAt(0): "")}}
+                            </span>
+                        </div>
+                    </ng-template>
+                </box>
+            </box> -->
+            <box class="transaction-info" (click)="onEditAutoDeposit($event,selectedData)">
+                <box class="transaction-primary-info">
+                    <span class="accountNumber">{{selectedData.emailID }}</span>
+                    <ng-container  *ngIf="!selectedData.emailID">
+                        <span class="accountNumber">{{selectedData.mobileNumber }}</span>
+                    </ng-container>
+                    <span class="emailId">{{selectedData.depositAccountName }}</span>
+                </box>
+                <box class="product-additional-details">
+                    <span class="pending" *ngIf="selectedData.autoDepositStatus==0">{{"Pending"}}</span>
+                    <span class="active" *ngIf="selectedData.autoDepositStatus==1">{{"Active"}}</span>
+                </box>
+            </box>
+        </box>
+
+    </div>
+
+    <!-- <div class="task-action task-action-right" [ngClass]="{ 'hover-action': _device.isDesktop() }">
+        <ng-container *ngIf="!_device.isDesktop()">
+            <button type="button" class="button-task-action system-ico-button button-edit" clickable
+                (click)="onEditAutoDeposit($event,selectedData)">
+                <span>Edit</span>
+            </button>
+            <button type="button" class="button-task-action system-ico-button button-delete" clickable
+                (click)="onDeleteAutoDeposit($event,selectedData)">
+                <span>Delete</span>
+            </button>
+        </ng-container>
+
+    </div> -->
+
+    <!-- (swipeleft)="_device.isMobile()?swipeLeftHandler($event):null"
+        (swiperight)="_device.isMobile()?swipeRightHandler($event):null" -->
+
+    <!-- <div class="seperator-line"></div> -->
+
+</div>

@@ -1,0 +1,35 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailRpContributionreqForm">
+
+	<box class="entry-form">
+		<box class="grid entry-form-field-group">
+
+			<app-deposit-acc-number-list-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('creditAccount')"
+				label="{{'RetailRpContributionreqForm.creditAccount.label' | translate }}"
+				formControlName="creditAccount"></app-deposit-acc-number-list-control>
+
+			<app-account-number-list-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('debitAccount')"
+				label="{{'RetailRpContributionreqForm.debitAccount.label' | translate }}"
+				formControlName="debitAccount"></app-account-number-list-control>
+
+			<app-amount-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('amount')"
+				label="{{'RetailRpContributionreqForm.amount.label' | translate }}" formControlName="amount"
+				(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.amount.CurrencyList"
+				[isCurrEditable]="state.amount.isCurrEditable" [defaultFetch]="state.amount.defaultFetch"
+				[initCurrency]="state.amount.initCurrency" [amountInWords]="state.amount.amountInWords"
+				[changePublisher]="formChangePublisher$"></app-amount-control>
+
+			<app-remarks-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('remarks')"
+				label="{{'RetailRpContributionreqForm.remarks.label' | translate }}"
+				formControlName="remarks"></app-remarks-control>
+
+
+			<app-amount-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('charges')"
+				label="{{'RetailRpContributionreqForm.charges.label' | translate }}" formControlName="charges"
+				[CurrencyList]="state.charges.CurrencyList" [isCurrEditable]="state.charges.isCurrEditable"
+				[defaultFetch]="state.charges.defaultFetch" [initCurrency]="state.charges.initCurrency"
+				[amountInWords]="state.charges.amountInWords"> ></app-amount-control>
+		</box>
+	</box>
+</form>

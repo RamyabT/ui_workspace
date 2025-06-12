@@ -1,0 +1,14 @@
+::ng-deep body {
+svg{
+  g.fpx-multi-line-chart{
+      g.fpx-multi-line-y-axis{
+        g.tick{
+          line{
+            opacity: 0.4;
+          }
+        }
+    }
+  }
+
+}
+}

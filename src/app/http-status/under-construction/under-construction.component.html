@@ -1,0 +1,25 @@
+<form formName="UnderConstructionForm" [autocomplete]="'off'" [formGroup]="formGroup" class="construction">
+     <box *ngIf="_device.isMobile()" class="header-wrapper">
+        <box class="main-header-inner">
+            <box class="header-inner-wrapper"> 
+                <ng-container>
+                  
+                    <span class="back-btn-wrapper">
+                        <span class="back-btn-icon" (click)="_helper.goToHome()"></span>
+                    </span>
+                </ng-container> 
+             </box>
+        </box>
+    </box> 
+    <box class="under-construction-box">
+        <box class="under-construction-wrapper">
+        <box class="under-construction-image"></box> 
+        </box>    
+        <box class="content">
+            <span class="label-tag">{{'UnderConstructionForm.label' | translate}}</span>
+            <span class="label">{{'UnderConstructionForm.message' | translate}}</span>
+            <button class="button" (click)="_helper.goToHome()">{{'UnderConstructionForm.button' | translate}}</button>
+        </box>
+</box>
+</form>
+

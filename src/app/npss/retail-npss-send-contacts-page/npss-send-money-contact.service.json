@@ -1,0 +1,5 @@
+ 
+ "NPSSSENDCONTACT" : {
+ "servicePath": ["entry-shell","transfers", "retail-npss-contacts-page"],
+ "queryParams": {}
+ }

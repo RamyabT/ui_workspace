@@ -1,0 +1,5 @@
+ 
+ "RETAILMANAGEETRANSFERCONTACT" : {
+ "servicePath": ["entry-shell","etransfers", "retail-manage-etransfercontactlog-form"],
+ "queryParams": {}
+ }

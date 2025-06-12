@@ -1,0 +1,14 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailServiceRequestDetailsForm" >
+	   
+	 <box class="entry-form request-details">
+		<box   class="col-md-12 request-item " *ngFor="let item of _helper.requestDetails | keyvalue">
+	     
+	     
+			  <fpx-display-text  class="col-md-4  field-label"  [innerHTML]="'RetailCreateServiceRequestForm.'+item.key+'.label' | translate"   [literals]="commonFormInput"></fpx-display-text>
+	     
+	     
+			  <fpx-display-text  class="col-md-4  field-value"  [innerHTML]="item.value | translate"   [literals]="commonFormInput"></fpx-display-text>
+		</box>
+	 </box> 
+	</form>
+	

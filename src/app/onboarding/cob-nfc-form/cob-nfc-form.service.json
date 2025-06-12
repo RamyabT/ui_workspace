@@ -1,0 +1,5 @@
+ 
+ "NFC" : {
+ "servicePath": ["entry-shell","onboarding", "cob-nfc-form"],
+ "queryParams": {}
+ }

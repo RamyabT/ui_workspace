@@ -1,0 +1,5 @@
+ 
+ "RETAILNOTIFYGOINGOVERSEAS" : {
+ "servicePath": ["entry-shell","servicerequest", "notifygoingoverseas"],
+ "queryParams": {}
+ }

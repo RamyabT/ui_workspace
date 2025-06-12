@@ -1,0 +1,7 @@
+ 
+ "RETAILCHQBKREQ" : {
+ "servicePath": ["entry-shell","accounts", "retail-cheque-book-request"],
+ "reviewRequired":1,
+ "stepperRequired":1,
+ "queryParams": {}
+ }

@@ -1,0 +1,39 @@
+<box class="entry-form">
+	<ng-container *ngIf="state.cardData && device.isMobile()">
+		<prepaidcard class="col-12" [cardData]="state.cardData" [formView]="true"></prepaidcard>
+	</ng-container>
+		<box class="grid transaction-container col-12">
+		<box class="transactions-stmt-grid-wrapper col-12">
+			<ng-container *ngIf="state.isDataReceived; else loader">
+				<box class="casa-transactions-grid-header">
+					<span class="title">{{ 'RetailPCTransactiondtlsForm.header' | translate }}</span>
+					<box class="tool-bar">
+						<fpx-button btnType="button" btnClass="system-ico-button no-text filter" label="filter" (onClick)="retailPCTransactiondtlsFormHelper.filter()"></fpx-button>
+						<fpx-button btnType="button" btnClass="system-ico-button no-text download" label="download" (onClick)="retailPCTransactiondtlsFormHelper.onDownloadClick(null)"></fpx-button>
+					</box>
+				</box>
+				<ng-container *ngIf="state.gridData && state.gridData.length; else noTransfers">
+				</ng-container>
+			</ng-container>
+			<app-retail-pc-transaction-dtls-ro-grid [actionPublisher]="actionMap$.get('pctransactionSummaryGrid')"
+			(commonRoGridEvent)="_helper.handlePcTransactionGridEvent($event)"></app-retail-pc-transaction-dtls-ro-grid>
+		</box>
+		<!-- <box [hidden] class="no-result-view">
+			<img class="no-result-image" src="./assets/images/transfers/no-schedule-transfer.svg" alt="">
+			<box class="no-result-desc">{{ 'ScheduleForm.noTransfer' | translate }}</box>    
+			<button class="no-result-add-btn">{{ 'ScheduleForm.initiateBtn' | translate }}</button>
+		</box> -->
+	</box>
+</box>
+
+<ng-template #loader>
+    <box class="loading"></box>
+</ng-template>
+
+<ng-template #noTransfers>
+    <box class="no-result-view">
+        <img class="no-result-image" src="./assets/images/transfers/no-transfer-history.svg" alt="">
+      	<box class="no-result-desc">{{ 'TransferSummaryForm.noTransfer' | translate }}</box>    
+        <!-- <button type="button" class="no-result-add-btn" (click)="_helper.initiateNewTransaction()">{{ 'ScheduleForm.initiateBtn' | translate }}</button> -->
+    </box>
+</ng-template>

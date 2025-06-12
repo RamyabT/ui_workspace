@@ -1,0 +1,35 @@
+// .grid line {
+//     stroke: rgb(248, 38, 38) !important;
+//     stroke-opacity: 0.7;
+//     shape-rendering: crispEdges;
+// }
+
+// svg g line {
+//     stroke: red;
+//     color: red;
+
+// }
+
+
+// body > app-root > fpx-layout > div > div > div.content > app-home > div > div.dashboard-body > div:nth-child(2) > section:nth-child(3) > div > app-sample-column-chart > fpx-currency-layout > div > div > div > fpx-column-chart > 
+
+::ng-deep body {
+    svg {
+        g {
+            g.grid {
+                g {
+                    line {
+                        stroke: rgb(240, 240, 240);
+                    }
+                }
+            }
+            g.axis-grid{
+              g.tick{
+                line{
+                  opacity: 0.4;
+                }
+              }
+            }
+        } 
+    }
+}

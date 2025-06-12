@@ -1,0 +1,5 @@
+ 
+ "RETAILLOANTRANDTLSFILTER" : {
+ "servicePath": ["entry-shell","loans", "RetailLoanTranDtlsDownloadFilterForm"],
+ "queryParams": {}
+ }

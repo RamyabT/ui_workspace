@@ -1,0 +1,136 @@
+<!-- <ng-container *ngIf="isPopup">
+    <button type="button" class="btn-popup-close" (click)="closeContextMenu()">close</button>
+</ng-container>
+
+<box class="widget quick-link context-menu-wrapper">
+    <ng-container *ngIf="isPopup; else defaultHeader">
+        <header>
+            <ng-container *ngIf="isMainProduct; else account">
+                <box class="account-info">
+                    <span class="type">{{ 'DEPOSITSUMMARYCARD.' + cardData.productDesc | translate }}</span>
+                    <span class="acc-number">{{ cardData.accountDetails.length }} {{ 'DEPOSITSUMMARYCARD.deposits' | translate }}</span>
+                </box>
+                <box class="additional-detail available">
+                    <span class="lbl">{{ 'DEPOSITSUMMARYCARD.investedAmount' | translate }}</span>
+                    <span class="amount">{{ inverstedAmount | currency : cardData.accountDetails[0].currency : '' }} <em>{{ cardData.accountDetails[0].currency }}</em></span>
+                </box>
+            </ng-container>
+            
+            <ng-template #account>
+                <box class="account-info">
+                    <span class="type">{{ cardData.accountNumber }}</span>
+                    <span class="acc-number">{{ cardData.accountName }}</span>
+                </box>
+
+                <box class="additional-detail available">
+                    <span class="lbl">{{ 'DEPOSITSUMMARYCARD.depositAmount' | translate }}</span>
+                    <span class="amount">{{ cardData.depositAmount | currency : cardData.currency : '' }} <em>{{ cardData.currency }}</em></span>
+                </box>
+            </ng-template>
+            
+        </header>
+    </ng-container>
+
+    <ng-template #defaultHeader>
+        <header>
+            <span class="widget-title">{{ 'WIDGIT_TITLES.casaQuickActionsLbl' | translate }}</span>
+        </header>
+    </ng-template>
+
+    <box class="context-menu-body">
+        <ng-container *ngIf="quickLinks">
+            <ul class="actions-list grid" [ngClass]="{ 'show-more' : doShowMoreQuickActions }">
+                <ng-container *ngFor="let item of quickLinks">
+                    <li (click)="openLink(item)" [ngClass]="{'active': activeService.getActiveService() == item.serviceCode}">
+                        <span class="icon-wrapper {{item.serviceCode}}"></span>
+                        <span class="text" [innerHTML]="item.serviceDescription"></span>
+                    </li>
+                </ng-container>
+            </ul>
+        </ng-container>
+
+        <ng-container *ngIf="!isPopup && quickLinks && quickLinks.length > 5">
+            <button type="button" class="expander" (click)="showMoreQuickActions()">
+                <svg width="98" height="18" viewBox="0 0 98 18" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <g id="Drawer">
+                        <path id="Vector 84"
+                            d="M49.7241 18C36.0114 18 39.1635 10.3442 -7.83324e-07 0.0796452C27.9065 0.0796439 104.115 -0.418143 97.6077 1.07522C62.3692 9.16225 62.2015 18 49.7241 18Z"
+                            />
+                    </g>
+                </svg>
+                <span>show more</span>
+            </button>
+        </ng-container>
+
+    </box>
+</box> -->
+
+
+<ng-container *ngIf="device.isMobile(); else desktopMenu">
+    <ng-container *ngIf="quickActionsList && quickActionsList.length; else quickActionsLoader">
+        <box class="widget quick-actions-inner contextual-actions">
+            <!-- <header>
+                <span class="widget-title">{{ 'WIDGIT_TITLES.casaQuickActionsLbl' | translate }}</span>
+            </header> -->
+            <box class="actions-body">
+                <ul class="actions-list grid">
+                    <ng-container *ngFor="let item of quickActionsList">
+                        <li (click)="openLink(item)" >
+                            <span class="icon-wrapper {{ item.serviceCode }}"></span>
+                            <span class="text" [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span>
+                        </li>
+                    </ng-container>
+                    <ng-container *ngIf="this.showMore">
+                        <li (click)="showMoreActions()" >
+                            <span class="icon-wrapper more"></span>
+                            <span class="text" [innerHTML]="'quickActions.more' | translate"></span>
+                        </li>
+                    </ng-container>
+                </ul>
+            </box>
+        </box>
+    </ng-container>
+</ng-container>
+<ng-template #desktopMenu>
+    <box class="context-menu-body" *ngIf="quickActionsList?.length > 0; else quickActionsLoader">
+      <box class="actions-list">
+        <!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"> -->
+          <box class="tab slide" [ngClass]="{ active: activeMenu == item.serviceCode }"
+              *ngFor="let item of quickActionsList">
+            <box class="item" (click)="openLink(item)">
+              <span class="icon-wrapper {{ item.serviceCode }}"></span>
+              <span class="text"
+                [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span>
+            </box>
+          </box>
+          <box class="tab slide" *ngIf="this.showMore">
+            <box class="item" (click)="showMoreActions()">
+              <span class="icon-wrapper more"></span>
+              <span class="text"
+              [innerHTML]="'quickActions.more' | translate"></span>
+            </box>
+          </box>
+        <!-- </ngx-slick-carousel> -->
+      </box>
+    </box>
+  </ng-template>
+
+
+<ng-template #quickActionsLoader>
+    <box class="quick-actions-loader" [ngClass]="{'show-accounts-loader': showAccountsLoader}">
+        <ul>
+            <li>
+                <span class="icon">&nbsp;</span>
+                <span class="text">&nbsp;</span>
+            </li>
+            <li>
+                <span class="icon">&nbsp;</span>
+                <span class="text">&nbsp;</span>
+            </li>
+            <li>
+                <span class="icon">&nbsp;</span>
+                <span class="text">&nbsp;</span>
+            </li>
+        </ul>
+    </box>
+</ng-template>

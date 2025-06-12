@@ -1,0 +1,26 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="AddMembersContact">
+  <box class="entry-form">
+    <box class="grid entry-form-field-group col-sm-12">
+      <box class="fpx-form-control search-group col-sm-12">
+        <input mat-input type="text" formControlName="searchText" placeholder="Search Contact"
+          class="fpx-field-content search-bar col-sm-12" />
+      </box>
+      <box>
+        <span>{{ 'Splitwith.title' | translate }}</span>
+        <selected-contact-ro-grid class="col-md-13 col-sm-12 col-lg-12" (commonRoGridEvent)="handleControlEvent($event)"
+        [actionPublisher]="actionMap$.get('selectedContact')" (commonRoGridEvent)="_helper.UnSelectContactGridEvent($event)"
+        ></selected-contact-ro-grid>
+      </box>
+      <box>
+        <span>{{ 'participants.title' | translate }}</span>
+      </box>
+      <box class="select-contact-ro-grid">
+        <app-retail-select-contact-ro-grid class="col-md-13 col-sm-12 col-lg-12" 
+        [actionPublisher]="actionMap$.get('contactList')"
+        (commonRoGridEvent)="_helper.SelectedContactGridEvent($event)"></app-retail-select-contact-ro-grid>
+      </box>
+        
+    </box>
+  </box>
+ 
+</form>

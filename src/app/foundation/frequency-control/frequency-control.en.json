@@ -1,0 +1,9 @@
+"frequency-control":{
+	"1":"Daily", 
+	"2":"Bi-Weekly", 
+	"3":"Weekly", 
+	"4":"Monthly", 
+	"5":"Quarterly", 
+	"6":"Half Yearly", 
+	"7":"Yearly" 
+}

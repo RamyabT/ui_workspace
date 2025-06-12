@@ -1,0 +1,10 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="InvestmentHoldingsForm" >
+	  
+	<box class="entry-form">
+	     
+	      
+			  <app-acc-number-delegate-control  class="col-md-4  "   [actionPublisher]="actionMap$.get('accountNumber')"     label="{{'InvestmentHoldingsForm.accountNumber.label' | translate }}"   formControlName="accountNumber" 
+   [textPosition]="state.accountNumber.textPosition"  [ckValues]="state.accountNumber.ckValues" ></app-acc-number-delegate-control>
+	</box> 
+</form>
+	

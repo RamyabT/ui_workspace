@@ -1,0 +1,6 @@
+<form [formGroup]="formGroup" autocomplete="off" formName="casa-navigation-form" class="casa-navigation-form">
+    <box class="entry-form">
+        <app-debitcard-dtl-list-control class="col-12" [selectableDataList]="state.debitcards" formControlName="cardRefNumber"></app-debitcard-dtl-list-control>
+        <app-debitcard-context-menu class="col-12 widget quick-link" [cardData]="state.currentCard" ></app-debitcard-context-menu>
+    </box>
+</form>

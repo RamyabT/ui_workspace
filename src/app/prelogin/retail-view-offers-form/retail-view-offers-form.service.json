@@ -1,0 +1,5 @@
+ 
+ "RETAILVIEWOFFERS" : {
+ "servicePath": ["entry-shell","prelogin", "retail-view-offers-form"],
+ "queryParams": {}
+ }

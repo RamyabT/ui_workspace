@@ -1,0 +1,305 @@
+<box class="module-home payments-home {{(savedBillerData && savedBillerData.length !== 0)?'saved-biller-available':''}}"
+    #spaceHome>
+    <ng-container *ngIf="_device.isMobile(); else spaceContainer">
+        <ng-container *ngIf="appConstant.requiredAccountsSpaceNavigation; else showDirectMudule">
+            <box class="module-home-bg" [style.top.px]="moduleHeaderTop"></box>
+            <box class="module-home-inner">
+                <fpx-display-text class="module-title"
+                    innerHTML="{{'PAYMENTSCONTAINER.title' | translate}}"></fpx-display-text>
+                <box class="saved-biller-widget">
+
+                    <box class="saved-biller-group">
+                        <box [ngStyle]="{'display': (savedBillerloader || savedBillerData.length === 0) ? 'none' :'' }">
+                            <box class="saved-biller-header">
+                                <span class="title">{{'PAYMENTSCONTAINER.myBiller' | translate}}</span>
+                                <ng-container>
+                                    <span class="view-all" (click)="viewAllSavedBiller()">{{ 'SAVEDBILLER.viewAll' |
+                                        translate }}</span>
+                                </ng-container>
+                            </box>
+
+                            <box class="saved-biller-sec">
+                                <app-retail-saved-biller-ro-grid class="saved-biller-grid-landing"
+                                    (commonRoGridEvent)="handleSavedBillerGridEvent($event)">
+                                </app-retail-saved-biller-ro-grid>
+                            </box>
+                        </box>
+                        <box *ngIf="savedBillerloader" class="loading"></box>
+
+
+                        <ng-container *ngIf=" !savedBillerloader && (!savedBillerData || savedBillerData.length==0)">
+                            <box class="no-saved-biller-group">
+                                <img class="no-saved-biller-image" src="./assets/images/billers/no-saved-biller.svg"
+                                    alt="no fav transactions">
+                                <box class="no-saved-biller">
+                                    <box class="no-saved-biller-title">{{ 'SAVEDBILLER.noSavedBillerHeader' | translate
+                                        }}
+                                    </box>
+                                    <box class="no-saved-biller-desc">{{ 'SAVEDBILLER.noSavedBillerDesc' | translate }}
+                                    </box>
+                                    <box class="no-saved-biller-sub-desc">{{ 'SAVEDBILLER.noSavedBillerSubDesc' |
+                                        translate
+                                        }}</box>
+
+                                </box>
+                                <button (click)="navToAddBiller()" class="no-saved-biller-add-btn" clickable>{{
+                                    'SAVEDBILLER.noSavedBillerAddButton' | translate }}</button>
+                            </box>
+                        </ng-container>
+
+                    </box>
+
+                    <ng-template #loader>
+                        <box class="loading"></box>
+                    </ng-template>
+
+                </box>
+                <!-- <box class="payments-quick-action-widget" >
+                    <app-payments-quick-actions></app-payments-quick-actions>
+    
+                </box> -->
+
+                <box class="payments-biller-category-widget">
+                    <box class="biller-category-header">
+                        <span class="biller-category-title">{{ 'PAYMENTSCONTAINER.billerCategory' | translate }}</span>
+                        <ng-container>
+                            <!-- <span class="view-all" (click)="viewAllBillerCategory()">{{ 'SAVEDBILLER.viewAll' |
+                                translate }}</span> -->
+                        </ng-container>
+                    </box>
+                    <app-retail-biller-category-ro-grid></app-retail-biller-category-ro-grid>
+
+                </box>
+                <box class="module-tab-container">
+                    <mat-tab-group [(selectedIndex)]="activeTabIndex" (selectedTabChange)="onTabChanged($event)">
+                        <mat-tab label="{{ 'PAYMENTSCONTAINER.scheduled' | translate }}">
+                            <ng-template matTabContent>
+                                <!-- <app-schedule-form></app-schedule-form> -->
+
+                                <box class="grid transaction-container">
+                                    <box class="transactions-stmt-grid-wrapper col-12">
+                                        <box
+                                            [ngStyle]="{'display': (upcomingloader && upcomingData.length==0) ? 'none' :'' }">
+                                            <app-retail-upcoming-bill-ro-grid
+                                                (commonRoGridEvent)="handleUpcomingBillGridEvent($event)"></app-retail-upcoming-bill-ro-grid>
+                                        </box>
+                                    </box>
+                                </box>
+
+                                <box *ngIf="upcomingloader" class="loading"></box>
+
+                                <ng-container *ngIf=" !upcomingloader && (!upcomingData || upcomingData.length==0)">
+                                    <box class="no-result-view">
+                                        <img class="no-result-image"
+                                            src="./assets/images/transfers/no-schedule-transfer.svg" alt="">
+                                        <box class="no-result-desc">{{ 'PAYMENTSCONTAINER.noUpcomingBill' | translate }}
+                                        </box>
+                                        <button type="button" class="no-result-add-btn" clickable
+                                            (click)="navToAddBiller()">{{ 'PAYMENTSCONTAINER.addBillerBtn' | translate
+                                            }}</button>
+                                    </box>
+                                </ng-container>
+
+                            </ng-template>
+                        </mat-tab>
+                        <mat-tab label="{{ 'PAYMENTSCONTAINER.history' | translate }}">
+                            <ng-template matTabContent>
+                                <!-- <app-schedule-form></app-schedule-form> -->
+
+                                <box class="grid transaction-container">
+                                    <box class="transactions-stmt-grid-wrapper col-12">
+                                        <box
+                                            [ngStyle]="{'display': (billhistoryloader && billHistoryData.length==0) ? 'none' :'' }">
+                                            <app-retail-bill-history-ro-grid
+                                                (commonRoGridEvent)="handleBillHistoryGridEvent($event)"></app-retail-bill-history-ro-grid>
+                                        </box>
+                                    </box>
+                                </box>
+
+                                <box *ngIf="billhistoryloader" class="loading"></box>
+
+                                <ng-container
+                                    *ngIf=" !billhistoryloader && (!billHistoryData || billHistoryData.length==0)">
+                                    <box class="no-result-view">
+                                        <img class="no-result-image"
+                                            src="./assets/images/billers/no-data-bill-history.svg" alt="">
+                                        <box class="no-result-desc">{{ 'PAYMENTSCONTAINER.noTransaction' | translate }}
+                                        </box>
+                                        <button type="button" class="no-result-add-btn" (click)="navToAddBiller()">{{
+                                            'PAYMENTSCONTAINER.addBillerBtn' | translate }}</button>
+                                    </box>
+                                </ng-container>
+
+                            </ng-template>
+                        </mat-tab>
+                    </mat-tab-group>
+                </box>
+            </box>
+        </ng-container>
+        <ng-template #showDirectMudule>
+
+            <box class="module-home-header">
+                <!-- <button type="button" class="system-ico-button btn-back no-text" name="back" (click)="goBack()"><span>Back</span></button> -->
+                <h2 class="module-title">{{ 'MODULE_HEADER.bills' | translate }}</h2>
+            </box>
+            <!-- <box *ngIf="!appConstant.requiredAccountsSpaceNavigation">
+                <box id="group_disclaimer-box" class="col-md-12 col-lg-12 grid main-group disclaimer-box notes">
+                    <box class="content" [class.show]="show" [innerHtml]="'PAYMENTSCONTAINER.disclaimer' | translate">
+                    </box>
+                    <span [class.more]="!show" [class.less]="show"  (click)="show = !show"><span class="dots" *ngIf="!show">....</span>{{show ? 'Read Less' : 'Read More'}}</span>
+                </box>
+            </box> -->
+
+            <box class="body-home-container">
+                <box class="module-home-body">
+                    <box class="tab-container-inner">
+                        <!-- <ng-container *ngIf="casaAccounts?.length;">
+                        <ng-container *ngIf="_device.isMobile();">
+                            <box class="carousel-view-all-wrapper bills">
+                                <casa-summary-card-carousel *ngIf="showCard" [payFromLabel]="'Paying From'" [summary]="casaAccounts"
+                                    (onSelectCard)="onSelectCard($event)"></casa-summary-card-carousel>
+                                <box class="view-all-button-wrapper">
+                                    <button type="button" class="view-btn" (click)="viewAll()">
+                                        View All
+                                    </button>
+                                </box>
+                            </box>
+                        </ng-container>
+                    </ng-container> -->
+                        <payments-contextual-actions></payments-contextual-actions>
+                    </box>
+
+                </box>
+
+                <box class="payments-home-wrapper">
+                    <ng-container>
+                        <router-outlet (activate)="onActivate($event)"></router-outlet>
+                    </ng-container>
+                </box>
+            </box>
+
+        </ng-template>
+    </ng-container>
+
+    <ng-template #spaceContainer>
+        <box class="space-container">
+            <box class="space-summary" *ngIf="!appConstant.requiredAccountsSpaceNavigation">
+                <bills-aside-bar></bills-aside-bar>
+            </box>
+            <ng-container *ngIf="appConstant.requiredAccountsSpaceNavigation">
+                <box class="space-summary">
+                    <box class="module-tab-container">
+                        <payments-summary-container
+                            (onAccountsReceived)="onCasaAccountReceivedHandler($event)"></payments-summary-container>
+                    </box>
+                    <box class="saved-biller-widget">
+
+                        <box class="saved-biller-group">
+                            <box
+                                [ngStyle]="{'display': (savedBillerloader || savedBillerData.length === 0) ? 'none' :'' }">
+                                <box class="saved-biller-header">
+                                    <span class="title">{{'PAYMENTSCONTAINER.myBiller' | translate}}</span>
+                                    <ng-container>
+                                        <span class="view-all" (click)="viewAllSavedBiller()">{{ 'SAVEDBILLER.viewAll' |
+                                            translate }}</span>
+                                    </ng-container>
+                                </box>
+
+                                <box class="saved-biller-sec">
+                                    <app-retail-saved-biller-ro-grid class="saved-biller-grid-landing"
+                                        (commonRoGridEvent)="handleSavedBillerGridEvent($event)">
+                                    </app-retail-saved-biller-ro-grid>
+                                </box>
+                            </box>
+                            <box *ngIf="savedBillerloader" class="loading"></box>
+
+
+                            <ng-container
+                                *ngIf=" !savedBillerloader && (!savedBillerData || savedBillerData.length==0)">
+                                <box class="no-saved-biller-group">
+                                    <img class="no-saved-biller-image" src="./assets/images/billers/no-saved-biller.svg"
+                                        alt="no fav transactions">
+                                    <box class="no-saved-biller">
+                                        <box class="no-saved-biller-title">{{ 'SAVEDBILLER.noSavedBillerHeader' |
+                                            translate }}
+                                        </box>
+                                        <box class="no-saved-biller-desc">{{ 'SAVEDBILLER.noSavedBillerDesc' | translate
+                                            }}
+                                        </box>
+                                        <box class="no-saved-biller-sub-desc">{{ 'SAVEDBILLER.noSavedBillerSubDesc' |
+                                            translate
+                                            }}</box>
+
+                                    </box>
+                                    <button (click)="navToAddBiller()" class="no-saved-biller-add-btn" clickable>{{
+                                        'SAVEDBILLER.noSavedBillerAddButton' | translate }}</button>
+                                </box>
+                            </ng-container>
+
+                        </box>
+
+                        <ng-template #loader>
+                            <box class="loading"></box>
+                        </ng-template>
+
+                    </box>
+                    <!-- <box class="payments-quick-action-widget" >
+                        <app-payments-quick-actions></app-payments-quick-actions>
+        
+                    </box> -->
+
+                    <box class="payments-biller-category-widget">
+                        <box class="biller-category-header">
+                            <span class="biller-category-title">{{ 'PAYMENTSCONTAINER.billerCategory' | translate
+                                }}</span>
+                            <ng-container>
+                                <!-- <span class="view-all" (click)="viewAllBillerCategory()">{{ 'SAVEDBILLER.viewAll' |
+                                    translate }}</span> -->
+                            </ng-container>
+                        </box>
+                        <app-retail-biller-category-ro-grid></app-retail-biller-category-ro-grid>
+
+                    </box>
+                    <box class="offers-widget">
+                        <banner-ads [serviceCode]="serviceCode"></banner-ads>
+                    </box>
+                </box>
+            </ng-container>
+
+            <box class="space-content bills-content">
+                <box class="space-module-header" *ngIf="!appConstant.requiredAccountsSpaceNavigation">
+                    <bills-module-header></bills-module-header>
+                </box>
+                <ng-container *ngIf="isReceivedAccounts; else loader">
+                    <ng-container *ngIf="!billsApiFailed else apiErrorTemplate">
+                        <ng-container *ngIf="(isReceivedAccounts?.length > 0 || showTemplate); else noRecordDesktop">
+                            <box *ngIf="isReceivedAccounts?.length > 0" class="navigation-form-wrapper">
+                                <payments-navigation-form></payments-navigation-form>
+                            </box>
+                            <box>
+                                <router-outlet (activate)="onActivate($event)"></router-outlet>
+                            </box>
+                        </ng-container>
+                    </ng-container>
+
+                </ng-container>
+            </box>
+        </box>
+    </ng-template>
+</box>
+<ng-template #apiErrorTemplate>
+    <box class="service-unavailable-template">
+        <box class="description">{{'accountsPanel.apiErrorData' | translate}}</box>
+    </box>
+</ng-template>
+<ng-template #loader>
+    <box class="loading casa-summary-loader"></box>
+</ng-template>
+<ng-template #noRecordDesktop>
+    <box class="no-data-template">
+        <img src="./assets/illustrations/no-account-lg.svg" alt="No Accounts">
+        <box class="desc">{{ 'PAYMENTSCONTAINER.noAccounts.desc' | translate }}</box>
+        <button type="button" class="btn-primary no-result-btn" (click)="addNewAccount()">{{
+            'PAYMENTSCONTAINER.noAccounts.button' | translate }}</button>
+    </box>
+</ng-template>

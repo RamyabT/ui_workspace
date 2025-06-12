@@ -1,0 +1,5 @@
+ 
+ "RETAILDELEGRID" : {
+ "servicePath": ["display-shell","common", "retail-delegateuser-grid"],
+ "queryParams": {}
+ }

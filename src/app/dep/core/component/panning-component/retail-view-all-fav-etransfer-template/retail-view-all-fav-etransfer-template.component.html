@@ -1,0 +1,47 @@
+<div class="task-item" id="row_data_{{ index }}">
+   
+        <box class="transaction-list-item">
+            <box class="transaction-list-item-inner">
+                <box class="transaction-icon-wrapper" (click)="repeatFavTransaction($event, selectedData)">
+                    <box class="transaction-icon">
+                        <ng-container *ngIf="selectedData.transactionCategory; else noPhoto">
+                            <img src="./assets/transactions/{{selectedData.transactionCategory}}.svg"
+                                alt="transactionCategory" />
+                        </ng-container>
+                        <ng-template #noPhoto>
+                            <div class="name-first-letter">
+                                <span
+                                    *ngIf="selectedData.beneName?.split(' ').length == 1">{{selectedData.beneName?.substring(0,
+                                    1)}}
+                                </span>
+                                <span
+                                    *ngIf="selectedData.beneName?.split(' ').length > 1 && selectedData.beneName?.split(' ').length <= 2">
+                                    {{selectedData.beneName?.split(" ")[0]?.charAt(0)
+                                    +(selectedData.beneName?.split(" ")[1]?
+                                    selectedData.beneName?.split(" ")[1]?.charAt(0): "")}}
+                                </span>
+                                <span
+                                *ngIf="selectedData.beneName?.split(' ').length > 2">
+                                {{selectedData.beneName?.split(" ")[0]?.charAt(0)
+                                +(selectedData.beneName?.split(" ")[2]?
+                                selectedData.beneName?.split(" ")[2]?.charAt(0): "")}}
+                            </span>
+                            </div>
+                        </ng-template>
+                    </box>
+                </box>
+                <box class="transaction-info">
+                    <box class="transaction-primary-info" (click)="repeatFavTransaction($event, selectedData)">
+                        <span class="name">{{selectedData.beneName}}</span>
+                        <span class="accountNumber">${{ selectedData.paymentAmount | currency : selectedData.paymentCurrency : ''}} </span>
+                    </box>
+                    <box class="transaction-secondary-info">
+                        <button type="button" class="system-ico-button button-delete" (click)="deleteFavEtransaction($event,selectedData)">
+                        </button>
+                    </box>
+                </box>
+            </box>
+        </box>
+
+
+</div>

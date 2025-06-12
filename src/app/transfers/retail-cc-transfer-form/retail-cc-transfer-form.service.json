@@ -1,0 +1,5 @@
+ 
+ "RETAILTRANCC" : {
+ "servicePath": ["entry-shell","transfers", "retail-cc-transfer-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,5 @@
+ 
+ "RETAILGETLOANDISCLOSURE" : {
+ "servicePath": ["display-shell","edocuments", "retail-loan-disclosure-display-grid"],
+ "queryParams": {}
+ }

@@ -1,0 +1,27 @@
+"RetailLoanRepaymentScheduleROGrid":{
+"title":"Repayment Schedule",
+		 "serialNo": {
+		  "label":"Serial No" ,
+		  "placeholder": "Serial No"
+		  } ,
+		 "repaymentDate": {
+		  "label":"Repayment Date" ,
+		  "placeholder": "Repayment Date"
+		  } ,
+		 "loanAmount": {
+		  "label":"Principal Amount" ,
+		  "placeholder": "Principal Amount"
+		  } ,
+		 "interestAmount": {
+		  "label":"Interest Amount" ,
+		  "placeholder": "Interest Amount"
+		  } ,
+		 "installmentAmount": {
+		  "label":"Installment Amount" ,
+		  "placeholder": "Installment Amount"
+		  } ,
+		 "principalOutstandingAmount": {
+		  "label":"Principal Outstanding Amount" ,
+		  "placeholder": "Principal Outstanding Amount"
+		  } 
+}

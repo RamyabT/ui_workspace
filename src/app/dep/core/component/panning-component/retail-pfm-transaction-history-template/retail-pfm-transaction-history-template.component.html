@@ -1,0 +1,71 @@
+<div class="task-item" id="row_data_{{ index }}">
+    <div *ngIf="_device.isMobile()" class="task-action task-action-left">
+        <button (click)="deleteGoal(selectedData)" type="button"
+            class="button-task-action system-ico-button button-delete">
+            <span>Delete</span>
+        </button>
+    </div>
+
+    <div class="task-detail-item" (swipeleft)="_device.isMobile()?swipeLeftHandler($event):null"
+        (swiperight)="_device.isMobile()?swipeRightHandler($event):null"
+        (panstart)="_device.isMobile()?panStartHandler($event):null"
+        (panend)="_device.isMobile()?panEndHandler($event):null"
+        (panleft)="_device.isMobile()?panLeftHandler($event):null"
+        (panright)="_device.isMobile()?panRightHandler($event):null"
+        (touchstart)="_device.isMobile()?touchStartHandler($event):null">
+
+
+
+        <box class="transaction-list-item" [ngClass]="{'rowGroupTitle' : selectedData.rowGroupTitle }">
+            <ng-container *ngIf="selectedData.rowGroupTitle; else pfmTransHistTmplt">
+                <box class="row-group-title">{{ selectedData.rowGroupTitle | date : "dd MMM yyyy" }}</box>
+            </ng-container>
+            <ng-template #pfmTransHistTmplt>
+                <box class="transaction-list-item-inner">
+                    <box class="transaction-icon-wrapper">
+                        <box class="transaction-icon">
+                            <img src="./assets/transactions/DOMPAY.svg" alt="transactionCategory" />
+                        </box>
+                    </box>
+                    <box class="transaction-info">
+                        <box class="transaction-primary-info">
+                            <span class="date">{{ selectedData.paymentDate | date : "dd MMM yyyy" }}</span>
+                            <span class="name">{{ selectedData.transactionDescription }}</span>
+                            <span class="ref-num">Ref# {{ selectedData.inventoryNumber }}</span>
+                        </box>
+                        <box class="transaction-primary-info">
+                            <box class="transaction-primary-details">
+                                <span class="trx-desc">
+                                    <!-- {{ selectedData.transactionDescription }} 
+                                   <span class="name">{{ selectedData.transactionDescription | slice:0: 20 }}{{selectedData.transactionDescription.length > 20 ? '...' : ''}}</span>
+                                     <span *ngIf="selectedData.chequeNumber">{{selectedData.chequeNumber}}</span> -->
+                                </span>
+                                <span class="date">{{ selectedData.transactionDate | date : "dd MMM yyyy" }}</span>
+                            </box>
+                            <ng-container *ngIf="selectedData.chequeNumber">
+                                <span class="tran-cheque">{{ 'RetailCasaTransactionDtlsRoGrid.cheque' | translate
+                                    }}</span>
+                            </ng-container>
+
+                        </box>
+                        <box class="transaction-secondary-info">
+                            <span class="amount" [ngClass]="{
+                                'credit' : selectedData.debitCreditFlag == 'C',
+                                'debit' : selectedData.debitCreditFlag == 'D'
+                            }"><em>{{selectedData.transactionCurrency}}</em>
+                                {{selectedData.transactionAmount | currency : selectedData.transactionCurrency: ''}}
+                            </span>
+                        </box>
+                    </box>
+                </box>
+            </ng-template>
+
+        </box>
+    </div>
+
+    <div *ngIf="_device.isMobile()" class="task-action task-action-right">
+        <button (click)="editGoal(selectedData)" type="button" class="button-task-action system-ico-button button-edit">
+            <span>Edit</span>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+"ccRewardBenefits": {
+	"title": "Reward and benefits",
+	"description": {
+		"label": "Description",
+		"placeholder": "Description"
+	},
+	"prodCode": {
+		"label": "Product Category",
+		"placeholder": "Product Category"
+	},
+	"prodctLink": {
+		"label": "Description",
+		"placeholder": "Description"
+	},
+}

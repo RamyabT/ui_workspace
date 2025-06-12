@@ -1,0 +1,5 @@
+ 
+ "RETAILGETTAXFORMS" : {
+ "servicePath": ["display-shell","edocuments", "retail-taxforms-display-grid"],
+ "queryParams": {}
+ }

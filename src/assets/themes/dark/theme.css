@@ -1,0 +1,631 @@
+/* == == == == == == == == == == == == == == == == == == == == == == == == 
+// @author: Priya Pandiyan
+// @organization: Intellect Design Arena Ltd
+// @unit: iGCB
+// Year: 2025
+ == == == == == == == == == == == == == == == == == == == == == == == == */
+:root {
+    /* Base */
+    --baseFontFamily: "Helvetica Neue";
+
+    --themeBgClr: #000B0D;
+    --themeBgClrMob: #000B0D;
+
+    --userAccountPanelBgClr: #002B34;
+    --neutral50: #002B34;
+    --neutral500: #0E4F5D;
+    --secondary500: #FF9133;
+    --tertiaryAqua500: #01404F;
+    --primary500: #002B34;
+
+
+    --systemIconClr: #A8F3EE;
+    --highlightClr: #FF9133;
+    --highlightTxtClr: #000;
+
+    --baseTxtClr: #FFFFFF;
+    --bodyTxtClr: #FFFFFF;
+    --bodyTxtVariantClr: #FFFFFF;
+
+    --errorClr: #FA5656;
+    --successClr: #35CB8C;
+    --warningClr: #E6B001;
+    --infoClr: #3092E9;
+
+    /* MENU BAR */
+    --mainMenuActiveBgClr: #FF9133;
+    --menuBarBgClr: #002B34;
+    --mainMenuActiveTxtClr: #000000;
+    --mainMenuHoverBgClr: #FF9133;
+    --mainMenuTxtBgClr: #002B34;
+    --mainMenuTxtClrMob: #FFFFFF;
+    --mainMenuIcoClrMob: #FFFFFF;
+    --childMenuTxtClr: #FFFFFF;
+    --childMenuPanelBgClr: #002B34;
+    --childMenuHoverBgClr: #FF9133;
+    --mainMenuTxtActiveClrMob: #FF9133;
+    --mainMenuIcoActiveClrMob: #FF9133;
+    --homeMenuActiveBgMob: #FF9133;
+    --homeMenuIcoActiveMob: #002B34;
+
+    /*context-menu*/
+    --contextMenuIconClr: #A8F3EE;
+
+    /* Quick actions */
+    --quicklinksTitleClr: #FFFFFF;
+    --quicklinksTxtClr: #000000;
+    --quicklinksIcoBg: #FF9133;
+    --quicklinksIcoBdr: 1px solid #002B34;
+    --quicklinksIcoClr: #A8F3EE;
+
+    /* Footer bar */
+    --footerBgClr: #002B34;
+    --footerTxtClr: #FFFFFF;
+    --mainFooterClr: #FFFFFF;
+
+    /* Welcome screen */
+    --preloginHeaderBgClr: #002B34;
+    --welcomeScreenBgClr: #010B0D;
+    --loginScreenBgClr: #010B0D;
+
+    /* Header bar*/
+    --headerBarBgClr: #002B34;
+    --headerBtnBdrClr: #FFFFFF;
+    --headerBtnBdrClr: #FFFFFF;
+    --headerSearchTxtPlaceholderClr: #FFFFFF;
+
+    /* Fields */
+    --inputBdrClr: #02252D;
+    --inputBgClr: #02252D;
+    --inputLblClr: #FFFFFF;
+    --inputTxtClr: #FFFFFF;
+    --placeholderClr: #FFFFFF;
+    --fldErrorClr: #FFFFFF;
+    --inputFocusBdrClr: #FFFFFF;
+    --inputInValidBdrClr: var (--errorClr);
+
+    --inputDisabledBg: #02252D;
+    --inputDisabledBdrClr: #02252D;
+    --inputDisabledTxtClr: #0E4F5D;
+    --inputDisabledIcoClr: #0E4F5D;
+
+    --btnSecondaryDisabledBdr: 1px solid #02252D;
+
+    /* Radio control */
+    --radioBg: #02252D;
+    --radioBdrClr: #FF9133;
+    --radioOnBg: #FF9133;
+    --radioOnBdrClr: #FF9133;
+    --radioTikClr: #02252D;
+
+    /* Checkbox control */
+    --checkboxBdr: 1px solid #FF9133;
+    --checkboxBg: #02252D;
+    --checkboxOnBg: #FF9133;
+    --checkboxOnBdrClr: #FF9133;
+    --checkboxTikClr: #02252D;
+
+    /* Dropdown control */
+    --dropdownTxtClr: #FFFFFF;
+    --dropdownPanelOptionBdr: 1px solid #02252D;
+    --dropDownVSeperatorCrl: #054857;
+
+    /* Drop Down */
+    --reachDropDownBgColor: #02252D;
+
+    /* Buttons */
+    --btnDisabledClr: #0E4F5D;
+    --btnDisabledBg: #02252D;
+    --btnPrimaryClr: #000000;
+    --btnPrimaryBg: #FF9133;
+    --btnPrimaryBdr: 1px solid #FF9133;
+
+
+    /* Widget style var */
+    --widgetBgClr: #002B34;
+    --wgtTtlClr: #FFFFFF;
+    --widgetBgClrMbl: #01404F;
+
+    /* Toast */
+    --toastBgClr: #02252D;
+    --toastMessageClr: #FFFFFF;
+
+    --gridToolBarBtnBg: #FF9133;
+
+    /* Tab bar style */
+    --tabBarBg: #01404F;
+    --tabBarTabTxtClr: #FFFFFF;
+    --tabBarBdrClr: #12486B;
+    --tabBarTabActiveBg: #FF9133;
+    --tabBarTabActiveTxtClr: #000000;
+
+    /*disclaimer*/
+    --disclaimerBdrClr: #ABABAB;
+    --disclaimerBgClr: #02252d;
+
+    /* User profile panel */
+    --userProfilePanelbg: #01404F;
+
+    /*Form info*/
+    --infoBoxBg: #02252d;
+
+    /*Account Summary*/
+    --accountSummaryBgClr: #000000;
+
+    /*Arrow Button*/
+    --expanderBgClr: #FF9133;
+    --expanderIcoClrMob: #FF9133;
+
+    /*No Result View*/
+    --tabContainerBodyBg: #002B34;
+    --noResultAddBtnBgClr: #002B34;
+    --noResultDescClr: #ffffff;
+    --noResultAddBtnClr: #ffffff;
+
+    /*Toggle*/
+    --toggleCheckedBgClr: #FFA85E;
+
+    /*Why Interac autodeposite*/
+    --interacAutoDepBgClr: #002B34;
+
+    /*Budget Wrapper*/
+    --budgetWrapperBgClr: #002B34;
+
+    /*Link color*/
+    --linkClr: #FF9133;
+
+    /*Pop Up*/
+    --popUpBgClr: #002B34;
+
+    /*Share Icon*/
+    --shareIcoBgClr: #FF9133;
+
+    /*Panning Icon*/
+    --contextualActionIcoClr: #A8F3EE;
+
+    /*Header text clr*/
+    --headerTxtClr: #FFFFFF;
+
+    /*Task Details*/
+    --taskDetailBgClr: unset;
+    --taskDetailBgClrMbl: var(--themeBgClrMob);
+
+    /* Biller Category Icons*/
+    --billerCatIconClr: var(--systemIconClr);
+    --billerIconClr: var(--systemIconClr);
+
+    --logindarkBgColor: #0B1517;
+}
+
+#depAppBody {
+
+    /* Previously used primary500&primary50 for bg and bdr clr now 
+    --primary500: #002B34 */
+    .context-menu-wrapper .context-menu-body .actions-list li.active {
+        border: 1px solid #FF9133;
+        border-radius: 8px;
+        background-color: #FF9133;
+
+        .icon-wrapper::before {
+            background-color: #000000 !important;
+        }
+
+        .text {
+            color: #000000 !important;
+        }
+    }
+
+    /* Previously used background-color: var(--baseTxtClr); now basetxtClr is #ffffff */
+    .contextual-menu-trigger {
+        background-color: #FF9133;
+    }
+
+    /* Previously used --neutral50 now --neutral50 is #002B34;*/
+    .fav-transfers-sec .fav-init-transfer .fav-init-transfer-name {
+        color: #FFFFFF;
+    }
+
+    /* previously background-color: var(--quicklinksIcoBg); now --quicklinksIcoBg clr is #FF9133; */
+    @media (max-width: 767px) {
+        .quick-actions-inner .actions-body ul.actions-list li .icon-wrapper {
+            background-color: #002B34;
+        }
+    }
+
+    /* previously color: #252A2E;*/
+    .layout .side-menu .main-menu .nav-menu-list ul .li-more-menu {
+        .nav-menu-item {
+            color: #FFF;
+        }
+    }
+
+    /* Previously used --neutral50 now --neutral50 is #002B34;*/
+    portfolio-summary {
+        .portfolio-summary-inner {
+            header {
+
+                .summary-heading,
+                .card-view-toggle {
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+
+    /* Previously used --primary500 now primary500 clr is #002B34 but we need #FF9133*/
+    .no-fav-tran-add-btn {
+        border: 1px solid var(--secondary500) !important;
+    }
+
+    /* Previously its comes from Angular material */
+    .mat-select-panel {
+        background-color: #02252d;
+    }
+
+    .fpx-form-control.fpx-disabled .fpx-field-content .mat-input-element {
+        color: #fff;
+    }
+
+    /* previously used inherit*/
+    .mat-select-value {
+        color: var(--baseTxtClr);
+    }
+
+    .mat-select-disabled .mat-select-value {
+        color: #000000;
+    }
+
+    .mat-autocomplete-panel {
+        background-color: #002B34;
+    }
+
+    .side-menu {
+        .main-menu {
+            background-color: #002B34;
+        }
+    }
+
+    /* Previously used --neutral50 now --neutral50 is #002B34;*/
+    .favourite-transactions-dtls-list-tmpl .fav-transaction-item .fav-transaction-icon {
+        color: #ffffff;
+    }
+
+    /* background-color:var(--neutral50);
+    border: 2px solid var(--quicklinksIcoClr); */
+    .fav-transfers-sec .fav-init-transfer .fav-init-transfer-icon {
+        background-color: #01404F;
+        border: 2px solid #004A63;
+    }
+
+
+    /* Previously its comes from Angular material */
+    .cdk-overlay-pane .mat-datepicker-content .mat-calendar .mat-calendar-body-cell-container button:hover .mat-calendar-body-cell-content,
+    .cdk-overlay-pane .mat-datepicker-content .mat-calendar .mat-calendar-body-cell-container button .mat-calendar-body-cell-content.mat-calendar-body-selected {
+        color: unset;
+    }
+
+    /* Previously it used background-color: #F3F3F3;*/
+    .fpx-field-content.readonly {
+        background-color: #02252D !important;
+    }
+
+    .review-form .mat-checkbox-background {
+        background-color: #FF9133 !important;
+    }
+
+    .review-form fpx-curr-amount .fpx-form-control .fpx-field-content .amount-field-wrapper .currency-code-wrapper {
+        background-color: transparent !important;
+
+        .mat-select-min-line {
+            color: #fff !important;
+        }
+    }
+
+    .review-form .fpx-form-control.fpx-disabled .fpx-field-content .amount-field-wrapper .currency-code-wrapper {
+        background-color: transparent !important;
+
+        .mat-select-min-line {
+            color: #fff !important;
+        }
+    }
+
+    .currency-code-wrapper {
+        background-color: #CCE1E6 !important;
+
+        .mat-select-arrow-wrapper {
+            background-color: #02252D !important;
+        }
+    }
+
+    .mat-radio-outer-circle {
+        border-color: #FF9133 !important;
+    }
+
+    .mat-select-min-line {
+        color: #02252d;
+    }
+
+    .fpx-pop-up-wrapper {
+        background-color: #01404F;
+    }
+
+    .mat-dialog-container {
+        background-color: #01404F;
+        color: var(--baseTxtClr);
+    }
+
+    .context-menu-popup .mat-dialog-container .context-menu-wrapper header {
+        color: #ffffff;
+    }
+
+    /* background-color: var(--themeBgClr); */
+    .shell-container {
+        background-color: #002B34;
+
+        .nav-btn {
+            background-color: #FF9133;
+        }
+    }
+
+    .mat-checkbox-label {
+        color: #FFFFFF !important;
+    }
+
+    .material-icons-outlined {
+        color: #FF9133;
+    }
+
+    .fx-rates-tmpl .grid-row:first-child .fx-rates-container {
+        color: #FFFFFF !important;
+    }
+
+    /* color: var(--neutral50); */
+    .home-layout overview-header .overview-header-inner .user-profile .welcome-txt {
+        color: #ffffff;
+    }
+
+    /* color: var(--neutral50); */
+    balance-sheet .networth .networth-data .amount {
+        color: #ffffff;
+    }
+
+    .value {
+        color: #ffffff;
+    }
+
+    .expander svg {
+        fill: #002B34;
+    }
+
+    /* Icons color previously used systemIconClr*/
+    .system-ico-button.edit::before,
+    .system-ico-button.download::before,
+    .system-ico-button.filter::before {
+        background: #FF9133;
+    }
+
+    app-retail-etransfer-form .contact-box {
+        background: #002B34 !important;
+    }
+
+    app-retail-etransfer-request-money-form .contact-box {
+        background: #002B34 !important;
+    }
+
+    balance-sheet .balance-sheet-inner>* .balance-info,
+    .amount {
+        color: #FFFFFF;
+    }
+
+    .fav-transaction-amount {
+        color: #FFFFFF;
+    }
+
+    .fpx-select-panel .mat-option:hover,
+    .mat-selected {
+        .lbl {
+            color: var(--dropdownOptionSelectClr);
+        }
+
+        .amount {
+            color: var(--dropdownOptionSelectClr);
+        }
+    }
+
+    /* Need to change image for dark theme */
+    .powered-by-logo {
+        background-image: url("../../images/layouts/main-footer/powered-by-dark.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 163px;
+        height: 24px;
+    }
+
+    .chatbox-content {
+        background: #02252D;
+    }
+
+    .chatbox-wrapper {
+        background-color: #002B34;
+    }
+
+    .detail-lbl {
+        color: #FFFFFF;
+    }
+
+    .detail-val {
+        color: #FFFFFF;
+    }
+
+    /* Previously used color:#6E6E6E */
+    .card-info {
+        color: var(--baseTxtClr);
+    }
+
+    .transaction-icon {
+        border: 1px solid #004A63;
+    }
+
+    .casa-transactions-dtls-list-tmpl .transaction-list-item .transaction-list-item-inner .transaction-icon-wrapper .transaction-icon {
+        background-color: #01404F;
+        color: #A8F3EE;
+    }
+
+    .info-popup header .casa-transaction-info .transaction-icon-wrapper {
+        background-color: #01404F;
+        color: #A8F3EE;
+    }
+
+    .info-popup header .casa-transaction-info .transaction-info .transaction-primary-info .name {
+        color: #FFFFFF;
+    }
+
+    .info-popup header .casa-transaction-info .transaction-info .transaction-secondary-info .amount {
+        color: #FFFFFF !important;
+    }
+
+    .popup-close-btn::after {
+        background-color: #FF9133 !important;
+    }
+
+    .dep-info-popup .mat-dialog-container .fpx-pop-up-wrapper .fpx-pop-up-header .fpx-pop-up__close::after {
+        background-color: #FF9133 !important;
+    }
+
+    .change-pin-desc {
+        color: #FFFFFF;
+    }
+
+    .biller-category-name {
+        color: #FFFFFF !important;
+    }
+
+    .available-limit {
+        color: #FFFFFF;
+    }
+
+    .category-name {
+        color: #FFFFFF;
+    }
+
+    .pay {
+        color: #FFFFFF;
+    }
+
+    /*********** PreLogin *******/
+    .prelogin-container {
+        background: linear-gradient(180deg, rgba(11, 21, 23, 1)48%, rgba(0, 42, 53, 1) 70%, rgba(0, 42, 53, 1) 100%);
+
+        .menu-container .title {
+            color: var(--headerTxtClr)
+        }
+
+        header .tools .icon {
+            background-color: var(--tabBarBdrClr);
+        }
+
+        header .tools .icon.lang::before {
+            background-color: var(--baseTxtClr);
+        }
+
+        .app-nav-item-menu {
+            background: var(--widgetBgClrMbl);
+            color: var(--baseTxtClr);
+
+            span.nav-ico {
+                width: 28px;
+                height: 28px;
+                background: var(--systemIconClr);
+            }
+        }
+
+        .signup-btn .login button {
+            background: var(--secondary500);
+
+            .icon {
+                background: var(--neutral900)
+            }
+
+            .contentlbl {
+                color: var(--neutral900)
+            }
+        }
+
+        .signup-btn .registration button {
+            border: 1px solid var(--baseTxtClr);
+
+            .icon {
+                background: var(--baseTxtClr)
+            }
+
+            .lblheader {
+                color: var(--baseTxtClr)
+            }
+        }
+
+        .marquee-container {
+            background: url('./images/prelogin_bg_dark.svg') repeat 0 40px transparent;
+
+            .banner {
+                background-image: url('../dark/images/welcome-banner-darkmode.png');
+            }
+        }
+
+        .logo-container {
+            img {
+                filter: brightness(0) invert(1);
+            }
+        }
+
+    }
+
+    app-login .login-layout header {
+        background: var(--logindarkBgColor)
+    }
+
+    .prelogin-container {
+        .link-container {
+            .links>button {
+                color: #FFF;
+            }
+        }
+    }
+
+    .login-layout .prelogin-container .link-container .links {
+        color: var(--secondary500)
+    }
+
+    .prelogin-container footer .icons-list .icon {
+        background: var(--contextualActionIcoClr)
+    }
+
+    .prelogin-container footer .links .label {
+        color: var(--baseTxtClr)
+    }
+
+    .prelogin-container footer .layer-two {
+        color: var(--baseTxtClr);
+        border-top: 1px solid #FFFFFF;
+    }
+
+    .footer-brand-logo .logo {
+        width: 163px;
+        height: 35px;
+        background: url('./images/igcb-white.svg');
+        background-repeat: no-repeat;
+    }
+
+}
+
+@media (min-width: 768px) {
+    #depAppBody {
+        .prelogin-container {
+            background: var(--logindarkBgColor);
+
+            .marquee-container {
+                background-position: 0 -10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,87 @@
+"RetailInternationalTransferForm":{
+"title":"RetailInternationalTransferForm",
+		 "sourceAccount": {
+		  "label":"Debit Account Number" ,
+		  "placeholder": "Debit Account Number"
+		  } ,
+		 "beneficiaryId": {
+		  "label":"Beneficiary Account Number" ,
+		  "placeholder": "Beneficiary Account Number"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Payment Amount" ,
+		  "placeholder": "Payment Amount"
+		  } ,
+		 "scheduleType": {
+		  "label":"Payment Option" ,
+		  "placeholder": "Payment Option"
+		  } ,
+		 "paymentDate": {
+		  "label":"Payment Date" ,
+		  "placeholder": "Payment Date"
+		  } ,
+		 "chargesBorneBy": {
+		  "label":"Charges Borne By" ,
+		  "placeholder": "Charges Borne By"
+		  } ,
+		 "purpose": {
+		  "label":"Purpose" ,
+		  "placeholder": ""
+		  } ,
+		 "beneficiaryAdvice": {
+		  "label":"Beneficiary Advice" ,
+		  "placeholder": "Beneficiary Advice"
+		  } ,
+		 "beneficiaryEmail": {
+		  "label":"Email ID" ,
+		  "placeholder": "Email ID"
+		  } ,
+		 "paymentDetails": {
+		  "label":"Payment Details" ,
+		  "placeholder": "Payment Details"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } ,
+		 "numberOfPayments": {
+		  "label":"Installment Number" ,
+		  "placeholder": "Installment Number"
+		  } ,
+		 "paymentFrequency": {
+		  "label":"Frequency" ,
+		  "placeholder": "Frequency"
+		  } ,
+		 "rateApplied": {
+		  "label":"Rate Applied" ,
+		  "placeholder": "Rate Applied"
+		  } ,
+		 "baseRateApplied": {
+		  "label":"BaseRate Applied" ,
+		  "placeholder": "BaseRate Applied"
+		  } ,
+		 "debitAmount": {
+		  "label":"Debit Amount" ,
+		  "placeholder": "Debit Amount"
+		  } ,
+		 "debitCurrency": {
+		  "label":"Debit Currency " ,
+		  "placeholder": "Debit Currency "
+		  } ,
+		 "creditAmount": {
+		  "label":"Credit Amount" ,
+		  "placeholder": "Credit Amount"
+		  } ,
+		 "creditCurrency": {
+		  "label":"Credit Currency " ,
+		  "placeholder": "Credit Currency "
+		  } ,
+		 "endDate": {
+		  "label":"End Date" ,
+		  "placeholder": "End Date"
+		  } 
+}

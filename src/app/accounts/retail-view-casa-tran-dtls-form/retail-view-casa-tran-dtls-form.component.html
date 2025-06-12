@@ -1,0 +1,139 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailViewCasaTranDtlsForm">
+	<box *ngIf="_helper.transactionDetails" class="entry-form-quick-details">
+		<box class="quick-details-box">
+			<box class="transaction-icon-wrapper">
+				<box class="transaction-icon">
+					<span class="transaction-icon-bg" [ngClass]="{
+                         'incoming': _helper.transactionDetails.debitCreditFlag == 'C', 
+                         'outgoing': _helper.transactionDetails.debitCreditFlag == 'D'
+					}"></span>
+				</box>
+			</box>
+			<box class="success-text"></box>
+			<box class="sent-to">{{_helper.transactionDetails.transType}}
+				<ng-container *ngIf="_helper.transactionDetails.transactionCurrency != _helper._appConfig.baseCurrency">
+					<span class="amount success-amount">
+						<em class="usd">{{'SUFFIXCURRENCY' | currencyCode }}</em>
+						{{_helper.getAbsoluteValue(_helper.transactionDetails.transactionAmount) | currency : _helper._appConfig.baseCurrency: ' '
+						}}<span> </span>
+	
+						<em>{{_helper._appConfig.baseCurrency | currencyCode }}</em>
+						{{_helper.checkNegativeValue(_helper.transactionDetails.transactionAmount)}}
+					</span>
+				</ng-container>
+				<ng-container *ngIf="_helper.transactionDetails.transactionCurrency == _helper._appConfig.baseCurrency">
+					<span class="amount success-amount">
+						{{_helper.getAbsoluteValue(_helper.transactionDetails.transactionAmount) | currency :
+						_helper.transactionDetails.transactionCurrency : '' }}
+						<em>{{_helper.transactionDetails.transactionCurrency | currencyCode }}</em>
+						{{_helper.checkNegativeValue(_helper.transactionDetails.transactionAmount)}}
+					</span>
+				</ng-container>
+				<ng-container *ngIf="_helper.transactionDetails.exchangeRate ">
+					<span class="exchange-rate-dtls">{{ 'RetailViewCasaTranDtlsForm.exChangeRate' | translate }}
+						<span class="exchange-rate-dtls">
+							{{ _helper.transactionDetails.exchangeRate | currency :
+							_helper._appConfig.baseCurrency : ''}} CAD
+						</span>
+					</span>
+				</ng-container>
+			</box>
+			
+
+
+			<!-- <box class="status">
+				<span *ngIf="_helper.transactionDetails.debitCreditFlag == 'C'">{{'RetailViewCasaTranDtlsForm.incomingTransaction' | translate}}</span>
+				<span *ngIf="_helper.transactionDetails.debitCreditFlag == 'D'">{{'RetailViewCasaTranDtlsForm.outgoingTransaction' | translate}}</span>
+			</box> -->
+		</box>
+	</box>
+	<box class="review-form">
+		<box class="grid entry-form-field-group">
+			<box class="payee-info-header col-sm-12">
+				<div class="review-header">{{'RetailViewCasaTranDtlsForm.title' | translate}}</div>
+			</box>
+
+			<app-transaction-type-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('transactionType')"
+				label="{{ 'RetailViewCasaTranDtlsForm.transactionType' | translate }}"
+				formControlName="transactionType"></app-transaction-type-control>
+			<ng-container *ngIf="_helper.transactionDetails.exchangeAmount">
+				<ng-container *ngIf="_helper.transactionDetails.transactionCurrency != _helper._appConfig.baseCurrency">
+					<div class="display-field fpx-form-control">
+						<span class="label">{{'RetailViewCasaTranDtlsForm.exchangeAmount' | translate }}</span>
+						<span class="value">
+							{{_helper.checkNegativeValue(_helper.transactionDetails.exchangeAmount)}}
+							<em>{{_helper._appConfig.baseCurrency | currencyCode }}</em>
+							{{_helper.getAbsoluteValue(_helper.transactionDetails.exchangeAmount) | currency : _helper._appConfig.baseCurrency: ' ' }}<span>
+							</span>
+							<em class="usd">{{'SUFFIXCURRENCY' | currencyCode	}}</em>
+							
+						</span>
+					</div>
+				</ng-container>
+				<ng-container *ngIf="_helper.transactionDetails.transactionCurrency == _helper._appConfig.baseCurrency">
+					<div class="display-field fpx-form-control" >
+						<span class="label">{{'RetailViewCasaTranDtlsForm.exchangeAmount' | translate }}</span>
+						<span class="value">
+							{{_helper.checkNegativeValue(_helper.transactionDetails.exchangeAmount)}}
+							<em>{{getXChangeCurrancy( _helper.transactionDetails.transactionCurrency) | currencyCode }}</em>
+							{{_helper.getAbsoluteValue(_helper.transactionDetails.exchangeAmount) | currency :
+							_helper.transactionDetails.transactionCurrency : '' }}
+							
+						</span>
+					</div>
+				</ng-container>
+			</ng-container>
+
+			<app-request-date-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('transactionDate')"
+				label="{{ 'RetailViewCasaTranDtlsForm.transactionDate' | translate }}" formControlName="transactionDate"
+				[minDate]="state.transactionDate.minDate"
+				[maxDate]="state.transactionDate.maxDate"></app-request-date-control>
+			<ng-container *ngIf="_helper.getAccountDetails() != _helper._appConfig.baseCurrency">
+				<div class="display-field fpx-form-control">
+					<span class="label">{{'RetailViewCasaTranDtlsForm.balance' | translate }}</span>
+					<span class="value">
+						{{_helper.checkNegativeValue(_helper.transactionDetails.balance)}}
+						<em>{{_helper._appConfig.baseCurrency | currencyCode }}</em>
+						
+						{{_helper.getAbsoluteValue(_helper.transactionDetails.balance) | currency : _helper._appConfig.baseCurrency: ' ' }}<span>
+						</span>
+						<em class="usd">{{'SUFFIXCURRENCY' | currencyCode }}</em>
+					</span>
+				</div>
+			</ng-container>
+			<ng-container *ngIf="_helper.getAccountDetails() == _helper._appConfig.baseCurrency">
+				<div class="display-field fpx-form-control">
+					<span class="label">{{'RetailViewCasaTranDtlsForm.balance' | translate }}</span>
+					<span class="value">
+						{{_helper.checkNegativeValue(_helper.transactionDetails.balance)}}
+						 <em>{{ _helper.getAccountDetails() | currencyCode }}</em>
+						{{_helper.getAbsoluteValue( _helper.transactionDetails.balance) | currency : _helper.getAccountDetails() : '' }}
+						
+					</span>
+				</div>
+			</ng-container>
+
+			<app-description-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('transactionDescription')"
+				label="{{ 'RetailViewCasaTranDtlsForm.transactionDescription' | translate }}"
+				formControlName="transactionDescription"></app-description-control>
+
+			<app-inventory-number-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('transactionReference')"
+				label="{{ 'RetailViewCasaTranDtlsForm.transactionReference' | translate }}"
+				formControlName="transactionReference"></app-inventory-number-control>
+
+			<div *ngIf="_helper.transactionDetails.transactionCategoryId=='4'"
+				class="shell-footer custom-footer width-100" style="margin-top: 8px;">
+				<div class="btn-container">
+					<button type="button" class="btn-primary"
+						(click)="_helper.getChequeImage(_helper.transactionDetails)">{{'RetailViewCasaTranDtlsForm.viewCheque'
+						| translate}}
+					</button>
+				</div>
+			</div>
+		</box>
+	</box>
+</form>

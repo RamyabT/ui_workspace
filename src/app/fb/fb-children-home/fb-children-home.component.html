@@ -1,0 +1,55 @@
+<box class="fb-home">
+    <box class="child-member-dashboard">
+    <ng-container  *ngIf="_device.isMobile(); else spaceContainer">
+
+    
+        <box class="member-carousel-section">
+            <app-member-card [cardData]="childrenData"></app-member-card>
+            <box class="link-partner">{{ 'linkpartner.label' | translate}}</box>
+        </box>
+        <box>
+            <app-fb-quick-actions [receivedValue]="valueToSend"></app-fb-quick-actions>
+        </box>
+        <box>
+            <app-member-expense-categorizationtion-carousel></app-member-expense-categorizationtion-carousel>
+        </box>
+        <box>
+            <app-childer-goal-summary-carousel></app-childer-goal-summary-carousel>
+        </box>
+       
+        <box>
+            <!-- <app-member-pending-chores></app-member-pending-chores> -->
+            <app-pending-chores-carousel [receivedValue]="valueToSend"></app-pending-chores-carousel>
+        </box>
+     </ng-container>
+    <ng-template #spaceContainer>
+
+        <box class="space-container">
+          
+            <box class="space-content">
+                <box>
+                    <app-fb-quick-actions [receivedValue]="valueToSend"></app-fb-quick-actions>
+                </box>
+                <box>
+                    <app-member-expense-categorizationtion-carousel></app-member-expense-categorizationtion-carousel>
+                </box>
+                <box class="pending-goals-container">
+                    <box class="col-lg-6">
+                    <app-member-goals  ></app-member-goals>
+                    </box>
+                    <box class="col-lg-6">
+                        <app-member-chores-summary ></app-member-chores-summary>
+                        </box>
+                </box>
+                <box class="children-pending-chores">
+                     <app-pending-chores-carousel [receivedValue]="valueToSend"></app-pending-chores-carousel>
+                </box>
+            </box>
+        </box>
+
+
+    </ng-template>
+    </box>
+</box>
+
+ 

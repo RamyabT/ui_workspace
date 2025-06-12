@@ -1,0 +1,31 @@
+"PfmBudgetModifyForm":{
+"title":"PFMBUDGETMODIFY",
+		 "categoryCode": {
+		  "label":"Category" ,
+		  "placeholder": "Category"
+		  } ,
+		 "pfmSubCategory": {
+		  "label":"Sub Category" ,
+		  "placeholder": "Sub Category"
+		  } ,
+		 "currencyCode": {
+		  "label":"Currency" ,
+		  "placeholder": "Currency"
+		  } ,
+		 "budgetAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "startDate": {
+		  "label":"Start Date" ,
+		  "placeholder": "Start Date"
+		  } ,
+		 "endDate": {
+		  "label":"End Date" ,
+		  "placeholder": "End Date"
+		  } ,
+		 "frequency": {
+		  "label":"Frequency" ,
+		  "placeholder": "Frequency"
+		  } 
+}

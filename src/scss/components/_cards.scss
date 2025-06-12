@@ -1,0 +1,649 @@
+.summary-card {
+  padding: 0;
+  position: relative;
+
+  &.has-context-menu {
+    padding-bottom: 18px;
+    &:after {
+      content: " ";
+      position: absolute;
+      bottom: 1px;
+      width: 98px;
+      height: 18px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      background-color: var(--tertiaryAqua500);
+      mask: url("../../assets/images/overview/expander.svg") no-repeat center
+        100%;
+      -webkit-mask: url("../../assets/images/overview/expander.svg") no-repeat
+        center 100%;
+      mask-size: 98px;
+      -webkit-mask-size: 98px;
+      z-index: 2;
+    }
+    &.debitcard {
+      &:after {
+        background: linear-gradient(180deg, #D6FBF8 10%, #DCFFFC 46.68%, #DCFFFC 52.71%, #DCFFFC 88.89%);
+      }
+      &.smartvisacard::after {
+        background: #FF9378;
+      }
+      &.smartplatinumcard {
+        .contextual-menu-trigger {
+          background-color: #F9F9F9;
+        }
+        &::after {
+          background: #2E2E2E;
+        }
+        &.blocked {
+          &::after {
+            filter: invert(1) grayscale(1);
+          }
+        }
+      }
+      &.blocked {
+        &::after {
+          filter: grayscale(1);
+        }
+      }
+    }
+  }
+
+  .summary-card-inner {
+    background-color: var(--tertiaryAqua500);
+    padding: 12px 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .primary-details {
+      display: flex;
+      flex-direction: row;
+
+      .account-info {
+        display: flex;
+        flex-direction: column;
+        @include s4-medium;
+        color: var(--baseTxtClr);
+        flex-grow: 1;
+        .lbl {
+          @include b2-regular;
+          color: var(--bodyTxtClr);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: flex;
+          gap: 12px;
+          align-items: center;
+
+          &.status::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+            border-radius: 50%;
+            background-color: var(--neutral300);
+          }
+
+          &.Active::after {
+            background-color: var(--successClr);
+          }
+        }
+      }
+      .share-info {
+        width: 22px;
+        height: 22px;
+        background-color: var(--shareIcoBgClr);
+        -webkit-mask-image:url(../../assets/images/icons/share.svg);
+        mask-image: url(../../assets/images/icons/share.svg);
+        mask-size: cover;
+        -webkit-mask-size: cover;
+        text-indent: -999px;
+        overflow: hidden;
+      }
+      .plus-icon{
+      
+        width: 22px;
+        height: 22px;
+        background: url(../../assets/images/transfers/plus.svg) 0 0 no-repeat
+        transparent;
+        text-indent: -999px;
+        overflow: hidden;
+      }
+      
+    
+    }
+    .loan-detail{
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+      justify-content: flex-end;
+      .lbl {
+        color: var(--bodyTxtClr);
+        font-size: 14px;
+        line-height: 0px;
+        font-weight: var(--fontWeightRegular);
+      }
+      .value {
+        color: #000;
+        font-size: 14px;
+        line-height: 0px;
+        // font-weight: var(--fontWeightBold);
+      }
+
+    }
+
+    .additional-details {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      justify-content: space-between;
+
+      .additional-detail {
+        span {
+          display: block;
+        }
+        .lbl {
+          color: var(--bodyTxtClr);
+          font-size: 14px;
+          line-height: 24px;
+          font-weight: var(--fontWeightRegular);
+        }
+        .amount {
+          color: #000;
+          font-size: 16px;
+          line-height: 24px;
+          font-weight: var(--fontWeightBold);
+        }
+        &.right-data {
+          text-align: end;
+        }
+      }
+    }
+  }
+}
+.contextual-menu-trigger {
+  position: absolute;
+  left: calc(50% - 12px);
+  bottom: 2px;
+  width: 24px;
+  height: 24px;
+  background-color: var(--baseTxtClr);
+  mask: url("../../assets/images/icons/context-menu-trigger.svg") no-repeat
+    center;
+  -webkit-mask: url("../../assets/images/icons/loan-context-menu-trigger.svg")
+    no-repeat center;
+  mask-size: 18px;
+  -webkit-mask-size: 18px;
+  bottom: 4px;
+  margin: auto;
+  z-index: 3;
+
+  span {
+    display: none;
+  }
+}
+.summary-card-carousel {
+  .slide {
+    padding: 0 16px;
+  }
+  .summary-card {
+    &.has-context-menu {
+      padding: 0 0 18px;
+    }
+  }
+}
+debitcard,
+creditcard,
+prepaidcard {
+  --color: #FFF;
+  --baseTxtClr:#2D2D2D;
+  --neutral50:#FFFF;
+  --bodyTxtClr:#575757;
+  @include not-small-screen{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .debitcard {
+    @include not-small-screen{
+      width: 340px;
+    }
+    position: relative;
+    .card {
+      padding: 0 16px;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      background: url("../../assets/images/cards/debit-card.svg");
+      z-index: 1;
+      position: relative;
+      background-size: cover;
+      @include not-small-screen {
+        padding: 0 12px;
+      }
+      .debit-logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 0 18px;
+        @include not-small-screen {
+          padding: 12px 0 18px;
+        }
+  
+        &::before {
+          content: "";
+          background: url(../../assets/images/brand/visa.svg) no-repeat 50% 50%
+            transparent !important;
+          width: 50px;
+          height: 16px;
+          display: inline-block;
+        }
+        &::after {
+          content: "";
+          background: url(../../assets/images/brand/bank-logo-on-card.svg) no-repeat 50%
+            50% transparent !important;
+          width: 77px;
+          height: 26px;
+          display: inline-block;
+          @include not-small-screen {
+            display: none;
+          }
+        }
+      }
+  
+      .debitcard-title {
+        @include s2-bold;
+        color: var(--baseTxtClr);
+        padding-bottom: 31px;
+        .multi-currency {
+          border-radius: 8px 0px 0px 8px;
+          background-color: var(--neutral50);
+          padding: 4px 12px;
+          @include b3-medium;
+          position: absolute;
+          right: 0;
+        }
+      }
+      .debitcard-number {
+        padding-bottom: 16px;
+        .number {
+          @include b1-regular;
+          color: var(--baseTxtClr);
+          word-spacing: 35px;
+          @include not-small-screen {
+            @include s4-medium;
+            color: var(--baseTxtClr);
+            word-spacing: 2px;
+          }
+        }
+      }
+      .debitcard-name {
+        @include s2-medium;
+        padding-bottom: 4px;
+        display: none;
+      }
+      .debitcard-limit {
+        display: none;
+        .lbl {
+          @include s4-medium;
+          color: var(--bodyTxtVariantClr);
+          line-height: 18px;
+        }
+        .val {
+          @include s4-medium;
+          line-height: 18px;
+        }
+        @include not-small-screen {
+          position: absolute;
+          bottom: 10px;
+          right: 12px;
+          display: none;
+          flex-direction: column;
+          gap: 4px;
+        }
+      }
+      .debitcard-footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
+        padding-bottom: 10px;
+  
+        .debitcard-footer-primary {
+          display: flex;
+          flex-direction: column;
+          .valid {
+            @include b4-regular;
+            color: var(--bodyTxtClr);
+            line-height: 22px;
+          }
+          .date {
+            color: var(--baseTxtClr);
+            @include s2-medium;
+            font-size: 13px;
+            font-weight: var(--fontWeightRegular);
+          }
+        }
+        .debitcard-footer-secondary {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          gap: 50px;
+          .debitcard-expiry {
+            display: flex;
+            flex-direction: column;
+            .cvv {
+              color: var(--bodyTxtClr);
+              line-height: 22px;
+              font-size: 12px;
+              font-weight: 400;
+              gap: 10px;
+            }
+            .pin {
+              font-size: 13px;
+              line-height: 24px;
+              font-weight: 800;
+              color: var(--baseTxtClr);
+            }
+          }
+          .card-status {
+            display: flex;
+            align-items: center;
+  
+            .status-type {
+              flex-direction: row;
+              border-radius: 19px;
+              gap: 10px;
+              background-color: #0090af;
+              color: #fff;
+              padding: 8px 20px;
+            }
+          }
+        }
+      }
+    }
+    &.form-view {
+      .debit-logo {
+        padding-bottom: 10px;
+        @include not-small-screen {
+          padding-bottom: 5px;
+        }
+      }
+      .debitcard-title {
+        padding-bottom: 1px;
+        @include not-small-screen {
+          padding-bottom: 4px;
+        }
+      }
+      .debitcard-number {
+        padding-bottom: 12px;
+      }
+      .debitcard-limit {
+        @include not-small-screen {
+          display: flex;
+        }
+      }
+      .debitcard-footer {
+        display: none;
+      }
+    }
+    &.smartvisacard,
+    &.smartplatinumcard {
+      .card {
+        background-image: url("../../assets/images/cards/shopping-card.svg");
+        .debit-logo {
+          &::before {
+            background: url(../../assets/images/brand/visa-2.svg) no-repeat 50%
+              50% transparent !important;
+          }
+          &::after {
+            background: url(../../assets/images/brand/product-logo-2.svg)
+              no-repeat 50% 50% transparent !important;
+          }
+        }
+        .debitcard-title {
+          color: var(--color);
+          .multi-currency {
+            color: var(--baseTxtClr);
+          }
+        }
+        .debitcard-number {
+          .number {
+            color: var(--color);
+          }
+        }
+        .debitcard-name {
+          color: var(--neutral100);
+        }
+        .debitcard-footer {
+          .debitcard-footer-primary {
+            .valid {
+              color: var(--color);
+            }
+            .date {
+              color: var(--color);
+            }
+          }
+          .debitcard-footer-secondary {
+            .debitcard-expiry {
+              .cvv {
+                color: var(--color);
+              }
+              .pin {
+                color: var(--color);
+              }
+            }
+          }
+        }
+      }
+    }
+    &.smartplatinumcard {
+      .card {
+        background-image: url("../../assets/images/cards/gold-card.svg");
+      }
+      &.blocked {
+        .card {
+          filter: invert(1) grayscale(1);
+        }
+      }
+    }
+    &.blocked {
+      .card {
+        filter: grayscale(1);
+      }
+    }
+    &.show-flash-card-btn {
+      margin-bottom: 48px;
+    }
+    .flash-card {
+      background-color: var(--primary50);
+      box-shadow: 0px 0px 30px 0px #00000017;
+      border-radius: 20px;
+      height: 75px;
+      position: absolute;
+      bottom: -48px;
+      left: 0;
+      right: 0;
+      z-index: 0;
+      display: flex;
+      justify-content: center;
+      padding: 8px;
+      @include not-small-screen {
+        background-color: var(--neutral50);
+      }
+      &.show-card-balance {
+        justify-content: space-between;
+      }
+      .flash-card-button, .card-balance-button {
+        position: relative;
+        bottom: -26px;
+        padding: 4px 10px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: fit-content;
+        height: fit-content;
+        width: 152px;
+        display: flex;
+        justify-content: center;
+        &::before {
+          content: "";
+          background: url(../../assets/images/icons/eye-icon.svg) no-repeat 50%
+            50% transparent !important;
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+        }
+      }
+      .card-balance-button {
+          &::before {
+            content: "";
+            background: url(../../assets/images/icons/card-balance.svg) no-repeat 50%
+              50% transparent !important;
+        }
+      }
+      &.start-timer {
+        justify-content: center;
+        .flash-card-button {
+          bottom: -30px;
+          &::before {
+            content: "";
+            background: url(../../assets/images/icons/hide-timer.svg) no-repeat
+              50% 50% transparent !important;
+          }
+        }
+      }
+    }
+    &.mastercard {
+      .card {
+        .debit-logo {
+          &::before {
+            background: url(../../assets/images/brand/master-card.svg) no-repeat 50%
+              50% transparent !important;
+            width: 50px;
+            height: 26px;
+          }
+        }
+      }
+    }
+    &.show-name {
+      .debitcard-title {
+        padding-bottom: 18px;
+      }
+      .debitcard-name {
+        display: block;
+        color: var(--baseTxtClr);
+      }
+    }
+  }
+}
+
+.loan-summary-card {
+  .summary-card-inner {
+    .primary-details {
+      justify-content: space-between;
+      .account-info {
+        flex-grow: unset;
+        .type {
+          @include b2-regular;
+          color: var(--bodyTxtClr);
+          display: flex;
+          align-items: center;
+          &::before {
+            content: "";
+            background: url(../../assets/images/icons/loan.svg) no-repeat 50%
+              50% transparent !important;
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+          }
+          &::after {
+            content: "";
+            background-color: #23a26d;
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+            border-radius: 50%;
+            margin-left: 10px;
+          }
+        }
+        .acc-number {
+          line-height: 25px;
+        }
+      }
+    }
+
+    .additional-details {
+      .additional-detail {
+        .lbl {
+          @include b2-regular;
+          color: var(--bodyTxtClr);
+        }
+        .amount {
+          @include s4-medium;
+        }
+      }
+    }
+  }
+  .summary-card-inner.noQuickAction{
+    ::after{
+      position: unset !important;
+    }
+  }
+  .contextual-menu-trigger {
+    mask: url("../../assets/images/icons/loan-context-menu-trigger.svg")
+      no-repeat center;
+    -webkit-mask: url("../../assets/images/icons/loan-context-menu-trigger.svg")
+      no-repeat center;
+  }
+}
+
+.no-gap {
+  gap: 0px !important;
+}
+.depositLogo{
+        
+  background: url(../../assets/images/transfers/DepositMoney.svg)no-repeat center;
+  
+}
+
+app-dep-investment-summary-card,deposits-product-card{
+  .summary-card-inner.investmentSummary{
+    background-image: url("../../assets/images/icons/transaction_waterMark.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position-y: bottom;
+  }
+}
+app-pfm-transaction-summary-card{
+  .additional-details{
+    gap: 4px !important;
+    justify-content: unset !important;
+  }
+}
+portfolio-summary{
+  .account-summary-card{
+    background-repeat: no-repeat !important;
+    background-position: right !important;
+    background-position-y: bottom !important;
+    &.casaCard{
+      background-image: url("../../assets/images/icons/bg_icons/account_summary_bg.svg") !important;
+    }
+    &.depositCard{
+      background-image: url("../../assets/images/icons/bg_icons/deposit_summary_bg.svg") !important;
+    }
+    &.loanCard{
+      background-image: url("../../assets/images/icons/bg_icons/loan_summary_bg.svg") !important;
+    }
+  }
+}
+app-credit-card-summary-board{
+  .summary-wrapper{
+    background-image: url("../../assets/images/icons/bg_icons/Card_BG-1.svg"), url("../../assets/images/icons/bg_icons/Card_BG-2.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: right !important;
+    background-position-y: top !important;
+  }
+}

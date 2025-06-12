@@ -1,0 +1,14 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailProfilePicUploadForm">
+
+	<box class="">
+		<box *ngIf="state.subTitle" class="title">{{state.subTitle}}</box>
+		<box class="btn-container col-lg-12 col-sm-12 col-md-12">
+			<fpx-button *ngIf="_helper.deviceDetectorService.isHybrid()"  btnType="button" [btnClass]="'system-ico-button button-camera primary'" label="{{ 'RETAILSCANWALLETQR.scanQR' | translate }}"
+				(onClick)="_helper.scanQR()"></fpx-button>
+
+			<app-file-browse-button class="upload-doc-button" destinationType="file" acceptFiles = "image/*" (fileSelect)="onFileSelect($event)" label="{{ 'RETAILSCANWALLETQR.browsephoto' | translate }}"></app-file-browse-button>
+
+			<box id="reader" style="display: none;"></box>
+		</box>
+	</box>
+</form>

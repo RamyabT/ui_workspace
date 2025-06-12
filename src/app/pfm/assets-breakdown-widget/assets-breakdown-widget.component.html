@@ -1,0 +1,23 @@
+<box class="widget assets-breakdown">
+    <header>
+        <span class="widget-title">{{ 'AssetsBreakDown.title' | translate }}</span>
+    </header>
+    <box class="widget-container col-sm-12 col-md-12 col-lg-12">
+        <box class="widget-body">
+            <box class="assets-info-wrapper">
+                <ng-container *ngFor="let item of state.assetsInfo">
+                    <box class="asset-item">
+                        <span class="asset-legend {{item.id}}"></span>
+                        <box class="asset-info">
+                            <box class="desc">{{item.desc}}</box>
+                            <box class="value">{{item.value | currency : appConfig.baseCurrency : '' }} {{ appConfig.baseCurrency}}</box>
+                        </box>
+                    </box>
+                </ng-container>
+            </box>
+            <box class="chart-container">
+                <app-assets-breakdown-chart></app-assets-breakdown-chart>
+            </box>
+        </box>
+    </box>
+</box>

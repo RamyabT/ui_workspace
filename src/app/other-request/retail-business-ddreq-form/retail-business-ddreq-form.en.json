@@ -1,0 +1,35 @@
+"RetailBusinessDDReqForm":{
+"title":"Business Direct Deposit Request",
+		 "companyName": {
+		  "label":"Customer Name" ,
+		  "placeholder": "Customer Name"
+		  } ,
+		 "businessNumber": {
+		  "label":"Business Number" ,
+		  "placeholder": "Business Number"
+		  } ,
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "socialInsuranceNum": {
+		  "label":"socialInsuranceNum" ,
+		  "placeholder": "socialInsuranceNum"
+		  } ,
+		 "firstName": {
+		  "label":"Customer Name" ,
+		  "placeholder": "Customer Name"
+		  } ,
+		 "lastName": {
+		  "label":"Customer Name" ,
+		  "placeholder": "Customer Name"
+		  } ,
+		 "dob": {
+		  "label":"Dob" ,
+		  "placeholder": "Dob"
+		  } ,
+		 "amount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } 
+}

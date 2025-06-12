@@ -1,0 +1,69 @@
+<!-- <button type="button" class="btn-popup-close" (click)="closeContextMenu()">close</button> -->
+<ng-container *ngIf="cardData">
+    <box class="widget context-menu-wrapper" [ngClass]="{'dep-ui-modal-actions-menu-container': this._device.isMobile() }">
+        <ng-container *ngIf="(cardData && this._device.isMobile())">
+            <header>
+                <box class="account-info">
+                    <span class="header-title type">{{ cardData.productDesc }}</span>
+                </box>
+            </header>
+        </ng-container>
+        <ng-container *ngIf="_device.isMobile(); else desktopMenu">
+            <box class="dep-ui-modal-actions-menu-body" *ngIf="meunActionsGroupedByType">
+                <ng-container *ngFor="let menuGroup of meunActionsGroupedByType">
+                    <ng-container *ngIf="menuGroup.menuItems.length > 0">
+                        <h5 class="sub-group-header">{{ menuGroup.heading | translate }}</h5>
+                            <box class="action-list">
+                                <button class="action-item" *ngFor="let item of menuGroup.menuItems" (click)="openLink(item)">
+                                    <span class="icon-wrapper icon-service-{{ item.serviceCode }}"></span>
+                                    <div class="text-wrapper">
+                                        <span class="text" [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span>
+                                        <span class="subtext">{{ ('cardsPanel.contextMenu.'+item.serviceCode+'.subtext') | translate }}</span>
+                                    </div>
+                                </button>
+                            </box>
+                    </ng-container>
+                </ng-container>
+            </box>
+            <button type="button" class="btn-popup-close" (click)="closeContextMenu()">
+                {{ 'DEFAULT.close' | translate }}
+              </button>
+        </ng-container>
+    </box>
+</ng-container>
+
+<ng-template #desktopMenu>
+    <box class="context-menu-body" *ngIf="quickLinks">
+        <!-- TODO: Wire up button and i18n labels -->
+        <ng-container *ngIf="cardNeedsActivation">
+            <box class="card-needs-activated">
+                <box class="text-copy">
+                    <span class="title">Received your  new card?</span>
+                    <span class="secondary-title">Activate your card easily with a single click.</span>
+                    <span class="body-text">By doing this, I agree to the terms and conditions in my <a href="#">cardholder agreement</a></span>
+                </box>
+                <box class="action-button">
+                    <div class="btn-container stepper-btn-container">
+                        <button class="btn-primary">Activate Card</button>
+                    </div>
+                </box>
+            </box>
+        </ng-container>
+        <box class="actions-list">
+            <box class="tab slide" [ngClass]="{ active: activeMenu == item.serviceCode }" *ngFor="let item of quickLinks">
+                <box class="item" (click)="openLink(item)">
+                    <span class="icon-wrapper icon-service-{{ item.serviceCode }}"></span>
+                    <span class="text" [innerHTML]="item?.serviceDescriptionI18n?.[languageService.getLanguage()] || item.serviceDescription"></span>
+                </box>
+            </box>
+            <ng-container *ngIf="this.hasMoreQuickActions">
+                <box class="tab slide">
+                    <box class="item" (click)="showMoreActions()">
+                        <span class="icon-wrapper more"></span>
+                        <span class="text" [innerHTML]="'quickActions.more' | translate"></span>
+                    </box>
+                </box>
+            </ng-container>
+        </box>
+    </box>
+</ng-template>

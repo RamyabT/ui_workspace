@@ -1,0 +1,102 @@
+{
+  "navigations" : [
+    {
+      "id": "newToBank",
+      "align": "center",
+      "name": "New to Bank",
+      "icon": "login.svg",
+      "serviceCode": "RETAILPLNEWTOBANK"
+    },
+    {
+      "id": "login",
+      "align": "outer",
+      "name": "Login",
+      "icon": "new-to-bank.svg",
+      "serviceCode": "RETAILPLLOGIN"
+    },
+    {
+      "id": "selfregister",
+      "align": "outer",
+      "name": "selfregister",
+      "icon": "new-to-bank.svg",
+      "serviceCode": "RETAILSELFREG"
+    },
+    {
+      "id": "atmFinder",
+      "align": "outer",
+      "name": "ATM Finder",
+      "icon": "atm-finder.svg",
+      "serviceCode": "RETAILPLATMFINDER"
+    },
+    {
+      "id": "offers",
+      "align": "outer",
+      "name": "Offers",
+      "icon": "offers.svg",
+      "serviceCode": "RETAILPLOFFERS"
+    },
+    {
+      "id": "contacts",
+      "align": "outer",
+      "name": "Contact Us",
+      "icon": "contacts.svg",
+      "serviceCode": "RETAILPLCONTACTS"
+    },
+    {
+      "id": "applyCard",
+      "align": "outer",
+      "name": "Apply card",
+      "icon": "apply-card.svg",
+      "serviceCode": "RETAILPLAPPLYCARD"
+    },
+    {
+      "id": "branchFinder",
+      "align": "inner",
+      "name": "Branch Finder",
+      "icon": "branch-finder.svg",
+      "serviceCode": "RETAILPLBRANCHFINDER"
+    },
+    {
+      "id": "videos",
+      "align": "inner",
+      "name": "Videos",
+      "icon": "videos.svg",
+      "serviceCode": "RETAILPLVIDEOS"
+    },
+    {
+      "id": "resume",
+      "align": "inner",
+      "name": "Resume Application",
+      "icon": "faq.svg",
+      "serviceCode": "RETAILPLRESUMEAPPLICATION"
+    },
+    {
+      "id": "faq",
+      "align": "inner",
+      "name": "FAQ",
+      "icon": "faq.svg",
+      "serviceCode": "RETAILPLFAQ"
+    },
+    {
+      "id": "tips",
+      "align": "inner",
+      "name": "Security Tips",
+      "icon": "faq.svg",
+      "serviceCode": "RETAILPLTIPS"
+    },
+    {
+      "id": "lockCard",
+      "align": "inner",
+      "name": "Lock card",
+      "icon": "apply-card.svg",
+      "serviceCode": "RETAILPLLOCKCARD"
+    },
+    {
+      "id": "terms",
+      "align": "inner",
+      "name": "T&C",
+      "icon": "faq.svg",
+      "serviceCode": "RETAILPLTERMS"
+    }
+  ]
+}

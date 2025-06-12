@@ -1,0 +1,59 @@
+"InvestmentTransactionSummaryGrid":{
+"title":"Investment Transaction Summary",
+		 "transactionCurrency": {
+		  "label":"Currency" ,
+		  "placeholder": "Currency"
+		  } ,
+		 "transactionReference": {
+		  "label":"Transaction Reference" ,
+		  "placeholder": "Transaction Reference"
+		  } ,
+		 "transactionDateTime": {
+		  "label":"Date Time" ,
+		  "placeholder": "Date Time"
+		  } ,
+		 "transactionDescription": {
+		  "label":"Description" ,
+		  "placeholder": "Description"
+		  } ,
+		 "transactionDate": {
+		  "label":"Transaction Date" ,
+		  "placeholder": "Transaction Date"
+		  } ,
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "debitCreditFlag": {
+		  "label":"Debit Credit Flag" ,
+		  "placeholder": "Debit Credit Flag"
+		  } ,
+		 "balance": {
+		  "label":"Balance" ,
+		  "placeholder": "Balance"
+		  } ,
+		 "transactionAmount": {
+		  "label":"Transaction Amount" ,
+		  "placeholder": "Transaction Amount"
+		  } ,
+		 "transactionCategory": {
+		  "label":"Trasaction Category" ,
+		  "placeholder": "Trasaction Category"
+		  } ,
+		 "quantity": {
+		  "label":"Quantity" ,
+		  "placeholder": "Quantity"
+		  } ,
+		 "price": {
+		  "label":"Price" ,
+		  "placeholder": "Price"
+		  } ,
+		 "commission": {
+		  "label":"Commission" ,
+		  "placeholder": "Commission"
+		  } ,
+		 "productCode": {
+		  "label":"Product Code" ,
+		  "placeholder": "Product Code"
+		  } 
+}

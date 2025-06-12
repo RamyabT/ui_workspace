@@ -1,0 +1,23 @@
+"RetailCustomerVerificationForm":{
+"title":"customerverification",
+		 "identificationMode": {
+		  "label":"Identification Mode" ,
+		  "placeholder": "Identification Mode"
+		  } ,
+		 "identificationNumber": {
+		  "label":"Identification Number" ,
+		  "placeholder": "Identification Number"
+		  } ,
+		 "dob": {
+		  "label":"Dob" ,
+		  "placeholder": "Dob"
+		  } ,
+		 "accountNumber": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "customerId": {
+		  "label":"Customer Id" ,
+		  "placeholder": "Customer Id"
+		  } 
+}

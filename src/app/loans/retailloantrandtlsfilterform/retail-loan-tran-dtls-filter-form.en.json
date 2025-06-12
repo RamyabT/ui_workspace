@@ -1,0 +1,15 @@
+"RetailLoanTranDtlsFilterForm":{
+"title":"RetailLoanTranDtlsFilterForm",
+		 "rangeType": {
+		  "label":"Transaction Period" ,
+		  "placeholder": "Transaction Period"
+		  } ,
+		 "fromDate": {
+		  "label":"From Date" ,
+		  "placeholder": "From Date"
+		  } ,
+		 "toDate": {
+		  "label":"To Date" ,
+		  "placeholder": "To Date"
+		  } 
+}

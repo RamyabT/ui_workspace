@@ -1,0 +1,5 @@
+ 
+ "RETAILCCSTATEMENT" : {
+ "servicePath": ["entry-shell","creditcard", "retail-ccstatement-form"],
+ "queryParams": {}
+ }

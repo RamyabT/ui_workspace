@@ -1,0 +1,149 @@
+<ng-container *ngIf="selectedData && selectedData?.accountNumber">
+    <box class="account-information">
+        <box *ngIf="showViewAll" class="all-accounts-btn" [ngClass]="{'aviso-all-acounts': selectedData.productCode=='AVISO' || selectedData.productCode=='QTRADE'}"
+            (click)="viewAll()">
+            <span class="all-accounts-text font-14-20">{{'EverydayBanking.allAccounts' | translate}}</span>
+        </box>
+        <box class="acc-primary-information">
+            <!-- <box class="pay-from">{{payFromLabel}}</box> -->
+            <box class="account-type-number-section">
+                <box class="acc-dtl-balance-section">
+                    <box class="acc-type-number-wrapper">
+                        <box>
+                            <span class="acc-type">{{selectedData.accountNickname || selectedData.productDescription }}
+                            </span>
+                            <!-- <span class="product-name"> {{ selectedData?.accountNumber }}</span> -->
+
+                            <box class="product-details">
+                                <box class="account-number">{{ selectedData?.accountNumber }}</box>
+                                <box class="seperator"></box>
+                                <box class="account-type">{{ selectedData.depositTypeDesc }}
+                                </box>
+                            </box>
+                        </box>
+                        <box *ngIf="selectedData.productCode=='AVISO'">
+                            <img src="./assets/images/Aviso-color-logo.svg" alt="Aviso">
+                        </box>
+                    </box>
+                    <box class="balance-wrapper">
+                        <box class="balance-details">
+                            <span *ngIf="selectedData.productCode!='AVISO'"
+                                class="balance-label">{{'CASASUMMARYCARD.depositAmount' | translate}}</span>
+                            <span *ngIf="selectedData.productCode=='AVISO'"
+                                class="balance-label">{{'CASASUMMARYCARD.cashBalance' | translate}}</span>
+
+                            <ng-container
+                                *ngIf="selectedData.accountCurrency != _appConfig.baseCurrency else avlBaseCurrency">
+                                <box class="balance-val">
+                                    <box class="amount balance-amount-usd">
+                                        <em class="usd">{{ 'SUFFIXCURRENCY' |
+                                            currencyCode }}</em>
+                                        {{getAbsoluteValue(selectedData.availableBalance) | currency
+                                        :
+                                        selectedData.accountCurrency : '' }}
+                                        <em>{{ selectedData.accountCurrency == 'USD' ? '$' :
+                                            selectedData.accountCurrency |
+                                            currencyCode }}</em>
+                                        {{checkNegativeValue(selectedData.availableBalance)}}
+                                    </box>
+                                </box>
+                            </ng-container>
+                            <ng-template #avlBaseCurrency>
+                                <box class="amount balance-amount-cad">{{
+                                    getAbsoluteValue(selectedData.availableBalance) | currency :
+                                    selectedData.accountCurrency : '' }} <em>{{ selectedData.accountCurrency |
+                                        currencyCode }}</em>
+                                    {{checkNegativeValue(selectedData.availableBalance)}}
+                                </box>
+                            </ng-template>
+
+                        </box>
+                        <box class="balance-details current-balance">
+                            <span *ngIf="selectedData.productCode!='AVISO'"
+                                class="balance-label">{{'CASASUMMARYCARD.maturityAmount' | translate}}</span>
+                            <span *ngIf="selectedData.productCode=='AVISO'"
+                                class="balance-label">{{'CASASUMMARYCARD.securitiesValue' | translate}}</span>
+
+                                <ng-container
+                                *ngIf="selectedData.accountCurrency != _appConfig.baseCurrency else avlBaseCurrency">
+                                <box class="balance-val">
+                                    <box class="amount balance-amount-usd">
+                                        <em class="usd">{{ 'SUFFIXCURRENCY' |
+                                            currencyCode }}</em>
+                                        {{getAbsoluteValue(selectedData.securitiesValue) | currency
+                                        :
+                                        selectedData.accountCurrency : '' }}
+                                        <em>{{ selectedData.accountCurrency == 'USD' ? '$' :
+                                            selectedData.accountCurrency |
+                                            currencyCode }}</em>
+                                        {{checkNegativeValue(selectedData.securitiesValue)}}
+                                    </box>
+                                </box>
+                            </ng-container>
+                            <ng-template #avlBaseCurrency>
+                                <box class="amount balance-amount-cad">{{
+                                    getAbsoluteValue(selectedData.securitiesValue) | currency :
+                                    selectedData.accountCurrency : '' }} <em>{{ selectedData.accountCurrency |
+                                        currencyCode }}</em>
+                                    {{checkNegativeValue(selectedData.securitiesValue)}}
+                                </box>
+                            </ng-template>
+
+                        </box>
+                        <box class="balance-details" *ngIf="selectedData.productCode=='AVISO'|| selectedData.productCode=='QTRADE'">
+                            <span class="balance-label">{{'CASASUMMARYCARD.marketValue' | translate}}</span>
+
+                            <ng-container
+                            *ngIf="selectedData.accountCurrency != _appConfig.baseCurrency else avlBaseCurrency">
+                            <box class="balance-val">
+                                <box class="amount balance-amount-usd">
+                                    <em class="usd">{{ 'SUFFIXCURRENCY' |
+                                        currencyCode }}</em>
+                                    {{getAbsoluteValue(selectedData.marketValue) | currency
+                                    :
+                                    selectedData.accountCurrency : '' }}
+                                    <em>{{ selectedData.accountCurrency == 'USD' ? '$' :
+                                        selectedData.accountCurrency |
+                                        currencyCode }}</em>
+                                    {{checkNegativeValue(selectedData.marketValue)}}
+                                </box>
+                            </box>
+                        </ng-container>
+                        <ng-template #avlBaseCurrency>
+                            <box class="amount balance-amount-cad">{{
+                                getAbsoluteValue(selectedData.marketValue) | currency :
+                                selectedData.accountCurrency : '' }} <em>{{ selectedData.accountCurrency |
+                                    currencyCode }}</em>
+                                {{checkNegativeValue(selectedData.marketValue)}}
+                            </box>
+                        </ng-template>
+
+                        </box>
+                    </box>
+                </box>
+                <!-- <box class="swap-share-wrapper">
+                    <box [ngClass]="{'hide-view-all' : !showViewAll}" class="swap-act-section" (click)="viewAll()">
+                        <box class="swap-act-icon">
+                            <img src="./assets/images/icons/swap-account.svg">
+                        </box>
+                        <span class="icon swap-act-icon"></span>
+                        <span class="swap-act-text">
+                            {{'CASASUMMARYCARD.viewall' | translate}}
+                        </span>
+                    </box>
+
+                    <box class="share-act-section" (click)="shareInfo($event)">
+                        <box class="share-act-icon">
+                            <img src="./assets/images/icons/share-account.svg">
+                        </box>
+                        <span class="icon swap-act-icon"></span>
+                        <span class="share-act-text">
+                            {{'CASASUMMARYCARD.share' | translate}}
+                        </span>
+                    </box>
+                </box> -->
+            </box>
+        </box>
+    </box>
+
+</ng-container>

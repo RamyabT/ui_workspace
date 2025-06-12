@@ -1,0 +1,16 @@
+<box class="dep-session-alert user-restiction-alert">
+    <box class="alert-body">
+        <box class="alert-icon"></box>
+        <box class="alert-desc">
+            <box *ngIf="title" class="alert-title">{{ title | translate }}</box>
+            <box *ngIf="message" class="alert-description">{{ message | translate }}</box>
+        </box>
+    </box>
+    <mat-checkbox class="terms-condition" (change)="toggleSelection($event)">{{'RetailUserRestrictionsForm.termsAndConditionCheckbox' | translate}}</mat-checkbox>
+    <box class="alert-footer">
+        <div class="btn-container">
+            <button type="button" class="btn-secondary" (click)="onDecline()"> {{ cancelBtnLbl | translate }} </button>
+            <button type="button" [disabled]="!isAccepted" class="btn-primary" (click)="onAccept()"> {{ okBtnLbl | translate }} </button>
+        </div>
+    </box>
+</box>

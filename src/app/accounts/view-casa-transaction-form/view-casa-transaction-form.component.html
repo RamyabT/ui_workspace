@@ -1,0 +1,47 @@
+<box class="grid transaction-container">
+    <box class="casa-transactions-grid-wrapper col-12">
+        <box class="casa-transactions-grid-header">
+            <span class="title">{{ 'CASATRANSACTIONSDTLSGRID.title' | translate }}</span>
+            <box class="tool-bar">
+                <box class="label-dtl" (click)="_viewCasaTransactionFormHelper.filter()">
+                    <fpx-button btnType="button" btnClass="system-ico-button no-text filter" label="filter"></fpx-button>
+                    <span *ngIf="!_helper.deviceDetectorService.isMobile()">{{'viewCasaTransactionForm.filter' | translate}}</span>
+                </box>
+                <box class="label-dtl" (click)="_viewCasaTransactionFormHelper.onDownloadClick(null)">
+                    <fpx-button btnType="button" btnClass="system-ico-button no-text download" label="download"></fpx-button>
+                    <span *ngIf="!_helper.deviceDetectorService.isMobile()">{{'viewCasaTransactionForm.download' | translate}}</span>
+                </box>
+            </box>
+        </box>
+        <box *ngIf="_helper.showResetFilter" class="casa-transactions-filter-header">
+            <span class="header">{{ 'CASATRANSACTIONSDTLSGRID.header' | translate }}</span>
+            <span class="reset-filter" (click)="_helper.resetclearFilter()">
+				<span class="reset-msg-icon"></span>
+				<span class="reset-msg-bg">{{ 'retailcasatrandtlsfilterform.resetFilter.label' | translate }}</span>
+			</span>
+        </box>
+        <app-retail-casa-transaction-dtls-ro-grid [actionPublisher]="state.transactionsListRoGrid"
+            (commonRoGridEvent)="_helper.casaTransactionGridEvent($event)"></app-retail-casa-transaction-dtls-ro-grid>
+    </box>
+    <ng-container *ngIf="!_helper.casaTransactionApiReceived && !_helper.handleError">
+        <box class="loading"></box>
+    </ng-container>
+    <ng-container
+        *ngIf="_helper.casaTransactionApiReceived && (_helper.totalRecordCount == 0 || _helper.totalRecordCount == null) && !_helper.handleError">
+        <box class="no-result-view">
+            <box class="no-result-image-wrapper">
+                <img class="no-result-image"
+                    src="./assets/tenant-config/10001/skins/images/illustration/no-schedule-transfer.svg" alt="">
+            </box>
+            <box class="no-result-title">{{ 'ETransferHistoryForm.header' | translate }}</box>
+            <span>{{ 'viewCasaTransactionForm.noTransfer' | translate }} </span>
+        </box>
+    </ng-container>
+
+</box>
+
+<box *ngIf="_helper.handleError && _helper.casaTransactionApiReceived">
+    <box class="no-result-view">
+        <box class="no-result-desc">{{'DEFAULT.dataErrMsg' | translate }}</box>
+    </box>
+</box>

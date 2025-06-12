@@ -1,0 +1,14 @@
+"RetailBusinessDDReqInfoForm":{
+"title":"businessddreqinfo",
+		 "FieldId_1": {
+		   "text":"<span>Information</span>"
+		 } ,
+		 "FieldId_2": {
+		  "label":"Edit Legend" ,
+		  "placeholder": "Sign up for direct deposit now to ensure your payment arrives sooner.   We will notify the Canada Revenue Agency (CRA) to update your information with the latest banking details.   If you've made an error and need to change payments for your business from the Canada Revenue Agency, you can sign up for direct deposit to receive:  Refunds  Rebates   Payroll deductions   GST/HST credit   Canada child benefit   Other federal government payments "
+		  },
+		  "impNote": {
+			"label":"Information" ,
+			"placeholder": "Sign up for direct deposit now to ensure your payment arrives sooner.   We will notify the Canada Revenue Agency (CRA) to update your information with the latest banking details.   If you've made an error and need to change payments for your business from the Canada Revenue Agency, you can sign up for direct deposit to receive:  Refunds  Rebates   Payroll deductions   GST/HST credit   Canada child benefit   Other federal government payments "
+			} 
+}

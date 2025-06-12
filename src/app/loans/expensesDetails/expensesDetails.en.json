@@ -1,0 +1,27 @@
+"expensesDetails":{
+"title":"expensesDetails",
+		 "tenantId": {
+		  "label":"TenantId" ,
+		  "placeholder": "TenantId"
+		  } ,
+		 "applicantId": {
+		  "label":"ApplicantId" ,
+		  "placeholder": "ApplicantId"
+		  } ,
+		 "monthlyExpenses": {
+		  "label":"Monthly expenses" ,
+		  "placeholder": "Monthly expenses"
+		  } ,
+		 "otherLoanEMI": {
+		  "label":"Other Loan EMIs" ,
+		  "placeholder": "Other Loan EMIs"
+		  } ,
+		 "annualPropertyTax": {
+		  "label":"Annual Property Tax" ,
+		  "placeholder": "Annual Property Tax"
+		  } ,
+		 "monthlyCondominiumFees": {
+		  "label":"Monthly Condominium Fees" ,
+		  "placeholder": "Monthly Condominium Fees"
+		  } 
+}

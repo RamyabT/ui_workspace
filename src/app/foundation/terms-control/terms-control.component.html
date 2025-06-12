@@ -1,0 +1,17 @@
+<box class="terms-control">
+  <fpx-checkbox
+    [textPosition]="textPosition"
+    class="fpx-form-control"
+    [controlName]="formControlName"
+    #fpxControl
+    [ckValues]="ckValues"
+    [controlValue]="domainControlValue"
+    [placeholder]="placeholder"
+  >
+  </fpx-checkbox>
+  <fpx-label
+    class="fpx-form-control"
+    [label]="label"
+    (recognizeLabelLink)="navToLink($event)"
+  ></fpx-label>
+</box>

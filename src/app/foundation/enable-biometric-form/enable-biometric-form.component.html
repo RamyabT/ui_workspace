@@ -1,0 +1,20 @@
+<form (ngSubmit)="submit()" autocomplete="off" formName="RetailEnableBiometricForm" [formGroup]="formGroup">
+    <box class="entry-form">
+
+        <box class="enable-biometric-form col-12">
+            <box class="enable-biometric-illustration">
+                <img src="./assets/illustrations/{{ state.available }}-id.svg" alt="biometric" />
+            </box>
+    
+            <!-- <ng-container *ngIf="state.isPopup">
+                <box class="form-footer-actions">
+                    <button type="submit" class="btn-tertiary" (click)="_helper.cancelEvent()">{{
+                        'RetailEnableBiometricForm.cancelBtnLbl' | translate }}</button>
+                    <button type="submit" class="primary" (click)="_helper.enableBiometric()" [disabled]="formGroup.invalid">{{
+                        'RetailEnableBiometricForm.submitBtnLbl' | translate }}</button>
+                </box>
+            </ng-container> -->
+        </box>
+        
+    </box>
+</form>

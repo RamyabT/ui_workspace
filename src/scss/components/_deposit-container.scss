@@ -1,0 +1,183 @@
+.deposits-home-container{
+    padding: 20px;
+    border-radius: 16px;
+    background: #FFF;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.09);
+}
+app-retail-product-selection-form {
+    .product-segment {
+      display: flex;
+      gap: 10px;
+      overflow: scroll;
+      margin: 20px 24px 40px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .segment {
+        width: fit-content;
+        height: 38px;
+        border: 1px solid #12486B;
+        padding: 8px 12px;
+        border-radius: 40px;
+        color: #12486B;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 22px;
+        text-align: center;
+        white-space: nowrap;
+        &.active {
+          background: #12486B;
+          color: #FFF;
+        }
+      }
+    }
+
+    .read-more {
+      margin-top: 14px;
+      padding-bottom: 56px;
+    }
+
+    .read-more-view {
+      .product-segment {
+        display: none;
+      }
+    }
+}
+
+app-deposit-quick-actions {
+    .widget-body {
+        padding: 12px 4px !important;
+    }
+
+    .list-separator {
+        width: 1px;
+        background-color: #cccccc;
+        height: 40px;
+    }
+}
+
+.deposit-quick-class {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.list-group-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 4px !important;
+}
+
+
+.deposit-actions {
+    .actions-body {
+        ul.actions-list {
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+
+            .icon-wrapper {
+
+                border: none !important;
+
+                &.RETAILDEPOSIT::before {
+                    mask-image: url("../../assets/images/quick-links/cheque-book.svg");
+                    -webkit-mask-image: url("../../assets/images/quick-links/cheque-book.svg");
+                }
+        
+                &.redeem-deposit::before {
+                    mask-image: url("../../assets/images/quick-links/cheque-book.svg");
+                    -webkit-mask-image: url("../../assets/images/quick-links/cheque-book.svg");
+                }
+        
+                &.change-maturity-instruction::before {
+                    mask-image: url("../../assets/images/quick-links/cheque-book.svg");
+                    -webkit-mask-image: url("../../assets/images/quick-links/cheque-book.svg");
+                }
+                &.RETAILRPCONTRACTINFO::before {
+                    mask-image: url("../../assets/images/quick-links/RETAILRPCONTRACTINFO.svg");
+                    -webkit-mask-image: url("../../assets/images/quick-links/RETAILRPCONTRACTINFO.svg");
+                }
+                &.RETAILRPEXISTINGCONTRACTINFO::before {
+                    mask-image: url("../../assets/images/quick-links/RETAILRPEXISTINGCONTRACTINFO.svg");
+                    -webkit-mask-image: url("../../assets/images/quick-links/RETAILRPEXISTINGCONTRACTINFO.svg");
+                }
+        
+                &.RETAILRPOPENTERMDEPOSIT::before {
+                    mask-image: url("../../assets/images/quick-links/RETAILRPOPENTERMDEPOSIT.svg");
+                    -webkit-mask-image: url("../../assets/images/quick-links/RETAILRPOPENTERMDEPOSIT.svg");
+                }
+                &.portfolio-holdings::before {
+                    mask-image: url("../../assets/images/quick-links/portfolio-holdings.svg");
+                    -webkit-mask-image: url("../../assets/images/quick-links/portfolio-holdings.svg");
+                }
+                &:is(.RETAILINVESTMENTTRANSUMMARY,.RETAILRPCONTRIBUTION )::before {
+                    mask-image: url("../../assets/images/quick-links/RETAILINVESTMENTTRANSUMMARY.svg");
+                    -webkit-mask-image: url("../../assets/images/quick-links/RETAILINVESTMENTTRANSUMMARY.svg");
+                }
+            }
+        }
+    }
+}
+
+#depAppBody{
+    .deposit-summary-list-actions{
+        background-color: #FFF;
+        z-index: 1;
+        position: relative;
+        border-radius: 0 0 12px 12px;
+        box-shadow: 0px 0px 18px 0px #00000017;
+
+    }
+    .product-card-carousel-container{
+        width: 112px;
+        height: 112px;
+    }
+    .bene-info-input-grid{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .input-grid-row{
+            --container-col-count: 12;
+            flex-flow: row wrap;
+
+            .input-grid-row-item{
+                margin: 0;
+            }
+        }
+        
+        & + .grid-actions{
+            margin: 20px 0;
+            padding-left: 0;
+            background: none;
+
+            button.add-new{
+                background: url(../../assets/images/icons/plus.svg) no-repeat 24px 50% transparent;
+                background-size: 16px;
+                padding-left: 52px;
+                @include s3-medium;
+                columns: var(--secondary500);
+
+                &:disabled{
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+
+    .country-of-tax-input-grid{
+        .input-grid-row{
+            @include grid;
+            --container-col-count: 12;
+            flex-flow: row wrap;
+
+            .input-grid-row-item{
+                margin: 0;
+            }
+        }
+    }
+}

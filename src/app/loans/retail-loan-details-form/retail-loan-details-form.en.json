@@ -1,0 +1,75 @@
+"RetailLoanDetailsForm": {
+	"title": "Loan Details",
+	"loanAccountNumber": {
+		"label": "Loan Account Number",
+		"placeholder": "Loan Account Number"
+	},
+	"accountTypeDesc": {
+		"label": "Loan Type",
+		"placeholder": "Loan Type"
+	},
+	"productDesc": {
+		"label": "Product Category",
+		"placeholder": "Product Category"
+	},
+	"currency": {
+		"label": "Currency",
+		"placeholder": "Currency"
+	},
+	"loanAmount": {
+		"label": "Sanctioned Amount",
+		"placeholder": "Sanctioned Amount"
+	},
+	"openDate": {
+		"label": "Sanction Date",
+		"placeholder": "Sanction Date"
+	},
+	"payOffAmount": {
+		"label": "Installment Amount",
+		"placeholder": "Installment Amount"
+	},
+	"nextDueDate": {
+		"label": "Next Installment Due Date",
+		"placeholder": "Next Installment Due Date"
+	},
+	"lastPaymentDate": {
+		"label": "Last Repayment Date ",
+		"placeholder": "Last Repayment Date "
+	},
+	"interestRate": {
+		"label": "Interest Rate",
+		"placeholder": "Interest Rate"
+	},
+	"status": {
+		"label": "Account Status",
+		"placeholder": "Account Status"
+	},
+	"tenure": {
+		"label": "Loan Tenor",
+		"placeholder": "Loan Tenor"
+	},
+	"branchDesc": {
+		"label": "Branch",
+		"placeholder": "Branch"
+	},
+	"rePaidAmount": {
+		"label": "Past Due",
+		"placeholder": "Past Due"
+	},
+	"totalOutstanding": {
+		"label": "Outstanding Balance",
+		"placeholder": "Outstanding Balance"
+	},
+	"loanStartDate":{
+		"label": "Loan Start Date",
+		"placeholder": "Loan Start Date"
+	},
+	"maturityDate": {
+		"label": "Loan End Date",
+		"placeholder": "Loan End Date"
+	},
+	"primaryAccount": {
+		"label": "Primary Account",
+		"placeholder": "Primary Account"
+	}
+}

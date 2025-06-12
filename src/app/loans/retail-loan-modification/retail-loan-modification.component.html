@@ -1,0 +1,115 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailLoanModification">
+	<box class="entry-form">
+		<box class="grid entry-form-field-group col-lg-12">
+			<app-loan-account-list-template-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('loanAccountNumber')" label="{{
+          'RetailLoanModification.loanAccountNumber.label' | translate
+        }}" formControlName="loanAccountNumber" placeholder="{{
+          'RetailLoanModification.loanAccountNumber.placeholder' | translate
+        }}" [changePublisher]="formChangePublisher$"
+				(commonControlEvent)="handleControlEvent($event)"></app-loan-account-list-template-control>
+
+			<box class="field-item col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('loanDetails')">
+
+				<box class="info-box">
+					<fpx-label label="{{ 'RetailLoanModification.loanDetails.text' | translate }}"></fpx-label>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="
+			  'RetailLoanModification.TotalOutstanding.text' | translate
+			" [literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.loanDetail.totalOutstanding"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="
+			  'RetailLoanModification.NextDueDate.text' | translate
+			" [literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.loanDetail.nextDueDate"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+					<box class="info-field">
+						<fpx-display-text class="info-field-label" [innerHTML]="
+			  'RetailLoanModification.emiAmount.text' | translate
+			" [literals]="commonFormInput"></fpx-display-text>
+						<fpx-display-text class="info-field-value" [innerHTML]="state.loanDetail.payOffAmount"
+							[literals]="commonFormInput"></fpx-display-text>
+					</box>
+				</box>
+			</box>
+
+			<app-loan-installments-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('loanNoOfInstallments')" label="{{
+          'RetailLoanModification.loanNoOfInstallments.label' | translate
+        }}" formControlName="loanNoOfInstallments">
+			</app-loan-installments-list-control>
+
+			<app-purpose-of-deferment-list-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('purposeOfDeferment')" label="{{
+          'RetailLoanModification.purposeOfDeferment.label' | translate
+        }}" formControlName="purposeOfDeferment">
+			</app-purpose-of-deferment-list-control>
+
+			<app-loan-reason-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('otherReason')"
+				label="{{ 'RetailLoanModification.otherReason.label' | translate }}"
+				formControlName="otherReason"></app-loan-reason-control>
+
+			<!-- <app-loan-modification-type-list-control class="col-sm-12 col-md-6 col-lg-4"
+				[actionPublisher]="actionMap$.get('loanModificationType')" label="{{
+          'RetailLoanModification.loanModificationType.label' | translate
+        }}" formControlName="loanModificationType"></app-loan-modification-type-list-control> -->
+
+			<!-- <app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6 "
+	 [actionPublisher]="actionMap$.get('additionalLoanAmt')"
+	 label="{{'RetailLoanModification.additionalLoanAmt.label' | translate }}" formControlName="additionalLoanAmt"
+	 (commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.additionalLoanAmt.CurrencyList"
+	 [isCurrEditable]="state.additionalLoanAmt.isCurrEditable" [defaultFetch]="state.additionalLoanAmt.defaultFetch"
+	 [initCurrency]="state.additionalLoanAmt.initCurrency" [amountInWords]="state.additionalLoanAmt.amountInWords"
+	 [changePublisher]="formChangePublisher$"
+	 >
+ </app-payment-amount-control> -->
+			<!-- <app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('deferralAmt')"
+				label="{{ 'RetailLoanModification.deferralAmt.label' | translate }}" formControlName="deferralAmt"
+				(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.deferralAmt.CurrencyList"
+				[isCurrEditable]="state.deferralAmt.isCurrEditable" [defaultFetch]="state.deferralAmt.defaultFetch"
+				[initCurrency]="state.deferralAmt.initCurrency" [amountInWords]="state.deferralAmt.amountInWords"
+				[changePublisher]="formChangePublisher$">
+			</app-payment-amount-control> -->
+
+			<app-request-date-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('currentInstDate')"
+				label="{{ 'RetailLoanModification.currentInstDate.label' | translate }}"
+				formControlName="currentInstDate" [minDate]="state.currentInstDate.minDate"
+				[maxDate]="state.currentInstDate.maxDate"></app-request-date-control>
+
+			<fpx-display-text id="disclaimer" class="title"
+				[innerHTML]="'RetailLoanModification.disclaimer.text' | translate"
+				[literals]="commonFormInput"></fpx-display-text>
+
+			<!-- <app-request-date-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('propInstDate')"
+				label="{{ 'RetailLoanModification.propInstDate.label' | translate }}" formControlName="propInstDate"
+				[minDate]="state.propInstDate.minDate"
+				[maxDate]="state.propInstDate.maxDate"></app-request-date-control> -->
+
+			<!-- <app-file-upload-control-component class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('fileUpload')"
+				label="{{ 'RetailLoanModification.fileUpload.label' | translate }}" formControlName="fileUpload"
+				placeholder="{{
+          'RetailLoanModification.fileUpload.placeholder' | translate
+        }}" [minSize]="state.fileUpload.minSize" [maxSize]="state.fileUpload.maxSize"
+				[extensions]="state.fileUpload.extensions"></app-file-upload-control-component> -->
+
+			<app-loan-reason-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('remarks')"
+				label="{{ 'RetailLoanModification.remarks.label' | translate }}"
+				formControlName="remarks"></app-loan-reason-control>
+		</box>
+
+		
+			<app-terms-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{ 'RetailLoanModification.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+		
+	</box>
+</form>

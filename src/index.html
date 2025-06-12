@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
+
+  <!-- <script src="https://global.oktacdn.com/okta-signin-widget/7.29.3/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/7.29.3/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/> -->
+<script type="text/javascript" src="https://op3static.oktacdn.com/assets/js/sdk/okta-signin-widget/5.16.1/js/okta-sign-in.min.js" integrity="sha384-a2yCLiNNwZ2BjqZF19qFKM2XWAuGKREPL8S3FckTr8+S4JDdpNqPehJUjVfNHf5a" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="https://op3static.oktacdn.com/assets/js/sdk/okta-signin-widget/5.16.1/css/okta-sign-in.min.css" integrity="sha384-zUHc/FFDFFmykbNkto+EZAzC503JijLI36H4ZzE1I0xMWpAiLBN67BcdwmLv1DJ8" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://op3static.oktacdn.com/assets/loginpage/css/custom-signin.a91af2abfd04662e499bd3e151150dbf.css" integrity="sha384-BhMidK4jYIQaVFKNVHUvbfdgrt4NVlnlTZMsOMWLdWkme3j1JcshKDNQiMssd7sN" crossorigin="anonymous">
+<script src="https://op3static.oktacdn.com/assets/js/mvc/loginpage/initLoginPage.pack.58de3be0c9b511a0fdfd7ea4f69b56fc.js" integrity="sha384-cJ4LGViZBmIttMPH+ao2RyPuN5BztKWYWIa4smbm56r1cUhkU/Dr6vTS3UoPbKTI" crossorigin="anonymous"></script>
+  
+  <title>Vancouver City Savings Credit Union</title>
+  <base href="/">
+  <link id="favicon" rel="icon" type="image/x-icon" href="fav.ico">
+  
+  <meta http-equiv="Cache-Control" content="no-cache, no-store">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+</head>
+<body id="depAppBody">
+  <span id="depWebTitle" style="display: none;"></span>
+  <app-root></app-root>
+  <script>
+    function iabPostMessage() {
+      console.log("hello")
+      if(sessionStorage.getItem('username')) {
+        var claim = {
+          claimsObtained: true,
+          accessToken: sessionStorage.getItem('access_token'),
+          idToken: sessionStorage.getItem('id_token'),
+          refreshToken: sessionStorage.getItem('refreshToken'),
+          nonce: sessionStorage.getItem('nonce'),
+          state: sessionStorage.getItem('state'),
+          userId: sessionStorage.getItem('username'),
+          customerCode: sessionStorage.getItem('customerCode')
+        }
+        sessionStorage.clear();
+        localStorage.clear();
+        return claim;
+        // return "accessToken=sessionStorage.getItem('access_token')&\
+        //         idToken=sessionStorage.getItem('id_token')&\
+        //         refreshToken=sessionStorage.getItem('refreshToken')&\
+        //         nonce=sessionStorage.getItem('nonce')&\
+        //         state=sessionStorage.getItem('state')&";
+      } else if(sessionStorage.getItem("access_token")) {
+        return { isAccessTokenObtained: true }
+      }
+      return undefined;
+    }
+  </script>
+</body>
+</html>

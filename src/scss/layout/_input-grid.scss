@@ -1,0 +1,95 @@
+$widthpoints: (
+  5: 0 0 5%,
+  10: 0 0 10%,
+  15: 0 0 15%,
+  20: 0 0 20%,
+  25: 0 0 25%,
+  30: 0 0 30%,
+  35: 0 0 35%,
+  40: 0 0 40%,
+  45: 0 0 45%,
+  50: 0 0 50%,
+  55: 0 0 55%,
+  60: 0 0 60%,
+  65: 0 0 65%,
+  70: 0 0 70%,
+  75: 0 0 75%,
+  80: 0 0 80%,
+  85: 0 0 85%,
+  90: 0 0 90%,
+  95: 0 0 95%,
+);
+
+.input-grid-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #23282C;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.input-grid {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  align-items: center;
+  .input-grid-row {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    .input-grid-row-item {
+      display: flex;
+      flex-flow: row nowrap;
+      flex-shrink: 0;
+      flex-grow: 0;
+      padding: 0px 12px;
+      word-break: break-word;
+      align-items: center;
+      > :first-child {
+        width: 100%;
+      }
+      .index {
+        font-size: 13px;
+        color: #555555;
+        line-height: 18px;
+      }
+      .fpx-field-content {
+        margin-top: 0px !important;
+        textarea,
+        input,
+        mat-select {
+          height: 23px !important;
+        }
+      }
+    }
+    .input-grid-row-item:not(:last-child) {
+      border-right: 1px solid #ddd;
+    }
+    @each $key, $value in $widthpoints {
+      .col-#{$key} {
+        flex: $value;
+      }
+    }
+  }
+  .input-grid-header {
+    text-align: center;
+    align-items: center;
+    color: #555555;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 18px;
+    background-color: #f7f7f7;
+    .input-grid-row-item {
+      padding: 12px;
+    }
+  }
+  .input-grid-row:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+  }
+}

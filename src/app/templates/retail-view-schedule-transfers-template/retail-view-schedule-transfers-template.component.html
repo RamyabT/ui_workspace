@@ -1,0 +1,57 @@
+<box class="task-item" id="row_data_{{ index }}">
+
+    <box class="task-detail-item" (click)="editBill($event, selectedData)">
+
+        <box class="transaction-list-item-inner">
+            <box class="transaction-icon-wrapper">
+                <box class="transaction-icon">
+                    <span class="transaction-icon-bg" [ngClass]="{
+                        'own-account': selectedData.serviceCode == 'RETAILSCHOAT', 
+                        'other-account': selectedData.serviceCode !== 'RETAILSCHOAT'
+                    }"></span>
+                </box>
+            </box>
+            <box class="transaction-info">
+                <box *ngIf="!_device.isMobile()" class="name">{{ selectedData?.serviceCode ==='RETAILSCHINTBT' ? maskCreditAccountNumber(selectedData.creditAccountNumber) : selectedData?.beneficiaryName }}</box>
+
+                <box *ngIf="_device.isMobile()" class="name-wrapper">
+                    <box class="name">{{ selectedData?.serviceCode === 'RETAILSCHINTBT' ? maskCreditAccountNumber(selectedData?.creditAccountNumber) : selectedData?.beneficiaryName }}</box>
+                    <span class="transfer-type">
+                        {{getScheduleType(selectedData.scheduleType)}}
+                    </span>
+                </box>
+                
+                <ng-container *ngIf="selectedData.paymentCurrency != this._appConfig.baseCurrency else baseCurrency">
+                    <box class="type-amount-wrapper">
+                        <span *ngIf="!_device.isMobile()" class="transfer-type">
+                            {{getScheduleType(selectedData.scheduleType)}}
+                        </span>
+
+                        <span class="amount">
+                            <em class="usd">{{ 'SUFFIXCURRENCY' | currencyCode }}</em>
+                            {{ getAbsoluteValue(selectedData.paymentAmount) | currency : _appConfig.baseCurrency : '' }}
+                            <em> -{{selectedData.paymentCurrency == 'USD' ? '$' : selectedData.paymentCurrency |
+                                currencyCode }}</em>
+                            {{checkNegativeValue(selectedData.paymentAmount)}}
+                        </span>
+                    </box>
+                </ng-container>
+                <ng-template #baseCurrency>
+                    <box class="type-amount-wrapper">
+                        <span *ngIf="!_device.isMobile()" class="transfer-type">
+                            {{getScheduleType(selectedData.scheduleType)}}
+                        </span>
+
+                        <span class="amount">
+                            {{getAbsoluteValue(selectedData.paymentAmount)| currency : selectedData.paymentCurrency:
+                            ''}}
+                            <em>-{{selectedData.paymentCurrency | currencyCode}}</em>
+                            {{checkNegativeValue(selectedData.paymentAmount)}}
+                        </span>
+                    </box>
+                </ng-template>
+            </box>
+        </box>
+
+    </box>
+</box>

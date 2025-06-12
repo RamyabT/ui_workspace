@@ -1,0 +1,27 @@
+"RetailRpContributionreqForm":{
+"title":"RpContributionReq",
+		 "debitAccount": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "creditAccount": {
+		  "label":"Account Number" ,
+		  "placeholder": "Account Number"
+		  } ,
+		 "debitAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "creditAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "charges": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } 
+}

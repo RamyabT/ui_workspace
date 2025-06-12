@@ -1,0 +1,5 @@
+ 
+ "RETAILPCDETAILS" : {
+ "servicePath": ["entry-shell","prepaidcard", "retail-pc-details-form"],
+ "queryParams": {}
+ }

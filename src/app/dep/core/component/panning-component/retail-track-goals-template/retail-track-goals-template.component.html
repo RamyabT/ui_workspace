@@ -1,0 +1,69 @@
+<div class="task-item" id="row_data_{{ index }}">
+    <div *ngIf="_device.isMobile()" class="task-action task-action-left">
+        <button  (click)="deleteGoal(selectedData)" type="button" class="button-task-action system-ico-button button-delete">
+            <span>Delete</span>
+        </button>
+    </div>
+
+    <div class="task-detail-item" (swipeleft)="_device.isMobile()?swipeLeftHandler($event):null"
+        (swiperight)="_device.isMobile()?swipeRightHandler($event):null"
+        (panstart)="_device.isMobile()?panStartHandler($event):null"
+        (panend)="_device.isMobile()?panEndHandler($event):null"
+        (panleft)="_device.isMobile()?panLeftHandler($event):null"
+        (panright)="_device.isMobile()?panRightHandler($event):null"
+        (touchstart)="_device.isMobile()?touchStartHandler($event):null">
+
+        <box class="goals-item">
+            <box class="primary-info">
+              <box class="goal-category">
+                <box class="goal-icon">
+              <img src="./assets/pfm/goal.svg" alt="Track goal" />
+                </box>
+                <box class="goal-desc">{{selectedData.goalName}}</box>
+              </box>
+              <box class="pending-duration">{{getDaysDifference(selectedData)}}d
+              <img src="./assets/pfm/duration.svg" alt="goal duration" />
+              </box>
+            </box>
+            <box class="secondary-info">
+              <box class="goal-summary">
+                <box class="accrued-amount curr-amount">
+                    <span class="amount">{{selectedData.accruedAmount}}</span>
+                    <span class="currency">{{_appConfig.getBaseCurrency()}}</span>
+                </box>
+                <box class="goal-amount curr-amount">
+                    <span class="amount">{{selectedData.goalAmount}}</span>
+                    <span class="currency">{{_appConfig.getBaseCurrency()}}</span>
+                </box>
+              </box>
+              <box class="goal-progress">
+                <span class="track">
+                    <span class="fill" [style.width.%]="(selectedData.percent)"
+                    [ngClass]="{'start': (selectedData.percent >= 0 && selectedData.percent <= 25), 'ongoing':(selectedData.percent>25 && selectedData.percent<=75),'almost':selectedData.percent>75 }">&nbsp;</span>
+                </span>
+            </box>
+              <box class="goal-summary">
+                    <box class="rem-balance">
+                        <span class="text">Remaining balance - </span>
+                        <span class="curr-amount">
+                            <span class="amount">{{selectedData.goalAmount - selectedData.accruedAmount}}</span>
+                            <span class="currency">{{_appConfig.getBaseCurrency()}}</span>
+                        </span>
+                    </box>
+                <box class="frequency">{{selectedData.frequencyDescription}}</box>
+              </box>
+            </box>
+        </box>
+    </div>
+
+    <div class="task-action task-action-right">
+      <ng-container *ngIf="!_device.isMobile()">
+        <button  (click)="deleteGoal(selectedData)" type="button" class="button-task-action system-ico-button button-delete">
+          <span>Delete</span>
+      </button>
+      </ng-container>
+        <button  (click)="editGoal(selectedData)" type="button" class="button-task-action system-ico-button button-edit">
+            <span>Edit</span>
+        </button>
+    </div>
+</div>

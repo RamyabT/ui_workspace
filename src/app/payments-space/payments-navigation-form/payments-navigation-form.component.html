@@ -1,0 +1,15 @@
+<form [formGroup]="formGroup" autocomplete="off" formName="casa-navigation-form" class="casa-navigation-form">
+    <box *ngIf="contextMenu.length>0" class="entry-form border-top-bottom">
+        <app-payments-quick-actions [resetActiveMenu]="state.resetActiveMenu" class="col-12 widget quick-link"></app-payments-quick-actions>
+        <!-- <box *ngIf="!_helper.appConstant.requiredAccountsSpaceNavigation">
+            <box class="notes">
+                {{ 'PAYMENTSCONTAINER.notes' | translate }}
+            </box>
+        </box> -->
+        <!-- <app-casa-acc-dtl-list-tmplt [payFromLabel]="'Paying From'" [showViewAll]="_helper.showViewAll" class="casaAccountDtlListTmplt bills" [selectedData]="state.selectedAccount"
+            (onClickingViewAll)="_helper.openCasaAccountsLists()" (preferredAccount)="_helper.preferredAccountChange($event)"></app-casa-acc-dtl-list-tmplt> -->
+        <!-- <app-casa-context-menu [resetActiveMenu]="state.resetActiveMenu" class="col-12 widget quick-link"
+            [highlightMenu]="highlightMenu" [accountNumber]="state.accountNumber"></app-casa-context-menu> -->
+    </box>
+</form>
+

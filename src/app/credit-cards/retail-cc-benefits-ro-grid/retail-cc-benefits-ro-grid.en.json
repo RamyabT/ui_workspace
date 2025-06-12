@@ -1,0 +1,11 @@
+"ccBenefitsInfo": {
+	"title": "Benefits",
+	"benefitDescription": {
+		"label": "Description",
+		"placeholder": "Description"
+	},
+	"benefitId": {
+		"label": "Product Category",
+		"placeholder": "Product Category"
+	}
+}

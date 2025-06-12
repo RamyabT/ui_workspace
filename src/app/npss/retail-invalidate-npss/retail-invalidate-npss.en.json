@@ -1,0 +1,10 @@
+"RetailInvalidNpss":{
+"title":"Invalidate NPSS",
+		 "termsFlag": {
+		  "label":"Terms & Conditions" ,
+		  "placeholder": "Terms & Conditions"
+		  } ,
+		 "FieldId_1": {
+		   "text":"Sample Text"
+		 } 
+}

@@ -1,0 +1,64 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="retailDownloadTransactionForm" >
+	   
+	 <box class="entry-form">
+		<box class="grid entry-form-field-group">
+	      
+			  <app-range-type-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('transactionPeriod')"     label="{{'retailDownloadTransactionForm.transactionPeriod.label' | translate }}"   formControlName="transactionPeriod" 
+     ></app-range-type-control>
+	     
+	      
+			  <app-request-date-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('fromDate')"     label="{{'retailDownloadTransactionForm.fromDate.label' | translate }}"   formControlName="fromDate" 
+   [minDate]="state.fromDate.minDate"   [maxDate]="state.fromDate.maxDate"  ></app-request-date-control>
+	     
+	      
+			  <app-request-date-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('toDate')"     label="{{'retailDownloadTransactionForm.toDate.label' | translate }}"   formControlName="toDate" 
+   [minDate]="state.toDate.minDate"   [maxDate]="state.toDate.maxDate"  ></app-request-date-control>
+	     
+	      
+			  <app-beneficiary-name-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('beneficiaryName')"     label="{{'retailDownloadTransactionForm.beneficiaryName.label' | translate }}"   formControlName="beneficiaryName" 
+   ></app-beneficiary-name-control>
+	     
+	      
+			  <!-- <app-transaction-ref-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('transactionReference')"     label="{{'retailDownloadTransactionForm.transactionReference.label' | translate }}"   formControlName="transactionReference" 
+   ></app-transaction-ref-control> -->
+
+   <!-- <app-bene-bank-name-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('beneficiaryBank')"
+        label="{{
+          'RetailFilterTransaction.beneficiaryBank.label' | translate
+        }}"
+        formControlName="beneficiaryBank"
+      >
+      </app-bene-bank-name-control> -->
+
+      <app-tran-amount-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('paymentAmount')"
+        label="{{ 'RetailFilterTransaction.paymentAmount.label' | translate }}"
+        formControlName="paymentAmount"
+      >
+      </app-tran-amount-control>
+
+      <app-transfers-type-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('transferType')"     label="{{'RetailFilterTransaction.transferType.label' | translate }}"   formControlName="transferType" 
+     >
+</app-transfers-type-control>
+
+      <!-- <app-allpurpose-list-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('purpose')"     label="{{'RetailFilterTransaction.purpose.label' | translate }}"   formControlName="purpose" 
+      >
+   </app-allpurpose-list-control> -->
+
+        <app-file-format-control  class="col-sm-12 col-md-6 col-lg-6"   [actionPublisher]="actionMap$.get('fileFormat')"     label="{{'retailDownloadTransactionForm.fileFormat.label' | translate }}"   formControlName="fileFormat" 
+     >
+</app-file-format-control>
+
+   <box class="form-action-container">
+	<fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('download')" label="Download"
+		btnClass=" btn-primary" [buttonMode]="'button'"
+    [disable]="!formGroup.valid"
+		(click)="retailDownloadTransactionFormHelper.onDownloadClick(null)"></fpx-button>
+</box>
+	    </box> 
+	 </box>
+	</form>
+	

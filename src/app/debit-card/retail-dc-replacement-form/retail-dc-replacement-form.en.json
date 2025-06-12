@@ -1,0 +1,43 @@
+"retaildcreplacement":{
+"title":"Retail Debit Card Replacement",
+		 "cardReference": {
+		  "label":"Debit Card" ,
+		  "placeholder": "Debit Card"
+		  } ,
+		 "deliveryOption": {
+		  "label":"Delivery Option" ,
+		  "placeholder": "Delivery Option"
+		  } ,
+		 "dlvryBranch": {
+		  "label":"Delivery Branch" ,
+		  "placeholder": "Delivery Branch"
+		  } ,
+		 "authPersonName": {
+		  "label":"Auth Person Name" ,
+		  "placeholder": "Auth Person Name"
+		  } ,
+		 "authPersonId": {
+		  "label":"Auth Person Id" ,
+		  "placeholder": "Auth Person Id"
+		  } ,
+		 "reason": {
+		  "label":"Reason" ,
+		  "placeholder": "Reason"
+		  } ,
+		  "otherReason": {
+			"label":"Other Reason" ,
+			"placeholder": "Other Reason"
+			} ,
+		 "termsFlag": {
+		  "label":"I hereby agree with the terms and conditions and key facts statements." ,
+		  "placeholder": "Placeholder"
+		  } ,
+		  "charges":{
+			"label":"Charges",
+			"placeholder":"Charges"
+		  },
+		  "remarks":{
+			"label":"Remarks",
+			"placeholder":"Remarks"
+		  }
+}

@@ -1,0 +1,19 @@
+<form [formGroup]="formGroup" formName="childreqnotification">
+	<ng-container formArrayName="formArray">
+		<ng-container *ngFor="let control of formArray.controls; let i = index; let last = last"
+			formGroupName="{{ i }}">
+			<box class="input-grid-row notifCon">
+				<box class="input-grid-row-item" [actionPublisher]="actionMap$[i].get('notificationDesc_column')"
+					[style.width]="columnWidth[0]+'%'">
+					<app-name-control [actionPublisher]="actionMap$[i].get('notificationDesc')"
+						formControlName="notificationDesc"></app-name-control>
+				</box>
+				<box class="input-grid-row-item" [actionPublisher]="actionMap$[i].get('notificationEnabled_column')"
+					[style.width]="columnWidth[1]+'%'">
+					<fpx-switch [actionPublisher]="actionMap$[i].get('notificationEnabled')"
+						formControlName="notificationEnabled"></fpx-switch>
+				</box>
+			</box>
+		</ng-container>
+	</ng-container>
+</form>

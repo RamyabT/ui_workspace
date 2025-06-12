@@ -1,0 +1,99 @@
+<box class="module-home npss-home" #spaceHome>
+    <ng-container *ngIf="_device.isMobile(); else spaceContainer">
+        <box class="module-home-bg" [style.top.px]="moduleHeaderTop"></box>
+        <box class="module-home-inner">
+            <fpx-display-text class="module-title" innerHTML="{{'NPSSCONTAINER.title' | translate}}"></fpx-display-text>
+            <ng-container *ngIf="npssDetails && npssDetails.status != 'NR'; else npssLoader">
+                <box class="recent-transactions-container">
+                    <app-npss-recent-transactions-widget></app-npss-recent-transactions-widget>
+                </box>
+                <box class="module-container">
+                    <ng-container *ngIf="npssDetails && npssDetails.status == 'I'; else npssActiveCustomer">
+                        <box class="npss-activate">
+                            <box class="npss-activate-img-wrapper">
+                                <img src="./assets/illustrations/npss/activate-npss.svg" alt="npss activate" />
+                            </box>
+                            <box class="npss-activate-details">
+                                <fpx-display-text class="npss-activate-msg"
+                                    innerHTML="{{ 'NPSSCONTAINER.activateDesc' | translate }}"></fpx-display-text>
+                            </box>
+                            <box class="btn-container">
+                                <fpx-button btnType="button" btnClass="primary"
+                                    label="{{ 'NPSSCONTAINER.activateBtnTxt' | translate }}"
+                                    (onClick)="activateNpss()"></fpx-button>
+                            </box>
+                        </box>
+                    </ng-container>
+    
+                    <ng-template #npssActiveCustomer>
+                        <app-npss-quick-actions></app-npss-quick-actions>
+                    </ng-template>
+                    <app-npss-fulfillment-queue></app-npss-fulfillment-queue>
+    
+                    <box class="offers-widget">
+                        <banner-ads [serviceCode]="'RETAILDASHBOARD'"></banner-ads>
+                    </box>
+                </box>
+            </ng-container>
+        </box>
+    </ng-container>
+
+    <ng-template #spaceContainer>
+        <box class="space-container">
+            <box class="space-summary">
+                <box class="widget balance-sheet">
+                    <header>
+                        <span class="widget-title">{{ 'OVERVIEW.balanceSheetTtl' | translate }}</span>
+                    </header>
+                    <balance-sheet></balance-sheet>
+                </box>
+                <ng-container *ngIf="npssDetails; else npssLoader">
+                    <box *ngIf="npssDetails && (npssDetails.status != 'NR' && npssDetails.status != 'I')" class="recent-transactions-container">
+                        <app-npss-recent-transactions-widget></app-npss-recent-transactions-widget>
+                        <app-npss-fulfillment-queue></app-npss-fulfillment-queue>
+                    </box>
+                    <box class="module-container">
+                        <box class="offers-widget">
+                            <banner-ads [serviceCode]="'RETAILDASHBOARD'"></banner-ads>
+                        </box>
+                    </box>
+                </ng-container>
+            </box>
+            <box class="space-content" [ngClass]="{'hide-close-btn': this.hideCloseBtn}">
+                <!-- <ng-container *ngIf="npssDetails; else npssLoader">
+                    <ng-container *ngIf="npssDetails && (npssDetails.status == 'NR' || npssDetails.status == 'I'); else npssActiveCustomer">
+                        <ng-container *ngIf="npssDetails.status == 'I'">
+                            <box class="npss-activate">
+                                <box class="npss-activate-img-wrapper">
+                                    <img src="./assets/illustrations/npss/activate-npss.svg" alt="npss activate" />
+                                </box>
+                                <box class="npss-activate-details">
+                                    <fpx-display-text class="npss-activate-msg"
+                                        innerHTML="{{ 'NPSSCONTAINER.activateDesc' | translate }}"></fpx-display-text>
+                                </box>
+                                <box class="btn-container">
+                                    <fpx-button btnType="button" btnClass="primary"
+                                        label="{{ 'NPSSCONTAINER.activateBtnTxt' | translate }}"
+                                        (onClick)="activateNpss()"></fpx-button>
+                                </box>
+                            </box>
+                        </ng-container>
+                    </ng-container>
+                </ng-container> -->
+                
+
+                    <!-- <ng-container *ngIf="isReceivedAccounts; else loader"> -->
+                        <box *ngIf="npssDetails && (npssDetails.status != 'I' && npssDetails.status != 'NR')" class="navigation-form-wrapper">
+                            <npss-navigation-form></npss-navigation-form>
+                        </box>
+                    <!-- </ng-container> -->
+                    <router-outlet></router-outlet>
+            </box>
+        </box>
+    </ng-template>
+</box>
+
+<!-- NPSS Loader -->
+<ng-template #npssLoader>
+	<box class="loading"></box>
+</ng-template>

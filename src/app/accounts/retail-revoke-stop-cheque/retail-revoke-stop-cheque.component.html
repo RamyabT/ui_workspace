@@ -1,0 +1,187 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailRevokeStopCheque">
+
+	<box class="entry-form desktop-entry-form review-form"
+		[ngClass]="{'review-form': _helper.formMode == 'VIEW' || this.state.review}">
+		<box class="grid entry-form-field-group col-lg-12">
+			<box class="auto-deposit-msg-box stop-cheque-disclaimer"
+				*ngIf="!_helper._device.isMobile() || (_helper._device.isMobile()&& !this.state.review)">
+				<box class="auto-deposit-msg-bg hint">
+					<span class="auto-deposit-msg-icon">
+					</span>
+				</box>
+				<box class="declineNote">
+					<span>{{'RetailStopChequeRequestForm.stop-cheque-disclaimer.label' | translate }}</span>
+				</box>
+				<box class="auto-deposit-msg-bg">
+					<a class='link' href='https://www.vancity.com/contact-us/' target="_blank"><span class="auto-deposit-msg-icon-nav">
+						</span></a>
+				</box>
+			</box>
+			<box class="line" *ngIf="this.state.review && !_helper._device.isMobile()"></box>
+			<box *ngIf="_helper._device.isMobile()" class="payee-info-header">
+				<div *ngIf="_helper.formMode != 'VIEW'" class="review-header">{{'reviewForm.title' | translate}}</div>
+				<div *ngIf="this.state.review" class="review-text">{{'reviewForm.revokeChequeTxt' | translate}}</div>
+			</box>
+			<box *ngIf="!_helper._device.isMobile() && this.state.review" class="payee-info-header">
+				<span class="review-header review-title">{{'reviewForm.title' | translate}}</span>
+				<span class="review-text">{{'reviewForm.revokeChequeTxt' | translate}}</span>
+			</box>
+			<box *ngIf="!_helper._device.isMobile()" class="biller-group fields-wrapper-group">
+
+				<box class="fields-wrapper">
+					<box class="left-container">
+						<box class="left-container-header">Cheque details</box>
+					</box>
+					<box class="right-container">
+
+						<!-- <app-account-number-list-control *ngIf="!this.state.review" class="col-sm-12 col-md-6 col-lg-12"
+							[actionPublisher]="actionMap$.get('accountNumber')"
+							label="{{'RetailRevokeStopCheque.accountNumber.label' | translate }}"
+							formControlName="accountNumber"></app-account-number-list-control> -->
+						<box class="account-number-wrapper" *ngIf="!this.state.review">
+							<box class="account-name">{{this.state.accountName}}</box>
+							<box class="account-number">{{this.state.accountNumber}}</box>
+						</box>
+						<div class="display-field fpx-form-control col-lg-12" *ngIf="this.state.review">
+							<span class="label">{{'RetailRevokeStopCheque.accountNumber.label' | translate
+								}}</span>
+							<span class="value">{{ this.state.accountName }}
+							</span>
+						</div>
+
+
+						<app-cheque-account-number-control class="col-sm-12 col-md-6 col-lg-12"
+							[actionPublisher]="actionMap$.get('chequeNumber')"
+							label="{{'RetailRevokeStopCheque.chequeNumber.label' | translate }}"
+							formControlName="chequeNumber"></app-cheque-account-number-control>
+						<!-- <app-cheque-account-number-control class="col-sm-12 col-md-6 col-lg-12"
+							[actionPublisher]="actionMap$.get('fromChequeNumber')"
+							label="{{'RetailRevokeStopCheque.fromChequeNumber.label' | translate }}"
+							formControlName="fromChequeNumber"></app-cheque-account-number-control>
+						<app-cheque-account-number-control class="col-sm-12 col-md-6 col-lg-12"
+							[actionPublisher]="actionMap$.get('toChequeNumber')"
+							label="{{'RetailRevokeStopCheque.toChequeNumber.label' | translate }}"
+							formControlName="toChequeNumber"></app-cheque-account-number-control> -->
+
+						<app-payee-control class="col-sm-12 col-md-6 col-lg-12"
+							[actionPublisher]="actionMap$.get('payeeName')"
+							label="{{'RetailRevokeStopCheque.payeeName.label' | translate }}"
+							formControlName="payeeName"></app-payee-control>
+						<!-- <app-stopchequereason-list-control class="col-sm-12 col-md-6 col-lg-12"
+							[hidden]="this.state.review" [actionPublisher]="actionMap$.get('reason')"
+							label="{{'RetailRevokeStopCheque.reason.label' | translate }}"
+							formControlName="reason"></app-stopchequereason-list-control> -->
+
+							<div class="display-field fpx-form-control col-lg-12">
+								<span class="label">{{'RetailRevokeStopCheque.reason.label' | translate }}</span>
+								<span class="value">
+									{{this.state.stopChequeReasons}}
+								</span>
+							</div>
+
+						<app-stop-date-control class="col-sm-12 col-md-6 col-lg-12"
+							[actionPublisher]="actionMap$.get('stopDate')"
+							label="{{'RetailRevokeStopCheque.stopDate.label' | translate }}" formControlName="stopDate"
+							[minDate]="state.stopDate.minDate"
+							[maxDate]="state.stopDate.maxDate"></app-stop-date-control>
+
+
+						<!-- <app-chequeamount-control class="col-sm-12 col-md-6 col-lg-12"
+							[actionPublisher]="actionMap$.get('chequeAmount')"
+							label="{{'RetailRevokeStopCheque.chequeAmount.label' | translate }}"
+							formControlName="chequeAmount"
+							placeholder="{{'RetailRevokeStopCheque.chequeAmount.placeholder' | translate }}"
+							[CurrencyList]="state.chequeAmount.CurrencyList"
+							[isCurrEditable]="state.chequeAmount.isCurrEditable"
+							[defaultFetch]="state.chequeAmount.defaultFetch"
+							[initCurrency]="state.chequeAmount.initCurrency"
+							[amountInWords]="state.chequeAmount.amountInWords"> ></app-chequeamount-control> -->
+
+						<div class="display-field fpx-form-control col-lg-12" *ngIf="this.state.ischequeAmountEnabled">
+							<span class="label">{{'RetailRevokeStopCheque.chequeAmount.label' | translate }}</span>
+							<span class="value"><em>{{ this.formGroup.get('chequeAmount')?.value?.currencyCode |
+									currencyCode }}</em>
+								{{ this.formGroup.get('chequeAmount')?.value?.amount | currency :
+								this.formGroup.get('chequeAmount')?.value?.currencyCode : '' }}
+							</span>
+						</div>
+
+						<!-- <div class="display-field fpx-form-control col-lg-12">
+							<span class="label">{{'RetailRevokeStopCheque.chargesAmount.label' | translate }}</span>
+							<span class="value"><em>{{ this.formGroup.get('chargesAmount')?.value?.currencyCode |
+									currencyCode }}</em>
+								{{ this.formGroup.get('chargesAmount')?.value?.amount | currency :
+								this.formGroup.get('chargesAmount')?.value?.currencyCode : '' }}
+							</span>
+						</div> -->
+
+					</box>
+				</box>
+			</box>
+			<!-- <app-account-number-list-control *ngIf="_helper._device.isMobile() && !this.state.review"
+				class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('accountNumber')"
+				label="{{'RetailRevokeStopCheque.accountNumber.label' | translate }}"
+				formControlName="accountNumber"></app-account-number-list-control> -->
+
+			<box class="account-number-wrapper" *ngIf="_helper._device.isMobile() && !this.state.review">
+				<box class="account-name">{{this.state.accountName}}</box>
+				<box class="account-number">{{this.state.accountNumber}}</box>
+			</box>
+			<div class="display-field fpx-form-control col-lg-12"
+				*ngIf="_helper._device.isMobile() && this.state.review">
+				<span class="label">{{'RetailRevokeStopCheque.accountNumber.label' | translate
+					}}</span>
+				<span class="value">{{ this.state.accountName }}
+				</span>
+			</div>
+
+
+			<app-cheque-account-number-control *ngIf="_helper._device.isMobile()" class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('chequeNumber')"
+				label="{{'RetailRevokeStopCheque.chequeNumber.label' | translate }}"
+				formControlName="chequeNumber"></app-cheque-account-number-control>
+
+			<app-payee-control *ngIf="_helper._device.isMobile()" class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('payeeName')"
+				label="{{'RetailRevokeStopCheque.payeeName.label' | translate }}"
+				formControlName="payeeName"></app-payee-control>
+			<!-- <app-stopchequereason-list-control *ngIf="_helper._device.isMobile() && !this.state.review"
+				class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('reason')"
+				label="{{'RetailRevokeStopCheque.reason.label' | translate }}"
+				formControlName="reason"></app-stopchequereason-list-control> -->
+
+			<div class="display-field fpx-form-control col-lg-12 stop-cheque-reason"
+				*ngIf=" _helper._device.isMobile() && this.state.review">
+				<span class="label">{{'RetailStopChequeRequestForm.reason.label' | translate }}</span>
+				<span class="value">
+					{{this.state.stopChequeReasons}}
+				</span>
+			</div>
+
+			<app-stop-date-control *ngIf="_helper._device.isMobile()" class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('stopDate')"
+				label="{{'RetailRevokeStopCheque.stopDate.label' | translate }}" formControlName="stopDate"
+				[minDate]="state.stopDate.minDate" [maxDate]="state.stopDate.maxDate"></app-stop-date-control>
+
+			<div class="display-field fpx-form-control col-lg-12"
+				*ngIf="this.state.ischequeAmountEnabled && _helper._device.isMobile()">
+				<span class="label">{{'RetailRevokeStopCheque.chequeAmount.label' | translate }}</span>
+				<span class="value"><em>{{ this.formGroup.get('chequeAmount')?.value?.currencyCode |
+						currencyCode }}</em>
+					{{ this.formGroup.get('chequeAmount')?.value?.amount | currency :
+					this.formGroup.get('chequeAmount')?.value?.currencyCode : '' }}
+				</span>
+			</div>
+
+			<!-- <div class="display-field fpx-form-control col-lg-12" *ngIf="_helper._device.isMobile()">
+				<span class="label">{{'RetailRevokeStopCheque.chargesAmount.label' | translate }}</span>
+				<span class="value"><em>{{ this.formGroup.get('chargesAmount')?.value?.currencyCode |
+						currencyCode }}</em>
+					{{ this.formGroup.get('chargesAmount')?.value?.amount | currency :
+					this.formGroup.get('chargesAmount')?.value?.currencyCode : '' }}
+				</span>
+			</div> -->
+
+		</box>
+	</box>
+</form>

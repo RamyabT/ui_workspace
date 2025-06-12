@@ -1,0 +1,46 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="CorpAddressDetailsForm" >
+	   
+	 <box class="entry-form">
+	     
+	      
+			  <app-address-control  class="col-md-4"   [actionPublisher]="actionMap$.get('addressType')"     label="{{'CorpAddressDetailsForm.addressType.label' | translate }}"   formControlName="addressType" 
+   ></app-address-control>
+	     
+	      
+			  <app-mobile-number-control  class="col-md-4"   [actionPublisher]="actionMap$.get('mobileNumber')"     label="{{'CorpAddressDetailsForm.mobileNumber.label' | translate }}"   formControlName="mobileNumber" 
+   ></app-mobile-number-control>
+	     
+	      
+			  <app-email-control  class="col-md-4"   [actionPublisher]="actionMap$.get('email')"     label="{{'CorpAddressDetailsForm.email.label' | translate }}"   formControlName="email" 
+   ></app-email-control>
+	     
+	      
+			  <app-country-list-control  class="col-md-4"   [actionPublisher]="actionMap$.get('country')"     label="{{'CorpAddressDetailsForm.country.label' | translate }}"   formControlName="country" 
+   ></app-country-list-control>
+	     
+	      
+			  <app-state-list-control  class="col-md-4"   [actionPublisher]="actionMap$.get('state')"     label="{{'CorpAddressDetailsForm.state.label' | translate }}"   formControlName="state" 
+			       [changePublisher]="formChangePublisher$"    	 
+					   
+					
+				 [dependencyField]="['country']"
+     ></app-state-list-control>
+	     
+	      
+			  <app-city-control  class="col-md-4"   [actionPublisher]="actionMap$.get('city')"     label="{{'CorpAddressDetailsForm.city.label' | translate }}"   formControlName="city" 
+   ></app-city-control>
+	     
+	      
+			  <app-zipcode-list-control  class="col-md-4"   [actionPublisher]="actionMap$.get('zipCode')"     label="{{'CorpAddressDetailsForm.zipCode.label' | translate }}"   formControlName="zipCode" 
+   ></app-zipcode-list-control>
+	     
+	      
+			  <!-- <app-building-id-control  class="col-md-4"   [actionPublisher]="actionMap$.get('buildingId')"     label="{{'CorpAddressDetailsForm.buildingId.label' | translate }}"   formControlName="buildingId" 
+   ></app-building-id-control> -->
+	     
+	      
+			  <app-building-name-control  class="col-md-4"   [actionPublisher]="actionMap$.get('buildingName')"     label="{{'CorpAddressDetailsForm.buildingName.label' | translate }}"   formControlName="buildingName" 
+   ></app-building-name-control>
+	 </box> 
+	</form>
+	

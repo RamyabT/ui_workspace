@@ -1,0 +1,36 @@
+"CobApplicantProfileForm":{
+"title":"Set credientials",
+		 "userName": {
+		  "label":"User Name" ,
+		  "placeholder": "User Name"
+		  } ,
+		 "password": {
+		  "label":"New Password" ,
+		  "placeholder": "New Password"
+		  } ,
+		 "confirmPassword": {
+		  "label":"Confirm Password" ,
+		  "placeholder": "Confirm Password"
+		  } ,
+		 "header": {
+		   "text":"Please enter a new User ID and password for your account"
+		 } ,
+		 "header1": {
+			"text":"(<span>*</span> Indicates mandatory)"
+		  } ,
+		 "sample1": {
+		   "text":"Must not be any 5 previously used password"
+		 } ,
+		 "sample2": {
+		   "text":"Must be between 8 to 32 characters"
+		 } ,
+		 "sample3": {
+		   "text":"Space not allowed"
+		 } ,
+		 "sample4": {
+		   "text":"Sequence in number and alphabet (1234 or abcd) is not allowed in password"
+		 } ,
+		 "sample5": {
+		   "text":"Must contain at least 1 number, 1 upper case, 1 lowercase, 1 special characters (!, $, #, ^ , @, &, %,*)"
+		 } 
+}

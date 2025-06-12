@@ -1,0 +1,18 @@
+"documentChecklist": {
+	"title": "COBDocumentChecklist",
+	"Document_Checklist_Image": {
+		"label": "Image",
+		"placeholder": "Placeholder"
+	},
+	"FieldId_4": {
+		"text": "<span>Hey there! Before we begin the process, let's make sure you have all the particulars required. </span>"
+	},
+	"FieldId_7": {
+		"label": "Important Notice",
+		"placeholder": "Important Notice"
+	},
+	"FieldId_10": {
+		"label": "To open an account, you must be at least 18 years old. ",
+		"placeholder": "To open an account, you must be at least 18 years old. "
+	}
+}

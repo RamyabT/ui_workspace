@@ -1,0 +1,186 @@
+<box class="bill-payments-header">
+	<box class="pay-bill-title">
+		<span> {{'billpaymentLabels.selectPayees' | translate}}</span>
+	</box>
+</box>
+
+
+<form [ngClass]="{'multi-bill-payments-container': _helper.multiBillSelection}" #entryForm [formGroup]="formGroup"
+	(ngSubmit)="submit()" autocomplete="off" formName="RetailMultiBillRequestForm">
+	<box [ngClass]="{'multi-bill': _helper.multiBillCount > 1}">
+		<ng-container *ngIf="_helper.billerAccountReceived else loader">
+			<ng-container *ngIf="_helper.billerAccountReceived.length > 0 else noBiller">
+
+				<box class="entry-form">
+					<box *ngIf="_helper.multiBillSelection" class="disclaimer-payment-container">
+
+						<box *ngIf="_helper.multiBillSelection" class="payments-disclaimer-wrapper">
+							<box class="transfer-form-disclaimer-wrapper">
+								<span class="disclaimer-icon"></span>
+								<span class="disclaimer-text">
+									{{ _helper.disclaimerText | translate }}
+								</span>
+							</box>
+
+							<box *ngIf="_helper.hideCOBDisclaimer"
+								class="transfer-form-disclaimer-wrapper cob-disclaimer-wrapper">
+								<span class="disclaimer-icon"></span>
+								<span class="disclaimer-text" [innerHTML]="_helper.COBDisclaimerText | translate">
+									<!-- {{ _helper.COBDisclaimerText | translate }} -->
+								</span>
+							</box>
+						</box>
+
+						<box class="pay-from-wrapper">
+							<span class="pay-from-label">{{'RetailSingleBillPaymentForm.payFromLabel' |
+								translate}}</span>
+
+							<box class="account-card-validation-wrapper">
+								<box class="account-card"
+									[ngClass]="{'disable-selection': _helper.hideFromAccountChangeBtn}"
+									(click)="!_helper.hideFromAccountChangeBtn && _helper.openAccountModal()">
+									<box class="account-header-wrapper">
+										<box class="account-header">
+											<h2>{{state.selectedAccount?.accountNickname ||
+												state.selectedAccount?.productDesc}}
+											</h2>
+											<p>{{state.selectedAccount?.accountTypeDesc ||
+												state.selectedAccount?.accountType }}
+												|
+												{{state.selectedAccount?.accountNumber | accountNumberTrim}}
+											</p>
+										</box>
+										<box *ngIf="!_helper.hideFromAccountChangeBtn"
+											class="view-account-icon-wrapper">
+											<span class="view-account-icon"></span>
+										</box>
+									</box>
+									<box class="account-status">
+										<span *ngIf=" state.selectedAccount?.ownership?.toLowerCase() == 'joint'"
+											class="joint">{{
+											'CASASUMMARYCARD.joint' | translate }}</span>
+										<span *ngIf="state.selectedAccount?.accountStatus?.toLowerCase() == 'dormant'"
+											class="dormant">{{'CASASUMMARYCARD.dormant' | translate }}</span>
+									</box>
+									<box class="account-details">
+										<p [ngClass]="{'show-default-account': state.selectedAccount?.preferredAccount}"
+											class="default-account-checkbox">
+											<mat-checkbox [checked]=" state.selectedAccount.preferredAccount">
+											</mat-checkbox>
+											{{'billpaymentLabels.defaultAccount' | translate}}</p>
+										<p class="balance amount">{{ _helper.getAbsoluteValue(state.selectedAccount?.availableBalance) | currency
+											:
+											state.selectedAccount?.accountCurrency : '' }} <em>{{
+												state.selectedAccount?.accountCurrency
+												|
+												currencyCode }}</em>
+												{{_helper.checkNegativeValue(state.selectedAccount?.availableBalance)}}
+												
+												</p>
+
+									</box>
+								</box>
+								<mat-error *ngIf="_helper.showInsufficientBalanceError"
+									class="insufficient-balance-error">
+									Your account doesn't have the sufficient funds to process this payment.
+								</mat-error>
+							</box>
+						</box>
+					</box>
+					<app-retail-multi-bill-request-input-grid [billerReceived]="_helper.billerAccountReceived"
+						class="col-lg-12 col-md-12" #RetailMultiBillRequestInputGrid
+						(commonGridEvent)="handleControlEvent($event)"
+						[actionPublisher]="actionMap$.get('multibillrequestdetail')"
+						label="RetailMultiBillRequestInputGrid" formControlName="multibillrequestdetail"
+						(showFooter)="showFooterSection($event)" [multiBillSelection]="_helper.multiBillSelection"
+						[formData]="formGroup.value"></app-retail-multi-bill-request-input-grid>
+
+
+
+					<box *ngIf="_helper.multiBillSelection && formGroup.valid"
+						class="total-pay-now-later-container col-lg-12 col-sm-12 col-md-12">
+						<box class="pay-now-later-wrapper">
+							<box class="pay-now-later-item">
+								<span class="pay-now-later-item-label">
+									{{'billpaymentLabels.payNow' | translate}}:
+								</span>
+								<span class="pay-now-later-item-value">
+									<em>{{ appConstant.baseCurrency | currencyCode}}</em>
+									{{formGroup.value.totalPayNowAmount | currency : appConstant.baseCurrency : '' }}
+								</span>
+							</box>
+
+							<!-- <box class="pay-now-later-item">
+								<span class="pay-now-later-item-label">
+									{{'billpaymentLabels.payLater' | translate}}:
+								</span>
+								<span class="pay-now-later-item-value">
+									<em>{{ appConstant.baseCurrency | currencyCode}}</em>
+									{{formGroup.value.totalPayLaterAmount | currency :
+									appConstant.baseCurrency : '' }}
+								</span>
+							</box> -->
+						</box>
+
+						<span class="total-pay-now-later-divider"></span>
+
+						<box class="total-wrapper">
+							<span class="total-label">
+								{{'billpaymentLabels.total' | translate}}:
+							</span>
+
+							<span class="total-value">
+								<em>{{ appConstant.baseCurrency | currencyCode}}</em>
+								{{formGroup.value.totalBillAmount| currency : appConstant.baseCurrency : '' }}
+							</span>
+						</box>
+					</box>
+				</box>
+
+				<div [hidden]="!showFooter" [style.width.px]="footerWidth" class="shell-footer">
+					<box class="total-container">
+						<span class="label">{{ 'RetailMultiBillRequestReviewGrid.total' | translate }}</span>
+						<span class="amount value">{{formGroup.get('totalBillAmount')?.value | currency :
+							appConstant.baseCurrency : '' }} <em>{{ appConstant.baseCurrency | currencyCode
+								}}</em></span>
+					</box>
+					<box class="actions">
+						<div class="btn-container">
+							<button class="btn-secondary" type="button" id="RESET" (click)="onCancelClick()">
+								{{'billpaymentLabels.cancel' | translate}}
+							</button>
+						</div>
+						<div class="btn-container stepper-btn-container">
+							<button type="button" class="btn-primary" [disabled]="formGroup.invalid"
+								(click)="_helper.goToConfirm()"> {{'billpaymentLabels.next' | translate}}
+							</button>
+						</div>
+					</box>
+
+				</div>
+			</ng-container>
+		</ng-container>
+	</box>
+
+</form>
+<ng-template #noBiller>
+	<box class="no-biller-container">
+		<img src="./assets/images/billers/no-payee.svg" alt="no-payee" srcset="">
+		<box class="description">
+			<box class="title">{{'billpaymentLabels.noBiller' | translate}}</box>
+			<box class="message">{{'billpaymentLabels.addPayeeText' | translate}}</box>
+		</box>
+		<div class="btn-container">
+			<button type="button" class="btn-primary" (click)="_helper.goToAddPayee()">
+				{{'billpaymentLabels.newAddPayee' | translate}}
+			</button>
+		</div>
+	</box>
+
+</ng-template>
+<ng-template #loader>
+	<box class="multi-bill-loader" [ngClass]="{'custom-multi-loader': _helper.showCustomLoader}">
+		<box class="loading casa-summary-loader"></box>
+		<box class="loading casa-summary-loader"></box>
+	</box>
+</ng-template>

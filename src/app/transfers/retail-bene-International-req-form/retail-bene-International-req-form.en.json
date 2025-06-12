@@ -1,0 +1,83 @@
+"RetailBeneInternationalReqForm": {
+	"title": "International Beneficiary",
+	"nickName": {
+	   "label": "Beneficiary Nickname",
+	   "placeholder": "Beneficiary Nickname"
+	},
+	"beneCountry": {
+	   "label": "Beneficiary Bank Country",
+	   "placeholder": "Beneficiary Bank Country"
+	},
+	"beneAccType": {
+	   "label": "Beneficiary Account Type",
+	   "placeholder": "Beneficiary Account Type"
+	},
+	"iban": {
+	   "label": "IBAN",
+	   "placeholder": "IBAN"
+	},
+	"currency": {
+	   "label": "Account Currency",
+	   "placeholder": "Account Currency"
+	},
+	"confirmIban": {
+	   "label": "Confirm IBAN",
+	   "placeholder": "Confirm IBAN"
+	},
+	"accountNumber": {
+	   "label": "Account Number",
+	   "placeholder": "Account Number"
+	},
+	"conAccNumber": {
+	   "label": "Confirm Account Number",
+	   "placeholder": "Confirm Account Number"
+	},
+	"beneficiaryName": {
+	   "label": "Beneficiary Name",
+	   "placeholder": "Beneficiary Name"
+	},
+	"bic": {
+	   "label": "Beneficiary Bank SWIFT/ BIC Code",
+	   "placeholder": "Beneficiary Bank SWIFT/ BIC Code"
+	},
+	"addressLine1": {
+	   "label": "Address Line 1",
+	   "placeholder": "Address Line 1"
+	},
+	"addressLine2": {
+	   "label": "Address Line 2",
+	   "placeholder": "Address Line 2"
+	},
+	"city": {
+	   "label": "Beneficiary City",
+	   "placeholder": "Beneficiary City"
+	},
+	"bankCountry": {
+	   "label": "Beneficiary Country",
+	   "placeholder": "Beneficiary Country"
+	},
+	"bankDescription": {
+	   "label": "Beneficiary Bank Name",
+	   "placeholder": "Beneficiary Bank Name"
+	},
+	"branchDescription": {
+	   "label": "Branch",
+	   "placeholder": "Branch"
+	},
+	"bankAddress": {
+	   "label": "Beneficiary Bank Address",
+	   "placeholder": "Beneficiary Bank Address"
+	},
+	"remarks": {
+	   "label": "Remarks",
+	   "placeholder": "Remarks"
+	},
+	"isFavourite": {
+	   "label": "Mark as Favourite",
+	   "placeholder": "Mark as Favourite"
+	},
+	"termsFlag": {
+	   "label": "By continuing you confirm and acknowledge the applicable Terms and Conditions. For all the applicable fees & Charges refer to <a href ='https://www.smartbank.com' target='_system' >www.smartbank.com</a>",
+	   "placeholder": "By continuing you confirm and acknowledge the applicable Terms and Conditions. For all the applicable fees & Charges refer to <a href ='https://www.smartbank.com' target='_system' >www.smartbank.com</a>"
+	}
+ }

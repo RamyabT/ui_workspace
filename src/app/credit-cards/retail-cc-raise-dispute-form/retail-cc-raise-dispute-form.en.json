@@ -1,0 +1,43 @@
+"ccraisedispute":{
+"title":"Retail Raised Disputed Creditcard",
+		 "cardRefNumber": {
+		  "label":"Card Reference" ,
+		  "placeholder": "Card Reference"
+		  } ,
+		 "cardHolderName": {
+		  "label":"Card Holder Name" ,
+		  "placeholder": "Card Holder Name"
+		  } ,
+		 "cardNumber": {
+		  "label":"Card Number" ,
+		  "placeholder": "Card Number"
+		  } ,
+		 "cardType": {
+		  "label":"Card Type" ,
+		  "placeholder": "Card Type"
+		  } ,
+		 "transactionDate": {
+		  "label":"Transaction Date" ,
+		  "placeholder": "Transaction Date"
+		  } ,
+		 "transactionAmount": {
+		  "label":"Transaction Amount" ,
+		  "placeholder": "Transaction Amount"
+		  } ,
+		 "reason": {
+		  "label":"Reason" ,
+		  "placeholder": "Reason"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } ,
+		 "terms": {
+		  "label":"I hereby agree with the terms and conditions" ,
+		  "placeholder": "I hereby agree with the terms and conditions"
+		  } ,
+		  "otherReason": {
+			"label":"Other Reason" ,
+			"placeholder": "Other Reason"
+			} 
+}

@@ -1,0 +1,43 @@
+"RetailFamilyPaymentForm":{
+"title":"RetailFamilyPayment",
+		 "childAccount": {
+		  "label":"Select a child account" ,
+		  "placeholder": "Select a child account"
+		  } ,
+		 "sourceAccount": {
+		  "label":"Debit From Account" ,
+		  "placeholder": "Debit From Account"
+		  } ,
+		 "purpose": {
+		  "label":"Purpose " ,
+		  "placeholder": "Purpose "
+		  } ,
+		 "paymentAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "scheduleType": {
+		  "label":"Payment Type" ,
+		  "placeholder": "Payment Type"
+		  } ,
+		 "paymentDate": {
+		  "label":"Start Date" ,
+		  "placeholder": "Start Date"
+		  } ,
+		 "paymentFrequency": {
+		  "label":"Frequency" ,
+		  "placeholder": "Frequency"
+		  } ,
+		 "numberOfPayments": {
+		  "label":"No. of Payments" ,
+		  "placeholder": "No. of Payments"
+		  } ,
+		 "endDate": {
+		  "label":"End Date" ,
+		  "placeholder": "End Date"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } 
+}

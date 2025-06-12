@@ -1,0 +1,5 @@
+ 
+ "RETAILCCDETAILS" : {
+ "servicePath": ["entry-shell","creditcard", "retail-creditcard-details-form"],
+ "queryParams": {}
+ }

@@ -1,0 +1,10 @@
+<box class="budget-product-card-carousel">
+    <ngx-slick-carousel class="budget-product-carousel" #slickModal="slick-carousel" [config]="slideConfig"
+        (afterChange)="onCardChanged($event)">
+        <ng-container *ngFor="let card of appConfig.getData('pfmCardSummary')">
+            <box ngxSlickItem class="slide" [style.width.px]="slideWidth">
+                <app-finance-summary-board (cardEventHandler)="onCardEventHandler($event)" [cardData]="card"></app-finance-summary-board>
+            </box>
+        </ng-container>
+    </ngx-slick-carousel>
+</box>

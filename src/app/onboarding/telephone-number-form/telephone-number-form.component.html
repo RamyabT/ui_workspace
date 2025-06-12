@@ -1,0 +1,25 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="telephonenumberform">
+
+	<box class="entry-form">
+
+
+		<!-- <app-ISOCode-control  class="col-sm-12 col-md-3 col-lg-3"   [actionPublisher]="actionMap$.get('iSOCode')"     label="{{'telephonenumberform.iSOCode.label' | translate }}"   formControlName="iSOCode" 
+   ></app-ISOCode-control> -->
+		<app-isocode-list-control class="col-sm-12 col-md-3 col-lg-3" 
+			[actionPublisher]="actionMap$.get('iSOCode')"
+			label="{{'telephonenumberform.iSOCode.label' | translate }}"
+			formControlName="iSOCode"></app-isocode-list-control>
+
+
+		<app-landline-number-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('landlineNumber')"
+			label="{{'telephonenumberform.landlineNumber.label' | translate }}"
+			formControlName="landlineNumber"></app-landline-number-control>
+
+
+		<app-extension-number-control class="col-sm-12 col-md-3 col-lg-3"
+			[actionPublisher]="actionMap$.get('extensionNumber')"
+			label="{{'telephonenumberform.extensionNumber.label' | translate }}"
+			formControlName="extensionNumber"></app-extension-number-control>
+	</box>
+</form>

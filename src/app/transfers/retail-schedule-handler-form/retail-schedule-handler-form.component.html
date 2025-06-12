@@ -1,0 +1,41 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailScheduleTransferHandler">
+
+	<box class="grid entry-form">
+
+
+		<app-frequency-control class="col-sm-12 col-md-6 col-lg-4"
+			[actionPublisher]="actionMap$.get('paymentFrequency')"
+			label="{{'RetailScheduleTransferHandler.paymentFrequency.label' | translate }}"
+			formControlName="paymentFrequency"></app-frequency-control>
+
+
+		<app-payment-days-interval class="col-sm-12 col-md-6 col-lg-4"
+			[actionPublisher]="actionMap$.get('paymentDaysInterval')"
+			label="{{'RetailScheduleTransferHandler.paymentDaysInterval.label' | translate }}"
+			formControlName="paymentDaysInterval">
+		</app-payment-days-interval>
+
+		<app-installment-number-control class="col-sm-12 col-md-6 col-lg-4"
+			[actionPublisher]="actionMap$.get('numberOfPayments')"
+			label="{{'RetailScheduleTransferHandler.numberOfPayments.label' | translate }}"
+			formControlName="numberOfPayments"></app-installment-number-control>
+
+
+		<!-- <box class="field-item" [actionPublisher]="actionMap$.get('numberOfPaymentsNote')">
+			<box class="info-field field-item disclaimer-container">
+				<fpx-display-text class="info-field-label" [innerHTML]="''"
+					[literals]="commonFormInput"></fpx-display-text>
+				<fpx-display-text class="info-field-value"
+					[innerHTML]="'RetailScheduleTransferHandler.numberOfPaymentsNote.text' | translate"
+					[literals]="commonFormInput"></fpx-display-text>
+			</box>
+		</box> -->
+
+
+		<box class="display-field col-lg-4">
+			<app-end-date-control class="col-sm-12 col-md-6 col-lg-4" [actionPublisher]="actionMap$.get('endDate')"
+				label="{{'RetailScheduleTransferHandler.endDate.label' | translate }}" formControlName="endDate"
+				[minDate]="state.endDate.minDate" [maxDate]="state.endDate.maxDate"></app-end-date-control>
+		</box>
+	</box>
+</form>

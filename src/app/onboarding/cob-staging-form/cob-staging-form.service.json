@@ -1,0 +1,5 @@
+ 
+ "COBSTAGING" : {
+ "servicePath": ["entry-shell","onboarding", "cob-staging-form"],
+ "queryParams": {}
+ }

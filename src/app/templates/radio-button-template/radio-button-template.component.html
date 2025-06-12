@@ -1,0 +1,5 @@
+<!-- Virtual Card Templete -->
+<ng-template let-selectedData #virtualCardTmplt [fpxControlTemplate]="'virtualCardTmplt'">
+    <img [src]="'data:image/png;base64,'+selectedData.image" [alt]="'Payment card'" class="virtual-card-radio">
+
+</ng-template>

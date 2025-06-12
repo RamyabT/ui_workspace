@@ -1,0 +1,42 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailupcomingBillSummaryExFilter">
+
+	<box class="entry-form">
+		<box class="grid entry-form-field-group">
+
+			<!-- <app-transaction-range-type-control class="col-sm-12 col-md-6 col-lg-12"
+				[actionPublisher]="actionMap$.get('transactionRangeType')"
+				label="{{'RetailupcomingBillSummaryExFilter.transactionRangeType.label' | translate }}"
+				formControlName="transactionRangeType"></app-transaction-range-type-control> -->
+			<app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('fromDate')"
+				label="{{'RetailupcomingBillSummaryExFilter.fromDate.label' | translate }}" formControlName="fromDate"
+				[minDate]="state.fromDate.minDate" [maxDate]="state.fromDate.maxDate"></app-request-date-control>
+
+
+			<app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('toDate')"
+				label="{{'RetailupcomingBillSummaryExFilter.toDate.label' | translate }}" formControlName="toDate"
+				[minDate]="state.toDate.minDate" [maxDate]="state.toDate.maxDate"></app-request-date-control>
+
+
+				<app-biller-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('billerId')"
+				label="{{'RetailupcomingBillSummaryExFilter.billerId.label' | translate }}" formControlName="billerId"
+				></app-biller-list-control>
+
+				<!-- <app-biller-list-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('billerName')"
+				label="{{'RetailupcomingBillSummaryExFilter.billerName.label' | translate }}" formControlName="billerName"
+				></app-biller-list-control> -->
+			<!-- <fpx-display-text id="billerId" class="col-sm-12 col-md-12 col-lg-12  billerId"
+				[innerHTML]="'RetailupcomingBillSummaryExFilter.billerId.text' | translate"
+				[literals]="commonFormInput"></fpx-display-text> -->
+
+
+				<box class="form-action-container">
+					<fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('Reset')" label="{{'DEFAULT.reset' | translate }}"
+						btnClass=" btn-secondary" [buttonMode]="'button'"
+						(onClick)="retailupcomingBillSummaryExFilterHelper.onResetClick(null)"></fpx-button>
+					<fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('view')" label="{{'DEFAULT.view' | translate }}"
+						btnClass=" btn-primary" [buttonMode]="'button'"
+						(onClick)="retailupcomingBillSummaryExFilterHelper.onViewClick(null)" [disable]="formGroup.invalid"></fpx-button>
+				</box>
+		</box>
+	</box>
+</form>

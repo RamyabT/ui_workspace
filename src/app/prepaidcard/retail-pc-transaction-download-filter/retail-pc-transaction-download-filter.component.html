@@ -1,0 +1,53 @@
+	<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailDcTransactionDownloadFilter" >
+	   
+		<box class="entry-form">
+			<box class="grid entry-form-field-group">
+	
+				<app-transaction-range-type-control class="col-sm-12 col-md-6 col-lg-12"
+					[actionPublisher]="actionMap$.get('transactionRangeType')"
+					label="{{'RetailDcTransactionDownloadFilter.transactionRangeType.label' | translate }}"
+					formControlName="transactionRangeType"></app-transaction-range-type-control>
+				<app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('fromDate')"
+					label="{{'RetailDcTransactionDownloadFilter.fromDate.label' | translate }}" formControlName="fromDate"
+					[minDate]="state.fromDate.minDate" [maxDate]="state.fromDate.maxDate"></app-request-date-control>
+	
+	
+				<app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('toDate')"
+					label="{{'RetailDcTransactionDownloadFilter.toDate.label' | translate }}" formControlName="toDate"
+					[minDate]="state.toDate.minDate" [maxDate]="state.toDate.maxDate"></app-request-date-control>
+
+					<fpx-display-text id="FieldId_5" class="col-sm-12 col-md-6 col-lg-12  FieldId_5"
+				[innerHTML]="'RetailDcTransactionDownloadFilter.FieldId_6.text' | translate"
+				[literals]="commonFormInput"></fpx-display-text>
+
+				<app-acc-number-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('transactionReference')"
+				label="{{'RetailDcTransactionDownloadFilter.transactionReference.label' | translate }}" formControlName="transactionReference"
+				></app-acc-number-control>
+	
+				<fpx-display-text id="FieldId_5" class="col-sm-12 col-md-12 col-lg-12  FieldId_5"
+					[innerHTML]="'RetailDcTransactionDownloadFilter.FieldId_5.text' | translate"
+					[literals]="commonFormInput"></fpx-display-text>
+	
+	
+				<fpx-amount class="col-sm-6 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('minAmount')"
+					label="{{'RetailDcTransactionDownloadFilter.minAmount.label' | translate }}" formControlName="minAmount"
+					></fpx-amount>
+	
+	
+				<fpx-amount class="col-sm-6 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('maximumAmount')"
+					label="{{'RetailDcTransactionDownloadFilter.maximumAmount.label' | translate }}"
+					formControlName="maximumAmount"
+					></fpx-amount>
+					<app-DcTransactionDownloadType-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('downloadFileFormat')"
+					label="{{'RetailDcTransactionDownloadFilter.downloadFileFormat.label' | translate }}"
+					formControlName="downloadFileFormat">
+				</app-DcTransactionDownloadType-control>
+				<box class="form-action-container">
+					<fpx-button class="col-xs-2" [actionPublisher]="actionMap$.get('download')" label="{{'casaTransactionInfo.download' | translate }}"
+					btnClass=" btn-primary" [buttonMode]="'button'"
+					(onClick)="_helper.onDownloadClick(null)" [disable]="formGroup.invalid"></fpx-button>
+				</box>
+			</box>
+		</box>
+	</form>
+	

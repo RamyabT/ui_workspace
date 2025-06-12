@@ -1,0 +1,47 @@
+"RetailLiabilityLetterForm":{
+"title":"liabilityLetter",
+		 "asonDate": {
+		  "label":"As on Date" ,
+		  "placeholder": "As on Date"
+		  } ,
+		 "addressedTo": {
+		  "label":"Addressed To" ,
+		  "placeholder": "Addressed To"
+		  } ,
+		 "serviceReqDeliveryOption": {
+		  "label":"Delivery Option" ,
+		  "placeholder": "Delivery Option"
+		  } ,
+		  "email": {
+            "label":" Email Id" ,
+            "placeholder": ""
+            } ,
+            "deliveryBranch": {
+                "label":"Delivery Branch" ,
+                "placeholder": ""
+                } ,
+		 "Reason": {
+		  "label":"Reason" ,
+		  "placeholder": "Reason"
+		  } ,
+		  "deliveryBranch": {
+			"label":"Delivery Branch" ,
+			"placeholder": ""
+			} ,
+		 "otherReason": {
+		  "label":"Other Reason" ,
+		  "placeholder": "Other Reason"
+		  } ,
+		  "chargesAmount": {
+			"label":"Charges Amount" ,
+			"placeholder": "Placeholder"
+			} ,
+		 "acknowledgement": {
+		  "label":"Kindly issue me a Liability Letter" ,
+		  "placeholder": "Consent Box"
+		  } ,
+		 "remarks": {
+		  "label":"Remarks" ,
+		  "placeholder": "Remarks"
+		  } 
+}

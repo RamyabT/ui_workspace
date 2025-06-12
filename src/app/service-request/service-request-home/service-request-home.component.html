@@ -1,0 +1,67 @@
+<box class="mail-box-container">
+  <box *ngIf="!_device.isMobile()" class="mail-box-header">
+    <box class="close-btn-container">
+      <button type="button" class="btn-container" (click)="close()">
+        <span class="icon close-btn-icon"></span>
+      </button>
+    </box>
+    <box class="title-wrapper">
+      <box class="title">
+        {{'MailBox.header' | translate}}
+      </box>
+    </box>
+    <box class="downlaod-btn-container">
+      <button type="button" class="btn-container" (click)="sendMsg()">
+        <span class="icon send-btn-icon"></span>
+        <span class="btn-text">{{'MailBox.sendMsg'| translate}}</span>
+      </button>
+    </box>
+  </box>
+
+  <box *ngIf="_device.isMobile()" class="send-btn-container">
+    <button type="button" class="btn-container" (click)="sendMsg()">
+      <span class="icon send-btn-icon"></span>
+      <span class="btn-text">{{'MailBox.sendMsg'| translate}}</span>
+    </button>
+  </box>
+
+  <ng-container>
+    <box class="space-summary mailbox-space-summary">
+      <box class="module-tab-container">
+        <mat-tab-group class="mail-box-main-tab" [(selectedIndex)]="activeTabIndex"
+          (selectedTabChange)="onTabChanged($event);">
+          <mat-tab label="{{'SERVICEREQUEST.mainTab.tab1' | translate }} ({{notificationsCount?.totalMessages || 0}})">
+            <!-- <ng-template matTabContent>
+
+              <ng-container>
+                <app-retail-view-service-request-form [displayTab]="'messages'"></app-retail-view-service-request-form>
+              </ng-container>
+
+
+            </ng-template> -->
+          </mat-tab>
+
+          <mat-tab label="{{'SERVICEREQUEST.mainTab.tab2' | translate }} ({{notificationsCount?.totalNotifications || 0}})">
+            <!-- <ng-template matTabContent>
+
+              <ng-container>
+                <app-retail-view-service-request-form [displayTab]="'notifications'"></app-retail-view-service-request-form>
+              </ng-container>
+
+              <box class="tab-content">
+                <img src="./assets/images/icons/no-msgs.gif">
+                <span>No Notifications Yet</span>
+              </box>
+
+              <deposits-tab-container
+                              (onAccountsReceived)="onDepositsReceivedHandler($event)"></deposits-tab-container>
+            </ng-template> -->
+          </mat-tab>
+        </mat-tab-group>
+
+        <app-retail-view-service-request-form #childForm></app-retail-view-service-request-form>
+      </box>
+    </box>
+  </ng-container>
+
+</box>

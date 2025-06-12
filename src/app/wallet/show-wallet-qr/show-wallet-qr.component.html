@@ -1,0 +1,17 @@
+<box class="wallet-qr-container">
+    <box class="wallet-details-wrapper">
+        <box class="wallet-info">
+            <span class="primary-info">{{state.walletDetails.name}}</span>
+            <span class="secondary-info">{{state.walletDetails.businessId}}</span>
+        </box>
+        <box class="wallet-qr">
+            <qrcode #qrCode [qrdata]="state.qrCodeData" [width]="state.qrCodeWidth" [level]="state.errorCorrectionLevel"></qrcode>
+        </box>
+    </box>
+    <box class="form-action-container">
+        <fpx-button btn-type="button" btnClass="tertiary" label="{{'RETAILSHOWWALLETQR.downloadBtnLbl' | translate }}"
+            (onClick)="_helper.downloadQR()"></fpx-button>
+        <fpx-button btn-type="button" btnClass="primary" label="{{'RETAILSHOWWALLETQR.shareBtnLbl' | translate }}"
+            (onClick)="_helper.shareQR()"></fpx-button>
+    </box>
+</box>

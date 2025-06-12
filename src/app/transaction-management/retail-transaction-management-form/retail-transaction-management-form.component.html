@@ -1,0 +1,89 @@
+
+<box class="smb-delegate-home" #spaceHome>
+    <!-- <ng-container *ngIf="_deviceMgr.isMobile(); else spaceContainer"> -->
+       <!-- / <box class="module-home-bg" [style.top.px]="moduleHeaderTop"></box> -->
+        <box class="module-home-inner">
+<box class="module-tab-container col-sm-12 col-lg-12">
+    <mat-tab-group [(selectedIndex)]="activeTabIndex" (selectedTabChange)="_helper.onTabChanged($event)">
+        <mat-tab
+        [label]=" 'RetailTransactionManagementForm.myapprovals' | translate : {count: state.approvedGridData?.length || 0} ">
+            <ng-template matTabContent>
+            <box class="grid transaction-container">
+                <box class="transactions-stmt-grid-wrapper col-12">
+                    <ng-container *ngIf="state.isDataReceived; else loader">
+                        <ng-container *ngIf="state.approvedGridData && state.approvedGridData?.length; else noTransfers">
+                        </ng-container>
+                    </ng-container>
+                    <app-retail-workflowqueue-ro-grid 
+                        [gridCommonInput]="state.allTransMgmtCommonInput"
+                        [actionPublisher]="actionMap$.get('approvedTransMgmtGrid')"
+                        (commonRoGridEvent)="_helper.approvedRoGridEvent($event)"></app-retail-workflowqueue-ro-grid>
+                </box>
+            </box>
+            
+            </ng-template>
+        </mat-tab>
+        <mat-tab
+        label="{{ 'RetailTransactionManagementForm.pending' | translate : {count: state.pendingGridData?.length || 0} }}">
+            <!-- <ng-template matTabContent> -->
+               <ng-container *ngIf="state.isDataReceived; else loader">
+                <ng-container *ngIf="state.pendingGridData && state.pendingGridData?.length; else noTransfers">
+                </ng-container>
+            </ng-container>
+               <app-retail-workflowqueue-ro-grid 
+                [gridCommonInput]="state.pendingTransMgmtCommonInput"
+                [actionPublisher]="actionMap$.get('pendingTransMgmtGrid')"
+                (commonRoGridEvent)="_helper.pendingRoGridEvent($event)"
+               ></app-retail-workflowqueue-ro-grid>
+            <!-- </ng-template> -->
+        </mat-tab>
+        <mat-tab label="{{ 'RetailTransactionManagementForm.completed' | translate : {count: state.completedGridData?.length || 0} }}">
+            <!-- <ng-template matTabContent> -->
+                <box class="custom-tabs">
+                    <span *ngFor="let tab of _helper.tabs; let i = index" class="tab-item" [ngClass]="{'active': tab.active}" (click)="_helper.onTabClick(tab, i)">{{tab.name}}</span>
+                </box>
+                <ng-container *ngIf="state.isDataReceived; else loader">
+                    <ng-container *ngIf="state.completedGridData && state.completedGridData?.length; else noTransfers">
+                    </ng-container>
+                </ng-container>
+               <app-retail-workflowqueue-ro-grid 
+                [gridCommonInput]="state.completedTransMgmtCommonInput"
+                [actionPublisher]="actionMap$.get('completedTransMgmtGrid')"
+                (commonRoGridEvent)="_helper.completedRoGridEvent($event)"
+               ></app-retail-workflowqueue-ro-grid>
+            <!-- </ng-template> -->
+        </mat-tab>
+    </mat-tab-group>
+    </box>
+
+<box class="grid transaction-container">
+    <box class="transactions-stmt-grid-wrapper col-12">
+        
+        <ng-container *ngIf="_helper.isDataReceived">
+            <box class="no-fav-tran-group">
+                <!-- <img *ngIf="!_helper.showFavTransaction" class="no-fav-tran-image" src="./assets/images/transfers/no-favourite.svg" alt="no fav transactions"> -->
+                <box class="no-fav-tran">
+                    <box class="no-fav-tran-title">{{ 'RetailTransactionManagementForm.noTransfer' | translate }}</box>
+                </box>
+            </box>
+        </ng-container>
+
+    </box>
+</box>
+
+</box>
+<!-- </ng-container> -->
+</box>
+
+<ng-template #loader>
+    <box class="loading"></box>
+</ng-template>
+
+<ng-template #noTransfers>
+    <box class="no-result-view">
+        <img class="no-result-image" src="./assets/images/transfers/no-schedule-transfer.svg" alt="">
+        <box class="no-result-desc">{{ 'RetailTransactionManagementForm.noTransfer' | translate }}</box>
+        <!-- <button type="button" class="no-result-add-btn">{{
+            'RetailTransactionManagementForm.initiateBtn' | translate }}</button> -->
+    </box>
+</ng-template>

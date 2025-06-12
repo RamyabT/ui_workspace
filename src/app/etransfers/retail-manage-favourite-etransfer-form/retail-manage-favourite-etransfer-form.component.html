@@ -1,0 +1,48 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailManageEtransferContactlogForm">
+	<box *ngIf="!_helper._device.isMobile()" class="view-scheduled-bills-form">
+		<box class="back-wrapper">
+			<box class="back-btn" (click)="_helper.backToeTransfers()">
+				<span class="ico ico-back"></span>
+				<span class="back-text font-14-20">{{'RetailManageEtransferContactlog.header.backToeTransfers' |
+					translate}}</span>
+			</box>
+		</box>
+		<box class="schedule-bill-form">
+			<box class="schedule-bill-form-header">
+				{{'RetailManageFavouriteETransferForm.title' | translate}}
+			</box>
+		</box>
+	</box>
+	<box class="entry-form view-scheduled-bills-form list-view">
+		<box class="grid entry-form-field-group col-sm-12 col-md-12 col-lg-12 ">
+			<ng-container *ngIf="this.state.isDataReceived;else loader">
+				<ng-container *ngIf="_helper.totalRowCount>0; else noData">
+						<box class="nav-search-control">
+							<span class="ico ico-nav-search"></span>
+							<input type="text" formControlName="searchText"
+								placeholder="Search by name, email or mobile number" />
+						</box>
+
+						<ng-container [ngTemplateOutlet]="noData" *ngIf="this.state.searchDataFound<1"></ng-container>
+				</ng-container>
+			</ng-container>
+
+			<app-retail-view-all-favourtie-etransfer-payments-ro-grid class="col-sm-12 col-md-12 col-lg-12"
+				(commonRoGridEvent)="_helper.favourtiePaymentsRoGridEvent($event)"
+				[actionPublisher]="actionMap$.get('favEtransferdetailsGrid')"></app-retail-view-all-favourtie-etransfer-payments-ro-grid>
+
+	</box>
+	</box>
+</form>
+
+<ng-template #noData>
+	<box class="no-result-view">
+		<box class="contact-img">
+			<img class="no-result-image" src="./assets/images/transfers/no-schedule-transfer.svg" alt="">
+		</box>
+		<box class="no-result-title">No records found</box>
+	</box>
+</ng-template>
+<ng-template #loader>
+	<box class="loading"></box>
+</ng-template>

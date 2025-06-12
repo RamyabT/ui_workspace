@@ -1,0 +1,27 @@
+"ETransferHistoryRoGrid":{
+"title":"Transaction Summary",
+		 "paymentDate": {
+		  "label":"Date" ,
+		  "placeholder": "Date"
+		  } ,
+		 "contactName": {
+		  "label":"Name" ,
+		  "placeholder": "Name"
+		  } ,
+		 "contactEmailId": {
+		  "label":" Email" ,
+		  "placeholder": " Email"
+		  } ,
+		 "contactPhoneNumber": {
+		  "label":"Mobile Number" ,
+		  "placeholder": "Mobile Number"
+		  } ,
+		 "paymentAmount": {
+		  "label":"Amount" ,
+		  "placeholder": "Amount"
+		  } ,
+		 "paymentStatus": {
+		  "label":"Status" ,
+		  "placeholder": "Status"
+		  } 
+}

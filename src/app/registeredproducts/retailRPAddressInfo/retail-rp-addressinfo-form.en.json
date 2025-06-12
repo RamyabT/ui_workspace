@@ -1,0 +1,31 @@
+"RetailRPAddressInfo":{
+"title":"RetailRPAddressInfoForm",
+		 "rpaddressType": {
+		  "label":"Address Type" ,
+		  "placeholder": "Address Type"
+		  } ,
+		 "pobox": {
+		  "label":"PO Box" ,
+		  "placeholder": "PO Box"
+		  } ,
+		 "street": {
+		  "label":"Street Address" ,
+		  "placeholder": "Street Address"
+		  } ,
+		 "city": {
+		  "label":"City" ,
+		  "placeholder": "City"
+		  } ,
+		 "province": {
+		  "label":"Province" ,
+		  "placeholder": "Province"
+		  } ,
+		 "country": {
+		  "label":"Country" ,
+		  "placeholder": "Country"
+		  } ,
+		 "postalCode": {
+		  "label":"Postal Code" ,
+		  "placeholder": "Postal Code"
+		  } 
+}

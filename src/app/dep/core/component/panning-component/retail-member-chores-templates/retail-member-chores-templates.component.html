@@ -1,0 +1,53 @@
+
+<div class="task-item" id="row_data_{{ index }}">
+    <div *ngIf="_device.isMobile()" class="task-action task-action-left">
+        <button  (click)="deleteGoal(selectedData)" type="button" class="button-task-action system-ico-button button-delete">
+            <span>Delete</span>
+        </button>
+    </div>
+
+    <div class="task-detail-item" (swipeleft)="_device.isMobile()?swipeLeftHandler($event):null"
+        (swiperight)="_device.isMobile()?swipeRightHandler($event):null"
+        (panstart)="_device.isMobile()?panStartHandler($event):null"
+        (panend)="_device.isMobile()?panEndHandler($event):null"
+        (panleft)="_device.isMobile()?panLeftHandler($event):null"
+        (panright)="_device.isMobile()?panRightHandler($event):null"
+        (touchstart)="_device.isMobile()?touchStartHandler($event):null" (click)="approve(selectedData)">
+        
+
+        <box class="goals-item">
+            <box class="primary-info">
+              <box class="goal-category">
+                <box class="goal-icon">
+              <img src="./assets/fb/view-chore-icon.svg" alt="Track goal" />
+                </box>
+                <box class="chore-desc-cnt">
+                <box class="goal-desc">{{selectedData.taskName}}</box>
+                <box class="goal-desc">{{selectedData.mappedGoal}}</box>
+              </box>
+              </box>
+              <box class="pending-duration">{{getDaysDifference(selectedData)}}
+              <img src="./assets/pfm/duration.svg" alt="goal duration" />
+              </box>
+            </box>
+            <box class="secondary-info">
+              <box class="goal-summary">
+                <box class="accrued-amount curr-amount">
+                    <span class="amount chorestatus" [ngClass]="{'chorestatuscompleted': selectedData.status == 'C' }">{{selectedData.status == "P" ? "Pending" : "Completed"}}</span>
+                </box>
+                <box class="goal-amount curr-amount">
+                    <span class="amount">{{selectedData.rewardAmount}}</span>
+                    <span class="currency">{{_appConfig.getBaseCurrency()}}</span>
+                </box>
+              </box>
+    
+            </box>
+        </box>
+    </div>
+
+    <div *ngIf="_device.isMobile()" class="task-action task-action-right">
+        <button  (click)="editGoal(selectedData)" type="button" class="button-task-action system-ico-button button-edit">
+            <span>Edit</span>
+        </button>
+    </div>
+</div>

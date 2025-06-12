@@ -1,0 +1,6 @@
+{ 
+ "RETAILAPPLYCREDITCARD" : {
+ "servicePath": ["entry-shell","creditcard", "retail-apply-credit-card"],
+ "queryParams": {}
+ }
+}

@@ -1,0 +1,13 @@
+<box class="task-item">
+    <box class="manage-alert-container">
+        <box class="alerts-header">
+            <box class="alerts-header-title"> {{selectedData.serviceCode?.serviceCode?.description}}</box>
+            <box class="alerts-header-toggle">
+                <mat-slide-toggle [checked]="selectedData?.enabled=='1'"
+                    (change)="servicesChange($event,selectedData)"></mat-slide-toggle>
+            </box>
+        </box>
+    </box>
+    <div class="seperator-line"></div>
+
+</box>

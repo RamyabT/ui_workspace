@@ -1,0 +1,116 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" autocomplete="off" formName="RetailLoanRepayment">
+
+	<box class="entry-form">
+
+		<app-loan-account-list-template-control *ngIf="_helper._device.isMobile()" class="col-sm-12 col-md-6 col-lg-4"
+			[actionPublisher]="actionMap$.get('loanAccountNumber')" label="{{
+	  'RetailLoanRepayment.loanAccountNumber.label' | translate
+	}}" formControlName="loanAccountNumber" placeholder="{{
+	  'RetailLoanRepayment.loanAccountNumber.placeholder' | translate
+	}}" [changePublisher]="formChangePublisher$"
+			(commonControlEvent)="handleControlEvent($event)"></app-loan-account-list-template-control>
+
+		<box class="field-item col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('loanDetails')">
+
+			<box class="info-box">
+				<fpx-label label="{{ 'RetailLoanRepayment.loanDetails.label' | translate }}"></fpx-label>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="
+			  'RetailLoanRepayment.totalOutstanding.label' | translate
+			" [literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.loanDetails.totalOutstanding"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="
+			  'RetailLoanRepayment.nextDueDate.label' | translate
+			" [literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.loanDetails.nextDueDate"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="
+			  'RetailLoanRepayment.emiAmount.label' | translate
+			" [literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.loanDetails.installmentAmount"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+			</box>
+		</box>
+
+		<app-account-list-template-control class="col-sm-12 col-md-6 col-lg-12"
+			[actionPublisher]="actionMap$.get('debitAccountNumber')"
+			label="{{ 'RetailLoanRepayment.debitAccountNumber.label' | translate }}"
+			formControlName="debitAccountNumber"
+			(commonControlEvent)="handleControlEvent($event)"></app-account-list-template-control>
+
+		<app-emi-payment-options-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('paymentOption')" label="Payment Options"
+			formControlName="paymentOption"></app-emi-payment-options-control>
+
+		<box class="col-12">
+			<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+				[actionPublisher]="actionMap$.get('dueAmount')"
+				label="{{ 'RetailLoanRepayment.dueAmount.label' | translate }}" formControlName="dueAmount"
+				[CurrencyList]="state.dueAmount.CurrencyList" [isCurrEditable]="state.dueAmount.isCurrEditable"
+				[defaultFetch]="state.dueAmount.defaultFetch" [initCurrency]="state.dueAmount.initCurrency"
+				[amountInWords]="state.dueAmount.amountInWords" (commonControlEvent)="handleControlEvent($event)"
+				[changePublisher]="formChangePublisher$"
+				[dependencyField]="['fromCurrencyVariable','toCurrencyVariable','availableBalanceVariable']">
+			</app-payment-amount-control>
+			<ng-container *ngIf="state.setError">
+				<mat-error class="error">
+					<span>{{state.setError}}</span>
+				</mat-error>
+			</ng-container>
+		</box>
+
+
+		<app-request-date-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('repaidDate')"
+			label="{{ 'RetailLoanRepayment.repaidDate.label' | translate }}" formControlName="repaidDate"
+			[minDate]="state.repaidDate.minDate" [maxDate]="state.repaidDate.maxDate"></app-request-date-control>
+
+		<box class="field-item grid col-sm-12 col-md-12 col-lg-12"
+			[actionPublisher]="actionMap$.get('exchangeDetails')">
+			<fpx-label class="col-sm-12 col-md-12 col-lg-12" label="{{'FX_RATES.title' | translate}}"></fpx-label>
+			<box class="info-box col-sm-12 col-md-12 col-lg-12">
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.dAmount' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.paymentSummary.debitAmount"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.cAmount' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.paymentSummary.creditAmount"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+				<box class="info-field">
+					<fpx-display-text class="info-field-label" [innerHTML]="'FX_RATES.exRate' | translate"
+						[literals]="commonFormInput"></fpx-display-text>
+					<fpx-display-text class="info-field-value" [innerHTML]="state.paymentSummary.exchangeRate"
+						[literals]="commonFormInput"></fpx-display-text>
+				</box>
+			</box>
+		</box>
+
+		<app-remarks-control class="col-sm-12 col-md-6 col-lg-6" [actionPublisher]="actionMap$.get('remarks')"
+			label="{{'RetailLoanRepayment.remarks.label' | translate }}"
+			formControlName="remarks"></app-remarks-control>
+
+		<app-payment-amount-control class="col-sm-12 col-md-6 col-lg-6"
+			[actionPublisher]="actionMap$.get('chargesAmount')"
+			label="{{'RetailLoanRepayment.chargesAmount.label' | translate }}" formControlName="chargesAmount"
+			(commonControlEvent)="handleControlEvent($event)" [CurrencyList]="state.chargesAmount.CurrencyList"
+			[isCurrEditable]="state.chargesAmount.isCurrEditable" [defaultFetch]="state.chargesAmount.defaultFetch"
+			[initCurrency]="state.chargesAmount.initCurrency" [amountInWords]="state.chargesAmount.amountInWords"
+			[changePublisher]="formChangePublisher$"></app-payment-amount-control>
+
+		<box id="group_disclaimer-box" class="col-sm-12 col-md-6 col-lg-12 grid main-group disclaimer-box">
+			<app-terms-control class="col-sm-12 col-md-6 col-lg-12" [actionPublisher]="actionMap$.get('termsFlag')"
+				label="{{ 'RetailLoanRepayment.termsFlag.label' | translate }}" formControlName="termsFlag"
+				[textPosition]="state.termsFlag.textPosition" [ckValues]="state.termsFlag.ckValues"></app-terms-control>
+		</box>
+	</box>
+</form>

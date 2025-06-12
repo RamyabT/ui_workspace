@@ -1,0 +1,32 @@
+<form
+  [formGroup]="formGroup"
+  (ngSubmit)="submit()"
+  autocomplete="off"
+  formName="RetailNpssRequestMoney"
+>
+  <box class="entry-form">
+    <box class="grid entry-form-field-group">
+      <fpx-display-text
+        id="header"
+        [actionPublisher]="actionMap$.get('header')"
+        class="col-sm-12 col-md-6 col-lg-12 header"
+        [innerHTML]="'RetailNpssRequestMoney.header.text' | translate"
+        [literals]="commonFormInput"
+      ></fpx-display-text>
+
+      <app-email-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('email')"
+        label="{{ 'RetailNpssRequestMoney.email.label' | translate }}"
+        formControlName="email"
+      ></app-email-control>
+
+      <app-mobile-number-control
+        class="col-sm-12 col-md-6 col-lg-6"
+        [actionPublisher]="actionMap$.get('mobileNumber')"
+        label="{{ 'RetailNpssRequestMoney.mobileNumber.label' | translate }}"
+        formControlName="mobileNumber"
+      ></app-mobile-number-control>
+    </box>
+  </box>
+</form>
